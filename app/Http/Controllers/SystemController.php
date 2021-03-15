@@ -43,69 +43,89 @@ class SystemController extends Controller
     //   }
     // }
 
-    public function dashboard(){
+    public function dashboard()
+    {
       return view('application.dashboard');
     }
 //Nursing-ADD-START
-     public function applicationForm(){
+     public function applicationForm()
+     {
       return view('application.nursingScholarship.addNursing.applicationForm');
-    }
+     }
 
-    public function annexure1(){
+    public function annexure1()
+    {
       return view('application.nursingScholarship.addNursing.annexure1');
     }
 
-    public function annexure2(){
+    public function annexure2()
+    {
       return view('application.nursingScholarship.addNursing.annexure2');
     }
 
-    public function uploadDocuments(){
+    public function annexure2PrintForm()
+    {
+      return view('application.nursingScholarship.addNursing.annexure2PrintForm');
+    }
+
+    public function uploadDocuments()
+    {
       return view('application.nursingScholarship.addNursing.uploadDocuments');
     }
 
-    public function reviewSubmit(){
+    public function reviewSubmit()
+    {
       return view('application.nursingScholarship.addNursing.review');
     }
 //Nursing-ADD-END
 //Nursing-MANAGE AND VIEW-START
 
-    public function viewNursing(){
+    public function viewNursing()
+    {
       return view('application.nursingScholarship.viewNursing');
     }
 
-    public function printViewNursing(){
+    public function printViewNursing()
+    {
       return view('application.nursingScholarship.printViewNursing');
     }
 //Nursing-MANAGE AND VIEW-END
 
 //HHDLSS-ADD-START
-    public function applicationFormHHDLSS(){
+    public function applicationFormHHDLSS()
+    {
       return view('application.HHDLSSscholarship.addHHLDSS.applicationForm');
     }
 
-    public function annexure1HHDLSS(){
+    public function annexure1HHDLSS()
+    {
       return view('application.HHDLSSscholarship.addHHLDSS.annexure1');
     }
 
-    public function annexure2HHDLSS(){
+    public function annexure2HHDLSS()
+    {
       return view('application.HHDLSSscholarship.addHHLDSS.annexure2');
     }
 
-    public function uploadDocumentsHHDLSS(){
+    public function uploadDocumentsHHDLSS()
+    {
       return view('application.HHDLSSscholarship.addHHLDSS.uploadDocuments');
     }
 
-    public function reviewSubmitHHDLSS(){
+    public function reviewSubmitHHDLSS()
+    {
       return view('application.HHDLSSscholarship.addHHLDSS.review');
     }
 //HHDLSS-ADD-END
 //HHDLSS-MANAGE AND VIEW-START
 
-    public function viewHHDLSS(){
+    public function viewHHDLSS()
+    {
       return view('application.HHDLSSscholarship.viewHHDLSS');
     }
 
-    public function printViewHHDLSS(){
+    public function printViewHHDLSS()
+    {
       return view('application.HHDLSSscholarship.printViewHHDLSS');
     }
 //HHDLSS-MANAGE AND VIEW-END

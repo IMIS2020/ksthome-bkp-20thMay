@@ -95,6 +95,11 @@
       @yield('annexure2')
     </div>
 
+    <div id="annexure2PrintForm">
+      @yield('annexure2PrintForm')
+    </div>
+
+
     <div id="uploadDocuments">
       @yield('uploadDocuments')
     </div>

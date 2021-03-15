@@ -37,6 +37,11 @@ function newFunction(){
     router: new VueRouter(routes)
   });
 
+  const app24 = new Vue({
+    el: '#annexure2PrintForm',
+    router: new VueRouter(routes)
+  });
+
   const app5 = new Vue({
     el: '#uploadDocuments',
     router: new VueRouter(routes)

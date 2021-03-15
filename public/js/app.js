@@ -8793,6 +8793,127 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/application/nursingScholarship/addNursing/annexure2PrintForm.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/application/nursingScholarship/addNursing/annexure2PrintForm.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      userId: document.querySelector("meta[name='userId']").getAttribute('content'),
+      fullName: {},
+      readAnnexure2: {
+        applicantColonyLeaderName: ''
+      },
+      getdata: {
+        applicantNameF: '',
+        applicantNameM: '',
+        applicantNameL: '',
+        applicantFatherName: '',
+        applicantMotherName: '',
+        addressAddln1: '',
+        hasAdmissionLetter: '',
+        applicationId: '',
+        financialYear: ''
+      },
+      errors: []
+    };
+  },
+  methods: {
+    readAnnexureII: function readAnnexureII() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                axios.get("/api/application-form/".concat(_this.userId)).then(function (response) {
+                  if (response.data['success']) {
+                    _this.readAnnexure2 = response.data['data'];
+                  } else {
+                    console.log(response.data['msg']);
+                  }
+                })["catch"](function (error) {
+                  return _this.errorMsg(error.response.status);
+                });
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    getdataNursing: function getdataNursing() {
+      var _this2 = this;
+
+      axios.get("/api/application-form/".concat(this.userId)).then(function (response) {
+        if (response.data['success']) {
+          var data = response.data['data'];
+          console.log(data);
+          _this2.getdata.applicantNameF = data.applicantNameF;
+          _this2.getdata.applicantNameM = data.applicantNameM;
+          _this2.getdata.applicantNameL = data.applicantNameL;
+          _this2.getdata.applicantFatherName = data.applicantFatherName;
+          _this2.getdata.applicantMotherName = data.applicantMotherName;
+          _this2.getdata.addressAddln1 = data.addressAddln1;
+          _this2.getdata.hasAdmissionLetter = data.hasAdmissionLetter;
+          _this2.getdata.applicationId = data.applicationId;
+          _this2.getdata.financialYear = data.financialYear;
+          _this2.getdata.fullName = "".concat(_this2.getdata.applicantNameF).concat(_this2.getdata.applicantNameM ? " " + _this2.getdata.applicantNameM : '', " ").concat(_this2.getdata.applicantNameL);
+        }
+      });
+    }
+  },
+  created: function created() {
+    this.getdataNursing();
+    this.readAnnexureII();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/application/nursingScholarship/addNursing/applicationForm.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/application/nursingScholarship/addNursing/applicationForm.vue?vue&type=script&lang=js& ***!
@@ -85369,6 +85490,164 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/application/nursingScholarship/addNursing/annexure2PrintForm.vue?vue&type=template&id=3093312c&":
+/*!***************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/application/nursingScholarship/addNursing/annexure2PrintForm.vue?vue&type=template&id=3093312c& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "page-main mt-4" }, [
+    _c("div", { staticClass: "container-fluid mt-4 text-black" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "pre-sub-form f-fm-arbs" }, [
+        _c("div", { staticClass: "col-xl-12 mb-3 f-fm-arbs" }, [
+          _c("div", { staticClass: "table-responsive" }, [
+            _c("div", { staticClass: "container-fluid mt-4" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "p",
+                { staticClass: "lead mb-0 text-black font-l font-weight-bold" },
+                [
+                  _vm._v("I"),
+                  _c("strong", [_vm._v(" ")]),
+                  _c("span", [
+                    _c("strong", [
+                      _c("em", [
+                        _vm._v(
+                          _vm._s(_vm.readAnnexure2.applicantColonyLeaderName)
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" hereby certify that Mr./Miss. "),
+                  _c("span", [
+                    _c("strong", [
+                      _c("em", [_vm._v(_vm._s(_vm.getdata.fullName))])
+                    ])
+                  ]),
+                  _vm._v(" has been residing in this colony "),
+                  _c("span", [
+                    _c("strong", [
+                      _c("em", [_vm._v(_vm._s(_vm.getdata.addressAddln1))])
+                    ])
+                  ]),
+                  _vm._v(" and his/her parent/parents "),
+                  _c("span", [
+                    _c("strong", [
+                      _c("em", [
+                        _vm._v(_vm._s(_vm.getdata.applicantFatherName))
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" & "),
+                  _c("span", [
+                    _c("strong", [
+                      _c("em", [
+                        _vm._v(_vm._s(_vm.getdata.applicantMotherName))
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" is/are affected by leprosy. "),
+                  _c("br"),
+                  _c("br"),
+                  _vm._v(
+                    "I certify that, to best of my knowledge, the information provided by the candidate is true. I recommended his/her for "
+                  ),
+                  _vm._m(2),
+                  _vm._v(". "),
+                  _c("br"),
+                  _c("br"),
+                  _c("br"),
+                  _c("br"),
+                  _vm._v(
+                    "Signature of Colony Leader: ______________________________________, Date: _________________"
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(3)
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-xl-12 text-center mb-3 d-print-none" }, [
+        _c("h4", { staticClass: "color-mg" }, [
+          _c("strong", [_vm._v("View Annexure-2")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "p",
+      {
+        staticClass:
+          "text-uppercase text-center text-black font-xl font-weight-bold"
+      },
+      [
+        _c("strong", [
+          _c("span", { staticStyle: { "text-decoration": "underline" } }, [
+            _vm._v("to whom it may concern")
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c("strong", [_c("em", [_vm._v("Nursing Scholarship Programme")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mb-4 d-print-none" }, [
+      _c("div", { staticClass: "col-xl-4 offset-xl-4 text-center" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-sm btn-mg mr-2",
+            attrs: { type: "button", onclick: "window.print()" }
+          },
+          [_vm._v("Print/Download Application Form")]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/application/nursingScholarship/addNursing/applicationForm.vue?vue&type=template&id=d28d162a&":
 /*!************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/application/nursingScholarship/addNursing/applicationForm.vue?vue&type=template&id=d28d162a& ***!
@@ -112409,6 +112688,10 @@ function newFunction() {
     el: '#annexure2',
     router: new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"](_routes__WEBPACK_IMPORTED_MODULE_2__["default"])
   });
+  var app24 = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+    el: '#annexure2PrintForm',
+    router: new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"](_routes__WEBPACK_IMPORTED_MODULE_2__["default"])
+  });
   var app5 = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     el: '#uploadDocuments',
     router: new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"](_routes__WEBPACK_IMPORTED_MODULE_2__["default"])
@@ -113787,6 +114070,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/application/nursingScholarship/addNursing/annexure2PrintForm.vue":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/application/nursingScholarship/addNursing/annexure2PrintForm.vue ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _annexure2PrintForm_vue_vue_type_template_id_3093312c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./annexure2PrintForm.vue?vue&type=template&id=3093312c& */ "./resources/js/components/application/nursingScholarship/addNursing/annexure2PrintForm.vue?vue&type=template&id=3093312c&");
+/* harmony import */ var _annexure2PrintForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./annexure2PrintForm.vue?vue&type=script&lang=js& */ "./resources/js/components/application/nursingScholarship/addNursing/annexure2PrintForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _annexure2PrintForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _annexure2PrintForm_vue_vue_type_template_id_3093312c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _annexure2PrintForm_vue_vue_type_template_id_3093312c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/application/nursingScholarship/addNursing/annexure2PrintForm.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/application/nursingScholarship/addNursing/annexure2PrintForm.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************!*\
+  !*** ./resources/js/components/application/nursingScholarship/addNursing/annexure2PrintForm.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_annexure2PrintForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./annexure2PrintForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/application/nursingScholarship/addNursing/annexure2PrintForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_annexure2PrintForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/application/nursingScholarship/addNursing/annexure2PrintForm.vue?vue&type=template&id=3093312c&":
+/*!*********************************************************************************************************************************!*\
+  !*** ./resources/js/components/application/nursingScholarship/addNursing/annexure2PrintForm.vue?vue&type=template&id=3093312c& ***!
+  \*********************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_annexure2PrintForm_vue_vue_type_template_id_3093312c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./annexure2PrintForm.vue?vue&type=template&id=3093312c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/application/nursingScholarship/addNursing/annexure2PrintForm.vue?vue&type=template&id=3093312c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_annexure2PrintForm_vue_vue_type_template_id_3093312c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_annexure2PrintForm_vue_vue_type_template_id_3093312c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/application/nursingScholarship/addNursing/applicationForm.vue":
 /*!***********************************************************************************************!*\
   !*** ./resources/js/components/application/nursingScholarship/addNursing/applicationForm.vue ***!
@@ -114215,28 +114567,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_application_nursingScholarship_addNursing_applicationForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/application/nursingScholarship/addNursing/applicationForm */ "./resources/js/components/application/nursingScholarship/addNursing/applicationForm.vue");
 /* harmony import */ var _components_application_nursingScholarship_addNursing_annexure1__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/application/nursingScholarship/addNursing/annexure1 */ "./resources/js/components/application/nursingScholarship/addNursing/annexure1.vue");
 /* harmony import */ var _components_application_nursingScholarship_addNursing_annexure2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/application/nursingScholarship/addNursing/annexure2 */ "./resources/js/components/application/nursingScholarship/addNursing/annexure2.vue");
-/* harmony import */ var _components_application_nursingScholarship_addNursing_uploadDocuments__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/application/nursingScholarship/addNursing/uploadDocuments */ "./resources/js/components/application/nursingScholarship/addNursing/uploadDocuments.vue");
-/* harmony import */ var _components_application_nursingScholarship_addNursing_review__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/application/nursingScholarship/addNursing/review */ "./resources/js/components/application/nursingScholarship/addNursing/review.vue");
-/* harmony import */ var _components_application_nursingScholarship_viewNursing__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/application/nursingScholarship/viewNursing */ "./resources/js/components/application/nursingScholarship/viewNursing.vue");
-/* harmony import */ var _components_application_nursingScholarship_printViewNursing__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/application/nursingScholarship/printViewNursing */ "./resources/js/components/application/nursingScholarship/printViewNursing.vue");
-/* harmony import */ var _components_application_HHDLSSscholarship_addHHDLSS_applicationForm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/application/HHDLSSscholarship/addHHDLSS/applicationForm */ "./resources/js/components/application/HHDLSSscholarship/addHHDLSS/applicationForm.vue");
-/* harmony import */ var _components_application_HHDLSSscholarship_addHHDLSS_annexure1__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/application/HHDLSSscholarship/addHHDLSS/annexure1 */ "./resources/js/components/application/HHDLSSscholarship/addHHDLSS/annexure1.vue");
-/* harmony import */ var _components_application_HHDLSSscholarship_addHHDLSS_annexure2__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/application/HHDLSSscholarship/addHHDLSS/annexure2 */ "./resources/js/components/application/HHDLSSscholarship/addHHDLSS/annexure2.vue");
-/* harmony import */ var _components_application_HHDLSSscholarship_addHHDLSS_uploadDocuments__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/application/HHDLSSscholarship/addHHDLSS/uploadDocuments */ "./resources/js/components/application/HHDLSSscholarship/addHHDLSS/uploadDocuments.vue");
-/* harmony import */ var _components_application_HHDLSSscholarship_addHHDLSS_review__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/application/HHDLSSscholarship/addHHDLSS/review */ "./resources/js/components/application/HHDLSSscholarship/addHHDLSS/review.vue");
-/* harmony import */ var _components_application_HHDLSSscholarship_viewHHDLSS__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/application/HHDLSSscholarship/viewHHDLSS */ "./resources/js/components/application/HHDLSSscholarship/viewHHDLSS.vue");
-/* harmony import */ var _components_application_HHDLSSscholarship_printViewHHDLSS__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/application/HHDLSSscholarship/printViewHHDLSS */ "./resources/js/components/application/HHDLSSscholarship/printViewHHDLSS.vue");
-/* harmony import */ var _components_admin_adminDashboard__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/admin/adminDashboard */ "./resources/js/components/admin/adminDashboard.vue");
-/* harmony import */ var _components_admin_domains_addDomains__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/admin/domains/addDomains */ "./resources/js/components/admin/domains/addDomains.vue");
-/* harmony import */ var _components_admin_domains_manageDomains__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/admin/domains/manageDomains */ "./resources/js/components/admin/domains/manageDomains.vue");
-/* harmony import */ var _components_admin_applicationSchedule_addNursingApplicationSchedule__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/admin/applicationSchedule/addNursingApplicationSchedule */ "./resources/js/components/admin/applicationSchedule/addNursingApplicationSchedule.vue");
-/* harmony import */ var _components_admin_applicationSchedule_addHHDLSSApplicationSchedule__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/admin/applicationSchedule/addHHDLSSApplicationSchedule */ "./resources/js/components/admin/applicationSchedule/addHHDLSSApplicationSchedule.vue");
-/* harmony import */ var _components_admin_applicationSchedule_manageApplicationSchedule__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/admin/applicationSchedule/manageApplicationSchedule */ "./resources/js/components/admin/applicationSchedule/manageApplicationSchedule.vue");
-/* harmony import */ var _components_admin_applicationSchedule_extendLastDate__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/admin/applicationSchedule/extendLastDate */ "./resources/js/components/admin/applicationSchedule/extendLastDate.vue");
-/* harmony import */ var _components_admin_applicationDetails_manageApplicationDetails__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/admin/applicationDetails/manageApplicationDetails */ "./resources/js/components/admin/applicationDetails/manageApplicationDetails.vue");
+/* harmony import */ var _components_application_nursingScholarship_addNursing_annexure2PrintForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/application/nursingScholarship/addNursing/annexure2PrintForm */ "./resources/js/components/application/nursingScholarship/addNursing/annexure2PrintForm.vue");
+/* harmony import */ var _components_application_nursingScholarship_addNursing_uploadDocuments__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/application/nursingScholarship/addNursing/uploadDocuments */ "./resources/js/components/application/nursingScholarship/addNursing/uploadDocuments.vue");
+/* harmony import */ var _components_application_nursingScholarship_addNursing_review__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/application/nursingScholarship/addNursing/review */ "./resources/js/components/application/nursingScholarship/addNursing/review.vue");
+/* harmony import */ var _components_application_nursingScholarship_viewNursing__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/application/nursingScholarship/viewNursing */ "./resources/js/components/application/nursingScholarship/viewNursing.vue");
+/* harmony import */ var _components_application_nursingScholarship_printViewNursing__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/application/nursingScholarship/printViewNursing */ "./resources/js/components/application/nursingScholarship/printViewNursing.vue");
+/* harmony import */ var _components_application_HHDLSSscholarship_addHHDLSS_applicationForm__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/application/HHDLSSscholarship/addHHDLSS/applicationForm */ "./resources/js/components/application/HHDLSSscholarship/addHHDLSS/applicationForm.vue");
+/* harmony import */ var _components_application_HHDLSSscholarship_addHHDLSS_annexure1__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/application/HHDLSSscholarship/addHHDLSS/annexure1 */ "./resources/js/components/application/HHDLSSscholarship/addHHDLSS/annexure1.vue");
+/* harmony import */ var _components_application_HHDLSSscholarship_addHHDLSS_annexure2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/application/HHDLSSscholarship/addHHDLSS/annexure2 */ "./resources/js/components/application/HHDLSSscholarship/addHHDLSS/annexure2.vue");
+/* harmony import */ var _components_application_HHDLSSscholarship_addHHDLSS_uploadDocuments__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/application/HHDLSSscholarship/addHHDLSS/uploadDocuments */ "./resources/js/components/application/HHDLSSscholarship/addHHDLSS/uploadDocuments.vue");
+/* harmony import */ var _components_application_HHDLSSscholarship_addHHDLSS_review__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/application/HHDLSSscholarship/addHHDLSS/review */ "./resources/js/components/application/HHDLSSscholarship/addHHDLSS/review.vue");
+/* harmony import */ var _components_application_HHDLSSscholarship_viewHHDLSS__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/application/HHDLSSscholarship/viewHHDLSS */ "./resources/js/components/application/HHDLSSscholarship/viewHHDLSS.vue");
+/* harmony import */ var _components_application_HHDLSSscholarship_printViewHHDLSS__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/application/HHDLSSscholarship/printViewHHDLSS */ "./resources/js/components/application/HHDLSSscholarship/printViewHHDLSS.vue");
+/* harmony import */ var _components_admin_adminDashboard__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/admin/adminDashboard */ "./resources/js/components/admin/adminDashboard.vue");
+/* harmony import */ var _components_admin_domains_addDomains__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/admin/domains/addDomains */ "./resources/js/components/admin/domains/addDomains.vue");
+/* harmony import */ var _components_admin_domains_manageDomains__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/admin/domains/manageDomains */ "./resources/js/components/admin/domains/manageDomains.vue");
+/* harmony import */ var _components_admin_applicationSchedule_addNursingApplicationSchedule__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/admin/applicationSchedule/addNursingApplicationSchedule */ "./resources/js/components/admin/applicationSchedule/addNursingApplicationSchedule.vue");
+/* harmony import */ var _components_admin_applicationSchedule_addHHDLSSApplicationSchedule__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/admin/applicationSchedule/addHHDLSSApplicationSchedule */ "./resources/js/components/admin/applicationSchedule/addHHDLSSApplicationSchedule.vue");
+/* harmony import */ var _components_admin_applicationSchedule_manageApplicationSchedule__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/admin/applicationSchedule/manageApplicationSchedule */ "./resources/js/components/admin/applicationSchedule/manageApplicationSchedule.vue");
+/* harmony import */ var _components_admin_applicationSchedule_extendLastDate__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/admin/applicationSchedule/extendLastDate */ "./resources/js/components/admin/applicationSchedule/extendLastDate.vue");
+/* harmony import */ var _components_admin_applicationDetails_manageApplicationDetails__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/admin/applicationDetails/manageApplicationDetails */ "./resources/js/components/admin/applicationDetails/manageApplicationDetails.vue");
 // //Nursing
 
  // //ADD-START 
+
 
 
 
@@ -114306,10 +114660,14 @@ __webpack_require__.r(__webpack_exports__);
     component: _components_application_nursingScholarship_addNursing_annexure2__WEBPACK_IMPORTED_MODULE_4__["default"],
     name: "annexure-2"
   }, {
+    path: '/annexure-2-print-form',
+    component: _components_application_nursingScholarship_addNursing_annexure2PrintForm__WEBPACK_IMPORTED_MODULE_5__["default"],
+    name: "annexure-2-print-form"
+  }, {
     path: '/api/save-annexureii/:applicationId'
   }, {
     path: '/upload-documents',
-    component: _components_application_nursingScholarship_addNursing_uploadDocuments__WEBPACK_IMPORTED_MODULE_5__["default"],
+    component: _components_application_nursingScholarship_addNursing_uploadDocuments__WEBPACK_IMPORTED_MODULE_6__["default"],
     name: "upload-documents"
   }, {
     path: '/api/upload-documents/:applicationId'
@@ -114321,24 +114679,24 @@ __webpack_require__.r(__webpack_exports__);
     path: '/api/delete-documents/:applicationId'
   }, {
     path: '/review-submit',
-    component: _components_application_nursingScholarship_addNursing_review__WEBPACK_IMPORTED_MODULE_6__["default"],
+    component: _components_application_nursingScholarship_addNursing_review__WEBPACK_IMPORTED_MODULE_7__["default"],
     name: "review-submit"
   }, //ADD End (NURSING)
   //View Start (NURSING)
   {
     path: '/view-nursing',
-    component: _components_application_nursingScholarship_viewNursing__WEBPACK_IMPORTED_MODULE_7__["default"],
+    component: _components_application_nursingScholarship_viewNursing__WEBPACK_IMPORTED_MODULE_8__["default"],
     name: "manage-nursing"
   }, {
     path: '/print-view-nursing',
-    component: _components_application_nursingScholarship_printViewNursing__WEBPACK_IMPORTED_MODULE_8__["default"],
+    component: _components_application_nursingScholarship_printViewNursing__WEBPACK_IMPORTED_MODULE_9__["default"],
     name: "manage-nursing"
   }, //View End (NURSING)
   // ---------------------------------- //
   //ADD -START (HHDLSS)
   {
     path: '/application-form-HHDLSS',
-    component: _components_application_HHDLSSscholarship_addHHDLSS_applicationForm__WEBPACK_IMPORTED_MODULE_9__["default"],
+    component: _components_application_HHDLSSscholarship_addHHDLSS_applicationForm__WEBPACK_IMPORTED_MODULE_10__["default"],
     name: "application-form-HHDLSS"
   }, {
     path: '/api/add-application-form-HHDLSS/:userId'
@@ -114348,7 +114706,7 @@ __webpack_require__.r(__webpack_exports__);
     path: '/api/edit-application-form-HHDLSS/:applicationId'
   }, {
     path: '/annexure-1-HHDLSS',
-    component: _components_application_HHDLSSscholarship_addHHDLSS_annexure1__WEBPACK_IMPORTED_MODULE_10__["default"],
+    component: _components_application_HHDLSSscholarship_addHHDLSS_annexure1__WEBPACK_IMPORTED_MODULE_11__["default"],
     name: "annexure-1-HHDLSS"
   }, {
     path: '/api/add-annexurei-HHDLSS/:applicationId'
@@ -114358,13 +114716,13 @@ __webpack_require__.r(__webpack_exports__);
     path: '/api/edit-annexurei-HHDLSS/:applicationId'
   }, {
     path: '/annexure-2-HHDLSS',
-    component: _components_application_HHDLSSscholarship_addHHDLSS_annexure2__WEBPACK_IMPORTED_MODULE_11__["default"],
+    component: _components_application_HHDLSSscholarship_addHHDLSS_annexure2__WEBPACK_IMPORTED_MODULE_12__["default"],
     name: "annexure-2-HHDLSS"
   }, {
     path: '/api/save-annexureii-HHDLSS/:applicationId'
   }, {
     path: '/upload-documents-HHDLSS',
-    component: _components_application_HHDLSSscholarship_addHHDLSS_uploadDocuments__WEBPACK_IMPORTED_MODULE_12__["default"],
+    component: _components_application_HHDLSSscholarship_addHHDLSS_uploadDocuments__WEBPACK_IMPORTED_MODULE_13__["default"],
     name: "upload-documents-HHDLSS"
   }, {
     path: '/api/upload-documents-HHDLSS/:applicationId'
@@ -114376,60 +114734,60 @@ __webpack_require__.r(__webpack_exports__);
     path: '/api/delete-documents-HHDLSS/:applicationId'
   }, {
     path: '/review-submit-HHDLSS',
-    component: _components_application_HHDLSSscholarship_addHHDLSS_review__WEBPACK_IMPORTED_MODULE_13__["default"],
+    component: _components_application_HHDLSSscholarship_addHHDLSS_review__WEBPACK_IMPORTED_MODULE_14__["default"],
     name: "review-submit-HHDLSS"
   }, //ADD-END (HHDLSS)
   //View Start (HHDLSS)
   {
     path: '/view-HHDLSS',
-    component: _components_application_HHDLSSscholarship_viewHHDLSS__WEBPACK_IMPORTED_MODULE_14__["default"],
+    component: _components_application_HHDLSSscholarship_viewHHDLSS__WEBPACK_IMPORTED_MODULE_15__["default"],
     name: "manage-HHDLSS"
   }, {
     path: '/print-view-HHDLSS',
-    component: _components_application_HHDLSSscholarship_printViewHHDLSS__WEBPACK_IMPORTED_MODULE_15__["default"],
+    component: _components_application_HHDLSSscholarship_printViewHHDLSS__WEBPACK_IMPORTED_MODULE_16__["default"],
     name: "manage-HHDLSS"
   }, //View End (HHDLSS)
   // //-------------------------------------//
   // Admin Section start
   {
     path: '/admin',
-    component: _components_admin_adminDashboard__WEBPACK_IMPORTED_MODULE_16__["default"],
+    component: _components_admin_adminDashboard__WEBPACK_IMPORTED_MODULE_17__["default"],
     name: "admin-dashboard"
   }, {
     path: '/admin/logout'
   }, {
     path: '/admin/add-domains',
-    component: _components_admin_domains_addDomains__WEBPACK_IMPORTED_MODULE_17__["default"],
+    component: _components_admin_domains_addDomains__WEBPACK_IMPORTED_MODULE_18__["default"],
     name: "add-domains"
   }, {
     path: '/admin/admin-api/add-domains'
   }, {
     path: '/admin/manage-domains',
-    component: _components_admin_domains_manageDomains__WEBPACK_IMPORTED_MODULE_18__["default"],
+    component: _components_admin_domains_manageDomains__WEBPACK_IMPORTED_MODULE_19__["default"],
     name: "manage-domains"
   }, {
     path: '/admin/admin-api/manage-domains/get-details'
   }, {
     path: '/admin/add-nursing-application-schedule',
-    component: _components_admin_applicationSchedule_addNursingApplicationSchedule__WEBPACK_IMPORTED_MODULE_19__["default"],
+    component: _components_admin_applicationSchedule_addNursingApplicationSchedule__WEBPACK_IMPORTED_MODULE_20__["default"],
     name: "add-nursing-application-schedule"
   }, {
     path: '/admin/admin-api/add-nursing-application-schedule'
   }, {
     path: '/admin/get-application-schedule-nursing/:applicationScheduleId',
-    component: _components_admin_applicationSchedule_addNursingApplicationSchedule__WEBPACK_IMPORTED_MODULE_19__["default"],
+    component: _components_admin_applicationSchedule_addNursingApplicationSchedule__WEBPACK_IMPORTED_MODULE_20__["default"],
     name: "add-nursing-application-schedule"
   }, {
     path: '/admin/admin-api/edit-nursing-application-schedule/:applicationScheduleId'
   }, {
     path: '/admin/add-HHDLSS-application-schedule',
-    component: _components_admin_applicationSchedule_addHHDLSSApplicationSchedule__WEBPACK_IMPORTED_MODULE_20__["default"],
+    component: _components_admin_applicationSchedule_addHHDLSSApplicationSchedule__WEBPACK_IMPORTED_MODULE_21__["default"],
     name: "add-HHDLSS-application-schedule"
   }, {
     path: '/admin/admin-api/add-HHDLSS-application-schedule'
   }, {
     path: '/admin/get-application-schedule-HHDLSS/:applicationScheduleId',
-    component: _components_admin_applicationSchedule_addHHDLSSApplicationSchedule__WEBPACK_IMPORTED_MODULE_20__["default"],
+    component: _components_admin_applicationSchedule_addHHDLSSApplicationSchedule__WEBPACK_IMPORTED_MODULE_21__["default"],
     name: "AddHHDLSSApplicationSchedule"
   }, {
     path: '/admin/admin-api/get-application-schedule/:applicationScheduleId'
@@ -114437,17 +114795,17 @@ __webpack_require__.r(__webpack_exports__);
     path: '/admin/admin-api/edit-HHDLSS-application-schedule/:applicationScheduleId'
   }, {
     path: '/admin/manage-application-schedule',
-    component: _components_admin_applicationSchedule_manageApplicationSchedule__WEBPACK_IMPORTED_MODULE_21__["default"],
+    component: _components_admin_applicationSchedule_manageApplicationSchedule__WEBPACK_IMPORTED_MODULE_22__["default"],
     name: "manage-application-schedule"
   }, {
     path: '/admin/admin-api/manage-application-schedule/get-details'
   }, {
     path: '/admin/extend-last-date',
-    component: _components_admin_applicationSchedule_extendLastDate__WEBPACK_IMPORTED_MODULE_22__["default"],
+    component: _components_admin_applicationSchedule_extendLastDate__WEBPACK_IMPORTED_MODULE_23__["default"],
     name: "extend-last-date"
   }, {
     path: '/admin/manage-application-details',
-    component: _components_admin_applicationDetails_manageApplicationDetails__WEBPACK_IMPORTED_MODULE_23__["default"],
+    component: _components_admin_applicationDetails_manageApplicationDetails__WEBPACK_IMPORTED_MODULE_24__["default"],
     name: "manage-application-details"
   }, {
     path: '/admin/admin-api/manage-application-details/get-data'
@@ -114475,8 +114833,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! H:\I-MIS-APP\I-MIS-APP-FINAL\I-MIS-APP-FINAL-04-03-2021\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! H:\I-MIS-APP\I-MIS-APP-FINAL\I-MIS-APP-FINAL-04-03-2021\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! H:\I-MIS-PROTAL\I-MIS-APP-FINAL-13.01.2021-23-08\I-MIS-APP-FINAL-04-03-2021\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! H:\I-MIS-PROTAL\I-MIS-APP-FINAL-13.01.2021-23-08\I-MIS-APP-FINAL-04-03-2021\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

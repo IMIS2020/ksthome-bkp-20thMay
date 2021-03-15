@@ -5,6 +5,7 @@ import Dashboard           from './components/dashboard';
     import ApplicationForm  from './components/application/nursingScholarship/addNursing/applicationForm';
     import Annexure1        from './components/application/nursingScholarship/addNursing/annexure1';
     import Annexure2        from './components/application/nursingScholarship/addNursing/annexure2';
+    import annexure2PrintForm        from './components/application/nursingScholarship/addNursing/annexure2PrintForm';
     import UploadDocuments  from './components/application/nursingScholarship/addNursing/uploadDocuments';
     import Review           from './components/application/nursingScholarship/addNursing/review';
 // //ADD-END
@@ -89,6 +90,11 @@ export default{
     path: '/annexure-2',
     component: Annexure2,
     name: "annexure-2"
+    },
+    {
+    path: '/annexure-2-print-form',
+    component: annexure2PrintForm,
+    name: "annexure-2-print-form"
     },
     {
     path:'/api/save-annexureii/:applicationId',

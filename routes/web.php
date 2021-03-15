@@ -25,6 +25,7 @@ Route::get('/dashboard','SystemController@dashboard');
 //  Route::get('/application-form/{applicationId}', 'SystemController@applicationForm');
     Route::get('/annexure-1',       'SystemController@annexure1');
     Route::get('/annexure-2',       'SystemController@annexure2');
+    Route::get('/annexure-2-print-form',       'SystemController@annexure2PrintForm');
     Route::get('/upload-documents', 'SystemController@uploadDocuments');
     Route::get('/review-submit',    'SystemController@reviewSubmit');
 //Add-End

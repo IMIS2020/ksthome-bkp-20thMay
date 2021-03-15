@@ -37,7 +37,7 @@
                                                                     </div>
 
                                                                     <div class="col-xl-2">
-                                                                        <label>Applicant's Middle name:</label>
+                                                                        <label>Applicant's Middle2 name:</label>
                                                                         <div class="form-group">
                                                                             <input class="form-control form-control-sm" type="text" v-model="form.applicantNameM">
                                                                         </div>

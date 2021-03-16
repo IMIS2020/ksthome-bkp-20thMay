@@ -24,11 +24,11 @@ class DomainsController extends Controller
      else{$lastId = intval(explode('-',$getId->domainsId)[1]);}//"DOM-000001"; 
           $presentId =  $lastId+1; 
 
-      
           $domainsId = "DOM-".str_pad($presentId, 4, "0", STR_PAD_LEFT);
           $domains->domainsId             =  $domainsId;
           $domains->domainsName           =  $request->domainsName;
           $domains->domainsDescription    =  $request->domainsDescription;
+          
           $domains->save();
     }
 

@@ -1,5 +1,5 @@
 <template>
-<section class="page-main">
+ <section class="page-main">
         <div class="container">
             <form @submit.prevent="saveForm">
                 <div class="form-row">

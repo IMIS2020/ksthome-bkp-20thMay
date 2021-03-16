@@ -314,7 +314,7 @@
 
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.percentage10" required>
+                                                                                            <input class="form-control form-control-sm" type="number" min="0" max="100" step="0.01"  v-model="form.percentage10" required>
                                                                                             </div>
                                                                                         </td>
 
@@ -357,7 +357,7 @@
 
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.percentage12" required>
+                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.percentage12" min="0" max="100" step="0.01" required>
                                                                                             </div>
                                                                                         </td>
 

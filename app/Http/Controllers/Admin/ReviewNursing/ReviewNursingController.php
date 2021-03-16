@@ -19,9 +19,9 @@ class ReviewNursingController extends Controller
 {
     
 # Get Nursing Scholarship Application
-    public function getNursingScholarshipApplication()
+    public function getNursingScholarshipApplication(string $applicationId)
     {
-        $nursingScholarshipApplication = NursingScholarshipApplication::where('userId', 1)->first();
+        $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
         if ($nursingScholarshipApplication) {
             $applicantDetails = ApplicantDetails::where('id', $nursingScholarshipApplication->applicantId)->first();
             $applicantAddress = Address::where('id', $applicantDetails->applicantAddressId)->first();

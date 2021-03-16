@@ -42,6 +42,11 @@ function newFunction(){
     router: new VueRouter(routes)
   });
 
+  const app30 = new Vue({
+    el: '#annexure2BlankForm',
+    router: new VueRouter(routes)
+  });
+
   const app5 = new Vue({
     el: '#uploadDocuments',
     router: new VueRouter(routes)
@@ -141,6 +146,32 @@ const app22 = new Vue({
   el: '#manageApplicationDetails',
   router: new VueRouter(routes)
 });
+
+const app25 = new Vue({
+  el: '#applicationFormNursing',
+  router: new VueRouter(routes)
+});
+
+const app26 = new Vue({
+  el: '#annexure1Nursing',
+  router: new VueRouter(routes)
+});
+
+const app27 = new Vue({
+  el: '#annexure2Nursing',
+  router: new VueRouter(routes)
+});
+
+const app28 = new Vue({
+  el: '#uploadDocumentsNursing',
+  router: new VueRouter(routes)
+});
+
+const app29 = new Vue({
+  el: '#reviewNursing',
+  router: new VueRouter(routes)
+});
+
 
 const app23 = new Vue({
   el: '#extendLastDate',

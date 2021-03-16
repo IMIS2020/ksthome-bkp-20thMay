@@ -8,10 +8,10 @@
    <div class="col-xl-6 mx-auto">
     
     <div class="card-body mt-2">
-      <a class="font-xl color-mg" href="#">Download Guidelines for Nursing Scholarship</a><br>
-      <a class="font-xl color-mg" href="#">Download Guidelines for HHDLSS Scholarship</a><br>
-      <a class="font-xl color-mg" href="#">Download Application form for Nursing Scholarship</a><br>
-      <a class="font-xl color-mg" href="#">Download Application form for HHDLSS Scholarship</a><br>
+      <a class="font-xl color-mg" onclick="javascipt:window.open('/assets/downloadInstruction/guidelineNursing.pdf');">Download Guidelines for Nursing Scholarship</a><br>
+      <a class="font-xl color-mg" onclick="javascipt:window.open('/assets/downloadInstruction/guidelineHHDLSS.pdf');">Download Guidelines for HHDLSS Scholarship</a><br>
+      <a class="font-xl color-mg" onclick="javascipt:window.open('/assets/annexure-II/DeclarationForm.pdf');">Download Application form for Nursing Scholarship</a><br>
+      <a class="font-xl color-mg" onclick="javascipt:window.open('/assets/annexure-II/DeclarationForm.pdf');">Download Application form for HHDLSS Scholarship</a><br>
       @if (Auth::check())
 
       @php

@@ -33,7 +33,6 @@ class DomainsController extends Controller
     }
 
     #get-data
-
     public function getDomains()
     {
       $getDomains =DomainsModel::all();

@@ -26,6 +26,7 @@ Route::get('/dashboard','SystemController@dashboard');
     Route::get('/annexure-1',       'SystemController@annexure1');
     Route::get('/annexure-2',       'SystemController@annexure2');
     Route::get('/annexure-2-print-form',       'SystemController@annexure2PrintForm');
+    Route::get('/annexure-2-blank-form',       'SystemController@annexure2BlankForm');
     Route::get('/upload-documents', 'SystemController@uploadDocuments');
     Route::get('/review-submit',    'SystemController@reviewSubmit');
 //Add-End
@@ -131,6 +132,12 @@ Route::prefix('admin')->group(function() {
     Route::get('/extend-last-date', 'Admin\AdminSystemController@extendLastDate');
 
     Route::get('/manage-application-details', 'Admin\AdminSystemController@manageApplicationDetails');
+    // Review-Nursing
+    Route::get('/review-nursing-application-form/{userId}', 'Admin\AdminSystemController@reviewNursingApplicationForm');
+    Route::get('/review-nursing-annexure-1/{applicationId}', 'Admin\AdminSystemController@reviewNursingAnnexure1');
+    Route::get('/review-nursing-annexure-2/{applicationId}', 'Admin\AdminSystemController@reviewNursingAnnexure2');
+    Route::get('/review-nursing-upload-documents/{applicationId}', 'Admin\AdminSystemController@reviewNursingUploadDocuments');
+    Route::get('/review-nursing-review-submit/{applicationId}', 'Admin\AdminSystemController@reviewNursingReview');
     
     Route::group(['prefix' => 'admin-api'], function() { 
 
@@ -145,6 +152,8 @@ Route::prefix('admin')->group(function() {
         Route::get('/manage-application-schedule/get-details', 'Admin\ApplicationScheduleController@getScholarshipApplication');
 
         Route::get('/manage-application-details/get-data', 'Admin\ApplicationController@getApplicantDetails');
+        #Review-Nursing
+        Route::get('/review-nursing-application-form/{userId}', 'Admin\ReviewNursing\ReviewNursingController@getNursingScholarshipApplication');
     });
 
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');

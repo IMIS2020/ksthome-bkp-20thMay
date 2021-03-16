@@ -6,6 +6,7 @@ import Dashboard           from './components/dashboard';
     import Annexure1        from './components/application/nursingScholarship/addNursing/annexure1';
     import Annexure2        from './components/application/nursingScholarship/addNursing/annexure2';
     import annexure2PrintForm        from './components/application/nursingScholarship/addNursing/annexure2PrintForm';
+    import annexure2BlankForm        from './components/application/nursingScholarship/addNursing/annexure2BlankForm';
     import UploadDocuments  from './components/application/nursingScholarship/addNursing/uploadDocuments';
     import Review           from './components/application/nursingScholarship/addNursing/review';
 // //ADD-END
@@ -40,6 +41,16 @@ import AddHHDLSSApplicationSchedule from './components/admin/applicationSchedule
 import ManageApplicationSchedule from './components/admin/applicationSchedule/manageApplicationSchedule';
 import ExtendLastDate from './components/admin/applicationSchedule/extendLastDate';
 import ManageApplicationDetails from './components/admin/applicationDetails/manageApplicationDetails';
+
+// Review Section
+
+// Nursing
+
+import ReviewNursingApplicationForm from './components/admin/applicationDetails/reviewApplicationNursing/applicationFormNursing';
+import ReviewNursingAnnexure1 from './components/admin/applicationDetails/reviewApplicationNursing/annexure1Nursing';
+import ReviewNursingAnnexure2 from './components/admin/applicationDetails/reviewApplicationNursing/annexure2Nursing';
+import ReviewNursingUploadDocuments from './components/admin/applicationDetails/reviewApplicationNursing/uploadDocumentsNursing';
+import ReviewNursingReview from './components/admin/applicationDetails/reviewApplicationNursing/reviewNursing';
 
 export default{
     mode: 'history',
@@ -94,6 +105,11 @@ export default{
     {
     path: '/annexure-2-print-form',
     component: annexure2PrintForm,
+    name: "annexure-2-print-form"
+    },
+    {
+    path: '/annexure-2-blank-form',
+    component: annexure2BlankForm,
     name: "annexure-2-print-form"
     },
     {
@@ -305,6 +321,43 @@ path: '/admin/admin-api/manage-application-schedule/get-details',
 },
 {
     path: '/admin/admin-api/manage-application-details/get-data',
+},
+
+//Review Nursing
+{
+    path: '/admin/review-nursing-application-form/:userId',
+    component:ReviewNursingApplicationForm,
+    name: "review-nursing-application-form"
+},
+
+{
+    path: '/admin/admin-api/review-nursing-application-form/:userId',
+    
+},
+
+{
+    path: '/admin/review-nursing-annexure-1/:userId',
+    component:ReviewNursingAnnexure1,
+    name: "review-nursing-annexure-1"
+},
+
+
+{
+    path: '/admin/review-nursing-annexure-2/:userId',
+    component:ReviewNursingAnnexure2,
+    name: "review-nursing-annexure-2"
+},
+
+{
+    path: '/admin/review-nursing-upload-documents/:userId',
+    component:ReviewNursingUploadDocuments,
+    name: "review-nursing-upload-documents"
+},
+
+{
+    path: '/admin/review-nursing-review-submit/:userId',
+    component:ReviewNursingReview,
+    name: "review-nursing-review-submit"
 },
 
 // End

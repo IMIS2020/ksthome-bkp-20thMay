@@ -433,7 +433,7 @@ export default{
                 this.getdata.addressCountry                      = data.addressCountry;
                 this.getdata.applicantColonyLeaderName           = data.applicantColonyLeaderName;
                 this.getdata.fullName = `${this.getdata.applicantNameF}${(this.getdata.applicantNameM)?" "+this.getdata.applicantNameM:''} ${this.getdata.applicantNameL}`;
-                this.getdata.fullAddress = `${this.getdata.addressAddln1} ${this.getdata.addressAddln2} ${this.getdata.addressCity} ${this.getdata.addressDistprov} ${this.getdata.addressState} ${this.getdata.addressPinzip} ${this.getdata.addressCountry}`;
+                this.getdata.fullAddress = `${this.getdata.addressAddln1}, ${this.getdata.addressAddln2}, ${this.getdata.addressCity}, Dist: ${this.getdata.addressDistprov}, ${this.getdata.addressState} - ${this.getdata.addressPinzip}, ${this.getdata.addressCountry}.`;
                 this.getdata.fullInstituteAddress = `${this.getdata.insAddressAddln1} ${this.getdata.insAddressAddln2} ${this.getdata.insAddressCity} ${this.getdata.insAddressDistprov} ${this.getdata.insAddressState} ${this.getdata.insAddressPinzip}`;
                 this.getannexurei();
                 this.getFileData();

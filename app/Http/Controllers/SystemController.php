@@ -68,6 +68,11 @@ class SystemController extends Controller
       return view('application.nursingScholarship.addNursing.annexure2PrintForm');
     }
 
+    public function annexure2BlankForm()
+    {
+      return view('application.nursingScholarship.addNursing.annexure2BlankForm');
+    }
+
     public function uploadDocuments()
     {
       return view('application.nursingScholarship.addNursing.uploadDocuments');

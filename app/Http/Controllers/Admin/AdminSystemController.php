@@ -64,4 +64,32 @@ class AdminSystemController extends Controller
       {
         return view('admin.ApplicationDetails.manageApplicationDetails');
       }
+
+
+  //Review nursing
+      public function reviewNursingApplicationForm()
+      {
+        return view('admin.ApplicationDetails.reviewNursing.applicationFormNursing');
+      }
+
+      public function reviewNursingAnnexure1()
+      {
+        return view('admin.ApplicationDetails.reviewNursing.Annexure1Nursing');
+      }
+
+      public function reviewNursingAnnexure2()
+      {
+        return view('admin.ApplicationDetails.reviewNursing.Annexure2Nursing');
+      }
+
+      public function reviewNursingUploadDocuments()
+      {
+        return view('admin.ApplicationDetails.reviewNursing.uploadDocumentsNursing');
+      }
+
+      public function reviewNursingReview()
+      {
+        return view('admin.ApplicationDetails.reviewNursing.reviewNursing');
+      }
+
 }

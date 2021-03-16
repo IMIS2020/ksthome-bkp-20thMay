@@ -232,7 +232,7 @@
                                                                     <div class="col-xl-3">
                                                                         <label>PIN/ZIP Code:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text" maxlength="6" v-model="form.addressPinzip" required>
+                                                                            <input class="form-control form-control-sm" type="number" maxlength="6" v-model="form.addressPinzip" required>
                                                                         </div>
                                                                     </div>
 
@@ -240,14 +240,14 @@
                                                                     <div class="col-xl-3">
                                                                         <label>Contact no. (Self)&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text" maxlength="10" v-model="form.applicantContactNoSelf" required>
+                                                                            <input class="form-control form-control-sm" type="number" maxlength="10" v-model="form.applicantContactNoSelf" required>
                                                                         </div>
                                                                     </div>
 
                                                                     <div class="col-xl-3">
                                                                         <label>Contact no. (guardian)&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text" maxlength="10" v-model="form.applicantContactNoGuardian" required>
+                                                                            <input class="form-control form-control-sm" type="number" maxlength="10" v-model="form.applicantContactNoGuardian" required>
                                                                         </div>
                                                                     </div>
 
@@ -261,7 +261,7 @@
                                                                     <div class="col-xl-3">
                                                                         <label>Contact no. (colony leader)&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text" maxlength="10" v-model="form.applicantContactNoColonyLeader" required>
+                                                                            <input class="form-control form-control-sm" type="number" maxlength="10" v-model="form.applicantContactNoColonyLeader" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -314,7 +314,7 @@
 
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                            <input class="form-control form-control-sm" type="text" v-model="form.percentage10" required>
+                                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.percentage10" required>
                                                                                             </div>
                                                                                         </td>
 
@@ -502,7 +502,7 @@
                                                                     <div class="col-xl-3">
                                                                         <label>PIN/ZIP Code:</label>
                                                                         <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="text" maxlength="6" v-model="form.insAddressPinzip" :disabled="inputDisabled">
+                                                                        <input class="form-control form-control-sm" type="number" maxlength="6" v-model="form.insAddressPinzip" :disabled="inputDisabled">
                                                                         </div>
                                                                     </div>
 

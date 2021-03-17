@@ -154,10 +154,6 @@
      
     <!-- Admin Section -->
 
-    <div id="adminDashboard">
-      @yield('adminDashboard')
-    </div>
-
 
 
 

@@ -17,7 +17,7 @@ use App\ModelScholarship\NursingScholarshipApplication;
 
 class ReviewNursingController extends Controller
 {
-    
+    private $PATH = 'uploads/nursingScholarshipDocuments/';
     # Get Nursing Scholarship Application
     public function getNursingScholarshipApplication(string $applicationId)
     {

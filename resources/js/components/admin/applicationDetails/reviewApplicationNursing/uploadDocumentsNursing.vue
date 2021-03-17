@@ -294,19 +294,6 @@
 export default{
     data(){
         return {
-           
-            uploadFiles: {
-                admissionLetter: '',
-                annexureII: '',
-                photograph: '',
-                proofOfAge: '',
-                markSheets10: '',
-                markSheets12: '',
-                leprosyCertificateSelf: '',
-                leprosyCertificateMother: '',
-                leprosyCertificateFather: ''
-
-            },
             getFiles: {
                 admissionLetter: '#',
                 annexureII: '#',
@@ -329,32 +316,31 @@ export default{
     },
     methods:{
     
-       getdataNursing()
+        getdataNursing()
         {
-       const  currentUrl = window.location.pathname.split('/').reverse()[0];
-            axios.get('/admin/admin-api/review-nursing-application-form/'+currentUrl)
-        .then(response => {
-          if (response.data['success']) {
-            const data = response.data['data']
-            console.log(data)
-            this.getdata.applicantNameF      = data.applicantNameF;
-            this.getdata.applicantNameM      = data.applicantNameM;
-            this.getdata.applicantNameL      = data.applicantNameL;
-            this.getdata.applicantFatherName = data.applicantFatherName;
-            this.getdata.applicantMotherName = data.applicantMotherName;
-            this.getdata.addressAddln1       = data.addressAddln1;
-            this.getdata.hasAdmissionLetter  = data.hasAdmissionLetter;
-            this.getdata.applicationId       = data.applicationId;
-            this.getdata.financialYear       = data.financialYear;
-            this.getdata.fullName = `${this.getdata.applicantNameF}${(this.getdata.applicantNameM)?" "+this.getdata.applicantNameM:''} ${this.getdata.applicantNameL}`;
+            const  currentUrl = window.location.pathname.split('/').reverse()[0];
+                    axios.get('/admin/admin-api/review-nursing-application-form/'+currentUrl)
+                .then(response => {
+                if (response.data['success']) {
+                    const data = response.data['data']
+                    console.log(data)
+                    this.getdata.applicantNameF      = data.applicantNameF;
+                    this.getdata.applicantNameM      = data.applicantNameM;
+                    this.getdata.applicantNameL      = data.applicantNameL;
+                    this.getdata.applicantFatherName = data.applicantFatherName;
+                    this.getdata.applicantMotherName = data.applicantMotherName;
+                    this.getdata.addressAddln1       = data.addressAddln1;
+                    this.getdata.hasAdmissionLetter  = data.hasAdmissionLetter;
+                    this.getdata.applicationId       = data.applicationId;
+                    this.getdata.financialYear       = data.financialYear;
+                    this.getdata.fullName = `${this.getdata.applicantNameF}${(this.getdata.applicantNameM)?" "+this.getdata.applicantNameM:''} ${this.getdata.applicantNameL}`;
+                }
             
-         }
-         
-      })
-      },
+            })
+        },
         getFileData(){
-          const  currentUrl = window.location.pathname.split('/').reverse()[0];
-            axios.get('/admin-api/review-nursing-review-submit/'+currentUrl)
+            const  currentUrl = window.location.pathname.split('/').reverse()[0];
+            axios.get('/admin/admin-api/review-nursing-upload-documents/'+currentUrl)
             .then(response => {
                 if (response.data['success']) {
                     this.getFiles = response.data['data']
@@ -364,6 +350,7 @@ export default{
     },
     created(){
      this.getdataNursing();
+     this.getFileData();
     }
  }
 </script>

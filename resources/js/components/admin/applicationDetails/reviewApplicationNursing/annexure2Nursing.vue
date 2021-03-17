@@ -40,7 +40,7 @@
                                                                 <div class="col-xl-7 text-center align-self-center mb-2">
                                                                     <p class="float-left mb-0 color-mg font-md"><strong>hereby certify that Mr./ Miss.&nbsp;</strong></p>
                                                                     <span class="d-block color-mg" style="overflow: hidden;">
-                                                                      <input class="form-control form-control-sm" type="text" v-model="getdata.fullName" placeholder="Name of the candidate">
+                                                                      <input class="form-control form-control-sm" type="text" v-model="getdata.fullName" disabled placeholder="Name of the candidate">
                                                                      </span>
                                                                     </div>
                                                                 <div class="col-xl-6 text-center align-self-center mb-2">

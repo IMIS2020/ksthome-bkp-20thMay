@@ -92,4 +92,32 @@ class AdminSystemController extends Controller
         return view('admin.ApplicationDetails.reviewNursing.reviewNursing');
       }
 
+
+    // REVIEW-HHDLSS
+      public function reviewHHDLSSApplicationForm()
+      {
+        return view('admin.ApplicationDetails.reviewHHDLSS.applicationFormHHDLSS');
+      }
+
+      public function reviewHHDLSSAnnexure1()
+      {
+        return view('admin.ApplicationDetails.reviewHHDLSS.Annexure1HHDLSS');
+      }
+
+      public function reviewHHDLSSAnnexure2()
+      {
+        return view('admin.ApplicationDetails.reviewHHDLSS.Annexure2HHDLSS');
+      }
+
+      public function reviewHHDLSSUploadDocuments()
+      {
+        return view('admin.ApplicationDetails.reviewHHDLSS.uploadDocumentsHHDLSS');
+      }
+
+      public function reviewHHDLSSReview()
+      {
+        return view('admin.ApplicationDetails.reviewHHDLSS.reviewHHDLSS');
+      }
+
+
 }

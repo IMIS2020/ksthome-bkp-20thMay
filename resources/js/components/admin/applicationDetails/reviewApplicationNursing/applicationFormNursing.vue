@@ -126,8 +126,8 @@
                                     <div class="container">
                                         <form @submit.prevent="saveForm">
                                             <div class="form-row">
-                                                <div class="col-xl-12 text-center mb-3">
-                                                    <h5 class="text-capitalize text-center color-mg"><strong>Application form (Nursing scholarship   {{getdata.financialYear}})</strong></h5>
+                                                <div class="col-xl-12 text-center mb-3"><br>
+                                                    <h5 class="text-capitalize text-center color-mg"><strong>Application form (Nursing scholarship   {{getdata.financialYear}}) <br> (Application No : {{getdata.applicationId}})</strong></h5>
                                                 </div>
                                                 <div class="col-xl-12">
                                                     <div class="mb-3">
@@ -740,13 +740,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-2 offset-xl-4 my-2">
-                                                    <button class="btn btn-block btn-sm btn-mg" type="submit"><strong>Save</strong></button>
+                                                    <button class="btn btn-block btn-sm btn-mg d-none" type="submit"><strong>Save</strong></button>
                                                 </div>
                                                 <div class="col-xl-2 offset-xl-0 my-2">
-                                                    <router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-scholarship"><strong>Cancel</strong></router-link>
+                                                    <router-link class="btn btn-danger btn-block btn-sm d-none" type="button" to="/manage-scholarship"><strong>Cancel</strong></router-link>
                                                 </div>
                                             </div>
-                                    </form>
+                                      </form>
                                     </div>
                                 </section>
                             </div>
@@ -869,11 +869,12 @@ export default {
         //    },
             async readApplicationForm() 
             {
-            // const  currentUrl = window.location.pathname;
-            axios.get(`/admin/admin-api/review-nursing-application-form/1`)
+            const  currentUrl = window.location.pathname.split('/').reverse()[0];
+            axios.get('/admin/admin-api/review-nursing-application-form/'+currentUrl)
             .then(response => {
                 if (response.data['success']) {
                     this.form =  response.data['data'];
+                    this.getdata.applicationId = response.data['data'].applicationId;  
                     this.getdata.financialYear = response.data['data'].financialYear;   
                     this.getdata.hasAdmissionLetter = response.data['data'].hasAdmissionLetter;
                     if(this.getdata.hasAdmissionLetter == 'YES') {

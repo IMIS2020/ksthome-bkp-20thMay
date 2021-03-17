@@ -200,7 +200,7 @@
                                                     <td class="text-center">Submitted with pending documents<br><span class="badge badge-success"></span></td>
                                                     <td class="text-center w-5x">
                                                         <div class="dropleft no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
-                                                            <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in"><a class="dropdown-item" href="#"><strong>Review</strong></a></div>
+                                                            <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in"><router-link class="dropdown-item" :to="'/admin/review-nursing-application-form/'+eachUser[0].applicationId"><strong>Review</strong></router-link></div>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -227,6 +227,7 @@ export default {
     },
     methods:{
 
+
       logout(){
          axios.get('/admin/logout').then(function(){
             document.location.href = "/admin/login";
@@ -240,7 +241,6 @@ export default {
                  console.log(this.allUsers = response.data)
             })
         },
-
    
   },
     created()

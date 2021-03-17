@@ -18,7 +18,7 @@
             </div>
             <div class="row mb-4 d-print-none">
                 <div class="col-xl-4 offset-xl-4 text-center">
-                 <button class="btn btn-sm btn-mg mr-2" type="button" onclick="window.print();" >Print/Download Application Form</button></div>
+                 <button class="btn btn-sm btn-mg mr-2" type="button" @click="window.print();" >Print/Download Application Form</button></div>
             </div>
         </div>
     </section>

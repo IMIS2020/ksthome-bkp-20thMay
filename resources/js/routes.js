@@ -325,37 +325,46 @@ path: '/admin/admin-api/manage-application-schedule/get-details',
 
 //Review Nursing
 {
-    path: '/admin/review-nursing-application-form/:userId',
+    path: '/admin/review-nursing-application-form/:applicationId',
     component:ReviewNursingApplicationForm,
     name: "review-nursing-application-form"
 },
 
 {
-    path: '/admin/admin-api/review-nursing-application-form/:userId',
+    path: '/admin/admin-api/review-nursing-application-form/:applicationId',
     
 },
 
 {
-    path: '/admin/review-nursing-annexure-1/:userId',
+    path: '/admin/review-nursing-annexure-1/:applicationId',
     component:ReviewNursingAnnexure1,
     name: "review-nursing-annexure-1"
 },
 
+{
+    path: '/admin/admin-api/review-nursing-annexure-1/:applicationId',
+    
+},
+
 
 {
-    path: '/admin/review-nursing-annexure-2/:userId',
+    path: '/admin/review-nursing-annexure-2/:applicationId',
     component:ReviewNursingAnnexure2,
     name: "review-nursing-annexure-2"
 },
+{
+    path: '/admin/admin-api/review-nursing-annexure-2/:applicationId',
+    
+},
 
 {
-    path: '/admin/review-nursing-upload-documents/:userId',
+    path: '/admin/review-nursing-upload-documents/:applicationId',
     component:ReviewNursingUploadDocuments,
     name: "review-nursing-upload-documents"
 },
 
 {
-    path: '/admin/review-nursing-review-submit/:userId',
+    path: '/admin/review-nursing-review-submit/:applicationId',
     component:ReviewNursingReview,
     name: "review-nursing-review-submit"
 },

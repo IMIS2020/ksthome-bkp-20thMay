@@ -75,7 +75,7 @@
     </div>
 
     <!-- Start HHDLSS -->
-    <div id="applicationFormHHDLSS">
+    <!-- <div id="applicationFormHHDLSS">
       @yield('applicationFormHHDLSS')
     </div>
 
@@ -93,7 +93,7 @@
 
     <div id="reviewHHDLSS">
       @yield('reviewHHDLSS')
-    </div>
+    </div> -->
     <!-- End HHDLSS -->
 
     <script src="{{ asset('js/app.js') }}"></script>

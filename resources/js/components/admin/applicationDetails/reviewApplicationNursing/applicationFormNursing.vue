@@ -765,8 +765,6 @@ export default {
     data () {
         return {
             inputDisabled: false,
-            // csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            // userId: document.querySelector("meta[name='userId']").getAttribute('content'),
             form: {
                 applicationId:'',
                 applicantNameF:'',
@@ -830,46 +828,8 @@ export default {
         }
     },
     methods: {
-        // saveForm() 
-        // {
-        //     if (this.form.applicationId == '') {
-        //         axios.post('/api/add-application-form/'+this.userId,this.form)
-        //         .then(response => {
-        //             if (response.data['success']) {
-        //                 this.readApplicationForm();
-        //                 this.$fire({
-        //                     position: 'top',
-        //                     icon: 'success',
-        //                     title: "Application Saved",
-        //                     showConfirmButton: false,
-        //                     timer: 3000
-        //                 })
-        //             } else {
-        //                 console.log(response.data['msg'])
-        //             }
-        //         }).catch(error => this.errorMsg(error.response.status))
-        //     } else {
-                       
-        //         axios.post('/api/edit-application-form/'+this.form.applicationId,this.form)
-        //         .then(response => {
-        //             this.readApplicationForm();
-        //             if (response.data['success']) {
-        //                 this.$fire({
-        //                     position: 'top',
-        //                     icon: 'success',
-        //                     title: "Application Updated",
-        //                     showConfirmButton: false,
-        //                     timer: 3000
-        //                 })
-        //             } else {
-        //                 console.log(response.data['msg'])
-        //             }
-        //         }).catch(error => this.errorMsg(error.response.status))
-        //       }
-        //    },
-            async readApplicationForm() 
-            {
-            const  currentUrl = window.location.pathname.split('/').reverse()[0];
+        async readApplicationForm(currentUrl) 
+        {
             axios.get('/admin/admin-api/review-nursing-application-form/'+currentUrl)
             .then(response => {
                 if (response.data['success']) {
@@ -937,7 +897,7 @@ export default {
         onSelect(event)
         {
             
-               if(event.target.value == 'YES')
+            if(event.target.value == 'YES')
             {
                 this.inputDisabled = false; 
             }else{
@@ -948,7 +908,9 @@ export default {
         }
     },
     created () {
-        this.readApplicationForm();
+        const  currentUrl = window.location.pathname.split('/').reverse()[0];
+        console.log(currentUrl);
+        this.readApplicationForm(currentUrl);
     }
 }
 </script>

@@ -18,7 +18,7 @@ use App\ModelScholarship\NursingScholarshipApplication;
 class ReviewNursingController extends Controller
 {
     
-# Get Nursing Scholarship Application
+    # Get Nursing Scholarship Application
     public function getNursingScholarshipApplication(string $applicationId)
     {
         $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
@@ -150,5 +150,28 @@ class ReviewNursingController extends Controller
         }
     }
 
+    # Get Documents
+    public function getApplicantDocuments(string $applicationId)
+    {
+        $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
+        if ($nursingScholarshipApplication) {
+            $applicantDocuments = ApplicantDocuments::where('applicantId',$nursingScholarshipApplication->applicantId)->first();
+
+            $data['admissionLetter']    = ($applicantDocuments->admissionLetter)?Storage::url($this->PATH.$applicantDocuments->admissionLetter):'#';
+            $data['annexureII']         = ($applicantDocuments->annexureII)?Storage::url($this->PATH.$applicantDocuments->annexureII):'#';
+            $data['photograph']         = ($applicantDocuments->photograph)?Storage::url($this->PATH.$applicantDocuments->photograph):'#';
+            $data['proofOfAge']         = ($applicantDocuments->proofOfAge)?Storage::url($this->PATH.$applicantDocuments->proofOfAge):'#';
+            $data['markSheets10']       = ($applicantDocuments->markSheets10)?Storage::url($this->PATH.$applicantDocuments->markSheets10):'#';
+            $data['markSheets12']       = ($applicantDocuments->markSheets12)?Storage::url($this->PATH.$applicantDocuments->markSheets12):'#';
+            $data['leprosyCertificateSelf'] = ($applicantDocuments->leprosyCertificateSelf)?Storage::url($this->PATH.$applicantDocuments->leprosyCertificateSelf):'#';
+            $data['leprosyCertificateMother'] = ($applicantDocuments->leprosyCertificateMother)?Storage::url($this->PATH.$applicantDocuments->leprosyCertificateMother):'#';
+            $data['leprosyCertificateFather'] = ($applicantDocuments->leprosyCertificateFather)?Storage::url($this->PATH.$applicantDocuments->leprosyCertificateFather):'#';
+            $data = json_decode(json_encode($data));
+            return array('success' => true, 'msg'=>['Data Found!'], 'data'=>$data);
+        } else {
+            return array('success' => false, 'msg'=>['No Data Found!']);
+        }
+    }
+
     
-}
+} 

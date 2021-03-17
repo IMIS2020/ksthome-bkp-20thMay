@@ -74,8 +74,28 @@
       @yield('reviewNursing')
     </div>
 
+    <!-- Start HHDLSS -->
+    <div id="applicationFormHHDLSS">
+      @yield('applicationFormHHDLSS')
+    </div>
 
-  
+    <div id="annexure1HHDLSS">
+      @yield('annexure1HHDLSS')
+    </div>
+
+    <div id="annexure2HHDLSS">
+      @yield('annexure2HHDLSS')
+    </div>
+
+    <div id="uploadDocumentsHHDLSS">
+      @yield('uploadDocumentsHHDLSS')
+    </div>
+
+    <div id="reviewHHDLSS">
+      @yield('reviewHHDLSS')
+    </div>
+    <!-- End HHDLSS -->
+
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{asset('assets/js/jquery.min.js')}}"></script>
     <!-- <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script> -->

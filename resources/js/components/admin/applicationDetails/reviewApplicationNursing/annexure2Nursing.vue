@@ -10,12 +10,12 @@
                     <div class="col-xl-12">
                         <div class="mb-3">
                             <ul class="nav nav-tabs font-sm" role="tablist">
-                                <li class="nav-item" role="presentation"><router-link class="nav-link " role="tab" data-toggle="tab" :to="'/application-form/'"><strong>Application Form</strong></router-link></li>
-                                <li class="nav-item" role="presentation" v-if="getdata.hasAdmissionLetter === 'NO'"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/annexure-1'"><strong>Annexure-I</strong></router-link></li>
+                                <li class="nav-item" role="presentation"><router-link class="nav-link " role="tab" data-toggle="tab" :to="'/admin/review-nursing-application-form/'+getdata.applicationId"><strong>Application Form</strong></router-link></li>
+                                <li class="nav-item" role="presentation" v-if="getdata.hasAdmissionLetter === 'NO'"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-annexure-1/'+getdata.applicationId"><strong>Annexure-I</strong></router-link></li>
                                 <li class="nav-item " role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-I</strong></router-link></li>
-                                <li class="nav-item" role="presentation"><router-link class="nav-link active" role="tab" data-toggle="tab" :to="'/annexure-2'"><strong>Annexure-II</strong></router-link></li>
-                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/upload-documents'"><strong>Upload Documents</strong></router-link></li>
-                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/review-submit'"><strong>Review &amp; Submit</strong></router-link></li>
+                                <li class="nav-item" role="presentation"><router-link class="nav-link active" role="tab" data-toggle="tab" :to="'/admin/review-nursing-annexure-2/'+getdata.applicationId"><strong>Annexure-II</strong></router-link></li>
+                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-upload-documents/'+getdata.applicationId"><strong>Upload Documents</strong></router-link></li>
+                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-review-submit/'+getdata.applicationId"><strong>Review &amp; Submit</strong></router-link></li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" role="tabpanel" id="tab-3">
@@ -35,7 +35,7 @@
                                                                 <div class="col-xl-5 text-center align-self-center mb-2">
                                                                     <p class="float-left mb-0 color-mg font-md"><strong>I&nbsp; &nbsp; &nbsp;</strong></p>
                                                                     <span class="d-block color-mg" style="overflow: hidden;">
-                                                                        <input class="form-control form-control-sm" type="text" placeholder="Name of colony leader" v-model="form.applicantColonyLeaderName"></span>
+                                                                        <input class="form-control form-control-sm" type="text" placeholder="Name of colony leader" v-model="form.applicantColonyLeaderName" disabled></span>
                                                                 </div>
                                                                 <div class="col-xl-7 text-center align-self-center mb-2">
                                                                     <p class="float-left mb-0 color-mg font-md"><strong>hereby certify that Mr./ Miss.&nbsp;</strong></p>
@@ -45,13 +45,13 @@
                                                                     </div>
                                                                 <div class="col-xl-6 text-center align-self-center mb-2">
                                                                     <p class="float-left mb-0 color-mg font-md"><strong>has been residing in this colony&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="getdata.addressAddln1" placeholder="Colony name & House No"></span>
+                                                                        <input class="form-control form-control-sm" type="text" v-model="getdata.addressAddln1" placeholder="Colony name & House No" disabled></span>
                                                                 </div>
                                                                 <div class="col-xl-6 text-center align-self-center mb-2">
                                                                     <p class="float-left mb-0 color-mg font-md"><strong>and her parent / parents&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;">
-                                                                    <input class="form-control form-control-sm" type="text" v-model="getdata.applicantMotherName" placeholder="Mother name"></span>
+                                                                    <input class="form-control form-control-sm" type="text" v-model="getdata.applicantMotherName" placeholder="Mother name" disabled></span>
                                                                 </div>
-                                                                <div class="col-xl-4 text-center align-self-center mb-2"><input class="form-control form-control-sm" type="text" placeholder="Father name" v-model="getdata.applicantFatherName"></div>
+                                                                <div class="col-xl-4 text-center align-self-center mb-2"><input class="form-control form-control-sm" type="text" placeholder="Father name" v-model="getdata.applicantFatherName" disabled></div>
                                                                 <div class="col-xl-6 text-center align-self-center mb-2">
                                                                     <p class="float-left mb-0 color-mg font-md"><strong>is / are affected by leprosy.</strong></p>
                                                                 </div>
@@ -126,7 +126,8 @@ export default{
             .catch(error => this.error.response.status)
         },
 
-      getdataNursing(){
+      getdataNursing()
+      {
        const  currentUrl = window.location.pathname.split('/').reverse()[0];
             axios.get('/admin/admin-api/review-nursing-application-form/'+currentUrl)
         .then(response => {
@@ -147,7 +148,7 @@ export default{
          }
          
       })
-    }
+      }
   },
     created(){
      this.getdataNursing();

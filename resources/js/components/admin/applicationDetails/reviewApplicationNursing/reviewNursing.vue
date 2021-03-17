@@ -10,12 +10,12 @@
                     <div class="col-xl-12">
                         <div class="mb-3">
                             <ul class="nav nav-tabs font-sm" role="tablist">
-                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/application-form/'"><strong>Application Form</strong></router-link></li>
-                                <li class="nav-item" role="presentation" v-if="getdata.hasAdmissionLetter === 'NO'"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/annexure-1'"><strong>Annexure-I</strong></router-link></li>
+                              <li class="nav-item" role="presentation"><router-link class="nav-link " role="tab" data-toggle="tab" :to="'/admin/review-nursing-application-form/'+getdata.applicationId"><strong>Application Form</strong></router-link></li>
+                                <li class="nav-item" role="presentation" v-if="getdata.hasAdmissionLetter === 'NO'"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-annexure-1/'+getdata.applicationId"><strong>Annexure-I</strong></router-link></li>
                                 <li class="nav-item " role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-I</strong></router-link></li>
-                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/annexure-2'"><strong>Annexure-II</strong></router-link></li>
-                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/upload-documents'"><strong>Upload Documents</strong></router-link></li>
-                                <li class="nav-item" role="presentation"><router-link class="nav-link active" role="tab" data-toggle="tab" :to="'/review-submit'"><strong>Review &amp; Submit</strong></router-link></li>
+                                <li class="nav-item" role="presentation"><router-link class="nav-link " role="tab" data-toggle="tab" :to="'/admin/review-nursing-annexure-2/'+getdata.applicationId"><strong>Annexure-II</strong></router-link></li>
+                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-upload-documents/'+getdata.applicationId"><strong>Upload Documents</strong></router-link></li>
+                                <li class="nav-item" role="presentation"><router-link class="nav-link active" role="tab" data-toggle="tab" :to="'/admin/review-nursing-review-submit/'+getdata.applicationId"><strong>Review &amp; Submit</strong></router-link></li>
                             </ul>
                             <div class="tab-content">
                               
@@ -312,12 +312,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-12 mb-2">
-                                                    <div class="card mt-2 det-sec">
-                                                        <div class="card-header">
+                                                <!-- <div class="col-xl-12 mb-2">
+                                                    <div class="card mt-2 det-sec"> -->
+                                                        <!-- <div class="card-header">
                                                             <h6 class="mb-0 color-mg">Self Declaration</h6>
-                                                        </div>
-                                                        <div class="card-body">
+                                                        </div> -->
+                                                        <!-- <div class="card-body">
                                                             <p class="t-c-text">I {{getdata.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under “Nursing Scholarship” could be withdrawn.</p>
                                                             <div class="form-group mb-3">
                                                                 <div class="form-check">
@@ -328,9 +328,9 @@
                                                             <div class="form-group">
                                                                 <button class="btn btn-sm btn-mg d-none" type="button" :disabled='isDisabled'>Submit Application Form</button>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                        </div> -->
+                                                    <!-- </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </form>
@@ -572,69 +572,78 @@
 
     </section>
 </template>
-
 <script>
 export default{
     data(){
-       return{
-         userId: document.querySelector("meta[name='userId']").getAttribute('content'),
-         csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-         terms: false,
-         getdata:{
-            hasAdmissionLetter:'',
-            financialYear:'',
-        },
-        getFiles:{
-            admissionLetter: '#',
-            annexureII: '#',
-            photograph: '#',
-            proofOfAge: '#',
-            markSheets10: '#',
-            markSheets12: '#',
-            leprosyCertificateSelf: '#',
-            leprosyCertificateMother: '#',
-            leprosyCertificateFather: '#'
-         },
-        errors:[]
+        return {
+           
+            uploadFiles: {
+                admissionLetter: '',
+                annexureII: '',
+                photograph: '',
+                proofOfAge: '',
+                markSheets10: '',
+                markSheets12: '',
+                leprosyCertificateSelf: '',
+                leprosyCertificateMother: '',
+                leprosyCertificateFather: ''
+
+            },
+            getFiles: {
+                admissionLetter: '#',
+                annexureII: '#',
+                photograph: '#',
+                proofOfAge: '#',
+                markSheets10: '#',
+                markSheets12: '#',
+                leprosyCertificateSelf: '#',
+                leprosyCertificateMother: '#',
+                leprosyCertificateFather: '#'
+
+            },
+            getdata:{
+                hasAdmissionLetter:'',
+                applicationId:'',
+                financialYear:'',
+            },
+            errors:[]
         }
     },
-
- 
-   methods:{
-      getdataNursing(){
-       axios.get(`/api/application-form/${this.userId}`)
+    methods:{
+    
+       getdataNursing()
+        {
+       const  currentUrl = window.location.pathname.split('/').reverse()[0];
+            axios.get('/admin/admin-api/review-nursing-application-form/'+currentUrl)
         .then(response => {
           if (response.data['success']) {
             const data = response.data['data']
             console.log(data)
-            this.getdata.hasAdmissionLetter  = data.hasAdmissionLetter;
-            this.getdata.financialYear       = data.financialYear ;
-            this.getdata.applicationId       = data.applicationId;
             this.getdata.applicantNameF      = data.applicantNameF;
             this.getdata.applicantNameM      = data.applicantNameM;
             this.getdata.applicantNameL      = data.applicantNameL;
+            this.getdata.applicantFatherName = data.applicantFatherName;
+            this.getdata.applicantMotherName = data.applicantMotherName;
+            this.getdata.addressAddln1       = data.addressAddln1;
+            this.getdata.hasAdmissionLetter  = data.hasAdmissionLetter;
+            this.getdata.applicationId       = data.applicationId;
             this.getdata.financialYear       = data.financialYear;
             this.getdata.fullName = `${this.getdata.applicantNameF}${(this.getdata.applicantNameM)?" "+this.getdata.applicantNameM:''} ${this.getdata.applicantNameL}`;
-            this.getFileData();
+            
          }
+         
       })
-    },
-
-         getFileData(){
-            axios.get('/api/get-upload-documents/'+this.getdata.applicationId)
+      },
+        getFileData(){
+          const  currentUrl = window.location.pathname.split('/').reverse()[0];
+            axios.get('/admin/admin-api/review-nursing-upload-documents/'+currentUrl)
             .then(response => {
                 if (response.data['success']) {
                     this.getFiles = response.data['data']
                 }
             })
         }
-  },
-
-  computed: {
-  	  isDisabled: function(){
-    	return !this.terms;
-        }
-      },
+    },
     created(){
      this.getdataNursing();
     }

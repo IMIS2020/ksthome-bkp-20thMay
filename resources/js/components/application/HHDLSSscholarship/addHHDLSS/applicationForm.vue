@@ -329,7 +329,7 @@
 
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education1Percentage">
+                                                                                                <input class="form-control form-control-sm" type="number" min="0" max="100" step="0.01" v-model="form.education1Percentage">
                                                                                             </div>
                                                                                         </td>
 
@@ -367,7 +367,7 @@
 
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education2Percentage">
+                                                                                                <input class="form-control form-control-sm" type="number" min="0" max="100" step="0.01" v-model="form.education2Percentage">
                                                                                             </div>
                                                                                         </td>
 
@@ -405,7 +405,7 @@
 
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education3Percentage">
+                                                                                                <input class="form-control form-control-sm" type="number" min="0" max="100" step="0.01" v-model="form.education3Percentage">
                                                                                             </div>
                                                                                         </td>
 
@@ -444,7 +444,7 @@
 
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education4Percentage">
+                                                                                                <input class="form-control form-control-sm" type="number" min="0" max="100" step="0.01" v-model="form.education4Percentage">
                                                                                             </div>
                                                                                         </td>
 

@@ -139,7 +139,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/review-nursing-upload-documents/{applicationId}', 'Admin\AdminSystemController@reviewNursingUploadDocuments');
     Route::get('/review-nursing-review-submit/{applicationId}', 'Admin\AdminSystemController@reviewNursingReview');
     // Review-HHDLSS
-    Route::get('/review-HHDLSS-application-form/{userId}', 'Admin\AdminSystemController@reviewHHDLSSApplicationForm');
+    Route::get('/review-HHDLSS-application-form/{applicationId}', 'Admin\AdminSystemController@reviewHHDLSSApplicationForm');
     Route::get('/review-HHDLSS-annexure-1/{applicationId}', 'Admin\AdminSystemController@reviewHHDLSSAnnexure1');
     Route::get('/review-HHDLSS-annexure-2/{applicationId}', 'Admin\AdminSystemController@reviewHHDLSSAnnexure2');
     Route::get('/review-HHDLSS-upload-documents/{applicationId}', 'Admin\AdminSystemController@reviewHHDLSSUploadDocuments');
@@ -163,7 +163,16 @@ Route::prefix('admin')->group(function() {
         Route::get('/review-nursing-application-form/{applicationId}', 'Admin\ReviewNursing\ReviewNursingController@getNursingScholarshipApplication');
         Route::get('/review-nursing-annexure-1/{applicationId}', 'Admin\ReviewNursing\ReviewNursingController@getAnnexureI');
         Route::get('/review-nursing-annexure-2/{applicationId}', 'Admin\ReviewNursing\ReviewNursingController@getNursingScholarshipApplication');
+        Route::get('/review-nursing-upload-documents/{applicationId}', 'Admin\ReviewNursing\ReviewNursingController@getApplicantDocuments');
+        Route::get('/review-nursing-review-submit/{applicationId}', 'Admin\ReviewNursing\ReviewNursingController@getApplicantDocuments');
+        #END NURSING
+        // HHDLSS
+        Route::get('/review-HHDLSS-application-form/{applicationId}', 'Admin\ReviewHHDLSS\ReviewHHDLSSController@getHHDLSSScholarshipApplication');
+        Route::get('/review-HHDLSS-annexure-1/{applicationId}', 'Admin\ReviewHHDLSS\ReviewHHDLSSController@getAnnexureI');
+        Route::get('/review-HHDLSS-annexure-2/{applicationId}', 'Admin\ReviewHHDLSS\ReviewHHDLSSController@getHHDLSSScholarshipApplication');
+        Route::get('/review-HHDLSS-upload-documents/{applicationId}', 'Admin\ReviewHHDLSS\ReviewHHDLSSController@getApplicantDocuments');
+        Route::get('/review-HHDLSS-review-submit/{applicationId}', 'Admin\ReviewHHDLSS\ReviewHHDLSSController@getApplicantDocuments');
+        // End
     });
-
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
   });

@@ -1,7 +1,7 @@
 <template>
  <section class="page-main">
         <div class="container">
-            <form @submit.prevent="saveForm">
+            <form>
                 <div class="form-row">
                     <div class="col-xl-12 text-center mb-3">
                         <h5 class="text-capitalize text-center color-mg"><strong>Application form (Nursing scholarship   {{getdata.financialYear}})</strong></h5>
@@ -9,12 +9,12 @@
                     <div class="col-xl-12">
                         <div class="mb-3">
                             <ul class="nav nav-tabs font-sm" role="tablist">
-                               <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/application-form/'"><strong>Application Form</strong></router-link></li>
-                                <li class="nav-item" role="presentation" v-if="getdata.hasAdmissionLetter === 'NO'"><router-link class="nav-link active" role="tab" data-toggle="tab" :to="'/annexure-1'"><strong>Annexure-I</strong></router-link></li>
+                               <li class="nav-item" role="presentation"><router-link class="nav-link " role="tab" data-toggle="tab" :to="'/admin/review-nursing-application-form/'+getdata.applicationId"><strong>Application Form</strong></router-link></li>
+                                <li class="nav-item" role="presentation" v-if="getdata.hasAdmissionLetter === 'NO'"><router-link class="nav-link active" role="tab" data-toggle="tab" :to="'/admin/review-nursing-annexure-1/'+getdata.applicationId"><strong>Annexure-I</strong></router-link></li>
                                 <li class="nav-item " role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-I</strong></router-link></li>
-                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/annexure-2'"><strong>Annexure-II</strong></router-link></li>
-                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/upload-documents'"><strong>Upload Documents</strong></router-link></li>
-                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/review-submit'"><strong>Review &amp; Submit</strong></router-link></li>
+                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-annexure-2/'+getdata.applicationId"><strong>Annexure-II</strong></router-link></li>
+                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-upload-documents/'+getdata.applicationId"><strong>Upload Documents</strong></router-link></li>
+                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-review-submit/'+getdata.applicationId"><strong>Review &amp; Submit</strong></router-link></li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" role="tabpanel" id="tab-2">
@@ -37,37 +37,37 @@
                                                                     <div class="col-xl-4">
                                                                         <label>Institute Name</label>
                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text" required v-model="form.choice1instituteName">
+                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.choice1instituteName" disabled>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xl-4">
                                                                         <label>Address Line 1</label>
                                                                           <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text" v-model="form.choice1addressAddln1"  required>
+                                                                            <input class="form-control form-control-sm" type="text" v-model="form.choice1addressAddln1" disabled>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xl-4 offset-xl-0">
                                                                         <label>Address Line 2</label>
                                                                          <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text" required v-model="form.choice1addressAddln2">
+                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.choice1addressAddln2" disabled>
                                                                         </div>
                                                                     </div>
                                                                      <div class="col-xl-3">
                                                                         <label>City</label>
                                                                         <div class="form-group">
-                                                                          <input class="form-control form-control-sm" type="text" required v-model="form.choice1addressCity">
+                                                                          <input class="form-control form-control-sm" type="text"  v-model="form.choice1addressCity" disabled>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xl-3 offset-xl-0">
                                                                         <label>District</label>
                                                                         <div class="form-group">
-                                                                          <input class="form-control form-control-sm" type="text" required v-model="form.choice1addressDistprov">
+                                                                          <input class="form-control form-control-sm" type="text"  v-model="form.choice1addressDistprov" disabled>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xl-3">
                                                                         <label>State</label>
                                                                         <div class="form-group">
-                                                                            <select class="form-control form-control-sm" required v-model="form.choice1addressState">
+                                                                            <select class="form-control form-control-sm"  v-model="form.choice1addressState" disabled>
                                                                                 <option value="" disabled>--Select--</option>
                                                                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
                                                                                 <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -111,7 +111,7 @@
                                                                       <div class="col-xl-3">
                                                                         <label>PIN/ZIP Code:</label>
                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text" required v-model="form.choice1addressPinzip" maxlength="6">
+                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.choice1addressPinzip" maxlength="6" disabled>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -123,37 +123,37 @@
                                                                     <div class="col-xl-4">
                                                                         <label>Institute Name</label>
                                                                         <div class="form-group">
-                                                                         <input class="form-control form-control-sm" type="text" required v-model="form.choice2instituteName">
+                                                                         <input class="form-control form-control-sm" type="text"  v-model="form.choice2instituteName" disabled>
                                                                          </div>
                                                                     </div>
                                                                     <div class="col-xl-4">
                                                                         <label>Address Line 1</label>
                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text" required  v-model="form.choice2addressAddln1">
+                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.choice2addressAddln1" disabled>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xl-4 offset-xl-0">
                                                                         <label>Address Line 2</label>
                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text" required v-model="form.choice2addressAddln2">
+                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.choice2addressAddln2" disabled>
                                                                         </div>
                                                                     </div>
                                                                      <div class="col-xl-3">
                                                                         <label>City</label>
                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text" required v-model="form.choice2addressCity">
+                                                                            <input class="form-control form-control-sm" type="text" disabled  v-model="form.choice2addressCity">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xl-3 offset-xl-0">
                                                                         <label>District</label>
                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text"  required v-model="form.choice2addressDistprov">
+                                                                            <input class="form-control form-control-sm" type="text"   v-model="form.choice2addressDistprov" disabled>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xl-3">
                                                                         <label>State</label>
                                                                         <div class="form-group">
-                                                                            <select class="form-control form-control-sm" required  v-model="form.choice2addressState">
+                                                                            <select class="form-control form-control-sm"   v-model="form.choice2addressState" disabled>
                                                                                 <option value="" disabled>--Select--</option>
                                                                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
                                                                                 <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -197,7 +197,7 @@
                                                                      <div class="col-xl-3">
                                                                         <label>PIN/ZIP Code:</label>
                                                                           <div class="form-group">
-                                                                           <input class="form-control form-control-sm" type="text" required v-model="form.choice2addressPinzip" maxlength="6">
+                                                                           <input class="form-control form-control-sm" type="text" v-model="form.choice2addressPinzip" maxlength="6" disabled>
                                                                         </div>
                                                                     </div>
 
@@ -210,39 +210,39 @@
                                                                     <div class="col-xl-4">
                                                                         <label>Institute Name</label>
                                                                          <div class="form-group">
-                                                                          <input class="form-control form-control-sm" type="text" required v-model="form.choice3instituteName">
+                                                                          <input class="form-control form-control-sm" type="text"  v-model="form.choice3instituteName" disabled>
                                                                          </div>
                                                                     </div>
                                                                     <div class="col-xl-4">
                                                                         <label>Address Line 1</label>
                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text" required v-model="form.choice3addressAddln1">
+                                                                            <input class="form-control form-control-sm" type="text" v-model="form.choice3addressAddln1" disabled>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xl-4 offset-xl-0">
                                                                         <label>Address Line 2</label>
                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.choice3addressAddln2">
+                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.choice3addressAddln2" disabled>
                                                                         </div>
                                                                     </div>
                                                                    
                                                                     <div class="col-xl-3">
                                                                         <label>City</label>
                                                                          <div class="form-group">
-                                                                          <input class="form-control form-control-sm" type="text"  v-model="form.choice3addressCity">
+                                                                          <input class="form-control form-control-sm" type="text"  v-model="form.choice3addressCity" disabled>
                                                                         </div>
                                                                     </div>    
 
                                                                      <div class="col-xl-3 offset-xl-0">
                                                                         <label>District</label>
                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.choice3addressDistprov">
+                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.choice3addressDistprov" disabled>
                                                                         </div>
                                                                     </div>                                                           
                                                                     <div class="col-xl-3">
                                                                         <label>State</label>
                                                                         <div class="form-group">
-                                                                            <select class="form-control form-control-sm" required v-model="form.choice3addressState">
+                                                                            <select class="form-control form-control-sm"  v-model="form.choice3addressState" disabled>
                                                                                 <option value="" disabled>--Select--</option>
                                                                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
                                                                                 <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -286,7 +286,7 @@
                                                                      <div class="col-xl-3">
                                                                         <label>PIN/ZIP Code:</label>
                                                                          <div class="form-group">
-                                                                          <input class="form-control form-control-sm" type="text" required v-model="form.choice3addressPinzip" maxlength="6">
+                                                                          <input class="form-control form-control-sm" type="text"  v-model="form.choice3addressPinzip" maxlength="6" disabled>
                                                                        </div>
                                                                     </div>
                                                                 </div>
@@ -393,7 +393,7 @@ export default{
         }
     },
     created(){
-        this.getdataNursing();
+    this.getdataNursing();
     }
  }
 </script>

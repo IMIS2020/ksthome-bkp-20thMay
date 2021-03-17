@@ -43,15 +43,21 @@ import ExtendLastDate from './components/admin/applicationSchedule/extendLastDat
 import ManageApplicationDetails from './components/admin/applicationDetails/manageApplicationDetails';
 
 // Review Section
-
 // Nursing
-
 import ReviewNursingApplicationForm from './components/admin/applicationDetails/reviewApplicationNursing/applicationFormNursing';
 import ReviewNursingAnnexure1 from './components/admin/applicationDetails/reviewApplicationNursing/annexure1Nursing';
 import ReviewNursingAnnexure2 from './components/admin/applicationDetails/reviewApplicationNursing/annexure2Nursing';
 import ReviewNursingUploadDocuments from './components/admin/applicationDetails/reviewApplicationNursing/uploadDocumentsNursing';
 import ReviewNursingReview from './components/admin/applicationDetails/reviewApplicationNursing/reviewNursing';
+// End
 
+// HHDLSS
+import ReviewHHDLSSApplicationForm from './components/admin/applicationDetails/reviewApplicationHHDLSS/applicationFormHHDLSS';
+import ReviewHHDLSSAnnexure1 from './components/admin/applicationDetails/reviewApplicationHHDLSS/annexure1HHDLSS';
+import ReviewHHDLSSAnnexure2 from './components/admin/applicationDetails/reviewApplicationHHDLSS/annexure2HHDLSS';
+import ReviewHHDLSSUploadDocuments from './components/admin/applicationDetails/reviewApplicationHHDLSS/uploadDocumentsHHDLSS';
+import ReviewHHDLSSReview from './components/admin/applicationDetails/reviewApplicationHHDLSS/reviewHHDLSS';
+// End
 export default{
     mode: 'history',
     linkActiveClass: 'font-semibold',
@@ -364,11 +370,78 @@ path: '/admin/admin-api/manage-application-schedule/get-details',
 },
 
 {
+    path: '/admin/admin-api/review-nursing-upload-documents/:applicationId',
+   
+},
+
+{
     path: '/admin/review-nursing-review-submit/:applicationId',
     component:ReviewNursingReview,
     name: "review-nursing-review-submit"
 },
 
-// End
+{
+    path: '/admin/admin-api/review-nursing-review-submit/:applicationId',
+   
+},
+// end nursing
+
+
+
+//Start HHDLSS 
+{
+    path: '/admin/review-HHDLSS-application-form/:applicationId',
+    component:ReviewHHDLSSApplicationForm,
+    name: "review-HHDLSS-application-form"
+},
+
+{
+    path: '/admin/admin-api/review-HHDLSS-application-form/:applicationId',
+    
+},
+
+{
+    path: '/admin/review-HHDLSS-annexure-1/:applicationId',
+    component:ReviewHHDLSSAnnexure1,
+    name: "review-HHDLSS-annexure-1"
+},
+
+{
+    path: '/admin/admin-api/review-HHDLSS-annexure-1/:applicationId',
+    
+},
+
+
+{
+    path: '/admin/review-HHDLSS-annexure-2/:applicationId',
+    component:ReviewHHDLSSAnnexure2,
+    name: "review-HHDLSS-annexure-2"
+},
+{
+    path: '/admin/admin-api/review-HHDLSS-annexure-2/:applicationId',
+    
+},
+
+{
+    path: '/admin/review-HHDLSS-upload-documents/:applicationId',
+    component:ReviewHHDLSSUploadDocuments,
+    name: "review-HHDLSS-upload-documents"
+},
+
+{
+    path: '/admin/admin-api/review-HHDLSS-upload-documents/:applicationId',
+   
+},
+{
+    path: '/admin/review-HHDLSS-review-submit/:applicationId',
+    component:ReviewHHDLSSReview,
+    name: "review-HHDLSS-review-submit"
+},
+{
+    path: '/admin/admin-api/review-HHDLSS-review-submit/:applicationId',
+   
+},
+
+// End HHDLSS
  ]
 }

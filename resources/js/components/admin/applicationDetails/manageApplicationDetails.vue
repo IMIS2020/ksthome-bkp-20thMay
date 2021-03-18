@@ -180,7 +180,7 @@
                                             <thead class="cs-tbl-hd">
                                                 <tr>
                                                     <th class="w-10x">Session</th>
-                                                    <th>Application No.</th>
+                                                    <th>Application Details</th>
                                                     <th>Applicant's Details</th>
                                                     <th>Contact Details</th>
                                                     <th>Applicant's Address</th>
@@ -199,7 +199,7 @@
                                                     <td class="text-center w-10x">{{(eachUser[1].created_at.split('T')[0].split('-').reverse().join('/'))}}</td>
                                                     <td class="text-center">Submitted with pending documents<br><span class="badge badge-success"></span></td>
                                                     <td class="text-center w-5x">
-                                                        <div class="dropleft no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
+                                                        <div class="dropdown no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
                                                             <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in"><router-link class="dropdown-item" :to="'/admin/review-nursing-application-form/'+eachUser[0].applicationId"><strong>Review</strong></router-link></div>
                                                         </div>
                                                     </td>

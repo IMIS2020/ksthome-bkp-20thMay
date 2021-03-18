@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<nav class="navbar navbar-dark navbar-expand-md  imis-nav">
+<nav class="navbar navbar-dark navbar-expand-md shadow-lg  imis-nav">
         <div class="container-fluid"><a class="navbar-brand text-white"  href="/">I-MIS</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ml-auto font-md">
@@ -8,7 +8,7 @@
                     @auth
                     <li class="nav-item"><a class="nav-link" href="{{url('/') }}"><strong>Home</strong></a></li>
                      @else
-                   <li class="nav-item"><a class="nav-link" href="{{ route('login') }}"><strong>Login</strong></a></li>
+                   <li class="nav-item"><a class="nav-link" href="/"><strong>Login</strong></a></li>
                      @if (Route::has('register'))
                         <li class="nav-item"><a class="nav-link" href="{{ route('register') }}"><strong>Register</strong></a></li>
                      @endif

@@ -121,76 +121,68 @@
                                 <div class="col-xl-12 offset-xl-0 mb-2">
                                     <h4 class="mb-0 p-head">Add New Domain</h4>
                                 </div>
-                                <div class="col-xl-8 offset-xl-2">
-                                    <div>
-                                        <form @submit.prevent="saveForm">
-                                            <div class="com-bg">
-                                                <div class="form-row">
-                                                    <div class="col-xl-12 offset-xl-0">
-                                                        <p class="text-center my-2 color-mg"><strong>Add Domain Details</strong></p>
-                                                    </div>
+                                <div class="col-xl-12 offset-xl-0">
+                                    <form>
+                                        <div class="com-bg">
+                                            <div class="form-row">
+                                                <div class="col-sm-4 col-xl-6 offset-xl-3 text-right">
+                                                    <p class="text-center my-2 color-mg"><strong>Add Domain Details</strong></p>
                                                 </div>
-                                                <div style="background-color: #fff;padding: 10px;border-radius: 5px;">
-                                                    <div class="form-row">
-                                                        <div class="col-xl-6">
-                                                            <label>Domain Name</label>
-                                                            <div class="form-group">
-                                                                <input class="form-control form-control-sm" 
-                                                                type="text" v-model="form.domainsName" required>
+                                                <div class="col-xl-10 offset-xl-1">
+                                                    <div class="mt-1 bt-1-mg com-bg bg-white pt-2">
+                                                        <div class="form-row">
+                                                            <div class="col-xl-6"><label>Domain Name</label>
+                                                                <div class="form-group"><input type="text" class="form-control form-control-sm" /></div>
                                                             </div>
-                                                        </div>
-
-                                                        <div class="col-xl-6">
-                                                            <label>Domain Description</label>
-                                                            <div class="form-group">
-                                                                <textarea class="form-control form-control-sm" type="text" 
-                                                                v-model="form.domainsDescription"></textarea>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xl-12 offset-xl-0 align-self-center">
-                                                            <div class="com-bg-1">
-                                                                <div class="form-row mb-3">
-                                                                    <div class="col-md-2 col-xl-2 offset-md-3 offset-xl-9 align-self-center">
-                                                                            <button class="btn btn-block btn-sm btn-xs btn-mg add-f-pmh-row" type="button" @click="addNewData">
-                                                                                <i class="fa fa-plus"></i><strong>&nbsp;Add row</strong>
-                                                                            </button>
-                                                                        </div>
-                                                                    <div class="col-md-1 col-xl-1 align-self-center"><button class="btn btn-danger btn-block btn-sm btn-xs delete-f-pmh-row" type="button"><i class="fa fa-trash"></i></button></div>
-                                                                </div>
-                                                                <div class="table-responsive table results mb-0 donor-list tmd f-pmh-table">
-                                                                    <table class="table table-sm">
-                                                                        <thead class="font-md">
-                                                                            <tr class="color-mg">
-                                                                                <th class="text-center w-5x"><strong>#</strong></th>
-                                                                                <th>Domain Value</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody class="h-23x">
-                                                                            <tr v-for="(row, index) in rows" :key="index" >
-                                                                                <td class="text-center w-5x pt-2">
-                                                                                    <input type="checkbox" name="record"></td>
-                                                                                <td>
-                                                                                    <div class="form-group mb-0">
-                                                                                        <input class="form-control form-control-sm font-sm" type="text"  v-model="row.domainsValue">
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
+                                                            <div class="col-xl-6"><label>Domain Description</label>
+                                                                <div class="form-group"><textarea class="form-control form-control-sm"></textarea></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="com-bg pt-2 mt-2">
+                                        </div>
+                                        <div class="com-bg pt-2 mt-2 mb-2">
+                                            <div class="form-group pull-right col-xl-12 mb-2">
                                                 <div class="form-row">
-                                                    <div class="col-xl-3 offset-xl-3 pr-1"><button class="btn btn-block btn-sm btn-custom btn-smd" type="submit"><strong><em>Save</em></strong></button></div>
-                                                    <div class="col-xl-3 offset-xl-0 pr-1"><router-link class="btn btn-block btn-sm btn-cancel btn-smd" role="button" to="/admin/manage-domains"><strong><em>Cancel</em></strong></router-link></div>
+                                                    <div class="col-sm-4 col-xl-6 offset-xl-3 text-right">
+                                                        <p class="text-center my-2 color-mg"><strong>Add Domain Values</strong></p>
+                                                    </div>
+                                                    <div class="col-sm-4 col-xl-2 offset-xl-1 text-right"><button class="btn font-xs btn-mg add-f-pmh-row mr-2" type="button"><i class="fa fa-plus"></i><strong> Add Row</strong></button></div>
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
+                                            <div class="floating-form b-none">
+                                                <div class="table-responsive table mb-0 donor-list tmd f-pmh-table">
+                                                    <table class="table table-sm">
+                                                        <thead class="cs-tbl-hd">
+                                                            <tr>
+                                                                <th class="text-nowrap">Domain Value</th>
+                                                                <th>Description</th>
+                                                                <th class="text-center w-5x">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="h-21x">
+                                                            <tr class="font-sm color-mg">
+                                                                <td>
+                                                                    <div class="form-group mt-1"><input type="text" class="form-control form-control-sm" /></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group mt-1"><textarea class="form-control form-control-sm"></textarea></div>
+                                                                </td>
+                                                                <td class="text-center w-5x pt-2"><a href="#"><i class="fa fa-trash fa-2x color-mg"></i></a></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="com-bg pt-2 mt-2">
+                                            <div class="form-row">
+                                                <div class="col-xl-2 offset-xl-4 pr-1"><a class="btn btn-block btn-sm btn-custom btn-smd" role="button" href="#"><strong><em>Save</em></strong></a></div>
+                                                <div class="col-xl-2 offset-xl-0 pr-1"><a class="btn btn-block btn-sm btn-cancel btn-smd" role="button" href="#"><strong><em>Cancel</em></strong></a></div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -107,7 +107,7 @@ button, input {
   font-size: 14px;
   color: #702e2e;
   text-align: justify;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-weight: 600;
 }
 
@@ -120,7 +120,7 @@ button, input {
 }
 
 .form-control:focus {
-  color: #702e2e;
+  color: #000000;
   background-color: #fff;
   border-color: #702e2e;
   outline: 0;
@@ -195,7 +195,7 @@ a:hover {
 .form-control {
   font-size: 13px;
   border: 1px solid rgba(117,53,53,0.5);
-  color: #702e2e;
+  color: #000000;
 }
 
 .btn-mg {
@@ -245,7 +245,7 @@ a:hover {
 .login-box {
   padding: 20px 20px 20px 20px;
   background-color: #eeeeee;
-  border: 1px solid #702e2e;
+  border: 2px solid #702e2e;
   border-radius: 5px;
 }
 
@@ -259,17 +259,14 @@ a:hover {
 
 .home-icon {
   padding: 55px;
-  background-color: #702e2e;
-  color: #fff;
+  color: #702e2e;
   border-radius: 5px;
   text-align: center;
-  border: 1px solid #702e2e;
 }
 
 .home-icon:hover {
-  background-color: #eaeaea;
-  color: #702e2e;
-  border: 1px solid #702e2e;
+  background-color: #702e2e;
+  color: #dcdcdc;
   transition: all 0.3s;
 }
 
@@ -277,7 +274,7 @@ a:hover {
   color: #702e2e;
   font-weight: 600;
   margin-right: 8px;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .act-link:hover {
@@ -309,12 +306,12 @@ a:hover {
 }
 
 .font-xl {
-  font-size: 25px;
+  font-size: 18px !important;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 990px) {
   .font-xl {
-    font-size: 18px !important;
+    font-size: 16px !important;
   }
 }
 
@@ -325,9 +322,9 @@ a:hover {
   background-color: #f7f7f7;
 }
 
-@media (max-width: 990px) {
-  .pre-sub-form:not(:last-child) {
-    margin-bottom: 150px !important;
+@media print {
+  .pre-sub-form {
+    page-break-after: always;
   }
 }
 
@@ -340,21 +337,28 @@ a:hover {
 }
 
 .f-fm-arbs {
-  font-family: 'Arbutus Slab';
+  font-family: 'Ubuntu';
 }
 
 @media (max-width: 990px) {
   .applicant-img {
-    width: 170px !important;
+    max-width: 120px !important;
   }
 }
 
 .applicant-img {
-  width: 200px;
+  max-width: 170px;
 }
 
 .txt-blk-bg {
   background-color: #000;
+}
+
+@media print {
+  .txt-blk-bg {
+    background-color: #000 !important;
+    -webkit-print-color-adjust: exact;
+  }
 }
 
 @media (min-width:576px) {
@@ -430,7 +434,7 @@ a:hover {
 .sidebar .sidebar-brand {
   height: 3.5rem;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.79rem;
   font-weight: 800;
   text-align: center;
   text-transform: uppercase;
@@ -476,7 +480,7 @@ a:hover {
 }
 
 .navbar.navbar-dark.align-items-start.sidebar.accordion.bg-gradient-custom.p-0 {
-  z-index: 9999;
+  z-index: 999;
   background: rgb(112,46,46);
 }
 
@@ -666,7 +670,7 @@ a:hover {
 }
 
 .form-control:focus {
-  color: #702e2e;
+  color: #000000;
   background-color: #fff;
   border-color: #717171;
   outline: 0;
@@ -695,6 +699,7 @@ a:hover {
 
 .grey-bg {
   background: rgb(125,125,125);
+  font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
 }
 
 .topbar .topbar-divider {
@@ -744,10 +749,6 @@ a:hover {
   padding: .13rem;
   vertical-align: top;
   border-top: 1px solid #e3e6f0;
-}
-
-a:hover {
-  text-decoration: none;
 }
 
 .upd-doc td {
@@ -1131,3 +1132,104 @@ label {
   width: 30px;
 }
 
+.cs-hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 2px solid #702e2e;
+}
+
+.mt-6 {
+  margin-top: 4rem !important;
+}
+
+.h-35x {
+  height: 350px;
+}
+
+.h-38x {
+  height: 380px;
+}
+
+.schl-hist-div {
+  border: 1px solid;
+  margin-bottom: 6px;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  max-height: 95px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.comments-div-1 {
+  border: 1px solid #c8c8c8;
+  padding: 2px 5px;
+  font-size: 14px;
+  color: #702e2e;
+  overflow-y: scroll;
+  height: 40px;
+}
+
+.h-25x {
+  height: 250px;
+}
+
+@media print {
+  .print-1-sec {
+    page-break-after: always;
+  }
+}
+
+.adm-tab {
+  height: 520px;
+  overflow-y: scroll;
+  background-color: #f0eef1;
+}
+
+.font-s {
+  font-size: 12px;
+}
+
+.disabled {
+  color: #7d7d7d;
+}
+
+.cs-modal-body {
+  background-color: #f0eef1;
+  -webkit-box-shadow: inset 0px 0px 22px 0px rgba(0,0,0,0.11);
+  -moz-box-shadow: inset 0px 0px 22px 0px rgba(0,0,0,0.11);
+  box-shadow: inset 0px 0px 22px 0px rgba(0,0,0,0.11);
+  padding: .5rem;
+}
+
+.w-15x {
+  width: 150px;
+}
+
+.w-7x {
+  width: 70px;
+}
+
+.w-38x {
+  width: 340px;
+}
+
+.w-57x {
+  width: 570px;
+}
+
+.font-ms {
+  font-size: 10.5px;
+}
+
+.home-links {
+  color: #702e2e;
+}
+
+.home-links:hover {
+  color: #3e8ce4;
+}
+
+.h-21x {
+  height: 210px;
+}

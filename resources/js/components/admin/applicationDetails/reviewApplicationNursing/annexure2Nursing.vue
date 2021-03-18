@@ -10,7 +10,7 @@
                     <div class="col-xl-12">
                         <div class="mb-3">
                             <ul class="nav nav-tabs font-sm" role="tablist">
-                                <li class="nav-item" role="presentation"><router-link class="nav-link " role="tab" data-toggle="tab" :to="'/admin/review-nursing-application-form/'+getdata.applicationId"><strong>Application Form</strong></router-link></li>
+                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-application-form/'+getdata.applicationId"><strong>Application Form</strong></router-link></li>
                                 <li class="nav-item" role="presentation" v-if="getdata.hasAdmissionLetter === 'NO'"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-annexure-1/'+getdata.applicationId"><strong>Annexure-I</strong></router-link></li>
                                 <li class="nav-item " role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-I</strong></router-link></li>
                                 <li class="nav-item" role="presentation"><router-link class="nav-link active" role="tab" data-toggle="tab" :to="'/admin/review-nursing-annexure-2/'+getdata.applicationId"><strong>Annexure-II</strong></router-link></li>
@@ -18,55 +18,46 @@
                                 <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-review-submit/'+getdata.applicationId"><strong>Review &amp; Submit</strong></router-link></li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane active" role="tabpanel" id="tab-3">
-                                    <div class="div-inner-filed">
-                                        <div class="ub-reg-form">
+                                <div role="tabpanel" class="tab-pane active adm-tab" id="tab-3">
+                                    <div class="div-inner-filed py-1 px-2">
+                                        <form class="ub-reg-form">
                                             <div class="form-row">
                                                 <div class="col-xl-12 mb-2">
                                                     <div class="card mt-2 det-sec">
-                                                        <div class="card-header">
-                                                            <h6 class="mb-0 color-mg">Declaration Form (To be signed by colony leader)</h6>
+                                                        <div class="card-header p-1">
+                                                            <h6 class="mb-0 color-mg font-sm">Declaration Form (To be signed by colony leader)</h6>
                                                         </div>
-                                                        <div class="card-body">
+                                                        <div class="card-body p-2">
                                                             <div class="form-row">
                                                                 <div class="col-xl-12 text-center align-self-center mb-4">
                                                                     <p class="text-uppercase mb-0 color-mg"><strong><span style="text-decoration: underline;">to whom it may concern</span></strong></p>
                                                                 </div>
                                                                 <div class="col-xl-5 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>I&nbsp; &nbsp; &nbsp;</strong></p>
-                                                                    <span class="d-block color-mg" style="overflow: hidden;">
-                                                                        <input class="form-control form-control-sm" type="text" placeholder="Name of colony leader" v-model="form.applicantColonyLeaderName" disabled></span>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>I </strong></p><span class="d-block color-mg" style="overflow: hidden;"><input type="text" class="form-control form-control-sm" placeholder="Name of colony leader" readonly /></span>
                                                                 </div>
                                                                 <div class="col-xl-7 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>hereby certify that Mr./ Miss.&nbsp;</strong></p>
-                                                                    <span class="d-block color-mg" style="overflow: hidden;">
-                                                                      <input class="form-control form-control-sm" type="text" v-model="getdata.fullName" disabled placeholder="Name of the candidate">
-                                                                     </span>
-                                                                    </div>
-                                                                <div class="col-xl-6 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>has been residing in this colony&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="getdata.addressAddln1" placeholder="Colony name & House No" disabled></span>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>hereby certify that Mr./ Miss. </strong></p><span class="d-block color-mg" style="overflow: hidden;"><input type="text" class="form-control form-control-sm" placeholder="Name of the candidate" readonly /></span>
                                                                 </div>
                                                                 <div class="col-xl-6 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>and her parent / parents&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;">
-                                                                    <input class="form-control form-control-sm" type="text" v-model="getdata.applicantMotherName" placeholder="Mother name" disabled></span>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>has been residing in this colony </strong></p><span class="d-block color-mg" style="overflow: hidden;"><input type="text" class="form-control form-control-sm" placeholder="Colony name" readonly /></span>
                                                                 </div>
-                                                                <div class="col-xl-4 text-center align-self-center mb-2"><input class="form-control form-control-sm" type="text" placeholder="Father name" v-model="getdata.applicantFatherName" disabled></div>
                                                                 <div class="col-xl-6 text-center align-self-center mb-2">
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>and his/her parent / parents </strong></p><span class="d-block color-mg" style="overflow: hidden;"><input type="text" class="form-control form-control-sm" placeholder="Mother name" readonly /></span>
+                                                                </div>
+                                                                <div class="col-xl-4 text-center align-self-center mb-2"><input type="text" class="form-control form-control-sm" placeholder="Father name" readonly /></div>
+                                                                <div class="col-xl-8 text-center align-self-center mb-2">
                                                                     <p class="float-left mb-0 color-mg font-md"><strong>is / are affected by leprosy.</strong></p>
                                                                 </div>
                                                                 <div class="col-xl-12 align-self-center mt-3">
-                                                                    <!-- <p class="float-left mb-0 color-mg font-md"><strong>I certify that, to the best of my knowledge, the information provided by the candidate is true. I recommend her for Nursing Scholarship for girls Programme.</strong><br></p>
-                                                                    <p class="float-left mb-0 color-mg font-md mt-4"><strong>Signature of Colony Leader: ____________________________________,&nbsp; Date: ____/____/___________</strong><br></p> -->
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>I certify that, to the best of my knowledge, the information provided by the candidate is true. I recommend her for Nursing Scholarship for HHDL Scholarship Programme.</strong><br /></p>
+                                                                    <p class="float-left mb-0 color-mg font-md mt-4"><strong>Signature of Colony Leader: ____________________________________,  Date: ____/____/___________</strong><br /></p>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-2 offset-xl-4"><button class="btn btn-block btn-sm btn-mg d-none" type="submit"><strong>Save</strong></button></div>
-                                                <div class="col-xl-2 offset-xl-0"><router-link class="btn btn-danger btn-block btn-sm d-none" type="button" to="/manage-scholarship"><strong>Cancel</strong></router-link></div>
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -110,6 +101,11 @@ export default{
          },
 
    methods:{
+       logout(){
+         axios.get('/admin/logout').then(function(){
+            document.location.href = "/admin/login";
+         })
+      },
 
    
         async readAnnexureII() {

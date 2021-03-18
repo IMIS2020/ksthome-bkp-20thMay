@@ -14,7 +14,7 @@
                             <div class="dropdown-menu dr-cs"><a class="dropdown-item" href="#"><i class="fas fa-money-bill-wave"></i>&nbsp;Dropdown Menu</a></div>
                         </div>
                     </li>
-                                       <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-domains"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
+                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-domains"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-details"><i class="fas fa-sticky-note"></i><span>Manage Applications</span></router-link></li>
                 </ul>
@@ -144,6 +144,8 @@
                                                                 </select>
                                                                 </div>
                                                             <div class="col-xl-1 align-self-center"><a class="btn btn-sm btn-mg font-sm" role="button" href="#"><i class="fa fa-search"></i></a></div>
+
+
                                                             <div class="col-xl-6 offset-xl-1 align-self-center and-col">
                                                                 <form>
                                                                     <div class="form-group mb-0">
@@ -151,14 +153,14 @@
                                                                             <div class="col-sm-4 col-xl-2 offset-xl-0 align-self-center">
                                                                                 <p class="text-right mb-0 mt-0 font-sm"><strong>Add New</strong></p>
                                                                             </div>
-                                                                            <div class="col-sm-4 col-xl-5 offset-xl-0">
+                                                                            <div class="col-sm-4 col-xl-4 offset-xl-0">
                                                                                 <select class="form-control form-control-sm font-sm color-mg" v-model="scholarshipType2">
                                                                                     <option value="" disabled>-- select --</option>
                                                                                     <option value="Nursing">Nursing Scholarship</option>
                                                                                     <option value="HHDLSS">HHDLSS Scholarship</option>
                                                                                 </select>
                                                                             </div>
-                                                                            <div class="col-sm-4 col-xl-3 offset-xl-0 align-self-center">
+                                                                            <div class="col-sm-4 col-xl-4 offset-xl-0 align-self-center">
                                                                                 <p class="mb-0 mt-0 font-sm"><strong>Application Schedule?</strong></p>
                                                                             </div>
                                                                             <div class="col-sm-4 col-xl-2 offset-xl-0 text-right align-self-center">
@@ -175,6 +177,7 @@
                                                                     </div>
                                                                 </form>
                                                             </div>
+
                                                         </div>
                                                         <div class="form-row">
                                                             <div class="col-sm-4 col-xl-2 offset-xl-10 text-right align-self-center mt-1"><input class="form-control form-control-sm search form-control" type="text" placeholder="Search by typing here.." style="font-size: 12px;"></div>
@@ -188,27 +191,25 @@
                                         <table class="table table-sm">
                                             <thead class="cs-tbl-hd">
                                                 <tr>
-                                                    <th>Session</th>
+                                                    <th class="w-10x">Session</th>
                                                     <th>Scholarship type</th>
                                                     <th>Start Date</th>
                                                     <th>Last Date</th>
                                                     <th>App No. Prefix</th>
-                                                    <th>Contact Person Email Address</th>
-                                                    <th>Contact Person Phone No.</th>
+                                                    <th class="w-20x">Contact Person Details</th>
                                                     <th class="text-center w-5x">Status</th>
                                                     <th class="text-center w-5x">Action</th>
                                                 </tr>
                                             </thead>
-                                            <tbody class="h-41x">
+                                            <tbody class="h-38x">
                                                 <tr v-for="eachSchedules in  allSchedules" :key="eachSchedules.id" class="font-sm text-black">
-                                                    <td><em>{{eachSchedules.financialYear}}</em></td>
-                                                    <td class="text-break"><em>{{eachSchedules.scholarshipType}}</em></td>
-                                                    <td><em>{{(eachSchedules.startDate).split('-').reverse().join(' / ')}}</em></td>
-                                                    <td><em>{{(eachSchedules.lastDate).split('-').reverse().join(' / ')}}</em></td>
-                                                    <td><em>{{eachSchedules.applicationNoPrefixFormat}}</em><br></td>
-                                                    <td><em>{{eachSchedules.contactPersonEmailId}}</em></td>
-                                                    <td><em>{{eachSchedules.contactPersonContactNo}}</em></td>
-                                                    <td class="text-center w-5x"><em>{{(eachSchedules.status)?'Active':'Inactive'}}</em><span class="badge badge-success"></span></td>
+                                                    <td class="w-10x">{{eachSchedules.financialYear}}</td>
+                                                    <td class="text-break">{{eachSchedules.scholarshipType}}</td>
+                                                    <td>{{(eachSchedules.startDate).split('-').reverse().join(' / ')}}</td>
+                                                    <td>{{(eachSchedules.lastDate).split('-').reverse().join(' / ')}}</td>
+                                                    <td>{{eachSchedules.applicationNoPrefixFormat}}<br></td>
+                                                    <td class="w-20x">Email: {{eachSchedules.contactPersonEmailId}} <br>Mobile: {{eachSchedules.contactPersonContactNo}}</td>
+                                                    <td class="text-center w-5x"><span class="badge badge-danger">{{(eachSchedules.status)?'Active':'Inactive'}}</span></td>
                                                     <td class="text-center w-5x">
                                                         <div class="dropleft no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
                                                             <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in">

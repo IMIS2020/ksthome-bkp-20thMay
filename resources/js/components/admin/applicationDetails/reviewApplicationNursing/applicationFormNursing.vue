@@ -118,637 +118,414 @@
                         <div class="col-md-12 col-xl-12 offset-xl-0 px-0">
                             <div class="row my-2">
                                 <div class="col-xl-12 offset-xl-0">
-                                    <h4 class="mb-0 p-head">Review Applications</h4>
+                                    <h4 class="mb-0 p-head">Review <span>Nursing</span> Scholarship Application <span>2021-22</span> (<span>IMIS-NURSCH00001</span>)</h4>
                                 </div>
                             </div>
-                            <div class="com-bg">
-                                <section class="page-main">
-                                    <div class="container">
-                                        <form @submit.prevent="saveForm">
-                                            <div class="form-row">
-                                                <div class="col-xl-12 text-center mb-3"><br>
-                                                    <h5 class="text-capitalize text-center color-mg"><strong>Application form (Nursing scholarship   {{getdata.financialYear}}) <br> (Application No : {{getdata.applicationId}})</strong></h5>
-                                                </div>
-                                                <div class="col-xl-12">
-                                                    <div class="mb-3">
-                                                        <ul class="nav nav-tabs font-sm" role="tablist">
-                                                            <li class="nav-item" role="presentation"><router-link class="nav-link active" role="tab" data-toggle="tab" :to="'/admin/review-nursing-application-form/'+getdata.applicationId"><strong>Application Form</strong></router-link></li>
-                                                            <li class="nav-item" role="presentation" v-if="getdata.hasAdmissionLetter === 'NO'"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-annexure-1/'+getdata.applicationId"><strong>Annexure-I</strong></router-link></li>
-                                                            <li class="nav-item " role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-I</strong></router-link></li>
-                                                            <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-annexure-2/'+getdata.applicationId"><strong>Annexure-II</strong></router-link></li>
-                                                            <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-upload-documents/'+getdata.applicationId"><strong>Upload Documents</strong></router-link></li>
-                                                            <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-review-submit/'+getdata.applicationId"><strong>Review &amp; Submit</strong></router-link></li>
-                                                        </ul>
-                                                        <div class="tab-content">
-                                                            <div class="tab-pane active" role="tabpanel" id="tab-1">
-                                                                
-                                                                    <div class="div-inner-filed">
-                                                                        <div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div>
+                                        <ul role="tablist" class="nav nav-tabs font-sm">
+                                <li class="nav-item" role="presentation"><router-link class="nav-link  active" role="tab" data-toggle="tab" :to="'/admin/review-nursing-application-form/'+getdata.applicationId"><strong>Application Form</strong></router-link></li>
+                                <li class="nav-item" role="presentation" v-if="getdata.hasAdmissionLetter === 'NO'"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-annexure-1/'+getdata.applicationId"><strong>Annexure-I</strong></router-link></li>
+                                <li class="nav-item " role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-I</strong></router-link></li>
+                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-annexure-2/'+getdata.applicationId"><strong>Annexure-II</strong></router-link></li>
+                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-upload-documents/'+getdata.applicationId"><strong>Upload Documents</strong></router-link></li>
+                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-review-submit/'+getdata.applicationId"><strong>Review &amp; Submit</strong></router-link></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active adm-tab" id="tab-1">
+                                                <form>
+                                                    <div class="div-inner-filed com-bg">
+                                                        <div>
+                                                            <div class="form-row">
+                                                                <div class="col-xl-12">
+                                                                    <div class="card mt-2 det-sec">
+                                                                        <div class="card-header p-1">
+                                                                            <h6 class="mb-0 color-mg font-sm">Personal Details</h6>
+                                                                        </div>
+                                                                        <div class="card-body p-2">
                                                                             <div class="form-row">
-                                                                                <div class="col-xl-12">
-                                                                                    <div class="card mt-2 det-sec">
-                                                                                        <div class="card-header">
-                                                                                            <h6 class="mb-0 color-mg">Personal Details</h6>
-                                                                                        </div>
-                                                                                        <div class="card-body">
-                                                                                            <div class="form-row">
-                                                                                                <div class="col-xl-2">
-                                                                                                    <label>Applicant's First name:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.applicantNameF" disabled>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-2">
-                                                                                                    <label>Applicant's Middle2 name:</label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.applicantNameM" disabled>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-2">
-                                                                                                    <label>Applicant's Last name:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.applicantNameL" disabled>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-3"><label>Father's name:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.applicantFatherName" disabled>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-3">
-                                                                                                    <label>Mother's name:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                    <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" v-model="form.applicantMotherName" disabled>
-                                                                                                </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-2">
-                                                                                                    <label>DOB:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input class="form-control form-control-sm" type="date" v-model="form.applicantDOB" disabled>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-2">
-                                                                                                    <label>Gender&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                    <div class="form-group">
-                                                                                                        <select class="form-control form-control-sm" v-model="form.applicantGender" disabled>
-                                                                                                            <option value="" disabled>--Select--</option>
-                                                                                                            <option value="Male">Male</option>
-                                                                                                            <option value="Female">Female</option>
-                                                                                                        </select>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                            
-                                                                                                <div class="col-xl-3 align-self-end"><label>Who is affected by leprosy:&nbsp; <span class="text-danger"><strong>*</strong></span></label>
-                                                                                                    <div class="form-group">
-                                                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedMother" id="formCheck-4" disabled><label class="form-check-label font-md" for="formCheck-1">Mother</label></div>
-                                                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedFather" id="formCheck-2" disabled><label class="form-check-label font-md" for="formCheck-2">Father</label></div>
-                                                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedSelf"   id="formCheck-3" disabled><label class="form-check-label font-md" for="formCheck-3">Self</label></div>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-3"><label>whether family has a BPL card:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                    <div class="form-group">
-                                                                                                        <select class="form-control form-control-sm" v-model="form.applicantHasBPLCard" disabled>
-                                                                                                            <option value="" disabled>--Select--</option>
-                                                                                                            <option value="Yes">YES</option>
-                                                                                                            <option value="No">NO</option>
-                                                                                                        </select>
-                                                                                                        </div>
-                                                                                                    </div>
-
-                                                                                                <div class="col-xl-2">
-                                                                                                    <label>Domicile state &nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                    <div class="form-group">
-                                                                                                        <select class="form-control form-control-sm" v-model="form.applicantDomicileState" disabled>
-                                                                                                            <option value="" disabled>--Select--</option>
-                                                                                                            <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                                                                                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                                                                                                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                                                                                            <option value="Assam">Assam</option>
-                                                                                                            <option value="Bihar">Bihar</option>
-                                                                                                            <option value="Chandigarh">Chandigarh</option>
-                                                                                                            <option value="Chhattisgarh">Chhattisgarh</option>
-                                                                                                            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                                                                                                            <option value="Daman and Diu">Daman and Diu</option>
-                                                                                                            <option value="Delhi">Delhi</option>
-                                                                                                            <option value="Lakshadweep">Lakshadweep</option>
-                                                                                                            <option value="Puducherry">Puducherry</option>
-                                                                                                            <option value="Goa">Goa</option>
-                                                                                                            <option value="Gujarat">Gujarat</option>
-                                                                                                            <option value="Haryana">Haryana</option>
-                                                                                                            <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                                                                                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                                                                                            <option value="Jharkhand">Jharkhand</option>
-                                                                                                            <option value="Karnataka">Karnataka</option>
-                                                                                                            <option value="Kerala">Kerala</option>
-                                                                                                            <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                                                                                            <option value="Maharashtra">Maharashtra</option>
-                                                                                                            <option value="Manipur">Manipur</option>
-                                                                                                            <option value="Meghalaya">Meghalaya</option>
-                                                                                                            <option value="Mizoram">Mizoram</option>
-                                                                                                            <option value="Nagaland">Nagaland</option>
-                                                                                                            <option value="Odisha">Odisha</option>
-                                                                                                            <option value="Punjab">Punjab</option>
-                                                                                                            <option value="Rajasthan">Rajasthan</option>
-                                                                                                            <option value="Sikkim">Sikkim</option>
-                                                                                                            <option value="Tamil Nadu">Tamil Nadu</option>
-                                                                                                            <option value="Telangana">Telangana</option>
-                                                                                                            <option value="Tripura">Tripura</option>
-                                                                                                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                                                                                            <option value="Uttarakhand">Uttarakhand</option>
-                                                                                                            <option value="West Bengal">West Bengal</option>
-                                                                                                        </select>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
+                                                                                <div class="col-xl-2"><label>applicant&#39;s First name:</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" v-model="form.applicantNameF" disabled/></div>
+                                                                                </div>
+                                                                                <div class="col-xl-2"><label>applicant&#39;s Middle name:</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" v-model="form.applicantNameM" disabled /></div>
+                                                                                </div>
+                                                                                <div class="col-xl-2"><label>applicant&#39;s Last name:</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" v-model="form.applicantNameL" disabled /></div>
+                                                                                </div>
+                                                                                <div class="col-xl-3"><label>father&#39;s name:</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" v-model="form.applicantFatherName" disabled /></div>
+                                                                                </div>
+                                                                                <div class="col-xl-3"><label>mother&#39;s name:</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" v-model="form.applicantMotherName" disabled/></div>
+                                                                                </div>
+                                                                                <div class="col-xl-2"><label>DOB:</label>
+                                                                                    <div class="form-group"><input class="form-control form-control-sm" type="date" v-model="form.applicantDOB" disabled /></div>
+                                                                                </div>
+                                                                                <div class="col-xl-2"><label>Gender</label>
+                                                                                    <div class="form-group">
+                                                                                        <select class="form-control form-control-sm" disabled v-model="form.applicantGender">
+                                                                                            <option value>Gender</option>
+                                                                                            <option value="Male"  >Male</option>
+                                                                                            <option value="Female" >Female</option>
+                                                                                        </select>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="col-xl-12">
-                                                                                    <div class="card mt-2 det-sec">
-                                                                                        <div class="card-header">
-                                                                                            <h6 class="mb-0 color-mg">Contact Details</h6>
-                                                                                        </div>
-                                                                                        <div class="card-body">
-                                                                                            <div class="form-row">
-                                                                                                <div class="col-xl-4">
-                                                                                                    <label>House No and Colony Name / Address Line 1 &nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input class="form-control form-control-sm" type="text"  v-model="form.addressAddln1" disabled>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-4">
-                                                                                                    <label>Address Line 2</label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.addressAddln2" disabled>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-4">
-                                                                                                    <label>City</label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.addressCity" disabled>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-3">
-                                                                                                    <label>District</label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.addressDistprov" disabled>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-3">
-                                                                                                    <label>State&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                    <div class="form-group">
-                                                                                                        <select class="form-control form-control-sm" v-model="form.addressState" disabled>
-                                                                                                            <option value="" disabled>--Select--</option>
-                                                                                                            <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                                                                                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                                                                                                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                                                                                            <option value="Assam">Assam</option>
-                                                                                                            <option value="Bihar">Bihar</option>
-                                                                                                            <option value="Chandigarh">Chandigarh</option>
-                                                                                                            <option value="Chhattisgarh">Chhattisgarh</option>
-                                                                                                            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                                                                                                            <option value="Daman and Diu">Daman and Diu</option>
-                                                                                                            <option value="Delhi">Delhi</option>
-                                                                                                            <option value="Lakshadweep">Lakshadweep</option>
-                                                                                                            <option value="Puducherry">Puducherry</option>
-                                                                                                            <option value="Goa">Goa</option>
-                                                                                                            <option value="Gujarat">Gujarat</option>
-                                                                                                            <option value="Haryana">Haryana</option>
-                                                                                                            <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                                                                                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                                                                                            <option value="Jharkhand">Jharkhand</option>
-                                                                                                            <option value="Karnataka">Karnataka</option>
-                                                                                                            <option value="Kerala">Kerala</option>
-                                                                                                            <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                                                                                            <option value="Maharashtra">Maharashtra</option>
-                                                                                                            <option value="Manipur">Manipur</option>
-                                                                                                            <option value="Meghalaya">Meghalaya</option>
-                                                                                                            <option value="Mizoram">Mizoram</option>
-                                                                                                            <option value="Nagaland">Nagaland</option>
-                                                                                                            <option value="Odisha">Odisha</option>
-                                                                                                            <option value="Punjab">Punjab</option>
-                                                                                                            <option value="Rajasthan">Rajasthan</option>
-                                                                                                            <option value="Sikkim">Sikkim</option>
-                                                                                                            <option value="Tamil Nadu">Tamil Nadu</option>
-                                                                                                            <option value="Telangana">Telangana</option>
-                                                                                                            <option value="Tripura">Tripura</option>
-                                                                                                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                                                                                            <option value="Uttarakhand">Uttarakhand</option>
-                                                                                                            <option value="West Bengal">West Bengal</option>
-                                                                                                        </select>
-                                                                                                </div>
-                                                                                                </div>
-
-
-                                                                                                <div class="col-xl-3">
-                                                                                                    <label>PIN/ZIP Code:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input class="form-control form-control-sm" type="text" maxlength="6" v-model="form.addressPinzip" disabled>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                            
-                                                                                                <div class="col-xl-3">
-                                                                                                    <label>Contact no. (Self)&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input class="form-control form-control-sm" type="text" maxlength="10" v-model="form.applicantContactNoSelf" disabled>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-3">
-                                                                                                    <label>Contact no. (guardian)&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input class="form-control form-control-sm" type="text" maxlength="10" v-model="form.applicantContactNoGuardian" disabled>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-3">
-                                                                                                    <label>Email ID:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input class="form-control form-control-sm" type="email" v-model="form.applicantEmailId" disabled>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-3">
-                                                                                                    <label>Contact no. (colony leader)&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input class="form-control form-control-sm" type="text" maxlength="10" v-model="form.applicantContactNoColonyLeader" disabled>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
+                                                                                <div class="col-xl-3 align-self-center"><label>Who is affected by leprosy: </label>
+                                                                                    <div class="form-group">
+                                                                                        <div class="form-check form-check-inline disabled"><input type="checkbox" v-model="form.applicantLeprosyAffectedMother" class="form-check-input" id="formCheck-4" disabled><label class="form-check-label font-md" for="formCheck-1">Mother</label></div>
+                                                                                        <div class="form-check form-check-inline disabled"><input type="checkbox" v-model="form.applicantLeprosyAffectedFather" class="form-check-input" id="formCheck-2" disabled><label class="form-check-label font-md" for="formCheck-2">Father</label></div>
+                                                                                        <div class="form-check form-check-inline disabled"><input type="checkbox" v-model="form.applicantLeprosyAffectedSelf"   class="form-check-input" id="formCheck-3" disabled><label class="form-check-label font-md" for="formCheck-3">Self</label></div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="col-xl-12">
-                                                                                    <div class="card mt-2 det-sec">
-                                                                                        <div class="card-header">
-                                                                                            <h6 class="mb-0 color-mg">Education Details</h6>
-                                                                                        </div>
-                                                                                        <div class="card-body">
-                                                                                            <div class="form-row">
-                                                                                                <div class="col-xl-12 mb-2">
-                                                                                                    <label>Details of educational qualification: 10th &amp; 12th:&nbsp;<span class="text-danger"><strong>*</strong></span><br></label>
-                                                                                                    <div class="table-responsive font-md">
-                                                                                                        <table class="table table-sm mb-0">
-                                                                                                            <thead class="font-sm color-mg">
-                                                                                                                <tr>
-                                                                                                                    <th>Examination Passed</th>
-                                                                                                                    <th>University/ Board/ Council</th>
-                                                                                                                    <th>Main Subjects</th>
-                                                                                                                    <th>Year of Passing</th>
-                                                                                                                    <th>Percentage (%)</th>
-                                                                                                                    <th>Division</th>
-                                                                                                                    <th>Type of Institute</th>
-                                                                                                                </tr>
-                                                                                                            </thead>
-                                                                                                            <tbody>
-                                                                                                                <tr>
-                                                                                                                    <td>10th </td>
-
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.universityBoardCouncil10" disabled>
-                                                                                                                        </div>
-                                                                                                                    </td>
-
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.mainSubjects10" disabled>
-                                                                                                                        </div>
-                                                                                                                    </td>
-
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.yearOfPassing10" disabled maxlength="4">
-                                                                                                                        </div>
-                                                                                                                    </td>
-
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.percentage10" disabled>
-                                                                                                                        </div>
-                                                                                                                    </td>
-
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.division10" disabled>
-                                                                                                                        </div>
-                                                                                                                    </td>
-
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                            <select class="form-control form-control-sm" v-model="form.type10" disabled>
-                                                                                                                                <option value="" disabled>-Select-</option>
-                                                                                                                                <option value="Govt">Govt.</option>
-                                                                                                                                <option value="Pvt">Pvt.</option>
-                                                                                                                            </select>
-                                                                                                                        </div>
-                                                                                                                    </td>
-                                                                                                                </tr>
-                                                                                                                <tr>
-                                                                                                                    <td>12th </td>
-
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                            <input class="form-control form-control-sm" type="text" v-model="form.universityBoardCouncil12" disabled>
-                                                                                                                        </div>
-                                                                                                                    </td>
-
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                            <input class="form-control form-control-sm" type="text" v-model="form.mainSubjects12" disabled> 
-                                                                                                                        </div>
-                                                                                                                    </td>
-
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                            <input class="form-control form-control-sm" type="text" v-model="form.yearOfPassing12" disabled maxlength="4">
-                                                                                                                        </div>
-                                                                                                                    </td>
-
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                            <input class="form-control form-control-sm" type="text" v-model="form.percentage12" disabled>
-                                                                                                                        </div>
-                                                                                                                    </td>
-
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                            <input class="form-control form-control-sm" type="text" v-model="form.division12" disabled>
-                                                                                                                        </div>
-                                                                                                                    </td>
-
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                            <select class="form-control form-control-sm" v-model="form.type12" disabled>
-                                                                                                                                <option value="" disabled>-Select-</option>
-                                                                                                                                <option value="Govt">Govt.</option>
-                                                                                                                                <option value="Pvt">Pvt.</option>
-                                                                                                                            </select>
-                                                                                                                        </div>
-                                                                                                                    </td>
-                                                                                                                </tr>
-                                                                                                            </tbody>
-                                                                                                        </table>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
+                                                                                <div class="col-xl-3"><label>whether family has a BPL card: </label>
+                                                                                    <div class="form-group">
+                                                                                        <select class="form-control form-control-sm" disabled v-model="form.applicantHasBPLCard">
+                                                                                            <option value="14" selected>NO</option>
+                                                                                            <option value="14">YES</option>
+                                                                                        </select>
                                                                                     </div>
                                                                                 </div>
-
-                                                                                <div class="col-xl-12">
-                                                                                    <div class="card mt-2 det-sec">
-                                                                                        <div class="card-header">
-                                                                                            <h6 class="mb-0 color-mg">Admission Details</h6>
-                                                                                        </div>
-                                                                                        <div class="card-body">
-                                                                                            <div class="form-row">
-                                                                                                <div class="col-xl-4 align-self-center mb-2">
-                                                                                                    <p class="color-mg font-md mb-0">
-                                                                                                    <strong>Do you have Admission letter / Call letter:&nbsp;</strong><br>
-                                                                                                    </p>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-2 align-self-center mb-2">
-                                                                                                    <div class="form-group mb-0">
-                                                                                                        <select class="form-control form-control-sm" v-model="form.hasAdmissionLetter"  @change="onSelect($event)" disabled>
-                                                                                                            <option value="" disabled>--Select--</option>
-                                                                                                            <option value="YES">YES</option>
-                                                                                                            <option value="NO">NO</option>
-                                                                                                        </select>
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-12 mb-2">
-                                                                                                    <label class="col-form-label">Name of the course you have been selected for:<br></label>
-                                                                                                </div>
-                                                                                                <div class="col-xl-6">
-                                                                                                    <label>Name of the course</label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insCourse"  :disabled="inputDisabled">
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="col-xl-6">
-                                                                                                    <label>Name of the institute</label>
-                                                                                                    <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" v-model="form.insName" :disabled="inputDisabled">
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-4">
-                                                                                                    <label>Address Line 1</label>
-                                                                                                    <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" v-model="form.insAddressAddln1" :disabled="inputDisabled">
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-4">
-                                                                                                    <label>Address Line 2</label>
-                                                                                                    <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text"  v-model="form.insAddressAddln2" :disabled="inputDisabled">
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-2">
-                                                                                                    <label>City</label>
-                                                                                                    <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" v-model="form.insAddressCity" :disabled="inputDisabled" >
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                <div class="col-xl-2">
-                                                                                                    <label>District</label>
-                                                                                                    <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" v-model="form.insAddressDistprov" :disabled="inputDisabled" >
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                            <div class="col-xl-3">
-                                                                                                <label>State</label>
-                                                                                                    <div class="form-group">
-                                                                                                        <select class="form-control form-control-sm" v-model="form.insAddressState" :disabled="inputDisabled">
-                                                                                                            <option value="" disabled>--Select--</option>
-                                                                                                            <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                                                                                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                                                                                                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                                                                                            <option value="Assam">Assam</option>
-                                                                                                            <option value="Bihar">Bihar</option>
-                                                                                                            <option value="Chandigarh">Chandigarh</option>
-                                                                                                            <option value="Chhattisgarh">Chhattisgarh</option>
-                                                                                                            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                                                                                                            <option value="Daman and Diu">Daman and Diu</option>
-                                                                                                            <option value="Delhi">Delhi</option>
-                                                                                                            <option value="Lakshadweep">Lakshadweep</option>
-                                                                                                            <option value="Puducherry">Puducherry</option>
-                                                                                                            <option value="Goa">Goa</option>
-                                                                                                            <option value="Gujarat">Gujarat</option>
-                                                                                                            <option value="Haryana">Haryana</option>
-                                                                                                            <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                                                                                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                                                                                            <option value="Jharkhand">Jharkhand</option>
-                                                                                                            <option value="Karnataka">Karnataka</option>
-                                                                                                            <option value="Kerala">Kerala</option>
-                                                                                                            <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                                                                                            <option value="Maharashtra">Maharashtra</option>
-                                                                                                            <option value="Manipur">Manipur</option>
-                                                                                                            <option value="Meghalaya">Meghalaya</option>
-                                                                                                            <option value="Mizoram">Mizoram</option>
-                                                                                                            <option value="Nagaland">Nagaland</option>
-                                                                                                            <option value="Odisha">Odisha</option>
-                                                                                                            <option value="Punjab">Punjab</option>
-                                                                                                            <option value="Rajasthan">Rajasthan</option>
-                                                                                                            <option value="Sikkim">Sikkim</option>
-                                                                                                            <option value="Tamil Nadu">Tamil Nadu</option>
-                                                                                                            <option value="Telangana">Telangana</option>
-                                                                                                            <option value="Tripura">Tripura</option>
-                                                                                                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                                                                                            <option value="Uttarakhand">Uttarakhand</option>
-                                                                                                            <option value="West Bengal">West Bengal</option>
-                                                                                                        </select>
-                                                                                                    </div>
-                                                                                                </div>
-
-
-                                                                                                <div class="col-xl-3">
-                                                                                                    <label>PIN/ZIP Code:</label>
-                                                                                                    <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" maxlength="6" v-model="form.insAddressPinzip" :disabled="inputDisabled">
-                                                                                                    </div>
-                                                                                                </div>
-
-                                                                                                
-                                                                                                <div class="col-xl-3">
-                                                                                                    <label>Whether Recognized by Indian Nursing Council:<br></label>
-                                                                                                    <div class="form-group">
-                                                                                                        <select class="form-control form-control-sm" v-model="form.recognizedByINC" :disabled="inputDisabled">
-                                                                                                            <option value="" disabled >--Select--</option>
-                                                                                                            <option value="N/A" selected="">N/A</option>
-                                                                                                            <option value="YES">YES</option>
-                                                                                                            <option value="NO">NO</option>
-                                                                                                        </select>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-xl-12">
-                                                                                    <div class="card mt-2 det-sec">
-                                                                                        <div class="card-header">
-                                                                                            <h6 class="mb-0 color-mg">Other Miscellaneous Details</h6>
-                                                                                        </div>
-                                                                                        <div class="card-body">
-                                                                                            <div class="form-row">
-                                                                                                <div class="col-xl-12 mb-2">
-                                                                                                    <label>Kindly Mention The Name/S Of Your Sibling/S Who Has Got Scholarship In The Past.<br>(If No, Leave It Blank).<br></label>
-                                                                                                    <div class="table-responsive font-md">
-                                                                                                        <table class="table table-sm mb-0">
-                                                                                                            <thead class="color-mg">
-                                                                                                                <tr>
-                                                                                                                    <th>Name</th>
-                                                                                                                    <th>Course</th>
-                                                                                                                    <th>Selection year</th>
-                                                                                                                </tr>
-                                                                                                            </thead>
-                                                                                                            <tbody>
-                                                                                                                <tr>
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.miscName1" disabled>
-                                                                                                                    </div>
-                                                                                                                    </td>
-
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.miscCourse1" disabled>
-                                                                                                                    </div>
-                                                                                                                    </td>
-
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.miscYear1" disabled>
-                                                                                                                    </div>
-                                                                                                                    </td>
-
-                                                                                                                </tr>
-                                                                                                                <tr>
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.miscName2" disabled>
-                                                                                                                    </div>
-                                                                                                                    </td>
-
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.miscCourse2" disabled>
-                                                                                                                    </div>
-                                                                                                                    </td>
-
-                                                                                                                    <td>
-                                                                                                                        <div class="form-group mb-0">
-                                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.miscYear2" disabled>
-                                                                                                                    </div>
-                                                                                                                    </td>
-
-                                                                                                                </tr>
-                                                                                                                <tr>
-                                                                                                                    <td>
-                                                                                                                    <div class="form-group mb-0">
-                                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.miscName3" disabled>
-                                                                                                                    </div>
-                                                                                                                    </td>
-
-                                                                                                                    <td>
-                                                                                                                    <div class="form-group mb-0">
-                                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.miscCourse3" disabled>
-                                                                                                                    </div>
-                                                                                                                    </td>
-
-                                                                                                                    <td>
-                                                                                                                    <div class="form-group mb-0">
-                                                                                                                        <input class="form-control form-control-sm" type="text" v-model="form.miscYear3" disabled>
-                                                                                                                    </div>
-                                                                                                                    </td>
-
-                                                                                                                </tr>
-                                                                                                            </tbody>
-                                                                                                        </table>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
+                                                                                <div class="col-xl-2"><label>domicile state</label>
+                                                                                    <div class="form-group">
+                                                                                        <select class="form-control form-control-sm" disabled v-model="form.applicantDomicileState">
+                                                                                            <option value selected>State</option>
+                                                                                            <option value="12">West Bengal</option>
+                                                                                            <option value="13">Uttar Pradesh</option>
+                                                                                            <option value="14">Bihar</option>
+                                                                                        </select>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                </div>
+                                                                <div class="col-xl-12">
+                                                                    <div class="card mt-2 det-sec">
+                                                                        <div class="card-header p-1">
+                                                                            <h6 class="mb-0 color-mg font-sm">Contact Details</h6>
+                                                                        </div>
+                                                                        <div class="card-body p-2">
+                                                                            <div class="form-row">
+                                                                                <div class="col-xl-4"> <label>House No and Colony Name / Address Line 1 &nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" v-model="form.addressAddln1" disabled /></div>
+                                                                                </div>
+                                                                                <!-- <div class="col-xl-4"><label>Address Line 1</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" disabled /></div>
+                                                                                </div> -->
+                                                                                <div class="col-xl-4"><label>Address Line 2</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" v-model="form.addressAddln2" disabled /></div>
+                                                                                </div>
+                                                                                <div class="col-xl-4"><label>City</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" v-model="form.addressCity" disabled /></div>
+                                                                                </div>
+                                                                                <div class="col-xl-3"><label>District </label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" v-model="form.addressDistprov" disabled /></div>
+                                                                                </div>
+                                                                                
+                                                                                <div class="col-xl-3">
+                                                                                    <label>State</label>
+                                                                                    <div class="form-group">
+                                                                                        <select class="form-control form-control-sm"  v-model="form.addressState" disabled>
+                                                                                            <option value selected>State</option>
+                                                                                            <option value="12">West Bengal</option>
+                                                                                            <option value="13">Uttar Pradesh</option>
+                                                                                            <option value="14">Bihar</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-xl-3"><label>PIN/ZIP Code:</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" v-model="form.addressPinzip" disabled /></div>
+                                                                                </div>
+                                                                                <div class="col-xl-3"><label>contact no. (Self) <span class="text-danger">*</span></label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" v-model="form.applicantContactNoSelf" disabled /></div>
+                                                                                </div>
+                                                                                <div class="col-xl-3"><label>contact no. (father) <span class="text-danger">*</span></label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" v-model="form.applicantContactNoGuardian" disabled /></div>
+                                                                                </div>
+                                                                                <div class="col-xl-3"><label>email Id:</label>
+                                                                                    <div class="form-group"><input type="email" class="form-control form-control-sm" v-model="form.applicantEmailId" disabled /></div>
+                                                                                </div>
+                                                                                <div class="col-xl-3"><label>contact no. (colony leader) <span class="text-danger">*</span></label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" v-model="form.applicantContactNoColonyLeader" disabled /></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-12">
+                                                                    <div class="card mt-2 det-sec">
+                                                                        <div class="card-header p-1">
+                                                                            <h6 class="mb-0 color-mg font-sm">Education Details</h6>
+                                                                        </div>
+                                                                        <div class="card-body p-2">
+                                                                            <div class="form-row">
+                                                                                <div class="col-xl-12 mb-2"><label>Details of educational qualification: Matriculation/ SSLC/ SSC/ Graduation:<br /></label>
+                                                                                    <div class="table-responsive font-md">
+                                                                                        <table class="table table-sm mb-0">
+                                                                                            <thead class="font-sm color-mg">
+                                                                                                <tr>
+                                                                                                    <th>Examination Level</th>
+                                                                                                    <th>Examination Passed</th>
+                                                                                                    <th>University/ Board/ Council</th>
+                                                                                                    <th>Main Subjects</th>
+                                                                                                    <th>Year of Passing</th>
+                                                                                                    <th>Percentage(%)</th>
+                                                                                                    <th>Division</th>
+                                                                                                </tr>
+                                                                                            </thead>
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                                <option value selected>-- select --</option>
+                                                                                                                <option value>10th</option>
+                                                                                                                <option value="1">12th</option>
+                                                                                                                <option value>Graduation</option>
+                                                                                                                <option value>Others</option>
+                                                                                                            </select></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                                <option value selected>-- select --</option>
+                                                                                                                <option value>Madhyamik</option>
+                                                                                                                <option value>Higher Secondary</option>
+                                                                                                                <option value>B.Com</option>
+                                                                                                                <option value>Others</option>
+                                                                                                            </select></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                                <option value selected>-- select --</option>
+                                                                                                                <option value>WBBSE</option>
+                                                                                                                <option value>WBCHSE</option>
+                                                                                                                <option value>WBSCTVE&amp;D</option>
+                                                                                                                <option value>Others</option>
+                                                                                                            </select></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm" placeholder="Type separated by comma" readonly></textarea></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                                <option value selected>-- select --</option>
+                                                                                                                <option value>2021</option>
+                                                                                                                <option value>2020</option>
+                                                                                                                <option value>2019</option>
+                                                                                                                <option value>2018</option>
+                                                                                                                <option value>2017</option>
+                                                                                                                <option value>2016</option>
+                                                                                                                <option value>2015</option>
+                                                                                                                <option value>2014</option>
+                                                                                                                <option value>2013</option>
+                                                                                                                <option value>2012</option>
+                                                                                                            </select></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><input type="number" class="form-control form-control-sm" min="1" readonly /></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                                <option value selected>-- select --</option>
+                                                                                                                <option value>1st</option>
+                                                                                                                <option value>2nd</option>
+                                                                                                                <option value>3rd</option>
+                                                                                                                <option value>N/A</option>
+                                                                                                            </select></div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                                <option value selected>-- select --</option>
+                                                                                                                <option value>10th</option>
+                                                                                                                <option value="1">12th</option>
+                                                                                                                <option value>Graduation</option>
+                                                                                                                <option value>Others</option>
+                                                                                                            </select></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                                <option value selected>-- select --</option>
+                                                                                                                <option value>Madhyamik</option>
+                                                                                                                <option value>Higher Secondary</option>
+                                                                                                                <option value>B.Com</option>
+                                                                                                                <option value>Others</option>
+                                                                                                            </select></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                                <option value selected>-- select --</option>
+                                                                                                                <option value>WBBSE</option>
+                                                                                                                <option value>WBCHSE</option>
+                                                                                                                <option value>WBSCTVE&amp;D</option>
+                                                                                                                <option value>Others</option>
+                                                                                                            </select></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm" placeholder="Type separated by comma" readonly></textarea></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                                <option value selected>-- select --</option>
+                                                                                                                <option value>2021</option>
+                                                                                                                <option value>2020</option>
+                                                                                                                <option value>2019</option>
+                                                                                                                <option value>2018</option>
+                                                                                                                <option value>2017</option>
+                                                                                                                <option value>2016</option>
+                                                                                                                <option value>2015</option>
+                                                                                                                <option value>2014</option>
+                                                                                                                <option value>2013</option>
+                                                                                                                <option value>2012</option>
+                                                                                                            </select></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><input type="number" class="form-control form-control-sm" min="1" readonly /></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                                <option value selected>-- select --</option>
+                                                                                                                <option value>1st</option>
+                                                                                                                <option value>2nd</option>
+                                                                                                                <option value>3rd</option>
+                                                                                                                <option value>N/A</option>
+                                                                                                            </select></div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                                <option value selected>-- select --</option>
+                                                                                                                <option value>10th</option>
+                                                                                                                <option value="1">12th</option>
+                                                                                                                <option value>Graduation</option>
+                                                                                                                <option value>Others</option>
+                                                                                                            </select></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                                <option value selected>-- select --</option>
+                                                                                                                <option value>Madhyamik</option>
+                                                                                                                <option value>Higher Secondary</option>
+                                                                                                                <option value>B.Com</option>
+                                                                                                                <option value>Others</option>
+                                                                                                            </select></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                                <option value selected>-- select --</option>
+                                                                                                                <option value>WBBSE</option>
+                                                                                                                <option value>WBCHSE</option>
+                                                                                                                <option value>WBSCTVE&amp;D</option>
+                                                                                                                <option value>Others</option>
+                                                                                                            </select></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm" placeholder="Type separated by comma" readonly></textarea></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                                <option value selected>-- select --</option>
+                                                                                                                <option value>2021</option>
+                                                                                                                <option value>2020</option>
+                                                                                                                <option value>2019</option>
+                                                                                                                <option value>2018</option>
+                                                                                                                <option value>2017</option>
+                                                                                                                <option value>2016</option>
+                                                                                                                <option value>2015</option>
+                                                                                                                <option value>2014</option>
+                                                                                                                <option value>2013</option>
+                                                                                                                <option value>2012</option>
+                                                                                                            </select></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><input type="number" class="form-control form-control-sm" min="1" readonly /></div>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                                <option value selected>-- select --</option>
+                                                                                                                <option value>1st</option>
+                                                                                                                <option value>2nd</option>
+                                                                                                                <option value>3rd</option>
+                                                                                                                <option value>N/A</option>
+                                                                                                            </select></div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-12">
+                                                                    <div class="card mt-2 det-sec">
+                                                                        <div class="card-header p-1">
+                                                                            <h6 class="mb-0 color-mg font-sm">Admission Details</h6>
+                                                                        </div>
+                                                                        <div class="card-body p-2">
+                                                                            <div class="form-row">
+                                                                                <div class="col-xl-4 align-self-center mb-2">
+                                                                                    <p class="color-mg font-md mb-0"><strong>Do you have Admission letter / Call letter: </strong><br /></p>
+                                                                                </div>
+                                                                                <div class="col-xl-2 align-self-center mb-2">
+                                                                                    <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                            <option value="14" selected>YES</option>
+                                                                                            <option value="14">NO</option>
+                                                                                        </select></div>
+                                                                                </div>
+                                                                                <div class="col-xl-12 mb-2"><label class="col-form-label">Name of the course you have been selected for:<br /></label></div>
+                                                                                <div class="col-xl-6"><label>Name of the course</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                                </div>
+                                                                                <div class="col-xl-6"><label>Name of the institute</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                                </div>
+                                                                                <div class="col-xl-4"><label>Address Line 1</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                                </div>
+                                                                                <div class="col-xl-4"><label>Address Line 2</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                                </div>
+                                                                                <div class="col-xl-2"><label>District</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                                </div>
+                                                                                <div class="col-xl-2"><label>City</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                                </div>
+                                                                                <div class="col-xl-3"><label>PIN/ZIP Code:</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                                </div>
+                                                                                <div class="col-xl-3"><label>state</label>
+                                                                                    <div class="form-group"><select class="form-control form-control-sm" readonly>
+                                                                                            <option value selected>State</option>
+                                                                                            <option value="12">West Bengal</option>
+                                                                                            <option value="13">Uttar Pradesh</option>
+                                                                                            <option value="14">Bihar</option>
+                                                                                        </select></div>
+                                                                                </div>
+                                                                                <div class="col-xl-3"><label>Whether recognized by Government of India<br /></label>
+                                                                                    <div class="form-group"><select class="form-control form-control-sm" readonly>
+                                                                                            <option value="12" selected>N/A</option>
+                                                                                            <option value="13">YES</option>
+                                                                                            <option value="14">NO</option>
+                                                                                        </select></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-xl-2 offset-xl-4 my-2">
-                                                    <button class="btn btn-block btn-sm btn-mg d-none" type="submit"><strong>Save</strong></button>
-                                                </div>
-                                                <div class="col-xl-2 offset-xl-0 my-2">
-                                                    <router-link class="btn btn-danger btn-block btn-sm d-none" type="button" to="/manage-scholarship"><strong>Cancel</strong></router-link>
-                                                </div>
+                                                </form>
                                             </div>
-                                      </form>
+                                        </div>
                                     </div>
-                                </section>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -828,6 +605,11 @@ export default {
         }
     },
     methods: {
+        logout(){
+         axios.get('/admin/logout').then(function(){
+            document.location.href = "/admin/login";
+         })
+      },
         async readApplicationForm(currentUrl) 
         {
             axios.get('/admin/admin-api/review-nursing-application-form/'+currentUrl)

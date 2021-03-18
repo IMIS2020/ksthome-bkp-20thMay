@@ -54,7 +54,6 @@
                             <h6 class="text-center color-mg mb-4"><strong>Login to apply for scholarship</strong></h6>
                             <div class="form-group">
                               <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" placeholder="Email address" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                             
                             </div>
 
                            <div class="form-group">

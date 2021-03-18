@@ -9,288 +9,208 @@
                     <div class="col-xl-12">
                         <div class="mb-3">
                             <ul class="nav nav-tabs font-sm" role="tablist">
-                               <li class="nav-item" role="presentation"><router-link class="nav-link " role="tab" data-toggle="tab" :to="'/admin/review-nursing-application-form/'+getdata.applicationId"><strong>Application Form</strong></router-link></li>
-                                <li class="nav-item" role="presentation" v-if="getdata.hasAdmissionLetter === 'NO'"><router-link class="nav-link active" role="tab" data-toggle="tab" :to="'/admin/review-nursing-annexure-1/'+getdata.applicationId"><strong>Annexure-I</strong></router-link></li>
+                              <li class="nav-item" role="presentation"><router-link class="nav-link " role="tab" data-toggle="tab" :to="'/admin/review-nursing-application-form/'+getdata.applicationId"><strong>Application Form</strong></router-link></li>
+                                <li class="nav-item" role="presentation" v-if="getdata.hasAdmissionLetter === 'NO'"><router-link class="nav-link  active" role="tab" data-toggle="tab" :to="'/admin/review-nursing-annexure-1/'+getdata.applicationId"><strong>Annexure-I</strong></router-link></li>
                                 <li class="nav-item " role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-I</strong></router-link></li>
                                 <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-annexure-2/'+getdata.applicationId"><strong>Annexure-II</strong></router-link></li>
                                 <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-upload-documents/'+getdata.applicationId"><strong>Upload Documents</strong></router-link></li>
                                 <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-nursing-review-submit/'+getdata.applicationId"><strong>Review &amp; Submit</strong></router-link></li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane active" role="tabpanel" id="tab-2">
-                                    <div class="div-inner-filed">
+                                <div role="tabpanel" class="tab-pane active adm-tab" id="tab-2">
+                                    <div class="div-inner-filed py-1 px-2">
                                         <form class="ub-reg-form">
                                             <div class="form-row">
-                                                <div class="col-xl-12">
-                                                    <p class="t-c-text">I&nbsp;<span>{{getdata.applicantNameF}} {{getdata.applicantNameM}} {{getdata.applicantNameL}}</span>&nbsp;daughter&nbsp;<span></span> of {{getdata.applicantFatherName}} & {{getdata.applicantMotherName}} residing in&nbsp;<span>{{getdata.addressAddln1}}</span> colony, want to pursue B.Sc. in Nursing In academic year&nbsp;<span>{{getdata.financialYear}}</span>. I will be taking the following Entrance Examination for admission into B.Sc. in Nursing.<br></p>
-                                                    <input class="form-control form-control-sm" type="text">
+                                                <div class="col-xl-12 align-self-center mb-2">
+                                                    <p class="float-left color-mg font-md mb-1">I Rahul Kr. Pandit son/daughter of Manoj Kr. Pandit residing in Khatir Bajar colony, want to pursue higher studies in academic Year 2020-2021. I will be taking the following Entrance Examination for admission into: <br /></p>
                                                 </div>
                                                 <div class="col-xl-12">
-                                                    <div class="card mt-2 det-sec">
-                                                        <div class="card-header">
-                                                            <h6 class="mb-0 color-mg">Institute Details</h6>
+                                                    <div class="com-bg-1">
+                                                        <div class="form-row mb-1">
+                                                            <div class="col-xl-2 offset-xl-8 text-right align-self-center">
+                                                                <p class="mb-0 color-mg font-md">Course Level:</p>
+                                                            </div>
+                                                            <div class="col-xl-2 offset-xl-0">
+                                                                <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                        <option value>Course Level</option>
+                                                                        <option value="12" selected>Bachelors</option>
+                                                                        <option value="13">Masters</option>
+                                                                    </select></div>
+                                                            </div>
+                                                            <div class="col-md-2 col-xl-1 offset-md-3 offset-xl-0 d-none align-self-center"><button class="btn btn-block btn-sm font-xs btn-mg add-anex-i-row" type="button"><i class="fa fa-plus"></i><strong> Add row</strong></button></div>
                                                         </div>
-                                                        <div class="card-body">
-                                                            <h6 class="color-mg"><strong>Choice 1:</strong></h6>
-                                                             <div class="px-2" style="border: 1px solid #c1c1c1;">
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-4">
-                                                                        <label>Institute Name</label>
-                                                                        <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.choice1instituteName" disabled>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <label>Address Line 1</label>
-                                                                          <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text" v-model="form.choice1addressAddln1" disabled>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-xl-4 offset-xl-0">
-                                                                        <label>Address Line 2</label>
-                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.choice1addressAddln2" disabled>
-                                                                        </div>
-                                                                    </div>
-                                                                     <div class="col-xl-3">
-                                                                        <label>City</label>
-                                                                        <div class="form-group">
-                                                                          <input class="form-control form-control-sm" type="text"  v-model="form.choice1addressCity" disabled>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-xl-3 offset-xl-0">
-                                                                        <label>District</label>
-                                                                        <div class="form-group">
-                                                                          <input class="form-control form-control-sm" type="text"  v-model="form.choice1addressDistprov" disabled>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-xl-3">
-                                                                        <label>State</label>
-                                                                        <div class="form-group">
-                                                                            <select class="form-control form-control-sm"  v-model="form.choice1addressState" disabled>
-                                                                                <option value="" disabled>--Select--</option>
-                                                                                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                                                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                                                                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                                                                <option value="Assam">Assam</option>
-                                                                                <option value="Bihar">Bihar</option>
-                                                                                <option value="Chandigarh">Chandigarh</option>
-                                                                                <option value="Chhattisgarh">Chhattisgarh</option>
-                                                                                <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                                                                                <option value="Daman and Diu">Daman and Diu</option>
-                                                                                <option value="Delhi">Delhi</option>
-                                                                                <option value="Lakshadweep">Lakshadweep</option>
-                                                                                <option value="Puducherry">Puducherry</option>
-                                                                                <option value="Goa">Goa</option>
-                                                                                <option value="Gujarat">Gujarat</option>
-                                                                                <option value="Haryana">Haryana</option>
-                                                                                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                                                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                                                                <option value="Jharkhand">Jharkhand</option>
-                                                                                <option value="Karnataka">Karnataka</option>
-                                                                                <option value="Kerala">Kerala</option>
-                                                                                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                                                                <option value="Maharashtra">Maharashtra</option>
-                                                                                <option value="Manipur">Manipur</option>
-                                                                                <option value="Meghalaya">Meghalaya</option>
-                                                                                <option value="Mizoram">Mizoram</option>
-                                                                                <option value="Nagaland">Nagaland</option>
-                                                                                <option value="Odisha">Odisha</option>
-                                                                                <option value="Punjab">Punjab</option>
-                                                                                <option value="Rajasthan">Rajasthan</option>
-                                                                                <option value="Sikkim">Sikkim</option>
-                                                                                <option value="Tamil Nadu">Tamil Nadu</option>
-                                                                                <option value="Telangana">Telangana</option>
-                                                                                <option value="Tripura">Tripura</option>
-                                                                                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                                                                <option value="Uttarakhand">Uttarakhand</option>
-                                                                                <option value="West Bengal">West Bengal</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                      <div class="col-xl-3">
-                                                                        <label>PIN/ZIP Code:</label>
-                                                                        <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.choice1addressPinzip" maxlength="6" disabled>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <h6 class="color-mg mt-2">
-                                                            <strong>Choice 2:</strong></h6>
-                                                                <div class="px-2" style="border: 1px solid #c1c1c1;">
-                                                                <div class="form-row">
-                                                                    <div class="col-xl-4">
-                                                                        <label>Institute Name</label>
-                                                                        <div class="form-group">
-                                                                         <input class="form-control form-control-sm" type="text"  v-model="form.choice2instituteName" disabled>
-                                                                         </div>
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <label>Address Line 1</label>
-                                                                        <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.choice2addressAddln1" disabled>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-xl-4 offset-xl-0">
-                                                                        <label>Address Line 2</label>
-                                                                        <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.choice2addressAddln2" disabled>
-                                                                        </div>
-                                                                    </div>
-                                                                     <div class="col-xl-3">
-                                                                        <label>City</label>
-                                                                        <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text" disabled  v-model="form.choice2addressCity">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-xl-3 offset-xl-0">
-                                                                        <label>District</label>
-                                                                        <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text"   v-model="form.choice2addressDistprov" disabled>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-xl-3">
-                                                                        <label>State</label>
-                                                                        <div class="form-group">
-                                                                            <select class="form-control form-control-sm"   v-model="form.choice2addressState" disabled>
-                                                                                <option value="" disabled>--Select--</option>
-                                                                                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                                                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                                                                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                                                                <option value="Assam">Assam</option>
-                                                                                <option value="Bihar">Bihar</option>
-                                                                                <option value="Chandigarh">Chandigarh</option>
-                                                                                <option value="Chhattisgarh">Chhattisgarh</option>
-                                                                                <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                                                                                <option value="Daman and Diu">Daman and Diu</option>
-                                                                                <option value="Delhi">Delhi</option>
-                                                                                <option value="Lakshadweep">Lakshadweep</option>
-                                                                                <option value="Puducherry">Puducherry</option>
-                                                                                <option value="Goa">Goa</option>
-                                                                                <option value="Gujarat">Gujarat</option>
-                                                                                <option value="Haryana">Haryana</option>
-                                                                                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                                                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                                                                <option value="Jharkhand">Jharkhand</option>
-                                                                                <option value="Karnataka">Karnataka</option>
-                                                                                <option value="Kerala">Kerala</option>
-                                                                                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                                                                <option value="Maharashtra">Maharashtra</option>
-                                                                                <option value="Manipur">Manipur</option>
-                                                                                <option value="Meghalaya">Meghalaya</option>
-                                                                                <option value="Mizoram">Mizoram</option>
-                                                                                <option value="Nagaland">Nagaland</option>
-                                                                                <option value="Odisha">Odisha</option>
-                                                                                <option value="Punjab">Punjab</option>
-                                                                                <option value="Rajasthan">Rajasthan</option>
-                                                                                <option value="Sikkim">Sikkim</option>
-                                                                                <option value="Tamil Nadu">Tamil Nadu</option>
-                                                                                <option value="Telangana">Telangana</option>
-                                                                                <option value="Tripura">Tripura</option>
-                                                                                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                                                                <option value="Uttarakhand">Uttarakhand</option>
-                                                                                <option value="West Bengal">West Bengal</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                     <div class="col-xl-3">
-                                                                        <label>PIN/ZIP Code:</label>
-                                                                          <div class="form-group">
-                                                                           <input class="form-control form-control-sm" type="text" v-model="form.choice2addressPinzip" maxlength="6" disabled>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                            <h6 class="color-mg mt-2">
-                                                                <strong>Choice 3:</strong></h6>
-                                                                 <div class="px-2" style="border: 1px solid #c1c1c1;">
-                                                                 <div class="form-row">
-                                                                    <div class="col-xl-4">
-                                                                        <label>Institute Name</label>
-                                                                         <div class="form-group">
-                                                                          <input class="form-control form-control-sm" type="text"  v-model="form.choice3instituteName" disabled>
-                                                                         </div>
-                                                                    </div>
-                                                                    <div class="col-xl-4">
-                                                                        <label>Address Line 1</label>
-                                                                        <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text" v-model="form.choice3addressAddln1" disabled>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-xl-4 offset-xl-0">
-                                                                        <label>Address Line 2</label>
-                                                                        <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.choice3addressAddln2" disabled>
-                                                                        </div>
-                                                                    </div>
-                                                                   
-                                                                    <div class="col-xl-3">
-                                                                        <label>City</label>
-                                                                         <div class="form-group">
-                                                                          <input class="form-control form-control-sm" type="text"  v-model="form.choice3addressCity" disabled>
-                                                                        </div>
-                                                                    </div>    
-
-                                                                     <div class="col-xl-3 offset-xl-0">
-                                                                        <label>District</label>
-                                                                        <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.choice3addressDistprov" disabled>
-                                                                        </div>
-                                                                    </div>                                                           
-                                                                    <div class="col-xl-3">
-                                                                        <label>State</label>
-                                                                        <div class="form-group">
-                                                                            <select class="form-control form-control-sm"  v-model="form.choice3addressState" disabled>
-                                                                                <option value="" disabled>--Select--</option>
-                                                                                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                                                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                                                                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                                                                <option value="Assam">Assam</option>
-                                                                                <option value="Bihar">Bihar</option>
-                                                                                <option value="Chandigarh">Chandigarh</option>
-                                                                                <option value="Chhattisgarh">Chhattisgarh</option>
-                                                                                <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                                                                                <option value="Daman and Diu">Daman and Diu</option>
-                                                                                <option value="Delhi">Delhi</option>
-                                                                                <option value="Lakshadweep">Lakshadweep</option>
-                                                                                <option value="Puducherry">Puducherry</option>
-                                                                                <option value="Goa">Goa</option>
-                                                                                <option value="Gujarat">Gujarat</option>
-                                                                                <option value="Haryana">Haryana</option>
-                                                                                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                                                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                                                                <option value="Jharkhand">Jharkhand</option>
-                                                                                <option value="Karnataka">Karnataka</option>
-                                                                                <option value="Kerala">Kerala</option>
-                                                                                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                                                                <option value="Maharashtra">Maharashtra</option>
-                                                                                <option value="Manipur">Manipur</option>
-                                                                                <option value="Meghalaya">Meghalaya</option>
-                                                                                <option value="Mizoram">Mizoram</option>
-                                                                                <option value="Nagaland">Nagaland</option>
-                                                                                <option value="Odisha">Odisha</option>
-                                                                                <option value="Punjab">Punjab</option>
-                                                                                <option value="Rajasthan">Rajasthan</option>
-                                                                                <option value="Sikkim">Sikkim</option>
-                                                                                <option value="Tamil Nadu">Tamil Nadu</option>
-                                                                                <option value="Telangana">Telangana</option>
-                                                                                <option value="Tripura">Tripura</option>
-                                                                                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                                                                <option value="Uttarakhand">Uttarakhand</option>
-                                                                                <option value="West Bengal">West Bengal</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                     <div class="col-xl-3">
-                                                                        <label>PIN/ZIP Code:</label>
-                                                                         <div class="form-group">
-                                                                          <input class="form-control form-control-sm" type="text"  v-model="form.choice3addressPinzip" maxlength="6" disabled>
-                                                                       </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                        <div class="table-responsive table results mb-0 donor-list tmd anex-i-table">
+                                                            <table class="table table-sm mb-2">
+                                                                <thead class="font-md">
+                                                                    <tr class="color-mg font-sm">
+                                                                        <th>Institute Name</th>
+                                                                        <th>Course Name</th>
+                                                                        <th>Address Line-1</th>
+                                                                        <th>Address Line-2</th>
+                                                                        <th>District</th>
+                                                                        <th>City</th>
+                                                                        <th>Pin/ZIP Code</th>
+                                                                        <th>State</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody class="h-25x">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                    <option value selected>State</option>
+                                                                                    <option value="12">West Bengal</option>
+                                                                                    <option value="13">Uttar Pradesh</option>
+                                                                                    <option value="14">Bihar</option>
+                                                                                </select></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                    <option value selected>State</option>
+                                                                                    <option value="12">West Bengal</option>
+                                                                                    <option value="13">Uttar Pradesh</option>
+                                                                                    <option value="14">Bihar</option>
+                                                                                </select></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                    <option value selected>State</option>
+                                                                                    <option value="12">West Bengal</option>
+                                                                                    <option value="13">Uttar Pradesh</option>
+                                                                                    <option value="14">Bihar</option>
+                                                                                </select></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                    <option value selected>State</option>
+                                                                                    <option value="12">West Bengal</option>
+                                                                                    <option value="13">Uttar Pradesh</option>
+                                                                                    <option value="14">Bihar</option>
+                                                                                </select></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1" readonly></textarea></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                    <option value selected>State</option>
+                                                                                    <option value="12">West Bengal</option>
+                                                                                    <option value="13">Uttar Pradesh</option>
+                                                                                    <option value="14">Bihar</option>
+                                                                                </select></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -360,6 +280,11 @@ export default{
         }
     },
     methods: {
+        logout(){
+         axios.get('/admin/logout').then(function(){
+            document.location.href = "/admin/login";
+         })
+      },
         
         getannexurei() {
             const  currentUrl = window.location.pathname.split('/').reverse()[0];

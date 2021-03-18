@@ -181,19 +181,53 @@
                                                                                 </div>
                                                                                 <div class="col-xl-3"><label>whether family has a BPL card: </label>
                                                                                     <div class="form-group">
-                                                                                        <select class="form-control form-control-sm" disabled v-model="form.applicantHasBPLCard">
-                                                                                            <option value="14" selected>NO</option>
-                                                                                            <option value="14">YES</option>
-                                                                                        </select>
+                                                                                        <select class="form-control form-control-sm" v-model="form.applicantHasBPLCard" disabled>
+                                                                                 <option value="" disabled>--Select--</option>
+                                                                                <option value="Yes">YES</option>
+                                                                                <option value="No">NO</option>
+                                                                            </select>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-xl-2"><label>domicile state</label>
                                                                                     <div class="form-group">
                                                                                         <select class="form-control form-control-sm" disabled v-model="form.applicantDomicileState">
-                                                                                            <option value selected>State</option>
-                                                                                            <option value="12">West Bengal</option>
-                                                                                            <option value="13">Uttar Pradesh</option>
-                                                                                            <option value="14">Bihar</option>
+                                                                                             <option value="" disabled>--Select--</option>
+                                                                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                                                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                                                <option value="Assam">Assam</option>
+                                                                                <option value="Bihar">Bihar</option>
+                                                                                <option value="Chandigarh">Chandigarh</option>
+                                                                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                                                                <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                                                                <option value="Daman and Diu">Daman and Diu</option>
+                                                                                <option value="Delhi">Delhi</option>
+                                                                                <option value="Lakshadweep">Lakshadweep</option>
+                                                                                <option value="Puducherry">Puducherry</option>
+                                                                                <option value="Goa">Goa</option>
+                                                                                <option value="Gujarat">Gujarat</option>
+                                                                                <option value="Haryana">Haryana</option>
+                                                                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                                                <option value="Jharkhand">Jharkhand</option>
+                                                                                <option value="Karnataka">Karnataka</option>
+                                                                                <option value="Kerala">Kerala</option>
+                                                                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                                                <option value="Maharashtra">Maharashtra</option>
+                                                                                <option value="Manipur">Manipur</option>
+                                                                                <option value="Meghalaya">Meghalaya</option>
+                                                                                <option value="Mizoram">Mizoram</option>
+                                                                                <option value="Nagaland">Nagaland</option>
+                                                                                <option value="Odisha">Odisha</option>
+                                                                                <option value="Punjab">Punjab</option>
+                                                                                <option value="Rajasthan">Rajasthan</option>
+                                                                                <option value="Sikkim">Sikkim</option>
+                                                                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                                                                <option value="Telangana">Telangana</option>
+                                                                                <option value="Tripura">Tripura</option>
+                                                                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                                                <option value="Uttarakhand">Uttarakhand</option>
+                                                                                <option value="West Bengal">West Bengal</option>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -228,10 +262,43 @@
                                                                                     <label>State</label>
                                                                                     <div class="form-group">
                                                                                         <select class="form-control form-control-sm"  v-model="form.addressState" disabled>
-                                                                                            <option value selected>State</option>
-                                                                                            <option value="12">West Bengal</option>
-                                                                                            <option value="13">Uttar Pradesh</option>
-                                                                                            <option value="14">Bihar</option>
+                                                                                            <option value="" disabled>--Select--</option>
+                                                                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                                                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                                                <option value="Assam">Assam</option>
+                                                                                <option value="Bihar">Bihar</option>
+                                                                                <option value="Chandigarh">Chandigarh</option>
+                                                                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                                                                <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                                                                <option value="Daman and Diu">Daman and Diu</option>
+                                                                                <option value="Delhi">Delhi</option>
+                                                                                <option value="Lakshadweep">Lakshadweep</option>
+                                                                                <option value="Puducherry">Puducherry</option>
+                                                                                <option value="Goa">Goa</option>
+                                                                                <option value="Gujarat">Gujarat</option>
+                                                                                <option value="Haryana">Haryana</option>
+                                                                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                                                <option value="Jharkhand">Jharkhand</option>
+                                                                                <option value="Karnataka">Karnataka</option>
+                                                                                <option value="Kerala">Kerala</option>
+                                                                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                                                <option value="Maharashtra">Maharashtra</option>
+                                                                                <option value="Manipur">Manipur</option>
+                                                                                <option value="Meghalaya">Meghalaya</option>
+                                                                                <option value="Mizoram">Mizoram</option>
+                                                                                <option value="Nagaland">Nagaland</option>
+                                                                                <option value="Odisha">Odisha</option>
+                                                                                <option value="Punjab">Punjab</option>
+                                                                                <option value="Rajasthan">Rajasthan</option>
+                                                                                <option value="Sikkim">Sikkim</option>
+                                                                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                                                                <option value="Telangana">Telangana</option>
+                                                                                <option value="Tripura">Tripura</option>
+                                                                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                                                <option value="Uttarakhand">Uttarakhand</option>
+                                                                                <option value="West Bengal">West Bengal</option>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -278,16 +345,17 @@
                                                                                             <tbody>
                                                                                                 <tr>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" disabled>
                                                                                                                 <option value selected>-- select --</option>
                                                                                                                 <option value>10th</option>
                                                                                                                 <option value="1">12th</option>
                                                                                                                 <option value>Graduation</option>
                                                                                                                 <option value>Others</option>
-                                                                                                            </select></div>
+                                                                                                            </select>
+                                                                                                        </div>
                                                                                                     </td>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" disabled>
                                                                                                                 <option value selected>-- select --</option>
                                                                                                                 <option value>Madhyamik</option>
                                                                                                                 <option value>Higher Secondary</option>
@@ -296,7 +364,7 @@
                                                                                                             </select></div>
                                                                                                     </td>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" disabled>
                                                                                                                 <option value selected>-- select --</option>
                                                                                                                 <option value>WBBSE</option>
                                                                                                                 <option value>WBCHSE</option>
@@ -305,10 +373,10 @@
                                                                                                             </select></div>
                                                                                                     </td>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm" placeholder="Type separated by comma" readonly></textarea></div>
+                                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm" placeholder="Type separated by comma" disabled></textarea></div>
                                                                                                     </td>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" disabled>
                                                                                                                 <option value selected>-- select --</option>
                                                                                                                 <option value>2021</option>
                                                                                                                 <option value>2020</option>
@@ -320,13 +388,14 @@
                                                                                                                 <option value>2014</option>
                                                                                                                 <option value>2013</option>
                                                                                                                 <option value>2012</option>
-                                                                                                            </select></div>
+                                                                                                            </select>
+                                                                                                        </div>
                                                                                                     </td>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><input type="number" class="form-control form-control-sm" min="1" readonly /></div>
+                                                                                                        <div class="form-group mb-0"><input type="number" class="form-control form-control-sm" min="1" disabled /></div>
                                                                                                     </td>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" disabled>
                                                                                                                 <option value selected>-- select --</option>
                                                                                                                 <option value>1st</option>
                                                                                                                 <option value>2nd</option>
@@ -337,7 +406,7 @@
                                                                                                 </tr>
                                                                                                 <tr>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" disabled>
                                                                                                                 <option value selected>-- select --</option>
                                                                                                                 <option value>10th</option>
                                                                                                                 <option value="1">12th</option>
@@ -346,7 +415,7 @@
                                                                                                             </select></div>
                                                                                                     </td>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" disabled>
                                                                                                                 <option value selected>-- select --</option>
                                                                                                                 <option value>Madhyamik</option>
                                                                                                                 <option value>Higher Secondary</option>
@@ -355,7 +424,7 @@
                                                                                                             </select></div>
                                                                                                     </td>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" disabled>
                                                                                                                 <option value selected>-- select --</option>
                                                                                                                 <option value>WBBSE</option>
                                                                                                                 <option value>WBCHSE</option>
@@ -364,10 +433,10 @@
                                                                                                             </select></div>
                                                                                                     </td>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm" placeholder="Type separated by comma" readonly></textarea></div>
+                                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm" placeholder="Type separated by comma" disabled></textarea></div>
                                                                                                     </td>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" disabled>
                                                                                                                 <option value selected>-- select --</option>
                                                                                                                 <option value>2021</option>
                                                                                                                 <option value>2020</option>
@@ -382,10 +451,10 @@
                                                                                                             </select></div>
                                                                                                     </td>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><input type="number" class="form-control form-control-sm" min="1" readonly /></div>
+                                                                                                        <div class="form-group mb-0"><input type="number" class="form-control form-control-sm" min="1" disabled /></div>
                                                                                                     </td>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" disabled>
                                                                                                                 <option value selected>-- select --</option>
                                                                                                                 <option value>1st</option>
                                                                                                                 <option value>2nd</option>
@@ -396,7 +465,7 @@
                                                                                                 </tr>
                                                                                                 <tr>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" disabled>
                                                                                                                 <option value selected>-- select --</option>
                                                                                                                 <option value>10th</option>
                                                                                                                 <option value="1">12th</option>
@@ -405,7 +474,7 @@
                                                                                                             </select></div>
                                                                                                     </td>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" disabled>
                                                                                                                 <option value selected>-- select --</option>
                                                                                                                 <option value>Madhyamik</option>
                                                                                                                 <option value>Higher Secondary</option>
@@ -414,7 +483,7 @@
                                                                                                             </select></div>
                                                                                                     </td>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" disabled>
                                                                                                                 <option value selected>-- select --</option>
                                                                                                                 <option value>WBBSE</option>
                                                                                                                 <option value>WBCHSE</option>
@@ -426,7 +495,7 @@
                                                                                                         <div class="form-group mb-0"><textarea class="form-control form-control-sm" placeholder="Type separated by comma" readonly></textarea></div>
                                                                                                     </td>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" disabled>
                                                                                                                 <option value selected>-- select --</option>
                                                                                                                 <option value>2021</option>
                                                                                                                 <option value>2020</option>
@@ -441,10 +510,10 @@
                                                                                                             </select></div>
                                                                                                     </td>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><input type="number" class="form-control form-control-sm" min="1" readonly /></div>
+                                                                                                        <div class="form-group mb-0"><input type="number" class="form-control form-control-sm" min="1" disabled /></div>
                                                                                                     </td>
                                                                                                     <td>
-                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
+                                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm" disabled>
                                                                                                                 <option value selected>-- select --</option>
                                                                                                                 <option value>1st</option>
                                                                                                                 <option value>2nd</option>
@@ -472,47 +541,87 @@
                                                                                     <p class="color-mg font-md mb-0"><strong>Do you have Admission letter / Call letter: </strong><br /></p>
                                                                                 </div>
                                                                                 <div class="col-xl-2 align-self-center mb-2">
-                                                                                    <div class="form-group mb-0"><select class="form-control form-control-sm" readonly>
-                                                                                            <option value="14" selected>YES</option>
-                                                                                            <option value="14">NO</option>
-                                                                                        </select></div>
+                                                                                    <div class="form-group mb-0">
+                                                                                        <select class="form-control form-control-sm" v-model="form.hasAdmissionLetter" disabled>
+                                                                                            <option value="YES" selected>YES</option>
+                                                                                            <option value="NO">NO</option>
+                                                                                        </select>
+                                                                                    </div>
                                                                                 </div>
                                                                                 <div class="col-xl-12 mb-2"><label class="col-form-label">Name of the course you have been selected for:<br /></label></div>
                                                                                 <div class="col-xl-6"><label>Name of the course</label>
-                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" disabled v-model="form.insCourse"></div>
                                                                                 </div>
                                                                                 <div class="col-xl-6"><label>Name of the institute</label>
-                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" disabled v-model="form.insName"></div>
                                                                                 </div>
                                                                                 <div class="col-xl-4"><label>Address Line 1</label>
-                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" disabled v-model="form.insAddressAddln1"></div>
                                                                                 </div>
                                                                                 <div class="col-xl-4"><label>Address Line 2</label>
-                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" readonly /></div>
-                                                                                </div>
-                                                                                <div class="col-xl-2"><label>District</label>
-                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" disabled v-model="form.insAddressAddln2"></div>
                                                                                 </div>
                                                                                 <div class="col-xl-2"><label>City</label>
-                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" disabled v-model="form.insAddressCity"></div>
                                                                                 </div>
-                                                                                <div class="col-xl-3"><label>PIN/ZIP Code:</label>
-                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" readonly /></div>
+                                                                                <div class="col-xl-2"><label>District</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" disabled v-model="form.insAddressDistprov"></div>
                                                                                 </div>
-                                                                                <div class="col-xl-3"><label>state</label>
-                                                                                    <div class="form-group"><select class="form-control form-control-sm" readonly>
-                                                                                            <option value selected>State</option>
-                                                                                            <option value="12">West Bengal</option>
-                                                                                            <option value="13">Uttar Pradesh</option>
-                                                                                            <option value="14">Bihar</option>
-                                                                                        </select></div>
+                                                                               
+                                                                                <div class="col-xl-3"><label>State</label>
+                                                                                    <div class="form-group">
+                                                                                        <select class="form-control form-control-sm" disabled v-model="form.insAddressState" >
+                                                                                             <option value="" disabled>--Select--</option>
+                                                                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                                                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                                                <option value="Assam">Assam</option>
+                                                                                <option value="Bihar">Bihar</option>
+                                                                                <option value="Chandigarh">Chandigarh</option>
+                                                                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                                                                <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                                                                <option value="Daman and Diu">Daman and Diu</option>
+                                                                                <option value="Delhi">Delhi</option>
+                                                                                <option value="Lakshadweep">Lakshadweep</option>
+                                                                                <option value="Puducherry">Puducherry</option>
+                                                                                <option value="Goa">Goa</option>
+                                                                                <option value="Gujarat">Gujarat</option>
+                                                                                <option value="Haryana">Haryana</option>
+                                                                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                                                <option value="Jharkhand">Jharkhand</option>
+                                                                                <option value="Karnataka">Karnataka</option>
+                                                                                <option value="Kerala">Kerala</option>
+                                                                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                                                <option value="Maharashtra">Maharashtra</option>
+                                                                                <option value="Manipur">Manipur</option>
+                                                                                <option value="Meghalaya">Meghalaya</option>
+                                                                                <option value="Mizoram">Mizoram</option>
+                                                                                <option value="Nagaland">Nagaland</option>
+                                                                                <option value="Odisha">Odisha</option>
+                                                                                <option value="Punjab">Punjab</option>
+                                                                                <option value="Rajasthan">Rajasthan</option>
+                                                                                <option value="Sikkim">Sikkim</option>
+                                                                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                                                                <option value="Telangana">Telangana</option>
+                                                                                <option value="Tripura">Tripura</option>
+                                                                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                                                <option value="Uttarakhand">Uttarakhand</option>
+                                                                                <option value="West Bengal">West Bengal</option>
+                                                                                        </select>
+                                                                                    </div>
                                                                                 </div>
-                                                                                <div class="col-xl-3"><label>Whether recognized by Government of India<br /></label>
-                                                                                    <div class="form-group"><select class="form-control form-control-sm" readonly>
-                                                                                            <option value="12" selected>N/A</option>
-                                                                                            <option value="13">YES</option>
-                                                                                            <option value="14">NO</option>
-                                                                                        </select></div>
+                                                                                 <div class="col-xl-3"><label>PIN/ZIP Code:</label>
+                                                                                    <div class="form-group"><input type="text" class="form-control form-control-sm" disabled v-model="form.insAddressPinzip"></div>
+                                                                                </div>
+                                                                                <div class="col-xl-3"><label>Whether recognized by Indian Nursing Council<br /></label>
+                                                                                    <div class="form-group">
+                                                                                        <select class="form-control form-control-sm" disabled v-model="form.recognizedByINC">
+                                                                                            <option value="N/A" selected>N/A</option>
+                                                                                            <option value="YES">YES</option>
+                                                                                            <option value="NO">NO</option>
+                                                                                        </select>
+                                                                                   </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -533,7 +642,8 @@
             </div>
         </div>
     </div>
-</body>
+  </body>
+
     
 </template>
 

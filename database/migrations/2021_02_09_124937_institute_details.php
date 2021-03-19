@@ -16,6 +16,7 @@ class InstituteDetails extends Migration
         Schema::create('instituteDetails', function (Blueprint $table) {
             $table->id();
             $table->string('instituteName');
+            $table->string('courseName');
             $table->unsignedBigInteger('instituteAddressId');
             $table->timestamps();
         });

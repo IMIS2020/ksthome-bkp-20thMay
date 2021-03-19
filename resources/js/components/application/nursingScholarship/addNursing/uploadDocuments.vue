@@ -17,21 +17,21 @@
                                 <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/review-submit'"><strong>Review &amp; Submit</strong></router-link></li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane active" role="tabpanel" id="tab-4">
+                                  <div class="tab-pane active" role="tabpanel" id="tab-4">
                                     <div class="ub-reg-form">
                                         <div class="div-inner-filed">
                                             <div class="form-row">
                                                 <div class="col-xl-12">
                                                     <div class="card mt-2 det-sec">
                                                         <div class="card-header">
-                                                            <h6 class="mb-0 color-mg">Upload Documents Here(Max size 1 MB JPG,PNG,PDF format only)</h6>
+                                                            <h6 class="mb-0 color-mg">Upload latest certificates and proofs - (PDF,png,jpeg or jpg files - Max 1 MB each)<br></h6>
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="form-row">
                                                                 <div class="col-xl-12">
-                                                                    <div class="table-responsive font-md rev-tbl">
+                                                                    <div class="table-responsive font-md upd-doc">
                                                                         <table class="table table-sm mb-0">
-                                                                            <thead>
+                                                                            <thead class="color-mg">
                                                                                 <tr class="color-mg">
                                                                                     <th colspan="2">Required Document</th>
                                                                                     <th>Choose file</th>
@@ -41,203 +41,77 @@
                                                                             </thead>
                                                                             <tbody>
                                                                                 <tr>
-                                                                                    <td colspan="2"><strong>Proof of admission letter/call letter issued by the institute</strong></td>
+                                                                                    <td colspan="2"><strong>Proof of admission in a recognized&nbsp;institute/ admission call letter issued by the institute</strong><br></td>
                                                                                     <td>
-                                                                                        <div class="form-group" >
-                                                                                            <input type="file" ref="admissionLetter" v-on:change="selectFile('admissionLetter')" class="font-sm">
-                                                                                        </div>
-
-                                                                                         <!-- <div class="form-group" >
-                                                                                            <input type="file" ref="admissionLetter" v-on:change="selectFile('admissionLetter')" class="font-sm" >
-                                                                                        </div> -->
+                                                                                        <div class="form-group"><input class="form-control-file font-sm" type="file"></div>
                                                                                     </td>
-                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.admissionLetter === '#')?'No':'Yes'}}</span></td>
-                                                                                    <td class="text-center" v-if="getFiles.admissionLetter !== '#'">
-                                                                                      <router-link target="_blank" class="act-link" :to="''+getFiles.admissionLetter">
-                                                                                        <i class="fa fa-eye"></i>
-                                                                                      </router-link>
-                                                                                         <button class="act-link" type="button" @click.prevent="deleteFile('admissionLetter')">
-                                                                                            <i class="fa fa-trash"></i>
-                                                                                         </button>
-                                                                                    </td>
-                                                                                    <td class="text-center" v-else>
-                                                                                        <span class="act-link"  style="color:#808080;">
-                                                                                        <i class="fa fa-eye"></i>
-                                                                                        </span>
-                                                                                        <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
-                                                                                    </td>
+                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">Yes</span></td>
+                                                                                    <td class="text-center"><a class="act-link" href="#"><i class="fa fa-eye"></i></a><a class="act-link" href="#"><i class="fa fa-trash"></i></a></td>
                                                                                 </tr>
+
                                                                                 <tr>
                                                                                     <td colspan="2"><strong>Annexure-II Signed letter from colony leader stating the candidate is residing in the colony</strong></td>
                                                                                     <td>
-                                                                                        <div class="form-group"><input type="file" class="font-sm" ref="annexureII" v-on:change="selectFile('annexureII')" ></div>
+                                                                                        <div class="form-group"><input class="form-control-file font-sm" type="file"></div>
                                                                                     </td>
-                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.annexureII === '#')?'No':'Yes'}}</span></td>
-                                                                                    <td class="text-center" v-if="getFiles.annexureII !== '#'">
-                                                                                        <router-link target="_blank" class="act-link" :to="''+getFiles.annexureII"><i class="fa fa-eye"></i></router-link>
-                                                                                       <button class="act-link" type="button" @click.prevent="deleteFile('annexureII')">
-                                                                                            <i class="fa fa-trash"></i>
-                                                                                         </button>
-                                                                                    </td>
-                                                                                    <td class="text-center" v-else>
-                                                                                        <span class="act-link"  style="color:#808080;">
-                                                                                        <i class="fa fa-eye"></i>
-                                                                                        </span>
-                                                                                        <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
-                                                                                    </td>
+                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">Yes</span></td>
+                                                                                    <td class="text-center"><a class="act-link" href="#"><i class="fa fa-eye"></i></a><a class="act-link" href="#"><i class="fa fa-trash"></i></a></td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td colspan="2"><strong>Passport size photograph</strong></td>
                                                                                     <td>
-                                                                                        <div class="form-group"><input type="file" class="font-sm" ref="photograph" v-on:change="selectFile('photograph')" ></div>
+                                                                                        <div class="form-group"><input class="form-control-file font-sm" type="file"></div>
                                                                                     </td>
-                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.photograph === '#')?'No':'Yes'}}</span></td>
-                                                                                    <td class="text-center" v-if="getFiles.photograph !== '#'">
-                                                                                       <router-link target="_blank" class="act-link" :to="''+getFiles.photograph"><i class="fa fa-eye"></i></router-link>
-                                                                                       <button class="act-link" type="button" @click.prevent="deleteFile('photograph')">
-                                                                                            <i class="fa fa-trash"></i>
-                                                                                         </button>
-                                                                                    </td>
-
-                                                                                    <td class="text-center" v-else>
-                                                                                        <span class="act-link" style="color:#808080;">
-                                                                                        <i class="fa fa-eye"></i>
-                                                                                        </span>
-                                                                                        <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
-                                                                                    </td>
+                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">No</span></td>
+                                                                                    <td class="text-center"><a class="act-link" href="#"><i class="fa fa-eye"></i></a><a class="act-link" href="#"><i class="fa fa-trash"></i></a></td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td colspan="2"><strong>Self attested Birth certificate/ proof of age</strong></td>
                                                                                     <td>
-                                                                                        <div class="form-group"><input type="file" class="font-sm" ref="proofOfAge" v-on:change="selectFile('proofOfAge')" ></div>
+                                                                                        <div class="form-group"><input class="form-control-file font-sm" type="file"></div>
                                                                                     </td>
-                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.proofOfAge === '#')?'No':'Yes'}}</span></td>
-                                                                                    <td class="text-center" v-if="getFiles.proofOfAge !== '#'">
-                                                                                       <router-link target="_blank" class="act-link" :to="''+getFiles.proofOfAge"><i class="fa fa-eye"></i></router-link>
-                                                                                       <button class="act-link" type="button" @click.prevent="deleteFile('proofOfAge')">
-                                                                                            <i class="fa fa-trash"></i>
-                                                                                         </button>
-                                                                                    </td>
-
-                                                                                    <td class="text-center" v-else>
-                                                                                          <span class="act-link" style="color:#808080;">
-                                                                                           <i class="fa fa-eye"></i>
-                                                                                          </span>
-                                                                                            <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
-                                                                                       </td>
+                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">Yes</span></td>
+                                                                                    <td class="text-center"><a class="act-link" href="#"><i class="fa fa-eye"></i></a><a class="act-link" href="#"><i class="fa fa-trash"></i></a></td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td colspan="2"><strong>Self attested Mark Sheets for 10th</strong></td>
+                                                                                    <td colspan="2"><strong>Self attested Mark Sheet for 10th</strong></td>
                                                                                     <td>
-                                                                                        <div class="form-group"><input type="file" class="font-sm" ref="markSheets10" v-on:change="selectFile('markSheets10')"  ></div>
+                                                                                        <div class="form-group"><input class="form-control-file font-sm" type="file"></div>
                                                                                     </td>
-                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.markSheets10 === '#')?'No':'Yes'}}</span></td>
-                                                                                    <td class="text-center" v-if="getFiles.markSheets10 !== '#'">
-                                                                                         <router-link target="_blank" class="act-link" :to="''+getFiles.markSheets10"><i class="fa fa-eye"></i></router-link>
-                                                                                       <button class="act-link" type="button" @click.prevent="deleteFile('markSheets10')">
-                                                                                            <i class="fa fa-trash"></i>
-                                                                                         </button>
-                                                                                    </td>
-
-                                                                                    <td class="text-center" v-else>
-                                                                                        <span class="act-link" style="color:#808080;">
-                                                                                        <i class="fa fa-eye"></i>
-                                                                                        </span>
-                                                                                        <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
-                                                                                    </td>
+                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">Yes</span></td>
+                                                                                    <td class="text-center"><a class="act-link" href="#"><i class="fa fa-eye"></i></a><a class="act-link" href="#"><i class="fa fa-trash"></i></a></td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td colspan="2"><strong>Self attested Mark Sheets for 12th</strong></td>
+                                                                                    <td colspan="2"><strong>Self attested Mark Sheet for 12th</strong></td>
                                                                                     <td>
-                                                                                        <div class="form-group"><input type="file" class="font-sm" ref="markSheets12" v-on:change="selectFile('markSheets12')" ></div>
+                                                                                        <div class="form-group"><input class="form-control-file font-sm" type="file"></div>
                                                                                     </td>
-                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.markSheets12 === '#')?'No':'Yes'}}</span></td>
-                                                                                    <td class="text-center" v-if="getFiles.markSheets12 !== '#'">
-                                                                                          <router-link target="_blank" class="act-link" :to="''+getFiles.markSheets12"><i class="fa fa-eye"></i></router-link>
-                                                                                       <button class="act-link" type="button" @click.prevent="deleteFile('markSheets12')">
-                                                                                            <i class="fa fa-trash"></i>
-                                                                                         </button>
-                                                                                    </td>
-
-                                                                                     <td class="text-center" v-else>
-                                                                                          <span class="act-link" style="color:#808080;">
-                                                                                            <i class="fa fa-eye"></i>
-                                                                                          </span>
-                                                                                        <span class="act-link" style="color:#808080;">
-                                                                                            <i class="fa fa-trash"></i>
-                                                                                        </span>
-                                                                                    </td>
+                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">Yes</span></td>
+                                                                                    <td class="text-center"><a class="act-link" href="#"><i class="fa fa-eye"></i></a><a class="act-link" href="#"><i class="fa fa-trash"></i></a></td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td><strong>Self attested Leprosy Certificate (Self) </strong><br></td>
-                                                                                    <td class="justify-content-xl-center align-items-xl-center">
-                                                                                        
-                                                                                    </td>
+                                                                                    <td colspan="2"><strong>Self attested Leprosy Certificate of Mother</strong><br></td>
                                                                                     <td>
-                                                                                        <div class="form-group"><input type="file" class="font-sm" ref="leprosyCertificateSelf" v-on:change="selectFile('leprosyCertificateSelf')" ></div>
+                                                                                        <div class="form-group"><input class="form-control-file font-sm" type="file"></div>
                                                                                     </td>
-                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.leprosyCertificateSelf === '#')?'No':'Yes'}}</span></td>
-                                                                                    <td class="text-center" v-if="getFiles.leprosyCertificateSelf !== '#'">
-                                                                                        <router-link target="_blank" class="act-link" :to="''+getFiles.leprosyCertificateSelf"><i class="fa fa-eye"></i></router-link>
-                                                                                       <button class="act-link" type="button" @click.prevent="deleteFile('leprosyCertificateSelf')">
-                                                                                            <i class="fa fa-trash"></i>
-                                                                                         </button>
-                                                                                    </td>
-
-                                                                                    <td class="text-center" v-else>
-                                                                                          <span class="act-link" style="color:#808080;">
-                                                                                           <i class="fa fa-eye"></i>
-                                                                                          </span>
-                                                                                            <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
-                                                                                    </td>
+                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">Yes</span></td>
+                                                                                    <td class="text-center"><a class="act-link" href="#"><i class="fa fa-eye"></i></a><a class="act-link" href="#"><i class="fa fa-trash"></i></a></td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td><strong>Self attested Leprosy Certificate (Mother) </strong><br></td>
-                                                                                    <td class="justify-content-xl-center align-items-xl-center">
-                                                                                    </td>
+                                                                                    <td colspan="2"><strong>Self attested Leprosy Certificate of Father</strong><br></td>
                                                                                     <td>
-                                                                                        <div class="form-group">
-                                                                                            <input type="file" class="font-sm" ref="leprosyCertificateMother" v-on:change="selectFile('leprosyCertificateMother')" >
-                                                                                        </div>
+                                                                                        <div class="form-group"><input class="form-control-file font-sm" type="file"></div>
                                                                                     </td>
-                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.leprosyCertificateMother === '#')?'No':'Yes'}}</span></td>
-                                                                                    <td class="text-center" v-if="getFiles.leprosyCertificateMother !== '#'">
-                                                                                        <router-link target="_blank" class="act-link" :to="''+getFiles.leprosyCertificateMother"><i class="fa fa-eye"></i></router-link>
-                                                                                       <button class="act-link" type="button" @click.prevent="deleteFile('leprosyCertificateMother')">
-                                                                                            <i class="fa fa-trash"></i>
-                                                                                         </button>
-                                                                                    </td>
-
-                                                                                     <td class="text-center" v-else>
-                                                                                          <span class="act-link" style="color:#808080;">
-                                                                                           <i class="fa fa-eye"></i>
-                                                                                          </span>
-                                                                                            <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
-                                                                                       </td>
+                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">Yes</span></td>
+                                                                                    <td class="text-center"><a class="act-link" href="#"><i class="fa fa-eye"></i></a><a class="act-link" href="#"><i class="fa fa-trash"></i></a></td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td><strong>Self attested Leprosy Certificate (Father) </strong><br></td>
-                                                                                    <td class="justify-content-xl-center align-items-xl-center">
-                                                                                    </td>
+                                                                                    <td colspan="2"><strong>Self attested Leprosy Certificate of Self</strong><br></td>
                                                                                     <td>
-                                                                                        <div class="form-group">
-                                                                                            <input type="file" class="font-sm" ref="leprosyCertificateFather" v-on:change="selectFile('leprosyCertificateFather')" >
-                                                                                        </div>
+                                                                                        <div class="form-group"><input class="form-control-file font-sm" type="file"></div>
                                                                                     </td>
-                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.leprosyCertificateFather === '#')?'No':'Yes'}}</span></td>
-                                                                                    <td class="text-center" v-if="getFiles.leprosyCertificateFather !== '#'">
-                                                                                        <router-link target="_blank" class="act-link" :to="''+getFiles.leprosyCertificateFather"><i class="fa fa-eye"></i></router-link>
-                                                                                       <button class="act-link" type="button" @click.prevent="deleteFile('leprosyCertificateFather')">
-                                                                                            <i class="fa fa-trash"></i>
-                                                                                         </button>
-                                                                                    </td>
-
-                                                                                    <td class="text-center" v-else>
-                                                                                          <span class="act-link" style="color:#808080;">
-                                                                                           <i class="fa fa-eye"></i>
-                                                                                          </span>
-                                                                                          <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
-                                                                                    </td>
+                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">Yes</span></td>
+                                                                                    <td class="text-center"><a class="act-link" href="#"><i class="fa fa-eye"></i></a><a class="act-link" href="#"><i class="fa fa-trash"></i></a></td>
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>

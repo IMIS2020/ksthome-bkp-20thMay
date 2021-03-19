@@ -13,16 +13,16 @@
             @if (!Auth::check())
             <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 offset-lg-0 offset-xl-0 mb-2">
                 <div class="login-box">
-                   <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Application-for-Nursing-schol.pdf');">
+                   <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Guidelines-for-Nursing-Scholarship.pdf');">
                         <h5 class="text-break mb-3 home-links"><strong>Download Guidelines for Nursing Scholarship </strong><i class="fa fa-download"></i></h5>
                     </a>
-                    <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Application-for-HHDL-Schol.pdf');">
+                    <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Guidelines-for-HHDL-Scholarship.pdf');">
                         <h5 class="text-break mb-3 home-links"><strong>Download Guidelines for HHDLSS Scholarship </strong><i class="fa fa-download"></i></h5>
                     </a>
-                    <a href="#" onclick="javascipt:window.open('/assets/annexure-II/DeclarationForm.pdf');">
+                    <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Application-for-Nursing-schol.pdf');">
                         <h5 class="text-break mb-3 home-links"><strong>Download Application form for Nursing Scholarship </strong><i class="fa fa-download"></i></h5>
                     </a>
-                    <a href="#" onclick="javascipt:window.open('/assets/annexure-II/DeclarationForm.pdf');">
+                    <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Application-for-HHDL-schol.pdf');">
                         <h5 class="text-break mb-3 home-links"><strong>Download Application form for HHDLSS Scholarship </strong><i class="fa fa-download"></i></h5>
                     </a>
                     @if (Auth::check())

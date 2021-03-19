@@ -18,7 +18,7 @@
                                 <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/review-submit'"><strong>Review &amp; Submit</strong></router-link></li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane active" role="tabpanel" id="tab-3">
+                                  <div class="tab-pane active" role="tabpanel" id="tab-3">
                                     <div class="div-inner-filed">
                                         <div class="ub-reg-form">
                                             <div class="form-row">
@@ -33,38 +33,31 @@
                                                                     <p class="text-uppercase mb-0 color-mg"><strong><span style="text-decoration: underline;">to whom it may concern</span></strong></p>
                                                                 </div>
                                                                 <div class="col-xl-5 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>I&nbsp; &nbsp; &nbsp;</strong></p>
-                                                                    <span class="d-block color-mg" style="overflow: hidden;">
-                                                                        <input class="form-control form-control-sm" type="text" placeholder="Name of colony leader" v-model="form.applicantColonyLeaderName"></span>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>I&nbsp; &nbsp; &nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of colony leader" v-model="form.applicantColonyLeaderName"></span>
                                                                 </div>
                                                                 <div class="col-xl-7 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>hereby certify that Mr./ Miss.&nbsp;</strong></p>
-                                                                    <span class="d-block color-mg" style="overflow: hidden;">
-                                                                      <input class="form-control form-control-sm" type="text" v-model="getdata.fullName" placeholder="Name of the candidate">
-                                                                     </span>
-                                                                    </div>
-                                                                <div class="col-xl-6 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>has been residing in this colony&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="getdata.addressAddln1" placeholder="Colony name & House No"></span>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>hereby certify that Mr./ Miss.&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of the candidate" v-model="getdata.fullName"></span>
                                                                 </div>
                                                                 <div class="col-xl-6 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>and her parent / parents&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;">
-                                                                    <input class="form-control form-control-sm" type="text" v-model="getdata.applicantMotherName" placeholder="Mother name"></span>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>has been residing in this colony&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Colony name" v-model="getdata.addressAddln1"></span>
+                                                                </div>
+                                                                <div class="col-xl-6 text-center align-self-center mb-2">
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>and his/her parent / parents&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Mother name" v-model="getdata.applicantMotherName"></span>
                                                                 </div>
                                                                 <div class="col-xl-4 text-center align-self-center mb-2"><input class="form-control form-control-sm" type="text" placeholder="Father name" v-model="getdata.applicantFatherName"></div>
-                                                                <div class="col-xl-6 text-center align-self-center mb-2">
+                                                                <div class="col-xl-8 text-center align-self-center mb-2">
                                                                     <p class="float-left mb-0 color-mg font-md"><strong>is / are affected by leprosy.</strong></p>
                                                                 </div>
                                                                 <div class="col-xl-12 align-self-center mt-3">
-                                                                    <!-- <p class="float-left mb-0 color-mg font-md"><strong>I certify that, to the best of my knowledge, the information provided by the candidate is true. I recommend her for Nursing Scholarship for girls Programme.</strong><br></p>
-                                                                    <p class="float-left mb-0 color-mg font-md mt-4"><strong>Signature of Colony Leader: ____________________________________,&nbsp; Date: ____/____/___________</strong><br></p> -->
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>I certify that, to the best of my knowledge, the information provided by the candidate is true. I recommend her for Nursing Scholarship.</strong><br></p>
+                                                                    <p class="float-left mb-0 color-mg font-md mt-4"><strong>Signature of Colony Leader: ____________________________________,&nbsp; Date: ____/____/___________</strong><br></p>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-2 offset-xl-4"><button class="btn btn-block btn-sm btn-mg" type="submit"><strong>Save</strong></button></div>
-                                                <div class="col-xl-2 offset-xl-0"><router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-scholarship"><strong>Cancel</strong></router-link></div>
+                                                <div class="col-xl-3 offset-xl-3"><button class="btn btn-block btn-sm btn-mg" type="submit"><strong>Save</strong></button></div>
+                                                <div class="col-xl-3 offset-xl-0"><router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-scholarship"><strong>Cancel</strong></router-link></div>
                                             </div>
                                         </div>
                                     </div>

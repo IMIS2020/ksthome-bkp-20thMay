@@ -859,15 +859,15 @@ class NursingScholarshipApplicationController extends Controller
     public function saveApplicantDocuments(string $applicationId, Request $request)
     {
         $request->validate([
-            'admissionLetter'         => ['required'],
-            'annexureII'              => ['required'],
-            'photograph'              => ['required'],
-            'proofOfAge'              => ['required'],
-            'markSheets10'            => ['required'],
-            'markSheets12'            => ['required'],
-            'leprosyCertificateSelf'  => ['required'],
-            'leprosyCertificateMother'=> ['required'],
-            'leprosyCertificateFather'=> ['required'],
+            'admissionLetter'         => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
+            'annexureII'              => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
+            'photograph'              => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
+            'proofOfAge'              => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
+            'markSheets10'            => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
+            'markSheets12'            => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
+            'leprosyCertificateSelf'  => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
+            'leprosyCertificateMother'=> ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
+            'leprosyCertificateFather'=> ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
         ]);
         
         DB::beginTransaction();

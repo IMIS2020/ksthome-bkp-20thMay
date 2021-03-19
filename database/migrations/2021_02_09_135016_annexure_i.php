@@ -15,7 +15,8 @@ class AnnexureI extends Migration
     {
         Schema::create('annexureI', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('choice1');
+            $table->string('courseLevel');
+            $table->unsignedBigInteger('choice1')->nullable();
             $table->unsignedBigInteger('choice2')->nullable();
             $table->unsignedBigInteger('choice3')->nullable();
             $table->unsignedBigInteger('applicantId');

@@ -100,7 +100,7 @@ class NursingScholarshipApplicationController extends Controller
             return array('success' => false, 'msg'=>['No Data Found!']);
         }
     }
-
+       # Get Nursing Scholarship ApplicationId
     public function getNursingScholarshipApplicationId(string $applicationId)
     {
         $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();

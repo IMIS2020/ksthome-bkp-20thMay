@@ -15,6 +15,7 @@ class ApplicantEducationDetails extends Migration
     {
         Schema::create('applicantEducationDetails', function (Blueprint $table) {
             $table->id();
+            $table->string('examinationLevel');
             $table->string('examinationPassed');
             $table->string('universityBoardCouncil');
             $table->string('mainSubjects');

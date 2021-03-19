@@ -80,8 +80,6 @@
                                                                             </select>
                                                                         </div>
                                                                     </div>
-
-                                                                   
                                                                        <div class="col-xl-3 align-self-end"><label>Who is affected by leprosy:&nbsp; <span class="text-danger"><strong>*</strong></span></label>
                                                                         <div class="form-group">
                                                                             <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedMother" id="formCheck-4"><label class="form-check-label font-md" for="formCheck-1">Mother</label></div>
@@ -625,7 +623,6 @@
                 </div>
            </form>
         </div>
-  
 </section>
 </template>
 

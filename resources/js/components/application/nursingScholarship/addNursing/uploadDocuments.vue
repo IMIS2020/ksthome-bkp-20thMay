@@ -52,7 +52,6 @@
                                                                                         </div> -->
                                                                                     </td>
                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.admissionLetter === '#')?'No':'Yes'}}</span></td>
-
                                                                                     <td class="text-center" v-if="getFiles.admissionLetter !== '#'">
                                                                                       <router-link target="_blank" class="act-link" :to="''+getFiles.admissionLetter">
                                                                                         <i class="fa fa-eye"></i>
@@ -61,14 +60,12 @@
                                                                                             <i class="fa fa-trash"></i>
                                                                                          </button>
                                                                                     </td>
-
-                                                                                        <td class="text-center" v-else>
-                                                                                          <span class="act-link"  style="color:#808080;">
-                                                                                           <i class="fa fa-eye"></i>
-                                                                                          </span>
-                                                                                            <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
-                                                                                       </td>
-
+                                                                                    <td class="text-center" v-else>
+                                                                                        <span class="act-link"  style="color:#808080;">
+                                                                                        <i class="fa fa-eye"></i>
+                                                                                        </span>
+                                                                                        <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
+                                                                                    </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td colspan="2"><strong>Annexure-II Signed letter from colony leader stating the candidate is residing in the colony</strong></td>
@@ -82,13 +79,12 @@
                                                                                             <i class="fa fa-trash"></i>
                                                                                          </button>
                                                                                     </td>
-
-                                                                                     <td class="text-center" v-else>
-                                                                                          <span class="act-link"  style="color:#808080;">
-                                                                                           <i class="fa fa-eye"></i>
-                                                                                          </span>
-                                                                                            <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
-                                                                                       </td>
+                                                                                    <td class="text-center" v-else>
+                                                                                        <span class="act-link"  style="color:#808080;">
+                                                                                        <i class="fa fa-eye"></i>
+                                                                                        </span>
+                                                                                        <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
+                                                                                    </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td colspan="2"><strong>Passport size photograph</strong></td>
@@ -103,13 +99,13 @@
                                                                                          </button>
                                                                                     </td>
 
-                                                                                     <td class="text-center" v-else>
-                                                                                          <span class="act-link" style="color:#808080;">
-                                                                                           <i class="fa fa-eye"></i>
-                                                                                          </span>
-                                                                                            <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
-                                                                                       </td>
-                                                                                    </tr>
+                                                                                    <td class="text-center" v-else>
+                                                                                        <span class="act-link" style="color:#808080;">
+                                                                                        <i class="fa fa-eye"></i>
+                                                                                        </span>
+                                                                                        <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
+                                                                                    </td>
+                                                                                </tr>
                                                                                 <tr>
                                                                                     <td colspan="2"><strong>Self attested Birth certificate/ proof of age</strong></td>
                                                                                     <td>
@@ -143,12 +139,12 @@
                                                                                          </button>
                                                                                     </td>
 
-                                                                                     <td class="text-center" v-else>
-                                                                                          <span class="act-link" style="color:#808080;">
-                                                                                           <i class="fa fa-eye"></i>
-                                                                                          </span>
-                                                                                            <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
-                                                                                       </td>
+                                                                                    <td class="text-center" v-else>
+                                                                                        <span class="act-link" style="color:#808080;">
+                                                                                        <i class="fa fa-eye"></i>
+                                                                                        </span>
+                                                                                        <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
+                                                                                    </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td colspan="2"><strong>Self attested Mark Sheets for 12th</strong></td>
@@ -172,7 +168,7 @@
                                                                                         </span>
                                                                                     </td>
                                                                                 </tr>
-                                                                                    <tr>
+                                                                                <tr>
                                                                                     <td><strong>Self attested Leprosy Certificate (Self) </strong><br></td>
                                                                                     <td class="justify-content-xl-center align-items-xl-center">
                                                                                         
@@ -188,16 +184,14 @@
                                                                                          </button>
                                                                                     </td>
 
-                                                                                     <td class="text-center" v-else>
+                                                                                    <td class="text-center" v-else>
                                                                                           <span class="act-link" style="color:#808080;">
                                                                                            <i class="fa fa-eye"></i>
                                                                                           </span>
                                                                                             <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
-                                                                                       </td>
-                                                                                    </tr>
-
-
-                                                                                   <tr>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
                                                                                     <td><strong>Self attested Leprosy Certificate (Mother) </strong><br></td>
                                                                                     <td class="justify-content-xl-center align-items-xl-center">
                                                                                     </td>
@@ -220,9 +214,8 @@
                                                                                           </span>
                                                                                             <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
                                                                                        </td>
-                                                                                   </tr>
-
-                                                                                    <tr>
+                                                                                </tr>
+                                                                                <tr>
                                                                                     <td><strong>Self attested Leprosy Certificate (Father) </strong><br></td>
                                                                                     <td class="justify-content-xl-center align-items-xl-center">
                                                                                     </td>
@@ -239,14 +232,13 @@
                                                                                          </button>
                                                                                     </td>
 
-                                                                                     <td class="text-center" v-else>
+                                                                                    <td class="text-center" v-else>
                                                                                           <span class="act-link" style="color:#808080;">
                                                                                            <i class="fa fa-eye"></i>
                                                                                           </span>
-                                                                                            <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
-                                                                                       </td>
-                                                                                   </tr>
-
+                                                                                          <span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
+                                                                                    </td>
+                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>

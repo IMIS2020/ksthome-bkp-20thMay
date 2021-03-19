@@ -23,6 +23,7 @@ Route::get('/dashboard','SystemController@dashboard');
 //Add-Start
     Route::get('/application-form', 'SystemController@applicationForm');
 //  Route::get('/application-form/{applicationId}', 'SystemController@applicationForm');
+    Route::get('/show-application-form-nursing/{applicationId}','SystemController@applicationForm');
     Route::get('/annexure-1','SystemController@annexure1');
     Route::get('/annexure-2','SystemController@annexure2');
     Route::get('/annexure-2-print-form','SystemController@annexure2PrintForm');
@@ -58,6 +59,7 @@ Route::group(['prefix' => 'api'], function() {
     Route::post('/add-application-form/{userId}','Scholarship\NursingScholarshipApplicationController@addNursingScholarshipApplication');
 //Get Application-form Data
     Route::get('/application-form/{userId}','Scholarship\NursingScholarshipApplicationController@getNursingScholarshipApplication');
+    Route::get('/show-application-form-nursing/{applicationId}','Scholarship\NursingScholarshipApplicationController@getNursingScholarshipApplicationId');
 //Edit-application-form
     Route::post('/edit-application-form/{applicationId}','Scholarship\NursingScholarshipApplicationController@editNursingScholarshipApplication');
 //Add Anexure-I

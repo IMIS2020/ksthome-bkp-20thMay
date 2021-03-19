@@ -101,6 +101,88 @@ class NursingScholarshipApplicationController extends Controller
         }
     }
 
+    public function getNursingScholarshipApplicationId(string $applicationId)
+    {
+        $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
+        if ($nursingScholarshipApplication) {
+            $applicantDetails = ApplicantDetails::where('id', $nursingScholarshipApplication->applicantId)->first();
+            $applicantAddress = Address::where('id', $applicantDetails->applicantAddressId)->first();
+            $applicantEducationDetails10 = ApplicantEducationDetails::where('applicantId', $applicantDetails->id)->where('examinationPassed', '10')->first();
+            $applicantEducationDetails12 = ApplicantEducationDetails::where('applicantId', $applicantDetails->id)->where('examinationPassed', '12')->first();
+            if ($nursingScholarshipApplication->hasAdmissionLetter == 'YES') {
+                $instituteDetails = InstituteDetails::where('id', $nursingScholarshipApplication->instituteId)->first();
+                $instituteAddress = Address::where('id', $instituteDetails->instituteAddressId)->first();
+            }
+            $applicantMiscellaneousDetails = ApplicantMiscellaneousDetails::where('applicantId', $applicantDetails->id)->orderBy('id','ASC')->get();
+
+            $data = [];
+            $data['created_at']                         = $nursingScholarshipApplication->created_at;
+            $data['financialYear']                      = $nursingScholarshipApplication->financialYear;
+            $data['applicationId']                      = $nursingScholarshipApplication->applicationId;
+            $data['hasAdmissionLetter']                 = $nursingScholarshipApplication->hasAdmissionLetter;
+            $data['status']                             = $nursingScholarshipApplication->status;
+            $data['insCourse']                          = $nursingScholarshipApplication->instituteCourse;
+            $data['recognizedByINC']                    = $nursingScholarshipApplication->recognizedByINC;
+            $data['applicantNameF']                     = $applicantDetails->applicantNameF;
+            $data['applicantNameM']                     = $applicantDetails->applicantNameM;
+            $data['applicantNameL']                     = $applicantDetails->applicantNameL;
+            $data['applicantFatherName']                = $applicantDetails->applicantFatherName;
+            $data['applicantMotherName']                = $applicantDetails->applicantMotherName;
+            $data['applicantDOB']                       = $applicantDetails->applicantDOB;
+            $data['applicantGender']                    = $applicantDetails->applicantGender;
+            $data['applicantLeprosyAffectedSelf']       = $applicantDetails->applicantLeprosyAffectedSelf;
+            $data['applicantLeprosyAffectedFather']     = $applicantDetails->applicantLeprosyAffectedFather;
+            $data['applicantLeprosyAffectedMother']     = $applicantDetails->applicantLeprosyAffectedMother;
+            $data['applicantHasBPLCard']                = $applicantDetails->applicantHasBPLCard;   
+            $data['applicantDomicileState']             = $applicantDetails->applicantDomicileState;
+            $data['applicantColonyLeaderName']          = $applicantDetails->applicantColonyLeaderName;
+            $data['applicantContactNoSelf']             = $applicantDetails->applicantContactNoSelf;
+            $data['applicantContactNoGuardian']         = $applicantDetails->applicantContactNoGuardian;
+            $data['applicantEmailId']                   = $applicantDetails->applicantEmailId;
+            $data['applicantContactNoColonyLeader']     = $applicantDetails->applicantContactNoColonyLeader;
+            $data['addressAddln1']                      = $applicantAddress->addressAddln1;
+            $data['addressAddln2']                      = $applicantAddress->addressAddln2;
+            $data['addressCity']                        = $applicantAddress->addressCity;
+            $data['addressDistprov']                    = $applicantAddress->addressDistprov;
+            $data['addressState']                       = $applicantAddress->addressState;
+            $data['addressPinzip']                      = $applicantAddress->addressPinzip;
+            $data['addressCountry']                     = $applicantAddress->addressCountry;
+            $data['universityBoardCouncil10']           = $applicantEducationDetails10->universityBoardCouncil;
+            $data['mainSubjects10']                     = $applicantEducationDetails10->mainSubjects;
+            $data['yearOfPassing10']                    = $applicantEducationDetails10->yearOfPassing;
+            $data['percentage10']                       = $applicantEducationDetails10->percentage;
+            $data['division10']                         = $applicantEducationDetails10->division;
+            $data['type10']                             = $applicantEducationDetails10->type;
+            $data['universityBoardCouncil12']           = $applicantEducationDetails12->universityBoardCouncil;
+            $data['mainSubjects12']                     = $applicantEducationDetails12->mainSubjects;
+            $data['yearOfPassing12']                    = $applicantEducationDetails12->yearOfPassing;
+            $data['percentage12']                       = $applicantEducationDetails12->percentage;
+            $data['division12']                         = $applicantEducationDetails12->division;
+            $data['type12']                             = $applicantEducationDetails12->type;
+            $data['insName']                            = (isset($instituteDetails))?$instituteDetails->instituteName:'';
+            $data['insAddressAddln1']                   = (isset($instituteAddress))?$instituteAddress->addressAddln1:'';
+            $data['insAddressAddln2']                   = (isset($instituteAddress))?$instituteAddress->addressAddln2:'';
+            $data['insAddressCity']                     = (isset($instituteAddress))?$instituteAddress->addressCity:'';
+            $data['insAddressDistprov']                 = (isset($instituteAddress))?$instituteAddress->addressDistprov:'';
+            $data['insAddressState']                    = (isset($instituteAddress))?$instituteAddress->addressState:'';
+            $data['insAddressPinzip']                   = (isset($instituteAddress))?$instituteAddress->addressPinzip:'';
+            $data['miscName1']                          = (count($applicantMiscellaneousDetails)>0)?$applicantMiscellaneousDetails[0]->name:null;
+            $data['miscCourse1']                        = (count($applicantMiscellaneousDetails)>0)?$applicantMiscellaneousDetails[0]->course:null;
+            $data['miscYear1']                          = (count($applicantMiscellaneousDetails)>0)?$applicantMiscellaneousDetails[0]->year:null;
+            $data['miscName2']                          = (count($applicantMiscellaneousDetails)>1)?$applicantMiscellaneousDetails[1]->name:null;
+            $data['miscCourse2']                        = (count($applicantMiscellaneousDetails)>1)?$applicantMiscellaneousDetails[1]->course:null;
+            $data['miscYear2']                          = (count($applicantMiscellaneousDetails)>1)?$applicantMiscellaneousDetails[1]->year:null;
+            $data['miscName3']                          = (count($applicantMiscellaneousDetails)>2)?$applicantMiscellaneousDetails[2]->name:null;
+            $data['miscCourse3']                        = (count($applicantMiscellaneousDetails)>2)?$applicantMiscellaneousDetails[2]->course:null;
+            $data['miscYear3']                          = (count($applicantMiscellaneousDetails)>2)?$applicantMiscellaneousDetails[2]->year:null;
+
+            $data = json_decode(json_encode($data));
+            return array('success' => true, 'msg'=>['Data Found!'], 'data'=>$data);
+        } else {
+            return array('success' => false, 'msg'=>['No Data Found!']);
+        }
+    }
+
     # Get AnnexureI
     public function getAnnexureI(string $applicationId)
     {

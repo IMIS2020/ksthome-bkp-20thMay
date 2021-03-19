@@ -90,6 +90,14 @@ export default{
      path:'/api/edit-application-form/:applicationId',
     },
     {
+       path:'/show-application-form-nursing/:applicationId',
+       component: ApplicationForm,
+       name: "application-form"
+    },
+    {
+     path:'/api/show-application-form-nursing/:applicationId',
+    },
+    {
     path: '/annexure-1',
     component: Annexure1,
     name: "annexure-1"

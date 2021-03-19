@@ -58,28 +58,36 @@
                                   </thead>
                                   <tbody class="h-41x">
                                       <tr class="font-md text-black">
-                                          <td><em>2020 - 2021</em></td>
-                                          <td class="text-break"><em>HHDL Scholarship</em></td>
-                                          <td class="text-break"><em>dd/mm/yyyy</em></td>
-                                          <td><em>IMIS-HHDLSCH00085</em></td>
-                                          <td class="text-nowrap"><em>dd/mm/yyyy</em></td>
-                                          <td class="text-center"><em>Not Applied</em><span class="badge badge-success"></span></td>
+                                          <td><em>{{getdata.financialYear}}</em></td>
+                                          <td class="text-break"><em>Nursing Scholarship</em></td>
+                                          <td class="text-break"><em>N/A</em></td>
+                                          <td><em>{{getdata.applicationId}}</em></td>
+                                          <td class="text-nowrap"><em>{{getdata.submissionDate}}</em></td>
+                                          <td class="text-center"><em>{{getdata.status}}</em><span class="badge badge-success"></span></td>
                                           <td class="text-center w-5x">
                                               <div class="dropdown no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
-                                                  <div class="dropdown-menu dropdown-menu-left shadow dropdown-menu-right animated--fade-in"><a class="dropdown-item" href="add-new-hhdl-scholarship.html"><strong>Edit Application</strong></a><a class="dropdown-item" href="view-hhdl-application.html"><strong>View Application</strong></a><a class="dropdown-item" href="#"><strong>Download Application</strong></a></div>
+                                                  <div class="dropdown-menu dropdown-menu-left shadow dropdown-menu-right animated--fade-in">
+                                                      <router-link class="dropdown-item" to="/application-form"><strong>Edit Application</strong></router-link>
+                                                      <router-link class="dropdown-item" to="/view-nursing"><strong>View Application</strong></router-link>
+                                                      <router-link class="dropdown-item" to="/print-view-nursing"><strong>Download Application</strong></router-link>
+                                                      </div>
                                               </div>
                                           </td>
                                       </tr>
                                       <tr class="font-md text-black">
-                                          <td><em>2020 - 2021</em></td>
-                                          <td class="text-break"><em>Nursing Scholarship</em></td>
-                                          <td class="text-break"><em>dd/mm/yyyy</em></td>
-                                          <td><em>IMIS-NURSCH00085</em></td>
-                                          <td class="text-nowrap"><em>dd/mm/yyyy</em></td>
-                                          <td class="text-center"><em>Not Applied</em><span class="badge badge-success"></span></td>
+                                          <td><em>{{getdataHHDLSS.financialYear}}</em></td>
+                                          <td class="text-break"><em>HHDLSS Scholarship</em></td>
+                                          <td class="text-break"><em>N/A</em></td>
+                                          <td><em>{{getdataHHDLSS.applicationId}}</em></td>
+                                          <td class="text-nowrap"><em>{{getdataHHDLSS.submissionDate}}</em></td>
+                                          <td class="text-center"><em>{{getdataHHDLSS.status}}</em><span class="badge badge-success"></span></td>
                                           <td class="text-center w-5x">
                                               <div class="dropdown no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
-                                                  <div class="dropdown-menu dropdown-menu-left shadow dropdown-menu-right animated--fade-in"><a class="dropdown-item" href="add-new-hhdl-scholarship.html"><strong>Edit Application</strong></a><a class="dropdown-item" href="view-nursing-application.html"><strong>View Application</strong></a><a class="dropdown-item" href="#"><strong>Download Application</strong></a></div>
+                                                  <div class="dropdown-menu dropdown-menu-left shadow dropdown-menu-right animated--fade-in">
+                                                      <router-link class="dropdown-item" to="/application-form-HHDLSS"><strong>Edit Application</strong></router-link>
+                                                      <router-link class="dropdown-item" to="/view-HHDLSS"><strong>View Application</strong></router-link>
+                                                      <router-link class="dropdown-item" to="/print-view-HHDLSS"><strong>Download Application</strong></router-link>
+                                                  </div>
                                               </div>
                                           </td>
                                       </tr>

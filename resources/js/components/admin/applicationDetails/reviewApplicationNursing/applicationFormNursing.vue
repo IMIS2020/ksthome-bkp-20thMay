@@ -515,7 +515,7 @@
                                                                                     <div class="col-xl-3"><label>State</label>
                                                                                         <div class="form-group">
                                                                                             <select class="form-control form-control-sm" disabled v-model="form.insAddressState" >
-                                                                                                <option value="" disabled>--Select--</option>
+                                                                                    <option value="" disabled>--Select--</option>
                                                                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                                                                                     <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                                                                                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>

@@ -10,6 +10,7 @@
             <div class="col-xl-10 offset-xl-1 text-center mb-4">
                 <hr class="cs-hr" />
             </div>
+            @if (!Auth::check())
             <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 offset-lg-0 offset-xl-0 mb-2">
                 <div class="login-box">
                    <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Application-for-Nursing-schol.pdf');">
@@ -39,8 +40,6 @@
                         <h5 class="text-break home-links"><strong>Apply Online for HHDLSS Scholarship (You need to be logged in) </strong><i class="fa fa-sign-in"></i></h5>
                     </a>
                     @endif
-
-
               </div>
             </div>
            
@@ -75,9 +74,39 @@
                     </form>
                 </div>
             </div>
-           
-
-        </div>
+           @else
+            <div class="col-sm-12 col-md-12 text-center">
+                <div class="login-box">
+                    <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Application-for-Nursing-schol.pdf');">
+                        <h5 class="text-break mb-3 home-links"><strong>Download Guidelines for Nursing Scholarship </strong><i class="fa fa-download"></i></h5>
+                    </a>
+                    <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Application-for-HHDL-Schol.pdf');">
+                        <h5 class="text-break mb-3 home-links"><strong>Download Guidelines for HHDLSS Scholarship </strong><i class="fa fa-download"></i></h5>
+                    </a>
+                    <a href="#" onclick="javascipt:window.open('/assets/annexure-II/DeclarationForm.pdf');">
+                        <h5 class="text-break mb-3 home-links"><strong>Download Application form for Nursing Scholarship </strong><i class="fa fa-download"></i></h5>
+                    </a>
+                    <a href="#" onclick="javascipt:window.open('/assets/annexure-II/DeclarationForm.pdf');">
+                        <h5 class="text-break mb-3 home-links"><strong>Download Application form for HHDLSS Scholarship </strong><i class="fa fa-download"></i></h5>
+                    </a>
+                    @if (Auth::check())
+                    <a href="/application-form">
+                        <h5 class="text-break mb-3 home-links"><strong>Apply Online for Nursing Scholarship</strong><i class="fa fa-sign-in"></i></h5>
+                    </a>
+                    <a href="/application-form-HHDLSS">
+                        <h5 class="text-break home-links"><strong>Apply Online for HHDLSS Scholarship </strong><i class="fa fa-sign-in"></i></h5>
+                    </a>
+                    @else
+                    <a href="/">
+                        <h5 class="text-break mb-3 home-links"><strong>Apply Online for Nursing Scholarship (You need to be logged in) </strong><i class="fa fa-sign-in"></i></h5>
+                    </a>
+                    <a href="/">
+                        <h5 class="text-break home-links"><strong>Apply Online for HHDLSS Scholarship (You need to be logged in) </strong><i class="fa fa-sign-in"></i></h5>
+                    </a>
+                    @endif
+                </div>
+            </div>
+           @endif
     </div>
 </section>
  @endsection

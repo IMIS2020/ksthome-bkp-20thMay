@@ -3,13 +3,16 @@ namespace App\Http\Controllers\Scholarship;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Auth;
 use App\User;
+
 use App\ModelScholarship\NursingScholarshipApplication;
 use App\ModelScholarship\HhdlScholarshipApplication;
 
 class UserProfileController extends Controller
 {
+    private $PATH = '/uploads/profilePhoto/';
     public function getUser()
     {
         $user = Auth::user();
@@ -30,12 +33,44 @@ class UserProfileController extends Controller
     //    $newLastLoginTime  = $newDate.' '.$time;
     }
 
-    public function updteProfile(Request $request)
+    public function updateProfile(Request $request)
     {
+        $user = Auth::user();
         $request->validate([
-            'profilePhoto' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'profilePhoto' => ['required'],
         ]);
+       
+        if ($user) 
+        {
+           $profilePhoto = $this->uploadFile($request->profilePhoto, 'profilePhoto');
+           $savePhoto = new User;
+           $savePhoto->profilePhoto = $profilePhoto;
+           $savePhoto->save();
 
-        $profilePhotoName = $request;
+        }else {
+            return array('success' => false, 'msg'=>['user not found!']);
+        }
+    }
+
+    private function uploadFile($base64file, string $filename='')
+    {   
+        if(!Storage::exists('public/'.$this->PATH)){
+            Storage::makeDirectory('public/'.$this->PATH);
+        }
+        
+        $File =  explode(',', $base64file);
+        $file = base64_decode($File[1]);
+        $extention = explode(';',explode('/',$File[0])[1])[0];
+
+        if ($filename !== '') {
+            $f = explode('.',$filename);
+            if(count($f)===1) { $filename .= '.'.$extention; }
+            $fileName = "profile-photo".'-'.$filename;
+        } else {
+            $fileName = time().'.'.$extention;
+        }
+            $path = storage_path('app/public/'.$this->PATH.$fileName);
+            file_put_contents($path, $file);
+            return $fileName;
     }
 }

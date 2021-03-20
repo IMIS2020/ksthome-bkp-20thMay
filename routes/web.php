@@ -19,9 +19,9 @@ Route::post('/forgot-verify','ForgotVerifyController@postForgotVerify');
 
 
 Route::group(['middleware' => ['auth']], function (){
-    Route::post('/update-profile-photo','Scholarship\UserProfileController@updteProfile');
-Route::get('/manage-scholarship', 'SystemController@manageScholarship');
-Route::get('/dashboard','SystemController@dashboard');
+    Route::post('/update-profile-photo','Scholarship\UserProfileController@updateProfile');
+    Route::get('/manage-scholarship', 'SystemController@manageScholarship');
+    Route::get('/dashboard','SystemController@dashboard');
 
 // Nursing-START
 //Add-Start

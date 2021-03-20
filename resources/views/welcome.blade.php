@@ -136,6 +136,7 @@
 
                <div class="col-sm-12 col-lg-4 col-xl-4 offset-xl-0 pl-1">
                     <form action="{{ url('/update-profile-photo') }}" method="POST">
+                    @csrf
                         <div class="form-group mb-0">
                             <div class="login-box pb-3">
                                 <h6 class="color-mg pb-1"><strong>Profile Details of:&nbsp;</strong><span><strong>{{$user->firstname}} {{$user->middlename}} {{$user->lastname}}</strong></span></h6>

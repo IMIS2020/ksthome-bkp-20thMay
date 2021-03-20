@@ -135,7 +135,7 @@
                </div>
 
                <div class="col-sm-12 col-lg-4 col-xl-4 offset-xl-0 pl-1">
-                    <form>
+                    <form action="{{ url('/update-profile-photo') }}" method="POST">
                         <div class="form-group mb-0">
                             <div class="login-box pb-3">
                                 <h6 class="color-mg pb-1"><strong>Profile Details of:&nbsp;</strong><span><strong>{{$user->firstname}} {{$user->middlename}} {{$user->lastname}}</strong></span></h6>
@@ -145,7 +145,10 @@
                                         
                                             <tr>
                                                 <td><strong>Profile Photo</strong></td>
-                                                <td class="text-nowrap text-truncate text-break w-15x" colspan="2"><img class="img-fluid mb-2 mr-2" src="assets/img/avatar_2x.png" width="80px"><button class="btn btn-sm btn-custom font-xs" type="submit"><strong>Update</strong></button><br><input class="form-control-file font-xs" type="file" accept="image/*"></td>
+                                                <td class="text-nowrap text-truncate text-break w-15x" colspan="2">
+                                                <img class="img-fluid mb-2 mr-2" src="assets/img/avatar_2x.png" width="80px">
+                                                <button class="btn btn-sm btn-custom font-xs" type="submit"><strong>Update</strong></button><br>
+                                                <input class="form-control-file font-xs" name="profilePhoto" type="file" accept="image/*"></td>
                                                 <td><br></td>
                                             </tr>
                                             <tr>
@@ -176,7 +179,6 @@
                                                 <td><strong>Download Form</strong></td>
                                                 <td><a class="btn btn-sm btn-custom font-xs" role="button" href="print-nursing-application-form.html"><i class="fa fa-download"></i><strong>&nbsp;Download Application Form</strong></a></td>
                                             </tr>
-                                           
                                         </tbody>
                                     </table>
                                 </div>

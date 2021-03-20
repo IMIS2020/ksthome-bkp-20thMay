@@ -29,4 +29,13 @@ class UserProfileController extends Controller
     //    $time    = substr(explode('-',$user->lastLoginTime)[2],3);
     //    $newLastLoginTime  = $newDate.' '.$time;
     }
+
+    public function updteProfile(Request $request)
+    {
+        $request->validate([
+            'profilePhoto' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+
+        $profilePhotoName = $request;
+    }
 }

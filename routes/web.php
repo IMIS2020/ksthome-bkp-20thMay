@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','Scholarship\UserProfileController@getUser');
 Route::get('/unauthorised', function () { return abort(403);});
 
+
 Auth::routes(); 
 Route::get('/verify','VerifyController@getVerify')->name('getverify');
 Route::post('/verify','VerifyController@postVerify')->name('verify');
@@ -16,8 +17,9 @@ Route::post('/forgot-password','ForgotPasswordController@postForgotPassword');
 Route::get('/forgot-verify','ForgotVerifyController@getForgotVerify')->name('forgot.verify');
 Route::post('/forgot-verify','ForgotVerifyController@postForgotVerify');
 
-Route::group(['middleware' => ['auth']], function (){
 
+Route::group(['middleware' => ['auth']], function (){
+    Route::post('/update-profile-photo','Scholarship\UserProfileController@updteProfile');
 Route::get('/manage-scholarship', 'SystemController@manageScholarship');
 Route::get('/dashboard','SystemController@dashboard');
 

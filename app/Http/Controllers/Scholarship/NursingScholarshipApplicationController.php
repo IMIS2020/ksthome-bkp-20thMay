@@ -863,9 +863,9 @@ class NursingScholarshipApplicationController extends Controller
             'annexureII'              => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
             'photograph'              => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
             'proofOfAge'              => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
-            'markSheets10'            => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
             'markSheets12'            => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
-            'leprosyCertificateSelf'  => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
+            'leprosyCes10'            => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
+            'markSheetrtificateSelf'  => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
             'leprosyCertificateMother'=> ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
             'leprosyCertificateFather'=> ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
         ]);
@@ -896,7 +896,7 @@ class NursingScholarshipApplicationController extends Controller
                 $applicantDocuments->leprosyCertificateSelf   = $leprosyCertificateSelf;
                 $applicantDocuments->leprosyCertificateMother = $leprosyCertificateMother;
                 $applicantDocuments->leprosyCertificateFather = $leprosyCertificateFather;
-                $applicantDocuments->applicantId        = $nursingScholarshipApplication->applicantId;
+                $applicantDocuments->applicantId              = $nursingScholarshipApplication->applicantId;
                 $applicantDocuments->save();
             } else {
                 return array('success' => false, 'msg'=>['Application ID not found!']);
@@ -947,7 +947,7 @@ class NursingScholarshipApplicationController extends Controller
                         $this->deleteFile($applicantDocuments->photograph);
                     }
                     $photograph = $this->uploadFile($request->photograph, 'photograph');
-                    $applicantDocuments->photograph         = $photograph;
+                    $applicantDocuments->photograph = $photograph;
                 }
 
                 if ($request->proofOfAge) {
@@ -955,7 +955,7 @@ class NursingScholarshipApplicationController extends Controller
                         $this->deleteFile($applicantDocuments->proofOfAge);
                     }
                     $proofOfAge = $this->uploadFile($request->proofOfAge, 'proofOfAge');
-                    $applicantDocuments->proofOfAge         = $proofOfAge;
+                    $applicantDocuments->proofOfAge = $proofOfAge;
                 }
 
                 if ($request->markSheets10) {
@@ -963,7 +963,7 @@ class NursingScholarshipApplicationController extends Controller
                         $this->deleteFile($applicantDocuments->markSheets10);
                     }
                     $markSheets10       = $this->uploadFile($request->markSheets10, 'markSheets10');
-                    $applicantDocuments->markSheets10       = $markSheets10;
+                    $applicantDocuments->markSheets10 = $markSheets10;
                 }
                     
                 if ($request->markSheets12) {
@@ -971,7 +971,7 @@ class NursingScholarshipApplicationController extends Controller
                         $this->deleteFile($applicantDocuments->markSheets12);
                     }
                     $markSheets12       = $this->uploadFile($request->markSheets12, 'markSheets12');
-                    $applicantDocuments->markSheets12       = $markSheets12;
+                    $applicantDocuments->markSheets12 = $markSheets12;
                 }
 
                 if ($request->leprosyCertificateSelf) 
@@ -1120,7 +1120,6 @@ class NursingScholarshipApplicationController extends Controller
          
         $path = storage_path('app/public/'.$this->PATH.$fileName);
         file_put_contents($path, $file);
-
         return $fileName;
     }
 

@@ -21,7 +21,7 @@
                                                           </div>
                                                           <div class="col-sm-4 col-xl-6 offset-xl-0">
                                                              <select class="form-control form-control-sm font-sm color-mg" v-model="scholarshipType2">
-                                                                  <option value="" selected>-- Select --</option>
+                                                                  <option value="" disabled>-- Select --</option>
                                                                   <option value="Nursing">Nursing Scholarship</option>
                                                                   <option value="HHDLSS">HHDLSS Scholarship</option>
                                                               </select>
@@ -112,13 +112,13 @@ export default {
             applicationId:'N/A',	
             status:'Not Applied',	
             submissionDate:'N/A',
-            financialYear:'',
+            financialYear:'N/A',
          },
          getdataHHDLSS:{
             applicationId:'N/A',	
             status:'Not Applied',	
             submissionDate:'N/A',
-            financialYear:'',
+            financialYear:'N/A',
          },
          errors:[]
          }

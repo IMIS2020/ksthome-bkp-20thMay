@@ -1,7 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {return view('welcome');});
+// Route::get('/', function () {return view('welcome');});
+Route::get('/','Scholarship\UserProfileController@getUser');
 Route::get('/unauthorised', function () { return abort(403);});
 
 Auth::routes(); 
@@ -19,6 +20,7 @@ Route::group(['middleware' => ['auth']], function (){
 
 Route::get('/manage-scholarship', 'SystemController@manageScholarship');
 Route::get('/dashboard','SystemController@dashboard');
+
 // Nursing-START
 //Add-Start
     Route::get('/application-form', 'SystemController@applicationForm');
@@ -79,6 +81,7 @@ Route::group(['prefix' => 'api'], function() {
   //Delete-Documents
   Route::post('/delete-documents/{applicationId}','Scholarship\NursingScholarshipApplicationController@deleteApplicantDocuments');
 //NURSING-END
+//user details
 
 //HHDLSS-START
 

@@ -167,8 +167,7 @@ export default{
                 leprosyCertificateSelf: '',
                 leprosyCertificateMother: '',
                 leprosyCertificateFather: ''
-
-            },
+             },
             getFiles: {
                 admissionLetter: '#',
                 annexureII: '#',
@@ -308,6 +307,7 @@ export default{
                             timer: 3000
                         })
                         this.getdataNursing();
+                        
                     } else {
                         console.log(response.data['msg'])
                     }
@@ -315,7 +315,6 @@ export default{
                 .catch(error => this.errorMsg(error.response.status))
             }
         },
-
 
         getFileData(){
             axios.get('/api/get-upload-documents/'+this.getdata.applicationId)

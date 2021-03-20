@@ -1,26 +1,15 @@
 <template>
    <section class="page-main mt-4">
-        <div class="container-fluid mt-4 text-black">
-            <div class="row">
-                <div class="col-xl-12 text-center mb-3 d-print-none">
-                    <h4 class="color-mg"><strong>View Annexure-2</strong></h4>
-                </div>
-            </div>
-            <div class="pre-sub-form f-fm-arbs">
-                <div class="col-xl-12 mb-3 f-fm-arbs">
-                    <div class="table-responsive">
-                        <div class="container-fluid mt-4">
-                            <p class="text-uppercase text-center text-black font-xl font-weight-bold"><strong><span style="text-decoration: underline;">to whom it may concern</span></strong></p>
-                            <p class="lead mb-0 text-black font-l font-weight-bold">I<strong>&nbsp;</strong><span><strong><em>{{ readAnnexure2.applicantColonyLeaderName}}</em></strong></span>&nbsp;hereby certify that Mr./Miss.&nbsp;<span><strong><em>{{getdata.fullName}}</em></strong></span>&nbsp;has been residing in this colony&nbsp;<span><strong><em>{{getdata.addressAddln1}}</em></strong></span>&nbsp;and his/her parent/parents&nbsp;<span><strong><em>{{getdata.applicantFatherName}}</em></strong></span>&nbsp;&amp;&nbsp;<span><strong><em>{{getdata.applicantMotherName}}</em></strong></span>&nbsp;is/are affected by leprosy.&nbsp;<br><br>I certify that, to best of my knowledge, the information provided by the candidate is true. I recommended his/her for&nbsp;<span><strong><em>Nursing Scholarship Programme</em></strong></span>.&nbsp;<br><br><br><br>Signature of Colony Leader: ______________________________________, Date: _________________</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-4 d-print-none">
-                <div class="col-xl-4 offset-xl-4 text-center">
-                 <button class="btn btn-sm btn-mg mr-2" type="button" onclick="window.print()" >Print/Download Application Form</button></div>
-            </div>
-        </div>
+        <div class="container-fluid mt-4 text-center">
+        <p class="text-uppercase text-center text-black font-xl font-weight-bold"><span style="text-decoration: underline;">to whom it may concern</span></p>
+        <p class="lead mb-0 text-black font-l font-weight-bold">I<strong>&nbsp;</strong><span><strong><em>Souvik Kundu</em></strong></span><strong><em>&nbsp;</em></strong>hereby certify that the applicant&nbsp;<span><strong><em>Subhajit Biswas</em></strong></span>&nbsp;has been residing in this colony&nbsp;<span><strong><em>Sundiapara, Saratpally</em></strong></span>&nbsp;and the applicant's parent/parents&nbsp;<span><strong><em>Fname</em></strong></span> &amp;&nbsp;<span><strong><em>Mname</em></strong></span><em> </em> is/are affected by leprosy.&nbsp;<br><br>I certify that, to best of my knowledge, the information provided by the candidate is true. I recommended the applicant for&nbsp;<span><strong><em>Nursing Scholarship Programme</em></strong></span>.<br><br><br><br>Signature of Colony Leader: __________________________________, Date: ____________________</p><div>
+         <button class="btn btn-lg btn-mg mt-4 d-print-none" onclick = "window.print();">
+          <strong>Print </strong>
+        </button>
+
+         <router-link class="btn btn-lg btn-danger mt-4 d-print-none" type="button" to="/annexure-2"><strong>Cancel</strong></router-link>
+      </div>
+    </div>
     </section>
 </template>
 

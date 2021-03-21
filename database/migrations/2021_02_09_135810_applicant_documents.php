@@ -21,6 +21,7 @@ class ApplicantDocuments extends Migration
             $table->string('proofOfAge')->nullable();
             $table->string('markSheets10')->nullable();
             $table->string('markSheets12')->nullable();
+            $table->string('graduationCertificate')->nullable();
             
             $table->string('leprosyCertificateSelf')->nullable();
             $table->string('leprosyCertificateMother')->nullable();

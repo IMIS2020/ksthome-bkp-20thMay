@@ -77,16 +77,16 @@
            @else
             <div class="col-sm-8 col-md-8">
                 <div class="login-box">
-                    <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Application-for-Nursing-schol.pdf');">
+                    <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Guidelines-for-Nursing-Scholarship.pdf');">
                         <h5 class="text-break mb-3 home-links"><strong>Download Guidelines for Nursing Scholarship </strong><i class="fa fa-download"></i></h5>
                     </a>
-                    <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Application-for-HHDL-Schol.pdf');">
+                    <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Guidelines-for-HHDL-Scholarship.pdf');">
                         <h5 class="text-break mb-3 home-links"><strong>Download Guidelines for HHDLSS Scholarship </strong><i class="fa fa-download"></i></h5>
                     </a>
-                    <a href="#" onclick="javascipt:window.open('/assets/annexure-II/DeclarationForm.pdf');">
+                    <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Application-for-Nursing-schol.pdf');">
                         <h5 class="text-break mb-3 home-links"><strong>Download Application form for Nursing Scholarship </strong><i class="fa fa-download"></i></h5>
                     </a>
-                    <a href="#" onclick="javascipt:window.open('/assets/annexure-II/DeclarationForm.pdf');">
+                    <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Application-for-HHDL-schol.pdf');">
                         <h5 class="text-break mb-3 home-links"><strong>Download Application form for HHDLSS Scholarship </strong><i class="fa fa-download"></i></h5>
                     </a>
                     @if (Auth::check())
@@ -147,7 +147,11 @@
                                             <tr>
                                                 <td><strong>Profile Photo</strong></td>
                                                 <td class="text-nowrap text-truncate text-break w-15x" colspan="2">
+                                                @if(empty($user->profilePhoto))
+                                                <img class="img-fluid mb-2 mr-2" src="assets/img/avatar_2x.png" width="80px">
+                                                @else
                                                 <img class="img-fluid mb-2 mr-2" src="storage/uploads/profilephoto/{{$user->profilePhoto}}" width="80px">
+                                                @endif
                                                 <button class="btn btn-sm btn-custom font-xs" type="submit"><strong>Update</strong></button><br>
                                                 <input class="form-control-file font-xs" name="profilePhoto" type="file"  accept="image/*"></td>
                                                 <td><br></td>

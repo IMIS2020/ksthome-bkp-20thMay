@@ -153,18 +153,21 @@ class NursingScholarshipApplicationController extends Controller
             $data['addressState']                       = $applicantAddress->addressState;
             $data['addressPinzip']                      = $applicantAddress->addressPinzip;
             $data['addressCountry']                     = $applicantAddress->addressCountry;
+            $data['examinationLevel10']                 = $applicantEducationDetails10->examinationLevel;
+            $data['examinationPassed10']                = $applicantEducationDetails10->examinationPassed;
             $data['universityBoardCouncil10']           = $applicantEducationDetails10->universityBoardCouncil;
             $data['mainSubjects10']                     = $applicantEducationDetails10->mainSubjects;
             $data['yearOfPassing10']                    = $applicantEducationDetails10->yearOfPassing;
             $data['percentage10']                       = $applicantEducationDetails10->percentage;
             $data['division10']                         = $applicantEducationDetails10->division;
-            $data['type10']                             = $applicantEducationDetails10->type;
+            $data['examinationLevel12']                 = $applicantEducationDetails12->examinationLevel;  
+            $data['examinationPassed12']                = $applicantEducationDetails12->examinationPassed;  
             $data['universityBoardCouncil12']           = $applicantEducationDetails12->universityBoardCouncil;
             $data['mainSubjects12']                     = $applicantEducationDetails12->mainSubjects;
             $data['yearOfPassing12']                    = $applicantEducationDetails12->yearOfPassing;
             $data['percentage12']                       = $applicantEducationDetails12->percentage;
             $data['division12']                         = $applicantEducationDetails12->division;
-            $data['type12']                             = $applicantEducationDetails12->type;
+           
             $data['insName']                            = (isset($instituteDetails))?$instituteDetails->instituteName:'';
             $data['insAddressAddln1']                   = (isset($instituteAddress))?$instituteAddress->addressAddln1:'';
             $data['insAddressAddln2']                   = (isset($instituteAddress))?$instituteAddress->addressAddln2:'';

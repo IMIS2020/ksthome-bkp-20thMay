@@ -1,12 +1,70 @@
 <template>
-  <section class="page-main mt-4">
+ <section class="page-main mt-4">
         <div class="container-fluid mt-4 text-black">
-            <div class="row">
-                <div class="col-xl-12 text-center mb-3 d-print-none">
-                    <h4 class="color-mg"><strong>View Application Details</strong></h4>
+            <div class="pre-sub-form f-fm-arbs">
+                <div class="row print-1-sec">
+                    <div class="col-xl-12 text-center mb-3 d-print-none">
+                        <h4 class="color-mg"><strong>View Application Details</strong></h4>
+                    </div>
+                    <div class="col-sm-4 col-xl-12 text-center mt-3 pr-1">
+                        <h3><strong>DOCUMENTS ATTACHED</strong></h3>
+                        <h6 class="text-uppercase"><strong>Application No. : {{getdata.applicationId}}, (submitted online)</strong></h6>
+                    </div>
+                    <div class="col-xl-12 mb-2">
+                        <div class="table-responsive table-bordered rev-tbl font-xl ofc-only">
+                            <table class="table table-bordered table-sm mb-0">
+                                <thead>
+                                    <tr>
+                                        <th><strong>Details</strong></th>
+                                        <th class="text-center"><strong>Submitted</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Proof of admission in recognised institute/ admission call letter issued by the institute<br></td>
+                                        <td class="text-center">{{(getFiles.admissionLetter === '#')?'No':'Yes'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Annexure-II letter from colony leader stating the candidate is residing in the colony<br></td>
+                                        <td class="text-center">{{(getFiles.annexureII === '#')?'No':'Yes'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Passport size photograph<br></td>
+                                        <td class="text-center">{{(getFiles.photograph === '#')?'No':'Yes'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Self attested Birth certificate/ proof of age<br></td>
+                                        <td class="text-center">{{(getFiles.proofOfAge === '#')?'No':'Yes'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Self attested marksheet for 10th<br></td>
+                                        <td class="text-center">{{(getFiles.markSheets10 === '#')?'No':'Yes'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Self attested marksheet for 12th<br></td>
+                                        <td class="text-center">{{(getFiles.markSheets12 === '#')?'No':'Yes'}}</td>
+                                    </tr>
+                                    <tr v-if="getdata.applicantLeprosyAffectedMother === true">
+                                        <td>Self attested Leprosy Certificate of Mother<br></td>
+                                        <td class="text-center">{{(getFiles.leprosyCertificateMother === '#')?'No':'Yes'}}</td>
+                                    </tr>
+                                    <tr v-if="getdata.applicantLeprosyAffectedFather === true">
+                                        <td>Self attested Leprosy Certificate of Father<br></td>
+                                        <td class="text-center">{{(getFiles.leprosyCertificateFather === '#')?'No':'Yes'}}</td>
+                                    </tr>
+                                    <tr v-if="getdata.applicantLeprosyAffectedSelf === true">
+                                        <td>Self attested Leprosy Certificate of Self<br></td>
+                                        <td class="text-center">{{(getFiles.leprosyCertificateSelf === '#')?'No':'Yes'}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-xl-12 mb-3 f-fm-arbs">
-                    <div class="table-responsive table-bordered font-l ofc-only">
+            </div>
+            <div class="pre-sub-form f-fm-arbs">
+                <div class="col-xl-12 mb-3 px-0">
+                    <div class="table-responsive table-bordered font-xl ofc-only">
                         <table class="table table-bordered table-sm mb-0">
                             <tbody>
                                 <tr>
@@ -18,137 +76,178 @@
                                     <td><strong>Signature of State Leader</strong></td>
                                 </tr>
                                 <tr>
-                                    <td class="text-center">Yes</td>
+                                    <td class="text-center"></td>
                                     <td><br></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-            </div>
-            <div class="pre-sub-form f-fm-arbs">
                 <div class="row">
-                    <div class="col-xl-12 text-center mb-4">
+                    <div class="col-xl-12 text-center mb-1">
                         <h3 class="text-uppercase"><strong>application form</strong></h3>
-                        <h6 class="text-uppercase"><strong>nursing scholarship  - {{getdata.financialYear}}</strong></h6>
                     </div>
-                    <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9 px-0">
+                    <div class="col-xl-12 text-center mb-1">
+                        <h6 class="text-uppercase"><strong>nursing scholarship PROGRAMME - {{getdata.financialYear}}</strong></h6>
+                        <h6 class="text-uppercase"><strong>Application No. : {{getdata.applicationId}} (submitted online)</strong></h6>
+                    </div>
+                    <div class="col-md-8 col-xl-10 offset-md-2 offset-xl-1 text-center mb-1">
+                        <hr class="cs-hr">
+                    </div>
+                    <div class="col-sm-9 col-md-10 col-lg-9 col-xl-10 px-0">
                         <div class="row mx-2">
-                            <div class="col-sm-5 col-md-5 col-lg-6 col-xl-5 mt-3">
-                                <p class="mb-0 font-xl"><strong>1. Applicant's Name:&nbsp;</strong><br></p>
+                            <div class="col-sm-5 col-md-5 col-lg-6 col-xl-4 mt-2">
+                                <p class="mb-0 font-xl"><strong>1. Applicant's Name</strong><br></p>
                             </div>
-                            <div class="col-sm-7 col-md-7 col-lg-6 col-xl-5 mt-3 pl-3">
+                            <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
+                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                            </div>
+                            <div class="col-sm-7 col-md-5 col-lg-6 col-xl-7 mt-2">
                                 <p class="mb-0 font-xl">{{getdata.fullName}}<br></p>
                             </div>
-                            <div class="col-sm-5 col-md-5 col-lg-6 col-xl-5 mt-3">
-                                <p class="mb-0 font-xl"><strong>2. Father's Name:&nbsp;</strong><br></p>
+                            <div class="col-sm-5 col-md-5 col-lg-6 col-xl-4 mt-2">
+                                <p class="mb-0 font-xl"><strong>2. Father's Name</strong><br></p>
                             </div>
-                            <div class="col-sm-7 col-md-7 col-lg-6 col-xl-5 offset-xl-0 mt-3 pl-3">
+                            <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
+                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                            </div>
+                            <div class="col-sm-7 col-md-6 col-lg-6 col-xl-7 offset-xl-0 mt-2">
                                 <p class="mb-0 font-xl">{{getdata.applicantFatherName}}<br></p>
                             </div>
-                            <div class="col-sm-5 col-md-5 col-lg-6 col-xl-5 mt-3">
-                                <p class="mb-0 font-xl"><strong>3. Mother's Name:&nbsp;</strong><br></p>
+                            <div class="col-sm-5 col-md-5 col-lg-6 col-xl-4 mt-2">
+                                <p class="mb-0 font-xl"><strong>3. Mother's Name</strong><br></p>
                             </div>
-                            <div class="col-sm-7 col-md-7 col-lg-6 col-xl-5 mt-3 pl-3">
+                            <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
+                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                            </div>
+                            <div class="col-sm-7 col-md-6 col-lg-6 col-xl-7 mt-2">
                                 <p class="mb-0 font-xl">{{getdata.applicantMotherName}}<br></p>
                             </div>
-                            <div class="col-sm-5 col-md-5 col-lg-6 col-xl-5 mt-3">
-                                <p class="mb-0 font-xl"><strong>4. Domicile&nbsp;State:&nbsp;</strong><br></p>
+                            <div class="col-sm-5 col-md-5 col-lg-6 col-xl-4 mt-2">
+                                <p class="mb-0 font-xl"><strong>4. Domicile&nbsp;State</strong><br></p>
                             </div>
-                            <div class="col-sm-7 col-md-7 col-lg-6 col-xl-5 offset-xl-0 mt-3 pl-3">
+                            <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
+                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                            </div>
+                            <div class="col-sm-7 col-md-6 col-lg-6 col-xl-7 offset-xl-0 mt-2">
                                 <p class="mb-0 font-xl">{{getdata.applicantDomicileState}}<br></p>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center">
-                       <img class="img-thumbnail img-fluid" :src="getFiles.photograph" width="180" height="230" style="border: 2px solid black;" />
-                        </div>
-                    <div class="col-lg-12 col-xl-12 px-0">
-                        <div class="row mx-2">
-                            <div class="col-sm-5 col-md-4 col-lg-4 col-xl-4 mt-3 pr-0">
-                                <p class="mb-0 font-xl"><strong>5. Applicant's Address:&nbsp;</strong><br></p>
+                            <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2">
+                                <p class="mb-0 font-xl"><strong>5. Applicant's Address</strong><br></p>
                             </div>
-                            <div class="col-sm-7 col-md-8 col-lg-8 col-xl-8 mt-3 pl-0">
-                                <p class="mb-0 font-xl">{{getdata.fullAddress}}<br></p>
+                            <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
+                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
-                            <div class="col-sm-5 col-md-4 col-lg-4 col-xl-4 mt-4">
-                                <p class="mb-0 font-xl"><strong>5.1. Contact No.(Self):</strong><br></p>
+                            <div class="col-sm-7 col-md-6 col-lg-8 col-xl-7 mt-2">
+                                <p class="mb-0 font-xl">{{getdata.addressAddln1}},{{(getdata.addressAddln2==null)?'':getdata.addressAddln2}} {{(getdata.addressCity==null)?'':getdata.addressCity}} <br>Dist :{{(getdata.insAddressDistprov==null)?'':getdata.insAddressDistprov}} {{getdata.addressState}} - {{getdata.addressPinzip}}</p>
                             </div>
-                            <div class="col-sm-7 col-md-8 col-lg-2 col-xl-8 mt-4 pl-0">
+                            <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2 pl-4">
+                                <p class="mb-0 font-xl"><strong>5.1. Contact No. (Self)</strong><br></p>
+                            </div>
+                            <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
+                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                            </div>
+                            <div class="col-sm-7 col-md-6 col-lg-2 col-xl-7 mt-2">
                                 <p class="mb-0 font-xl">{{getdata.applicantContactNoSelf}}<br></p>
                             </div>
-                            <div class="col-sm-5 col-md-4 col-lg-4 col-xl-4 mt-4">
-                                <p class="mb-0 font-xl"><strong>5.2. Contact No.(Guardian):</strong><br></p>
+                            <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 offset-xl-0 mt-2 pl-4">
+                                <p class="mb-0 font-xl"><strong>5.2. Contact No (Father)</strong><br></p>
                             </div>
-                            <div class="col-sm-6 col-md-8 col-lg-2 col-xl-8 mt-4 pl-0">
+                            <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
+                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-2 col-xl-7 mt-2">
                                 <p class="mb-0 font-xl">{{getdata.applicantContactNoGuardian}}<br></p>
                             </div>
-                            <div class="col-sm-5 col-md-4 col-lg-4 col-xl-4 mt-4 pr-0">
-                                <p class="mb-0 font-xl"><strong>5.3. Contact No.(Col. Ldr.):</strong><br></p>
+                            <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2 pl-4">
+                                <p class="mb-0 font-xl"><strong>5.3. Contact No. (Colony Leader)</strong><br></p>
                             </div>
-                            <div class="col-sm-7 col-md-8 col-lg-2 col-xl-8 mt-4 pl-0">
-                                <p class="mb-0 font-xl">{{getdata.applicantContactNoColonyLeader}}<br></p>
+                            <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
+                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
-                            <div class="col-sm-5 col-md-4 col-lg-2 col-xl-4 mt-4">
-                                <p class="mb-0 font-xl"><strong>6. Email Address:</strong><br></p>
+                            <div class="col-sm-7 col-md-6 col-lg-2 col-xl-7 mt-2">
+                                <p class="mb-0 font-xl"> {{getdata.applicantContactNoColonyLeader}}<br></p>
                             </div>
-                            <div class="col-sm-7 col-md-8 col-lg-4 col-xl-8 mt-4 pl-0">
+                            <div class="col-sm-5 col-md-5 col-lg-2 col-xl-4 mt-2">
+                                <p class="mb-0 font-xl"><strong>6. Email Address</strong><br></p>
+                            </div>
+                            <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
+                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                            </div>
+                            <div class="col-sm-7 col-md-6 col-lg-4 col-xl-7 mt-2">
                                 <p class="mb-0 font-xl">{{getdata.applicantEmailId}}<br></p>
                             </div>
-                            <div class="col-sm-5 col-md-4 col-lg-4 col-xl-4 mt-4">
-                                <p class="mb-0 font-xl"><strong>7. Date of Birth:</strong><br></p>
+                            <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 offset-xl-0 mt-2">
+                                <p class="mb-0 font-xl"><strong>7. Date of Birth</strong><br></p>
                             </div>
-                            <div class="col-sm-7 col-md-8 col-lg-2 col-xl-8 mt-4 pl-0">
+                            <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
+                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                            </div>
+                            <div class="col-sm-7 col-md-6 col-lg-2 col-xl-7 mt-2">
                                 <p class="mb-0 font-xl">{{getdata.applicantDOB.split('-').reverse().join('/')}}<br></p>
                             </div>
-                            <div class="col-sm-5 col-md-4 col-lg-4 col-xl-4 mt-4">
-                                <p class="mb-0 font-xl"><strong>8. Affected by leprosy:&nbsp;</strong></p>
+                            <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2">
+                                <p class="mb-0 font-xl"><strong>8. Affected by leprosy</strong></p>
                             </div>
-                            <div class="col-sm-2 col-lg-2 col-xl-2 mt-4 pl-0">
-                                <p class="mb-0 font-xl"><strong>Self :</strong> {{(getdata.applicantLeprosyAffectedSelf === true)?'Yes':'No'}}, <strong>Mother: </strong> {{(getdata.applicantLeprosyAffectedMother === true)?'Yes':'No'}}, <strong>Father:</strong>  {{(getdata.applicantLeprosyAffectedFather=== true)?'Yes':'No'}}. <br></p>
+                            <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
+                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
-                            <div class="col-sm-4 col-md-3 col-lg-4 col-xl-4 mt-4">
-                                <p class="mb-0 font-xl"><strong>9. BPL Card Holder:</strong><br></p>
+                            <div class="col-sm-2 col-md-6 col-lg-2 col-xl-2 mt-2">
+                                <span class="mb-0 font-xl" v-if="getdata.applicantLeprosyAffectedSelf   == true">Self,</span>
+                                <span class="mb-0 font-xl" v-if="getdata.applicantLeprosyAffectedFather == true">Father,</span>
+                                <span class="mb-0 font-xl" v-if="getdata.applicantLeprosyAffectedMother == true">Mother</span>
                             </div>
-                            <div class="col-sm-1 col-md-3 col-lg-1 col-xl-2 mt-4">
-                                <p class="mb-0 font-xl">Yes<br></p>
+                            <div class="col-sm-4 col-md-5 col-lg-4 col-xl-3 offset-xl-0 mt-2">
+                                <p class="mb-0 font-xl"><strong>9. BPL card holder</strong><br></p>
+                            </div>
+                            <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
+                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                            </div>
+                            <div class="col-sm-1 col-md-6 col-lg-1 col-xl-1 mt-2">
+                                <p class="mb-0 font-xl">{{getdata.applicantHasBPLCard}}<br></p>
                             </div>
                         </div>
                     </div>
+                      <div class="col-sm-3 col-md-2 col-lg-3 col-xl-2 text-center">
+                        
+                        <img class="img-thumbnail img-fluid applicant-img" :src="(getFiles.photograph == '#')?'https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg':getFiles.photograph" width="180" height="230" style="border: 2px solid black;">
+                    </div>
                     <div class="col-xl-12 mt-4">
-                        <p class="mb-2 font-xl"><strong>10. Details of Educational Qualification 10th &amp; 12th:</strong><br></p>
+                        <p class="mb-2 font-xl"><strong>10. Details of Educational Qualification:&nbsp;</strong>Matriculation / Higher Secondary<br></p>
                     </div>
                     <div class="col-xl-12">
                         <div class="table-responsive table-bordered rev-tbl font-md ofc-only">
                             <table class="table table-bordered table-sm mb-0">
                                 <thead>
                                     <tr>
-                                        <!-- <th><strong>Examination Passed</strong></th> -->
+                                        <th><strong>Examination Level</strong></th>
+                                        <th><strong>Examination Passed</strong></th>
                                         <th><strong>University/ Board/ Council</strong></th>
                                         <th><strong>Main Subjects</strong></th>
                                         <th><strong>Year of Passing</strong></th>
                                         <th><strong>Percentage</strong></th>
                                         <th><strong>Division</strong></th>
-                                        <th><strong>Type of Institute</strong></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="fw-600">
-                                      
+                                        <td>{{getdata.examinationLevel10}}th</td>
+                                        <td>{{(getdata.examinationPassed10 == '10')?'Madhyamik':''}}</td>
                                         <td>{{getdata.universityBoardCouncil10}}</td>
                                         <td>{{getdata.mainSubjects10}}</td>
                                         <td>{{getdata.yearOfPassing10}}</td>
                                         <td>{{getdata.percentage10}}%</td>
                                         <td>{{getdata.division10}}</td>
-                                        <td>{{getdata.type10}}</td>
+                                       
                                     </tr>
                                     <tr class="fw-600">
+                                       <td>{{getdata.examinationLevel12}}th</td>
+                                        <td>{{(getdata.examinationPassed12 == '12')?'Higher Secondary':''}}</td>
                                         <td>{{getdata.universityBoardCouncil12}}</td>
                                         <td>{{getdata.mainSubjects12}}</td>
                                         <td>{{getdata.yearOfPassing12}}</td>
                                         <td>{{getdata.percentage12}}%</td>
                                         <td>{{getdata.division12}}</td>
-                                        <td>{{getdata.type12}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -161,118 +260,23 @@
                         <div class="table-responsive table-bordered rev-tbl font-md ofc-only">
                             <table class="table table-bordered table-sm mb-0">
                                 <tbody>
-                            <tr>
-                                <td><strong>Name of the Course</strong></td>
-                                <td class="fw-600">{{getdata.insCourse}}</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Name of the institute</strong></td>
-                                <td class="fw-600">{{getdata.insName}}</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Address&nbsp;of the institute</strong></td>
-                                <td class="fw-600">{{getdata.fullInstituteAddress}}</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Whether recognized by Indian Nursing Council</strong></td>
-                                <td class="fw-600">{{getdata.recognizedByINC}}<br></td>
-                            </tr>
-                        </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xl-2 mt-3 pr-1">
-                        <p class="text-white mb-2 font-xl txt-blk-bg">&nbsp;Annexure I<br></p>
-                    </div>
-                    <div class="col-xl-12 mt-3">
-                       
-
-                        <p class="font-md"><strong>I {{getdata.fullName}}, daughter {{getdata.applicantFatherName}} {{getdata.applicantMotherName}} of residing in {{getdata.addressAddln1}},want to pursue B.Sc. in Nursing In academic year {{getdata.financialYear}}. I will be taking the following Entrance Examination for admission into B.Sc. in Nursing.</strong><br /></p>
-                    </div>
-                    <div class="col-sm-4 col-xl-12">
-                        <h5><strong>Institutes Selected:&nbsp;</strong></h5>
-                    </div>
-                    <div class="col-xl-12">
-                        <div class="table-responsive table-bordered rev-tbl font-md ofc-only">
-                            <table class="table table-bordered table-sm mb-0">
-                                <thead>
                                     <tr>
-                                        <th><strong>Institute Name</strong></th>
-                                        <th><strong>Address</strong></th>
+                                        <td><strong>Name of the Course</strong></td>
+                                        <td class="fw-600">{{(getdata.insCourse == null)?'N/A':getdata.insCourse}}</td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="fw-600">
-                                        <td><strong>1.{{getannexureIdata.choice1instituteName}}</strong><br /></td>
-                                        <td><strong>{{getannexureIdata.choice1instituteAddress}}</strong><br /></td>
+                                    <tr>
+                                        <td><strong>Name of the institute</strong></td>
+                                        <td class="fw-600">{{(getdata.insName == null)?'N/A':getdata.insName}}</td>
                                     </tr>
-                                    <tr class="fw-600">
-                                        <td><strong>2. {{getannexureIdata.choice2instituteName}}</strong><br /></td>
-                                        <td><strong>{{getannexureIdata.choice2instituteAddress}}</strong><br /></td>
+                                    <tr>
+                                        <td><strong>Address&nbsp;of the institute</strong></td>
+                                        <td class="fw-600">{{getdata.fullInstituteAddress}}</td>
                                     </tr>
-                                    <tr class="fw-600">
-                                        <td><strong>3. {{getannexureIdata.choice3instituteName}}</strong><br /></td>
-                                        <td><strong>{{getannexureIdata.choice3instituteAddress}}</strong><br /></td>
+                                    <tr>
+                                        <td><strong>Whether recognized by Indian Nursing Council</strong></td>
+                                        <td class="fw-600">{{(getdata.recognizedByINC == null)?'N/A':getdata.recognizedByINC}}<br></td>
                                     </tr>
                                 </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="pre-sub-form f-fm-arbs">
-                <div class="row">
-                    <div class="col-sm-3 col-xl-2 mt-3 pr-1">
-                        <p class="text-white mb-2 font-xl txt-blk-bg">&nbsp;Annexure II<br></p>
-                    </div>
-                    <div class="col-xl-12 mt-3">
-                        <p class="text-center font-l mb-2">Declaration Form<br></p>
-                    </div>
-                    <div class="col-xl-12 mt-1">
-                         <p class="font-md"><strong>I ({{getdata.applicantColonyLeaderName}}) hereby certify that Miss {{getdata.fullName}} has been residing in this colony and her parent/parents ({{getdata.applicantFatherName}}/{{getdata.applicantMotherName}}) is/are affected by leprosy. </strong><br /><br /><strong>I certify that, to the best of my knowledge, the information provided by the candidate is true. I recommend her for Nursing Scholarship for girls Programme.</strong><br /></p>
-                    </div>
-                    <div class="col-sm-4 col-xl-4 mt-3 pr-1">
-                        <p class="text-white mb-2 font-xl txt-blk-bg">&nbsp;Documents attached<br></p>
-                    </div>
-                    <div class="col-xl-12 mt-1">
-                        <div class="table-responsive table-bordered rev-tbl font-md ofc-only">
-                            <table class="table table-bordered table-sm mb-0">
-                                <thead>
-                                    <tr>
-                                        <th><strong>Details</strong></th>
-                                        <th class="text-center"><strong>Uploaded</strong></th>
-                                    </tr>
-                                </thead>
-                                 <tbody>
-                        <tr>
-                            <td>Proof of admission letter/call letter issued by the institute<br /></td>
-                            <td class="text-center">{{(getFiles.admissionLetter !== '#')?'Yes':'No'}}</td>
-                        </tr>
-                        <tr>
-                            <td>Annexure-II letter from colony leader stating the candidate is residing in the colony<br /></td>
-                            <td class="text-center">{{(getFiles.annexureII !== '#')?'Yes':'No'}}</td>
-                        </tr>
-                        <tr>
-                            <td>Passport size photograph<br /></td>
-                            <td class="text-center">{{(getFiles.photograph !== '#')?'Yes':'No'}}</td>
-                        </tr>
-                        <tr>
-                            <td>Self attested Birth certificate/ proof of age<br /></td>
-                            <td class="text-center">{{(getFiles.proofOfAge !== '#')?'Yes':'No'}}</td>
-                        </tr>
-                        <tr>
-                            <td>Self attested marksheet for 10th<br /></td>
-                            <td class="text-center">{{(getFiles.markSheets10 !== '#')?'Yes':'No'}}</td>
-                        </tr>
-                        <tr>
-                            <td>Self attested marksheet for 12th<br /></td>
-                            <td class="text-center">{{(getFiles.markSheets12 !== '#')?'Yes':'No'}}</td>
-                        </tr>
-                        <tr>
-                            <td>Self attested Leprosy Certificate of self/ mother / father<br /></td>
-                            <td class="text-center">{{(getFiles.leprosyCertificate !== '#')?'Yes':'No'}}</td>
-                        </tr>
-                    </tbody>
                             </table>
                         </div>
                     </div>
@@ -280,13 +284,12 @@
                         <p class="text-white mb-2 font-xl txt-blk-bg">&nbsp;Self Declaration</p>
                     </div>
                     <div class="col-xl-12 mt-1">
-                        <p class="font-md"><span><input type="checkbox"></span>&nbsp;I {{getdata.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under "Nursing Scholarship" could be withdrawn.<br></p>
+                        <p class="font-md"><span><input type="checkbox" v-model='terms'></span>&nbsp;I {{getdata.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under "Nursing Scholarship" could be withdrawn.<br></p>
                     </div>
                 </div>
             </div>
             <div class="row mb-4 d-print-none">
-                <div class="col-xl-4 offset-xl-4 text-center">
-                 <button class="btn btn-sm btn-mg mr-2" type="button" onclick="window.print()" >Print/Download Application Form</button></div>
+                <div class="col-xl-4 offset-xl-4 text-center"><button class="btn btn-sm btn-mg mr-2" role="button" :disabled='isDisabled' onclick="window.print()">Print/Download Application Form</button></div>
             </div>
         </div>
     </section>
@@ -298,6 +301,7 @@ export default{
        return{
          userId: document.querySelector("meta[name='userId']").getAttribute('content'),
          csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+          terms: false,
          getdata:{
             hasAdmissionLetter:'',
             financialYear:'',
@@ -329,18 +333,23 @@ export default{
             applicantContactNoGuardian:'',
             applicantEmailId:'',
             applicantContactNoColonyLeader:'',
+
+            examinationLevel10:'',
+            examinationPassed10:'',
             universityBoardCouncil10:'',
             mainSubjects10:'',
             yearOfPassing10:'',
             percentage10:'',
             division10:'',
-            type10:'',
+           
+            examinationLevel12:'',
+            examinationPassed12:'',
             universityBoardCouncil12:'',
             mainSubjects12:'',
             yearOfPassing12:'',
             percentage12:'',
             division12:'',
-            type12:'',
+            
             insCourse:'',
             insName:'',
             insAddressAddln1:'',
@@ -351,6 +360,7 @@ export default{
             insAddressPinzip:'',
             recognizedByINC:'',
             applicantColonyLeaderName:'',  
+            districtState:'',
         },
 
          getannexureIdata:{
@@ -368,7 +378,10 @@ export default{
                 proofOfAge:'#',
                 markSheets10:'#',
                 markSheets12:'#',
-                leprosyCertificate:'#',
+                leprosyCertificateMother:'#',
+                leprosyCertificateFather:'#',
+                leprosyCertificateSelf:'#',
+                
             },
         errors:[]
         }
@@ -393,8 +406,7 @@ export default{
                 this.getdata.applicantLeprosyAffectedSelf        = data.applicantLeprosyAffectedSelf;
                 this.getdata.applicantLeprosyAffectedFather      = data.applicantLeprosyAffectedFather;
                 this.getdata.applicantLeprosyAffectedMother      = data.applicantLeprosyAffectedMother;
-
-                this.getdata. applicantHasBPLCard                = data.applicantHasBPLCard;
+                this.getdata.applicantHasBPLCard                = data.applicantHasBPLCard;
                 this.getdata.applicantDomicileState              = data.applicantDomicileState;
                 this.getdata.applicantColonyName                 = data.applicantColonyName;
                 this.getdata.addressAddln1                       = data.addressAddln1;
@@ -407,20 +419,21 @@ export default{
                 this.getdata.applicantContactNoGuardian          = data.applicantContactNoGuardian;
                 this.getdata.applicantEmailId                    = data.applicantEmailId;
                 this.getdata.applicantContactNoColonyLeader      = data.applicantContactNoColonyLeader;
-
+                this.getdata.examinationLevel10                  = data.examinationLevel10;
+                this.getdata.examinationPassed10                 = data.examinationPassed10;
                 this.getdata.universityBoardCouncil10            = data.universityBoardCouncil10;
                 this.getdata.mainSubjects10                      = data.mainSubjects10;
                 this.getdata.yearOfPassing10                     = data.yearOfPassing10;
                 this.getdata.percentage10                        = data.percentage10;
                 this.getdata.division10                          = data.division10;
-                this.getdata.type10                              = data.type10;
-
+                this.getdata.examinationLevel12                  = data.examinationLevel12;
+                this.getdata.examinationPassed12                 = data.examinationPassed12;
                 this.getdata.universityBoardCouncil12            = data.universityBoardCouncil12;
                 this.getdata.mainSubjects12                      = data.mainSubjects12;
                 this.getdata.yearOfPassing12                     = data.yearOfPassing12;
                 this.getdata.percentage12                        = data.percentage12;
                 this.getdata.division12                          = data.division12;
-                this.getdata.type12                              = data.type12;
+             
                 this.getdata.insCourse                           = data.insCourse;
                 this.getdata.insName                             = data.insName;
                 this.getdata.insAddressAddln1                    = data.insAddressAddln1;
@@ -433,7 +446,8 @@ export default{
                 this.getdata.addressCountry                      = data.addressCountry;
                 this.getdata.applicantColonyLeaderName           = data.applicantColonyLeaderName;
                 this.getdata.fullName = `${this.getdata.applicantNameF}${(this.getdata.applicantNameM)?" "+this.getdata.applicantNameM:''} ${this.getdata.applicantNameL}`;
-                this.getdata.fullAddress = `${this.getdata.addressAddln1}, ${this.getdata.addressAddln2}, ${this.getdata.addressCity}, Dist: ${this.getdata.addressDistprov}, ${this.getdata.addressState} - ${this.getdata.addressPinzip}, ${this.getdata.addressCountry}.`;
+                this.getdata.fullAddress = `${this.getdata.addressAddln1},${(this.getdata.addressAddln2)?" "+this.getdata.addressAddln2:''} ${(this.getdata.addressCity)?" "+this.getdata.addressCity:''} ,`;
+                this.districtState = `Dist: ${(this.getdata.insAddressDistprov)?" "+this.getdata.insAddressDistprov:''}  ${this.getdata.addressState} - ${this.getdata.addressPinzip}, ${this.getdata.addressCountry}`;
                 this.getdata.fullInstituteAddress = `${this.getdata.insAddressAddln1} ${this.getdata.insAddressAddln2} ${this.getdata.insAddressCity} ${this.getdata.insAddressDistprov} ${this.getdata.insAddressState} ${this.getdata.insAddressPinzip}`;
                 this.getannexurei();
                 this.getFileData();
@@ -441,10 +455,7 @@ export default{
          })
        }, 
 
-       print()
-       {
-          window.print();
-       },
+     
        
         getFileData(){
         axios.get('/api/get-upload-documents/'+this.getdata.applicationId)
@@ -477,6 +488,11 @@ export default{
         })
     },
   },
+  computed: {
+  	  isDisabled: function(){
+    	return !this.terms;
+        }
+      },
     created(){
      this.getdataNursing();
     }

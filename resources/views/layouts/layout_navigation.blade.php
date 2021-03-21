@@ -35,7 +35,7 @@
                     <a class="nav-link" href="{{url('/manage-scholarship') }}"><strong>My Applications</strong></a>
                     </li>&nbsp;&nbsp;&nbsp;
                      @else
-                   <li class="nav-item"><a class="nav-link" href="/"><strong>Login</strong></a></li>
+                   <!-- <li class="nav-item"><a class="nav-link" href="/"><strong>Login</strong></a></li> -->
                      @if (Route::has('register'))
                        <li class="nav-item"><a class="nav-link" href="{{ route('register') }}"><strong>Register</strong></a></li>
                      @endif

@@ -147,7 +147,7 @@
                                             <tr>
                                                 <td><strong>Profile Photo</strong></td>
                                                 <td class="text-nowrap text-truncate text-break w-15x" colspan="2">
-                                                <img class="img-fluid mb-2 mr-2" src="assets/img/avatar_2x.png" width="80px">
+                                                <img class="img-fluid mb-2 mr-2" src="storage/uploads/profilephoto/{{$user->profilePhoto}}" width="80px">
                                                 <button class="btn btn-sm btn-custom font-xs" type="submit"><strong>Update</strong></button><br>
                                                 <input class="form-control-file font-xs" name="profilePhoto" type="file"  accept="image/*"></td>
                                                 <td><br></td>

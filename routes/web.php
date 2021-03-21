@@ -19,7 +19,7 @@ Route::post('/forgot-verify','ForgotVerifyController@postForgotVerify');
 
 
 Route::group(['middleware' => ['auth']], function (){
-    Route::post('/update-profile-photo','Scholarship\UserProfileController@updateProfile');
+    Route::post('/update-profile-photo','Scholarship\UserProfileController@store');
     Route::get('/manage-scholarship', 'SystemController@manageScholarship');
     Route::get('/dashboard','SystemController@dashboard');
 

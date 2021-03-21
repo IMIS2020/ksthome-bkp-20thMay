@@ -3,9 +3,13 @@
         <div class="container">
             <form @submit.prevent="saveForm">
                 <div class="form-row">
-                    <div class="col-xl-12 text-center mb-3">
-                         <h5 class="text-capitalize text-center color-mg"><strong>Application form (Nursing scholarship   {{getdata.financialYear}})</strong></h5>
+                    <div class="col-xl-12 text-center mb-3" >
+                         <h5 class="text-capitalize text-center color-mg" >
+                             <strong>Application form (Nursing scholarship   {{getdata.financialYear}})</strong>
+                        </h5>
                     </div>
+
+                     
                     <div class="col-xl-12">
                         <div class="mb-3">
                             <ul class="nav nav-tabs font-sm" role="tablist">
@@ -41,9 +45,9 @@
                                                                             </thead>
                                                                             <tbody>
                                                                                 <tr>
-                                                                                    <td colspan="2">
-                                                                                        <strong>Proof of admission in a recognized&nbsp;institute/ admission call letter issued by the institute</strong><br>
-                                                                                    </td>
+                                                                                <td colspan="2">
+                                                                                    <strong>Proof of admission in a recognized&nbsp;institute/ admission call letter issued by the institute</strong><br>
+                                                                                </td>
 
                                                                                     <td>
                                                                                         <div class="form-group">
@@ -108,56 +112,36 @@
                                                                                     <td class="text-center" v-if="getFiles.markSheets12 !== '#'"> <router-link target="_blank" class="act-link" :to="''+getFiles.markSheets12"><i class="fa fa-eye"></i></router-link><a class="act-link" href="#" @click.prevent="deleteFile('markSheets12')"><i class="fa fa-trash"></i></a></td>
                                                                                     <td class="text-center" v-else><span class="act-link"  style="color:#808080;"><i class="fa fa-eye"></i></span><span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span></td>
                                                                                 </tr>
+
                                                                                 <tr>
                                                                                     <td colspan="2"><strong>Self attested Leprosy Certificate of Mother</strong><br></td>
                                                                                     <td>
                                                                                         <div class="form-group"><input class="form-control-file font-sm" type="file" ref="leprosyCertificateMother" v-on:change="selectFile('leprosyCertificateMother')"></div>
                                                                                     </td>
-                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">Yes</span></td>
-                                                                                    <td class="text-center"><a class="act-link" href="#"><i class="fa fa-eye"></i></a><a class="act-link" href="#"><i class="fa fa-trash"></i></a></td>
+                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.leprosyCertificateMother === '#')?'No':'Yes'}}</span></td>
+                                                                                    <td class="text-center" v-if="getFiles.leprosyCertificateMother !== '#'"> <router-link target="_blank" class="act-link" :to="''+getFiles.leprosyCertificateMother"><i class="fa fa-eye"></i></router-link><a class="act-link" href="#" @click.prevent="deleteFile('leprosyCertificateMother')"><i class="fa fa-trash"></i></a></td>
+                                                                                    <td class="text-center" v-else><span class="act-link"  style="color:#808080;"><i class="fa fa-eye"></i></span><span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span></td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td colspan="2" v-if="getdata.leprosyCertificateFather != null">
-                                                                                        <strong>Self attested Leprosy Certificate of Father</strong><br>
+                                                                                    <td colspan="2"><strong>Self attested Leprosy Certificate of Father</strong><br></td>
+                                                                                    <td>
+                                                                                        <div class="form-group"><input class="form-control-file font-sm" type="file" ref="leprosyCertificateFather" v-on:change="selectFile('leprosyCertificateFather')"></div>
                                                                                     </td>
-
-                                                                                    <td colspan="2" v-else>
-                                                                                        <strong class= "d-none">Self attested Leprosy Certificate of Father</strong><br>
-                                                                                    </td>
-
-                                                                                    <td v-if="getdata.leprosyCertificateFather != null">
-                                                                                        <div class="form-group">
-                                                                                        <input class="form-control-file font-sm" type="file" ref="leprosyCertificateFather" v-on:change="selectFile('leprosyCertificateFather')">
-                                                                                    </div>
-                                                                                    </td>
-
-                                                                                    <td v-else>
-                                                                                        <div class="form-group">
-                                                                                        <input class="form-control-file font-sm d-none" type="file" ref="leprosyCertificateFather" v-on:change="selectFile('leprosyCertificateFather')">
-                                                                                    </div>
-                                                                                    </td>
-
-                                                                                    <td class="text-center" v-if="getdata.leprosyCertificateFather != null"><span class="badge badge-pill badge-primary cs-badge">Yes</span></td>
-                                                                                    <td class="text-center" v-else><span class="badge badge-pill badge-primary cs-badge d-none">Yes</span></td>
-
-                                                                                    <td class="text-center" v-if="getdata.leprosyCertificateFather != null">
-                                                                                        <a class="act-link" href="#"><i class="fa fa-eye"></i></a>
-                                                                                        <a class="act-link" href="#"><i class="fa fa-trash"></i></a>
-                                                                                    </td>
-
-                                                                                     <td class="text-center" v-else>
-                                                                                        <a class="act-link d-none" href="#"><i class="fa fa-eye"></i></a>
-                                                                                        <a class="act-link d-none" href="#"><i class="fa fa-trash"></i></a>
-                                                                                    </td>
+                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.leprosyCertificateFather === '#')?'No':'Yes'}}</span></td>
+                                                                                    <td class="text-center" v-if="getFiles.leprosyCertificateFather !== '#'"> <router-link target="_blank" class="act-link" :to="''+getFiles.leprosyCertificateFather"><i class="fa fa-eye"></i></router-link><a class="act-link" href="#" @click.prevent="deleteFile('leprosyCertificateFather')"><i class="fa fa-trash"></i></a></td>
+                                                                                    <td class="text-center" v-else><span class="act-link"  style="color:#808080;"><i class="fa fa-eye"></i></span><span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span></td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td colspan="2"><strong>Self attested Leprosy Certificate of Self</strong><br></td>
                                                                                     <td>
-                                                                                        <div class="form-group"><input class="form-control-file font-sm" type="file" ref="leprosyCertificateSelf" v-on:change="selectFile('leprosyCertificateSelf')"></div>
+                                                                                        <div class="form-group"><input class="form-control-file font-sm" type="file"  ref="leprosyCertificateSelf" v-on:change="selectFile('leprosyCertificateSelf')"></div>
                                                                                     </td>
-                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">Yes</span></td>
-                                                                                    <td class="text-center"><a class="act-link" href="#"><i class="fa fa-eye"></i></a><a class="act-link" href="#"><i class="fa fa-trash"></i></a></td>
+                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.leprosyCertificateSelf === '#')?'No':'Yes'}}</span></td>
+                                                                                    <td class="text-center" v-if="getFiles.leprosyCertificateSelf !== '#'"> <router-link target="_blank" class="act-link" :to="''+getFiles.leprosyCertificateSelf"><i class="fa fa-eye"></i></router-link><a class="act-link" href="#" @click.prevent="deleteFile('leprosyCertificateSelf')"><i class="fa fa-trash"></i></a></td>
+                                                                                    <td class="text-center" v-else><span class="act-link"  style="color:#808080;"><i class="fa fa-eye"></i></span><span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span></td>
                                                                                 </tr>
+
+                                                                                
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
@@ -179,21 +163,7 @@
                 </div>
             </form>
         </div>
-         <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form">
-            <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-xl-12"></div>
-                        </div>
-                    </div>
-                    <div class="modal-footer"><button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button><button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
-                </div>
-            </div>
-        </div>
+      
     </section>
 </template>
 
@@ -235,85 +205,68 @@ export default{
     },
     methods:{
         saveForm(){
-            // if (this.getFiles.admissionLetter === '#') {
-            //     axios.post('/api/upload-documents/'+this.getdata.applicationId,this.uploadFiles)
-            //     .then(response => {
-            //             if (response.data['success']){
-            //                 this.$fire({
-            //                     position: 'top',
-            //                     icon: 'success',
-            //                     title: "Documents Uploaded Successfully",
-            //                     showConfirmButton: false,
-            //                     timer: 3000
-            //                 })
-            //             } else {
-            //                 console.log(response.data['msg'])
-            //             }
-            //         })
-            //     .catch(error => this.errorMsg(error.response.status))
-            //    } else {
-                   axios.post('/api/update-documents/'+this.getdata.applicationId,this.uploadFiles)
-                     .then(response => {
-                        if (response.data['success']){
-                            this.$fire({
-                                position: 'top',
-                                icon: 'success',
-                                title: "Documents Uploaded Successfully",
-                                showConfirmButton: false,
-                                timer: 3000
-                            })
-                            this.getdataNursing();
-                        } else {
-                            console.log(response.data['msg'])
-                        }
-                    })
-                    .catch(error => this.errorMsg(error.response.status))
-                // }
-              },
-                errorMsg (status) {
-                switch (status) {
-                case 422:{
+            axios.post('/api/update-documents/'+this.getdata.applicationId,this.uploadFiles)
+                .then(response => {
+                if (response.data['success']){
                     this.$fire({
                         position: 'top',
-                        icon: 'error',
-                        title: "Something went wrong!",
+                        icon: 'success',
+                        title: "Documents Uploaded Successfully",
                         showConfirmButton: false,
                         timer: 3000
                     })
-                    break;
+                    this.getdataNursing();
+                } else {
+                    console.log(response.data['msg'])
                 }
-                case 405:{
-                    this.$fire({
-                        position: 'top',
-                        icon: 'error',
-                        title: "Something went wrong!",
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
-                    break;
-                }
-                case 500:{
-                    this.$fire({
-                        position: 'top',
-                        icon: 'error',
-                        title: "Something went wrong!",
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
-                    break;
-                }
-                default: {
-                    this.$fire({
-                        position: 'top',
-                        icon: 'error',
-                        title: "Something went wrong!",
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
-                    break;
-                }
-            }
+            })
+            .catch(error => this.errorMsg(error.response.status))
+        // }
         },
+        errorMsg (status) {
+            switch (status) {
+            case 422:{
+                this.$fire({
+                    position: 'top',
+                    icon: 'error',
+                    title: "Something went wrong!",
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+                break;
+            }
+            case 405:{
+                this.$fire({
+                    position: 'top',
+                    icon: 'error',
+                    title: "Something went wrong!",
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+                break;
+            }
+            case 500:{
+                this.$fire({
+                    position: 'top',
+                    icon: 'error',
+                    title: "Something went wrong!",
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+                break;
+            }
+            default: {
+                this.$fire({
+                    position: 'top',
+                    icon: 'error',
+                    title: "Something went wrong!",
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+                break;
+            }
+        }
+    },
         selectFile(ref){
             let file = this.$refs[ref].files[0];
             let fileReader = new FileReader()
@@ -332,6 +285,9 @@ export default{
                     this.getdata.hasAdmissionLetter  = data.hasAdmissionLetter;
                     this.getdata.applicationId = data.applicationId;
                     this.getdata.financialYear = data.financialYear;
+                    this.getdata.leprosyCertificateMother = data.leprosyCertificateMother;
+                    this.getdata.leprosyCertificateFather = data.leprosyCertificateFather;
+                    this.getdata.leprosyCertificateSelf = data.leprosyCertificateSelf;
                     this.getFileData();
                 }
             })

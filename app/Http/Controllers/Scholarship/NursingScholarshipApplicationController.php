@@ -65,18 +65,24 @@ class NursingScholarshipApplicationController extends Controller
             $data['addressState']                       = $applicantAddress->addressState;
             $data['addressPinzip']                      = $applicantAddress->addressPinzip;
             $data['addressCountry']                     = $applicantAddress->addressCountry;
+
+            $data['examinationLevel10']                 = $applicantEducationDetails10->examinationLevel;
+            $data['examinationPassed10']                = $applicantEducationDetails10->examinationPassed;
+
             $data['universityBoardCouncil10']           = $applicantEducationDetails10->universityBoardCouncil;
             $data['mainSubjects10']                     = $applicantEducationDetails10->mainSubjects;
             $data['yearOfPassing10']                    = $applicantEducationDetails10->yearOfPassing;
             $data['percentage10']                       = $applicantEducationDetails10->percentage;
             $data['division10']                         = $applicantEducationDetails10->division;
-            $data['type10']                             = $applicantEducationDetails10->type;
+            
+            $data['examinationLevel12']                 = $applicantEducationDetails12->examinationLevel;  
+            $data['examinationPassed12']                = $applicantEducationDetails12->examinationPassed;     
             $data['universityBoardCouncil12']           = $applicantEducationDetails12->universityBoardCouncil;
             $data['mainSubjects12']                     = $applicantEducationDetails12->mainSubjects;
             $data['yearOfPassing12']                    = $applicantEducationDetails12->yearOfPassing;
             $data['percentage12']                       = $applicantEducationDetails12->percentage;
             $data['division12']                         = $applicantEducationDetails12->division;
-            $data['type12']                             = $applicantEducationDetails12->type;
+           
             $data['insName']                            = (isset($instituteDetails))?$instituteDetails->instituteName:'';
             $data['insAddressAddln1']                   = (isset($instituteAddress))?$instituteAddress->addressAddln1:'';
             $data['insAddressAddln2']                   = (isset($instituteAddress))?$instituteAddress->addressAddln2:'';
@@ -100,7 +106,7 @@ class NursingScholarshipApplicationController extends Controller
             return array('success' => false, 'msg'=>['No Data Found!']);
         }
     }
-       # Get Nursing Scholarship ApplicationId
+    # Get Nursing Scholarship ApplicationId
     public function getNursingScholarshipApplicationId(string $applicationId)
     {
         $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
@@ -282,18 +288,22 @@ class NursingScholarshipApplicationController extends Controller
             'applicantContactNoGuardian'        => ['required','digits:10'],
             'applicantEmailId'                  => ['required'],
             'applicantContactNoColonyLeader'    => ['required','digits:10'],
+
+            'examinationLevel10'                => ['required'],
             'universityBoardCouncil10'          => ['required'],
             'mainSubjects10'                    => ['required'],
             'yearOfPassing10'                   => ['required','digits:4'],
             'percentage10'                      => ['required'],
             'division10'                        => ['required'],
-            'type10'                            => ['required'],
+            
+            'examinationLevel12'                => ['required'],
             'universityBoardCouncil12'          => ['required'],
             'mainSubjects12'                    => ['required'],
             'yearOfPassing12'                   => ['required','digits:4'],
             'percentage12'                      => ['required'],
             'division12'                        => ['required'],
-            'type12'                            => ['required'],
+            
+
             'hasAdmissionLetter'                => ['required'],
             'insCourse'                         => [],
             'insName'                           => [],
@@ -349,23 +359,25 @@ class NursingScholarshipApplicationController extends Controller
 
             $applicantEducationDetails = new ApplicantEducationDetails;
             $applicantEducationDetails->examinationPassed       = '10';
+            $applicantEducationDetails->examinationLevel        = '10';
             $applicantEducationDetails->universityBoardCouncil  = $request->universityBoardCouncil10;
             $applicantEducationDetails->mainSubjects            = $request->mainSubjects10;
             $applicantEducationDetails->yearOfPassing           = $request->yearOfPassing10;
             $applicantEducationDetails->percentage              = $request->percentage10;
             $applicantEducationDetails->division                = $request->division10;
-            $applicantEducationDetails->type                    = $request->type10;
+            $applicantEducationDetails->type                    = '10';
             $applicantEducationDetails->applicantId             = $applicantDetails->id;
             $applicantEducationDetails->save();
             
             $applicantEducationDetails = new ApplicantEducationDetails;
             $applicantEducationDetails->examinationPassed       = '12';
+            $applicantEducationDetails->examinationLevel        = '12';
             $applicantEducationDetails->universityBoardCouncil  = $request->universityBoardCouncil12;
             $applicantEducationDetails->mainSubjects            = $request->mainSubjects12;
             $applicantEducationDetails->yearOfPassing           = $request->yearOfPassing12;
             $applicantEducationDetails->percentage              = $request->percentage12;
             $applicantEducationDetails->division                = $request->division12;
-            $applicantEducationDetails->type                    = $request->type12;
+            $applicantEducationDetails->type                    = '12';
             $applicantEducationDetails->applicantId             = $applicantDetails->id;
             $applicantEducationDetails->save();
 
@@ -465,18 +477,23 @@ class NursingScholarshipApplicationController extends Controller
             'applicantContactNoGuardian'        => ['required','digits:10'],
             'applicantEmailId'                  => ['required'],
             'applicantContactNoColonyLeader'    => ['required','digits:10'],
+
+            'examinationLevel10'                => ['required'],
             'universityBoardCouncil10'          => ['required'],
             'mainSubjects10'                    => ['required'],
             'yearOfPassing10'                   => ['required','digits:4'],
             'percentage10'                      => ['required'],
             'division10'                        => ['required'],
-            'type10'                            => ['required'],
+            
+
+            'examinationLevel12'                => ['required'],
             'universityBoardCouncil12'          => ['required'],
             'mainSubjects12'                    => ['required'],
             'yearOfPassing12'                   => ['required','digits:4'],
             'percentage12'                      => ['required'],
             'division12'                        => ['required'],
-            'type12'                            => ['required'],
+            
+
             'hasAdmissionLetter'                => ['required'],
             'insCourse'                         => [],
             'insName'                           => [],
@@ -582,21 +599,25 @@ class NursingScholarshipApplicationController extends Controller
             $applicantAddress->update();
             
             $applicantEducationDetails = ApplicantEducationDetails::where('applicantId', $nursingScholarshipApplication->applicantId)->where('examinationPassed', '10')->first();
+            $applicantEducationDetails->examinationPassed       = '10';
+            $applicantEducationDetails->examinationLevel        = '10';
             $applicantEducationDetails->universityBoardCouncil  = $request->universityBoardCouncil10;
             $applicantEducationDetails->mainSubjects            = $request->mainSubjects10;
             $applicantEducationDetails->yearOfPassing           = $request->yearOfPassing10;
             $applicantEducationDetails->percentage              = $request->percentage10;
             $applicantEducationDetails->division                = $request->division10;
-            $applicantEducationDetails->type                    = $request->type10;
+            $applicantEducationDetails->type                    = '10';
             $applicantEducationDetails->update();
             
             $applicantEducationDetails = ApplicantEducationDetails::where('applicantId', $nursingScholarshipApplication->applicantId)->where('examinationPassed', '12')->first();
+            $applicantEducationDetails->examinationPassed       = '12';
+            $applicantEducationDetails->examinationLevel        = '12';
             $applicantEducationDetails->universityBoardCouncil  = $request->universityBoardCouncil12;
             $applicantEducationDetails->mainSubjects            = $request->mainSubjects12;
             $applicantEducationDetails->yearOfPassing           = $request->yearOfPassing12;
             $applicantEducationDetails->percentage              = $request->percentage12;
             $applicantEducationDetails->division                = $request->division12;
-            $applicantEducationDetails->type                    = $request->type12;
+            $applicantEducationDetails->type                    = '12';
             $applicantEducationDetails->update();
 
             $allApplicantMiscellaneousDetails = ApplicantMiscellaneousDetails::where('applicantId', $applicantDetails->id)->orderBy('id','ASC')->get();
@@ -863,161 +884,165 @@ class NursingScholarshipApplicationController extends Controller
             'annexureII'              => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
             'photograph'              => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
             'proofOfAge'              => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
+            'markSheets10'            => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
             'markSheets12'            => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
-            'leprosyCes10'            => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
-            'markSheetrtificateSelf'  => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
+            'leprosyCertificateSelf'  => ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
             'leprosyCertificateMother'=> ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
             'leprosyCertificateFather'=> ['required','mimes:jpeg,pdf,png,jpg','size:1024'],
         ]);
-        
-        DB::beginTransaction();
-        try {
-            
-            $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
 
-            if ($nursingScholarshipApplication) {
-                $admissionLetter    = $this->uploadFile($request->admissionLetter, 'admissionLetter');
-                $annexureII         = $this->uploadFile($request->annexureII, 'annexureII');
-                $photograph         = $this->uploadFile($request->photograph, 'photograph');
-                $proofOfAge         = $this->uploadFile($request->proofOfAge, 'proofOfAge');
-                $markSheets10       = $this->uploadFile($request->markSheets10, 'markSheets10');
-                $markSheets12       = $this->uploadFile($request->markSheets12, 'markSheets12');
-                $leprosyCertificateSelf   = $this->uploadFile($request->leprosyCertificateSelf, 'leprosyCertificateSelf');
-                $leprosyCertificateMother = $this->uploadFile($request->leprosyCertificateMother, 'leprosyCertificateMother');
-                $leprosyCertificateFather = $this->uploadFile($request->leprosyCertificateFather, 'leprosyCertificateFather');
+       
+            DB::beginTransaction();
+            try {
+                
+                $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
 
-                $applicantDocuments = new ApplicantDocuments;
-                $applicantDocuments->admissionLetter = $admissionLetter;
-                $applicantDocuments->annexureII         = $annexureII;
-                $applicantDocuments->photograph         = $photograph;
-                $applicantDocuments->proofOfAge         = $proofOfAge;
-                $applicantDocuments->markSheets10       = $markSheets10;
-                $applicantDocuments->markSheets12       = $markSheets12;
-                $applicantDocuments->leprosyCertificateSelf   = $leprosyCertificateSelf;
-                $applicantDocuments->leprosyCertificateMother = $leprosyCertificateMother;
-                $applicantDocuments->leprosyCertificateFather = $leprosyCertificateFather;
-                $applicantDocuments->applicantId              = $nursingScholarshipApplication->applicantId;
-                $applicantDocuments->save();
-            } else {
-                return array('success' => false, 'msg'=>['Application ID not found!']);
+                if ($nursingScholarshipApplication) {
+                    $admissionLetter    = $this->uploadFile($request->admissionLetter, 'admissionLetter');
+                    $annexureII         = $this->uploadFile($request->annexureII, 'annexureII');
+                    $photograph         = $this->uploadFile($request->photograph, 'photograph');
+                    $proofOfAge         = $this->uploadFile($request->proofOfAge, 'proofOfAge');
+                    $markSheets10       = $this->uploadFile($request->markSheets10, 'markSheets10');
+                    $markSheets12       = $this->uploadFile($request->markSheets12, 'markSheets12');
+                    $leprosyCertificateSelf   = $this->uploadFile($request->leprosyCertificateSelf, 'leprosyCertificateSelf');
+                    $leprosyCertificateMother = $this->uploadFile($request->leprosyCertificateMother, 'leprosyCertificateMother');
+                    $leprosyCertificateFather = $this->uploadFile($request->leprosyCertificateFather, 'leprosyCertificateFather');
+
+                    $applicantDocuments = new ApplicantDocuments;
+                    $applicantDocuments->admissionLetter = $admissionLetter;
+                    $applicantDocuments->annexureII         = $annexureII;
+                    $applicantDocuments->photograph         = $photograph;
+                    $applicantDocuments->proofOfAge         = $proofOfAge;
+                    $applicantDocuments->markSheets10       = $markSheets10;
+                    $applicantDocuments->markSheets12       = $markSheets12;
+                    $applicantDocuments->leprosyCertificateSelf   = $leprosyCertificateSelf;
+                    $applicantDocuments->leprosyCertificateMother = $leprosyCertificateMother;
+                    $applicantDocuments->leprosyCertificateFather = $leprosyCertificateFather;
+                    $applicantDocuments->applicantId              = $nursingScholarshipApplication->applicantId;
+                    $applicantDocuments->save();
+                } else {
+                    return array('success' => false, 'msg'=>['Application ID not found!']);
+                }
+
+                DB::commit();
+                return array('success' => true, 'msg'=>[]);
             }
-
-            DB::commit();
-            return array('success' => true, 'msg'=>[]);
-        }
-        catch(Exception $e) {
-            DB::rollBack();
-            return array('success' => false, 'msg'=>[$e]);
-        }
+            catch(Exception $e) {
+                DB::rollBack();
+                return array('success' => false, 'msg'=>[$e]);
+            }
+        
     }
 
     # Update Applicant Documents
     public function updateApplicantDocuments(string $applicationId, Request $request)
-    {        
-        DB::beginTransaction();
-        try {
-            $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
+    {
+              
+            DB::beginTransaction();
+            try {
+                $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
 
-            if ($nursingScholarshipApplication) {
-                $applicantDocuments = ApplicantDocuments::where('applicantId',$nursingScholarshipApplication->applicantId)->first();
+                if ($nursingScholarshipApplication) {
+                    $applicantDocuments = ApplicantDocuments::where('applicantId',$nursingScholarshipApplication->applicantId)->first();
 
-                if (!$applicantDocuments) {
-                    $applicantDocuments = new ApplicantDocuments;
-                    $new = true;
-                }
-
-                if ($request->admissionLetter) {
-                    if (!isset($new) && $applicantDocuments->admissionLetter) {
-                        $this->deleteFile($applicantDocuments->admissionLetter);
+                    if (!$applicantDocuments) {
+                        $applicantDocuments = new ApplicantDocuments;
+                        $new = true;
                     }
-                    $admissionLetter = $this->uploadFile($request->admissionLetter, 'admissionLetter');
-                    $applicantDocuments->admissionLetter    = $admissionLetter;
-                }
 
-                if ($request->annexureII) {
-                    if (!isset($new) && $applicantDocuments->annexureII) {
-                        $this->deleteFile($applicantDocuments->annexureII);
+                    if ($request->admissionLetter) {
+                        if (!isset($new) && $applicantDocuments->admissionLetter) {
+                            $this->deleteFile($applicantDocuments->admissionLetter);
+                        }
+                        $admissionLetter = $this->uploadFile($request->admissionLetter, 'admissionLetter');
+                        $applicantDocuments->admissionLetter    = $admissionLetter;
                     }
-                    $annexureII = $this->uploadFile($request->annexureII, 'annexureII');
-                    $applicantDocuments->annexureII         = $annexureII;
-                }
-                
-                if ($request->photograph) {
-                    if (!isset($new) && $applicantDocuments->photograph) {
-                        $this->deleteFile($applicantDocuments->photograph);
-                    }
-                    $photograph = $this->uploadFile($request->photograph, 'photograph');
-                    $applicantDocuments->photograph = $photograph;
-                }
 
-                if ($request->proofOfAge) {
-                    if (!isset($new) && $applicantDocuments->proofOfAge) {
-                        $this->deleteFile($applicantDocuments->proofOfAge);
+                    if ($request->annexureII) {
+                        if (!isset($new) && $applicantDocuments->annexureII) {
+                            $this->deleteFile($applicantDocuments->annexureII);
+                        }
+                        $annexureII = $this->uploadFile($request->annexureII, 'annexureII');
+                        $applicantDocuments->annexureII         = $annexureII;
                     }
-                    $proofOfAge = $this->uploadFile($request->proofOfAge, 'proofOfAge');
-                    $applicantDocuments->proofOfAge = $proofOfAge;
-                }
-
-                if ($request->markSheets10) {
-                    if (!isset($new) && $applicantDocuments->markSheets10) {
-                        $this->deleteFile($applicantDocuments->markSheets10);
-                    }
-                    $markSheets10       = $this->uploadFile($request->markSheets10, 'markSheets10');
-                    $applicantDocuments->markSheets10 = $markSheets10;
-                }
                     
-                if ($request->markSheets12) {
-                    if (!isset($new) && $applicantDocuments->markSheets12) {
-                        $this->deleteFile($applicantDocuments->markSheets12);
+                    if ($request->photograph) {
+                        if (!isset($new) && $applicantDocuments->photograph) {
+                            $this->deleteFile($applicantDocuments->photograph);
+                        }
+                        $photograph = $this->uploadFile($request->photograph, 'photograph');
+                        $applicantDocuments->photograph = $photograph;
                     }
-                    $markSheets12       = $this->uploadFile($request->markSheets12, 'markSheets12');
-                    $applicantDocuments->markSheets12 = $markSheets12;
-                }
 
-                if ($request->leprosyCertificateSelf) 
-                {
-                    if (!isset($new) && $applicantDocuments->leprosyCertificateSelf) {
-                        $this->deleteFile($applicantDocuments->leprosyCertificateSelf);
+                    if ($request->proofOfAge) {
+                        if (!isset($new) && $applicantDocuments->proofOfAge) {
+                            $this->deleteFile($applicantDocuments->proofOfAge);
+                        }
+                        $proofOfAge = $this->uploadFile($request->proofOfAge, 'proofOfAge');
+                        $applicantDocuments->proofOfAge = $proofOfAge;
                     }
-                    $leprosyCertificateSelf = $this->uploadFile($request->leprosyCertificateSelf, 'leprosyCertificateSelf');
-                    $applicantDocuments->leprosyCertificateSelf = $leprosyCertificateSelf;
-                }
 
-                if ($request->leprosyCertificateMother) 
-                {
-                    if (!isset($new) && $applicantDocuments->leprosyCertificateMother) {
-                        $this->deleteFile($applicantDocuments->leprosyCertificateMother);
+                    if ($request->markSheets10) {
+                        if (!isset($new) && $applicantDocuments->markSheets10) {
+                            $this->deleteFile($applicantDocuments->markSheets10);
+                        }
+                        $markSheets10       = $this->uploadFile($request->markSheets10, 'markSheets10');
+                        $applicantDocuments->markSheets10 = $markSheets10;
                     }
-                    $leprosyCertificateMother = $this->uploadFile($request->leprosyCertificateMother, 'leprosyCertificateMother');
-                    $applicantDocuments->leprosyCertificateMother = $leprosyCertificateMother;
-                }
+                        
+                    if ($request->markSheets12) {
+                        if (!isset($new) && $applicantDocuments->markSheets12) {
+                            $this->deleteFile($applicantDocuments->markSheets12);
+                        }
+                        $markSheets12       = $this->uploadFile($request->markSheets12, 'markSheets12');
+                        $applicantDocuments->markSheets12 = $markSheets12;
+                    }
 
-                if ($request->leprosyCertificateFather) 
-                {
-                    if (!isset($new) && $applicantDocuments->leprosyCertificateFather) {
-                        $this->deleteFile($applicantDocuments->leprosyCertificateFather);
+                    if ($request->leprosyCertificateSelf) 
+                    {
+                        if (!isset($new) && $applicantDocuments->leprosyCertificateSelf) {
+                            $this->deleteFile($applicantDocuments->leprosyCertificateSelf);
+                        }
+                        $leprosyCertificateSelf = $this->uploadFile($request->leprosyCertificateSelf, 'leprosyCertificateSelf');
+                        $applicantDocuments->leprosyCertificateSelf = $leprosyCertificateSelf;
                     }
-                    $leprosyCertificateFather = $this->uploadFile($request->leprosyCertificateFather, 'leprosyCertificateFather');
-                    $applicantDocuments->leprosyCertificateFather = $leprosyCertificateFather;
-                }
-                
-                if (isset($new)) {
-                    $applicantDocuments->applicantId = $nursingScholarshipApplication->applicantId;
-                    $applicantDocuments->save();
+
+                    if ($request->leprosyCertificateMother) 
+                    {
+                        if (!isset($new) && $applicantDocuments->leprosyCertificateMother) {
+                            $this->deleteFile($applicantDocuments->leprosyCertificateMother);
+                        }
+                        $leprosyCertificateMother = $this->uploadFile($request->leprosyCertificateMother, 'leprosyCertificateMother');
+                        $applicantDocuments->leprosyCertificateMother = $leprosyCertificateMother;
+                    }
+
+                    if ($request->leprosyCertificateFather) 
+                    {
+                        if (!isset($new) && $applicantDocuments->leprosyCertificateFather) {
+                            $this->deleteFile($applicantDocuments->leprosyCertificateFather);
+                        }
+                        $leprosyCertificateFather = $this->uploadFile($request->leprosyCertificateFather, 'leprosyCertificateFather');
+                        $applicantDocuments->leprosyCertificateFather = $leprosyCertificateFather;
+                    }
+                    
+                    if (isset($new)) {
+                        $applicantDocuments->applicantId = $nursingScholarshipApplication->applicantId;
+                        $applicantDocuments->save();
+                    } else {
+                        $applicantDocuments->update();
+                    }
                 } else {
-                    $applicantDocuments->update();
+                    return array('success' => false, 'msg'=>['Application ID not found!']);
                 }
-            } else {
-                return array('success' => false, 'msg'=>['Application ID not found!']);
-            }
 
-            DB::commit();
-            return array('success' => true, 'msg'=>[]);
-        }
-        catch(Exception $e) {
-            DB::rollBack();
-            return array('success' => false, 'msg'=>[$e]);
-        }
+                DB::commit();
+                return array('success' => true, 'msg'=>[]);
+            }
+            catch(Exception $e) {
+                DB::rollBack();
+                return array('success' => false, 'msg'=>[$e]);
+            }
+        
     }
 
     # Delete Applicant Documents

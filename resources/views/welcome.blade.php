@@ -148,12 +148,12 @@
                                                 <td><strong>Profile Photo</strong></td>
                                                 <td class="text-nowrap text-truncate text-break w-15x" colspan="2">
                                                 @if(empty($user->profilePhoto))
-                                                <img class="img-fluid mb-2 mr-2" src="assets/img/avatar_2x.png" width="80px">
+                                                <img class="img-fluid mb-2 mr-2" src="assets/img/avatar_2x.png" width="80px" height="90px">
                                                 @else
-                                                <img class="img-fluid mb-2 mr-2" src="storage/uploads/profilephoto/{{$user->profilePhoto}}" width="80px">
+                                                <img class="img-fluid mb-2 mr-2" src="storage/uploads/profilephoto/{{$user->profilePhoto}}" width="80px" height="90px">
                                                 @endif
                                                 <button class="btn btn-sm btn-custom font-xs" type="submit"><strong>Update</strong></button><br>
-                                                <input class="form-control-file font-xs" name="profilePhoto" type="file"  accept="image/*"></td>
+                                                <input class="form-control-file font-xs" name="profilePhoto" type="file"  accept="image/*" required></td>
                                                 <td><br></td>
                                             </tr>
                                             <tr>
@@ -172,18 +172,7 @@
                                                 <td><strong>Last Login</strong></td>
                                                 <td>{{date("d-m-Y", strtotime($user->lastLoginTime)) }} {{substr(explode('-',$user->lastLoginTime)[2],3)}}</td>
                                             </tr>
-                                            <tr>
-                                                <td><strong>Applied For</strong></td>
-                                                <td><span>Nursing Scholarship</span>,<span>HHDL Scholarship</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Application Status</strong></td>
-                                                <td>Accepted</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Download Form</strong></td>
-                                                <td><a class="btn btn-sm btn-custom font-xs" role="button" href="print-nursing-application-form.html"><i class="fa fa-download"></i><strong>&nbsp;Download Application Form</strong></a></td>
-                                            </tr>
+                                   
                                         </tbody>
                                     </table>
                                 </div>

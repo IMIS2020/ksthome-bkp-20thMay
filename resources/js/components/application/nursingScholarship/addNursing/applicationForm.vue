@@ -279,8 +279,8 @@
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.examinationLevel10">
                                                                                                     <option value="" disabled>-- select --</option>
-                                                                                                    <option value="10th">10th</option>
-                                                                                                    <option value="12th">12th</option>
+                                                                                                    <option value="10">10th</option>
+                                                                                                    <option value="12">12th</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
@@ -288,10 +288,9 @@
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.examinationPassed10">
                                                                                                     <option value="" disabled>-- Select --</option>
-                                                                                                    <option value="Madhyamik">Madhyamik</option>
-                                                                                                    <option value="Higher Secondary">Higher Secondary</option>
-                                                                                                    <option value="B.Com">B.Com</option>
-                                                                                                    <option value="Others">Others</option>
+                                                                                                    <option value="10">Madhyamik</option>
+                                                                                                    <option value="12">Higher Secondary</option>
+                                                                                                    
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
@@ -351,10 +350,9 @@
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.examinationLevel12">
                                                                                                     <option value="" disabled>-- Select --</option>
-                                                                                                    <option value="10th">10th</option>
-                                                                                                    <option value="12th">12th</option>
-                                                                                                    <option value="Graduation">Graduation</option>
-                                                                                                    <option value="Others">Others</option>
+                                                                                                    <option value="10">10th</option>
+                                                                                                    <option value="12">12th</option>
+                                                                                                    
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
@@ -362,10 +360,8 @@
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.examinationPassed12">
                                                                                                     <option value="" disabled>-- Select --</option>
-                                                                                                    <option value="Madhyamik">Madhyamik</option>
-                                                                                                    <option value="Higher Secondary">Higher Secondary</option>
-                                                                                                    <option value="B.Com">B.Com</option>
-                                                                                                    <option value="Others">Others</option>
+                                                                                                    <option value="10">Madhyamik</option>
+                                                                                                    <option value="12">Higher Secondary</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
@@ -693,18 +689,19 @@ export default {
                 applicantContactNoGuardian:'',
                 applicantEmailId:document.querySelector("meta[name='email']").getAttribute('content'),
                 applicantContactNoColonyLeader:'',
+                
                 universityBoardCouncil10:'',
                 mainSubjects10:'',
                 yearOfPassing10:'',
                 percentage10:'',
                 division10:'',
-                type10:'',
+                
                 universityBoardCouncil12:'',
                 mainSubjects12:'',
                 yearOfPassing12:'',
                 percentage12:'',
                 division12:'',
-                type12:'',
+                
                 hasAdmissionLetter:'YES',
                 insCourse:'',
                 insName:'',

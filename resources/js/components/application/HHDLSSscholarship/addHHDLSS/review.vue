@@ -43,7 +43,7 @@
                                                                         <tr>
                                                                             <td><strong>My HHDLSS application </strong>{{getdata.applicationId}}<strong>,&nbsp; for {{getdata.financialYear}}</strong></td>
                                                                             <td class="text-center"><router-link class="act-link" :to="'#'" ><i class="fa fa-download"></i></router-link></td>
-                                                                            <td class="text-center"><router-link class="act-link" to="/print-view-nursing"><i class="fa fa-eye"></i></router-link></td>
+                                                                            <td class="text-center"><router-link class="act-link" to="/print-view-HHDLSS"><i class="fa fa-eye"></i></router-link></td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -304,8 +304,6 @@
                                                                                 </span>
                                                                             </td>
                                                                         </tr>
-
-
                                                                     </tbody>
                                                                 </table>
                                                             </div>

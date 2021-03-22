@@ -63,7 +63,7 @@ $(document).ready(function() {
   $(".add-f-pmh-row").click(function() {
       var name = $("#name").val();
       var email = $("#email").val();
-      var markup = "<tr><td class='text-center w-5x pt-2'><input type='checkbox' name='record' /></td><td><div class='form-group mb-0'><input type='text' class='form-control form-control-sm' /></div></td></tr>";
+      var markup = "<tr class='font-sm color-mg'><td><div class='form-group mt-1'><input type='text' class='form-control form-control-sm' /></div></td><td><div class='form-group mt-1'><textarea class='form-control form-control-sm'></textarea></div></td><td class='text-center w-5x pt-2'><a href='#'><i class='fa fa-trash fa-2x color-mg'></i></a></td></tr>";
       $(".f-pmh-table tbody").append(markup);
   });
   /* Find and remove selected table rows */
@@ -95,6 +95,17 @@ $(document).ready(function() {
   }); 
 });
 
+// Add Annexure-I table row
+$(document).ready(function() {
+  $(".add-anex-i-row").click(function() {
+      var name = $("#name").val();
+      var email = $("#email").val();
+      var markup = "<tr><td><div class='form-group mb-0'><textarea class='form-control form-control-sm' rows='1'></textarea></div></td><td><div class='form-group mb-0'><textarea class='form-control form-control-sm' rows='1'></textarea></div></td><td><div class='form-group mb-0'><textarea class='form-control form-control-sm' rows='1'></textarea></div></td><td><div class='form-group mb-0'><textarea class='form-control form-control-sm' rows='1'></textarea></div></td><td><div class='form-group mb-0'><textarea class='form-control form-control-sm' rows='1'></textarea></div></td><td><div class='form-group mb-0'><textarea class='form-control form-control-sm' rows='1'></textarea></div></td><td><div class='form-group mb-0'><input type='text' class='form-control form-control-sm' /></div></td><td><div class='form-group mb-0'><select class='form-control form-control-sm'><option value selected>State</option><option value='12'>West Bengal</option><option value='13'>Uttar Pradesh</option><option value='14'>Bihar</option></select></div></td><td class='text-center w-5x pt-2'><a href='#'><i class='fa fa-trash color-mg font-l'></i></a></td></tr>";
+      $(".anex-i-table tbody").append(markup);
+  }); 
+});
+
+
 function fn2(input) {
   if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -119,20 +130,20 @@ $(document).ready(function(){
 });
 
 
-const togglePassword = document.querySelector('#togglePassword');
-const password = document.querySelector('#password');
+// const togglePassword = document.querySelector('#togglePassword');
+// const password = document.querySelector('#password');
 
-togglePassword.addEventListener('click', function (e) {
-  const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-  password.setAttribute('type', type);
-  this.classList.toggle('fa-eye-slash');
-});
+// togglePassword.addEventListener('click', function (e) {
+//   const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+//   password.setAttribute('type', type);
+//   this.classList.toggle('fa-eye-slash');
+// });
 
-const togglePassword1 = document.querySelector('#togglePassword1');
-const password1 = document.querySelector('#password1');
+// const togglePassword1 = document.querySelector('#togglePassword1');
+// const password1 = document.querySelector('#password1');
 
-togglePassword1.addEventListener('click', function (e) {
-  const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
-  password1.setAttribute('type', type);
-  this.classList.toggle('fa-eye-slash');
-});
+// togglePassword1.addEventListener('click', function (e) {
+//   const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
+//   password1.setAttribute('type', type);
+//   this.classList.toggle('fa-eye-slash');
+// });

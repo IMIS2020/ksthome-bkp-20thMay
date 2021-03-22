@@ -47,6 +47,8 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('/application-form-HHDLSS', 'SystemController@applicationFormHHDLSS');
     Route::get('/annexure-1-HHDLSS',       'SystemController@annexure1HHDLSS');
     Route::get('/annexure-2-HHDLSS',       'SystemController@annexure2HHDLSS');
+    Route::get('/annexure-2-print-form-HHDLSS','SystemController@annexure2PrintFormHHDLSS');
+    Route::get('/annexure-2-blank-form-HHDLSS','SystemController@annexure2BlankFormHHDLSS');
     Route::get('/upload-documents-HHDLSS', 'SystemController@uploadDocumentsHHDLSS');
     Route::get('/review-submit-HHDLSS',    'SystemController@reviewSubmitHHDLSS');
 //Add-End

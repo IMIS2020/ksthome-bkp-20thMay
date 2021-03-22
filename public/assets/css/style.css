@@ -1203,7 +1203,7 @@ label {
 }
 
 .w-15x {
-  width: 150px;
+  width: 150px !important;
 }
 
 .w-7x {
@@ -1233,3 +1233,16 @@ label {
 .h-21x {
   height: 210px;
 }
+
+.w-30x {
+  width: 300px;
+}
+
+.h-42x {
+  height: 420px;
+}
+
+.h-30x {
+  height: 300px;
+}
+

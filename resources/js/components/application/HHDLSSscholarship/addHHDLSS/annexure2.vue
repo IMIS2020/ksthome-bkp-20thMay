@@ -81,10 +81,10 @@
                         </div>
                     </div>
                     <div class="col-xl-2 offset-xl-4 my-2">
-                        <button class="btn btn-block btn-sm btn-mg" type="button"><strong>Print/Download PDF</strong></button>
+                        <router-link class="btn btn-block btn-sm btn-mg" to="/annexure-2-print-form-HHDLSS"><strong>Print/Download PDF</strong></router-link>
                     </div>
                     <div class="col-xl-2 offset-xl-0 my-2">
-                        <a class="btn btn-block btn-sm btn-mg" onclick="javascipt:window.open('/assets/annexure-II/DeclarationForm.pdf');"><strong>Print Blank Form</strong></a>
+                        <router-link class="btn btn-block btn-sm btn-mg" to="/annexure-2-blank-form-HHDLSS"><strong>Print Blank Form</strong></router-link>
                      </div>
                 </div>
             </form>

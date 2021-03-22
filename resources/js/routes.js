@@ -22,6 +22,8 @@ import Dashboard           from './components/dashboard';
     import ApplicationFormHHDL  from './components/application/HHDLSSscholarship/addHHDLSS/applicationForm';
     import Annexure1HHDL        from './components/application/HHDLSSscholarship/addHHDLSS/annexure1';
     import Annexure2HHDL        from './components/application/HHDLSSscholarship/addHHDLSS/annexure2';
+    import annexure2PrintFormHHDL  from './components/application/HHDLSSscholarship/addHHDLSS/annexure2PrintForm';
+    import annexure2BlankFormHHDL  from './components/application/HHDLSSscholarship/addHHDLSS/annexure2BlankForm';
     import UploadDocumentsHHDL  from './components/application/HHDLSSscholarship/addHHDLSS/uploadDocuments';
     import ReviewHHDL           from './components/application/HHDLSSscholarship/addHHDLSS/review';
 //ADD-END
@@ -124,7 +126,7 @@ export default{
     {
     path: '/annexure-2-blank-form',
     component: annexure2BlankForm,
-    name: "annexure-2-print-form"
+    name: "annexure-2-blank-form"
     },
     {
     path:'/api/save-annexureii/:applicationId',
@@ -208,15 +210,21 @@ export default{
     {
     path:'/api/save-annexureii-HHDLSS/:applicationId',
     },
-
-
+    {
+    path: '/annexure-2-print-form-HHDLSS',
+    component: annexure2PrintFormHHDL,
+    name: "annexure-2-print-form-HHDLSS"
+    },
+    {
+    path: '/annexure-2-blank-form-HHDLSS',
+    component: annexure2BlankFormHHDL,
+    name: "annexure-2-blank-form-HHDLSS"
+    },
     {
     path: '/upload-documents-HHDLSS',
     component:UploadDocumentsHHDL ,
     name: "upload-documents-HHDLSS"
     },
-
-
     {
     path:'/api/upload-documents-HHDLSS/:applicationId',
     },
@@ -229,7 +237,6 @@ export default{
     {
     path:'/api/delete-documents-HHDLSS/:applicationId',
     },
-
     {
     path: '/review-submit-HHDLSS',
     component: ReviewHHDL,
@@ -239,14 +246,14 @@ export default{
 
  //View Start (HHDLSS)
     {
-        path: '/view-HHDLSS',
-        component:ViewHHDLSS,
-        name: "manage-HHDLSS"
+    path: '/view-HHDLSS',
+    component:ViewHHDLSS,
+    name: "manage-HHDLSS"
     },
     {
-        path: '/print-view-HHDLSS',
-        component:PrintViewHHDLSS,
-        name: "manage-HHDLSS"
+    path: '/print-view-HHDLSS',
+    component:PrintViewHHDLSS,
+    name: "manage-HHDLSS"
     },
 //View End (HHDLSS)
 // //-------------------------------------//

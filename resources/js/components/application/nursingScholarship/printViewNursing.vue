@@ -3,12 +3,12 @@
         <div class="container-fluid mt-4 text-black">
             <div class="pre-sub-form f-fm-arbs">
                 <div class="row print-1-sec">
-                    <div class="col-xl-12 text-center mb-3 d-print-none">
-                        <h4 class="color-mg"><strong>View Application Details</strong></h4>
-                    </div>
-                    <div class="col-sm-4 col-xl-12 text-center mt-3 pr-1">
+                    
+                    <div class="col-sm-12 col-md-12 col-xl-12 text-center mt-3 pr-1">
                         <h3><strong>DOCUMENTS ATTACHED</strong></h3>
+                        <h6 class="text-uppercase text-center"><strong>Applicant Name. : {{getdata.fullName}}</strong></h6>
                         <h6 class="text-uppercase"><strong>Application No. : {{getdata.applicationId}}, (submitted online)</strong></h6>
+                        
                     </div>
                     <div class="col-xl-12 mb-2">
                         <div class="table-responsive table-bordered rev-tbl font-xl ofc-only">
@@ -139,7 +139,7 @@
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-8 col-xl-7 mt-2">
-                                <p class="mb-0 font-xl">{{getdata.addressAddln1}},{{(getdata.addressAddln2==null)?'':getdata.addressAddln2}} {{(getdata.addressCity==null)?'':getdata.addressCity}} <br>Dist :{{(getdata.insAddressDistprov==null)?'':getdata.insAddressDistprov}} {{getdata.addressState}} - {{getdata.addressPinzip}}</p>
+                                <p class="mb-0 font-xl">{{getdata.addressAddln1}},{{(getdata.addressAddln2==null)?'':getdata.addressAddln2}}, {{(getdata.addressCity==null)?'':getdata.addressCity}} <br>Dist :{{(getdata.addressDistprov==null)?'':getdata.addressDistprov}}, {{getdata.addressState}} - {{getdata.addressPinzip}}</p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2 pl-4">
                                 <p class="mb-0 font-xl"><strong>5.1. Contact No. (Self)</strong><br></p>

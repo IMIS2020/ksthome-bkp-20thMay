@@ -285,176 +285,244 @@
                                                             </div>
                                                             <div class="card-body">
                                                                 <div class="form-row">
-                                                                    <div class="col-xl-12 mb-2">
-                                                                        
-                                                                        <label>Details of educational qualification: Matriculation/SSLC/SSC/Graduation:&nbsp;<span class="text-danger">*</span><br></label>
+                                                                    <div class="col-xl-12 mb-2"><label>Details of educational qualification: Matriculation/ SSLC/ SSC/ Graduation:<br></label>
                                                                         <div class="table-responsive font-md">
                                                                             <table class="table table-sm mb-0">
                                                                                 <thead class="font-sm color-mg">
                                                                                     <tr>
+                                                                                        <th>Examination Level</th>
                                                                                         <th>Examination Passed</th>
                                                                                         <th>University/ Board/ Council</th>
                                                                                         <th>Main Subjects</th>
                                                                                         <th>Year of Passing</th>
-                                                                                        <th>Percentage</th>
+                                                                                        <th>Percentage(%)</th>
                                                                                         <th>Division</th>
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <tbody>
-
                                                                                     <tr>
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education1ExaminationPassed">
+                                                                                                <select class="form-control form-control-sm" v-model="form.education1ExaminationLevel">
+                                                                                                    <option value="" disabled>-- select --</option>
+                                                                                                    <option value="">10th</option>
+                                                                                                    <option value="">12th</option>
+                                                                                                    <option value="">Graduation</option>
+                                                                                                    <option value="">Others</option>
+                                                                                                </select>
                                                                                             </div>
                                                                                         </td>
-
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education1University">
+                                                                                                <select class="form-control form-control-sm" v-model="form.education1ExaminationPassed">
+                                                                                                    <option value="" disabled>-- select --</option>
+                                                                                                    <option value="">Madhyamik</option>
+                                                                                                    <option value="">Higher Secondary</option>
+                                                                                                    <option value="">B.Com</option>
+                                                                                                    <option value="">Others</option>
+                                                                                                </select>
                                                                                             </div>
                                                                                         </td>
-
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education1MainSubjects">
+                                                                                                <select class="form-control form-control-sm" v-model="form.education1University">
+                                                                                                    <option value="" disabled>-- select --</option>
+                                                                                                    <option value="">WBBSE</option>
+                                                                                                    <option value="">WBCHSE</option>
+                                                                                                    <option value="">WBSCTVE&amp;D</option>
+                                                                                                    <option value="">Others</option>
+                                                                                                </select>
                                                                                             </div>
                                                                                         </td>
-
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education1YearOfPassing" maxlength="4">
+                                                                                                <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.education1MainSubjects"></textarea>
                                                                                             </div>
                                                                                         </td>
-
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="number" min="0" max="100" step="0.01" v-model="form.education1Percentage">
+                                                                                                <select class="form-control form-control-sm" v-model="form.education1YearOfPassing">
+                                                                                                    <option value="" disabled>-- select --</option>
+                                                                                                    <option value="">2021</option>
+                                                                                                    <option value="">2020</option>
+                                                                                                    <option value="">2019</option>
+                                                                                                    <option value="">2018</option>
+                                                                                                    <option value="">2017</option>
+                                                                                                    <option value="">2016</option>
+                                                                                                    <option value="">2015</option>
+                                                                                                    <option value="">2014</option>
+                                                                                                    <option value="">2013</option>
+                                                                                                    <option value="">2012</option>
+                                                                                                </select>
                                                                                             </div>
                                                                                         </td>
-
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education1Division">
+                                                                                                <input class="form-control form-control-sm" type="number" min="1" v-model="form.education1Percentage">
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <div class="form-group mb-0">
+                                                                                                <select class="form-control form-control-sm" v-model="form.education1Division">
+                                                                                                    <option value="" disabled>-- select --</option>
+                                                                                                    <option value="">1st</option>
+                                                                                                    <option value="">2nd</option>
+                                                                                                    <option value="">3rd</option>
+                                                                                                    <option value="">N/A</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                   
+                                                                                   <tr>
+                                                                                        <td>
+                                                                                            <div class="form-group mb-0">
+                                                                                                <select class="form-control form-control-sm" v-model="form.education2ExaminationLevel">
+                                                                                                    <option value="" disabled>-- select --</option>
+                                                                                                    <option value="">10th</option>
+                                                                                                    <option value="">12th</option>
+                                                                                                    <option value="">Graduation</option>
+                                                                                                    <option value="">Others</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <div class="form-group mb-0">
+                                                                                                <select class="form-control form-control-sm" v-model="form.education2ExaminationPassed">
+                                                                                                    <option value="" disabled>-- select --</option>
+                                                                                                    <option value="">Madhyamik</option>
+                                                                                                    <option value="">Higher Secondary</option>
+                                                                                                    <option value="">B.Com</option>
+                                                                                                    <option value="">Others</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <div class="form-group mb-0">
+                                                                                                <select class="form-control form-control-sm" v-model="form.education2University">
+                                                                                                    <option value="" disabled>-- select --</option>
+                                                                                                    <option value="">WBBSE</option>
+                                                                                                    <option value="">WBCHSE</option>
+                                                                                                    <option value="">WBSCTVE&amp;D</option>
+                                                                                                    <option value="">Others</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <div class="form-group mb-0">
+                                                                                                <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.education2MainSubjects"></textarea>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <div class="form-group mb-0">
+                                                                                                <select class="form-control form-control-sm" v-model="form.education2YearOfPassing">
+                                                                                                    <option value="" disabled>-- select --</option>
+                                                                                                    <option value="">2021</option>
+                                                                                                    <option value="">2020</option>
+                                                                                                    <option value="">2019</option>
+                                                                                                    <option value="">2018</option>
+                                                                                                    <option value="">2017</option>
+                                                                                                    <option value="">2016</option>
+                                                                                                    <option value="">2015</option>
+                                                                                                    <option value="">2014</option>
+                                                                                                    <option value="">2013</option>
+                                                                                                    <option value="">2012</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <div class="form-group mb-0">
+                                                                                                <input class="form-control form-control-sm" type="number" min="1" v-model="form.education2Percentage">
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <div class="form-group mb-0">
+                                                                                                <select class="form-control form-control-sm" v-model="form.education2Division">
+                                                                                                    <option value="" disabled>-- select --</option>
+                                                                                                    <option value="">1st</option>
+                                                                                                    <option value="">2nd</option>
+                                                                                                    <option value="">3rd</option>
+                                                                                                    <option value="">N/A</option>
+                                                                                                </select>
                                                                                             </div>
                                                                                         </td>
                                                                                     </tr>
 
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education2ExaminationPassed">
-                                                                                            </div>
-                                                                                        </td>
-
-                                                                                        <td>
-                                                                                            <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education2University">
-                                                                                            </div>
-                                                                                        </td>
-
-                                                                                        <td>
-                                                                                            <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education2MainSubjects">
-                                                                                            </div>
-                                                                                        </td>
-
-                                                                                        <td>
-                                                                                            <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education2YearOfPassing" maxlength="4">
-                                                                                            </div>
-                                                                                        </td>
-
-                                                                                        <td>
-                                                                                            <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="number" min="0" max="100" step="0.01" v-model="form.education2Percentage">
-                                                                                            </div>
-                                                                                        </td>
-
-                                                                                        <td>
-                                                                                            <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education2Division">
-                                                                                            </div>
-                                                                                        </td>
-                                                                                    </tr>
 
                                                                                     <tr>
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education3ExaminationPassed">
+                                                                                                <select class="form-control form-control-sm" v-model="form.education3ExaminationLevel">
+                                                                                                    <option value="" disabled>-- select --</option>
+                                                                                                    <option value="">10th</option>
+                                                                                                    <option value="1">12th</option>
+                                                                                                    <option value="">Graduation</option>
+                                                                                                    <option value="">Others</option>
+                                                                                                </select>
                                                                                             </div>
                                                                                         </td>
-
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education3University">
+                                                                                                <select class="form-control form-control-sm" v-model="form.education3ExaminationPassed">
+                                                                                                     <option value="" disabled>-- select --</option>
+                                                                                                    <option value="">Madhyamik</option>
+                                                                                                    <option value="">Higher Secondary</option>
+                                                                                                    <option value="">B.Com</option>
+                                                                                                    <option value="">Others</option>
+                                                                                                </select>
                                                                                             </div>
                                                                                         </td>
-
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education3MainSubjects">
+                                                                                                <select class="form-control form-control-sm" v-model="form.education3University">
+                                                                                                    <option value="" disabled>-- select --</option>
+                                                                                                    <option value="">WBBSE</option>
+                                                                                                    <option value="">WBCHSE</option>
+                                                                                                    <option value="">WBSCTVE&amp;D</option>
+                                                                                                    <option value="">Others</option>
+                                                                                                </select>
                                                                                             </div>
                                                                                         </td>
-
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education3YearOfPassing" maxlength="4">
+                                                                                                <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.education3MainSubjects"></textarea>
                                                                                             </div>
                                                                                         </td>
-
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="number" min="0" max="100" step="0.01" v-model="form.education3Percentage">
+                                                                                                <select class="form-control form-control-sm" v-model="form.education3YearOfPassing">
+                                                                                                    <option value="" disabled>-- select --</option>
+                                                                                                    <option value="">2021</option>
+                                                                                                    <option value="">2020</option>
+                                                                                                    <option value="">2019</option>
+                                                                                                    <option value="">2018</option>
+                                                                                                    <option value="">2017</option>
+                                                                                                    <option value="">2016</option>
+                                                                                                    <option value="">2015</option>
+                                                                                                    <option value="">2014</option>
+                                                                                                    <option value="">2013</option>
+                                                                                                    <option value="">2012</option>
+                                                                                                </select>
                                                                                             </div>
                                                                                         </td>
-
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education3Division">
+                                                                                                <input class="form-control form-control-sm" type="number" min="1" v-model="form.education3Percentage">
                                                                                             </div>
                                                                                         </td>
-
+                                                                                        <td>
+                                                                                            <div class="form-group mb-0">
+                                                                                                <select class="form-control form-control-sm" v-model="form.education3Division">
+                                                                                                    <option value="" disabled>-- select --</option>
+                                                                                                    <option value="">1st</option>
+                                                                                                    <option value="">2nd</option>
+                                                                                                    <option value="">3rd</option>
+                                                                                                    <option value="">N/A</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </td>
                                                                                     </tr>
-
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education4ExaminationPassed">
-                                                                                            </div>
-                                                                                        </td>
-
-                                                                                        <td>
-                                                                                            <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education4University">
-                                                                                            </div>
-                                                                                        </td>
-                                                                                        
-                                                                                        <td>
-                                                                                            <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education4MainSubjects">
-                                                                                            </div>
-                                                                                        </td>
-
-                                                                                        <td>
-                                                                                            <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education4YearOfPassing" maxlength="4">
-                                                                                            </div>
-                                                                                        </td>
-
-                                                                                        <td>
-                                                                                            <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="number" min="0" max="100" step="0.01" v-model="form.education4Percentage">
-                                                                                            </div>
-                                                                                        </td>
-
-                                                                                        <td>
-                                                                                            <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="text" v-model="form.education4Division">
-                                                                                            </div>
-                                                                                        </td>
-
-                                                                                    </tr>
+                                                                                    
                                                                                 </tbody>
                                                                             </table>
                                                                         </div>
@@ -597,7 +665,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -660,6 +728,8 @@ export default{
                 insAddressPinzip:'',
                 recognizedByGI:'',
              //Education Details
+
+                education1ExaminationLevel:'',
                 education1ExaminationPassed:'',
                 education1University:'',
                 education1MainSubjects:'',
@@ -667,26 +737,19 @@ export default{
                 education1Percentage:'',
                 education1Division:'',
               
-                education2ExaminationPassed:'',
+                education2ExaminationLevel:'',
                 education2University:'',
                 education2MainSubjects:'',
                 education2YearOfPassing:'',
                 education2Percentage:'',
                 education2Division:'',
 
-                education3ExaminationPassed:'',
+                education3ExaminationLevel:'',
                 education3University:'',
                 education3MainSubjects:'',
                 education3YearOfPassing:'',
                 education3Percentage:'',
                 education3Division:'',
-
-                education4ExaminationPassed:'',
-                education4University:'',
-                education4MainSubjects:'',
-                education4YearOfPassing:'',
-                education4Percentage:'',
-                education4Division:'',
             },
             getdata: {
              financialYear:'',

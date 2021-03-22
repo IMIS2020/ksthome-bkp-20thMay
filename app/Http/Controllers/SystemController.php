@@ -112,6 +112,16 @@ class SystemController extends Controller
       return view('application.HHDLSSscholarship.addHHLDSS.annexure2');
     }
 
+    public function annexure2PrintFormHHDLSS()
+    {
+      return view('application.HHDLSSscholarship.addHHLDSS.annexure2PrintFormHHDLSS');
+    }
+
+    public function annexure2BlankFormHHDLSS()
+    {
+      return view('application.HHDLSSscholarship.addHHLDSS.annexure2BlankFormHHDLSS');
+    }
+
     public function uploadDocumentsHHDLSS()
     {
       return view('application.HHDLSSscholarship.addHHLDSS.uploadDocuments');

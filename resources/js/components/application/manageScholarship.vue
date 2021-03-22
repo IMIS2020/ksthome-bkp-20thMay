@@ -70,7 +70,7 @@
                                                       <router-link class="dropdown-item" to="/application-form"><strong>Edit Application</strong></router-link>
                                                       <router-link class="dropdown-item" to="/view-nursing"><strong>View Application</strong></router-link>
                                                       <router-link class="dropdown-item" to="/print-view-nursing"><strong>Download Application</strong></router-link>
-                                                      </div>
+                                                    </div>
                                               </div>
                                           </td>
                                       </tr>

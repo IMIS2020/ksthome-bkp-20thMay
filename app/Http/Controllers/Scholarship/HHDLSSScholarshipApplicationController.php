@@ -212,7 +212,6 @@ class HHDLSSScholarshipApplicationController extends Controller
             $applicantEducationDetails2 = (count($applicantEducationDetails)>1)? $applicantEducationDetails[1] : null;
             $applicantEducationDetails3 = (count($applicantEducationDetails)>2)? $applicantEducationDetails[2] : null;
            
-
             if ($hhdlScholarshipApplication->hasAdmissionLetter == 'YES') {
                 $instituteDetails = InstituteDetails::where('id', $hhdlScholarshipApplication->instituteId)->first();
                 $instituteAddress = Address::where('id', $instituteDetails->instituteAddressId)->first();

@@ -139,7 +139,7 @@
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-8 col-xl-7 mt-2">
-                                <p class="mb-0 font-xl">{{getdata.addressAddln1}},{{(getdata.addressAddln2==null)?'':getdata.addressAddln2}},City: {{(getdata.addressCity==null)?'':getdata.addressCity}} <br>Dist :{{(getdata.addressDistprov==null)?'':getdata.addressDistprov}}, {{getdata.addressState}} - {{getdata.addressPinzip}}</p>
+                                <p class="mb-0 font-xl">{{getdata.addressAddln1}},{{(getdata.addressAddln2==null)?'':getdata.addressAddln2}},City: {{(getdata.addressCity==null)?'':getdata.addressCity}} ,Dist :{{(getdata.addressDistprov==null)?'':getdata.addressDistprov}}, {{getdata.addressState}} - {{getdata.addressPinzip}}</p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2 pl-4">
                                 <p class="mb-0 font-xl"><strong>5.1. Contact No. (Self)</strong><br></p>
@@ -213,7 +213,7 @@
                         <img class="img-thumbnail img-fluid applicant-img" :src="(getFiles.photograph == '#')?'https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg':getFiles.photograph" width="180" height="230" style="border: 2px solid black;">
                     </div>
                     <div class="col-xl-12 mt-4">
-                        <p class="mb-2 font-xl"><strong>10. Details of Educational Qualification:&nbsp;</strong>Matriculation / Higher Secondary<br></p>
+                        <p class="mb-2 font-xl"><strong>10. Details of Educational Qualification:&nbsp;</strong>Matriculation / Higher Secondary / Graduation :<br></p>
                     </div>
                     <div class="col-xl-12">
                         <div class="table-responsive table-bordered rev-tbl font-md ofc-only">
@@ -295,17 +295,20 @@
                         <p class="text-white mb-2 font-xl txt-blk-bg">&nbsp;Self Declaration</p>
                     </div>
                     <div class="col-xl-12 mt-1">
-                       <p class="font-md"><span><input type="checkbox" v-model='terms'></span>&nbsp;I {{getdata.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under "HHDLSS Scholarship" could be withdrawn.<br></p>
+                        <p class="font-md"><span><input type="checkbox" v-model='terms'></span>&nbsp;I {{getdata.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under "HHDLSS Scholarship" could be withdrawn.<br></p>
+                        <p class="color-mg text-center">This is an electronically generated document and does not require a signature</p>
                     </div>
                 </div>
             </div>
             <div class="row mb-4 d-print-none">
                 <div class="col-xl-4 offset-xl-4 text-center">
-                <button class="btn btn-sm btn-mg mr-2" role="button" :disabled='isDisabled' onclick="window.print()">Print/Download Application Form</button></div>
+                    <button class="btn btn-sm btn-mg mr-2" role="button" :disabled='isDisabled' onclick="window.print()">Print/Download Application Form</button></div>
             </div>
         </div>
+        
     </section>
 </template>
+
 
 <script>
 export default{
@@ -313,6 +316,7 @@ export default{
        return{
          userId: document.querySelector("meta[name='userId']").getAttribute('content'),
          csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+          terms: false,
          getdata:{
             hasAdmissionLetter:'',
             financialYear:'',
@@ -327,7 +331,9 @@ export default{
             applicantMotherName:'',
             applicantDOB:'',
             applicantGender:'',
-            applicantLeprosyAffectedMember:'',
+            applicantLeprosyAffectedSelf: '',
+            applicantLeprosyAffectedFather:'',
+            applicantLeprosyAffectedMother:'',
             applicantHasBPLCard:'',
             applicantDomicileState:'',
             applicantColonyName:'',
@@ -342,7 +348,6 @@ export default{
             applicantContactNoGuardian:'',
             applicantEmailId:'',
             applicantContactNoColonyLeader:'',
-            
             education1ExaminationLevel:'',
             education1ExaminationPassed:'',
             education1University:'',
@@ -350,7 +355,6 @@ export default{
             education1YearOfPassing:'',
             education1Percentage:'',
             education1Division:'',
-            
             education2ExaminationLevel:'',
             education2ExaminationPassed:'',
             education2University:'',
@@ -358,7 +362,6 @@ export default{
             education2YearOfPassing:'',
             education2Percentage:'',
             education2Division:'',
-
             education3ExaminationLevel:'',
             education3ExaminationPassed:'',
             education3University:'',
@@ -366,7 +369,6 @@ export default{
             education3YearOfPassing:'',
             education3Percentage:'',
             education3Division:'',
-
             insCourse:'',
             insName:'',
             insAddressAddln1:'',
@@ -375,10 +377,10 @@ export default{
             insAddressDistprov:'',
             insAddressState:'',
             insAddressPinzip:'',
-            recognizedByGI:'',
+            recognizedByINC:'',
             applicantColonyLeaderName:'',  
+            districtState:'',
         },
-
             getFiles: {
                 admissionLetter:'#',
                 annexureII:'#',
@@ -394,10 +396,11 @@ export default{
         }
     },
    methods:{
-      getdataHHDLSS(){
+       getdataHHDLSS()
+       {
        axios.get(`/api/application-form-HHDLSS/${this.userId}`)
         .then(response => {
-          if (response.data['success']) {
+          if (response.data['success']){
             const data = response.data['data']
             console.log(data)
                 this.getdata.hasAdmissionLetter                  = data.hasAdmissionLetter;
@@ -410,7 +413,9 @@ export default{
                 this.getdata.applicantMotherName                 = data.applicantMotherName;
                 this.getdata.applicantDOB                        = data.applicantDOB;
                 this.getdata.applicantGender                     = data.applicantGender;
-                this.getdata.applicantLeprosyAffectedMember      = data.applicantLeprosyAffectedMember;
+                this.getdata.applicantLeprosyAffectedSelf        = data.applicantLeprosyAffectedSelf;
+                this.getdata.applicantLeprosyAffectedFather      = data.applicantLeprosyAffectedFather;
+                this.getdata.applicantLeprosyAffectedMother      = data.applicantLeprosyAffectedMother;
                 this.getdata. applicantHasBPLCard                = data.applicantHasBPLCard;
                 this.getdata.applicantDomicileState              = data.applicantDomicileState;
                 this.getdata.applicantColonyName                 = data.applicantColonyName;
@@ -425,7 +430,7 @@ export default{
                 this.getdata.applicantEmailId                    = data.applicantEmailId;
                 this.getdata.applicantContactNoColonyLeader      = data.applicantContactNoColonyLeader;
                 
-                this.getdata.education1ExaminationLevel         = data.education1ExaminationLevel;
+                this.getdata.education1ExaminationLevel          = data.education1ExaminationLevel;
                 this.getdata.education1ExaminationPassed         = data.education1ExaminationPassed;
                 this.getdata.education1University                = data.education1University;
                 this.getdata.education1MainSubjects              = data.education1MainSubjects;         
@@ -473,7 +478,7 @@ export default{
         .then(response => {
             if (response.data['success']) {
                 this.getFiles = response.data['data'],
-
+                
                 this.getFiles.admissionLetter    = data.admissionLetter;
                 this.getFiles.annexureII         = data.annexureII;
                 this.getFiles.photograph         = data.photograph;
@@ -485,8 +490,7 @@ export default{
                 this.getFiles.leprosyCertificateSelf   = data.leprosyCertificateSelf;
             }
         })
-    },
-
+        },
   },
   computed: {
   	  isDisabled: function(){
@@ -494,7 +498,7 @@ export default{
         }
       },
     created(){
-     this.getdataHHDLSS();
+     this. getdataHHDLSS();
     }
  }
 </script>

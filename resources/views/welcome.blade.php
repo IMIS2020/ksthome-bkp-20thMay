@@ -92,10 +92,10 @@
                     </a>
                     @if (Auth::check())
                     <a href="/application-form">
-                        <h5 class="text-break mb-3 home-links"><strong>Apply Online for Nursing Scholarship</strong><i class="fa fa-sign-in"></i></h5>
+                        <h5 class="text-break mb-3 home-links"><strong>Apply Online for Nursing Scholarship  </strong><i class="fa fa-sign-in"></i></h5>
                     </a>
                     <a href="/application-form-HHDLSS">
-                        <h5 class="text-break home-links"><strong>Apply Online for HHDLSS Scholarship </strong><i class="fa fa-sign-in"></i></h5>
+                        <h5 class="text-break home-links"><strong>Apply Online for HHDLSS Scholarship &nbsp;</strong><i class="fa fa-sign-in"></i></h5>
                     </a>
                     @else
                     <a href="/">
@@ -171,7 +171,7 @@
                                             </tr>
                                             <tr>
                                                 <td><strong>Last Login</strong></td>
-                                                <td>{{date("d-m-Y", strtotime($user->lastLoginTime)) }} {{substr(explode('-',$user->lastLoginTime)[2],3)}}</td>
+                                                <td>{{date("d-m-Y", strtotime($user->lastLoginTime)) }} {{(substr(explode('-',$user->lastLoginTime)[2],3))}}</td>
                                             </tr>
                                    
                                         </tbody>

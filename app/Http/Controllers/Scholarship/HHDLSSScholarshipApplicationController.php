@@ -286,8 +286,6 @@ class HHDLSSScholarshipApplicationController extends Controller
             $data['education3Division']                 =  json_decode(json_encode($applicantEducationDetails3),true)['division'] ; 
 
            
-            
-
             $data = json_decode(json_encode($data));
             return array('success' => true, 'msg'=>['Data Found!'], 'data'=>$data);
         } else {

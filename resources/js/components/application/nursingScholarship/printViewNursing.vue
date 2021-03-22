@@ -285,12 +285,13 @@
                     </div>
                     <div class="col-xl-12 mt-1">
                         <p class="font-md"><span><input type="checkbox" v-model='terms'></span>&nbsp;I {{getdata.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under "Nursing Scholarship" could be withdrawn.<br></p>
+                         <p class="color-mg text-center">This is an electronically generated document and does not require a signature</p>
                     </div>
                 </div>
             </div>
             <div class="row mb-4 d-print-none">
                 <div class="col-xl-4 offset-xl-4 text-center">
-                    <button class="btn btn-sm btn-mg mr-2" role="button" :disabled='isDisabled' onclick="window.print()">Print/Download Application Form</button></div>
+                <button class="btn btn-sm btn-mg mr-2" role="button" :disabled='isDisabled' onclick="window.print()">Print/Download Application Form</button></div>
             </div>
         </div>
     </section>

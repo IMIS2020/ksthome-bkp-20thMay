@@ -57,7 +57,7 @@
                                       </tr>
                                   </thead>
                                   <tbody class="h-41x">
-                                      <tr class="font-md text-black">
+                                      <tr class="font-md text-black" v-if="getdata.applicationId != 'N/A' ">
                                           <td><em>{{getdata.financialYear}}</em></td>
                                           <td class="text-break"><em>Nursing Scholarship</em></td>
                                           <td class="text-break"><em>N/A</em></td>
@@ -70,11 +70,11 @@
                                                       <router-link class="dropdown-item" to="/application-form"><strong>Edit Application</strong></router-link>
                                                       <router-link class="dropdown-item" to="/view-nursing"><strong>View Application</strong></router-link>
                                                       <router-link class="dropdown-item" to="/print-view-nursing"><strong>Download Application</strong></router-link>
-                                                      </div>
+                                                    </div>
                                               </div>
                                           </td>
                                       </tr>
-                                      <tr class="font-md text-black">
+                                      <tr v-if="getdataHHDLSS.applicationId != 'N/A' " class="font-md text-black">
                                           <td><em>{{getdataHHDLSS.financialYear}}</em></td>
                                           <td class="text-break"><em>HHDLSS Scholarship</em></td>
                                           <td class="text-break"><em>N/A</em></td>

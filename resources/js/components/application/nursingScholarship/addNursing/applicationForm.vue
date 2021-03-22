@@ -277,7 +277,7 @@
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
                                                                                             <select class="form-control form-control-sm" v-model="form.examinationLevel10" required>
-                                                                                                <option value="" disabled>-- select --</option>
+                                                                                                <option value="" disabled>-- Select --</option>
                                                                                                 <option value="10">10th</option>
                                                                                                 <option value="12">12th</option>
                                                                                             </select>
@@ -687,12 +687,16 @@ export default {
                 applicantEmailId:document.querySelector("meta[name='email']").getAttribute('content'),
                 applicantContactNoColonyLeader:'',
                 
+                examinationLevel10:'',
+                examinationPassed10:'',
                 universityBoardCouncil10:'',
                 mainSubjects10:'',
                 yearOfPassing10:'',
                 percentage10:'',
                 division10:'',
                 
+                examinationLevel12:'',
+                examinationPassed12:'',
                 universityBoardCouncil12:'',
                 mainSubjects12:'',
                 yearOfPassing12:'',

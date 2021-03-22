@@ -712,6 +712,8 @@ class NursingScholarshipApplicationController extends Controller
 
                 $annexureI->courseName            = $institute['courseName'];
                 $annexureI->choice                = 1; 
+                $annexureI->courseLevel           = $request['courseLevel'];
+                $annexureI->choice1               = $request['choice']; 
                 $annexureI->applicantId           = $nursingScholarshipApplication->applicantId; 
                 $annexureI->save(); 
 

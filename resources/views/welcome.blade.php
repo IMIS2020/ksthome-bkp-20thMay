@@ -40,11 +40,16 @@
                     </a>
                     @endif
               </div>
-              
+            
             </div>
-           
+       
             <div class="col-sm-12 col-lg-4 col-xl-4 offset-xl-0">
                 <div class="login-box">
+                @if(Session::has('message'))
+                     <div class="alert alert-success">{{Session::get('message')}}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                     </div>
+                  @endif
                     <form method="POST" action="{{ route('login') }}">
                     @csrf
                         <h6 class="text-center color-mg mb-4"><strong>Login to apply for scholarship</strong></h6>
@@ -57,11 +62,7 @@
                                 <div class="input-group-append">
                                 <button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button>
                              </div>
-                             @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                          <strong>{{ $message }}</strong>
-                                    </span>
-                                 @enderror
+                             
                             </div>
                         </div>
                         <div class="form-group text-center mb-4">
@@ -91,10 +92,10 @@
                     </a>
                     @if (Auth::check())
                     <a href="/application-form">
-                        <h5 class="text-break mb-3 home-links"><strong>Apply Online for Nursing Scholarship</strong><i class="fa fa-sign-in"></i></h5>
+                        <h5 class="text-break mb-3 home-links"><strong>Apply Online for Nursing Scholarship  </strong><i class="fa fa-sign-in"></i></h5>
                     </a>
                     <a href="/application-form-HHDLSS">
-                        <h5 class="text-break home-links"><strong>Apply Online for HHDLSS Scholarship </strong><i class="fa fa-sign-in"></i></h5>
+                        <h5 class="text-break home-links"><strong>Apply Online for HHDLSS Scholarship &nbsp;</strong><i class="fa fa-sign-in"></i></h5>
                     </a>
                     @else
                     <a href="/">
@@ -170,7 +171,7 @@
                                             </tr>
                                             <tr>
                                                 <td><strong>Last Login</strong></td>
-                                                <td>{{date("d-m-Y", strtotime($user->lastLoginTime)) }} {{substr(explode('-',$user->lastLoginTime)[2],3)}}</td>
+                                                <td>{{date("d-m-Y", strtotime($user->lastLoginTime)) }} {{(substr(explode('-',$user->lastLoginTime)[2],3))}}</td>
                                             </tr>
                                    
                                         </tbody>

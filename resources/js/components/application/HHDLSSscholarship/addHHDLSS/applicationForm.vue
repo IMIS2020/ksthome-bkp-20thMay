@@ -242,21 +242,21 @@
                                                                       <div class="col-xl-3">
                                                                         <label>PIN/ZIP Code:&nbsp;<span class="text-danger">*</span></label>
                                                                          <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.addressPinzip" maxlength="6" required>
+                                                                            <input class="form-control form-control-sm" type="number"  v-model="form.addressPinzip"  required>
                                                                         </div>
                                                                     </div>
 
                                                                     <div class="col-xl-3">
                                                                         <label>Contact no. (Self)&nbsp;<span class="text-danger">*</span></label>
                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.applicantContactNoSelf" maxlength="10" required>
+                                                                            <input class="form-control form-control-sm" type="number"  v-model="form.applicantContactNoSelf"  required>
                                                                         </div>
                                                                     </div>
 
                                                                     <div class="col-xl-3">
                                                                         <label>Contact no. (father)&nbsp;<span class="text-danger">*</span></label>
                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.applicantContactNoGuardian" maxlength="10" required>
+                                                                            <input class="form-control form-control-sm" type="number"  v-model="form.applicantContactNoGuardian" required>
                                                                         </div>
                                                                     </div>
 
@@ -270,7 +270,7 @@
                                                                     <div class="col-xl-3">
                                                                         <label>Contact no. (colony leader)&nbsp;<span class="text-danger">*</span></label>
                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text"  v-model="form.applicantContactNoColonyLeader" required maxlength="10">
+                                                                            <input class="form-control form-control-sm" type="number"  v-model="form.applicantContactNoColonyLeader" required >
                                                                         </div>
                                                                     </div>
 
@@ -285,7 +285,7 @@
                                                             </div>
                                                             <div class="card-body">
                                                                 <div class="form-row">
-                                                                    <div class="col-xl-12 mb-2"><label>Details of educational qualification: Matriculation/ SSLC/ SSC/ Graduation:<br></label>
+                                                                    <div class="col-xl-12 mb-2"><label>Details of educational qualification: Matriculation/Higher Secondary/ Graduation:<br></label>
                                                                         <div class="table-responsive font-md">
                                                                             <table class="table table-sm mb-0">
                                                                                 <thead class="font-sm color-mg">
@@ -305,10 +305,10 @@
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.education1ExaminationLevel">
                                                                                                     <option value="" disabled>-- select --</option>
-                                                                                                    <option value="">10th</option>
-                                                                                                    <option value="">12th</option>
-                                                                                                    <option value="">Graduation</option>
-                                                                                                    <option value="">Others</option>
+                                                                                                    <option value="10th">10th</option>
+                                                                                                    <option value="12th">12th</option>
+                                                                                                    <option value="Graduation">Graduation</option>
+                                                                                                    <option value="Others">Others</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
@@ -316,10 +316,10 @@
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.education1ExaminationPassed">
                                                                                                     <option value="" disabled>-- select --</option>
-                                                                                                    <option value="">Madhyamik</option>
-                                                                                                    <option value="">Higher Secondary</option>
-                                                                                                    <option value="">B.Com</option>
-                                                                                                    <option value="">Others</option>
+                                                                                                    <option value="Madhyamik">Madhyamik</option>
+                                                                                                    <option value="Higher Secondary">Higher Secondary</option>
+                                                                                                    <option value="B.Com">B.Com</option>
+                                                                                                    <option value="Others">Others</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
@@ -327,10 +327,10 @@
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.education1University">
                                                                                                     <option value="" disabled>-- select --</option>
-                                                                                                    <option value="">WBBSE</option>
-                                                                                                    <option value="">WBCHSE</option>
-                                                                                                    <option value="">WBSCTVE&amp;D</option>
-                                                                                                    <option value="">Others</option>
+                                                                                                    <option value="WBBSE">WBBSE</option>
+                                                                                                    <option value="WBCHSE">WBCHSE</option>
+                                                                                                    <option value="WBSCTVE&D">WBSCTVE&amp;D</option>
+                                                                                                    <option value="Others">Others</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
@@ -343,46 +343,45 @@
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.education1YearOfPassing">
                                                                                                     <option value="" disabled>-- select --</option>
-                                                                                                    <option value="">2021</option>
-                                                                                                    <option value="">2020</option>
-                                                                                                    <option value="">2019</option>
-                                                                                                    <option value="">2018</option>
-                                                                                                    <option value="">2017</option>
-                                                                                                    <option value="">2016</option>
-                                                                                                    <option value="">2015</option>
-                                                                                                    <option value="">2014</option>
-                                                                                                    <option value="">2013</option>
-                                                                                                    <option value="">2012</option>
+                                                                                                    <option value="2021">2021</option>
+                                                                                                    <option value="2020">2020</option>
+                                                                                                    <option value="2019">2019</option>
+                                                                                                    <option value="2018">2018</option>
+                                                                                                    <option value="2017">2017</option>
+                                                                                                    <option value="2016">2016</option>
+                                                                                                    <option value="2015">2015</option>
+                                                                                                    <option value="2014">2014</option>
+                                                                                                    <option value="2013">2013</option>
+                                                                                                    <option value="2012">2012</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="number" min="1" v-model="form.education1Percentage">
+                                                                                                <input class="form-control form-control-sm" type="number" min="0" max="100" step="0.01" v-model="form.education1Percentage">
                                                                                             </div>
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.education1Division">
                                                                                                     <option value="" disabled>-- select --</option>
-                                                                                                    <option value="">1st</option>
-                                                                                                    <option value="">2nd</option>
-                                                                                                    <option value="">3rd</option>
-                                                                                                    <option value="">N/A</option>
+                                                                                                    <option value="1st">1st</option>
+                                                                                                    <option value="2nd">2nd</option>
+                                                                                                    <option value="3rd">3rd</option>
+                                                                                                    <option value="N/A">N/A</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
                                                                                     </tr>
-                                                                                   
-                                                                                   <tr>
+                                                                                    <tr>
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.education2ExaminationLevel">
                                                                                                     <option value="" disabled>-- select --</option>
-                                                                                                    <option value="">10th</option>
-                                                                                                    <option value="">12th</option>
-                                                                                                    <option value="">Graduation</option>
-                                                                                                    <option value="">Others</option>
+                                                                                                    <option value="10th">10th</option>
+                                                                                                    <option value="12th">12th</option>
+                                                                                                    <option value="Graduation">Graduation</option>
+                                                                                                    <option value="Others">Others</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
@@ -390,10 +389,10 @@
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.education2ExaminationPassed">
                                                                                                     <option value="" disabled>-- select --</option>
-                                                                                                    <option value="">Madhyamik</option>
-                                                                                                    <option value="">Higher Secondary</option>
-                                                                                                    <option value="">B.Com</option>
-                                                                                                    <option value="">Others</option>
+                                                                                                    <option value="Madhyamik">Madhyamik</option>
+                                                                                                    <option value="Higher Secondary">Higher Secondary</option>
+                                                                                                    <option value="B.Com">B.Com</option>
+                                                                                                    <option value="Others">Others</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
@@ -401,10 +400,10 @@
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.education2University">
                                                                                                     <option value="" disabled>-- select --</option>
-                                                                                                    <option value="">WBBSE</option>
-                                                                                                    <option value="">WBCHSE</option>
-                                                                                                    <option value="">WBSCTVE&amp;D</option>
-                                                                                                    <option value="">Others</option>
+                                                                                                    <option value="WBBSE">WBBSE</option>
+                                                                                                    <option value="WBCHSE">WBCHSE</option>
+                                                                                                    <option value="WBSCTVE&D">WBSCTVE&amp;D</option>
+                                                                                                    <option value="Others">Others</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
@@ -417,58 +416,57 @@
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.education2YearOfPassing">
                                                                                                     <option value="" disabled>-- select --</option>
-                                                                                                    <option value="">2021</option>
-                                                                                                    <option value="">2020</option>
-                                                                                                    <option value="">2019</option>
-                                                                                                    <option value="">2018</option>
-                                                                                                    <option value="">2017</option>
-                                                                                                    <option value="">2016</option>
-                                                                                                    <option value="">2015</option>
-                                                                                                    <option value="">2014</option>
-                                                                                                    <option value="">2013</option>
-                                                                                                    <option value="">2012</option>
+                                                                                                    <option value="2021">2021</option>
+                                                                                                    <option value="2020">2020</option>
+                                                                                                    <option value="2019">2019</option>
+                                                                                                    <option value="2018">2018</option>
+                                                                                                    <option value="2017">2017</option>
+                                                                                                    <option value="2016">2016</option>
+                                                                                                    <option value="2015">2015</option>
+                                                                                                    <option value="2014">2014</option>
+                                                                                                    <option value="2013">2013</option>
+                                                                                                    <option value="2012">2012</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="number" min="1" v-model="form.education2Percentage">
+                                                                                                <input class="form-control form-control-sm" type="number" min="0" max="100" step="0.01" v-model="form.education2Percentage">
                                                                                             </div>
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.education2Division">
                                                                                                     <option value="" disabled>-- select --</option>
-                                                                                                    <option value="">1st</option>
-                                                                                                    <option value="">2nd</option>
-                                                                                                    <option value="">3rd</option>
-                                                                                                    <option value="">N/A</option>
+                                                                                                    <option value="1st">1st</option>
+                                                                                                    <option value="2nd">2nd</option>
+                                                                                                    <option value="3rd">3rd</option>
+                                                                                                    <option value="N/A">N/A</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
                                                                                     </tr>
 
-
-                                                                                    <tr>
+                                                                                     <tr>
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.education3ExaminationLevel">
                                                                                                     <option value="" disabled>-- select --</option>
-                                                                                                    <option value="">10th</option>
-                                                                                                    <option value="1">12th</option>
-                                                                                                    <option value="">Graduation</option>
-                                                                                                    <option value="">Others</option>
+                                                                                                    <option value="10th">10th</option>
+                                                                                                    <option value="12th">12th</option>
+                                                                                                    <option value="Graduation">Graduation</option>
+                                                                                                    <option value="Others">Others</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.education3ExaminationPassed">
-                                                                                                     <option value="" disabled>-- select --</option>
-                                                                                                    <option value="">Madhyamik</option>
-                                                                                                    <option value="">Higher Secondary</option>
-                                                                                                    <option value="">B.Com</option>
-                                                                                                    <option value="">Others</option>
+                                                                                                    <option value="" disabled>-- select --</option>
+                                                                                                    <option value="Madhyamik">Madhyamik</option>
+                                                                                                    <option value="Higher Secondary">Higher Secondary</option>
+                                                                                                    <option value="B.Com">B.Com</option>
+                                                                                                    <option value="Others">Others</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
@@ -476,10 +474,10 @@
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.education3University">
                                                                                                     <option value="" disabled>-- select --</option>
-                                                                                                    <option value="">WBBSE</option>
-                                                                                                    <option value="">WBCHSE</option>
-                                                                                                    <option value="">WBSCTVE&amp;D</option>
-                                                                                                    <option value="">Others</option>
+                                                                                                    <option value="WBBSE">WBBSE</option>
+                                                                                                    <option value="WBCHSE">WBCHSE</option>
+                                                                                                    <option value="WBSCTVE&D">WBSCTVE&amp;D</option>
+                                                                                                    <option value="Others">Others</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
@@ -492,32 +490,32 @@
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.education3YearOfPassing">
                                                                                                     <option value="" disabled>-- select --</option>
-                                                                                                    <option value="">2021</option>
-                                                                                                    <option value="">2020</option>
-                                                                                                    <option value="">2019</option>
-                                                                                                    <option value="">2018</option>
-                                                                                                    <option value="">2017</option>
-                                                                                                    <option value="">2016</option>
-                                                                                                    <option value="">2015</option>
-                                                                                                    <option value="">2014</option>
-                                                                                                    <option value="">2013</option>
-                                                                                                    <option value="">2012</option>
+                                                                                                    <option value="2021">2021</option>
+                                                                                                    <option value="2020">2020</option>
+                                                                                                    <option value="2019">2019</option>
+                                                                                                    <option value="2018">2018</option>
+                                                                                                    <option value="2017">2017</option>
+                                                                                                    <option value="2016">2016</option>
+                                                                                                    <option value="2015">2015</option>
+                                                                                                    <option value="2014">2014</option>
+                                                                                                    <option value="2013">2013</option>
+                                                                                                    <option value="2012">2012</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
-                                                                                                <input class="form-control form-control-sm" type="number" min="1" v-model="form.education3Percentage">
+                                                                                                <input class="form-control form-control-sm" type="number" min="0" max="100" step="0.01" v-model="form.education3Percentage">
                                                                                             </div>
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="form-group mb-0">
                                                                                                 <select class="form-control form-control-sm" v-model="form.education3Division">
                                                                                                     <option value="" disabled>-- select --</option>
-                                                                                                    <option value="">1st</option>
-                                                                                                    <option value="">2nd</option>
-                                                                                                    <option value="">3rd</option>
-                                                                                                    <option value="">N/A</option>
+                                                                                                    <option value="1st">1st</option>
+                                                                                                    <option value="2nd">2nd</option>
+                                                                                                    <option value="3rd">3rd</option>
+                                                                                                    <option value="N/A">N/A</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </td>
@@ -644,7 +642,7 @@
                                                                     <div class="col-xl-3">
                                                                         <label>PIN/ZIP Code:</label>
                                                                         <div class="form-group">
-                                                                            <input class="form-control form-control-sm" type="text" v-model="form.insAddressPinzip" maxlength="6" :disabled="inputDisabled" >
+                                                                            <input class="form-control form-control-sm" type="number" v-model="form.insAddressPinzip"  :disabled="inputDisabled" >
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xl-3">
@@ -738,6 +736,7 @@ export default{
                 education1Division:'',
               
                 education2ExaminationLevel:'',
+                education2ExaminationPassed:'',
                 education2University:'',
                 education2MainSubjects:'',
                 education2YearOfPassing:'',
@@ -745,6 +744,7 @@ export default{
                 education2Division:'',
 
                 education3ExaminationLevel:'',
+                education3ExaminationPassed:'',
                 education3University:'',
                 education3MainSubjects:'',
                 education3YearOfPassing:'',

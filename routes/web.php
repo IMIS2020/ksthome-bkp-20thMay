@@ -2,7 +2,7 @@
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {return view('welcome');});
-Route::get('/','Scholarship\UserProfileController@getUser');
+Route::get('/','Scholarship\UserProfileController@getUser')->name('welcomePage');
 Route::get('/unauthorised', function () { return abort(403);});
 
 

@@ -407,7 +407,7 @@ class HHDLSSScholarshipApplicationController extends Controller
                    $instituteAddress->addressPinzip    = $request->insAddressPinzip;
                    $instituteAddress->update();
    
-                   $HHDLSSScholarshipApplication->instituteCourse     = $request->insCourse;
+                   $HHDLSSScholarshipApplication->instituteCourse   = $request->insCourse;
                    $HHDLSSScholarshipApplication->recognizedByGI    = $request->recognizedByGI;
                    $HHDLSSScholarshipApplication->update();
                }

@@ -17,7 +17,7 @@ class VerifyController extends Controller
             $user->active=true;
             $user->code=null;
             $user->save();
-            return redirect()->route('login')->withMessage('Account verification successful, please login to continue');
+            return redirect()->route('welcomePage')->withMessage('Account verification successful, please login to continue');
         }
         else{
             return back()->with('messageError','OTP is incorrect, please try again.');

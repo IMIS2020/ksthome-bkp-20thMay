@@ -40,11 +40,16 @@
                     </a>
                     @endif
               </div>
-              
+            
             </div>
-           
+       
             <div class="col-sm-12 col-lg-4 col-xl-4 offset-xl-0">
                 <div class="login-box">
+                @if(Session::has('message'))
+                     <div class="alert alert-success">{{Session::get('message')}}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                     </div>
+                  @endif
                     <form method="POST" action="{{ route('login') }}">
                     @csrf
                         <h6 class="text-center color-mg mb-4"><strong>Login to apply for scholarship</strong></h6>
@@ -57,11 +62,7 @@
                                 <div class="input-group-append">
                                 <button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button>
                              </div>
-                             @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                          <strong>{{ $message }}</strong>
-                                    </span>
-                                 @enderror
+                             
                             </div>
                         </div>
                         <div class="form-group text-center mb-4">

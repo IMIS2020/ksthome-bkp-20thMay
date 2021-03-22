@@ -286,15 +286,29 @@ export default{
                 }
             }
         },
+      
         selectFile(ref){
             let file = this.$refs[ref].files[0];
+             if (file.size > 1024 * 1024) 
+             {
+               this.$fire({
+                    position: 'top',
+                    icon: 'error',
+                    title: "File size greater than 1 MB!",
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+             }
+            else{
             let fileReader = new FileReader()
             fileReader.readAsDataURL(file)
             fileReader.onload = (e) => {
-                console.log(ref, e);
-                this.uploadFiles[ref] = e.target.result;
-            }
+            console.log(ref, e);
+            this.uploadFiles[ref] = e.target.result;
+              }
+          }
         },
+       
        
         getdataHHDLSS(){
             axios.get(`/api/application-form-HHDLSS/${this.userId}`)
@@ -304,6 +318,9 @@ export default{
                     this.getdata.hasAdmissionLetter  = data.hasAdmissionLetter;
                     this.getdata.applicationId = data.applicationId;
                     this.getdata.financialYear = data.financialYear;
+                    this.getdata.applicantLeprosyAffectedFather = data.applicantLeprosyAffectedFather;
+                    this.getdata.applicantLeprosyAffectedMother = data.applicantLeprosyAffectedMother;
+                    this.getdata.applicantLeprosyAffectedSelf   = data.applicantLeprosyAffectedSelf;
                     this.getFileData();
                 }
             })

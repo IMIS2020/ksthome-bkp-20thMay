@@ -139,7 +139,7 @@
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-8 col-xl-7 mt-2">
-                                <p class="mb-0 font-xl">{{getdata.addressAddln1}},{{(getdata.addressAddln2==null)?'':getdata.addressAddln2}}, {{(getdata.addressCity==null)?'':getdata.addressCity}} <br>Dist :{{(getdata.addressDistprov==null)?'':getdata.addressDistprov}}, {{getdata.addressState}} - {{getdata.addressPinzip}}</p>
+                                <p class="mb-0 font-xl">{{getdata.addressAddln1}},{{(getdata.addressAddln2==null)?'':getdata.addressAddln2}},City: {{(getdata.addressCity==null)?'':getdata.addressCity}}, Dist :{{(getdata.addressDistprov==null)?'':getdata.addressDistprov}}, {{getdata.addressState}} - {{getdata.addressPinzip}}</p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2 pl-4">
                                 <p class="mb-0 font-xl"><strong>5.1. Contact No. (Self)</strong><br></p>
@@ -266,7 +266,7 @@
                                     </tr>
                                     <tr>
                                         <td><strong>Name of the institute</strong></td>
-                                        <td class="fw-600">{{(getdata.insName == null)?'N/A':getdata.insName}}</td>
+                                        <td class="fw-600">{{(getdata.insName == '')?'N/A':getdata.insName}}</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Address&nbsp;of the institute</strong></td>
@@ -289,7 +289,8 @@
                 </div>
             </div>
             <div class="row mb-4 d-print-none">
-                <div class="col-xl-4 offset-xl-4 text-center"><button class="btn btn-sm btn-mg mr-2" role="button" :disabled='isDisabled' onclick="window.print()">Print/Download Application Form</button></div>
+                <div class="col-xl-4 offset-xl-4 text-center">
+                    <button class="btn btn-sm btn-mg mr-2" role="button" :disabled='isDisabled' onclick="window.print()">Print/Download Application Form</button></div>
             </div>
         </div>
     </section>
@@ -361,15 +362,6 @@ export default{
             recognizedByINC:'',
             applicantColonyLeaderName:'',  
             districtState:'',
-        },
-
-         getannexureIdata:{
-            choice1instituteName:'',
-            choice1instituteAddress:'',
-            choice2instituteName:'',
-            choice2instituteAddress:'',
-            choice3instituteName:'',
-            choice3instituteAddress:'',
         },
             getFiles: {
                 admissionLetter:'#',
@@ -449,13 +441,10 @@ export default{
                 this.getdata.fullAddress = `${this.getdata.addressAddln1},${(this.getdata.addressAddln2)?" "+this.getdata.addressAddln2:''} ${(this.getdata.addressCity)?" "+this.getdata.addressCity:''} ,`;
                 this.districtState = `Dist: ${(this.getdata.insAddressDistprov)?" "+this.getdata.insAddressDistprov:''}  ${this.getdata.addressState} - ${this.getdata.addressPinzip}, ${this.getdata.addressCountry}`;
                 this.getdata.fullInstituteAddress = `${this.getdata.insAddressAddln1} ${this.getdata.insAddressAddln2} ${this.getdata.insAddressCity} ${this.getdata.insAddressDistprov} ${this.getdata.insAddressState} ${this.getdata.insAddressPinzip}`;
-                this.getannexurei();
                 this.getFileData();
              }
          })
        }, 
-
-     
        
         getFileData(){
         axios.get('/api/get-upload-documents/'+this.getdata.applicationId)
@@ -469,24 +458,13 @@ export default{
                 this.getFiles.proofOfAge         = data.proofOfAge;
                 this.getFiles.markSheets10       = data.markSheets10;
                 this.getFiles.markSheets12       = data.markSheets12;
-                this.getFiles.leprosyCertificate = data.leprosyCertificate;
+                this.getFiles.leprosyCertificateMother = data.leprosyCertificateMother;
+                this.getFiles.leprosyCertificateFather = data.leprosyCertificateFather;
+                this.getFiles.leprosyCertificateSelf   = data.leprosyCertificateSelf;
             }
         })
     },
-     getannexurei(){
-        axios.get(`/api/get-annexurei/${this.getdata.applicationId}`)
-        .then(response => {
-            if (response.data['success']) {
-                let data = response.data['data'];
-                this.getannexureIdata.choice1instituteName =  data.choice1instituteName
-                this.getannexureIdata.choice2instituteName =  data.choice2instituteName
-                this.getannexureIdata.choice3instituteName =  data.choice3instituteName
-                this.getannexureIdata.choice1instituteAddress = `${data.choice1addressAddln1} ${data.choice1addressAddln2} ${data.choice1addressCity} ${data.choice1addressDistprov} ${data.choice1addressState} ${data.choice1addressPinzip}`
-                this.getannexureIdata.choice2instituteAddress = `${data.choice2addressAddln2} ${data.choice2addressAddln2} ${data.choice2addressCity} ${data.choice2addressDistprov} ${data.choice2addressState} ${data.choice2addressPinzip}`
-                this.getannexureIdata.choice3instituteAddress = `${data.choice3addressAddln3} ${data.choice3addressAddln2} ${data.choice3addressCity} ${data.choice3addressDistprov} ${data.choice3addressState} ${data.choice3addressPinzip}`
-            } 
-        })
-    },
+
   },
   computed: {
   	  isDisabled: function(){

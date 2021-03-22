@@ -40,7 +40,7 @@ class HHDLSSScholarshipApplicationController extends Controller
             'addressDistprov'                   => [],
             'addressState'                      => ['required'],
             'addressPinzip'                     => ['required','digits:6'],
-            'applicantContactNoSelf'            => ['required','unique:applicantDetails','digits:10'],
+            'applicantContactNoSelf'            => ['required','digits:10'],
             'applicantContactNoGuardian'        => ['required','digits:10'],
             'applicantEmailId'                  => ['required'],
             'applicantContactNoColonyLeader'    => ['required','digits:10'],
@@ -54,30 +54,30 @@ class HHDLSSScholarshipApplicationController extends Controller
             'insAddressState'                   => [],
             'insAddressPinzip'                  => [],
             'recognizedByGI'                    => [],
+
+           'education1ExaminationLevel'         => ['required'],
            'education1ExaminationPassed'        => ['required'],
            'education1University'               => ['required'],
            'education1MainSubjects'             => ['required'],
            'education1YearOfPassing'            => ['required','digits:4'],
            'education1Percentage'               => ['required'],
            'education1Division'                 => ['required'],
+
+           'education2ExaminationLevel'         => ['required'],
            'education2ExaminationPassed'        => ['required'],
            'education2University'               => ['required'],
            'education2MainSubjects'             => ['required'],
            'education2YearOfPassing'            => ['required','digits:4'],
            'education2Percentage'               => ['required'],
            'education2Division'                 => ['required'],
+
+           'education3ExaminationLevel'         => ['required'],
            'education3ExaminationPassed'        => ['required'],
            'education3University'               => ['required'],
            'education3MainSubjects'             => ['required'],
            'education3YearOfPassing'            => ['required','digits:4'],
            'education3Percentage'               => ['required'],       
            'education3Division'                 => ['required'],
-           'education4ExaminationPassed'        => ['required'],
-           'education4University'               => ['required'],
-           'education4MainSubjects'             => ['required'],
-           'education4YearOfPassing'            => ['required','digits:4'],
-           'education4Percentage'               => ['required'],
-           'education4Division'                 => ['required'],
         ]);
          
          DB::beginTransaction();
@@ -114,6 +114,7 @@ class HHDLSSScholarshipApplicationController extends Controller
              $applicantDetails->save();
  
              $applicantEducationDetails = new ApplicantEducationDetails;
+             $applicantEducationDetails->examinationLevel        = $request->education1ExaminationLevel;
              $applicantEducationDetails->examinationPassed       = $request->education1ExaminationPassed;
              $applicantEducationDetails->universityBoardCouncil  = $request->education1University;
              $applicantEducationDetails->mainSubjects            = $request->education1MainSubjects;
@@ -124,6 +125,7 @@ class HHDLSSScholarshipApplicationController extends Controller
              $applicantEducationDetails->save();
              
              $applicantEducationDetails = new ApplicantEducationDetails;
+             $applicantEducationDetails->examinationLevel        = $request->education2ExaminationLevel;
              $applicantEducationDetails->examinationPassed       = $request->education2ExaminationPassed;
              $applicantEducationDetails->universityBoardCouncil  = $request->education2University;
              $applicantEducationDetails->mainSubjects            = $request->education2MainSubjects;
@@ -134,6 +136,7 @@ class HHDLSSScholarshipApplicationController extends Controller
              $applicantEducationDetails->save();
 
              $applicantEducationDetails = new ApplicantEducationDetails;
+             $applicantEducationDetails->examinationLevel        = $request->education3ExaminationLevel;
              $applicantEducationDetails->examinationPassed       = $request->education3ExaminationPassed;
              $applicantEducationDetails->universityBoardCouncil  = $request->education3University;
              $applicantEducationDetails->mainSubjects            = $request->education3MainSubjects;
@@ -143,15 +146,6 @@ class HHDLSSScholarshipApplicationController extends Controller
              $applicantEducationDetails->applicantId             = $applicantDetails->id;
              $applicantEducationDetails->save();
 
-             $applicantEducationDetails = new ApplicantEducationDetails;
-             $applicantEducationDetails->examinationPassed       = $request->education4ExaminationPassed;
-             $applicantEducationDetails->universityBoardCouncil  = $request->education4University;
-             $applicantEducationDetails->mainSubjects            = $request->education4MainSubjects;
-             $applicantEducationDetails->yearOfPassing           = $request->education4YearOfPassing;
-             $applicantEducationDetails->percentage              = $request->education4Percentage;
-             $applicantEducationDetails->division                = $request->education4Division;
-             $applicantEducationDetails->applicantId             = $applicantDetails->id;
-             $applicantEducationDetails->save();
  
              if ($request->hasAdmissionLetter === 'YES') {
                  $instituteAddress = new Address;
@@ -217,7 +211,7 @@ class HHDLSSScholarshipApplicationController extends Controller
             $applicantEducationDetails1 = (count($applicantEducationDetails)>0)? $applicantEducationDetails[0] : null;
             $applicantEducationDetails2 = (count($applicantEducationDetails)>1)? $applicantEducationDetails[1] : null;
             $applicantEducationDetails3 = (count($applicantEducationDetails)>2)? $applicantEducationDetails[2] : null;
-            $applicantEducationDetails4 = (count($applicantEducationDetails)>3)? $applicantEducationDetails[3] : null;
+           
 
             if ($hhdlScholarshipApplication->hasAdmissionLetter == 'YES') {
                 $instituteDetails = InstituteDetails::where('id', $hhdlScholarshipApplication->instituteId)->first();
@@ -259,7 +253,6 @@ class HHDLSSScholarshipApplicationController extends Controller
             $data['addressPinzip']                      = $applicantAddress->addressPinzip;
             $data['addressCountry']                     = $applicantAddress->addressCountry;
             
-            
             $data['insName']                            = (isset($instituteDetails))?$instituteDetails->instituteName:'';
             $data['insAddressAddln1']                   = (isset($instituteAddress))?$instituteAddress->addressAddln1:'';
             $data['insAddressAddln2']                   = (isset($instituteAddress))?$instituteAddress->addressAddln2:'';
@@ -268,6 +261,7 @@ class HHDLSSScholarshipApplicationController extends Controller
             $data['insAddressState']                    = (isset($instituteAddress))?$instituteAddress->addressState:'';
             $data['insAddressPinzip']                   = (isset($instituteAddress))?$instituteAddress->addressPinzip:'';
 
+            $data['education1ExaminationLevel']         =  json_decode(json_encode($applicantEducationDetails1),true)['examinationLevel'];
             $data['education1ExaminationPassed']        =  json_decode(json_encode($applicantEducationDetails1),true)['examinationPassed'];
             $data['education1University']               =  json_decode(json_encode($applicantEducationDetails1),true)['universityBoardCouncil'];
             $data['education1MainSubjects']             =  json_decode(json_encode($applicantEducationDetails1),true)['mainSubjects'];
@@ -275,6 +269,7 @@ class HHDLSSScholarshipApplicationController extends Controller
             $data['education1Percentage']               =  json_decode(json_encode($applicantEducationDetails1),true)['percentage'];
             $data['education1Division']                 =  json_decode(json_encode($applicantEducationDetails1),true)['division'] ; 
             
+            $data['education2ExaminationLevel']         =  json_decode(json_encode($applicantEducationDetails2),true)['examinationLevel'];
             $data['education2ExaminationPassed']        =  json_decode(json_encode($applicantEducationDetails2),true)['examinationPassed'];
             $data['education2University']               =  json_decode(json_encode($applicantEducationDetails2),true)['universityBoardCouncil'];
             $data['education2MainSubjects']             =  json_decode(json_encode($applicantEducationDetails2),true)['mainSubjects'];
@@ -282,6 +277,7 @@ class HHDLSSScholarshipApplicationController extends Controller
             $data['education2Percentage']               =  json_decode(json_encode($applicantEducationDetails2),true)['percentage'];
             $data['education2Division']                 =  json_decode(json_encode($applicantEducationDetails2),true)['division'] ; 
 
+            $data['education3ExaminationLevel']         =  json_decode(json_encode($applicantEducationDetails3),true)['examinationLevel'];
             $data['education3ExaminationPassed']        =  json_decode(json_encode($applicantEducationDetails3),true)['examinationPassed'];
             $data['education3University']               =  json_decode(json_encode($applicantEducationDetails3),true)['universityBoardCouncil'];
             $data['education3MainSubjects']             =  json_decode(json_encode($applicantEducationDetails3),true)['mainSubjects'];
@@ -289,12 +285,7 @@ class HHDLSSScholarshipApplicationController extends Controller
             $data['education3Percentage']               =  json_decode(json_encode($applicantEducationDetails3),true)['percentage'];
             $data['education3Division']                 =  json_decode(json_encode($applicantEducationDetails3),true)['division'] ; 
 
-            $data['education4ExaminationPassed']        =  json_decode(json_encode($applicantEducationDetails4),true)['examinationPassed'];
-            $data['education4University']               =  json_decode(json_encode($applicantEducationDetails4),true)['universityBoardCouncil'];
-            $data['education4MainSubjects']             =  json_decode(json_encode($applicantEducationDetails4),true)['mainSubjects'];
-            $data['education4YearOfPassing']            =  json_decode(json_encode($applicantEducationDetails4),true)['yearOfPassing'];
-            $data['education4Percentage']               =  json_decode(json_encode($applicantEducationDetails4),true)['percentage'];
-            $data['education4Division']                 =  json_decode(json_encode($applicantEducationDetails4),true)['division'] ; 
+           
             
 
             $data = json_decode(json_encode($data));
@@ -342,30 +333,30 @@ class HHDLSSScholarshipApplicationController extends Controller
             'insAddressState'                   => [],
             'insAddressPinzip'                  => [],
             'recognizedByGI'                    => [],
-           'education1ExaminationPassed'        => ['required'],
-           'education1University'               => ['required'],
-           'education1MainSubjects'             => ['required'],
-           'education1YearOfPassing'            => ['required'],
-           'education1Percentage'               => ['required'],
-           'education1Division'                 => ['required'],
-           'education2ExaminationPassed'        => ['required'],
-           'education2University'               => ['required'],
-           'education2MainSubjects'             => ['required'],
-           'education2YearOfPassing'            => ['required'],
-           'education2Percentage'               => ['required'],
-           'education2Division'                 => ['required'],
-           'education3ExaminationPassed'        => ['required'],
-           'education3University'               => ['required'],
-           'education3MainSubjects'             => ['required'],
-           'education3YearOfPassing'            => ['required'],
-           'education3Percentage'               => ['required'],       
-           'education3Division'                 => ['required'],
-           'education4ExaminationPassed'        => ['required'],
-           'education4University'               => ['required'],
-           'education4MainSubjects'             => ['required'],
-           'education4YearOfPassing'            => ['required'],
-           'education4Percentage'               => ['required'],
-           'education4Division'                 => ['required'],
+
+            'education1ExaminationLevel'         => ['required'],
+            'education1ExaminationPassed'        => ['required'],
+            'education1University'               => ['required'],
+            'education1MainSubjects'             => ['required'],
+            'education1YearOfPassing'            => ['required','digits:4'],
+            'education1Percentage'               => ['required'],
+            'education1Division'                 => ['required'],
+ 
+            'education2ExaminationLevel'         => ['required'],
+            'education2ExaminationPassed'        => ['required'],
+            'education2University'               => ['required'],
+            'education2MainSubjects'             => ['required'],
+            'education2YearOfPassing'            => ['required','digits:4'],
+            'education2Percentage'               => ['required'],
+            'education2Division'                 => ['required'],
+ 
+            'education3ExaminationLevel'         => ['required'],
+            'education3ExaminationPassed'        => ['required'],
+            'education3University'               => ['required'],
+            'education3MainSubjects'             => ['required'],
+            'education3YearOfPassing'            => ['required','digits:4'],
+            'education3Percentage'               => ['required'],       
+            'education3Division'                 => ['required'],
       ]);
          
            DB::beginTransaction();
@@ -452,6 +443,7 @@ class HHDLSSScholarshipApplicationController extends Controller
                $applicantAddress->update();
                
              $applicantEducationDetails = new ApplicantEducationDetails;
+             $applicantEducationDetails->examinationLevel        = $request->education1ExaminationLevel;
              $applicantEducationDetails->examinationPassed       = $request->education1ExaminationPassed;
              $applicantEducationDetails->universityBoardCouncil  = $request->education1University;
              $applicantEducationDetails->mainSubjects            = $request->education1MainSubjects;
@@ -462,6 +454,7 @@ class HHDLSSScholarshipApplicationController extends Controller
              $applicantEducationDetails->update();
              
              $applicantEducationDetails = new ApplicantEducationDetails;
+             $applicantEducationDetails->examinationLevel        = $request->education2ExaminationLevel;
              $applicantEducationDetails->examinationPassed       = $request->education2ExaminationPassed;
              $applicantEducationDetails->universityBoardCouncil  = $request->education2University;
              $applicantEducationDetails->mainSubjects            = $request->education2MainSubjects;
@@ -472,6 +465,7 @@ class HHDLSSScholarshipApplicationController extends Controller
              $applicantEducationDetails->update();
 
              $applicantEducationDetails = new ApplicantEducationDetails;
+            $applicantEducationDetails->examinationLevel         = $request->education3ExaminationLevel;
              $applicantEducationDetails->examinationPassed       = $request->education3ExaminationPassed;
              $applicantEducationDetails->universityBoardCouncil  = $request->education3University;
              $applicantEducationDetails->mainSubjects            = $request->education3MainSubjects;
@@ -480,26 +474,14 @@ class HHDLSSScholarshipApplicationController extends Controller
              $applicantEducationDetails->division                = $request->education3Division;
              $applicantEducationDetails->applicantId             = $applicantDetails->id;
              $applicantEducationDetails->update();
-
-             $applicantEducationDetails = new ApplicantEducationDetails;
-             $applicantEducationDetails->examinationPassed       = $request->education4ExaminationPassed;
-             $applicantEducationDetails->universityBoardCouncil  = $request->education4University;
-             $applicantEducationDetails->mainSubjects            = $request->education4MainSubjects;
-             $applicantEducationDetails->yearOfPassing           = $request->education4YearOfPassing;
-             $applicantEducationDetails->percentage              = $request->education4Percentage;
-             $applicantEducationDetails->division                = $request->education4Division;
-             $applicantEducationDetails->applicantId             = $applicantDetails->id;
-             $applicantEducationDetails->update();
-
                DB::commit();
                return array('success' => true, 'msg'=>[]);
              }
-                catch(Exception $e) {
-                    DB::rollBack();
-                    return array('success' => false, 'msg'=>[$e]);
-                }
+            catch(Exception $e) {
+                DB::rollBack();
+                return array('success' => false, 'msg'=>[$e]);
+            }
          }
-
 
  # Add AnnexureI
  public function addAnnexureI(string $applicationId, Request $request)

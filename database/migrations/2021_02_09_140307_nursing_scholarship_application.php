@@ -21,7 +21,7 @@ class NursingScholarshipApplication extends Migration
             $table->string('instituteCourse')->nullable();
             $table->string('recognizedByINC')->nullable();
             $table->string('financialYear');
-            $table->string('status')->default('Applied');
+            $table->string('status')->default('Saved');
             $table->unsignedBigInteger('applicantId');
             $table->unsignedBigInteger('userId');
             $table->timestamps();

@@ -27,7 +27,7 @@ class ApplicantDetails extends Migration
             $table->boolean('applicantLeprosyAffectedMother')->default(0);
             $table->string('applicantHasBPLCard');
             $table->string('applicantDomicileState');
-            $table->string('applicantContactNoSelf')->unique();
+            $table->string('applicantContactNoSelf');
             $table->string('applicantContactNoGuardian');
             $table->string('applicantEmailId');
             $table->string('applicantColonyLeaderName')->nullable();

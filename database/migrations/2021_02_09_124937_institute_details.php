@@ -18,6 +18,7 @@ class InstituteDetails extends Migration
             $table->string('instituteName');
             $table->string('courseName')->nullable();
             $table->unsignedBigInteger('instituteAddressId');
+            $table->unsignedBigInteger('applicantId');
             $table->timestamps();
         });
     }

@@ -11,19 +11,19 @@ class AdminController extends Controller
      *
      * @return void
      */
-     public function __construct()
-     {
-        
-         $this->middleware('auth:admin');
-     }
+    public function __construct()
+    {
+    
+        $this->middleware('auth:admin');
+    }
  
      /**
       * Show the application dashboard.
       *
       * @return \Illuminate\Contracts\Support\Renderable
       */
-     public function dashboard()
-     {
-         return view('admin.dashboard');
-     }
+    public function dashboard()
+    {
+        return view('admin.dashboard');
+    }
 }

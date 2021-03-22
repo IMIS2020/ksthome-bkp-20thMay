@@ -15,10 +15,10 @@ class AnnexureI extends Migration
     {
         Schema::create('annexureI', function (Blueprint $table) {
             $table->id();
-            $table->string('courseLevel');
-            $table->unsignedBigInteger('choice1')->nullable();
-            $table->unsignedBigInteger('choice2')->nullable();
-            $table->unsignedBigInteger('choice3')->nullable();
+            $table->string('courseName')->nullable();
+            $table->unsignedBigInteger('choice')->nullable();
+            // $table->unsignedBigInteger('choice2')->nullable();
+            // $table->unsignedBigInteger('choice3')->nullable();
             $table->unsignedBigInteger('applicantId');
             $table->timestamps();           
         });

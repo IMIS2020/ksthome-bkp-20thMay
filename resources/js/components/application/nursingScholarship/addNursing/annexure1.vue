@@ -40,7 +40,7 @@
                                                                 <button class="btn btn-block btn-sm font-xs btn-mg add-anex-i-row" type="button" @click="addNewData">
                                                                     <i class="fa fa-plus"></i><strong>&nbsp;Add row</strong>
                                                                  </button>
-                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <div class="table-responsive table results mb-0 donor-list tmd anex-i-table">
                                                             <table class="table table-sm mb-2">
@@ -60,24 +60,35 @@
                                                                 <tbody class="h-25x">
                                                                     <tr v-for="(row, index) in rows" :key="index">
                                                                         <td>
-                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1"  v-model="row.instituteName" required></textarea></div>
+                                                                            <div class="form-group mb-0">
+                                                                                <input class="form-control form-control-sm" rows="1"  v-model="row.instituteName" required />
+                                                                            </div>
                                                                         </td>
                                                                         <td>
-                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1"  v-model="row.courseName" required></textarea></div>
+                                                                            <div class="form-group mb-0">
+                                                                                <input class="form-control form-control-sm" rows="1"  v-model="row.courseName" required />
+                                                                            </div>
                                                                         </td>
                                                                         <td>
-                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1"  v-model="row.addressAddln1" required></textarea></div>
+                                                                            <div class="form-group mb-0">
+                                                                                <input class="form-control form-control-sm" rows="1"  v-model="row.addressAddln1" required />
+                                                                            </div>
                                                                         </td>
                                                                         <td>
-                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1"  v-model="row.addressAddln2" required></textarea></div>
+                                                                            <div class="form-group mb-0">
+                                                                                <input class="form-control form-control-sm" rows="1"  v-model="row.addressAddln2" required />
+                                                                            </div>
                                                                         </td>
                                                                         <td>
-                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1"  v-model="row.addressCity" required></textarea></div>
+                                                                            <div class="form-group mb-0">
+                                                                                <input class="form-control form-control-sm" rows="1"  v-model="row.addressCity" required />
+                                                                            </div>
                                                                         </td>
                                                                         <td>
-                                                                            <div class="form-group mb-0"><textarea class="form-control form-control-sm" rows="1"  v-model="row.addressDistprov" required></textarea></div>
+                                                                            <div class="form-group mb-0">
+                                                                                <input class="form-control form-control-sm" rows="1"  v-model="row.addressDistprov" required />
+                                                                            </div>
                                                                         </td>
-
                                                                         <td>
                                                                             <div class="form-group mb-0">
                                                                                <select class="form-control form-control-sm" v-model="row.addressState" required>
@@ -125,9 +136,8 @@
                                                                             <div class="form-group mb-0">
                                                                             <input class="form-control form-control-sm" type="number"  v-model="row.addressPinzip" required></div>
                                                                         </td>
-                                                                        
                                                                         <td class="text-center w-5x pt-2">
-                                                                        <a href="#" @click="deleteRow(index)"><i class="fa fa-trash color-mg font-l"></i></a>
+                                                                            <a href="#" @click="deleteRow(index)"><i class="fa fa-trash color-mg font-l"></i></a>
                                                                         </td>
                                                                      </tr>
                                                                 </tbody>
@@ -233,27 +243,27 @@ export default{
           }
     },
     methods: {
-         addNewData()
-         {
-         this.rows.push({
-            instituteName:'',
-            courseName:'',
-            addressAddln1:'',
-            addressAddln2:'',
-            addressCity:'',
-            addressDistprov:'',
-            addressState:'',
-            addressPinzip:'',
-      })
-     },
-     deleteRow(index){
-       this.rows.splice(index, 1);
-   },
+        addNewData()
+        {
+            this.rows.push({
+                instituteName:'',
+                courseName:'',
+                addressAddln1:'',
+                addressAddln2:'',
+                addressCity:'',
+                addressDistprov:'',
+                addressState:'',
+                addressPinzip:'',
+            })
+        },
+        deleteRow(index){
+            this.rows.splice(index, 1);
+        },
 
         saveForm() {
             if (this.getdata.hasAdmissionLetter === 'NO'){
                 if (!this.update) {
-                    axios.post('/api/add-annexurei/'+this.getdata.applicationId,this.form)
+                    axios.post('/api/add-annexurei/'+this.getdata.applicationId,this.rows)
                     .then(response => {
                         if (response.data['success']) {
                             this.$fire({
@@ -269,7 +279,7 @@ export default{
                     })
                     .catch(error => this.errorMsg(error.response.status))
                 } else {
-                    axios.post('/api/edit-annexurei/'+this.getdata.applicationId,this.form)
+                    axios.post('/api/edit-annexurei/'+this.getdata.applicationId,this.rows)
                     .then(response => {
                         if (response.data['success']) {
                             this.$fire({
@@ -294,7 +304,7 @@ export default{
                     this.$fire({
                         position: 'top',
                         icon: 'error',
-                        title: "Something went wrong!",
+                        title: "Something went wrong! 1",
                         showConfirmButton: false,
                         timer: 3000
                     })
@@ -304,7 +314,7 @@ export default{
                     this.$fire({
                         position: 'top',
                         icon: 'error',
-                        title: "Something went wrong!",
+                        title: "Something went wrong! 2",
                         showConfirmButton: false,
                         timer: 3000
                     })
@@ -314,7 +324,7 @@ export default{
                     this.$fire({
                         position: 'top',
                         icon: 'error',
-                        title: "Something went wrong!",
+                        title: "Something went wrong! 3",
                         showConfirmButton: false,
                         timer: 3000
                     })
@@ -324,7 +334,7 @@ export default{
                     this.$fire({
                         position: 'top',
                         icon: 'error',
-                        title: "Something went wrong!",
+                        title: "Something went wrong! 4",
                         showConfirmButton: false,
                         timer: 3000
                     })

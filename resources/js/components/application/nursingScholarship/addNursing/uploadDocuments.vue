@@ -8,8 +8,6 @@
                              <strong>Application form (Nursing scholarship   {{getdata.financialYear}})</strong>
                         </h5>
                     </div>
-
-                     
                     <div class="col-xl-12">
                         <div class="mb-3">
                             <ul class="nav nav-tabs font-sm" role="tablist">
@@ -21,7 +19,7 @@
                                 <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/review-submit'"><strong>Review &amp; Submit</strong></router-link></li>
                             </ul>
                             <div class="tab-content">
-                                  <div class="tab-pane active" role="tabpanel" id="tab-4">
+                                <div class="tab-pane active" role="tabpanel" id="tab-4">
                                     <div class="ub-reg-form">
                                         <div class="div-inner-filed">
                                             <div class="form-row">
@@ -39,7 +37,7 @@
                                                                                 <tr class="color-mg">
                                                                                     <th colspan="2">Required Document</th>
                                                                                     <th>Choose file</th>
-                                                                                     <th>Document Name</th>
+                                                                                    <th>Document Name</th>
                                                                                     <th>Uploaded</th>
                                                                                     <th>Action</th>
                                                                                 </tr>
@@ -59,13 +57,13 @@
                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.admissionLetter === '#')?'No':'Yes'}}</span></td>
                                                                                     <td class="text-center" v-if="getFiles.admissionLetter !== '#'"> <router-link target="_blank" class="act-link" :to="''+getFiles.admissionLetter"><i class="fa fa-eye"></i></router-link><a class="act-link" href="#" @click.prevent="deleteFile('admissionLetter')"><i class="fa fa-trash"></i></a></td>
                                                                                     <td class="text-center" v-else><span class="act-link"  style="color:#808080;"><i class="fa fa-eye"></i></span><span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span></td>
-                                                                                 </tr>
+                                                                                </tr>
 
                                                                                 <tr>
                                                                                     <td colspan="2"><strong>Annexure-II Signed letter from colony leader stating the candidate is residing in the colony</strong></td>
                                                                                     <td>
                                                                                         <div class="form-group">
-                                                                                          <input class="form-control-file font-sm" type="file" ref="annexureII" v-on:change="selectFile('annexureII')">
+                                                                                        <input class="form-control-file font-sm" type="file" ref="annexureII" v-on:change="selectFile('annexureII')">
                                                                                         </div>
                                                                                     </td>
                                                                                     <td>{{(getFiles.annexureII === '#')?'Documents not uploaded':getFiles.annexureII.substr(-15)}}</td>
@@ -160,10 +158,10 @@
                             </div>
                         </div>
                     </div>
-                     <div class="col-xl-2 offset-xl-4 my-2"><button class="btn btn-block btn-sm btn-mg" type="submit"><strong>Save</strong></button></div>
-                     <div class="col-xl-2 offset-xl-0 my-2"><router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-scholarship"><strong>Cancel</strong></router-link>
+                    <div class="col-xl-2 offset-xl-4 my-2"><button class="btn btn-block btn-sm btn-mg" type="submit"><strong>Save</strong></button></div>
+                    <div class="col-xl-2 offset-xl-0 my-2"><router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-scholarship"><strong>Cancel</strong></router-link>
                     </div>
-                 </div>
+                </div>
              </form>
         </div>
     </section>

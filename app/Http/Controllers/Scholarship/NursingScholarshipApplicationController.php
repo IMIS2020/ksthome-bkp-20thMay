@@ -268,9 +268,9 @@ class NursingScholarshipApplicationController extends Controller
     public function addNursingScholarshipApplication(int $userId, Request $request)
     {
         $request->validate([  
-            'applicantNameF'                    => ['required'],                
+            'applicantNameF'                    => [],                
             'applicantNameM'                    => [],
-            'applicantNameL'                    => ['required'],
+            'applicantNameL'                    => [],
             'applicantFatherName'               => [],
             'applicantMotherName'               => [],
             'applicantDOB'                      => ['required'],
@@ -457,9 +457,9 @@ class NursingScholarshipApplicationController extends Controller
     public function editNursingScholarshipApplication(string $applicationId, Request $request)
     {
         $request->validate([  
-            'applicantNameF'                    => ['required'],                
+            'applicantNameF'                    => [],                
             'applicantNameM'                    => [],
-            'applicantNameL'                    => ['required'],
+            'applicantNameL'                    => [],
             'applicantFatherName'               => [],
             'applicantMotherName'               => [],
             'applicantDOB'                      => ['required'],
@@ -679,179 +679,55 @@ class NursingScholarshipApplicationController extends Controller
     # Add AnnexureI
     public function addAnnexureI(string $applicationId, Request $request)
     {
-        $request->validate([
-            
-            'choice1instituteName'     => ['required'],
-            'choice1addressAddln1'     => ['required'],
-            'choice1addressAddln2'     => [],
-            'choice1addressCity'       => [],
-            'choice1addressDistprov'   => [],
-            'choice1addressState'      => ['required'],
-            'choice1addressPinzip'     => ['required','digits:6'],
-            'choice2instituteName'     => ['required'],
-            'choice2addressAddln1'     => ['required'],
-            'choice2addressAddln2'     => [],
-            'choice2addressCity'       => [],
-            'choice2addressDistprov'   => [],
-            'choice2addressState'      => ['required'],
-            'choice2addressPinzip'     => ['required','digits:6'],
-            'choice3instituteName'     => ['required'],
-            'choice3addressAddln1'     => ['required'],
-            'choice3addressAddln2'     => [],
-            'choice3addressCity'       => [],
-            'choice3addressDistprov'   => [],
-            'choice3addressState'      => ['required'],
-            'choice3addressPinzip'     => ['required','digits:6'],
-        ]);
-        
-        DB::beginTransaction();
-        try {
-            
-            $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
-
-            $instituteAddress1 = new Address;
-            $instituteAddress1->addressAddln1    = $request->choice1addressAddln1;
-            $instituteAddress1->addressAddln2    = $request->choice1addressAddln2;
-            $instituteAddress1->addressCity      = $request->choice1addressCity;
-            $instituteAddress1->addressState     = $request->choice1addressState;
-            $instituteAddress1->addressDistprov  = $request->choice1addressDistprov;
-            $instituteAddress1->addressPinzip    = $request->choice1addressPinzip;
-            $instituteAddress1->addressCountry   = 'India';
-            $instituteAddress1->save();
-
-            $instituteDetails1 = new InstituteDetails;
-            $instituteDetails1->instituteName = $request->choice1instituteName;
-            $instituteDetails1->instituteAddressId = $instituteAddress1->id;
-            $instituteDetails1->save();
-
-            $instituteAddress2 = new Address;
-            $instituteAddress2->addressAddln1    = $request->choice2addressAddln1;
-            $instituteAddress2->addressAddln2    = $request->choice2addressAddln2;
-            $instituteAddress2->addressCity      = $request->choice2addressCity;
-            $instituteAddress2->addressState     = $request->choice2addressState;
-            $instituteAddress2->addressDistprov  = $request->choice2addressDistprov;
-            $instituteAddress2->addressPinzip    = $request->choice2addressPinzip;
-            $instituteAddress2->addressCountry   = 'India';
-            $instituteAddress2->save();
-
-            $instituteDetails2 = new InstituteDetails;
-            $instituteDetails2->instituteName = $request->choice2instituteName;
-            $instituteDetails2->instituteAddressId = $instituteAddress2->id;
-            $instituteDetails2->save();
-
-            $instituteAddress3 = new Address;
-            $instituteAddress3->addressAddln1    = $request->choice3addressAddln1;
-            $instituteAddress3->addressAddln2    = $request->choice3addressAddln2;
-            $instituteAddress3->addressCity      = $request->choice3addressCity;
-            $instituteAddress3->addressState     = $request->choice3addressState;
-            $instituteAddress3->addressDistprov  = $request->choice3addressDistprov;
-            $instituteAddress3->addressPinzip    = $request->choice3addressPinzip;
-            $instituteAddress3->addressCountry   = 'India';
-            $instituteAddress3->save();
-
-            $instituteDetails3 = new InstituteDetails;
-            $instituteDetails3->instituteName = $request->choice3instituteName;
-            $instituteDetails3->instituteAddressId = $instituteAddress3->id;
-            $instituteDetails3->save();
-
-            $annexureI = new AnnexureI;
-            $annexureI->choice1         = $instituteDetails1->id;
-            $annexureI->choice2         = $instituteDetails2->id;
-            $annexureI->choice3         = $instituteDetails3->id;
-            $annexureI->applicantId     = $nursingScholarshipApplication->applicantId;
-            $annexureI->save();
-
-            DB::commit();
-            return array('success' => true, 'msg'=>[]);
+        $institute = $request->json()->all();
+        $data = array();
+        foreach ($institute as $key => $value) {
+            foreach ($value as $k => $v) {
+                $data[$key][$k] = $v;
+            }
         }
-        catch(Exception $e) {
-            DB::rollBack();
-            return array('success' => false, 'msg'=>[$e]);
+
+        $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
+        
+        foreach ($data as $institute) {
+            $instituteAddress = new Address;
+            $instituteDetails = new InstituteDetails;
+            $annexureI        = new AnnexureI;
+            DB::beginTransaction();
+            try {
+                $instituteAddress->addressAddln1    = $institute['addressAddln1'];
+                $instituteAddress->addressAddln2    = $institute['addressAddln2'];
+                $instituteAddress->addressCity      = $institute['addressCity'];
+                $instituteAddress->addressState     = $institute['addressState'];
+                $instituteAddress->addressDistprov  = $institute['addressDistprov'];
+                $instituteAddress->addressPinzip    = $institute['addressPinzip'];
+                $instituteAddress->addressCountry   = 'India';
+                $instituteAddress->save();
+
+                $instituteDetails->instituteName = $request['instituteName'];
+                $instituteDetails->courseName    = $request['courseName'];
+                $instituteDetails->instituteAddressId = $instituteAddress->id;
+                $instituteDetails->save();
+
+                $annexureI->courseLevel           = $request['courseName'];
+                $annexureI->choice1               = $request['choice']; 
+                $annexureI->applicantId           = $nursingScholarshipApplication->applicantId; 
+                $annexureI->save(); 
+
+                DB::commit();
+                return array('success' => true, 'msg'=>[]);
+
+            }catch(Exception $e) {
+                DB::rollBack();
+                return array('success' => false, 'msg'=>[$e]);
+            }
         }
     }
 
     # Edit AnnexureI
     public function editAnnexureI(string $applicationId, Request $request)
     {
-        $request->validate([
-            
-            'choice1instituteName'     => ['required'],
-            'choice1addressAddln1'     => ['required'],
-            'choice1addressAddln2'     => [],
-            'choice1addressCity'       => [],
-            'choice1addressDistprov'   => [],
-            'choice1addressState'      => ['required'],
-            'choice1addressPinzip'     => ['required','digits:6'],
-            'choice2instituteName'     => ['required'],
-            'choice2addressAddln1'     => ['required'],
-            'choice2addressAddln2'     => [],
-            'choice2addressCity'       => [],
-            'choice2addressDistprov'   => [],
-            'choice2addressState'      => ['required'],
-            'choice2addressPinzip'     => ['required','digits:6'],
-            'choice3instituteName'     => ['required'],
-            'choice3addressAddln1'     => ['required'],
-            'choice3addressAddln2'     => [],
-            'choice3addressCity'       => [],
-            'choice3addressDistprov'   => [],
-            'choice3addressState'      => ['required'],
-            'choice3addressPinzip'     => ['required','digits:6'],
-        ]);
-        
-        DB::beginTransaction();
-        try {
-            
-            $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
-            $annexureI = AnnexureI::where('applicantId',$nursingScholarshipApplication->applicantId)->first();
-        
-            $instituteDetails1 = InstituteDetails::where('id', $annexureI->choice1)->first();
-            $instituteDetails1->instituteName = $request->choice1instituteName;
-            $instituteDetails1->update();
-
-            $instituteAddress1 = Address::where('id', $instituteDetails1->instituteAddressId)->first();
-            $instituteAddress1->addressAddln1    = $request->choice1addressAddln1;
-            $instituteAddress1->addressAddln2    = $request->choice1addressAddln2;
-            $instituteAddress1->addressCity      = $request->choice1addressCity;
-            $instituteAddress1->addressState     = $request->choice1addressState;
-            $instituteAddress1->addressDistprov  = $request->choice1addressDistprov;
-            $instituteAddress1->addressPinzip    = $request->choice1addressPinzip;
-            $instituteAddress1->update();
-            
-            $instituteDetails2 = InstituteDetails::where('id', $annexureI->choice2)->first();
-            $instituteDetails2->instituteName = $request->choice2instituteName;
-            $instituteDetails2->update();
-
-            $instituteAddress2 = Address::where('id', $instituteDetails2->instituteAddressId)->first();
-            $instituteAddress2->addressAddln1    = $request->choice2addressAddln1;
-            $instituteAddress2->addressAddln2    = $request->choice2addressAddln2;
-            $instituteAddress2->addressCity      = $request->choice2addressCity;
-            $instituteAddress2->addressState     = $request->choice2addressState;
-            $instituteAddress2->addressDistprov  = $request->choice2addressDistprov;
-            $instituteAddress2->addressPinzip    = $request->choice2addressPinzip;
-            $instituteAddress2->update();
-            
-            $instituteDetails3 = InstituteDetails::where('id', $annexureI->choice3)->first();
-            $instituteDetails3->instituteName = $request->choice3instituteName;
-            $instituteDetails3->update();
-
-            $instituteAddress3 = Address::where('id', $instituteDetails3->instituteAddressId)->first();
-            $instituteAddress3->addressAddln1    = $request->choice3addressAddln1;
-            $instituteAddress3->addressAddln2    = $request->choice3addressAddln2;
-            $instituteAddress3->addressCity      = $request->choice3addressCity;
-            $instituteAddress3->addressState     = $request->choice3addressState;
-            $instituteAddress3->addressDistprov  = $request->choice3addressDistprov;
-            $instituteAddress3->addressPinzip    = $request->choice3addressPinzip;
-            $instituteAddress3->update();
-
-           
-
-            DB::commit();
-            return array('success' => true, 'msg'=>[]);
-        }
-        catch(Exception $e) {
-            DB::rollBack();
-            return array('success' => false, 'msg'=>[$e]);
-        }
+       
     }
 
     # Save AnnexureII

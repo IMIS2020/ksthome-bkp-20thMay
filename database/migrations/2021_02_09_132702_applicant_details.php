@@ -18,8 +18,8 @@ class ApplicantDetails extends Migration
             $table->string('applicantNameF');
             $table->string('applicantNameM')->nullable();
             $table->string('applicantNameL');
-            $table->string('applicantFatherName');
-            $table->string('applicantMotherName');
+            $table->string('applicantFatherName')->nullable();
+            $table->string('applicantMotherName')->nullable();
             $table->date('applicantDOB');
             $table->string('applicantGender');
             $table->boolean('applicantLeprosyAffectedSelf')->default(0);

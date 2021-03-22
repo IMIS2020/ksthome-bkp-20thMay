@@ -57,7 +57,7 @@
                                       </tr>
                                   </thead>
                                   <tbody class="h-41x">
-                                      <tr class="font-md text-black" v-if="getdata.applicationId !== '' ">
+                                      <tr class="font-md text-black" v-if="getdata.applicationId != 'N/A' ">
                                           <td><em>{{getdata.financialYear}}</em></td>
                                           <td class="text-break"><em>Nursing Scholarship</em></td>
                                           <td class="text-break"><em>N/A</em></td>
@@ -74,7 +74,7 @@
                                               </div>
                                           </td>
                                       </tr>
-                                      <tr v-if="getdataHHDLSS.applicationId !== '' " class="font-md text-black">
+                                      <tr v-if="getdataHHDLSS.applicationId != 'N/A' " class="font-md text-black">
                                           <td><em>{{getdataHHDLSS.financialYear}}</em></td>
                                           <td class="text-break"><em>HHDLSS Scholarship</em></td>
                                           <td class="text-break"><em>N/A</em></td>

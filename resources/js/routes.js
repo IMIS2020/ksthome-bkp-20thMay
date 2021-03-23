@@ -404,29 +404,23 @@ path: '/admin/admin-api/manage-application-schedule/get-details',
 
 
 //Start HHDLSS 
-// {
-//     path: '/admin/review-HHDLSS-application-form/:applicationId',
-//     component:ReviewHHDLSSApplicationForm,
-//     name: "review-HHDLSS-application-form"
-// },
-
-// {
-//     path: '/admin/admin-api/review-HHDLSS-application-form/:applicationId',
+{
+    path: '/admin/review-HHDLSS-application-form/:applicationId',
+    component:ReviewHHDLSSApplicationForm,
+    name: "review-HHDLSS-application-form"
+},
+{
+  path: '/admin/admin-api/review-HHDLSS-application-form/:applicationId',
+},
+{
+    path: '/admin/review-HHDLSS-annexure-1/:applicationId',
+    component:ReviewHHDLSSAnnexure1,
+    name: "review-HHDLSS-annexure-1"
+},
+{
+    path: '/admin/admin-api/review-HHDLSS-annexure-1/:applicationId',
     
-// },
-
-// {
-//     path: '/admin/review-HHDLSS-annexure-1/:applicationId',
-//     component:ReviewHHDLSSAnnexure1,
-//     name: "review-HHDLSS-annexure-1"
-// },
-
-// {
-//     path: '/admin/admin-api/review-HHDLSS-annexure-1/:applicationId',
-    
-// },
-
-
+},
 {
     path: '/admin/review-HHDLSS-annexure-2/:applicationId',
     component:ReviewHHDLSSAnnexure2,
@@ -434,7 +428,6 @@ path: '/admin/admin-api/manage-application-schedule/get-details',
 },
 {
     path: '/admin/admin-api/review-HHDLSS-annexure-2/:applicationId',
-    
 },
 
 {
@@ -445,7 +438,6 @@ path: '/admin/admin-api/manage-application-schedule/get-details',
 
 {
     path: '/admin/admin-api/review-HHDLSS-upload-documents/:applicationId',
-   
 },
 {
     path: '/admin/review-HHDLSS-review-submit/:applicationId',
@@ -454,9 +446,7 @@ path: '/admin/admin-api/manage-application-schedule/get-details',
 },
 {
     path: '/admin/admin-api/review-HHDLSS-review-submit/:applicationId',
-   
 },
-
 // End HHDLSS
  ]
 }

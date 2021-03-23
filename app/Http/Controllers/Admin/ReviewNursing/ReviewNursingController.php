@@ -173,5 +173,46 @@ class ReviewNursingController extends Controller
         }
     }
 
+    #comment and send mail
+    public function addAndUpdateComments(string $applicationId, Request $request)
+    {
+        $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
+        if($nursingScholarshipApplication){
+            $checkReview = ReviewTable::where('applicantId', $nursingScholarshipApplication->applicantId)->first();
+            if($checkReview)
+            {
+                #update
+
+                #admission Letter
+                $checkReview->documentName = $request->admissionLetter;
+                $checkReview->status       = $request->admissionLetterStatus;
+                $checkReview->comments     = $request->admissionLettercomments;
+
+                #annexureII
+            
+
+                #photograph
+
+                #proofOfAge
+
+                #markSheets10
+
+                #markSheets12
+
+                #leprosyCertificateSelf
+
+                #leprosyCertificateMother
+
+                #leprosyCertificateFather
+
+            }else{
+                #create
+            }
+
+        }else{
+            return array('success' => false, 'msg'=>['No Data Found!']);
+        }
+    }
+
     
 } 

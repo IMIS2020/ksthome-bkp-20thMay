@@ -704,11 +704,14 @@ class NursingScholarshipApplicationController extends Controller
                 $instituteAddress->addressCountry   = 'India';
                 $instituteAddress->save();
 
-                $instituteDetails->instituteName = $request['instituteName'];
-                $instituteDetails->courseName    = $request['courseName'];
+                $instituteDetails->instituteName      = $institute['instituteName'];
+                $instituteDetails->courseName         = $institute['courseName'];
                 $instituteDetails->instituteAddressId = $instituteAddress->id;
+                $instituteDetails->applicantId        = $nursingScholarshipApplication->applicantId;
                 $instituteDetails->save();
 
+                $annexureI->courseName            = $institute['courseName'];
+                $annexureI->choice                = 1; 
                 $annexureI->courseLevel           = $request['courseLevel'];
                 $annexureI->choice1               = $request['choice']; 
                 $annexureI->applicantId           = $nursingScholarshipApplication->applicantId; 

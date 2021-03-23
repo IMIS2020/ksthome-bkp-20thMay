@@ -16,6 +16,7 @@ use App\ModelScholarship\HhdlScholarshipApplication;
 
 class ReviewHHDLSSController extends Controller
 {
+    private $PATH = 'uploads/HHDLSSScholarshipDocuments/';
        # Get HHDLSS Scholarship Application
        public function getHHDLSSScholarshipApplication(string $applicationId)
        {
@@ -29,7 +30,7 @@ class ReviewHHDLSSController extends Controller
                $applicantEducationDetails1 = (count($applicantEducationDetails)>0)? $applicantEducationDetails[0] : null;
                $applicantEducationDetails2 = (count($applicantEducationDetails)>1)? $applicantEducationDetails[1] : null;
                $applicantEducationDetails3 = (count($applicantEducationDetails)>2)? $applicantEducationDetails[2] : null;
-               $applicantEducationDetails4 = (count($applicantEducationDetails)>3)? $applicantEducationDetails[3] : null;
+               
    
                if ($hhdlScholarshipApplication->hasAdmissionLetter == 'YES') {
                    $instituteDetails = InstituteDetails::where('id', $hhdlScholarshipApplication->instituteId)->first();
@@ -37,7 +38,7 @@ class ReviewHHDLSSController extends Controller
                }
                
                $data = [];
-   
+
                $data['created_at']                         = $hhdlScholarshipApplication->created_at;
                $data['financialYear']                      = $hhdlScholarshipApplication->financialYear;
                $data['applicationId']                      = $hhdlScholarshipApplication->applicationId;
@@ -71,7 +72,6 @@ class ReviewHHDLSSController extends Controller
                $data['addressPinzip']                      = $applicantAddress->addressPinzip;
                $data['addressCountry']                     = $applicantAddress->addressCountry;
                
-               
                $data['insName']                            = (isset($instituteDetails))?$instituteDetails->instituteName:'';
                $data['insAddressAddln1']                   = (isset($instituteAddress))?$instituteAddress->addressAddln1:'';
                $data['insAddressAddln2']                   = (isset($instituteAddress))?$instituteAddress->addressAddln2:'';
@@ -80,6 +80,7 @@ class ReviewHHDLSSController extends Controller
                $data['insAddressState']                    = (isset($instituteAddress))?$instituteAddress->addressState:'';
                $data['insAddressPinzip']                   = (isset($instituteAddress))?$instituteAddress->addressPinzip:'';
    
+               $data['education1ExaminationLevel']         =  json_decode(json_encode($applicantEducationDetails1),true)['examinationLevel'];
                $data['education1ExaminationPassed']        =  json_decode(json_encode($applicantEducationDetails1),true)['examinationPassed'];
                $data['education1University']               =  json_decode(json_encode($applicantEducationDetails1),true)['universityBoardCouncil'];
                $data['education1MainSubjects']             =  json_decode(json_encode($applicantEducationDetails1),true)['mainSubjects'];
@@ -87,6 +88,7 @@ class ReviewHHDLSSController extends Controller
                $data['education1Percentage']               =  json_decode(json_encode($applicantEducationDetails1),true)['percentage'];
                $data['education1Division']                 =  json_decode(json_encode($applicantEducationDetails1),true)['division'] ; 
                
+               $data['education2ExaminationLevel']         =  json_decode(json_encode($applicantEducationDetails2),true)['examinationLevel'];
                $data['education2ExaminationPassed']        =  json_decode(json_encode($applicantEducationDetails2),true)['examinationPassed'];
                $data['education2University']               =  json_decode(json_encode($applicantEducationDetails2),true)['universityBoardCouncil'];
                $data['education2MainSubjects']             =  json_decode(json_encode($applicantEducationDetails2),true)['mainSubjects'];
@@ -94,6 +96,7 @@ class ReviewHHDLSSController extends Controller
                $data['education2Percentage']               =  json_decode(json_encode($applicantEducationDetails2),true)['percentage'];
                $data['education2Division']                 =  json_decode(json_encode($applicantEducationDetails2),true)['division'] ; 
    
+               $data['education3ExaminationLevel']         =  json_decode(json_encode($applicantEducationDetails3),true)['examinationLevel'];
                $data['education3ExaminationPassed']        =  json_decode(json_encode($applicantEducationDetails3),true)['examinationPassed'];
                $data['education3University']               =  json_decode(json_encode($applicantEducationDetails3),true)['universityBoardCouncil'];
                $data['education3MainSubjects']             =  json_decode(json_encode($applicantEducationDetails3),true)['mainSubjects'];
@@ -101,14 +104,8 @@ class ReviewHHDLSSController extends Controller
                $data['education3Percentage']               =  json_decode(json_encode($applicantEducationDetails3),true)['percentage'];
                $data['education3Division']                 =  json_decode(json_encode($applicantEducationDetails3),true)['division'] ; 
    
-               $data['education4ExaminationPassed']        =  json_decode(json_encode($applicantEducationDetails4),true)['examinationPassed'];
-               $data['education4University']               =  json_decode(json_encode($applicantEducationDetails4),true)['universityBoardCouncil'];
-               $data['education4MainSubjects']             =  json_decode(json_encode($applicantEducationDetails4),true)['mainSubjects'];
-               $data['education4YearOfPassing']            =  json_decode(json_encode($applicantEducationDetails4),true)['yearOfPassing'];
-               $data['education4Percentage']               =  json_decode(json_encode($applicantEducationDetails4),true)['percentage'];
-               $data['education4Division']                 =  json_decode(json_encode($applicantEducationDetails4),true)['division'] ; 
-               
    
+            
                $data = json_decode(json_encode($data));
                return array('success' => true, 'msg'=>['Data Found!'], 'data'=>$data);
            } else {
@@ -179,9 +176,9 @@ class ReviewHHDLSSController extends Controller
                $data['markSheets10']       = ($applicantDocuments->markSheets10)?Storage::url($this->PATH.$applicantDocuments->markSheets10):'#';
                $data['markSheets12']       = ($applicantDocuments->markSheets12)?Storage::url($this->PATH.$applicantDocuments->markSheets12):'#';
               
-               $data['leprosyCertificateSelf'] = ($applicantDocuments->leprosyCertificateSelf)?Storage::url($this->PATH.$applicantDocuments->leprosyCertificateSelf):'#';
-            $data['leprosyCertificateMother'] = ($applicantDocuments->leprosyCertificateMother)?Storage::url($this->PATH.$applicantDocuments->leprosyCertificateMother):'#';
-            $data['leprosyCertificateFather'] = ($applicantDocuments->leprosyCertificateFather)?Storage::url($this->PATH.$applicantDocuments->leprosyCertificateFather):'#';
+            $data['leprosyCertificateSelf']    = ($applicantDocuments->leprosyCertificateSelf)?Storage::url($this->PATH.$applicantDocuments->leprosyCertificateSelf):'#';
+            $data['leprosyCertificateMother']  = ($applicantDocuments->leprosyCertificateMother)?Storage::url($this->PATH.$applicantDocuments->leprosyCertificateMother):'#';
+            $data['leprosyCertificateFather']  = ($applicantDocuments->leprosyCertificateFather)?Storage::url($this->PATH.$applicantDocuments->leprosyCertificateFather):'#';
    
                $data = json_decode(json_encode($data));
                return array('success' => true, 'msg'=>['Data Found!'], 'data'=>$data);

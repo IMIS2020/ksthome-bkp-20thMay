@@ -72,6 +72,8 @@ class AdminSystemController extends Controller
         return view('admin.ApplicationDetails.reviewNursing.applicationFormNursing');
       }
 
+      
+
       public function reviewNursingAnnexure1()
       {
         return view('admin.ApplicationDetails.reviewNursing.Annexure1Nursing');

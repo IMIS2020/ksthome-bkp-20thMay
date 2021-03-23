@@ -22,6 +22,7 @@ class HhdlScholarshipApplication extends Migration
             $table->string('recognizedByGI')->nullable();
             $table->string('financialYear');
             $table->string('status')->default('Saved');
+            $table->string('scholarshipType')->default('HHDLSS');
             $table->unsignedBigInteger('applicantId');
             $table->unsignedBigInteger('userId');
             $table->timestamps();

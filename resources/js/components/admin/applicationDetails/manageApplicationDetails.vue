@@ -189,18 +189,21 @@
                                                     <th class="text-center w-5x">Action</th>
                                                 </tr>
                                             </thead>
-                                            <tbody  class="h-41x font-sm">
+                                            <tbody style="color:#000;"  class="h-41x font-sm ">
                                                 <tr v-for="(eachUser,i) in allUsers" :key="i">
                                                     <td class="w-10x">{{eachUser[0].financialYear}}</td>
-                                                    <td>{{eachUser[0].applicationId}}<br></td>
+                                                    <td>{{eachUser[0].applicationId}}<br>Applied for :{{eachUser[0].scholarshipType}} Scholarship</td>
                                                     <td>{{eachUser[1].applicantNameF}} {{(eachUser[1].applicantNameM)?" "+eachUser[1].applicantNameM:''}} {{eachUser[1].applicantNameL}},<br>Gender: {{eachUser[1].applicantGender}}, <br>Age: 25 Yrs. 6 months 25 days</td>
-                                                    <td><em>{{eachUser[1].applicantContactNoSelf}},</em><br><em>{{eachUser[1].applicantEmailId}}</em></td>
-                                                    <td>{{eachUser[1].get_address.addressAddln1}} {{eachUser[1].get_address.addressAddln2}}<br>{{eachUser[1].get_address.addressCity}} {{eachUser[1].get_address.addressDistprov}} <br> {{eachUser[1].get_address.addressState}} - {{eachUser[1].get_address.addressPinzip}} </td>
+                                                    <td>{{eachUser[1].applicantContactNoSelf}},<br>{{eachUser[1].applicantEmailId}}</td>
+                                                    <td>{{eachUser[1].get_address.addressAddln1}} {{eachUser[1].get_address.addressAddln2}},<br>{{eachUser[1].get_address.addressCity}},Dist:{{eachUser[1].get_address.addressDistprov}} <br> {{eachUser[1].get_address.addressState}} - {{eachUser[1].get_address.addressPinzip}} </td>
                                                     <td class="text-center w-10x">{{(eachUser[1].created_at.split('T')[0].split('-').reverse().join('/'))}}</td>
-                                                    <td class="text-center">Submitted with pending documents<br><span class="badge badge-success"></span></td>
+                                                    <td class="text-center "><span class="badge badge-warning">Submitted with pending documents<br></span></td>
                                                     <td class="text-center w-5x">
                                                         <div class="dropdown no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
-                                                            <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in"><router-link class="dropdown-item" :to="'/admin/review-nursing-application-form/'+eachUser[0].applicationId"><strong>Review</strong></router-link></div>
+                                                            <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in">
+                                                              <router-link v-if="eachUser[0].scholarshipType == 'Nursing'" class="dropdown-item" :to="'/admin/review-nursing-application-form/'+eachUser[0].applicationId"><strong>Review</strong></router-link>
+                                                              <router-link v-else class="dropdown-item" :to="'/admin/review-HHDLSS-application-form/'+eachUser[0].applicationId"><strong>Review</strong></router-link>
+                                                         </div>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -240,7 +243,7 @@ export default {
             .then(response =>{
                  console.log(this.allUsers = response.data)
             })
-        },
+    },
    
   },
     created()

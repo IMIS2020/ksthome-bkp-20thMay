@@ -185,30 +185,30 @@ const app32 = new Vue({
 
 // Review-hhdlss
 
-// const app33 = new Vue({
-//   el: '#applicationFormNursing',
-//   router: new VueRouter(routes)
-// });
+const app33 = new Vue({
+  el: '#applicationFormHHDLSS',
+  router: new VueRouter(routes)
+});
 
-// const app34 = new Vue({
-//   el: '#annexure1Nursing',
-//   router: new VueRouter(routes)
-// });
+const app34 = new Vue({
+  el: '#annexure1HHDLSS',
+  router: new VueRouter(routes)
+});
 
-// const app35 = new Vue({
-//   el: '#annexure2Nursing',
-//   router: new VueRouter(routes)
-// });
+const app35 = new Vue({
+  el: '#annexure2HHDLSS',
+  router: new VueRouter(routes)
+});
 
-// const app36 = new Vue({
-//   el: '#uploadDocumentsNursing',
-//   router: new VueRouter(routes)
-// });
+const app36 = new Vue({
+  el: '#uploadDocumentsHHDLSS',
+  router: new VueRouter(routes)
+});
 
-// const app37 = new Vue({
-//   el: '#reviewNursing',
-//   router: new VueRouter(routes)
-// });
+const app37 = new Vue({
+  el: '#reviewHHDLSS',
+  router: new VueRouter(routes)
+});
 // End hhdlss
 
 const app38 = new Vue({

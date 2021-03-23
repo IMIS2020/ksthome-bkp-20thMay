@@ -124,7 +124,6 @@
     <!-- Nursing End -->
 
     <!-- HHDLSS Start -->
-
     <div id="applicationFormHHDLSS">
       @yield('applicationFormHHDLSS')
     </div>
@@ -161,11 +160,7 @@
       @yield('printViewHHDLSS')
     </div>
      
-    <!-- Admin Section -->
-
-
-
-
+ 
     <script src="{{ asset('js/app.js') }}"></script>
     <!-- <script src="{{asset('assets/js/jquery.min.js')}}"></script>
     <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>

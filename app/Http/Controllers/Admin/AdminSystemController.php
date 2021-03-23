@@ -69,56 +69,56 @@ class AdminSystemController extends Controller
   //Review nursing
       public function reviewNursingApplicationForm()
       {
-        return view('admin.ApplicationDetails.reviewNursing.applicationFormNursing');
+        return view('admin.applicationDetails.reviewNursing.applicationFormNursing');
       }
 
       
 
       public function reviewNursingAnnexure1()
       {
-        return view('admin.ApplicationDetails.reviewNursing.Annexure1Nursing');
+        return view('admin.applicationDetails.reviewNursing.annexure1Nursing');
       }
 
       public function reviewNursingAnnexure2()
       {
-        return view('admin.ApplicationDetails.reviewNursing.Annexure2Nursing');
+        return view('admin.applicationDetails.reviewNursing.annexure2Nursing');
       }
 
       public function reviewNursingUploadDocuments()
       {
-        return view('admin.ApplicationDetails.reviewNursing.uploadDocumentsNursing');
+        return view('admin.applicationDetails.reviewNursing.uploadDocumentsNursing');
       }
 
       public function reviewNursingReview()
       {
-        return view('admin.ApplicationDetails.reviewNursing.reviewNursing');
+        return view('admin.applicationDetails.reviewNursing.reviewNursing');
       }
 
 
     // REVIEW-HHDLSS
       public function reviewHHDLSSApplicationForm()
       {
-        return view('admin.ApplicationDetails.reviewHHDLSS.applicationFormHHDLSS');
+        return view('admin.applicationDetails.reviewHHDLSS.applicationFormHHDLSS');
       }
 
       public function reviewHHDLSSAnnexure1()
       {
-        return view('admin.ApplicationDetails.reviewHHDLSS.Annexure1HHDLSS');
+        return view('admin.applicationDetails.reviewHHDLSS.annexure1HHDLSS');
       }
 
       public function reviewHHDLSSAnnexure2()
       {
-        return view('admin.ApplicationDetails.reviewHHDLSS.Annexure2HHDLSS');
+        return view('admin.applicationDetails.reviewHHDLSS.annexure2HHDLSS');
       }
 
       public function reviewHHDLSSUploadDocuments()
       {
-        return view('admin.ApplicationDetails.reviewHHDLSS.uploadDocumentsHHDLSS');
+        return view('admin.applicationDetails.reviewHHDLSS.uploadDocumentsHHDLSS');
       }
 
       public function reviewHHDLSSReview()
       {
-        return view('admin.ApplicationDetails.reviewHHDLSS.reviewHHDLSS');
+        return view('admin.applicationDetails.reviewHHDLSS.reviewHHDLSS');
       }
 
 

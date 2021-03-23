@@ -1,4 +1,4 @@
 @extends('layouts.adminLayout')
-@section('applicationFormHHDLSS')
+@section('applicationFormHHDLSSReview')
 <router-view></router-view>
 @endsection

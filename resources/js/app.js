@@ -158,55 +158,53 @@ const app27 = new Vue({
 });
 // Nursing
 const app28 = new Vue({
-  el: '#applicationFormNursing',
+  el: '#applicationFormNursingReview',
   router: new VueRouter(routes)
 });
 
 const app29 = new Vue({
-  el: '#annexure1Nursing',
+  el: '#annexure1NursingReview',
   router: new VueRouter(routes)
 });
 
 const app30 = new Vue({
-  el: '#annexure2Nursing',
+  el: '#annexure2NursingReview',
   router: new VueRouter(routes)
 });
 
 const app31 = new Vue({
-  el: '#uploadDocumentsNursing',
+  el: '#uploadDocumentsNursingReview',
   router: new VueRouter(routes)
 });
 
 const app32 = new Vue({
-  el: '#reviewNursing',
+  el: '#reviewNursingReview',
   router: new VueRouter(routes)
 });
 
-
-// Review-hhdlss
-
+// Review-hhdlss start
 const app33 = new Vue({
-  el: '#applicationFormHHDLSS',
+  el: '#applicationFormHHDLSSReview',
   router: new VueRouter(routes)
 });
 
 const app34 = new Vue({
-  el: '#annexure1HHDLSS',
+  el: '#annexure1HHDLSSReview',
   router: new VueRouter(routes)
 });
 
 const app35 = new Vue({
-  el: '#annexure2HHDLSS',
+  el: '#annexure2HHDLSSReview',
   router: new VueRouter(routes)
 });
 
 const app36 = new Vue({
-  el: '#uploadDocumentsHHDLSS',
+  el: '#uploadDocumentsHHDLSSReview',
   router: new VueRouter(routes)
 });
 
 const app37 = new Vue({
-  el: '#reviewHHDLSS',
+  el: '#reviewHHDLSSReview',
   router: new VueRouter(routes)
 });
 // End hhdlss

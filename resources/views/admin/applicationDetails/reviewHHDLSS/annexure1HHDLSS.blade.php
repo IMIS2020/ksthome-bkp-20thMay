@@ -1,4 +1,4 @@
 @extends('layouts.adminLayout')
-@section('annexure1HHDLSS')
+@section('annexure1HHDLSSReview')
 <router-view></router-view>
 @endsection

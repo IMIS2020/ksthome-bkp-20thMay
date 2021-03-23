@@ -1,4 +1,4 @@
 @extends('layouts.adminLayout')
-@section('reviewHHDLSS')
+@section('reviewHHDLSSReview')
 <router-view></router-view>
 @endsection

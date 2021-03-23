@@ -1,4 +1,4 @@
 @extends('layouts.adminLayout')
-@section('annexure2Nursing')
+@section('annexure2NursingReview')
 <router-view></router-view>
 @endsection

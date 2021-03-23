@@ -54,47 +54,47 @@
     </div>
 
 <!-- review-nursing -->
-    <div id="applicationFormNursing">
-      @yield('applicationFormNursing')
+    <div id="applicationFormNursingReview">
+      @yield('applicationFormNursingReview')
     </div>
 
-    <div id="annexure1Nursing">
-      @yield('annexure1Nursing')
+    <div id="annexure1NursingReview">
+      @yield('annexure1NursingReview')
     </div>
 
-    <div id="annexure2Nursing">
-      @yield('annexure2Nursing')
+    <div id="annexure2NursingReview">
+      @yield('annexure2NursingReview')
     </div>
 
-    <div id="uploadDocumentsNursing">
-      @yield('uploadDocumentsNursing')
+    <div id="uploadDocumentsNursingReview">
+      @yield('uploadDocumentsNursingReview')
     </div>
 
-    <div id="reviewNursing">
-      @yield('reviewNursing')
+    <div id="reviewNursingReview">
+      @yield('reviewNursingReview')
     </div>
 
     <!-- Start HHDLSS -->
-    <div id="applicationFormHHDLSS">
-      @yield('applicationFormHHDLSS')
+    <div id="applicationFormHHDLSSReview">
+      @yield('applicationFormHHDLSSReview')
     </div>
 
-    <div id="annexure1HHDLSS">
-      @yield('annexure1HHDLSS')
+    <div id="annexure1HHDLSSReview">
+      @yield('annexure1HHDLSSReview')
     </div>
 
-    <div id="annexure2HHDLSS">
-      @yield('annexure2HHDLSS')
+    <div id="annexure2HHDLSSReview">
+      @yield('annexure2HHDLSSReview')
     </div>
 
-    <div id="uploadDocumentsHHDLSS">
-      @yield('uploadDocumentsHHDLSS')
+    <div id="uploadDocumentsHHDLSSReview">
+      @yield('uploadDocumentsHHDLSSReview')
     </div>
 
-    <div id="reviewHHDLSS">
-      @yield('reviewHHDLSS')
+    <div id="reviewHHDLSSReview">
+      @yield('reviewHHDLSSReview')
     </div>
-    <!-- End HHDLSS -->
+ <!-- End HHDLSS -->
 
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{asset('assets/js/jquery.min.js')}}"></script>

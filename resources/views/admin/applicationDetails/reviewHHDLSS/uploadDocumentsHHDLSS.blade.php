@@ -1,4 +1,4 @@
 @extends('layouts.adminLayout')
-@section('uploadDocumentsHHDLSS')
+@section('uploadDocumentsHHDLSSReview')
 <router-view></router-view>
 @endsection

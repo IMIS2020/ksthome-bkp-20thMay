@@ -124,14 +124,14 @@
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div>
-                                       <!-- <ul role="tablist" class="nav nav-tabs font-sm">
+                                       <ul role="tablist" class="nav nav-tabs font-sm">
                                           <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-HHDLSS-application-form/'+getdata.applicationId"><strong>Application Form</strong></router-link></li>
                                           <li class="nav-item" role="presentation" v-if="getdata.hasAdmissionLetter === 'NO'"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-HHDLSS-annexure-1/'+getdata.applicationId"><strong>Annexure-I</strong></router-link></li>
                                           <li class="nav-item " role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-I</strong></router-link></li>
                                           <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-HHDLSS-annexure-2/'+getdata.applicationId"><strong>Annexure-II</strong></router-link></li>
                                           <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-HHDLSS-upload-documents/'+getdata.applicationId"><strong>Upload Documents</strong></router-link></li>
                                           <li class="nav-item" role="presentation"><router-link class="nav-link   active" role="tab" data-toggle="tab" :to="'/admin/review-HHDLSS-review-submit/'+getdata.applicationId"><strong>Review &amp; Submit</strong></router-link></li>
-                                       </ul> -->
+                                       </ul>
                                         <div class="tab-content">
                                             <div class="tab-pane adm-tab active" role="tabpanel" id="tab-5">
                                                 <form>

@@ -75,7 +75,7 @@
                                                                         </div>
                                                                 </div>
                                                                 <div class="col-xl-3 align-self-center">
-                                                                    <label>Who is affected by leprosy:&nbsp;</label>
+                                                                    <label>Who is affected by leprosy:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedMother" id="formCheck-4"><label class="form-check-label font-md" for="formCheck-1">Mother</label></div>
                                                                         <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedFather" id="formCheck-2"><label class="form-check-label font-md" for="formCheck-2">Father</label></div>
@@ -83,7 +83,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-3">
-                                                                    <label>whether family has a BPL card:&nbsp;</label>
+                                                                    <label>whether family has a BPL card:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <select class="form-control form-control-sm" v-model="form.applicantHasBPLCard"  required>
                                                                             <option value="" disabled>--Select--</option>
@@ -93,7 +93,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-2">
-                                                                    <label>Domicile state</label>
+                                                                    <label>Domicile state&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <select class="form-control form-control-sm" v-model="form.applicantDomicileState" required>
                                                                             <option value="" disabled>--Select--</option>
@@ -147,20 +147,20 @@
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="form-row">
-                                                                <div class="col-xl-4">
-                                                                    <label>House No and Colony Name / Address Line 1</label>
+                                                                <div class="col-xl-5">
+                                                                    <label>House No and Colony Name / Address Line 1&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.addressAddln1"  required>
                                                                     </div>
                                                                 </div>
                                                                 
-                                                                <div class="col-xl-4">
+                                                                <div class="col-xl-5">
                                                                     <label>Address Line 2</label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.addressAddln2">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-xl-4">
+                                                                <div class="col-xl-2">
                                                                     <label>City</label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.addressCity">
@@ -174,7 +174,7 @@
                                                                 </div>
                                                                 
                                                                 <div class="col-xl-3">
-                                                                    <label>State</label>
+                                                                    <label>State&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group"> 
                                                                         <select class="form-control form-control-sm" v-model="form.addressState" required>
                                                                             <option value="" disabled>--Select--</option>
@@ -218,7 +218,7 @@
                                                                     </div>
                                                                 </div>
                                                                     <div class="col-xl-3">
-                                                                        <label>PIN/ZIP Code:</label>
+                                                                        <label>PIN/ZIP Code&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="number"  v-model="form.addressPinzip"  required>
                                                                     </div>
@@ -236,7 +236,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-3">
-                                                                    <label>Email ID:</label>
+                                                                    <label>Email ID&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="email" v-model="form.applicantEmailId" required>
                                                                     </div>
@@ -258,18 +258,18 @@
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="form-row">
-                                                                <div class="col-xl-12 mb-2"><label>Details of educational qualification: Matriculation/ Higher Secondary:<br></label>
+                                                                <div class="col-xl-12 mb-2"><label>Details of educational qualification Matriculation/ Higher Secondary:<br></label>
                                                                     <div class="table-responsive font-md">
                                                                         <table class="table table-sm mb-0">
                                                                             <thead class="font-sm color-mg">
                                                                                 <tr>
-                                                                                    <th>Examination Level</th>
-                                                                                    <th>Examination Passed</th>
-                                                                                    <th>University/ Board/ Council</th>
-                                                                                    <th>Main Subjects</th>
-                                                                                    <th>Year of Passing</th>
-                                                                                    <th>Percentage(%)</th>
-                                                                                    <th>Division</th>
+                                                                                    <th>Examination Level&nbsp;<span class="text-danger"><strong>*</strong></span></th>
+                                                                                    <th>Examination Passed&nbsp;<span class="text-danger"><strong>*</strong></span></th>
+                                                                                    <th>University/ Board/ Council&nbsp;<span class="text-danger"><strong>*</strong></span></th>
+                                                                                    <th>Main Subjects&nbsp;<span class="text-danger"><strong>*</strong></span></th>
+                                                                                    <th>Year of Passing&nbsp;<span class="text-danger"><strong>*</strong></span></th>
+                                                                                    <th>Percentage(%)&nbsp;<span class="text-danger"><strong>*</strong></span></th>
+                                                                                    <th>Division&nbsp;<span class="text-danger"><strong>*</strong></span></th>
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
@@ -431,7 +431,7 @@
                                                             <div class="form-row">
                                                                 <div class="col-xl-4 align-self-center mb-2">
                                                                     <p class="color-mg font-md mb-0">
-                                                                        <strong>Do you have Admission letter / Call letter:&nbsp;</strong><br></p>
+                                                                        <strong>Do you have Admission letter / Call letter:&nbsp;<span class="text-danger"><strong>*</strong></span></strong><br></p>
                                                                 </div>
                                                                 <div class="col-xl-2 align-self-center mb-2">
                                                                     <div class="form-group mb-0">
@@ -443,10 +443,10 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-12 mb-2">
-                                                                    <label class="col-form-label">Name of the course you have been selected for:<br></label>
+                                                                    <label class="col-form-label">Name of the course you have been selected for:&nbsp;<span class="text-danger"><strong>*</strong></span><br></label>
                                                                 </div>
                                                                 <div class="col-xl-6">
-                                                                    <label>Name of the course</label>
+                                                                    <label>Name of the course&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.insCourse" :disabled="inputDisabled" required>
                                                                     </div>
@@ -458,7 +458,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-4">
-                                                                    <label>Address Line 1</label>
+                                                                    <label>Address Line 1&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.insAddressAddln1" :disabled="inputDisabled" required>
                                                                     </div>
@@ -466,24 +466,24 @@
                                                                 <div class="col-xl-4">
                                                                     <label>Address Line 2</label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insAddressAddln2" :disabled="inputDisabled" required>
+                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insAddressAddln2" :disabled="inputDisabled" >
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-2">
                                                                     <label>City</label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insAddressCity" :disabled="inputDisabled" required>
+                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insAddressCity" :disabled="inputDisabled" >
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-2">
                                                                     <label>District</label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insAddressDistprov" :disabled="inputDisabled" required>
+                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insAddressDistprov" :disabled="inputDisabled" >
                                                                     </div>
                                                                 </div>
                                                                 
                                                                 <div class="col-xl-3">
-                                                                    <label>State</label>
+                                                                    <label>State&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <select class="form-control form-control-sm" v-model="form.insAddressState" :disabled="inputDisabled" required>
                                                                             <option value="" disabled>--Select--</option>
@@ -528,12 +528,12 @@
                                                                 </div>
 
                                                                     <div class="col-xl-3">
-                                                                    <label>PIN/ZIP Code:</label>
+                                                                    <label>PIN/ZIP Code&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.insAddressPinzip" :disabled="inputDisabled" required>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-xl-3"><label>Whether recognized by Indian Nursing Council<br></label>
+                                                                <div class="col-xl-3"><label>Whether recognized by Indian Nursing Council&nbsp;<span class="text-danger"><strong>*</strong></span><br></label>
                                                                     <div class="form-group">
                                                                         <select class="form-control form-control-sm" v-model="form.recognizedByINC" :disabled="inputDisabled" required>
                                                                                 <option value="" disabled >--Select--</option>

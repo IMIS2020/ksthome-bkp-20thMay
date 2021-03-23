@@ -152,36 +152,49 @@
                                                                             </thead>
                                                                             <tbody>
                                                                                 <tr>
-                                                                                    <td>Application No. IMIS-HHDLSCH00058 for HHDL Scholarship<br /></td>
-                                                                                    <td>Application Form<br /></td>
-                                                                                    <td class="text-center">N/A<br /></td>
-                                                                                    <td class="text-center pt-2"><a class="act-link ml-2" href="#"><i class="fa fa-download"></i></a><a class="act-link" href="#" data-toggle="modal" data-target="#vw-apo-form"><i class="fa fa-eye"></i></a></td>
+                                                                                    <td>Application No. {{getdata.applicationId}} for Nursing Scholarship<br /></td>
+                                                                                    <td>Application Form<br></td>
+                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge mt-2">{{(getdata.applicationId=== '')?'No Application':'Yes'}}</span><br></td>
+
+                                                                                        <td class="text-center pt-2" v-if="getdata.applicationId != '' ">
+                                                                                        <router-link target="_blank" class="act-link" to=""><i class="fa fa-download"></i></router-link>
+                                                                                        <router-link target="_blank" class="act-link" to=""><i class="fa fa-eye"></i></router-link>
+                                                                                    </td>
+                                                                                    <td class="text-center pt-2" v-else>
+                                                                                        <span class="act-link" style="color:#808080;"> <i class="fa fa-download"></i></span>
+                                                                                        <span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span>
+                                                                                    </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
                                                                                                 <option value selected>-- select --</option>
-                                                                                                <option value="14">Not OK</option>
-                                                                                                <option value="14">OK</option>
-                                                                                                <option value="14">Not Required</option>
-                                                                                                <option value="14">Required &amp; Missing</option>
-                                                                                            </select></div>
+                                                                                                <option value="OK">OK</option>
+                                                                                                <option value="Not OK">Not OK</option>
+                                                                                                <option value="Not Required">Not Required</option>
+                                                                                                <option value="Required & Missing">Required &amp; Missing</option>
+                                                                                            </select>
+                                                                                        </div>
                                                                                     </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
                                                                                     </td>
                                                                                 </tr>
-                                                                                <tr>
+                                                                                <tr v-if="getdata.hasAdmissionLetter == 'YES'">
                                                                                     <td>Annexure-I letter<br /></td>
                                                                                     <td>Attachment</td>
-                                                                                    <td class="text-center">N/A</td>
-                                                                                    <td class="text-center pt-2"><a class="act-link ml-2" href="#"><i class="fa fa-download"></i></a><a class="act-link" href="#" data-toggle="modal" data-target="#vw-apo-form"><i class="fa fa-eye"></i></a></td>
+                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge mt-2">{{(getdata.hasAdmissionLetter === 'YES')?'Yes':'No'}}</span></td>
+                                                                                    <td class="text-center pt-2">
+                                                                                        <a class="act-link ml-2" href="#"><i class="fa fa-download"></i></a>
+                                                                                        <a class="act-link" href="#" data-toggle="modal" data-target="#vw-apo-form"><i class="fa fa-eye"></i></a>
+                                                                                    </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
                                                                                                 <option value selected>-- select --</option>
-                                                                                                <option value="14">Not OK</option>
-                                                                                                <option value="14">OK</option>
-                                                                                                <option value="14">Not Required</option>
-                                                                                                <option value="14">Required &amp; Missing</option>
-                                                                                            </select></div>
+                                                                                                <option value="OK">OK</option>
+                                                                                                <option value="Not OK">Not OK</option>
+                                                                                                <option value="Not Required">Not Required</option>
+                                                                                                <option value="Required & Missing">Required &amp; Missing</option>
+                                                                                            </select>
+                                                                                        </div>
                                                                                     </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
@@ -190,16 +203,27 @@
                                                                                 <tr>
                                                                                     <td>Proof of admission in a recognized institute/ admission call letter issued by the institute<br /></td>
                                                                                     <td>Attachment<br /></td>
-                                                                                    <td class="text-center text-danger">NO<br /></td>
-                                                                                    <td class="text-center pt-2"><a class="act-link ml-2" href="#"><i class="fa fa-download"></i></a><a class="act-link" href="#" data-toggle="modal" data-target="#vw-apo-form"><i class="fa fa-eye"></i></a></td>
+                                                                                    <td class="text-center "><span class="badge badge-pill badge-primary cs-badge mt-2">{{(getFiles.admissionLetter === '#')?'No':'Yes'}}</span><br /></td>
+
+                                                                                    <td class="text-center pt-2" v-if="getFiles.admissionLetter !== '#'">
+                                                                                        <router-link target="_blank" class="act-link" :to="''+getFiles.admissionLetter"><i class="fa fa-download"></i></router-link>
+                                                                                        <router-link class="act-link" to ="" data-toggle="modal" data-target="#vw-apo-form1"><i class="fa fa-eye"></i></router-link>
+                                                                                    </td>
+                                                                                    <td class="text-center pt-2" v-else>
+                                                                                        <span class="act-link" style="color:#808080;"> <i class="fa fa-download"></i></span>
+                                                                                        <span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span>
+                                                                                    </td>
+                                                                                        
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
+                                                                                        <div class="form-group mb-0">
+                                                                                            <select class="form-control form-control-sm font-s">
                                                                                                 <option value selected>-- select --</option>
-                                                                                                <option value="14">Not OK</option>
-                                                                                                <option value="14">OK</option>
-                                                                                                <option value="14">Not Required</option>
-                                                                                                <option value="14">Required &amp; Missing</option>
-                                                                                            </select></div>
+                                                                                                <option value="OK">OK</option>
+                                                                                                <option value="Not OK">Not OK</option>
+                                                                                                <option value="Not Required">Not Required</option>
+                                                                                                <option value="Required & Missing">Required &amp; Missing</option>
+                                                                                            </select>
+                                                                                        </div>
                                                                                     </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
@@ -207,17 +231,31 @@
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td>Annexure-II letter from colony leader stating the candidate is residing in the colony<br /></td>
-                                                                                    <td>Attachment<br /></td>
-                                                                                    <td class="text-center">Yes<br /></td>
-                                                                                    <td class="text-center pt-2"><a class="act-link ml-2" href="#"><i class="fa fa-download"></i></a><a class="act-link" href="#" data-toggle="modal" data-target="#vw-apo-form"><i class="fa fa-eye"></i></a></td>
+                                                                                    <td>Attachment<br></td>
+                                                                                   <td class="text-center "><span class="badge badge-pill badge-primary cs-badge mt-2">{{(getFiles.annexureII === '#')?'No':'Yes'}}</span><br /></td>
+
+                                                                                    <td class="text-center pt-2" v-if="getFiles.annexureII !== '#'">
+                                                                                       <router-link target="_blank" class="act-link" :to="''+getFiles.annexureII"><i class="fa fa-download"></i></router-link>
+                                                                                       <router-link class="act-link" to="" data-toggle="modal" data-target="#vw-apo-form2"><i class="fa fa-eye"></i></router-link>
+                                                                                    </td>
+
+                                                                                     <td class="text-center pt-2" v-else>
+                                                                                       <span class="act-link" style="color:#808080;"> <i class="fa fa-download"></i></span>
+                                                                                       <span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span>
+                                                                                    </td>
+
+
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
+                                                                                        <div class="form-group mb-0">
+                                                                                            <select class="form-control form-control-sm font-s">
                                                                                                 <option value selected>-- select --</option>
-                                                                                                <option value="14">Not OK</option>
-                                                                                                <option value="14">OK</option>
-                                                                                                <option value="14">Not Required</option>
-                                                                                                <option value="14">Required &amp; Missing</option>
-                                                                                            </select></div>
+                                                                                              
+                                                                                                <option value="OK">OK</option>
+                                                                                                <option value="Not OK">Not OK</option>
+                                                                                                <option value="Not Required">Not Required</option>
+                                                                                                <option value="Required & Missing">Required &amp; Missing</option>
+                                                                                            </select>
+                                                                                        </div>
                                                                                     </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
@@ -226,16 +264,29 @@
                                                                                 <tr>
                                                                                     <td>Passport size photograph<br /></td>
                                                                                     <td>Attachment<br /></td>
-                                                                                    <td class="text-center">Yes<br /></td>
-                                                                                    <td class="text-center pt-2"><a class="act-link ml-2" href="#"><i class="fa fa-download"></i></a><a class="act-link" href="#" data-toggle="modal" data-target="#vw-apo-form"><i class="fa fa-eye"></i></a></td>
+                                                                                    <td class="text-center "><span class="badge badge-pill badge-primary cs-badge mt-2">{{(getFiles.photograph === '#')?'No':'Yes'}}</span><br /></td>
+
+                                                                                    <td class="text-center pt-2" v-if="getFiles.photograph !== '#'">
+                                                                                       <router-link target="_blank" class="act-link" :to="''+getFiles.photograph"><i class="fa fa-download"></i></router-link>
+                                                                                       <router-link class="act-link" to="" data-toggle="modal" data-target="#vw-apo-form3"><i class="fa fa-eye"></i></router-link>
+                                                                                    </td>
+
+                                                                                     <td class="text-center pt-2" v-else>
+                                                                                       <span class="act-link" style="color:#808080;"><i class="fa fa-download"></i></span>
+                                                                                       <span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span>
+                                                                                    </td>
+
+
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
                                                                                                 <option value selected>-- select --</option>
-                                                                                                <option value="14">Not OK</option>
-                                                                                                <option value="14">OK</option>
-                                                                                                <option value="14">Not Required</option>
-                                                                                                <option value="14">Required &amp; Missing</option>
-                                                                                            </select></div>
+                                                                                              
+                                                                                                <option value="OK">OK</option>
+                                                                                                <option value="Not OK">Not OK</option>
+                                                                                                <option value="Not Required">Not Required</option>
+                                                                                                <option value="Required & Missing">Required &amp; Missing</option>
+                                                                                            </select>
+                                                                                        </div>
                                                                                     </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
@@ -244,16 +295,28 @@
                                                                                 <tr>
                                                                                     <td>Self attested Birth certificate/ proof of age<br /></td>
                                                                                     <td>Attachment<br /></td>
-                                                                                    <td class="text-center">Yes<br /></td>
-                                                                                    <td class="text-center pt-2"><a class="act-link ml-2" href="#"><i class="fa fa-download"></i></a><a class="act-link" href="#" data-toggle="modal" data-target="#vw-apo-form"><i class="fa fa-eye"></i></a></td>
+                                                                                    <td class="text-center "><span class="badge badge-pill badge-primary cs-badge mt-2">{{(getFiles.proofOfAge === '#')?'No':'Yes'}}</span><br /></td>
+
+                                                                                    <td class="text-center pt-2" v-if="getFiles.proofOfAge !== '#'">
+                                                                                       <router-link target="_blank" class="act-link" :to="''+getFiles.proofOfAge"><i class="fa fa-download"></i></router-link>
+                                                                                       <router-link class="act-link" to="" data-toggle="modal" data-target="#vw-apo-form4"><i class="fa fa-eye"></i></router-link>
+                                                                                    </td>
+
+                                                                                     <td class="text-center pt-2" v-else>
+                                                                                       <span class="act-link" style="color:#808080;"><i class="fa fa-download"></i></span>
+                                                                                       <span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span>
+                                                                                    </td>
+
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
                                                                                                 <option value selected>-- select --</option>
-                                                                                                <option value="14">Not OK</option>
-                                                                                                <option value="14">OK</option>
-                                                                                                <option value="14">Not Required</option>
-                                                                                                <option value="14">Required &amp; Missing</option>
-                                                                                            </select></div>
+                                                                                              
+                                                                                                <option value="OK">OK</option>
+                                                                                                <option value="Not OK">Not OK</option>
+                                                                                                <option value="Not Required">Not Required</option>
+                                                                                                <option value="Required & Missing">Required &amp; Missing</option>
+                                                                                            </select>
+                                                                                        </div>
                                                                                     </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
@@ -262,88 +325,143 @@
                                                                                 <tr>
                                                                                     <td>Self attested marksheet for 10th<br /></td>
                                                                                     <td>Attachment<br /></td>
-                                                                                    <td class="text-center">Yes<br /></td>
-                                                                                    <td class="text-center pt-2"><a class="act-link ml-2" href="#"><i class="fa fa-download"></i></a><a class="act-link" href="#" data-toggle="modal" data-target="#vw-apo-form"><i class="fa fa-eye"></i></a></td>
+                                                                                    <td class="text-center "><span class="badge badge-pill badge-primary cs-badge mt-2">{{(getFiles.markSheets10 === '#')?'No':'Yes'}}</span><br /></td>
+
+                                                                                    <td class="text-center pt-2" v-if="getFiles.markSheets10 !== '#'">
+                                                                                       <router-link target="_blank" class="act-link" :to="''+getFiles.markSheets10"><i class="fa fa-download"></i></router-link>
+                                                                                       <router-link class="act-link" to="" data-toggle="modal" data-target="#vw-apo-form5"><i class="fa fa-eye"></i></router-link>
+                                                                                    </td>
+
+                                                                                     <td class="text-center pt-2" v-else>
+                                                                                       <span class="act-link" style="color:#808080;"><i class="fa fa-download"></i></span>
+                                                                                       <span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span>
+                                                                                    </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
-                                                                                                <option value selected>-- select --</option>
-                                                                                                <option value="14">Not OK</option>
-                                                                                                <option value="14">OK</option>
-                                                                                                <option value="14">Not Required</option>
-                                                                                                <option value="14">Required &amp; Missing</option>
-                                                                                            </select></div>
+                                                                                              <option value selected>-- select --</option>
+                                                                                              
+                                                                                                <option value="OK">OK</option>
+                                                                                                <option value="Not OK">Not OK</option>
+                                                                                                <option value="Not Required">Not Required</option>
+                                                                                                <option value="Required & Missing">Required &amp; Missing</option>
+                                                                                            </select>
+                                                                                        </div>
                                                                                     </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td>Self attested marksheet for 12th/ Graduation<br /></td>
+                                                                                    <td>Self attested marksheet for 12th<br /></td>
                                                                                     <td>Attachment<br /></td>
-                                                                                    <td class="text-center">Yes<br /></td>
-                                                                                    <td class="text-center pt-2"><a class="act-link ml-2" href="#"><i class="fa fa-download"></i></a><a class="act-link" href="#" data-toggle="modal" data-target="#vw-apo-form"><i class="fa fa-eye"></i></a></td>
+                                                                                     <td class="text-center "><span class="badge badge-pill badge-primary cs-badge mt-2">{{(getFiles.markSheets12 === '#')?'No':'Yes'}}</span><br /></td>
+
+                                                                                    <td class="text-center pt-2" v-if="getFiles.markSheets12 !== '#'">
+                                                                                       <router-link target="_blank" class="act-link" :to="''+getFiles.markSheets12"><i class="fa fa-download"></i></router-link>
+                                                                                       <router-link class="act-link" to="" data-toggle="modal" data-target="#vw-apo-form6"><i class="fa fa-eye"></i></router-link>
+                                                                                    </td>
+
+                                                                                     <td class="text-center pt-2" v-else>
+                                                                                       <span class="act-link" style="color:#808080;"><i class="fa fa-download"></i></span>
+                                                                                       <span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span>
+                                                                                    </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
                                                                                                 <option value selected>-- select --</option>
-                                                                                                <option value="14">Not OK</option>
-                                                                                                <option value="14">OK</option>
-                                                                                                <option value="14">Not Required</option>
-                                                                                                <option value="14">Required &amp; Missing</option>
-                                                                                            </select></div>
+                                                                                              
+                                                                                                <option value="OK">OK</option>
+                                                                                                <option value="Not OK">Not OK</option>
+                                                                                                <option value="Not Required">Not Required</option>
+                                                                                                <option value="Required & Missing">Required &amp; Missing</option>
+                                                                                            </select>
+                                                                                        </div>
                                                                                     </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
                                                                                     </td>
                                                                                 </tr>
-                                                                                <tr>
+                                                                                <tr v-if="getdata.applicantLeprosyAffectedMother == true">
                                                                                     <td>Self attested Leprosy Certificate of Mother<br /></td>
                                                                                     <td>Attachment<br /></td>
-                                                                                    <td class="text-center">Yes<br /></td>
-                                                                                    <td class="text-center pt-2"><a class="act-link ml-2" href="#"><i class="fa fa-download"></i></a><a class="act-link" href="#" data-toggle="modal" data-target="#vw-apo-form"><i class="fa fa-eye"></i></a></td>
+                                                                                    <td class="text-center "><span class="badge badge-pill badge-primary cs-badge mt-2">{{(getFiles.leprosyCertificateMother === '#')?'No':'Yes'}}</span><br /></td>
+
+                                                                                    <td class="text-center pt-2" v-if="getFiles.leprosyCertificateMother !== '#'">
+                                                                                       <router-link target="_blank" class="act-link" :to="''+getFiles.leprosyCertificateMother"><i class="fa fa-download"></i></router-link>
+                                                                                       <router-link class="act-link" to="" data-toggle="modal" data-target="#vw-apo-form7"><i class="fa fa-eye"></i></router-link>
+                                                                                    </td>
+
+                                                                                     <td class="text-center pt-2" v-else>
+                                                                                       <span class="act-link" style="color:#808080;"><i class="fa fa-download"></i></span>
+                                                                                       <span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span>
+                                                                                    </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
-                                                                                                <option value selected>-- select --</option>
-                                                                                                <option value="14">Not OK</option>
-                                                                                                <option value="14">OK</option>
-                                                                                                <option value="14">Not Required</option>
-                                                                                                <option value="14">Required &amp; Missing</option>
-                                                                                            </select></div>
+                                                                                               <option value selected>-- select --</option>
+                                                                                              
+                                                                                                <option value="OK">OK</option>
+                                                                                                <option value="Not OK">Not OK</option>
+                                                                                                <option value="Not Required">Not Required</option>
+                                                                                                <option value="Required & Missing">Required &amp; Missing</option>
+                                                                                            </select>
+                                                                                        </div>
                                                                                     </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
                                                                                     </td>
                                                                                 </tr>
-                                                                                <tr>
+                                                                                <tr v-if="getdata.applicantLeprosyAffectedFather == true">
                                                                                     <td>Self attested Leprosy Certificate of Father<br /></td>
                                                                                     <td>Attachment<br /></td>
-                                                                                    <td class="text-center">Yes</td>
-                                                                                    <td class="text-center pt-2"><a class="act-link ml-2" href="#"><i class="fa fa-download"></i></a><a class="act-link" href="#" data-toggle="modal" data-target="#vw-apo-form"><i class="fa fa-eye"></i></a></td>
+                                                                                    <td class="text-center "><span class="badge badge-pill badge-primary cs-badge mt-2">{{(getFiles.leprosyCertificateFather === '#')?'No':'Yes'}}</span><br /></td>
+
+                                                                                    <td class="text-center pt-2" v-if="getFiles.leprosyCertificateFather !== '#'">
+                                                                                       <router-link target="_blank" class="act-link" :to="''+getFiles.leprosyCertificateFather"><i class="fa fa-download"></i></router-link>
+                                                                                       <router-link class="act-link" to="" data-toggle="modal" data-target="#vw-apo-form8"><i class="fa fa-eye"></i></router-link>
+                                                                                    </td>
+
+                                                                                     <td class="text-center pt-2" v-else>
+                                                                                       <span class="act-link" style="color:#808080;"><i class="fa fa-download"></i></span>
+                                                                                       <span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span>
+                                                                                    </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
                                                                                                 <option value selected>-- select --</option>
-                                                                                                <option value="14">Not OK</option>
-                                                                                                <option value="14">OK</option>
-                                                                                                <option value="14">Not Required</option>
-                                                                                                <option value="14">Required &amp; Missing</option>
-                                                                                            </select></div>
+                                                                                              
+                                                                                                <option value="OK">OK</option>
+                                                                                                <option value="Not OK">Not OK</option>
+                                                                                                <option value="Not Required">Not Required</option>
+                                                                                                <option value="Required & Missing">Required &amp; Missing</option>
+                                                                                            </select>
+                                                                                        </div>
                                                                                     </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
                                                                                     </td>
                                                                                 </tr>
-                                                                                <tr>
+                                                                                <tr v-if="getdata.applicantLeprosyAffectedSelf == true">
                                                                                     <td>Self attested Leprosy Certificate of Self<br /></td>
                                                                                     <td>Attachment<br /></td>
-                                                                                    <td class="text-center">Yes<br /></td>
-                                                                                    <td class="text-center pt-2"><a class="act-link ml-2" href="#"><i class="fa fa-download"></i></a><a class="act-link" href="#" data-toggle="modal" data-target="#vw-apo-form"><i class="fa fa-eye"></i></a></td>
+                                                                                     <td class="text-center "><span class="badge badge-pill badge-primary cs-badge mt-2">{{(getFiles.leprosyCertificateSelf === '#')?'No':'Yes'}}</span><br /></td>
+
+                                                                                    <td class="text-center pt-2" v-if="getFiles.leprosyCertificateSelf !== '#'">
+                                                                                       <router-link target="_blank" class="act-link" :to="''+getFiles.leprosyCertificateSelf"><i class="fa fa-download"></i></router-link>
+                                                                                       <router-link class="act-link" to="" data-toggle="modal" data-target="#vw-apo-form9"><i class="fa fa-eye"></i></router-link>
+                                                                                    </td>
+
+                                                                                     <td class="text-center pt-2" v-else>
+                                                                                       <span class="act-link" style="color:#808080;"><i class="fa fa-download"></i></span>
+                                                                                       <span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span>
+                                                                                    </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
                                                                                                 <option value selected>-- select --</option>
-                                                                                                <option value="14">Not OK</option>
-                                                                                                <option value="14">OK</option>
-                                                                                                <option value="14">Not Required</option>
-                                                                                                <option value="14">Required &amp; Missing</option>
-                                                                                            </select></div>
+                                                                                              
+                                                                                                <option value="OK">OK</option>
+                                                                                                <option value="Not OK">Not OK</option>
+                                                                                                <option value="Not Required">Not Required</option>
+                                                                                                <option value="Required & Missing">Required &amp; Missing</option>
+                                                                                            </select>
+                                                                                        </div>
                                                                                     </td>
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
@@ -354,7 +472,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-2 offset-xl-0 font-sm"><button class="btn btn-block btn-sm btn-mg font-sm" type="button"><strong>Save</strong></button></div>
-                                                                <div class="col-xl-2 offset-xl-0 font-sm"><button class="btn btn-block btn-sm btn-cancel font-sm" type="button"><strong>Cancel</strong></button></div>
+                                                                <div class="col-xl-2 offset-xl-0 font-sm"><router-link class="btn btn-block btn-sm btn-cancel font-sm" to="/admin/manage-application-details"><strong>Cancel</strong></router-link></div>
                                                                 <div class="col-xl-2 offset-xl-4"><button class="btn btn-block btn-sm btn-mg font-sm" data-toggle="modal" data-target="#accept-application-view" type="button"><strong>Accept</strong></button></div>
                                                                 <div class="col-xl-2 offset-xl-0 font-sm"><button class="btn btn-block btn-sm btn-mg font-sm" type="button" data-toggle="modal" data-target="#return-application-view"><strong>Return with comments</strong></button></div>
                                                                 <div class="col-xl-12 offset-xl-0">
@@ -370,7 +488,7 @@
                                                                                             <p class="mb-0 color-mg font-sm font-weight-bold">TO: </p>
                                                                                         </div>
                                                                                         <div class="col-xl-11 mb-2">
-                                                                                            <div class="form-group mb-0"><input type="email" class="form-control form-control-sm" placeholder="Email of Applicant" /></div>
+                                                                                            <div class="form-group mb-0"><input type="email" class="form-control form-control-sm" placeholder="Email of Applicant" v-model="getdata.applicantEmailId"></div>
                                                                                         </div>
                                                                                         <div class="col-xl-1 align-self-center mb-2">
                                                                                             <p class="mb-0 color-mg font-sm font-weight-bold">CC:</p>
@@ -382,17 +500,19 @@
                                                                                             <p class="mb-0 color-mg font-sm font-weight-bold">Subject:</p>
                                                                                         </div>
                                                                                         <div class="col-xl-11 mb-4">
-                                                                                            <div class="form-group mb-0"><select class="form-control form-control-sm">
-                                                                                                    <option value="12" selected>-- select --</option>
-                                                                                                    <option value="13">Acceptance of Application</option>
-                                                                                                    <option value="13">Provisional Acceptance of Application</option>
-                                                                                                </select></div>
+                                                                                            <div class="form-group mb-0">
+                                                                                                <select class="form-control form-control-sm">
+                                                                                                    <option value="" selected>-- select --</option>
+                                                                                                    <option value="Acceptance of Application">Acceptance of Application</option>
+                                                                                                    <option value="Provisional Acceptance of Application">Provisional Acceptance of Application</option>
+                                                                                                </select>
+                                                                                                </div>
                                                                                         </div>
                                                                                         <div class="col-xl-12 mb-2">
-                                                                                            <p class="mb-1 color-mg font-sm font-weight-bold">To, <span>Souvik Kundu</span></p>
-                                                                                            <p class="mb-3 color-mg font-sm font-weight-bold pl-4">Address Line 1, Address Line 2,<br />City/Town/Dist,<br />State, ZIP, Country</p>
+                                                                                            <p class="mb-1 color-mg font-sm font-weight-bold">To, <span>{{getdata.fullName}}</span></p>
+                                                                                            <p class="mb-3 color-mg font-sm font-weight-bold pl-4">{{getdata.addressAddln1}}, {{getdata.addressAddln2}},<br >{{getdata.addressCity}},Dist:{{getdata.addressDistprov}},<br />{{getdata.addressState}}- {{getdata.addressPinzip}}, {{getdata.addressCountry}}</p>
                                                                                             <p class="mb-2 color-mg font-sm font-weight-bold pl-4">Dear Applicant,<br /></p>
-                                                                                            <p class="mb-1 text-black font-sm pl-4">We have received your application for No. <span>APLNUSCH00058</span> for <span>Nursing</span> scholarship. We are <span>Provisionally Accepting</span> your application.<br /></p>
+                                                                                            <p class="mb-1 text-black font-sm pl-4">We have received your application for No. <span>{{getdata.applicationId}}</span> for <span>Nursing</span> scholarship. We are <span> </span> your application.<br /></p>
                                                                                             <p class="mb-2 text-black font-sm pl-4">Kindly check our comments on the documents submitted and re-submit as required.<br /></p>
                                                                                             <div class="table-responsive table-bordered font-ms rev-tbl pl-4">
                                                                                                 <table class="table table-bordered table-sm mb-0">
@@ -407,81 +527,87 @@
                                                                                                     </thead>
                                                                                                     <tbody>
                                                                                                         <tr>
-                                                                                                            <td>Application No. IMIS-HHDLSCH00058 for HHDL Scholarship<br /></td>
+                                                                                                            <td>Application No. {{getdata.applicationId}} for Nursing Scholarship<br /></td>
                                                                                                             <td>Application Form<br /></td>
-                                                                                                            <td class="text-center">N/A<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Not OK</td>
+                                                                                                            <td class="text-center">{{(getdata.applicationId=== '')?'No Application':'Yes'}}<br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                         <tr>
                                                                                                             <td>Annexure-I letter<br /></td>
                                                                                                             <td>Attachment</td>
-                                                                                                            <td class="text-center">N/A</td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Not Signed By Colony Leader</td>
+                                                                                                            <td class="text-center">{{(getFiles.admissionLetter === '#')?'No':'Yes'}}</td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                         <tr>
                                                                                                             <td>Proof of admission in a recognized institute/ admission call letter issued by the institute<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center text-danger">NO<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                            <td class="text-center">{{(getFiles.admissionLetter === '#')?'No':'Yes'}}<br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                         <tr>
                                                                                                             <td>Annexure-II letter from colony leader stating the candidate is residing in the colony<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center">Yes<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                            <td class="text-center">{{(getFiles.annexureII === '#')?'No':'Yes'}}<br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                         <tr>
                                                                                                             <td>Passport size photograph<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center">Yes<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                            <td class="text-center">{{(getFiles.photograph === '#')?'No':'Yes'}}<br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                         <tr>
                                                                                                             <td>Self attested Birth certificate/ proof of age<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center">Yes<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                            <td class="text-center">{{(getFiles.proofOfAge === '#')?'No':'Yes'}}<br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                         <tr>
                                                                                                             <td>Self attested marksheet for 10th<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center">Yes<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                            <td class="text-center">{{(getFiles.markSheets10 === '#')?'No':'Yes'}}<br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                         <tr>
                                                                                                             <td>Self attested marksheet for 12th/ Graduation<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center">Yes<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                            <td class="text-center">{{(getFiles.markSheets12 === '#')?'No':'Yes'}}<br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
-                                                                                                        <tr>
+                                                                                                        <tr v-if="getdata.applicantLeprosyAffectedMother == true">
+ <tr v-if="getdata.applicantLeprosyAffectedFather == true">
+ <tr v-if="getdata.applicantLeprosyAffectedSelf == true">
                                                                                                             <td>Self attested Leprosy Certificate of Mother<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center">Yes<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                            <td class="text-center">{{(getFiles.leprosyCertificateMother === '#')?'No':'Yes'}}<br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
-                                                                                                        <tr>
+                                                                                                       <tr v-if="getdata.applicantLeprosyAffectedFather == true">
+ <tr v-if="getdata.applicantLeprosyAffectedFather == true">
+ <tr v-if="getdata.applicantLeprosyAffectedSelf == true">
                                                                                                             <td>Self attested Leprosy Certificate of Father<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center">Yes</td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                            <td class="text-center">{{(getFiles.leprosyCertificateFather === '#')?'No':'Yes'}}</td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
-                                                                                                        <tr>
+                                                                                                       <tr v-if="getdata.applicantLeprosyAffectedSelf == true">
+ <tr v-if="getdata.applicantLeprosyAffectedFather == true">
+ <tr v-if="getdata.applicantLeprosyAffectedSelf == true">
                                                                                                             <td>Self attested Leprosy Certificate of Self<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center">Yes<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                            <td class="text-center">{{(getFiles.leprosyCertificateSelf === '#')?'No':'Yes'}}<br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                     </tbody>
                                                                                                 </table>
@@ -521,7 +647,7 @@
                                                                                             <p class="mb-0 color-mg font-sm font-weight-bold">TO: </p>
                                                                                         </div>
                                                                                         <div class="col-xl-11 mb-2">
-                                                                                            <div class="form-group mb-0"><input type="email" class="form-control form-control-sm" placeholder="Email of Applicant" /></div>
+                                                                                            <div class="form-group mb-0"><input type="email" class="form-control form-control-sm" placeholder="Email of Applicant" v-model="getdata.applicantEmailId"></div>
                                                                                         </div>
                                                                                         <div class="col-xl-1 align-self-center mb-2">
                                                                                             <p class="mb-0 color-mg font-sm font-weight-bold">CC:</p>
@@ -539,10 +665,10 @@
                                                                                                 </select></div>
                                                                                         </div>
                                                                                         <div class="col-xl-12 mb-2">
-                                                                                            <p class="mb-1 color-mg font-sm font-weight-bold">To, <span>Souvik Kundu</span></p>
-                                                                                            <p class="mb-3 color-mg font-sm font-weight-bold pl-4">Address Line 1, Address Line 2,<br />City/Town/Dist,<br />State, ZIP, Country</p>
+                                                                                            <p class="mb-1 color-mg font-sm font-weight-bold">To, <span>{{getdata.fullName}}</span></p>
+                                                                                            <p class="mb-3 color-mg font-sm font-weight-bold pl-4">{{getdata.addressAddln1}}, {{getdata.addressAddln2}},<br >{{getdata.addressCity}},Dist:{{getdata.addressDistprov}},<br />{{getdata.addressState}}- {{getdata.addressPinzip}}, {{getdata.addressCountry}}</p>
                                                                                             <p class="mb-2 color-mg font-sm font-weight-bold pl-4">Dear Applicant,<br /></p>
-                                                                                            <p class="mb-1 text-black font-sm pl-4">We have received your application for No. <span>APLNUSCH00058</span> for <span>Nursing</span> scholarship. We are unable to <span>accept the application due to discrepancies</span>.</p>
+                                                                                            <p class="mb-1 text-black font-sm pl-4">We have received your application for No. <span>{{getdata.applicationId}}</span> for <span>Nursing</span> scholarship. We are unable to <span>accept the application due to discrepancies</span>.</p>
                                                                                             <p class="mb-2 text-black font-sm pl-4">Kindly check our comments on the documents submitted and re-submit as required.<br /></p>
                                                                                             <div class="table-responsive table-bordered font-ms rev-tbl pl-4">
                                                                                                 <table class="table table-bordered table-sm mb-0">
@@ -557,81 +683,84 @@
                                                                                                     </thead>
                                                                                                     <tbody>
                                                                                                         <tr>
-                                                                                                            <td>Application No. IMIS-HHDLSCH00058 for HHDL Scholarship<br /></td>
+                                                                                                            <td>Application No. {{getdata.applicationId}} for Nursing Scholarship<br /></td>
                                                                                                             <td>Application Form<br /></td>
-                                                                                                            <td class="text-center">N/A<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Not OK</td>
+                                                                                                            <td class="text-center">{{(getdata.applicationId=== '')?'No Application':'Yes'}} <br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                         <tr>
                                                                                                             <td>Annexure-I letter<br /></td>
                                                                                                             <td>Attachment</td>
-                                                                                                            <td class="text-center">N/A</td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Not Signed By Colony Leader</td>
+                                                                                                            <td class="text-center">{{(getFiles.admissionLetter === '#')?'No':'Yes'}}</td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                         <tr>
                                                                                                             <td>Proof of admission in a recognized institute/ admission call letter issued by the institute<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center text-danger">NO<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                            <td class="text-center">{{(getFiles.admissionLetter === '#')?'No':'Yes'}}<br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                         <tr>
                                                                                                             <td>Annexure-II letter from colony leader stating the candidate is residing in the colony<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center">Yes<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                           <td class="text-center">{{(getFiles.annexureII === '#')?'No':'Yes'}}<br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                         <tr>
                                                                                                             <td>Passport size photograph<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center">Yes<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                             <td class="text-center">{{(getFiles.photograph === '#')?'No':'Yes'}}<br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                         <tr>
                                                                                                             <td>Self attested Birth certificate/ proof of age<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center">Yes<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                            <td class="text-center">{{(getFiles.proofOfAge === '#')?'No':'Yes'}}<br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                         <tr>
                                                                                                             <td>Self attested marksheet for 10th<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center">Yes<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                           <td class="text-center">{{(getFiles.markSheets10 === '#')?'No':'Yes'}}<br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                         <tr>
-                                                                                                            <td>Self attested marksheet for 12th/ Graduation<br /></td>
+                                                                                                            <td>Self attested marksheet for 12th<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center">Yes<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                            <td class="text-center">{{(getFiles.markSheets12 === '#')?'No':'Yes'}}<br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
-                                                                                                        <tr>
+                                                                                                        <tr v-if="getdata.applicantLeprosyAffectedMother == true">
+
                                                                                                             <td>Self attested Leprosy Certificate of Mother<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center">Yes<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                            <td class="text-center">{{(getFiles.leprosyCertificateMother === '#')?'No':'Yes'}}<br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
-                                                                                                        <tr>
+                                                                                                         <tr v-if="getdata.applicantLeprosyAffectedFather == true">
+
                                                                                                             <td>Self attested Leprosy Certificate of Father<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center">Yes</td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                            <td class="text-center">{{(getFiles.leprosyCertificateFather === '#')?'No':'Yes'}}</td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
-                                                                                                        <tr>
+                                                                                                        <tr v-if="getdata.applicantLeprosyAffectedSelf == true">
+
                                                                                                             <td>Self attested Leprosy Certificate of Self<br /></td>
                                                                                                             <td>Attachment<br /></td>
-                                                                                                            <td class="text-center">Yes<br /></td>
-                                                                                                            <td class="text-center">OK</td>
-                                                                                                            <td class="text-center">Wrong Document Uploaded</td>
+                                                                                                            <td class="text-center">{{(getFiles.leprosyCertificateSelf === '#')?'No':'Yes'}}<br /></td>
+                                                                                                            <td class="text-center"></td>
+                                                                                                            <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                     </tbody>
                                                                                                 </table>
@@ -667,231 +796,232 @@
                                             </div>
                                     
                                             <!-- Modal - 1 -->
-                                            <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form1">
-                                                <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">×</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-xl-12">
-                                                                    <embed :src="''+getFiles.admissionLetter" width="100%" height="600" type='application/pdf'>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
-                                                            <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Modal-2 -->
-                                            <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form1">
-                                                <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">×</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-xl-12">
-                                                                    <embed :src="''+getFiles.annexureII" width="100%" height="600" type='application/pdf'>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
-                                                            <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <!-- Modal-3 -->
-                                            <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form3">
-                                                <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
+                                        <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form1">
+                                            <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
                                                         <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">×</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-xl-12">
-                                                                    <embed :src="''+getFiles.photograph" width="100%" height="600" type='application/pdf'>
-                                                                </div>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-xl-12">
+                                                                <embed :src="''+getFiles.admissionLetter" width="100%" height="600" type='application/pdf'>
                                                             </div>
                                                         </div>
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
-                                                            <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
-                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
+                                                        <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <!-- Modal-4 -->
-
-                                            <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form4">
-                                                <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">×</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-xl-12">
-                                                                    <embed :src="''+getFiles.proofOfAge" width="100%" height="600" type='application/pdf'>
-                                                                </div>
+                                        <!-- Modal-2 -->
+                                        <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form2">
+                                            <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-xl-12">
+                                                                <embed :src="''+getFiles.annexureII" width="100%" height="600" type='application/pdf'>
                                                             </div>
                                                         </div>
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
-                                                            <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
-                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
+                                                        <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <!-- Modal -5 -->
-
-                                            <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form5">
-                                                <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">×</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-xl-12">
-                                                                    <embed :src="''+getFiles.markSheets10" width="100%" height="600" type='application/pdf'>
-                                                                </div>
+                                        <!-- Modal-3 -->
+                                        <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form3">
+                                            <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-xl-12">
+                                                                <embed :src="''+getFiles.photograph" width="100%" height="600" type='application/pdf'>
                                                             </div>
                                                         </div>
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
-                                                            <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
-                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
+                                                        <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <!-- Modal -6 -->
-                                            <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form6">
-                                                <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">×</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-xl-12">
-                                                                    <embed :src="''+getFiles.markSheets12" width="100%" height="600" type='application/pdf'>
-                                                                </div>
+                                        <!-- Modal-4 -->
+
+                                        <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form4">
+                                            <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-xl-12">
+                                                                <embed :src="''+getFiles.proofOfAge" width="100%" height="600" type='application/pdf'>
                                                             </div>
                                                         </div>
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
-                                                            <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
-                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
+                                                        <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <!-- Modal-7 -->
-                                            <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form7">
-                                                <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">×</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-xl-12">
-                                                                    <embed :src="''+getFiles.leprosyCertificateSelf" width="100%" height="600" type='application/pdf'>
-                                                                </div>
+                                        <!-- Modal -5 -->
+
+                                        <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form5">
+                                            <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-xl-12">
+                                                                <embed :src="''+getFiles.markSheets10" width="100%" height="600" type='application/pdf'>
                                                             </div>
                                                         </div>
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
-                                                            <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
-                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
+                                                        <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                                <!-- Modal-8 -->
-                                            <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form8">
-                                                <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">×</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-xl-12">
-                                                                    <embed :src="''+getFiles.leprosyCertificateMother" width="100%" height="600" type='application/pdf'>
-                                                                </div>
+                                        <!-- Modal -6 -->
+                                        <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form6">
+                                            <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-xl-12">
+                                                                <embed :src="''+getFiles.markSheets12" width="100%" height="600" type='application/pdf'>
                                                             </div>
                                                         </div>
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
-                                                            <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
-                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
+                                                        <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                                <!-- Modal-9 -->
-                                            <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form9">
-                                                <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">×</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-xl-12">
-                                                                    <embed :src="''+getFiles.leprosyCertificateFather" width="100%" height="600" type='application/pdf'>
-                                                                </div>
+                                        <!-- Modal-7 -->
+                                        <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form7">
+                                            <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-xl-12">
+                                                                <embed :src="''+getFiles.leprosyCertificateMother" width="100%" height="600" type='application/pdf'>
                                                             </div>
                                                         </div>
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
-                                                            <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
-                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
+                                                        <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+
+                                            <!-- Modal-8 -->
+                                        <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form8">
+                                            <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-xl-12">
+                                                                <embed :src="''+getFiles.leprosyCertificateFather" width="100%" height="600" type='application/pdf'>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
+                                                        <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                            <!-- Modal-9 -->
+                                        <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form9">
+                                            <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-xl-12">
+                                                                <embed :src="''+getFiles.leprosyCertificateSelf" width="100%" height="600" type='application/pdf'>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
+                                                        <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -925,6 +1055,20 @@ export default{
                 hasAdmissionLetter:'',
                 applicationId:'',
                 financialYear:'',
+                applicantLeprosyAffectedMother:'',
+                applicantLeprosyAffectedFather :'',
+                applicantLeprosyAffectedSelf:'',
+                addressAddln1:'',
+                addressAddln2:'',
+                addressCity:'',
+                addressDistprov:'',
+                addressState:'',
+                addressPinzip:'',
+                applicantContactNoSelf: '',
+                applicantContactNoGuardian:'',
+                applicantEmailId:'',
+                applicantContactNoColonyLeader:'',
+
             },
             errors:[]
         }
@@ -951,9 +1095,22 @@ export default{
             this.getdata.applicantFatherName = data.applicantFatherName;
             this.getdata.applicantMotherName = data.applicantMotherName;
             this.getdata.addressAddln1       = data.addressAddln1;
+            this.getdata.addressAddln2       = data.addressAddln2;
+            this.getdata.addressCity         = data.addressCity;
+            this.getdata.addressDistprov     = data.addressDistprov;
+            this.getdata.addressState        = data.addressState;
+            this.getdata.addressPinzip       = data.addressPinzip;
+            this.getdata.applicantContactNoSelf = data.applicantContactNoSelf;
+            this.getdata.applicantEmailId      = data.applicantEmailId;
+            this.getdata.addressCountry        = data.addressCountry;
+
+
             this.getdata.hasAdmissionLetter  = data.hasAdmissionLetter;
             this.getdata.applicationId       = data.applicationId;
             this.getdata.financialYear       = data.financialYear;
+            this.getdata.applicantLeprosyAffectedMother= data.applicantLeprosyAffectedMother;
+            this.getdata.applicantLeprosyAffectedFather= data.applicantLeprosyAffectedFather;
+            this.getdata.applicantLeprosyAffectedSelf  = data.applicantLeprosyAffectedSelf;
             this.getdata.fullName = `${this.getdata.applicantNameF}${(this.getdata.applicantNameM)?" "+this.getdata.applicantNameM:''} ${this.getdata.applicantNameL}`;
             
          }
@@ -970,8 +1127,9 @@ export default{
             })
         }
     },
-    created(){
+     created(){
      this.getdataNursing();
+     this.getFileData();
     }
  }
 </script>

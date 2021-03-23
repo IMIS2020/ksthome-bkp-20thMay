@@ -302,10 +302,10 @@
             </div>
             <div class="row mb-4 d-print-none">
                 <div class="col-xl-4 offset-xl-4 text-center">
-                    <button class="btn btn-sm btn-mg mr-2" role="button" :disabled='isDisabled' onclick="window.print()">Print/Download Application Form</button></div>
+                    <button class="btn btn-sm btn-mg mr-2" role="button" :disabled='isDisabled' onclick="window.print();">Print/Download Application Form</button>
+                </div>
             </div>
         </div>
-        
     </section>
 </template>
 
@@ -491,7 +491,7 @@ export default{
             }
         })
         },
-  },
+     },
   computed: {
   	  isDisabled: function(){
     	return !this.terms;

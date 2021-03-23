@@ -45,6 +45,10 @@ class AllforeignKeys extends Migration
             $table->foreign('applicantId')->references('id')->on('applicantDetails')->onDelete('cascade');
         });
 
+        Schema::table('reviewTable', function (Blueprint $table) {
+            $table->foreign('applicantId')->references('id')->on('applicantDetails')->onDelete('cascade');
+        });
+
     }
 
     /**

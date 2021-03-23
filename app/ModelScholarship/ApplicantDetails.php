@@ -10,6 +10,7 @@ use App\ModelScholarship\AnnexureI;
 use App\ModelScholarship\ApplicantDocuments;
 use App\ModelScholarship\NursingScholarshipApplication;
 use App\ModelScholarship\HhdlScholarshipApplication;
+use App\ModelAdmin\Review;
 
 class ApplicantDetails extends Model
 {
@@ -52,4 +53,11 @@ class ApplicantDetails extends Model
   {
     return $this->hasMany(HhdlScholarshipApplication::class);
   }
+
+  public function get_admin_review()
+  {
+    return $this->hasMany(Review::class);
+  }
+
+
 }

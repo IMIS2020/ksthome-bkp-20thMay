@@ -163,16 +163,16 @@
                                                                                                     </td>
                                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.admissionLetter === '#')?'No':'Yes'}}</span></td>
                                                                                                     <td class="text-center" v-if="getFiles.admissionLetter !== '#'"><router-link target="_blank" class="act-link mr-0" :to="''+getFiles.admissionLetter"><i class="fa fa-eye"></i></router-link></td>
-                                                                                                    <td class="text-center" v-else><router-link class="act-link mr-0" :to="'#'"><i class="fa fa-eye"></i></router-link></td>
-                                                                                                    
+                                                                                                    <td class="text-center" v-else><span class="act-link mr-0"  style="color:#808080;"><i class="fa fa-eye"></i></span></td>
                                                                                                 </tr>
                                                                                                 <tr>
                                                                                                     <td>Annexure-I Signed letter from colony leader stating the candidate is residing in the colony</td>
                                                                                                     <td class="d-none">
                                                                                                         <div class="form-group"><input type="file" class="form-control-file d-none font-sm" /></div>
                                                                                                     </td>
-                                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">System Generated</span></td>
-                                                                                                    <td class="text-center"><a class="act-link mr-0" href="#"><i class="fa fa-eye"></i></a></td>
+                                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getdata.hasAdmissionLetter == 'NO')?'System generated':'Not provided'}}</span></td>
+                                                                                                    <td class="text-center" v-if="getdata.hasAdmissionLetter == 'NO'"><router-link target="_blank" class="act-link mr-0" to="#"><i class="fa fa-eye"></i></router-link></td>
+                                                                                                    <td class="text-center" v-else><span class="act-link mr-0" style="color:#808080;"><i class="fa fa-eye"></i></span></td>
                                                                                                 </tr>
                                                                                                 <tr>
                                                                                                     <td>Annexure-II Signed letter from colony leader stating the candidate is residing in the colony</td>
@@ -180,8 +180,8 @@
                                                                                                         <div class="form-group"><input type="file" class="form-control-file d-none font-sm" /></div>
                                                                                                     </td>
                                                                                                     <td class="text-center" ><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.annexureII === '#')?'No':'Yes'}}</span></td>
-                                                                                                    <td class="text-center"  v-if="getFiles.annexureII !== '#'"><router-link target="_blank" class="act-link mr-0" :to="''+getFiles.annexureII"><i class="fa fa-eye"></i></router-link></td>
-                                                                                                    <td class="text-center"  v-else><router-link class="act-link mr-0" to="'#'"><i class="fa fa-eye"></i></router-link></td>
+                                                                                                    <td class="text-center"  v-if="getFiles.annexureII != '#'"><router-link target="_blank" class="act-link mr-0" :to="''+getFiles.annexureII"><i class="fa fa-eye"></i></router-link></td>
+                                                                                                    <td class="text-center"  v-else><span class="act-link mr-0"  style="color:#808080;"><i class="fa fa-eye"></i></span></td>
                                                                                                 </tr>
                                                                                                 <tr>
                                                                                                     <td>Passport size photograph</td>
@@ -190,7 +190,7 @@
                                                                                                     </td>
                                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.photograph === '#')?'No':'Yes'}}</span></td>
                                                                                                     <td class="text-center"  v-if="getFiles.photograph !== '#'"><router-link target="_blank" class="act-link mr-0" :to="''+getFiles.photograph"><i class="fa fa-eye"></i></router-link></td>
-                                                                                                    <td class="text-center"  v-else><router-link class="act-link mr-0" to="'#'"><i class="fa fa-eye"></i></router-link></td>
+                                                                                                    <td class="text-center"  v-else><span class="act-link mr-0"  style="color:#808080;"><i class="fa fa-eye"></i></span></td>
                                                                                                 </tr>
                                                                                                 <tr>
                                                                                                     <td>Self attested Birth certificate/ proof of age</td>
@@ -199,7 +199,7 @@
                                                                                                     </td>
                                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.proofOfAge === '#')?'No':'Yes'}}</span></td>
                                                                                                     <td class="text-center"  v-if="getFiles.proofOfAge !== '#'"><router-link target="_blank" class="act-link mr-0" :to="''+getFiles.proofOfAge"><i class="fa fa-eye"></i></router-link></td>
-                                                                                                    <td class="text-center"  v-else><router-link class="act-link mr-0" to="'#'"><i class="fa fa-eye"></i></router-link></td>
+                                                                                                    <td class="text-center"  v-else><span class="act-link mr-0"  style="color:#808080;"><i class="fa fa-eye"></i></span></td>
                                                                                                 </tr>
                                                                                                 <tr>
                                                                                                     <td>Self attested Mark Sheet for 10th</td>
@@ -208,7 +208,7 @@
                                                                                                     </td>
                                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.markSheets10 === '#')?'No':'Yes'}}</span></td>
                                                                                                     <td class="text-center" v-if="getFiles.markSheets10 !== '#'"><router-link target="_blank" class="act-link mr-0" :to="''+getFiles.markSheets10"><i class="fa fa-eye"></i></router-link></td>
-                                                                                                    <td class="text-center" v-else><router-link class="act-link mr-0" :to="'#'"><i class="fa fa-eye"></i></router-link></td>
+                                                                                                    <td class="text-center" v-else><span class="act-link mr-0"  style="color:#808080;"><i class="fa fa-eye"></i></span></td>
                                                                                                 </tr>
                                                                                                 <tr>
                                                                                                     <td>Self attested Mark Sheet for 12th</td>
@@ -217,7 +217,7 @@
                                                                                                     </td>
                                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.markSheets12 === '#')?'No':'Yes'}}</span></td>
                                                                                                     <td class="text-center" v-if="getFiles.markSheets12 !== '#'"><router-link target="_blank" class="act-link mr-0" :to="''+getFiles.markSheets12"><i class="fa fa-eye"></i></router-link></td>
-                                                                                                    <td class="text-center" v-else><router-link class="act-link mr-0" :to="'#'"><i class="fa fa-eye"></i></router-link></td>
+                                                                                                    <td class="text-center" v-else><span class="act-link mr-0"  style="color:#808080;"><i class="fa fa-eye"></i></span></td>
                                                                                                 </tr>
                                                                                                 <!-- <tr>
                                                                                                     <td>Self attested Mark Sheet for Graduation</td>
@@ -234,7 +234,7 @@
                                                                                                     </td>
                                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.leprosyCertificateMother === '#')?'No':'Yes'}}</span></td>
                                                                                                     <td class="text-center" v-if="getFiles.leprosyCertificateMother !== '#'"><router-link target="_blank" class="act-link mr-0" :to="''+getFiles.leprosyCertificateMother"><i class="fa fa-eye"></i></router-link></td>
-                                                                                                    <td class="text-center" v-else><router-link class="act-link mr-0" :to="'#'"><i class="fa fa-eye"></i></router-link></td>
+                                                                                                    <td class="text-center" v-else><span class="act-link mr-0"  style="color:#808080;"><i class="fa fa-eye"></i></span></td>
                                                                                                 </tr>
                                                                                                 <tr>
                                                                                                     <td>Self attested Leprosy Certificate of Father<br /></td>
@@ -243,7 +243,7 @@
                                                                                                     </td>
                                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.leprosyCertificateFather === '#')?'No':'Yes'}}</span></td>
                                                                                                     <td class="text-center" v-if="getFiles.leprosyCertificateFather !== '#'"><router-link target="_blank" class="act-link mr-0" :to="''+getFiles.leprosyCertificateFather"><i class="fa fa-eye"></i></router-link></td>
-                                                                                                    <td class="text-center" v-else><router-link class="act-link mr-0" :to="'#'"><i class="fa fa-eye"></i></router-link></td>
+                                                                                                    <td class="text-center" v-else><span class="act-link mr-0"  style="color:#808080;"><i class="fa fa-eye"></i></span></td>
                                                                                                 </tr>
                                                                                                 <tr>
                                                                                                     <td>Self attested Leprosy Certificate of Self<br /></td>
@@ -252,7 +252,7 @@
                                                                                                     </td>
                                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{(getFiles.leprosyCertificateSelf === '#')?'No':'Yes'}}</span></td>
                                                                                                     <td class="text-center" v-if="getFiles.leprosyCertificateSelf !== '#'"><router-link target="_blank" class="act-link mr-0" :to="''+getFiles.leprosyCertificateSelf"><i class="fa fa-eye"></i></router-link></td>
-                                                                                                    <td class="text-center" v-else><router-link class="act-link mr-0" :to="'#'"><i class="fa fa-eye"></i></router-link></td>
+                                                                                                    <td class="text-center" v-else><span class="act-link mr-0"  style="color:#808080;"><i class="fa fa-eye"></i></span></td>
                                                                                                 </tr>
                                                                                             </tbody>
                                                                                         </table>
@@ -269,21 +269,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form">
-                            <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-xl-12"></div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer"><button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button><button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                                 </div>
                             </div>
                         </div>
@@ -307,8 +292,7 @@ export default{
                 markSheets12: '#',
                 leprosyCertificateSelf: '#',
                 leprosyCertificateMother: '#',
-                leprosyCertificateFather: '#'
-
+                leprosyCertificateFather: '#',
             },
             getdata:{
                 hasAdmissionLetter:'',

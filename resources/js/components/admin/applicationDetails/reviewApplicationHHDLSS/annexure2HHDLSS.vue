@@ -118,7 +118,7 @@
                         <div class="col-md-12 col-xl-12 offset-xl-0 px-0">
                             <div class="row my-2">
                                 <div class="col-xl-12 offset-xl-0">
-                                    <h4 class="mb-0 p-head">View&nbsp;<span>HHDLSS</span> Scholarship Application&nbsp;<span>{{getdata.financialYear}}</span> (<span>{{getdata.applicationId}}</span>)</h4>
+                                    <h4 class="mb-0 p-head">Review <span>HHDLSS</span> Scholarship Application <span>{{getdata.financialYear}}</span> (<span>{{getdata.applicationId}}</span>)</h4>
                                 </div>
                             </div>
                             <div class="row">
@@ -149,7 +149,7 @@
                                                                                 <p class="text-uppercase mb-0 color-mg"><strong><span style="text-decoration: underline;">to whom it may concern</span></strong></p>
                                                                             </div>
                                                                             <div class="col-xl-5 text-center align-self-center mb-2">
-                                                                                <p class="float-left mb-0 color-mg font-md"><strong>I&nbsp; &nbsp; &nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of colony leader" v-model="form.applicantColonyLeaderName" ></span>
+                                                                                <p class="float-left mb-0 color-mg font-md"><strong>I&nbsp; &nbsp; &nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of colony leader" v-model="form.applicantColonyLeaderName" readonly=""></span>
                                                                             </div>
                                                                             <div class="col-xl-7 text-center align-self-center mb-2">
                                                                                 <p class="float-left mb-0 color-mg font-md"><strong>hereby certify that Mr./ Miss.&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of the candidate" v-model="getdata.fullName"  readonly=""></span>

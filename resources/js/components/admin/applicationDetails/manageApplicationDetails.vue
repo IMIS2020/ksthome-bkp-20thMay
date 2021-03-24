@@ -197,7 +197,7 @@
                                                     <td>{{eachUser[1].applicantContactNoSelf}},<br>{{eachUser[1].applicantEmailId}}</td>
                                                     <td>{{eachUser[1].get_address.addressAddln1}} {{eachUser[1].get_address.addressAddln2}},<br>{{eachUser[1].get_address.addressCity}},Dist:{{eachUser[1].get_address.addressDistprov}} <br> {{eachUser[1].get_address.addressState}} - {{eachUser[1].get_address.addressPinzip}} </td>
                                                     <td class="text-center w-10x">{{(eachUser[1].created_at.split('T')[0].split('-').reverse().join('/'))}}</td>
-                                                    <td class="text-center "><span class="badge badge-warning">Submitted with pending documents<br></span></td>
+                                                    <td class="text-center "><span class="badge badge-warning">Waiting for review<br></span></td>
                                                     <td class="text-center w-5x">
                                                         <div class="dropdown no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
                                                             <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in">

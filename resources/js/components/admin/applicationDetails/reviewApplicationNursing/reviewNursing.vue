@@ -501,10 +501,10 @@
                                                                                         </div>
                                                                                         <div class="col-xl-11 mb-4">
                                                                                             <div class="form-group mb-0">
-                                                                                                <select class="form-control form-control-sm">
+                                                                                                <select class="form-control form-control-sm" @change="onSelect($event)">
                                                                                                     <option value="" selected>-- select --</option>
-                                                                                                    <option value="Acceptance of Application">Acceptance of Application</option>
-                                                                                                    <option value="Provisional Acceptance of Application">Provisional Acceptance of Application</option>
+                                                                                                    <option value="Accepting">Accepting</option>
+                                                                                                    <option value="Provisionally accepting">Provisionally accepting</option>
                                                                                                 </select>
                                                                                                 </div>
                                                                                         </div>
@@ -512,7 +512,7 @@
                                                                                             <p class="mb-1 color-mg font-sm font-weight-bold">To, <span>{{getdata.fullName}}</span></p>
                                                                                             <p class="mb-3 color-mg font-sm font-weight-bold pl-4">{{getdata.addressAddln1}}, {{getdata.addressAddln2}},<br >{{getdata.addressCity}},Dist:{{getdata.addressDistprov}},<br />{{getdata.addressState}}- {{getdata.addressPinzip}}, {{getdata.addressCountry}}</p>
                                                                                             <p class="mb-2 color-mg font-sm font-weight-bold pl-4">Dear Applicant,<br /></p>
-                                                                                            <p class="mb-1 text-black font-sm pl-4">We have received your application for No. <span>{{getdata.applicationId}}</span> for <span>Nursing</span> scholarship. We are <span> </span> your application.<br /></p>
+                                                                                            <p class="mb-1 text-black font-sm pl-4">We have received your application for No. <span>{{getdata.applicationId}}</span> for <span>Nursing</span> scholarship. We are <span>{{selectOption}} </span> your application.<br /></p>
                                                                                             <p class="mb-2 text-black font-sm pl-4">Kindly check our comments on the documents submitted and re-submit as required.<br /></p>
                                                                                             <div class="table-responsive table-bordered font-ms rev-tbl pl-4">
                                                                                                 <table class="table table-bordered table-sm mb-0">
@@ -583,8 +583,7 @@
                                                                                                             <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                         <tr v-if="getdata.applicantLeprosyAffectedMother == true">
- <tr v-if="getdata.applicantLeprosyAffectedFather == true">
- <tr v-if="getdata.applicantLeprosyAffectedSelf == true">
+
                                                                                                             <td>Self attested Leprosy Certificate of Mother<br /></td>
                                                                                                             <td>Attachment<br /></td>
                                                                                                             <td class="text-center">{{(getFiles.leprosyCertificateMother === '#')?'No':'Yes'}}<br /></td>
@@ -592,8 +591,7 @@
                                                                                                             <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                        <tr v-if="getdata.applicantLeprosyAffectedFather == true">
- <tr v-if="getdata.applicantLeprosyAffectedFather == true">
- <tr v-if="getdata.applicantLeprosyAffectedSelf == true">
+
                                                                                                             <td>Self attested Leprosy Certificate of Father<br /></td>
                                                                                                             <td>Attachment<br /></td>
                                                                                                             <td class="text-center">{{(getFiles.leprosyCertificateFather === '#')?'No':'Yes'}}</td>
@@ -601,8 +599,7 @@
                                                                                                             <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                        <tr v-if="getdata.applicantLeprosyAffectedSelf == true">
- <tr v-if="getdata.applicantLeprosyAffectedFather == true">
- <tr v-if="getdata.applicantLeprosyAffectedSelf == true">
+
                                                                                                             <td>Self attested Leprosy Certificate of Self<br /></td>
                                                                                                             <td>Attachment<br /></td>
                                                                                                             <td class="text-center">{{(getFiles.leprosyCertificateSelf === '#')?'No':'Yes'}}<br /></td>
@@ -795,7 +792,7 @@
                                                 </div>
                                             </div>
                                     
-                                            <!-- Modal - 1 -->
+                                        <!-- Modal - 1 -->
                                         <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form1">
                                             <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
                                                 <div class="modal-content">
@@ -1037,7 +1034,7 @@
 export default{
     data(){
         return {
-           
+           selectOption:'',
        
             getFiles: {
                 admissionLetter: '#',
@@ -1049,7 +1046,6 @@ export default{
                 leprosyCertificateSelf: '#',
                 leprosyCertificateMother: '#',
                 leprosyCertificateFather: '#'
-
             },
             getdata:{
                 hasAdmissionLetter:'',
@@ -1068,7 +1064,6 @@ export default{
                 applicantContactNoGuardian:'',
                 applicantEmailId:'',
                 applicantContactNoColonyLeader:'',
-
             },
             errors:[]
         }
@@ -1080,6 +1075,17 @@ export default{
             document.location.href = "/admin/login";
          })
         },
+
+        onSelect(event)
+            {
+                
+                if(event.target.value == 'Accepting')
+                {
+                    this.selectOption='Accepting'; 
+                }else{
+                    this.selectOption='Provisionally accepting';
+                }
+            },
     
        getdataNursing()
         {
@@ -1103,8 +1109,6 @@ export default{
             this.getdata.applicantContactNoSelf = data.applicantContactNoSelf;
             this.getdata.applicantEmailId      = data.applicantEmailId;
             this.getdata.addressCountry        = data.addressCountry;
-
-
             this.getdata.hasAdmissionLetter  = data.hasAdmissionLetter;
             this.getdata.applicationId       = data.applicationId;
             this.getdata.financialYear       = data.financialYear;
@@ -1119,7 +1123,7 @@ export default{
       },
         getFileData(){
           const  currentUrl = window.location.pathname.split('/').reverse()[0];
-            axios.get('/admin/admin-api/review-nursing-upload-documents/'+currentUrl)
+            axios.get('/admin/admin-api/review-nursing-review-submit/'+currentUrl)
             .then(response => {
                 if (response.data['success']) {
                     this.getFiles = response.data['data']

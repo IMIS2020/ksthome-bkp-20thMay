@@ -18,8 +18,7 @@ class ReviewTable extends Migration
             $table->string('documentName');
             $table->string('status');
             $table->string('comments');
-            $table->unsignedBigInteger('applicationIdNursing')->nullable();
-            $table->unsignedBigInteger('applicationIdHhdl')->nullable();
+            $table->unsignedBigInteger('applicantId')->nullable();
             $table->timestamps();
         });
     }

@@ -800,10 +800,11 @@ export default{
         }
 
     },
-     created () {
+     created ()
+      {
         const currentUrl = window.location.pathname.split('/').reverse()[0];
-         console.log(currentUrl);
+        console.log(currentUrl);
         this.readApplicationForm(currentUrl);
-    }
+      }
 }
 </script>

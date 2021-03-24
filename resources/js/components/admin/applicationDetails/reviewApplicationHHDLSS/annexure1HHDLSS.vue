@@ -118,7 +118,7 @@
                         <div class="col-md-12 col-xl-12 offset-xl-0 px-0">
                             <div class="row my-2">
                                 <div class="col-xl-12 offset-xl-0">
-                                    <h4 class="mb-0 p-head">View&nbsp;<span>HHDLSS</span> Scholarship Application&nbsp;<span>2021-22</span> (<span>IMIS-HHDLSCH00001</span>)</h4>
+                                    <h4 class="mb-0 p-head">View&nbsp;<span>HHDLSS</span> Scholarship Application&nbsp;<span>{{getdata.financialYear}}</span> (<span>{{getdata.applicationId}}</span>)</h4>
                                 </div>
                             </div>
                             <div class="row">
@@ -344,8 +344,175 @@
             </div>
         </div>
      </div>
-    <div>
-       
+      <div>
     </div>
 </body>
 </template>
+
+
+<script>
+export default{
+    data(){
+        return{
+           form:
+            {
+             courseLevel:'',
+            },
+            getdata:{
+                applicantNameF:'',
+                applicantNameM:'',
+                applicantNameL:'',
+                applicantFatherName:'',
+                applicantMotherName:'',
+                applicantColonyName:'',
+                hasAdmissionLetter:'',
+                applicationId:'',
+                financialYear:'',
+                insCourse:'',
+            },
+            errors:[],
+             rows: 
+            [
+              {  
+                instituteName:'',
+                courseName:'',
+                addressAddln1:'',
+                addressAddln2:'',
+                addressCity:'',
+                addressDistprov:'',
+                addressState:'',
+                addressPinzip:'',
+              },
+              {  
+                instituteName:'',
+                courseName:'',
+                addressAddln1:'',
+                addressAddln2:'',
+                addressCity:'',
+                addressDistprov:'',
+                addressState:'',
+                addressPinzip:'',
+              },
+              {  
+                instituteName:'',
+                courseName:'',
+                addressAddln1:'',
+                addressAddln2:'',
+                addressCity:'',
+                addressDistprov:'',
+                addressState:'',
+                addressPinzip:'',
+              },
+              {  
+                instituteName:'',
+                courseName:'',
+                addressAddln1:'',
+                addressAddln2:'',
+                addressCity:'',
+                addressDistprov:'',
+                addressState:'',
+                addressPinzip:'',
+              },
+              {  
+                instituteName:'',
+                courseName:'',
+                addressAddln1:'',
+                addressAddln2:'',
+                addressCity:'',
+                addressDistprov:'',
+                addressState:'',
+                addressPinzip:'',
+              }
+            ],
+        }
+    },
+    methods: {
+        addNewData()
+         {
+         this.rows.push({
+            instituteName:'',
+            courseName:'',
+            addressAddln1:'',
+            addressAddln2:'',
+            addressCity:'',
+            addressDistprov:'',
+            addressState:'',
+            addressPinzip:'',
+      })
+     },
+     deleteRow(index){
+       this.rows.splice(index, 1);
+   },
+        
+        errorMsg (status) {
+            switch (status) {
+                case 422:{
+                    this.$fire({
+                        position: 'top',
+                        icon: 'error',
+                        title: "Something went wrong !",
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                    break;
+                }
+                case 405:{
+                    this.$fire({
+                        position: 'top',
+                        icon: 'error',
+                        title: "Something went wrong!",
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                    break;
+                }
+                case 500:{
+                    this.$fire({
+                        position: 'top',
+                        icon: 'error',
+                        title: "Something went wrong!",
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                    break;
+                }
+                default: {
+                    this.$fire({
+                        position: 'top',
+                        icon: 'error',
+                        title: "Something went wrong!",
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                    break;
+                }
+            }
+        },
+        
+        getdataHHDLSS() 
+        {
+            const currentUrl = window.location.pathname.split('/').reverse()[0];
+            axios.get('/admin/admin-api/review-HHDLSS-application-form/'+currentUrl)
+                .then(response => {
+                if (response.data['success']) {
+                    const data = response.data['data']
+                    this.getdata.applicantNameF      = data.applicantNameF;
+                    this.getdata.applicantNameM      = data.applicantNameM;
+                    this.getdata.applicantNameL      = data.applicantNameL;
+                    this.getdata.applicantFatherName = data.applicantFatherName;
+                    this.getdata.applicantMotherName = data.applicantMotherName;
+                    this.getdata.addressAddln1       = data.addressAddln1;
+                    this.getdata.hasAdmissionLetter  = data.hasAdmissionLetter;
+                    this.getdata.applicationId       = data.applicationId;
+                    this.getdata.financialYear       = data.financialYear;
+                }
+            })
+        }
+    },
+    
+    created ()
+      {
+        this.getdataHHDLSS() ;
+      }
+ }
+</script>

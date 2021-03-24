@@ -118,7 +118,7 @@
                             <div class="col-md-12 col-xl-12 offset-xl-0 px-0">    
                                 <div class="row my-2">    
                                     <div class="col-xl-12 offset-xl-0">    
-                                        <h4 class="mb-0 p-head">Review <span>Nursing</span> Scholarship Application <span>2021-22</span> (<span>IMIS-NURSCH00001</span>)</h4>
+                                        <h4 class="mb-0 p-head">Review <span>Nursing</span> Scholarship Application <span>{{getdata.financialYear}}</span> (<span>{{getdata.applicationId}}</span>)</h4>
                                     </div>    
                                 </div>    
                                 <div class="row">    

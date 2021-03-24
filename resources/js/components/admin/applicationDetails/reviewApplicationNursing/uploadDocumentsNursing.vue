@@ -23,7 +23,7 @@
             <div class="d-flex flex-column" id="content-wrapper">
                 <div id="content" class="grey-bg">
                     <nav class="navbar navbar-light navbar-expand shadow topbar static-top top-nav">
-                        <div class="container-fluid"><a class="navbar-brand text-uppercase text-white" href="#"><strong>I-MIS APPlication</strong></a><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <div class="container-fluid"><a class="navbar-brand text-uppercase text-white" href="#"><strong>I-MIS Application</strong></a><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                             <ul class="navbar-nav flex-nowrap ml-auto">
                                 <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><i class="fas fa-search"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" aria-labelledby="searchDropdown">
@@ -118,7 +118,7 @@
                             <div class="col-md-12 col-xl-12 offset-xl-0 px-0">
                                 <div class="row my-2">
                                     <div class="col-xl-12 offset-xl-0">
-                                        <h4 class="mb-0 p-head">Review <span>Nursing</span> Scholarship Application <span>2021-22</span> (<span>IMIS-NURSCH00001</span>)</h4>
+                                        <h4 class="mb-0 p-head">Review <span>Nursing</span> Scholarship Application <span>{{getdata.financialYear}}</span> (<span>{{getdata.applicationId}}</span>)</h4>
                                     </div>
                                 </div>
                                 <div class="row">

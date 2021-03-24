@@ -659,7 +659,7 @@ export default {
     data () {
         return {
             inputDisabled: false,
-            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            csrf:   document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             userId: document.querySelector("meta[name='userId']").getAttribute('content'),
             form: {
                 applicationId:'',
@@ -731,7 +731,8 @@ export default {
     methods: {
         saveForm() 
         {
-            if (this.form.applicationId == '') {
+            if (this.form.applicationId == '') 
+            {
                 axios.post('/api/add-application-form/'+this.userId,this.form)
                 .then(response => {
                     if (response.data['success']) {
@@ -747,8 +748,7 @@ export default {
                         console.log(response.data['msg'])
                     }
                 }).catch(error => this.errorMsg(error.response.status))
-            } else {
-                       
+            } else { 
                 axios.post('/api/edit-application-form/'+this.form.applicationId,this.form)
                 .then(response => {
                     this.readApplicationForm();
@@ -768,85 +768,89 @@ export default {
            },
             async readApplicationForm() 
             {
-            // const  currentUrl = window.location.pathname;
-            axios.get(`/api/application-form/${this.userId}`)
-            .then(response => {
-                if (response.data['success']) {
-                    this.form =  response.data['data'];
-                    this.getdata.financialYear = response.data['data'].financialYear;   
-                    this.getdata.hasAdmissionLetter = response.data['data'].hasAdmissionLetter;
-                    if(this.getdata.hasAdmissionLetter == 'YES') {
-                        this.inputDisabled = false; 
-                    } else {
-                        this.inputDisabled = true;
-                    }
-                } 
-                else {
-                    console.log(response.data['msg'])
-                }
-            })
-            .catch(error => this.errorMsg(error.response.status))
-        },
-        errorMsg (status) 
-        {
-            switch (status) {
-                case 422:{
-                    this.$fire({
-                        position: 'top',
-                        icon: 'error',
-                        title: "Something went wrong !",
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
-                    break;
-                }
-                case 405:{
-                    this.$fire({
-                        position: 'top',
-                        icon: 'error',
-                        title: "Something went wrong!",
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
-                    break;
-                }
-                case 500:{
-                    this.$fire({
-                        position: 'top',
-                        icon: 'error',
-                        title: "Something went wrong!",
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
-                    break;
-                }
-                default: {
-                    this.$fire({
-                        position: 'top',
-                        icon: 'error',
-                        title: "Something went wrong!",
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
-                    break;
-                }
-            }
-        },
-        onSelect(event)
-        {
-            
-               if(event.target.value == 'YES')
+            const  currentUrl = window.location.pathname.split('/').reverse()[0];
+            if(currentUrl != '')
             {
-                this.inputDisabled = false; 
-            }else{
-                this.inputDisabled = true;
-              
+                axios.get(`/api/application-form/${currentUrl}`)
+                .then(response => {
+                    if (response.data['success']) {
+                        this.form =  response.data['data'];
+                        this.getdata.financialYear = response.data['data'].financialYear;   
+                        this.getdata.hasAdmissionLetter = response.data['data'].hasAdmissionLetter;
+                        if(this.getdata.hasAdmissionLetter == 'YES') {
+                            this.inputDisabled = false; 
+                        } else {
+                            this.inputDisabled = true;
+                        }
+                    } 
+                    else {
+                        console.log(response.data['msg'])
+                    }
+                })
+                .catch(error => this.errorMsg(error.response.status))
             }
-            
-        }
-    },
-    created () {
-        this.readApplicationForm();
-    }
+         },
+            errorMsg (status) 
+            {
+                switch (status) {
+                    case 422:{
+                        this.$fire({
+                            position: 'top',
+                            icon: 'error',
+                            title: "Something went wrong !",
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                        break;
+                    }
+                    case 405:{
+                        this.$fire({
+                            position: 'top',
+                            icon: 'error',
+                            title: "Something went wrong!",
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                        break;
+                    }
+                    case 500:{
+                        this.$fire({
+                            position: 'top',
+                            icon: 'error',
+                            title: "Something went wrong!",
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                        break;
+                    }
+                    default: {
+                        this.$fire({
+                            position: 'top',
+                            icon: 'error',
+                            title: "Something went wrong!",
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                        break;
+                    }
+                }
+            },
+            onSelect(event)
+            {
+                
+                if(event.target.value == 'YES')
+                {
+                    this.inputDisabled = false; 
+                }else{
+                    this.inputDisabled = true;
+                
+                }
+                
+            }
+         },
+         created ()
+         {
+           this.readApplicationForm();
+         }
 }
 </script>

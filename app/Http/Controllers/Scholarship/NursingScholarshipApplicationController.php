@@ -17,11 +17,11 @@ use App\ModelScholarship\NursingScholarshipApplication;
 class NursingScholarshipApplicationController extends Controller
 {
     private $PATH = 'uploads/nursingScholarshipDocuments/';
-
+    
     # Get Nursing Scholarship Application
-    public function getNursingScholarshipApplication(int $userId)
+    public function getNursingScholarshipApplication(string $applicationId)
     {
-        $nursingScholarshipApplication = NursingScholarshipApplication::where('userId', $userId)->first();
+        $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
         if ($nursingScholarshipApplication) {
             $applicantDetails = ApplicantDetails::where('id', $nursingScholarshipApplication->applicantId)->first();
             $applicantAddress = Address::where('id', $applicantDetails->applicantAddressId)->first();

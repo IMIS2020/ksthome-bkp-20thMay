@@ -69,14 +69,16 @@ export default{
         component: ManageScholarship,
         name: "manage-scholarship"
     },
-
+    {
+        path:'/api/get-manage-scholarship/:userId',
+    },
     {
         path: '/dashboard',
         component: Dashboard,
         name: "dashboard"
     },
 
-// //ADD Start (NURSING)
+ //ADD Start (NURSING)
     {
     path: '/application-form',
     component: ApplicationForm,
@@ -86,7 +88,7 @@ export default{
      path:'/api/add-application-form/:userId',
     },
     {
-     path:'/api/application-form/:userId',
+     path:'/api/application-form/:applicationId',
     },
     {
      path:'/api/edit-application-form/:applicationId',

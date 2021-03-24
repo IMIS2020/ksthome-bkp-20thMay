@@ -64,7 +64,9 @@ Route::group(['prefix' => 'api'], function() {
 //Add-application-form
     Route::post('/add-application-form/{userId}','Scholarship\NursingScholarshipApplicationController@addNursingScholarshipApplication');
 //Get Application-form Data
-    Route::get('/application-form/{userId}','Scholarship\NursingScholarshipApplicationController@getNursingScholarshipApplication');
+// Get-data in manage-scholarship nursing
+    Route::get('/get-manage-scholarship/{userId}','Scholarship\NursingScholarshipApplicationController@showNursingApplication');
+    Route::get('/application-form/{applicationId}','Scholarship\NursingScholarshipApplicationController@getNursingScholarshipApplication');
     Route::get('/show-application-form-nursing/{applicationId}','Scholarship\NursingScholarshipApplicationController@getNursingScholarshipApplicationId');
 //Edit-application-form
     Route::post('/edit-application-form/{applicationId}','Scholarship\NursingScholarshipApplicationController@editNursingScholarshipApplication');

@@ -501,10 +501,10 @@
                                                                                         </div>
                                                                                         <div class="col-xl-11 mb-4">
                                                                                             <div class="form-group mb-0">
-                                                                                                <select class="form-control form-control-sm">
+                                                                                                <select class="form-control form-control-sm" @change="onSelect($event)">
                                                                                                     <option value="" selected>-- select --</option>
-                                                                                                    <option value="Acceptance of Application">Acceptance of Application</option>
-                                                                                                    <option value="Provisional Acceptance of Application">Provisional Acceptance of Application</option>
+                                                                                                    <option value="Accepting">Accepting</option>
+                                                                                                    <option value="Provisionally accepting">Provisionally accepting</option>
                                                                                                 </select>
                                                                                                 </div>
                                                                                         </div>
@@ -512,7 +512,7 @@
                                                                                             <p class="mb-1 color-mg font-sm font-weight-bold">To, <span>{{getdata.fullName}}</span></p>
                                                                                             <p class="mb-3 color-mg font-sm font-weight-bold pl-4">{{getdata.addressAddln1}}, {{getdata.addressAddln2}},<br >{{getdata.addressCity}},Dist:{{getdata.addressDistprov}},<br />{{getdata.addressState}}- {{getdata.addressPinzip}}, {{getdata.addressCountry}}</p>
                                                                                             <p class="mb-2 color-mg font-sm font-weight-bold pl-4">Dear Applicant,<br /></p>
-                                                                                            <p class="mb-1 text-black font-sm pl-4">We have received your application for No. <span>{{getdata.applicationId}}</span> for <span>Nursing</span> scholarship. We are <span> </span> your application.<br /></p>
+                                                                                            <p class="mb-1 text-black font-sm pl-4">We have received your application for No. <span>{{getdata.applicationId}}</span> for <span>Nursing</span> scholarship. We are <span>{{selectOption}} </span> your application.<br /></p>
                                                                                             <p class="mb-2 text-black font-sm pl-4">Kindly check our comments on the documents submitted and re-submit as required.<br /></p>
                                                                                             <div class="table-responsive table-bordered font-ms rev-tbl pl-4">
                                                                                                 <table class="table table-bordered table-sm mb-0">
@@ -1034,7 +1034,7 @@
 export default{
     data(){
         return {
-           
+           selectOption:'',
        
             getFiles: {
                 admissionLetter: '#',
@@ -1046,7 +1046,6 @@ export default{
                 leprosyCertificateSelf: '#',
                 leprosyCertificateMother: '#',
                 leprosyCertificateFather: '#'
-
             },
             getdata:{
                 hasAdmissionLetter:'',
@@ -1065,7 +1064,6 @@ export default{
                 applicantContactNoGuardian:'',
                 applicantEmailId:'',
                 applicantContactNoColonyLeader:'',
-
             },
             errors:[]
         }
@@ -1077,6 +1075,17 @@ export default{
             document.location.href = "/admin/login";
          })
         },
+
+        onSelect(event)
+            {
+                
+                if(event.target.value == 'Accepting')
+                {
+                    this.selectOption='Accepting'; 
+                }else{
+                    this.selectOption='Provisionally accepting';
+                }
+            },
     
        getdataNursing()
         {

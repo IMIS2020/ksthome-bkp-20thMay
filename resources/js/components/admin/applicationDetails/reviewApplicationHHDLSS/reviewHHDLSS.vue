@@ -152,7 +152,7 @@
                                                                             </thead>
                                                                             <tbody>
                                                                                 <tr>
-                                                                                    <td>Application No. {{getdata.applicationId}} for Nursing Scholarship<br /></td>
+                                                                                    <td>Application No. {{getdata.applicationId}} for HHDLSS Scholarship<br /></td>
                                                                                     <td>Application Form<br></td>
                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge mt-2">{{(getdata.applicationId=== '')?'No Application':'Yes'}}</span><br></td>
 
@@ -501,18 +501,18 @@
                                                                                         </div>
                                                                                         <div class="col-xl-11 mb-4">
                                                                                             <div class="form-group mb-0">
-                                                                                                <select class="form-control form-control-sm">
+                                                                                                <select class="form-control form-control-sm"  @change="onSelect($event)">
                                                                                                     <option value="" selected>-- select --</option>
-                                                                                                    <option value="Acceptance of Application">Acceptance of Application</option>
-                                                                                                    <option value="Provisional Acceptance of Application">Provisional Acceptance of Application</option>
+                                                                                                    <option value="Accepting">Accepting</option>
+                                                                                                    <option value="Provisionally accepting">Provisionally accepting</option>
                                                                                                 </select>
-                                                                                                </div>
+                                                                                            </div>
                                                                                         </div>
                                                                                         <div class="col-xl-12 mb-2">
                                                                                             <p class="mb-1 color-mg font-sm font-weight-bold">To, <span>{{getdata.fullName}}</span></p>
                                                                                             <p class="mb-3 color-mg font-sm font-weight-bold pl-4">{{getdata.addressAddln1}}, {{getdata.addressAddln2}},<br >{{getdata.addressCity}},Dist:{{getdata.addressDistprov}},<br />{{getdata.addressState}}- {{getdata.addressPinzip}}, {{getdata.addressCountry}}</p>
                                                                                             <p class="mb-2 color-mg font-sm font-weight-bold pl-4">Dear Applicant,<br /></p>
-                                                                                            <p class="mb-1 text-black font-sm pl-4">We have received your application for No. <span>{{getdata.applicationId}}</span> for <span>Nursing</span> scholarship. We are <span> </span> your application.<br /></p>
+                                                                                            <p class="mb-1 text-black font-sm pl-4">We have received your application for No. <span>{{getdata.applicationId}}</span> for <span>HHDLSS</span> scholarship. We are <span>{{selectOption}}</span> your application.<br /></p>
                                                                                             <p class="mb-2 text-black font-sm pl-4">Kindly check our comments on the documents submitted and re-submit as required.<br /></p>
                                                                                             <div class="table-responsive table-bordered font-ms rev-tbl pl-4">
                                                                                                 <table class="table table-bordered table-sm mb-0">
@@ -527,7 +527,7 @@
                                                                                                     </thead>
                                                                                                     <tbody>
                                                                                                         <tr>
-                                                                                                            <td>Application No. {{getdata.applicationId}} for Nursing Scholarship<br /></td>
+                                                                                                            <td>Application No. {{getdata.applicationId}} for HHDLSS Scholarship<br /></td>
                                                                                                             <td>Application Form<br /></td>
                                                                                                             <td class="text-center">{{(getdata.applicationId=== '')?'No Application':'Yes'}}<br /></td>
                                                                                                             <td class="text-center"></td>
@@ -665,7 +665,7 @@
                                                                                             <p class="mb-1 color-mg font-sm font-weight-bold">To, <span>{{getdata.fullName}}</span></p>
                                                                                             <p class="mb-3 color-mg font-sm font-weight-bold pl-4">{{getdata.addressAddln1}}, {{getdata.addressAddln2}},<br >{{getdata.addressCity}},Dist:{{getdata.addressDistprov}},<br />{{getdata.addressState}}- {{getdata.addressPinzip}}, {{getdata.addressCountry}}</p>
                                                                                             <p class="mb-2 color-mg font-sm font-weight-bold pl-4">Dear Applicant,<br /></p>
-                                                                                            <p class="mb-1 text-black font-sm pl-4">We have received your application for No. <span>{{getdata.applicationId}}</span> for <span>Nursing</span> scholarship. We are unable to <span>accept the application due to discrepancies</span>.</p>
+                                                                                            <p class="mb-1 text-black font-sm pl-4">We have received your application for No. <span>{{getdata.applicationId}}</span> for <span>HHDLSS</span> scholarship. We are unable to <span>accept the application due to discrepancies</span>.</p>
                                                                                             <p class="mb-2 text-black font-sm pl-4">Kindly check our comments on the documents submitted and re-submit as required.<br /></p>
                                                                                             <div class="table-responsive table-bordered font-ms rev-tbl pl-4">
                                                                                                 <table class="table table-bordered table-sm mb-0">
@@ -680,7 +680,7 @@
                                                                                                     </thead>
                                                                                                     <tbody>
                                                                                                         <tr>
-                                                                                                            <td>Application No. {{getdata.applicationId}} for Nursing Scholarship<br /></td>
+                                                                                                            <td>Application No. {{getdata.applicationId}} for HHDLSS Scholarship<br /></td>
                                                                                                             <td>Application Form<br /></td>
                                                                                                             <td class="text-center">{{(getdata.applicationId=== '')?'No Application':'Yes'}} <br /></td>
                                                                                                             <td class="text-center"></td>
@@ -837,7 +837,7 @@
                             <p class="mb-1 color-mg font-sm font-weight-bold">To, <span>{{getdata.fullName}}</span></p>
                             <p class="mb-3 color-mg font-sm font-weight-bold pl-4">{{getdata.addressAddln1}}, {{getdata.addressAddln2}},<br >{{getdata.addressCity}},Dist:{{getdata.addressDistprov}},<br />{{getdata.addressState}}- {{getdata.addressPinzip}}, {{getdata.addressCountry}}</p>
                             <p class="mb-2 color-mg font-sm font-weight-bold pl-4">Dear Applicant,<br /></p>
-                            <p class="mb-1 text-black font-sm pl-4">We have received your application for No. <span>{{getdata.applicationId}}</span> for <span>Nursing</span> scholarship. We are <span> </span> your application.<br /></p>
+                            <p class="mb-1 text-black font-sm pl-4">We have received your application for No. <span>{{getdata.applicationId}}</span> for <span>HHDLSS</span> scholarship. We are <span> </span> your application.<br /></p>
                             <p class="mb-2 text-black font-sm pl-4">Kindly check our comments on the documents submitted and re-submit as required.<br /></p>
                             <div class="table-responsive table-bordered font-ms rev-tbl pl-4">
                                 <table class="table table-bordered table-sm mb-0">
@@ -852,7 +852,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Application No. {{getdata.applicationId}} for Nursing Scholarship<br /></td>
+                                            <td>Application No. {{getdata.applicationId}} for HHDLSS Scholarship<br /></td>
                                             <td>Application Form<br /></td>
                                             <td class="text-center">{{(getdata.applicationId=== '')?'No Application':'Yes'}}<br /></td>
                                             <td class="text-center"></td>
@@ -990,7 +990,7 @@
                             <p class="mb-1 color-mg font-sm font-weight-bold">To, <span>{{getdata.fullName}}</span></p>
                             <p class="mb-3 color-mg font-sm font-weight-bold pl-4">{{getdata.addressAddln1}}, {{getdata.addressAddln2}},<br >{{getdata.addressCity}},Dist:{{getdata.addressDistprov}},<br />{{getdata.addressState}}- {{getdata.addressPinzip}}, {{getdata.addressCountry}}</p>
                             <p class="mb-2 color-mg font-sm font-weight-bold pl-4">Dear Applicant,<br /></p>
-                            <p class="mb-1 text-black font-sm pl-4">We have received your application for No. <span>{{getdata.applicationId}}</span> for <span>Nursing</span> scholarship. We are unable to <span>accept the application due to discrepancies</span>.</p>
+                            <p class="mb-1 text-black font-sm pl-4">We have received your application for No. <span>{{getdata.applicationId}}</span> for <span>HHDLSS</span> scholarship. We are unable to <span>accept the application due to discrepancies</span>.</p>
                             <p class="mb-2 text-black font-sm pl-4">Kindly check our comments on the documents submitted and re-submit as required.<br /></p>
                             <div class="table-responsive table-bordered font-ms rev-tbl pl-4">
                                 <table class="table table-bordered table-sm mb-0">
@@ -1005,7 +1005,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Application No. {{getdata.applicationId}} for Nursing Scholarship<br /></td>
+                                            <td>Application No. {{getdata.applicationId}} for HHDLSS Scholarship<br /></td>
                                             <td>Application Form<br /></td>
                                             <td class="text-center">{{(getdata.applicationId=== '')?'No Application':'Yes'}} <br /></td>
                                             <td class="text-center"></td>
@@ -1345,7 +1345,7 @@ export default{
     data(){
         return {
            
-       
+            selectOption:'',
             getFiles: {
                 admissionLetter: '#',
                 annexureII: '#',
@@ -1386,6 +1386,17 @@ export default{
             document.location.href = "/admin/login";
          })
       },
+
+      onSelect(event)
+            {
+                
+                if(event.target.value == 'Accepting')
+                {
+                    this.selectOption='Accepting'; 
+                }else{
+                    this.selectOption='Provisionally accepting';
+                }
+            },
     
      getdataHHDLSS()    
       {    

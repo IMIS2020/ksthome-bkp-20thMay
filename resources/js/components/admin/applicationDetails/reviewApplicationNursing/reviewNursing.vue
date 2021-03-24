@@ -583,8 +583,7 @@
                                                                                                             <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                         <tr v-if="getdata.applicantLeprosyAffectedMother == true">
- <tr v-if="getdata.applicantLeprosyAffectedFather == true">
- <tr v-if="getdata.applicantLeprosyAffectedSelf == true">
+
                                                                                                             <td>Self attested Leprosy Certificate of Mother<br /></td>
                                                                                                             <td>Attachment<br /></td>
                                                                                                             <td class="text-center">{{(getFiles.leprosyCertificateMother === '#')?'No':'Yes'}}<br /></td>
@@ -592,8 +591,7 @@
                                                                                                             <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                        <tr v-if="getdata.applicantLeprosyAffectedFather == true">
- <tr v-if="getdata.applicantLeprosyAffectedFather == true">
- <tr v-if="getdata.applicantLeprosyAffectedSelf == true">
+
                                                                                                             <td>Self attested Leprosy Certificate of Father<br /></td>
                                                                                                             <td>Attachment<br /></td>
                                                                                                             <td class="text-center">{{(getFiles.leprosyCertificateFather === '#')?'No':'Yes'}}</td>
@@ -601,8 +599,7 @@
                                                                                                             <td class="text-center"></td>
                                                                                                         </tr>
                                                                                                        <tr v-if="getdata.applicantLeprosyAffectedSelf == true">
- <tr v-if="getdata.applicantLeprosyAffectedFather == true">
- <tr v-if="getdata.applicantLeprosyAffectedSelf == true">
+
                                                                                                             <td>Self attested Leprosy Certificate of Self<br /></td>
                                                                                                             <td>Attachment<br /></td>
                                                                                                             <td class="text-center">{{(getFiles.leprosyCertificateSelf === '#')?'No':'Yes'}}<br /></td>
@@ -795,7 +792,7 @@
                                                 </div>
                                             </div>
                                     
-                                            <!-- Modal - 1 -->
+                                        <!-- Modal - 1 -->
                                         <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form1">
                                             <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
                                                 <div class="modal-content">
@@ -1103,8 +1100,6 @@ export default{
             this.getdata.applicantContactNoSelf = data.applicantContactNoSelf;
             this.getdata.applicantEmailId      = data.applicantEmailId;
             this.getdata.addressCountry        = data.addressCountry;
-
-
             this.getdata.hasAdmissionLetter  = data.hasAdmissionLetter;
             this.getdata.applicationId       = data.applicationId;
             this.getdata.financialYear       = data.financialYear;
@@ -1119,7 +1114,7 @@ export default{
       },
         getFileData(){
           const  currentUrl = window.location.pathname.split('/').reverse()[0];
-            axios.get('/admin/admin-api/review-nursing-upload-documents/'+currentUrl)
+            axios.get('/admin/admin-api/review-nursing-review-submit/'+currentUrl)
             .then(response => {
                 if (response.data['success']) {
                     this.getFiles = response.data['data']

@@ -272,21 +272,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form">
-                            <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-xl-12"></div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer"><button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button><button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

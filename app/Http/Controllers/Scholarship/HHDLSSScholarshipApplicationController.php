@@ -292,7 +292,6 @@ class HHDLSSScholarshipApplicationController extends Controller
         }
     }
 
-
        # Edit HHDLSS Scholarship Application
        public function editHHDLSSScholarshipApplication(string $applicationId, Request $request)
        {
@@ -439,7 +438,7 @@ class HHDLSSScholarshipApplicationController extends Controller
                $applicantAddress->addressPinzip    = $request->addressPinzip;
                $applicantAddress->update();
                
-             $applicantEducationDetails = new ApplicantEducationDetails;
+             $applicantEducationDetails = ApplicantEducationDetails::where('applicantId', $HHDLSSScholarshipApplication->applicantId)->first();
              $applicantEducationDetails->examinationLevel        = $request->education1ExaminationLevel;
              $applicantEducationDetails->examinationPassed       = $request->education1ExaminationPassed;
              $applicantEducationDetails->universityBoardCouncil  = $request->education1University;
@@ -447,10 +446,10 @@ class HHDLSSScholarshipApplicationController extends Controller
              $applicantEducationDetails->yearOfPassing           = $request->education1YearOfPassing;
              $applicantEducationDetails->percentage              = $request->education1Percentage;
              $applicantEducationDetails->division                = $request->education1Division;
-             $applicantEducationDetails->applicantId             = $applicantDetails->id;
+             
              $applicantEducationDetails->update();
              
-             $applicantEducationDetails = new ApplicantEducationDetails;
+             $applicantEducationDetails = ApplicantEducationDetails::where('applicantId', $HHDLSSScholarshipApplication->applicantId)->first();
              $applicantEducationDetails->examinationLevel        = $request->education2ExaminationLevel;
              $applicantEducationDetails->examinationPassed       = $request->education2ExaminationPassed;
              $applicantEducationDetails->universityBoardCouncil  = $request->education2University;
@@ -458,18 +457,18 @@ class HHDLSSScholarshipApplicationController extends Controller
              $applicantEducationDetails->yearOfPassing           = $request->education2YearOfPassing;
              $applicantEducationDetails->percentage              = $request->education2Percentage;
              $applicantEducationDetails->division                = $request->education2Division;
-             $applicantEducationDetails->applicantId             = $applicantDetails->id;
+           
              $applicantEducationDetails->update();
 
-             $applicantEducationDetails = new ApplicantEducationDetails;
-            $applicantEducationDetails->examinationLevel         = $request->education3ExaminationLevel;
+             $applicantEducationDetails = ApplicantEducationDetails::where('applicantId', $HHDLSSScholarshipApplication->applicantId)->first();
+             $applicantEducationDetails->examinationLevel        = $request->education3ExaminationLevel;
              $applicantEducationDetails->examinationPassed       = $request->education3ExaminationPassed;
              $applicantEducationDetails->universityBoardCouncil  = $request->education3University;
              $applicantEducationDetails->mainSubjects            = $request->education3MainSubjects;
              $applicantEducationDetails->yearOfPassing           = $request->education3YearOfPassing;
              $applicantEducationDetails->percentage              = $request->education3Percentage;
              $applicantEducationDetails->division                = $request->education3Division;
-             $applicantEducationDetails->applicantId             = $applicantDetails->id;
+            
              $applicantEducationDetails->update();
                DB::commit();
                return array('success' => true, 'msg'=>[]);

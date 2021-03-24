@@ -4,7 +4,7 @@
             <form @submit.prevent="saveForm">
                 <div class="form-row">
                     <div class="col-xl-12 text-center mb-3">
-                        <h5 class="text-capitalize text-center color-mg"><strong>Application form (HHDLSS Scholarship {{getdata.financialYear}})</strong></h5>
+                        <h5 class="text-capitalize text-center color-mg"><strong>Application form (HHDLSS Scholarship {{getdata.financialYear}}{{form.applicationId}})</strong></h5>
                     </div>
                     <div class="col-xl-12">
                         <div class="mb-3">
@@ -678,7 +678,6 @@ export default{
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             userId: document.querySelector("meta[name='userId']").getAttribute('content'),
             form:{
-                
                 applicationId:'',
                 applicantNameF:document.querySelector("meta[name='firstname']").getAttribute('content'),
                 applicantNameM:document.querySelector("meta[name='middlename']").getAttribute('content'),
@@ -750,7 +749,7 @@ export default{
     methods:
     {
       saveForm() 
-        {
+        {   
             if (this.form.applicationId == '') {
                 axios.post('/api/add-application-form-HHDLSS/'+this.userId,this.form)
                 .then(response => {
@@ -768,7 +767,7 @@ export default{
                     }
                 }).catch(error => this.errorMsg(error.response.status))
             } else {
-                       
+                    console.log('biswa');
                 axios.post('/api/edit-application-form-HHDLSS/'+this.form.applicationId,this.form)
                 .then(response => {
                     this.readApplicationForm();

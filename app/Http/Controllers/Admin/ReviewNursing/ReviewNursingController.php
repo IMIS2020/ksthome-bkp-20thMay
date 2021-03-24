@@ -187,31 +187,117 @@ class ReviewNursingController extends Controller
             if($checkReview)
             {
                 #update
-
                 #admission Letter
-                $checkReview->documentName = $request->admissionLetter;
+                $checkReview->documentName = "admission Letter";
                 $checkReview->status       = $request->admissionLetterStatus;
                 $checkReview->comments     = $request->admissionLettercomments;
-
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->update();
                 #annexureII
-            
-
+                $checkReview->documentName = "annexureII";
+                $checkReview->status       = $request->annexureIIStatus;
+                $checkReview->comments     = $request->annexureIIcomments;
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->update();
                 #photograph
-
+                $checkReview->documentName = "photograph";
+                $checkReview->status       = $request->photographStatus;
+                $checkReview->comments     = $request->photographcomments;
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->update();
                 #proofOfAge
-
+                $checkReview->documentName = "proofOfAge";
+                $checkReview->status       = $request->proofOfAgeStatus;
+                $checkReview->comments     = $request->proofOfAgecomments;
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->update();
                 #markSheets10
-
+                $checkReview->documentName = "markSheets10";
+                $checkReview->status       = $request->markSheets10Status;
+                $checkReview->comments     = $request->markSheets10comments;
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->update();
                 #markSheets12
-
+                $checkReview->documentName = "markSheets12";
+                $checkReview->status       = $request->markSheets12Status;
+                $checkReview->comments     = $request->markSheets12comments;
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->update();
                 #leprosyCertificateSelf
-
+                $checkReview->documentName = "leprosyCertificateSelf";
+                $checkReview->status       = $request->leprosyCertificateSelfStatus;
+                $checkReview->comments     = $request->leprosyCertificateSelfcomments;
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->update();
                 #leprosyCertificateMother
-
+                $checkReview->documentName = "leprosyCertificateMother";
+                $checkReview->status       = $request->leprosyCertificateMotherStatus;
+                $checkReview->comments     = $request->leprosyCertificateMothercomments;
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->update();
                 #leprosyCertificateFather
-
+                $checkReview->documentName = "leprosyCertificateFather";
+                $checkReview->status       = $request->leprosyCertificateFatherStatus;
+                $checkReview->comments     = $request->leprosyCertificateFathercomments;
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->update();
             }else{
+                $checkReview = new ReviewTable;
                 #create
+                #admission Letter
+                $checkReview->documentName = "admission Letter";
+                $checkReview->status       = $request->admissionLetterStatus;
+                $checkReview->comments     = $request->admissionLettercomments;
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->save();
+                #annexureII
+                $checkReview->documentName = "annexureII";
+                $checkReview->status       = $request->annexureIIStatus;
+                $checkReview->comments     = $request->annexureIIcomments;
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->save();
+                #photograph
+                $checkReview->documentName = "photograph";
+                $checkReview->status       = $request->photographStatus;
+                $checkReview->comments     = $request->photographcomments;
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->save();
+                #proofOfAge
+                $checkReview->documentName = "proofOfAge";
+                $checkReview->status       = $request->proofOfAgeStatus;
+                $checkReview->comments     = $request->proofOfAgecomments;
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->save();
+                #markSheets10
+                $checkReview->documentName = "markSheets10";
+                $checkReview->status       = $request->markSheets10Status;
+                $checkReview->comments     = $request->markSheets10comments;
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->save();
+                #markSheets12
+                $checkReview->documentName = "markSheets12";
+                $checkReview->status       = $request->markSheets12Status;
+                $checkReview->comments     = $request->markSheets12comments;
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->save();
+                #leprosyCertificateSelf
+                $checkReview->documentName = "leprosyCertificateSelf";
+                $checkReview->status       = $request->leprosyCertificateSelfStatus;
+                $checkReview->comments     = $request->leprosyCertificateSelfcomments;
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->save();
+                #leprosyCertificateMother
+                $checkReview->documentName = "leprosyCertificateMother";
+                $checkReview->status       = $request->leprosyCertificateMotherStatus;
+                $checkReview->comments     = $request->leprosyCertificateMothercomments;
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->save();
+                #leprosyCertificateFather
+                $checkReview->documentName = "leprosyCertificateFather";
+                $checkReview->status       = $request->leprosyCertificateFatherStatus;
+                $checkReview->comments     = $request->leprosyCertificateFathercomments;
+                $checkReview->nursApplicationId = $nursingScholarshipApplication->id;
+                $checkReview->save();
             }
 
         }else{

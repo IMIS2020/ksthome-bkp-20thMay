@@ -46,7 +46,11 @@ class AllforeignKeys extends Migration
         });
 
         Schema::table('reviewTable', function (Blueprint $table) {
-            $table->foreign('applicantId')->references('id')->on('applicantDetails')->onDelete('cascade');
+            $table->foreign('nursApplicationId')->references('id')->on('nursingScholarshipApplication')->onDelete('cascade');
+        });
+
+        Schema::table('reviewTable', function (Blueprint $table) {
+            $table->foreign('hhdlssApplicationId')->references('id')->on('hhdlScholarshipApplication')->onDelete('cascade');
         });
 
     }

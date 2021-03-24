@@ -134,11 +134,11 @@
                                             </ul>    
                                             <div class="tab-content">    
                                                 <div role="tabpanel" class="tab-    pane active adm-tab" id="tab-3">
-                                                    <div class="div-inner-filed py-1 px-    2">
+                                                    <div class="div-inner-filed py-1 px-2">
                                                         <form class="ub-reg-form">    
                                                             <div class="form-row">    
-                                                                <div class="col-xl-12 mb    -2">
-                                                                    <div class="card mt-    2 det-sec">
+                                                                <div class="col-xl-12 mb-2">
+                                                                    <div class="card mt-2 det-sec">
                                                                         <div class="card-header p-1">
                                                                                 <h6 class="mb-0 color-mg font-sm">Declaration Form (To be signed by colony leader)</h6>
                                                                         </div>

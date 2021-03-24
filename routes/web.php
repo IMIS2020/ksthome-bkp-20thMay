@@ -149,10 +149,10 @@ Route::prefix('admin')->group(function() {
     Route::get('/review-nursing-review-submit/{applicationId}', 'Admin\AdminSystemController@reviewNursingReview');
     // Review-HHDLSS
     Route::get('/review-HHDLSS-application-form/{applicationId}', 'Admin\AdminSystemController@reviewHHDLSSApplicationForm');
-    // Route::get('/review-HHDLSS-annexure-1/{applicationId}', 'Admin\AdminSystemController@reviewHHDLSSAnnexure1');
-    // Route::get('/review-HHDLSS-annexure-2/{applicationId}', 'Admin\AdminSystemController@reviewHHDLSSAnnexure2');
-    // Route::get('/review-HHDLSS-upload-documents/{applicationId}', 'Admin\AdminSystemController@reviewHHDLSSUploadDocuments');
-    // Route::get('/review-HHDLSS-review-submit/{applicationId}', 'Admin\AdminSystemController@reviewHHDLSSReview');
+    Route::get('/review-HHDLSS-annexure-1/{applicationId}', 'Admin\AdminSystemController@reviewHHDLSSAnnexure1');
+    Route::get('/review-HHDLSS-annexure-2/{applicationId}', 'Admin\AdminSystemController@reviewHHDLSSAnnexure2');
+    Route::get('/review-HHDLSS-upload-documents/{applicationId}', 'Admin\AdminSystemController@reviewHHDLSSUploadDocuments');
+    Route::get('/review-HHDLSS-review-submit/{applicationId}', 'Admin\AdminSystemController@reviewHHDLSSReview');
 
     
     Route::group(['prefix' => 'admin-api'], function() { 

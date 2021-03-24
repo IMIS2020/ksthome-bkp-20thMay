@@ -149,18 +149,18 @@
                                                                                 <p class="text-uppercase mb-0 color-mg"><strong><span style="text-decoration: underline;">to whom it may concern</span></strong></p>
                                                                             </div>
                                                                             <div class="col-xl-5 text-center align-self-center mb-2">
-                                                                                <p class="float-left mb-0 color-mg font-md"><strong>I&nbsp; &nbsp; &nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of colony leader" readonly="" disabled=""></span>
+                                                                                <p class="float-left mb-0 color-mg font-md"><strong>I&nbsp; &nbsp; &nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of colony leader" v-model="form.applicantColonyLeaderName" ></span>
                                                                             </div>
                                                                             <div class="col-xl-7 text-center align-self-center mb-2">
-                                                                                <p class="float-left mb-0 color-mg font-md"><strong>hereby certify that Mr./ Miss.&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of the candidate" disabled="" readonly=""></span>
+                                                                                <p class="float-left mb-0 color-mg font-md"><strong>hereby certify that Mr./ Miss.&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of the candidate" v-model="getdata.fullName"  readonly=""></span>
                                                                             </div>
                                                                             <div class="col-xl-6 text-center align-self-center mb-2">
-                                                                                <p class="float-left mb-0 color-mg font-md"><strong>has been residing in this colony&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Colony name" disabled="" readonly=""></span>
+                                                                                <p class="float-left mb-0 color-mg font-md"><strong>has been residing in this colony&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Colony name"  v-model="getdata.addressAddln1" readonly=""></span>
                                                                             </div>
                                                                             <div class="col-xl-6 text-center align-self-center mb-2">
-                                                                                <p class="float-left mb-0 color-mg font-md"><strong>and his/her parent / parents&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Mother name" disabled="" readonly=""></span>
+                                                                                <p class="float-left mb-0 color-mg font-md"><strong>and his/her parent / parents&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Mother name" v-model="getdata.applicantMotherName"  readonly=""></span>
                                                                             </div>
-                                                                            <div class="col-xl-4 text-center align-self-center mb-2"><input class="form-control form-control-sm" type="text" placeholder="Father name" disabled="" readonly=""></div>
+                                                                            <div class="col-xl-4 text-center align-self-center mb-2"><input class="form-control form-control-sm" type="text" placeholder="Father name" v-model="getdata.applicantFatherName"  readonly=""></div>
                                                                             <div class="col-xl-8 text-center align-self-center mb-2">
                                                                                 <p class="float-left mb-0 color-mg font-md"><strong>is / are affected by leprosy.</strong></p>
                                                                             </div>
@@ -176,10 +176,7 @@
                                                     </form>
                                                 </div>
                                             </div>
-                                        
-                                        
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -189,8 +186,85 @@
             </div>
         </div>
      </div>
-    <div>
-    
+     <div>
     </div>
 </body>
 </template>
+
+
+    
+<script>    
+export default{    
+    data(){    
+       return{    
+            
+         fullName:{},    
+         form:{    
+           applicantColonyLeaderName:'',    
+        },    
+         getdata:{    
+                applicantNameF:'',    
+                applicantNameM:'',    
+                applicantNameL:'',    
+                applicantFatherName:'',    
+                applicantMotherName:'',    
+                addressAddln1:'',    
+                hasAdmissionLetter:'',    
+                applicationId:'',    
+                financialYear:'',    
+             },    
+              errors:[]    
+            }    
+         },    
+    
+   methods:{    
+       logout(){    
+         axios.get('/admin/logout').then(function(){    
+            document.location.href = "/admin/login";    
+         })    
+      },    
+    
+       
+        async readAnnexureII() {    
+            const  currentUrl = window.location.pathname.split('/').reverse()[0];
+            axios.get('/admin/admin-api/review-HHDLSS-annexure-2/'+currentUrl)
+            .then(response => {    
+                if (response.data['success']) {    
+                    this.form =  response.data['data'];    
+                }     
+                else {    
+                    console.log(response.data['msg'])    
+                }    
+            })    
+            .catch(error => this.error.response.status)    
+        },    
+    
+      getdataHHDLSS()    
+      {    
+       const  currentUrl = window.location.pathname.split('/').reverse()[0];
+       axios.get('/admin/admin-api/review-HHDLSS-application-form/'+currentUrl)
+        .then(response => {    
+          if (response.data['success']) {    
+            const data = response.data['data']    
+            console.log(data)    
+            this.getdata.applicantNameF      = data.applicantNameF;
+            this.getdata.applicantNameM      = data.applicantNameM;
+            this.getdata.applicantNameL      = data.applicantNameL;
+            this.getdata.applicantFatherName = data.applicantFatherName;
+            this.getdata.applicantMotherName = data.applicantMotherName;
+            this.getdata.addressAddln1       = data.addressAddln1;    
+            this.getdata.hasAdmissionLetter  = data.hasAdmissionLetter;    
+            this.getdata.applicationId       = data.applicationId;    
+            this.getdata.financialYear       = data.financialYear;    
+            this.getdata.fullName = `${this.getdata.applicantNameF}${(this.getdata.applicantNameM)?" "+this.getdata.applicantNameM:''} ${this.getdata.applicantNameL}`;   
+         }      
+      })    
+    }    
+  },    
+    created(){    
+     this.getdataHHDLSS();    
+     this.readAnnexureII();    
+    }    
+ }    
+</script>    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                

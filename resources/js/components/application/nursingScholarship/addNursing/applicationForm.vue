@@ -841,11 +841,11 @@ export default {
                 if(event.target.value == 'YES')
                 {
                     this.inputDisabled = false; 
-                }else{
+                }else
+                {
                     this.inputDisabled = true;
                 
-                }
-                
+                }  
             }
          },
          created ()

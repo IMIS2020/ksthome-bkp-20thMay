@@ -199,9 +199,9 @@ class HHDLSSScholarshipApplicationController extends Controller
     }
 
     # Get HHDLSS Scholarship Application
-    public function getHHDLSSScholarshipApplication(int $userId)
+    public function getHHDLSSScholarshipApplication(string $applicationId)
     {
-        $hhdlScholarshipApplication = HhdlScholarshipApplication::where('userId', $userId)->first();
+        $hhdlScholarshipApplication = HhdlScholarshipApplication::where('applicationId',$applicationId)->first();
         if ($hhdlScholarshipApplication) {
             $applicantDetails = ApplicantDetails::where('id', $hhdlScholarshipApplication->applicantId)->first();
             $applicantAddress = Address::where('id', $applicantDetails->applicantAddressId)->first();

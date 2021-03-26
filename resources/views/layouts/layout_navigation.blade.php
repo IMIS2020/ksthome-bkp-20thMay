@@ -46,7 +46,7 @@
                       @if (Route::has('login'))
                       @auth
                     <li class="nav-item dropdown align-self-center">
-                    <a class="nav-link text-white" aria-expanded="false" data-toggle="dropdown" href="#"><strong>Hello, {{Auth::user()->firstname}} {{Auth::user()->middlename}} {{Auth::user()->lastname}}&nbsp;&nbsp;</strong><img class="rounded-circle img-fluid" width="25px" src="assets/img/avatar_2x.png"></a>
+                    <a class="nav-link text-white font-xl" aria-expanded="false" data-toggle="dropdown" href="#"><strong>Hello, {{Auth::user()->firstname}} {{Auth::user()->middlename}} {{Auth::user()->lastname}}&nbsp;&nbsp;</strong><img class="rounded-circle img-fluid" width="25px" src="assets/img/avatar_2x.png"></a>
                         <div class="dropdown-menu font-md">
                          <a class="dropdown-item color-mg" href="{{ route('logout') }}" onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();">
@@ -160,6 +160,9 @@
       @yield('printViewHHDLSS')
     </div>
      
+     <div>
+     @yield('forgotVerify')
+     </div>
  
     <script src="{{ asset('js/app.js') }}"></script>
     <!-- <script src="{{asset('assets/js/jquery.min.js')}}"></script>

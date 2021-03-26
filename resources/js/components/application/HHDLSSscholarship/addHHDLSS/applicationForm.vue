@@ -787,7 +787,10 @@ export default{
            },
             async readApplicationForm() 
             {
-            axios.get(`/api/application-form-HHDLSS/${this.userId}`)
+            const  currentUrl = window.location.pathname.split('/').reverse()[0];
+            if(currentUrl != '')
+            {
+            axios.get(`/api/application-form-HHDLSS/${currentUrl}`)
             .then(response => {
                 if (response.data['success']) {
                     this.form =  response.data['data'];
@@ -804,6 +807,7 @@ export default{
                 }
             })
             .catch(error => this.errorMsg(error.response.status))
+            }
         },
 
         errorMsg (status) 

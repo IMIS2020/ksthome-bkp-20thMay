@@ -165,7 +165,7 @@
                                                                                         <span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
+                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s" v-model="form.admissionLetterStatus">
                                                                                                 <option value selected>-- select --</option>
                                                                                                 <option value="OK">OK</option>
                                                                                                 <option value="Not OK">Not OK</option>
@@ -175,7 +175,7 @@
                                                                                         </div>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
+                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"  v-model="form.admissionLettercomments"></textarea></div>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr v-if="getdata.hasAdmissionLetter == 'YES'">
@@ -187,7 +187,7 @@
                                                                                         <a class="act-link" href="#" data-toggle="modal" data-target="#vw-apo-form"><i class="fa fa-eye"></i></a>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
+                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s" v-model="form.annexureIStatus">
                                                                                                 <option value selected>-- select --</option>
                                                                                                 <option value="OK">OK</option>
                                                                                                 <option value="Not OK">Not OK</option>
@@ -197,7 +197,7 @@
                                                                                         </div>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
+                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;" v-model="form.annexureIcomments"></textarea></div>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
@@ -216,7 +216,7 @@
                                                                                         
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm font-s">
+                                                                                            <select class="form-control form-control-sm font-s" v-model="form.annexureIStatus"> 
                                                                                                 <option value selected>-- select --</option>
                                                                                                 <option value="OK">OK</option>
                                                                                                 <option value="Not OK">Not OK</option>
@@ -226,7 +226,7 @@
                                                                                         </div>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
+                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;" v-model="form.annexureIcomment"></textarea></div>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
@@ -247,9 +247,8 @@
 
                                                                                     <td class="text-center">
                                                                                         <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm font-s">
+                                                                                            <select class="form-control form-control-sm font-s" v-model="form.annexureIIStatus">
                                                                                                 <option value selected>-- select --</option>
-                                                                                              
                                                                                                 <option value="OK">OK</option>
                                                                                                 <option value="Not OK">Not OK</option>
                                                                                                 <option value="Not Required">Not Required</option>
@@ -258,7 +257,7 @@
                                                                                         </div>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
+                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;" v-model="form.annexureIIcomment"></textarea></div>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
@@ -278,9 +277,8 @@
 
 
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
+                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s" v-model="form.photographStatus">
                                                                                                 <option value selected>-- select --</option>
-                                                                                              
                                                                                                 <option value="OK">OK</option>
                                                                                                 <option value="Not OK">Not OK</option>
                                                                                                 <option value="Not Required">Not Required</option>
@@ -289,7 +287,7 @@
                                                                                         </div>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
+                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;" v-model="form.photographcomments"></textarea></div>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
@@ -308,9 +306,8 @@
                                                                                     </td>
 
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
+                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s" v-model="form.proofOfAgeStatus">
                                                                                                 <option value selected>-- select --</option>
-                                                                                              
                                                                                                 <option value="OK">OK</option>
                                                                                                 <option value="Not OK">Not OK</option>
                                                                                                 <option value="Not Required">Not Required</option>
@@ -319,7 +316,7 @@
                                                                                         </div>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
+                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;" v-model="form.proofOfAgecomments"></textarea></div>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
@@ -337,9 +334,8 @@
                                                                                        <span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
+                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s" v-model="form.markSheets10Status">
                                                                                               <option value selected>-- select --</option>
-                                                                                              
                                                                                                 <option value="OK">OK</option>
                                                                                                 <option value="Not OK">Not OK</option>
                                                                                                 <option value="Not Required">Not Required</option>
@@ -348,7 +344,7 @@
                                                                                         </div>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
+                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;" v-model="form.markSheets10comments"></textarea></div>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
@@ -366,9 +362,8 @@
                                                                                        <span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
+                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s" v-model="form.markSheets12Status">
                                                                                                 <option value selected>-- select --</option>
-                                                                                              
                                                                                                 <option value="OK">OK</option>
                                                                                                 <option value="Not OK">Not OK</option>
                                                                                                 <option value="Not Required">Not Required</option>
@@ -377,7 +372,7 @@
                                                                                         </div>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
+                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;" v-model="form.markSheets12comments"></textarea></div>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr v-if="getdata.applicantLeprosyAffectedMother == true">
@@ -395,9 +390,8 @@
                                                                                        <span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
-                                                                                               <option value selected>-- select --</option>
-                                                                                              
+                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s" v-model="form.leprosyCertificateMotherStatus">
+                                                                                                <option value selected>-- select --</option>
                                                                                                 <option value="OK">OK</option>
                                                                                                 <option value="Not OK">Not OK</option>
                                                                                                 <option value="Not Required">Not Required</option>
@@ -406,7 +400,7 @@
                                                                                         </div>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
+                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;" v-model="form.leprosyCertificateMothercomments"></textarea></div>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr v-if="getdata.applicantLeprosyAffectedFather == true">
@@ -424,9 +418,8 @@
                                                                                        <span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
+                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s" v-model="form.leprosyCertificateFatherStatus">
                                                                                                 <option value selected>-- select --</option>
-                                                                                              
                                                                                                 <option value="OK">OK</option>
                                                                                                 <option value="Not OK">Not OK</option>
                                                                                                 <option value="Not Required">Not Required</option>
@@ -435,7 +428,7 @@
                                                                                         </div>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
+                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;" v-model="form.leprosyCertificateFathercomments"></textarea></div>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr v-if="getdata.applicantLeprosyAffectedSelf == true">
@@ -453,9 +446,8 @@
                                                                                        <span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
+                                                                                        <div class="form-group mb-0"><select class="form-control form-control-sm font-s" v-model="form.leprosyCertificateSelfStatus">
                                                                                                 <option value selected>-- select --</option>
-                                                                                              
                                                                                                 <option value="OK">OK</option>
                                                                                                 <option value="Not OK">Not OK</option>
                                                                                                 <option value="Not Required">Not Required</option>
@@ -464,7 +456,7 @@
                                                                                         </div>
                                                                                     </td>
                                                                                     <td class="text-center">
-                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
+                                                                                        <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;" v-model="form.leprosyCertificateSelfcomments"></textarea></div>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -1035,7 +1027,29 @@ export default{
     data(){
         return {
            selectOption:'',
-       
+           
+            form:{         
+                admissionLetterStatus :'',
+                admissionLettercomments : '',
+                annexureIStatus : '',
+                annexureIcomments : '',
+                annexureIIStatus : '',
+                annexureIIcomments : '',
+                photographStatus : '',
+                photographcomments : '',
+                proofOfAgeStatus  : '',
+                proofOfAgecomments : '',
+                markSheets10Status : '',
+                markSheets10comments : '',
+                markSheets12Status : '',
+                markSheets12comments : '',
+                leprosyCertificateSelfStatus: '',
+                leprosyCertificateSelfcomments : '',
+                leprosyCertificateMotherStatus : '',
+                leprosyCertificateMothercomments : '',
+                leprosyCertificateFatherStatus : '',
+                leprosyCertificateFathercomments : '',
+            },
             getFiles: {
                 admissionLetter: '#',
                 annexureII: '#',
@@ -1077,19 +1091,22 @@ export default{
         },
 
         onSelect(event)
-            {
-                
-                if(event.target.value == 'Accepting')
-                {
-                    this.selectOption='Accepting'; 
-                }else{
-                    this.selectOption='Provisionally accepting';
-                }
-            },
-    
-       getdataNursing()
         {
-       const  currentUrl = window.location.pathname.split('/').reverse()[0];
+            if(event.target.value == 'Accepting')
+            {
+                this.selectOption='Accepting'; 
+            }else{
+                this.selectOption='Provisionally accepting';
+            }
+        },
+
+        //Save and Edit review nursing comments
+        
+        
+    
+        getdataNursing()
+        {
+        const  currentUrl = window.location.pathname.split('/').reverse()[0];
             axios.get('/admin/admin-api/review-nursing-application-form/'+currentUrl)
         .then(response => {
           if (response.data['success']) {

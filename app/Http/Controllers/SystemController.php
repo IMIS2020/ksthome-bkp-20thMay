@@ -53,11 +53,11 @@ class SystemController extends Controller
      */
     public function applicantForm()
     {
-      return view('applicant.applicantForm');
+      return view('myApplication.applicantForm');
     }
     public function applicantDocuments()
     {
-      return view('applicant.applicantDocuments');
+      return view('myApplication.applicantDocuments');
     }
     public function chooseScholarship()
     {

@@ -31,38 +31,61 @@ Route::group(['middleware' => ['auth']], function (){
     * UI Routes to call applicant components from applicant
     * folder
     */
-    Route::get('/applicant-form', 'SystemController@applicantForm');
-    Route::get('/applicant-documents','SystemController@applicantDocuments');
+    Route::get('/application-form/nursing', 'SystemController@applicantForm');
+    Route::get('/application-form/hddlss', 'SystemController@applicantForm');
+    Route::get('/application-form/{applicationId}', 'SystemController@applicantForm');
+    Route::get('/application-documents/{applicationId}','SystemController@applicantDocuments');
     Route::get('/choose-scholarship','SystemController@chooseScholarship');
 
     /******
      * UI Routes to call application components from application
      * folder
      */
+    // Route::get('/manage-my-application','SystemController@manageMyApplication');
+    Route::get('/annexure-1/{applicationId}','SystemController@annexure1');
+    Route::get('/annexure-2/{applicationId}','SystemController@annexure2');
+    Route::get('/annexure-2-print-form/{applicationId}','SystemController@annexure2PrintForm');
+    Route::get('/annexure-2-blank-form/{applicationId}','SystemController@annexure2BlankForm');
+    Route::get('/review-submit/{applicationId}',   'SystemController@reviewMyApplication');
+    Route::get('/view-application/{applicationId}',       'SystemController@viewMyApplication');
+    Route::get('/print-view-application/{applicationId}', 'SystemController@printView');
+
     Route::get('/manage-my-application','SystemController@manageMyApplication');
-    Route::get('/annexure-1','SystemController@annexure1');
-    Route::get('/annexure-2','SystemController@annexure2');
-    Route::get('/annexure-2-print-form','SystemController@annexure2PrintForm');
-    Route::get('/annexure-2-blank-form','SystemController@annexure2BlankForm');
-    Route::get('/review-submit',   'SystemController@reviewMyApplication');
-    Route::get('/view-application',       'SystemController@viewMyApplication');
-    Route::get('/print-view-application', 'SystemController@printView');
 
   /*** END OF UI ROUTES ***/ 
     
     
 
 Route::group(['prefix' => 'api'], function() { 
-//NURSING 
+
+  /****
+   * API calls for application-from
+   */
+   Route::post('/add-application-form/{userId}','Scholarship\NursingScholarshipApplicationController@addNursingScholarshipApplication');
+   Route::post('/edit-application-form/{applicationId}','Scholarship\NursingScholarshipApplicationController@editNursingScholarshipApplication');
+   Route::get('/get-application-form-data/{applicationId}','Scholarship\NursingScholarshipApplicationController@getNursingScholarshipApplication');
+  /****
+   * End API calls for application from
+   */
+  
+
+
+
+
+
+
+
+
+   //NURSING 
 //Add-application-form
-    Route::post('/add-application-form/{userId}','Scholarship\NursingScholarshipApplicationController@addNursingScholarshipApplication');
+  
 //Get Application-form Data
 // Get-data in manage-scholarship nursing
     Route::get('/get-manage-scholarship/{userId}','Scholarship\NursingScholarshipApplicationController@showNursingApplication');
-    Route::get('/application-form/{applicationId}','Scholarship\NursingScholarshipApplicationController@getNursingScholarshipApplication');
+   
     Route::get('/show-application-form-nursing/{applicationId}','Scholarship\NursingScholarshipApplicationController@getNursingScholarshipApplicationId');
 //Edit-application-form
-    Route::post('/edit-application-form/{applicationId}','Scholarship\NursingScholarshipApplicationController@editNursingScholarshipApplication');
+   
 //Add Anexure-I
     Route::post('/add-annexurei/{applicationId}','Scholarship\NursingScholarshipApplicationController@addAnnexureI');
 //Edit Annexure-I

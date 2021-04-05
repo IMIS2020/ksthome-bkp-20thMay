@@ -3,8 +3,8 @@ import ManageMyApplication   from './components/myApplication/manageMyApplicatio
 import Dashboard           from './components/dashboard';
 
 // Form - Application form and upload documents
-import ApplicantForm  from './components/applicant/applicantForm';
-import ApplicantDocuments  from './components/applicant/applicantDocuments'; 
+import ApplicantForm  from './components/myApplication/applicantForm';
+import ApplicantDocuments  from './components/myApplication/applicantDocuments'; 
 import Choose           from './components/applicant/choose';
 
 //Nursing scholarship
@@ -73,16 +73,17 @@ export default{
                 * UI Routes to call applicant components from applicant
                 * folder
                 */
-                {
-                    path: '/applicant-form',
-                    component: ApplicantForm,
-                    name: "application-form"
-                },
-                {
-                    path: '/applicant-documents',
-                    component: ApplicantDocuments,
-                    name: "applicant-documents"
-                },
+                // {
+                //     path: '/application-form',
+                //     component: ApplicantForm,
+                //     name: "application-form"
+                // },
+                // {
+                //     path: '/application-documents',
+                //     component: ApplicantDocuments,
+                //     name: "applicant-documents"
+                // },
+               
                 {
                     path:'/choose-scholarship',
                     component: Choose,
@@ -100,40 +101,79 @@ export default{
                     name: "manage-my-application"
                 },
                 {
-                    path: '/annexure-1',
+                    path: '/application-form/nursing',
+                    component: ApplicantForm,
+                    name: "application-form"
+                },
+                {
+                    path: '/application-form/hddlss',
+                    component: ApplicantForm,
+                    name: "application-form"
+                },
+                {
+                    path: '/application-form/:applicationId',
+                    component: ApplicantForm,
+                    name: "application-form"
+                },
+                {
+                    path: '/application-documents/:applicationId',
+                    component: ApplicantDocuments,
+                    name: "applicant-documents"
+                },
+                {
+                    path: '/annexure-1/:applicationId',
                     component: Annexure1,
                     name: "annexure-1"
                 },
                 {
-                    path: '/annexure-2',
+                    path: '/annexure-2/:applicationId',
                     component: Annexure2,
                     name: "annexure-2"
                 },
                 {
-                    path: '/annexure-2-print-form',
+                    path: '/annexure-2-print-form/:applicationId',
                     component: annexure2PrintForm,
                     name: "annexure-2-print-form"
                 },
                 {
-                    path: '/annexure-2-blank-form',
+                    path: '/annexure-2-blank-form/:applicationId',
                     component: annexure2BlankForm,
                     name: "annexure-2-blank-form"
                 },
                 {
-                    path: '/review-submit',
+                    path: '/review-submit/:applicationId',
                     component: ReviewMyApplication,
                     name: "review-submit"
                 },
                 {
-                    path: '/view-application',
+                    path: '/view-application/:applicationId',
                     component:ViewMyApplication,
                     name: "view-application"
                 },
                 {
-                    path: '/print-view-application',
+                    path: '/print-view-application/:applicationId',
                     component:PrintView,
                     name: "print-view-application"
                 },
+                /*****
+                 * UI call ends for application
+                 */
+
+                /****
+                 * API calls for application-from
+                 */
+                {
+                    path:'/api/add-application-form/:userId',
+                },
+                {
+                    path:'/api/edit-application-form/:applicationId',
+                },
+                {
+                    path:'/api/get-application-form-data/:applicationId',
+                },
+                /****
+                 * End API calls for application from
+                 */
 
 
 
@@ -146,15 +186,11 @@ export default{
 
     //Form and upload documents and choose scholarship
     
-    {
-        path:'/api/add-application-form/:userId',
-    },
+    
     {
         path:'/api/application-form/:userId',
     },
-    {
-        path:'/api/edit-application-form/:applicationId',
-    },
+    
     {
        path:'/show-application-form-nursing/:applicationId',
        component: ApplicantForm,

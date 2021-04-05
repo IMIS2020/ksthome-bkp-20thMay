@@ -12,7 +12,7 @@ newFunction();
 function newFunction(){
 
   const app1 = new Vue({
-    el: '#manageScholarship',
+    el: '#manageMyApplication',
     router: new VueRouter(routes)
   });
 
@@ -21,12 +21,23 @@ function newFunction(){
     router: new VueRouter(routes)
   });
 
-//add-start(nursing)
+  //Application form, Document upload
   const app3 = new Vue({
-    el: '#applicationForm',
+    el: '#applicantForm',
     router: new VueRouter(routes)
   });
 
+  const app8 = new Vue({
+    el: '#applicantDocuments',
+    router: new VueRouter(routes)
+  });
+
+  const app39 = new Vue({
+    el: '#choose',
+    router: new VueRouter(routes)
+  });
+
+  //Nursing
   const app4 = new Vue({
     el: '#annexure1',
     router: new VueRouter(routes)
@@ -38,88 +49,67 @@ function newFunction(){
   });
 
   const app6 = new Vue({
-    el: '#annexure2PrintForm',
+    el: '#annexure2NursingPrintForm',
     router: new VueRouter(routes)
   });
 
   const app7 = new Vue({
-    el: '#annexure2BlankForm',
-    router: new VueRouter(routes)
-  });
-
-  const app8 = new Vue({
-    el: '#uploadDocuments',
+    el: '#annexure2NursingBlankForm',
     router: new VueRouter(routes)
   });
 
   const app9 = new Vue({
-    el: '#review',
+    el: '#reviewMyApplication',
     router: new VueRouter(routes)
   });
-//add-end(nursing)
 
-// view-start(nursing)
-  
   const app10 = new Vue({
-    el: '#viewNursing',
+    el: '#viewMyApplication',
     router: new VueRouter(routes)
   });
   
   const app11 = new Vue({
-    el: '#printViewNursing',
+    el: '#printView',
     router: new VueRouter(routes)
   });
-//manage-view end (Nursing)
+  //End Nursing
 
-//HHDLSS ADD-START
-  const app12 = new Vue({
-    el: '#applicationFormHHDLSS',
-    router: new VueRouter(routes)
-  });
+  //HHDLSS ADD-START
+  // const app13 = new Vue({
+  //   el: '#annexure1HHDLSS',
+  //   router: new VueRouter(routes)
+  // });
 
-  const app13 = new Vue({
-    el: '#annexure1HHDLSS',
-    router: new VueRouter(routes)
-  });
+  // const app14 = new Vue({
+  //   el: '#annexure2HHDLSS',
+  //   router: new VueRouter(routes)
+  // });
 
-  const app14 = new Vue({
-    el: '#annexure2HHDLSS',
-    router: new VueRouter(routes)
-  });
+  // const app15 = new Vue({
+  //   el: '#annexure2PrintFormHHDLSS',
+  //   router: new VueRouter(routes)
+  // });
 
-  const app15 = new Vue({
-    el: '#annexure2PrintFormHHDLSS',
-    router: new VueRouter(routes)
-  });
+  // const app16 = new Vue({
+  //   el: '#annexure2BlankFormHHDLSS',
+  //   router: new VueRouter(routes)
+  // });
 
-  const app16 = new Vue({
-    el: '#annexure2BlankFormHHDLSS',
-    router: new VueRouter(routes)
-  });
+  // const app18 = new Vue({
+  //   el: '#reviewHHDLSS',
+  //   router: new VueRouter(routes)
+  // });
 
-  const app17 = new Vue({
-    el: '#uploadDocumentsHHDLSS',
-    router: new VueRouter(routes)
-  });
+  // const app19 = new Vue({
+  //   el: '#viewHHDLSS',
+  //   router: new VueRouter(routes)
+  // });
 
-  const app18 = new Vue({
-    el: '#reviewHHDLSS',
-    router: new VueRouter(routes)
-  });
-//HHDLSS ADD-END
-
-//view-start hhdlss
-  const app19 = new Vue({
-    el: '#viewHHDLSS',
-    router: new VueRouter(routes)
-  });
-
-  const app20 = new Vue({
-    el: '#printViewHHDLSS',
-    router: new VueRouter(routes)
-  });
-
-//End-HHDLSS
+  // const app20 = new Vue({
+  //   el: '#printViewHHDLSS',
+  //   router: new VueRouter(routes)
+  // });
+  //End-HHDLSS
 
 // Admin Section
 const app21 = new Vue({

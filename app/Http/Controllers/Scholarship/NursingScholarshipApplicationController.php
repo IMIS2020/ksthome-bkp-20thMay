@@ -19,11 +19,12 @@ class NursingScholarshipApplicationController extends Controller
     private $PATH = 'uploads/nursingScholarshipDocuments/';
     
     # Get Nursing Scholarship Application
-    public function getNursingScholarshipApplication(string $applicationId)
+    public function getNursingScholarshipApplication(string $userId)
     {
-        $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
-        if ($nursingScholarshipApplication) {
-            $applicantDetails = ApplicantDetails::where('id', $nursingScholarshipApplication->applicantId)->first();
+        
+        $applicantDetails = ApplicantDetails::where('userId', $userId)->first();
+        if($applicantDetails)
+        {
             $applicantAddress = Address::where('id', $applicantDetails->applicantAddressId)->first();
             $applicantEducationDetails10 = ApplicantEducationDetails::where('applicantId', $applicantDetails->id)->where('examinationPassed', '10')->first();
             $applicantEducationDetails12 = ApplicantEducationDetails::where('applicantId', $applicantDetails->id)->where('examinationPassed', '12')->first();
@@ -82,7 +83,7 @@ class NursingScholarshipApplicationController extends Controller
             $data['yearOfPassing12']                    = $applicantEducationDetails12->yearOfPassing;
             $data['percentage12']                       = $applicantEducationDetails12->percentage;
             $data['division12']                         = $applicantEducationDetails12->division;
-           
+            
             $data['insName']                            = (isset($instituteDetails))?$instituteDetails->instituteName:'';
             $data['insAddressAddln1']                   = (isset($instituteAddress))?$instituteAddress->addressAddln1:'';
             $data['insAddressAddln2']                   = (isset($instituteAddress))?$instituteAddress->addressAddln2:'';
@@ -102,7 +103,8 @@ class NursingScholarshipApplicationController extends Controller
 
             $data = json_decode(json_encode($data));
             return array('success' => true, 'msg'=>['Data Found!'], 'data'=>$data);
-        } else {
+        }
+        else{
             return array('success' => false, 'msg'=>['No Data Found!']);
         }
     }

@@ -23,11 +23,6 @@ class SystemController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-     public function manageScholarship()
-     {
-      return view('application.manageScholarship');
-     }
-
     // public function manageScholarship()
     // {
     //   $userId = Auth::user()->id;
@@ -42,106 +37,119 @@ class SystemController extends Controller
         
     //   }
     // }
-
+    
+    //dashboard and manageScholarship
+    /******
+     * Call Dashboard blade
+     */
     public function dashboard()
     {
-      return view('application.dashboard');
+      return view('dashboard');
     }
-//Nursing-ADD-START
-     public function applicationForm()
-     {
-      return view('application.nursingScholarship.addNursing.applicationForm');
-     }
+    
 
+    /*****
+     * call baldes under folder applicant
+     */
+    public function applicantForm()
+    {
+      return view('applicant.applicantForm');
+    }
+    public function applicantDocuments()
+    {
+      return view('applicant.applicantDocuments');
+    }
+    public function chooseScholarship()
+    {
+      return view('applicant.choose');
+    }
+
+
+    /*****
+     * Call blades under folder myApplicant
+     */
     public function annexure1()
     {
-      return view('application.nursingScholarship.addNursing.annexure1');
+      return view('myApplication.annexure1');
     }
 
     public function annexure2()
     {
-      return view('application.nursingScholarship.addNursing.annexure2');
+      return view('myApplication.annexure2');
     }
 
     public function annexure2PrintForm()
     {
-      return view('application.nursingScholarship.addNursing.annexure2PrintForm');
+      return view('myApplication.annexure2PrintForm');
     }
 
     public function annexure2BlankForm()
     {
-      return view('application.nursingScholarship.addNursing.annexure2BlankForm');
+      return view('myApplication.annexure2BlankForm');
     }
 
-    public function uploadDocuments()
+    public function reviewMyApplication()
     {
-      return view('application.nursingScholarship.addNursing.uploadDocuments');
+      return view('myApplication.reviewMyApplication');
     }
 
-    public function reviewSubmit()
+    public function viewMyApplication()
     {
-      return view('application.nursingScholarship.addNursing.review');
-    }
-//Nursing-ADD-END
-//Nursing-MANAGE AND VIEW-START
-
-    public function viewNursing()
-    {
-      return view('application.nursingScholarship.viewNursing');
+      return view('myApplication.viewMyApplication');
     }
 
-    public function printViewNursing()
+    public function printView()
     {
-      return view('application.nursingScholarship.printViewNursing');
-    }
-//Nursing-MANAGE AND VIEW-END
-
-//HHDLSS-ADD-START
-    public function applicationFormHHDLSS()
-    {
-      return view('application.HHDLSSscholarship.addHHLDSS.applicationForm');
+      return view('myApplication.printView');
     }
 
-    public function annexure1HHDLSS()
+    public function manageMyApplication()
     {
-      return view('application.HHDLSSscholarship.addHHLDSS.annexure1');
+      return view('myApplication.manageMyApplication');
     }
 
-    public function annexure2HHDLSS()
-    {
-      return view('application.HHDLSSscholarship.addHHLDSS.annexure2');
-    }
+    //Application Form
+    
 
-    public function annexure2PrintFormHHDLSS()
-    {
-      return view('application.HHDLSSscholarship.addHHLDSS.annexure2PrintFormHHDLSS');
-    }
+    #scholarship 
 
-    public function annexure2BlankFormHHDLSS()
-    {
-      return view('application.HHDLSSscholarship.addHHLDSS.annexure2BlankFormHHDLSS');
-    }
+    //nursing
+    
 
-    public function uploadDocumentsHHDLSS()
-    {
-      return view('application.HHDLSSscholarship.addHHLDSS.uploadDocuments');
-    }
+    //HHDLSS
+    // public function annexure1HHDLSS()
+    // {
+    //   return view('application.scholarship.hhdlss.annexure1');
+    // }
 
-    public function reviewSubmitHHDLSS()
-    {
-      return view('application.HHDLSSscholarship.addHHLDSS.review');
-    }
-//HHDLSS-ADD-END
-//HHDLSS-MANAGE AND VIEW-START
+    // public function annexure2HHDLSS()
+    // {
+    //   return view('application.scholarship.hhdlss.annexure2');
+    // }
 
-    public function viewHHDLSS()
-    {
-      return view('application.HHDLSSscholarship.viewHHDLSS');
-    }
+    // public function annexure2PrintFormHHDLSS()
+    // {
+    //   return view('application.scholarship.hhdlss.annexure2PrintFormHHDLSS');
+    // }
 
-    public function printViewHHDLSS()
-    {
-      return view('application.HHDLSSscholarship.printViewHHDLSS');
-    }
-//HHDLSS-MANAGE AND VIEW-END
+    // public function annexure2BlankFormHHDLSS()
+    // {
+    //   return view('application.scholarship.hhdlss.annexure2BlankFormHHDLSS');
+    // }
+
+    // public function reviewSubmitHHDLSS()
+    // {
+    //   return view('application.scholarship.hhdlss.review');
+    // }
+
+    // public function viewHHDLSS()
+    // {
+    //   return view('application.scholarship.hhdlss.viewHHDLSS');
+    // }
+
+    // public function printViewHHDLSS()
+    // {
+    //   return view('application.scholarship.hhdlss.printViewHHDLSS');
+    // }
+    //HHDLSS-MANAGE AND VIEW-END
 }

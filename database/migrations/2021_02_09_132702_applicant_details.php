@@ -34,6 +34,8 @@ class ApplicantDetails extends Migration
             // $table->string('applicantColonyName');
             $table->string('applicantContactNoColonyLeader');
             $table->unsignedBigInteger('applicantAddressId');
+            $table->unsignedBigInteger('userId');
+            $table->unsignedBigInteger('sessionId');
             $table->timestamps();
         });
     }

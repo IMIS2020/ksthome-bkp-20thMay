@@ -1,37 +1,30 @@
-// //Nursing
-import ManageScholarship   from './components/application/manageScholarship';
+// Dashboard and manage scholarship
+import ManageMyApplication   from './components/myApplication/manageMyApplication';
 import Dashboard           from './components/dashboard';
-// //ADD-START 
-    import ApplicationForm  from './components/application/nursingScholarship/addNursing/applicationForm';
-    import Annexure1        from './components/application/nursingScholarship/addNursing/annexure1';
-    import Annexure2        from './components/application/nursingScholarship/addNursing/annexure2';
-    import annexure2PrintForm        from './components/application/nursingScholarship/addNursing/annexure2PrintForm';
-    import annexure2BlankForm        from './components/application/nursingScholarship/addNursing/annexure2BlankForm';
-    import UploadDocuments  from './components/application/nursingScholarship/addNursing/uploadDocuments';
-    import Review           from './components/application/nursingScholarship/addNursing/review';
-// //ADD-END
 
-//View-Start
-    import ViewNursing      from './components/application/nursingScholarship/viewNursing';
-    import PrintViewNursing from './components/application/nursingScholarship/printViewNursing';
-//View-Start
+// Form - Application form and upload documents
+import ApplicantForm  from './components/applicant/applicantForm';
+import ApplicantDocuments  from './components/applicant/applicantDocuments'; 
+import Choose           from './components/applicant/choose';
 
-//HHDLSS
+//Nursing scholarship
+import Annexure1                 from './components/myApplication/annexure1';
+import Annexure2                 from './components/myApplication/annexure2';
+import annexure2PrintForm        from './components/myApplication/annexure2PrintForm';
+import annexure2BlankForm        from './components/myApplication/annexure2BlankForm';
+import ReviewMyApplication       from './components/myApplication/reviewMyApplication';
+import ViewMyApplication         from './components/myApplication/viewMyApplication';
+import PrintView                 from './components/myApplication/printView';
 
-//ADD-START
-    import ApplicationFormHHDL  from './components/application/HHDLSSscholarship/addHHDLSS/applicationForm';
-    import Annexure1HHDL        from './components/application/HHDLSSscholarship/addHHDLSS/annexure1';
-    import Annexure2HHDL        from './components/application/HHDLSSscholarship/addHHDLSS/annexure2';
-    import annexure2PrintFormHHDL  from './components/application/HHDLSSscholarship/addHHDLSS/annexure2PrintForm';
-    import annexure2BlankFormHHDL  from './components/application/HHDLSSscholarship/addHHDLSS/annexure2BlankForm';
-    import UploadDocumentsHHDL  from './components/application/HHDLSSscholarship/addHHDLSS/uploadDocuments';
-    import ReviewHHDL           from './components/application/HHDLSSscholarship/addHHDLSS/review';
-//ADD-END
+//Hhdlss
+// import Annexure1HHDL           from './components/application/scholarship/hhdlss/annexure1';
+// import Annexure2HHDL           from './components/application/scholarship/hhdlss/annexure2';
+// import annexure2PrintFormHHDL  from './components/application/scholarship/hhdlss/annexure2PrintForm';
+// import annexure2BlankFormHHDL  from './components/application/scholarship/hhdlss/annexure2BlankForm';
+// import ReviewHHDL              from './components/application/scholarship/hhdlss/review';
+// import ViewHHDLSS              from './components/application/scholarship/hhdlss/viewHHDLSS';
+// import PrintViewHHDLSS         from './components/application/scholarship/hhdlss/printViewHHDLSS';
 
-//View-Start
-    import ViewHHDLSS      from './components/application/HHDLSSscholarship/viewHHDLSS';
-    import PrintViewHHDLSS from './components/application/HHDLSSscholarship/printViewHHDLSS';
-// View-End
 
 // Admin Section
 
@@ -59,205 +52,149 @@ import ReviewHHDLSSAnnexure1 from './components/admin/applicationDetails/reviewA
 import ReviewHHDLSSAnnexure2 from './components/admin/applicationDetails/reviewApplicationHHDLSS/annexure2HHDLSS';
 import ReviewHHDLSSUploadDocuments from './components/admin/applicationDetails/reviewApplicationHHDLSS/uploadDocumentsHHDLSS';
 import ReviewHHDLSSReview from './components/admin/applicationDetails/reviewApplicationHHDLSS/reviewHHDLSS';
+// import { component } from 'vue/types/umd';
 // End
 export default{
     mode: 'history',
     linkActiveClass: 'font-semibold',
-    routes: [   
-    {
-        path: '/manage-scholarship',
-        component: ManageScholarship,
-        name: "manage-scholarship"
-    },
-    {
-        path:'/api/get-manage-scholarship/:userId',
-    },
-    {
-        path: '/dashboard',
-        component: Dashboard,
-        name: "dashboard"
-    },
+    routes: [ 
+                /*** START OF UI ROUTES ***/ 
+                /******
+                 * UI Routes to call dashnoard component
+                 */
+                {
+                    path: '/dashboard',
+                    component: Dashboard,
+                    name: 'dashboard'
+                },
 
- //ADD Start (NURSING)
+        
+               /***********
+                * UI Routes to call applicant components from applicant
+                * folder
+                */
+                {
+                    path: '/applicant-form',
+                    component: ApplicantForm,
+                    name: "application-form"
+                },
+                {
+                    path: '/applicant-documents',
+                    component: ApplicantDocuments,
+                    name: "applicant-documents"
+                },
+                {
+                    path:'/choose-scholarship',
+                    component: Choose,
+                    name: 'choose-scholarship'
+                },
+
+
+                /******
+                 * UI Routes to call application components from application
+                 * folder
+                 */
+                {
+                    path: '/manage-my-application',
+                    component: ManageMyApplication,
+                    name: "manage-my-application"
+                },
+                {
+                    path: '/annexure-1',
+                    component: Annexure1,
+                    name: "annexure-1"
+                },
+                {
+                    path: '/annexure-2',
+                    component: Annexure2,
+                    name: "annexure-2"
+                },
+                {
+                    path: '/annexure-2-print-form',
+                    component: annexure2PrintForm,
+                    name: "annexure-2-print-form"
+                },
+                {
+                    path: '/annexure-2-blank-form',
+                    component: annexure2BlankForm,
+                    name: "annexure-2-blank-form"
+                },
+                {
+                    path: '/review-submit',
+                    component: ReviewMyApplication,
+                    name: "review-submit"
+                },
+                {
+                    path: '/view-application',
+                    component:ViewMyApplication,
+                    name: "view-application"
+                },
+                {
+                    path: '/print-view-application',
+                    component:PrintView,
+                    name: "print-view-application"
+                },
+
+
+
+
+
     {
-    path: '/application-form',
-    component: ApplicationForm,
-    name: "application-form"
+        path:'/api/get-manage-my-application/:userId',
+    },
+    
+
+    //Form and upload documents and choose scholarship
+    
+    {
+        path:'/api/add-application-form/:userId',
     },
     {
-     path:'/api/add-application-form/:userId',
+        path:'/api/application-form/:userId',
     },
     {
-     path:'/api/application-form/:applicationId',
-    },
-    {
-     path:'/api/edit-application-form/:applicationId',
+        path:'/api/edit-application-form/:applicationId',
     },
     {
        path:'/show-application-form-nursing/:applicationId',
-       component: ApplicationForm,
+       component: ApplicantForm,
        name: "application-form"
     },
     {
-     path:'/api/show-application-form-nursing/:applicationId',
+        path:'/api/show-application-form-nursing/:applicationId',
+    },
+    
+    {
+        path:'/api/upload-documents/:applicationId',
     },
     {
-    path: '/annexure-1',
-    component: Annexure1,
-    name: "annexure-1"
+        path:'/api/get-upload-documents/:applicationId',
     },
     {
-    path:'/api/add-annexurei/:applicationId',
+        path:'/api/update-documents/:applicationId',
     },
     {
-    path:'/api/get-annexurei/:applicationId',
+        path:'/api/delete-documents/:applicationId',
+    },
+    
+    
+    //Nursing
+    
+    {
+        path:'/api/add-annexurei/:applicationId',
     },
     {
-     path:'/api/edit-annexurei/:applicationId',
+        path:'/api/get-annexurei/:applicationId',
     },
     {
-    path: '/annexure-2',
-    component: Annexure2,
-    name: "annexure-2"
+        path:'/api/edit-annexurei/:applicationId',
     },
-    {
-    path: '/annexure-2-print-form',
-    component: annexure2PrintForm,
-    name: "annexure-2-print-form"
-    },
-    {
-    path: '/annexure-2-blank-form',
-    component: annexure2BlankForm,
-    name: "annexure-2-blank-form"
-    },
-    {
-    path:'/api/save-annexureii/:applicationId',
-    },
-    {
-    path: '/upload-documents',
-    component: UploadDocuments,
-    name: "upload-documents"
-    },
-    {
-     path:'/api/upload-documents/:applicationId',
-    },
-    {
-    path:'/api/get-upload-documents/:applicationId',
-    },
-    {
-    path:'/api/update-documents/:applicationId',
-    },
-    {
-    path:'/api/delete-documents/:applicationId',
-    },
-    {
-    path: '/review-submit',
-    component: Review,
-    name: "review-submit"
-    },
- //ADD End (NURSING)
-
-//View Start (NURSING)
+   
    
     {
-        path: '/view-nursing',
-        component:ViewNursing,
-        name: "manage-nursing"
+        path:'/api/save-annexureii/:applicationId',
     },
-    {
-        path: '/print-view-nursing',
-        component:PrintViewNursing,
-        name: "manage-nursing"
-    },
- //View End (NURSING)
-
-// ---------------------------------- //
-//ADD -START (HHDLSS)
-  {
-    path: '/application-form-HHDLSS',
-    component: ApplicationFormHHDL,
-    name: "application-form-HHDLSS"
-    },
-    {
-    path:'/api/add-application-form-HHDLSS/:userId',
-    },
-    {
-    path:'/api/application-form-HHDLSS/:userId',
-    },
-    {
-    path:'/api/edit-application-form-HHDLSS/:applicationId',
-    },
-    {
-    path: '/annexure-1-HHDLSS',
-    component: Annexure1HHDL ,
-    name: "annexure-1-HHDLSS"
-    },
-     
-    {
-    path:'/api/add-annexurei-HHDLSS/:applicationId',
-    },
-    {
-    path:'/api/get-annexurei-HHDLSS:applicationId',
-    },
-    {
-    path:'/api/edit-annexurei-HHDLSS/:applicationId',
-    },
-
-    {
-    path: '/annexure-2-HHDLSS',
-    component: Annexure2HHDL,
-    name: "annexure-2-HHDLSS"
-    },
-
-    {
-    path:'/api/save-annexureii-HHDLSS/:applicationId',
-    },
-    {
-    path: '/annexure-2-print-form-HHDLSS',
-    component: annexure2PrintFormHHDL,
-    name: "annexure-2-print-form-HHDLSS"
-    },
-    {
-    path: '/annexure-2-blank-form-HHDLSS',
-    component: annexure2BlankFormHHDL,
-    name: "annexure-2-blank-form-HHDLSS"
-    },
-    {
-    path: '/upload-documents-HHDLSS',
-    component:UploadDocumentsHHDL ,
-    name: "upload-documents-HHDLSS"
-    },
-    {
-    path:'/api/upload-documents-HHDLSS/:applicationId',
-    },
-    {
-    path:'/api/get-upload-documents-HHDLSS/:applicationId',
-    },
-    {
-    path:'/api/update-documents-HHDLSS/:applicationId',
-    },
-    {
-    path:'/api/delete-documents-HHDLSS/:applicationId',
-    },
-    {
-    path: '/review-submit-HHDLSS',
-    component: ReviewHHDL,
-    name: "review-submit-HHDLSS"
-    },
- //ADD-END (HHDLSS)
-
- //View Start (HHDLSS)
-    {
-    path: '/view-HHDLSS',
-    component:ViewHHDLSS,
-    name: "manage-HHDLSS"
-    },
-    {
-    path: '/print-view-HHDLSS',
-    component:PrintViewHHDLSS,
-    name: "manage-HHDLSS"
-    },
-//View End (HHDLSS)
+    
 // //-------------------------------------//
 
 // Admin Section start

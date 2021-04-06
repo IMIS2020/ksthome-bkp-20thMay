@@ -61,11 +61,21 @@ Route::group(['prefix' => 'api'], function() {
   /****
    * API calls for application-from
    */
-   Route::post('/add-application-form/{userId}','Scholarship\NursingScholarshipApplicationController@addNursingScholarshipApplication');
+   Route::post('/add-application-form/{userId}','Scholarship\ApplicationController@addScholarshipApplication');
    Route::post('/edit-application-form/{applicationId}','Scholarship\NursingScholarshipApplicationController@editNursingScholarshipApplication');
    Route::get('/get-application-form-data/{applicationId}','Scholarship\NursingScholarshipApplicationController@getNursingScholarshipApplication');
   /****
    * End API calls for application from
+   */
+
+  /****
+   * API Call for domainValues 
+   */
+   Route::get('/domain/examinationLevel');
+   Route::get('/domain/examinationPassed');
+   Route::get('/domain/universityBoardCouncil');
+  /****
+   * End API calls for domainValues
    */
   
 

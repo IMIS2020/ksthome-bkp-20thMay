@@ -281,9 +281,9 @@
                                                                                         <div class="form-group mb-0">
                                                                                             <select class="form-control form-control-sm" v-model="form.education1ExaminationLevel">
                                                                                                 <option value="" disabled>-- select --</option>
-                                                                                                <option value="10th">10th</option>
-                                                                                                <option value="12th">12th</option>
-                                                                                                <option value="Graduation">Graduation</option>
+                                                                                                <option value="10">10th</option>
+                                                                                                <option value="12">12th</option>
+                                                                                                <option value="11">Graduation</option>
                                                                                                 <option value="Others">Others</option>
                                                                                             </select>
                                                                                         </div>
@@ -292,9 +292,9 @@
                                                                                         <div class="form-group mb-0">
                                                                                             <select class="form-control form-control-sm" v-model="form.education1ExaminationPassed">
                                                                                                 <option value="" disabled>-- select --</option>
-                                                                                                <option value="Madhyamik">Madhyamik</option>
-                                                                                                <option value="Higher Secondary">Higher Secondary</option>
-                                                                                                <option value="B.Com">B.Com</option>
+                                                                                                <option value="3">Madhyamik</option>
+                                                                                                <option value="2">Higher Secondary</option>
+                                                                                                <option value="1">B.Com</option>
                                                                                                 <option value="Others">Others</option>
                                                                                             </select>
                                                                                         </div>
@@ -303,9 +303,9 @@
                                                                                         <div class="form-group mb-0">
                                                                                             <select class="form-control form-control-sm" v-model="form.education1University">
                                                                                                 <option value="" disabled>-- select --</option>
-                                                                                                <option value="WBBSE">WBBSE</option>
-                                                                                                <option value="WBCHSE">WBCHSE</option>
-                                                                                                <option value="WBSCTVE&D">WBSCTVE&amp;D</option>
+                                                                                                <option value="3">WBBSE</option>
+                                                                                                <option value="2">WBCHSE</option>
+                                                                                                <option value="1">WBSCTVE&amp;D</option>
                                                                                                 <option value="Others">Others</option>
                                                                                             </select>
                                                                                         </div>
@@ -326,9 +326,9 @@
                                                                                                 <option value="2017">2017</option>
                                                                                                 <option value="2016">2016</option>
                                                                                                 <option value="2015">2015</option>
-                                                                                                <option value="2014">2014</option>
-                                                                                                <option value="2013">2013</option>
-                                                                                                <option value="2012">2012</option>
+                                                                                                <option value="3">2014</option>
+                                                                                                <option value="2">2013</option>
+                                                                                                <option value="1">2012</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </td>
@@ -354,9 +354,9 @@
                                                                                         <div class="form-group mb-0">
                                                                                             <select class="form-control form-control-sm" v-model="form.education2ExaminationLevel">
                                                                                                 <option value="" disabled>-- select --</option>
-                                                                                                <option value="10th">10th</option>
-                                                                                                <option value="12th">12th</option>
-                                                                                                <option value="Graduation">Graduation</option>
+                                                                                                <option value="10">10th</option>
+                                                                                                <option value="12">12th</option>
+                                                                                                <option value="11">Graduation</option>
                                                                                                 <option value="Others">Others</option>
                                                                                             </select>
                                                                                         </div>
@@ -365,9 +365,9 @@
                                                                                         <div class="form-group mb-0">
                                                                                             <select class="form-control form-control-sm" v-model="form.education2ExaminationPassed">
                                                                                                 <option value="" disabled>-- select --</option>
-                                                                                                <option value="Madhyamik">Madhyamik</option>
-                                                                                                <option value="Higher Secondary">Higher Secondary</option>
-                                                                                                <option value="B.Com">B.Com</option>
+                                                                                                <option value="3">Madhyamik</option>
+                                                                                                <option value="2">Higher Secondary</option>
+                                                                                                <option value="1">B.Com</option>
                                                                                                 <option value="Others">Others</option>
                                                                                             </select>
                                                                                         </div>
@@ -376,9 +376,9 @@
                                                                                         <div class="form-group mb-0">
                                                                                             <select class="form-control form-control-sm" v-model="form.education2University">
                                                                                                 <option value="" disabled>-- select --</option>
-                                                                                                <option value="WBBSE">WBBSE</option>
-                                                                                                <option value="WBCHSE">WBCHSE</option>
-                                                                                                <option value="WBSCTVE&D">WBSCTVE&amp;D</option>
+                                                                                                <option value="3">WBBSE</option>
+                                                                                                <option value="2">WBCHSE</option>
+                                                                                                <option value="1">WBSCTVE&amp;D</option>
                                                                                                 <option value="Others">Others</option>
                                                                                             </select>
                                                                                         </div>
@@ -399,9 +399,9 @@
                                                                                                 <option value="2017">2017</option>
                                                                                                 <option value="2016">2016</option>
                                                                                                 <option value="2015">2015</option>
-                                                                                                <option value="2014">2014</option>
-                                                                                                <option value="2013">2013</option>
-                                                                                                <option value="2012">2012</option>
+                                                                                                <option value="3">2014</option>
+                                                                                                <option value="2">2013</option>
+                                                                                                <option value="1">2012</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </td>
@@ -928,12 +928,29 @@ export default {
                 if(this.form.applicationId == ''){
                    this.form.applicationType =  window.location.pathname.split('/').reverse()[0];
                 }
+            },
+            readDomainValues()
+            {
+                axios.get('/api/domain/examinationLevel')
+                    .then(response => {
+                        this.examinationLevelValues = response.data;
+                    });
+                axios.get('/api/domain/examinationPassed')
+                    .then(response => {
+                        this.examinationPassedValues= response.data;
+                    });
+                axios.get('/api/domain/universityBoardCouncil')
+                    .then(response => {
+                        this.universityBoardCouncilValues = response.data;
+                    });
+                
             }
          },
-         created ()
+         created()
          {
+           this.readDomainValues();
            this.readApplicationForm();
-           this. checkNewApplicationType();
+           this.checkNewApplicationType();
          }
 }
  </script>

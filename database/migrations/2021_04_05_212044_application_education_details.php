@@ -15,15 +15,18 @@ class ApplicationEducationDetails extends Migration
     {
         Schema::create('applicationEducationDetails', function (Blueprint $table) {
             $table->id();
-            $table->string('examinationLevel');
-            $table->string('universityBoardCouncil');
+            $table->unsignedBigInteger('examLevelValueId');// FK DomainValues 
+            $table->unsignedBigInteger('examBoardValueId');// FK DomainValues
+            $table->unsignedBigInteger('examPassedValueId');// FK DomainValues
+            $table->string('examLevelValue')->nullable();
+            $table->string('examBoardValue')->nullable();
+            $table->string('examPassedValue')->nullable();
             $table->string('mainSubjects');
             $table->string('yearOfPassing');
             $table->float('percentage');
             $table->float('percentageKeySub')->nullable();
             $table->string('division');
-            $table->unsignedBigInteger('applicationId');
-            $table->string('examinationPassed');
+            $table->unsignedBigInteger('applicationId');// FK ApplicationDetails
             $table->timestamps();
         });
     }

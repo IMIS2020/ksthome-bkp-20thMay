@@ -26,7 +26,6 @@ class StepOutcome extends Migration
             $table->string('offlineAppAnnMatch');
             $table->float('keySubjMarks');
             $table->unsignedBigInteger('appEduDetailsId');
-            $table->string('status');
             $table->timestamps();
         });
     }

@@ -18,7 +18,7 @@ class ApplicationMiscellaneousDetails extends Migration
             $table->string('name');
             $table->string('course');
             $table->string('year');
-            $table->unsignedBigInteger('applicationId');
+            $table->unsignedBigInteger('applicationId'); // FK applicationDetails
             $table->timestamps();
         });
         

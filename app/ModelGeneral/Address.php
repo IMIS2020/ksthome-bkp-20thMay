@@ -3,8 +3,7 @@
 namespace App\ModelGeneral;
 
 use Illuminate\Database\Eloquent\Model;
-use App\ModelScholarship\InstituteDetails;
-use App\ModelScholarship\ApplicantDetails;
+use App\ModelScholarship\ApplicationDetails;
 
 class Address extends Model
 {
@@ -12,13 +11,8 @@ class Address extends Model
     public $primarykey = 'id';
     public $timestamp = true;
 
-    public function get_instituteDetails()
+    public function get_applicationDetails()
     {
-        return $this->hasMany(InstituteDetails::class);
-    }
-
-    public function get_applicanDetails()
-    {
-        return $this->hasMany(ApplicantDetails::class);
+        return $this->hasMany(ApplicationDetails::class);
     }
 }

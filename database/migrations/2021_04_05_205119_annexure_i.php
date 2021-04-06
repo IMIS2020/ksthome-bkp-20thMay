@@ -15,10 +15,13 @@ class AnnexureI extends Migration
     {
         Schema::create('annexureI', function (Blueprint $table) {
             $table->id();
-            $table->string('courseName');
+            $table->unsignedBigInteger('institueId');
+            $table->unsignedBigInteger('courseLevelValueId')->nullable();
+            $table->unsignedBigInteger('courseNameValueId')->nullable();
+            $table->string('courseLevelValue')->nullable();
+            $table->string('courseNameValue')->nullable();
             $table->unsignedBigInteger('choice');
             $table->unsignedBigInteger('applicationId');
-            $table->unsignedBigInteger('institueId');
             $table->timestamps();
         });
     }

@@ -175,6 +175,22 @@ export default{
                  * End API calls for application from
                  */
 
+                /****
+                 * API Call for domainValues 
+                 */
+                {
+                    path:'/api/domain/examinationLevel',
+                },
+                {
+                    path:'/api/domain/examinationPassed',
+                },
+                {
+                    path:'/api/domain/universityBoardCouncil',
+                },
+                /****
+                 * End API calls for domainValues
+                 */
+
 
 
 

@@ -15,12 +15,12 @@ class ApplicationDetails extends Migration
     {
         Schema::create('applicantionDetails', function (Blueprint $table) {
             $table->id();
-            $table->string('applicationId');
+            $table->string('schApplicationId');
             $table->string('applicationType');
-            $table->unsignedBigInteger('scholarshipTypeValueId');
+            $table->unsignedBigInteger('scholarshipTypeValueId'); // FK domainValues
             $table->string('scholarshipType');
-            $table->unsignedBigInteger('userId');
-            $table->unsignedBigInteger('sessionId');
+            $table->unsignedBigInteger('userId'); // FK user
+            $table->unsignedBigInteger('sessionId');// FK userSession
             $table->string('applicantNameF');
             $table->string('applicantNameM')->nullable();
             $table->string('applicantNameL');
@@ -38,14 +38,14 @@ class ApplicationDetails extends Migration
             $table->string('applicantEmailId');
             $table->string('applicantColonyLeaderName')->nullable();
             $table->string('applicantContactNoColonyLeader');
-            $table->unsignedBigInteger('applicantAddressId');
-            $table->unsignedBigInteger('appSchduleId');
+            $table->unsignedBigInteger('applicantAddressId'); // FK Address
+            $table->unsignedBigInteger('appSchduleId'); // FK ApplicationSchdule
             $table->string('hasAdmissionLetter');
-            $table->unsignedBigInteger('instituteId')->nullable();
-            $table->unsignedBigInteger('instituteCourseLevelId')->nullable();
-            $table->unsignedBigInteger('instituteCourseValueId')->nullable();
-            $table->string('instituteCourseLevel')->nullable();
-            $table->string('instituteCourseValue')->nullable();
+            $table->unsignedBigInteger('instituteId')->nullable(); // FK Institute
+            $table->unsignedBigInteger('courseLevelValueId')->nullable(); // FK domainValues
+            $table->unsignedBigInteger('courseNameValueId')->nullable(); // FK domainName
+            $table->string('courseLevelValue')->nullable();
+            $table->string('courseNameValue')->nullable();
             $table->string('recognizedByINC')->nullable();
             $table->string('financialYear');
             $table->string('appStatus')->default('Saved');

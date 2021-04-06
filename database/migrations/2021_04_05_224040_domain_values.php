@@ -17,7 +17,7 @@ class DomainValues extends Migration
             $table->id();
             $table->unsignedBigInteger('nameId');
             $table->string('value');
-            $tbale->string('valueDescription')->nullable();
+            $table->string('valueDescription')->nullable();
             $table->timestamps();
         });
     }

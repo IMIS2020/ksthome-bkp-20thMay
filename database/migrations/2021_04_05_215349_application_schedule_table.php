@@ -16,9 +16,9 @@ class ApplicationScheduleTable extends Migration
         Schema::create('applicationScheduleTable', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('sessionId');
-            $table->string('applicationScheduleId')->nullable();
+            // $table->string('applicationScheduleId')->nullable();
             $table->string('financialYear')->nullable();
-            $table->unsignedBigInteger('scholarshipTypeId')->nullable();
+            $table->unsignedBigInteger('scholarshipTypeValueId')->nullable();
             $table->string('startDate')->nullable();
             $table->string('lastDate')->nullable();
             $table->string('applicationNoPrefixFormat')->nullable();

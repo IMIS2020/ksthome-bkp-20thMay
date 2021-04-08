@@ -25,10 +25,10 @@
                         <h5 class="text-break mb-3 home-links"><strong>Download Application form for HHDLSS Scholarship </strong><i class="fa fa-download"></i></h5>
                     </a>
                     @if (Auth::check())
-                    <a href="/application-form/nursing">
+                    <a href="/application-form/Nursing">
                         <h5 class="text-break mb-3 home-links"><strong>Apply Online for Nursing Scholarship</strong><i class="fa fa-sign-in"></i></h5>
                     </a>
-                    <a href="/application-form/hddlss">
+                    <a href="/application-form/Hddlss">
                         <h5 class="text-break home-links"><strong>Apply Online for HHDLSS Scholarship </strong><i class="fa fa-sign-in"></i></h5>
                     </a>
                     @else
@@ -91,10 +91,10 @@
                         <h5 class="text-break mb-3 home-links"><strong>Download Application form for HHDLSS Scholarship </strong><i class="fa fa-download"></i></h5>
                     </a>
                     @if (Auth::check())
-                    <a href="/application-form/nursing">
+                    <a href="/application-form/Nursing">
                         <h5 class="text-break mb-3 home-links"><strong>Apply Online for Nursing Scholarship  </strong><i class="fa fa-sign-in"></i></h5>
                     </a>
-                    <a href="/application-form/hddlss">
+                    <a href="/application-form/Hddlss">
                         <h5 class="text-break home-links"><strong>Apply Online for HHDLSS Scholarship &nbsp;</strong><i class="fa fa-sign-in"></i></h5>
                     </a>
                     @else
@@ -171,7 +171,7 @@
                                             </tr>
                                             <tr>
                                                 <td><strong>Last Login</strong></td>
-                                                <td>{{date("d-m-Y", strtotime($user->lastLoginTime)) }} {{(substr(explode('-',$user->lastLoginTime)[2],3))}}</td>
+                                               
                                             </tr>
                                    
                                         </tbody>

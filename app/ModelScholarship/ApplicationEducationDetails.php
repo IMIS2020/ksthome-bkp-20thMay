@@ -3,8 +3,8 @@
 namespace App\ModelScholarship;
 
 use Illuminate\Database\Eloquent\Model;
-use ApplicationDetails;
-use DomainValues;
+use App\ModelScholarship\ApplicationDetails;
+use App\ModelScholarship\DomainValues;
 
 class ApplicationEducationDetails extends Model
 {

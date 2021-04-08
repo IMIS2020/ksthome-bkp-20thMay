@@ -101,14 +101,14 @@ export default{
                     name: "manage-my-application"
                 },
                 {
-                    path: '/application-form/nursing',
+                    path: '/application-form/Nursing',
                     component: ApplicantForm,
-                    name: "application-form"
+                    name: "application-form-nursing"
                 },
                 {
-                    path: '/application-form/hddlss',
+                    path: '/application-form/Hddlss',
                     component: ApplicantForm,
-                    name: "application-form"
+                    name: "application-form-hddlss"
                 },
                 {
                     path: '/application-form/:applicationId',
@@ -186,6 +186,12 @@ export default{
                 },
                 {
                     path:'/api/domain/universityBoardCouncil',
+                },
+                {
+                    path:'/api/domain/scholarship',
+                },
+                {
+                    path:'/api/domain/add',
                 },
                 /****
                  * End API calls for domainValues

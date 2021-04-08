@@ -11,6 +11,10 @@ use App\ModelScholarship\Institute;
 use App\ModelScholarship\ApplicationDetails;
 use App\ModelScholarship\ApplicationEducationDetails;
 use App\ModelScholarship\ApplicationMiscellaneousDetails;
+use App\ModelScholarship\DomainName;
+use App\ModelScholarship\DomainValues;
+use App\ModelScholarship\ApplicationScheduleTable;
+use User;
 // use App\ModelScholarship\AnnexureI;
 // use App\ModelScholarship\ApplicantDocuments;
 // use App\ModelScholarship\NursingScholarshipApplication;
@@ -120,8 +124,10 @@ class ApplicationController extends Controller
              $applicationDetails->applicantEmailId                 = $request->applicantEmailId;
              $applicationDetails->applicantContactNoColonyLeader   = $request->applicantContactNoColonyLeader;
              $applicationDetails->applicantAddressId               = $applicationAddress->id;
-             $applicationDetails->applicationType                  = $request->applicationType;
-             $applicationDetails->scholarshipTypeValueId           = 1;
+             $applicationDetails->applicationType                  = "Online";
+             $applicationDetails->scholarshipType                  = $request->scholarshipType;
+             $getDomainValuesApp = DomainValues::where('value',$request->scholarshipType)->first();
+             $applicationDetails->scholarshipTypeValueId           = $getDomainValuesApp->id;
 
              if ($request->hasAdmissionLetter === 'YES') {
                 $instituteAddress = new Address;
@@ -154,51 +160,54 @@ class ApplicationController extends Controller
              $applicationDetails->save();
             
              #Education Details
-             $applicationEducationDetails = new ApplicationEducationDetails; // class 10
-             $applicationEducationDetails->examLevelValueId       = $request->education1ExaminationLevel;
-             $applicationEducationDetails->examBoardValueId       = $request->education1University;
-             $applicationEducationDetails->examPassedValueId      = $request->education1ExaminationPassed;
+             $applicationEducationDetails10 = new ApplicationEducationDetails; // class 10
+             $getDomainValuesExam10 = DomainValues::where('value',$request->education1ExaminationLevel)->first();
+             $applicationEducationDetails10->examLevelValueId       = $getDomainValuesExam10->id;
+             $applicationEducationDetails10->examBoardValueId       = $request->education1University;
+             $applicationEducationDetails10->examPassedValueId      = $request->education1ExaminationPassed;
             //  $applicationEducationDetails->examLevelValue            = $request->mainSubjects10;
             //  $applicationEducationDetails->examBoardValue           = $request->yearOfPassing10;
             //  $applicationEducationDetails->examPassedValue              = $request->percentage10;
-             $applicationEducationDetails->mainSubjects           = $request->education1MainSubjects;
-             $applicationEducationDetails->yearOfPassing          = $request->education1YearOfPassing;
-             $applicationEducationDetails->percentage             = $request->education1Percentage;
-             $applicationEducationDetails->percentageKeySub       = $request->education1Percentage;
-             $applicationEducationDetails->division               = $request->education1Division;
-             $applicationEducationDetails->applicationId          = $applicationDetails->id;
-             $applicationEducationDetails->save();
+             $applicationEducationDetails10->mainSubjects           = $request->education1MainSubjects;
+             $applicationEducationDetails10->yearOfPassing          = $request->education1YearOfPassing;
+             $applicationEducationDetails10->percentage             = $request->education1Percentage;
+             $applicationEducationDetails10->percentageKeySub       = $request->education1Percentage;
+             $applicationEducationDetails10->division               = $request->education1Division;
+             $applicationEducationDetails10->applicationId          = $applicationDetails->id;
+             $applicationEducationDetails10->save();
 
-             $applicantEducationDetails = new ApplicationEducationDetails; // class 12
-             $applicationEducationDetails->examLevelValueId       = $request->education2ExaminationLevel;
-             $applicationEducationDetails->examBoardValueId       = $request->education2University;
-             $applicationEducationDetails->examPassedValueId      = $request->education2ExaminationPassed;
+             $applicationEducationDetails12 = new ApplicationEducationDetails; // class 12
+             $getDomainValuesExam12 = DomainValues::where('value',$request->education2ExaminationLevel)->first();
+             $applicationEducationDetails12->examLevelValueId       = $getDomainValuesExam12->id;
+             $applicationEducationDetails12->examBoardValueId       = $request->education2University;
+             $applicationEducationDetails12->examPassedValueId      = $request->education2ExaminationPassed;
             //  $applicationEducationDetails->examLevelValue            = $request->mainSubjects10;
             //  $applicationEducationDetails->examBoardValue           = $request->yearOfPassing10;
             //  $applicationEducationDetails->examPassedValue              = $request->percentage10;
-             $applicationEducationDetails->mainSubjects           = $request->education2MainSubjects;
-             $applicationEducationDetails->yearOfPassing          = $request->education2YearOfPassing;
-             $applicationEducationDetails->percentage             = $request->education2Percentage;
-             $applicationEducationDetails->percentageKeySub       = $request->education2Percentage;
-             $applicationEducationDetails->division               = $request->education2Division;
-             $applicationEducationDetails->applicationId          = $applicationDetails->id;
-             $applicationEducationDetails->save();
+             $applicationEducationDetails12->mainSubjects           = $request->education2MainSubjects;
+             $applicationEducationDetails12->yearOfPassing          = $request->education2YearOfPassing;
+             $applicationEducationDetails12->percentage             = $request->education2Percentage;
+             $applicationEducationDetails12->percentageKeySub       = $request->education2Percentage;
+             $applicationEducationDetails12->division               = $request->education2Division;
+             $applicationEducationDetails12->applicationId          = $applicationDetails->id;
+             $applicationEducationDetails12->save();
 
-             if($request->applicationType == 'hddlss'){
-                $applicantEducationDetails = new ApplicationEducationDetails; // Graduate only for hddlls
-                $applicationEducationDetails->examLevelValueId       = $request->education3ExaminationLevel;
-                $applicationEducationDetails->examBoardValueId       = $request->education3University;
-                $applicationEducationDetails->examPassedValueId      = $request->education3ExaminationPassed;
+             if($request->scholarshipType == 'Hddlss'){
+                $applicationEducationDetails13 = new ApplicationEducationDetails; // Graduate only for hddlls
+                $getDomainValuesExam13 = DomainValues::where('value',$request->education3ExaminationLevel)->first();
+                $applicationEducationDetails13->examLevelValueId       = $getDomainValuesExam13->id;
+                $applicationEducationDetails13->examBoardValueId       = $request->education3University;
+                $applicationEducationDetails13->examPassedValueId      = $request->education3ExaminationPassed;
                //  $applicationEducationDetails->examLevelValue            = $request->mainSubjects10;
                //  $applicationEducationDetails->examBoardValue           = $request->yearOfPassing10;
                //  $applicationEducationDetails->examPassedValue              = $request->percentage10;
-                $applicationEducationDetails->mainSubjects           = $request->education3MainSubjects;
-                $applicationEducationDetails->yearOfPassing          = $request->education3YearOfPassing;
-                $applicationEducationDetails->percentage             = $request->education3Percentage;
-                $applicationEducationDetails->percentageKeySub       = $request->education3Percentage;
-                $applicationEducationDetails->division               = $request->education3Division;
-                $applicationEducationDetails->applicationId          = $applicationDetails->id;
-                $applicationEducationDetails->save();
+                $applicationEducationDetails13->mainSubjects           = $request->education3MainSubjects;
+                $applicationEducationDetails13->yearOfPassing          = $request->education3YearOfPassing;
+                $applicationEducationDetails13->percentage             = $request->education3Percentage;
+                $applicationEducationDetails13->percentageKeySub       = $request->education3Percentage;
+                $applicationEducationDetails13->division               = $request->education3Division;
+                $applicationEducationDetails13->applicationId          = $applicationDetails->id;
+                $applicationEducationDetails13->save();
              }
 
              if (!empty($request->miscName1) && !empty($request->miscCourse1) && !empty($request->miscYear1)) {
@@ -240,214 +249,245 @@ class ApplicationController extends Controller
      # Edit Scholarship Application
      public function editScholarshipApplication(string $applicationId, Request $request)
      {
-         $request->validate([  
-             'applicantNameF'                    => [],                
-             'applicantNameM'                    => [],
-             'applicantNameL'                    => [],
-             'applicantFatherName'               => [],
-             'applicantMotherName'               => [],
-             'applicantDOB'                      => ['required'],
-             'applicantGender'                   => ['required'],
-             'applicantLeprosyAffectedSelf'      => [],
-             'applicantLeprosyAffectedFather'    => [],
-             'applicantLeprosyAffectedMother'    => [],
-             'applicantHasBPLCard'               => ['required'],
-             'applicantDomicileState'            => ['required'],
-             
-             'addressAddln1'                     => ['required'],
-             'addressAddln2'                     => [],
-             'addressCity'                       => [],
-             'addressDistprov'                   => [],
-             'addressState'                      => ['required'],
-             'addressPinzip'                     => ['required','digits:6'],
-             'applicantContactNoSelf'            => ['required','digits:10'],
-             'applicantContactNoGuardian'        => ['required','digits:10'],
-             'applicantEmailId'                  => ['required'],
-             'applicantContactNoColonyLeader'    => ['required','digits:10'],
- 
-             'examinationLevel10'                => ['required'],
-             'universityBoardCouncil10'          => ['required'],
-             'mainSubjects10'                    => ['required'],
-             'yearOfPassing10'                   => ['required','digits:4'],
-             'percentage10'                      => ['required'],
-             'division10'                        => ['required'],
-             
- 
-             'examinationLevel12'                => ['required'],
-             'universityBoardCouncil12'          => ['required'],
-             'mainSubjects12'                    => ['required'],
-             'yearOfPassing12'                   => ['required','digits:4'],
-             'percentage12'                      => ['required'],
-             'division12'                        => ['required'],
-             
- 
-             'hasAdmissionLetter'                => ['required'],
-             'insCourse'                         => [],
-             'insName'                           => [],
-             'insAddressAddln1'                  => [],
-             'insAddressAddln2'                  => [],
-             'insAddressCity'                    => [],
-             'insAddressDistprov'                => [],
-             'insAddressState'                   => [],
-             'insAddressPinzip'                  => [],
-             'recognizedByINC'                   => [],
-             'miscName1'                         => [],
-             'miscCourse1'                       => [],
-             'miscYear1'                         => [],
-             'miscName2'                         => [],
-             'miscCourse2'                       => [],
-             'miscYear2'                         => [],
-             'miscName3'                         => [],
-             'miscCourse3'                       => [],
-             'miscYear3'                         => [],
-         ]);
+        $request->validate([  
+            'applicantNameF'                    => [],                
+            'applicantNameM'                    => [],
+            'applicantNameL'                    => [],
+            'applicantFatherName'               => [],
+            'applicantMotherName'               => [],
+            'applicantDOB'                      => ['required'],
+            'applicantGender'                   => ['required'],
+            'applicantLeprosyAffectedSelf'      => [],
+            'applicantLeprosyAffectedFather'    => [],
+            'applicantLeprosyAffectedMother'    => [],
+            'applicantHasBPLCard'               => ['required'],
+            'applicantDomicileState'            => ['required'],
+            
+            'addressAddln1'                     => ['required'],
+            'addressAddln2'                     => [],
+            'addressCity'                       => [],
+            'addressDistprov'                   => [],
+            'addressState'                      => ['required'],
+            'addressPinzip'                     => ['required','digits:6'],
+            'applicantContactNoSelf'            => ['required','digits:10'],
+            'applicantContactNoGuardian'        => ['required','digits:10'],
+            'applicantEmailId'                  => ['required'],
+            'applicantContactNoColonyLeader'    => ['required','digits:10'],
+
+           //  'examinationLevel10'                => ['required'],
+           //  'universityBoardCouncil10'          => ['required'],
+           //  'mainSubjects10'                    => ['required'],
+           //  'yearOfPassing10'                   => ['required','digits:4'],
+           //  'percentage10'                      => ['required'],
+           //  'division10'                        => ['required'],
+            
+           //  'examinationLevel12'                => ['required'],
+           //  'universityBoardCouncil12'          => ['required'],
+           //  'mainSubjects12'                    => ['required'],
+           //  'yearOfPassing12'                   => ['required','digits:4'],
+           //  'percentage12'                      => ['required'],
+           //  'division12'                        => ['required'],
+            
+
+            'hasAdmissionLetter'                => ['required'],
+            'insCourse'                         => [],
+            'insName'                           => [],
+            'insAddressAddln1'                  => [],
+            'insAddressAddln2'                  => [],
+            'insAddressCity'                    => [],
+            'insAddressDistprov'                => [],
+            'insAddressState'                   => [],
+            'insAddressPinzip'                  => [],
+            'recognizedByINC'                   => [],
+            'miscName1'                         => [],
+            'miscCourse1'                       => [],
+            'miscYear1'                         => [],
+            'miscName2'                         => [],
+            'miscCourse2'                       => [],
+            'miscYear2'                         => [],
+            'miscName3'                         => [],
+            'miscCourse3'                       => [],
+            'miscYear3'                         => [],
+        ]);
          
          DB::beginTransaction();
          try {
-             $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
+            //  $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
  
-             if ($nursingScholarshipApplication->hasAdmissionLetter === 'NO' && $request->hasAdmissionLetter === 'YES') {
-                 $instituteAddress = new Address;
-                 $instituteAddress->addressAddln1    = $request->insAddressAddln1;
-                 $instituteAddress->addressAddln2    = $request->insAddressAddln2;
-                 $instituteAddress->addressCity      = $request->insAddressCity;
-                 $instituteAddress->addressState     = $request->insAddressState;
-                 $instituteAddress->addressDistprov  = $request->insAddressDistprov;
-                 $instituteAddress->addressPinzip    = $request->insAddressPinzip;
-                 $instituteAddress->addressCountry   = 'India';
-                 $instituteAddress->save();
+            //  if ($nursingScholarshipApplication->hasAdmissionLetter === 'NO' && $request->hasAdmissionLetter === 'YES') {
+            //      $instituteAddress = new Address;
+            //      $instituteAddress->addressAddln1    = $request->insAddressAddln1;
+            //      $instituteAddress->addressAddln2    = $request->insAddressAddln2;
+            //      $instituteAddress->addressCity      = $request->insAddressCity;
+            //      $instituteAddress->addressState     = $request->insAddressState;
+            //      $instituteAddress->addressDistprov  = $request->insAddressDistprov;
+            //      $instituteAddress->addressPinzip    = $request->insAddressPinzip;
+            //      $instituteAddress->addressCountry   = 'India';
+            //      $instituteAddress->save();
  
-                 $instituteDetails = new InstituteDetails;
-                 $instituteDetails->instituteName = $request->insName;
-                 $instituteDetails->instituteAddressId = $instituteAddress->id;
-                 $instituteDetails->save();
+            //      $instituteDetails = new InstituteDetails;
+            //      $instituteDetails->instituteName = $request->insName;
+            //      $instituteDetails->instituteAddressId = $instituteAddress->id;
+            //      $instituteDetails->save();
  
-                 $nursingScholarshipApplication->hasAdmissionLetter  = $request->hasAdmissionLetter;
-                 $nursingScholarshipApplication->instituteId         = $instituteDetails->id;
-                 $nursingScholarshipApplication->instituteCourse     = $request->insCourse;
-                 $nursingScholarshipApplication->recognizedByINC     = $request->recognizedByINC;
-                 $nursingScholarshipApplication->update();
-             } else if ($nursingScholarshipApplication->hasAdmissionLetter === 'YES' && $request->hasAdmissionLetter === 'NO') {
-                 $instituteDetails = InstituteDetails::where('id',$nursingScholarshipApplication->instituteId)->first();
-                 $instituteAddress = Address::where('id',$instituteDetails->instituteAddressId)->first();
-                 $instituteAddress->delete();
-                 $instituteDetails->delete();
+            //      $nursingScholarshipApplication->hasAdmissionLetter  = $request->hasAdmissionLetter;
+            //      $nursingScholarshipApplication->instituteId         = $instituteDetails->id;
+            //      $nursingScholarshipApplication->instituteCourse     = $request->insCourse;
+            //      $nursingScholarshipApplication->recognizedByINC     = $request->recognizedByINC;
+            //      $nursingScholarshipApplication->update();
+            //  } else if ($nursingScholarshipApplication->hasAdmissionLetter === 'YES' && $request->hasAdmissionLetter === 'NO') {
+            //      $instituteDetails = InstituteDetails::where('id',$nursingScholarshipApplication->instituteId)->first();
+            //      $instituteAddress = Address::where('id',$instituteDetails->instituteAddressId)->first();
+            //      $instituteAddress->delete();
+            //      $instituteDetails->delete();
                  
-                 $nursingScholarshipApplication->hasAdmissionLetter  = $request->hasAdmissionLetter;
-                 $nursingScholarshipApplication->instituteId         = NULL;
-                 $nursingScholarshipApplication->instituteCourse     = NULL;
-                 $nursingScholarshipApplication->recognizedByINC     = NULL;
-                 $nursingScholarshipApplication->update();
-             } else if ($nursingScholarshipApplication->hasAdmissionLetter === 'YES' && $request->hasAdmissionLetter === 'YES') {
-                 $instituteDetails = InstituteDetails::where('id',$nursingScholarshipApplication->instituteId)->first();
-                 $instituteDetails->instituteName = $request->insName;
-                 $instituteDetails->update();
+            //      $nursingScholarshipApplication->hasAdmissionLetter  = $request->hasAdmissionLetter;
+            //      $nursingScholarshipApplication->instituteId         = NULL;
+            //      $nursingScholarshipApplication->instituteCourse     = NULL;
+            //      $nursingScholarshipApplication->recognizedByINC     = NULL;
+            //      $nursingScholarshipApplication->update();
+            //  } else if ($nursingScholarshipApplication->hasAdmissionLetter === 'YES' && $request->hasAdmissionLetter === 'YES') {
+            //      $instituteDetails = InstituteDetails::where('id',$nursingScholarshipApplication->instituteId)->first();
+            //      $instituteDetails->instituteName = $request->insName;
+            //      $instituteDetails->update();
  
-                 $instituteAddress = Address::where('id',$instituteDetails->instituteAddressId)->first();
-                 $instituteAddress->addressAddln1    = $request->insAddressAddln1;
-                 $instituteAddress->addressAddln2    = $request->insAddressAddln2;
-                 $instituteAddress->addressCity      = $request->insAddressCity;
-                 $instituteAddress->addressState     = $request->insAddressState;
-                 $instituteAddress->addressDistprov  = $request->insAddressDistprov;
-                 $instituteAddress->addressPinzip    = $request->insAddressPinzip;
-                 $instituteAddress->update();
+            //      $instituteAddress = Address::where('id',$instituteDetails->instituteAddressId)->first();
+            //      $instituteAddress->addressAddln1    = $request->insAddressAddln1;
+            //      $instituteAddress->addressAddln2    = $request->insAddressAddln2;
+            //      $instituteAddress->addressCity      = $request->insAddressCity;
+            //      $instituteAddress->addressState     = $request->insAddressState;
+            //      $instituteAddress->addressDistprov  = $request->insAddressDistprov;
+            //      $instituteAddress->addressPinzip    = $request->insAddressPinzip;
+            //      $instituteAddress->update();
  
-                 $nursingScholarshipApplication->instituteCourse     = $request->insCourse;
-                 $nursingScholarshipApplication->recognizedByINC     = $request->recognizedByINC;
-                 $nursingScholarshipApplication->update();
-             }
+            //      $nursingScholarshipApplication->instituteCourse     = $request->insCourse;
+            //      $nursingScholarshipApplication->recognizedByINC     = $request->recognizedByINC;
+            //      $nursingScholarshipApplication->update();
+            //  }
  
-             $applicantDetails = ApplicantDetails::where('id', $nursingScholarshipApplication->applicantId)->first();
-             $applicantDetails->applicantNameF                   = $request->applicantNameF;
-             $applicantDetails->applicantNameM                   = $request->applicantNameM;
-             $applicantDetails->applicantNameL                   = $request->applicantNameL;
-             $applicantDetails->applicantFatherName              = $request->applicantFatherName;
-             $applicantDetails->applicantMotherName              = $request->applicantMotherName;
-             $applicantDetails->applicantDOB                     = $request->applicantDOB;
-             $applicantDetails->applicantGender                  = $request->applicantGender;
-             $applicantDetails->applicantLeprosyAffectedSelf     = $request->applicantLeprosyAffectedSelf;
-             $applicantDetails->applicantLeprosyAffectedFather   = $request->applicantLeprosyAffectedFather;
-             $applicantDetails->applicantLeprosyAffectedMother   = $request->applicantLeprosyAffectedMother;
-             $applicantDetails->applicantHasBPLCard              = $request->applicantHasBPLCard;
-             $applicantDetails->applicantDomicileState           = $request->applicantDomicileState;
-             $applicantDetails->applicantContactNoSelf           = $request->applicantContactNoSelf;
-             $applicantDetails->applicantContactNoGuardian       = $request->applicantContactNoGuardian;
-             $applicantDetails->applicantEmailId                 = $request->applicantEmailId;
-             $applicantDetails->applicantContactNoColonyLeader   = $request->applicantContactNoColonyLeader;
-             $applicantDetails->update();
+             $applicationDetails = ApplicationDetails::where('schApplicationId', $applicationId)->first();
+             $applicationDetails->applicantNameF                   = $request->applicantNameF;
+             $applicationDetails->applicantNameM                   = $request->applicantNameM;
+             $applicationDetails->applicantNameL                   = $request->applicantNameL;
+             $applicationDetails->applicantFatherName              = $request->applicantFatherName;
+             $applicationDetails->applicantMotherName              = $request->applicantMotherName;
+             $applicationDetails->applicantDOB                     = $request->applicantDOB;
+             $applicationDetails->applicantGender                  = $request->applicantGender;
+             $applicationDetails->applicantLeprosyAffectedSelf     = $request->applicantLeprosyAffectedSelf;
+             $applicationDetails->applicantLeprosyAffectedFather   = $request->applicantLeprosyAffectedFather;
+             $applicationDetails->applicantLeprosyAffectedMother   = $request->applicantLeprosyAffectedMother;
+             $applicationDetails->applicantHasBPLCard              = $request->applicantHasBPLCard;
+             $applicationDetails->applicantDomicileState           = $request->applicantDomicileState;
+             $applicationDetails->applicantContactNoSelf           = $request->applicantContactNoSelf;
+             $applicationDetails->applicantContactNoGuardian       = $request->applicantContactNoGuardian;
+             $applicationDetails->applicantEmailId                 = $request->applicantEmailId;
+             $applicationDetails->applicantContactNoColonyLeader   = $request->applicantContactNoColonyLeader;
+             $applicationDetails->applicantAddressId               = $applicationAddress->id;
+             $applicationDetails->applicationType                  = "Online";
+             $applicationDetails->scholarshipType                  = $request->scholarshipType;
+             $getDomainValuesApp = DomainValues::where('value',$request->scholarshipType)->first();
+             $applicationDetails->scholarshipTypeValueId           = $getDomainValuesApp->id;
+             $applicationDetails->update();
  
-             $applicantAddress = Address::where('id', $applicantDetails->applicantAddressId)->first();
-             $applicantAddress->addressAddln1    = $request->addressAddln1;
-             $applicantAddress->addressAddln2    = $request->addressAddln2;
-             $applicantAddress->addressCity      = $request->addressCity;
-             $applicantAddress->addressState     = $request->addressState;
-             $applicantAddress->addressDistprov  = $request->addressDistprov;
-             $applicantAddress->addressPinzip    = $request->addressPinzip;
+             $applicationAddress = Address::where('id', $applicationDetails->applicantAddressId)->first();
+             $applicationAddress->addressAddln1    = $request->addressAddln1;
+             $applicationAddress->addressAddln2    = $request->addressAddln2;
+             $applicationAddress->addressCity      = $request->addressCity;
+             $applicationAddress->addressState     = $request->addressState;
+             $applicationAddress->addressDistprov  = $request->addressDistprov;
+             $applicationAddress->addressPinzip    = $request->addressPinzip;
+             $applicationAddress->addressCountry   = 'India';
              $applicantAddress->update();
              
-             $applicantEducationDetails = ApplicantEducationDetails::where('applicantId', $nursingScholarshipApplication->applicantId)->where('examinationPassed', '10')->first();
-             $applicantEducationDetails->examinationPassed       = '10';
-             $applicantEducationDetails->examinationLevel        = '10';
-             $applicantEducationDetails->universityBoardCouncil  = $request->universityBoardCouncil10;
-             $applicantEducationDetails->mainSubjects            = $request->mainSubjects10;
-             $applicantEducationDetails->yearOfPassing           = $request->yearOfPassing10;
-             $applicantEducationDetails->percentage              = $request->percentage10;
-             $applicantEducationDetails->division                = $request->division10;
-             $applicantEducationDetails->type                    = '10';
-             $applicantEducationDetails->update();
+             // for 10
+             $getDomainValuesExam10 = DomainValues::where('value',$request->education1ExaminationLevel)->first();
+             $applicationEducationDetails10 = ApplicationEducationDetails::where('applicationId',  $applicationDetails->id)->where('examLevelValueId', $getDomainValuesExam10->id)->first();
+             $applicationEducationDetails10->examBoardValueId       = $request->education1University;
+             $applicationEducationDetails10->examPassedValueId      = $request->education1ExaminationPassed;
+            //  $applicationEducationDetails->examLevelValue            = $request->mainSubjects10;
+            //  $applicationEducationDetails->examBoardValue           = $request->yearOfPassing10;
+            //  $applicationEducationDetails->examPassedValue              = $request->percentage10;
+             $applicationEducationDetails10->mainSubjects           = $request->education1MainSubjects;
+             $applicationEducationDetails10->yearOfPassing          = $request->education1YearOfPassing;
+             $applicationEducationDetails10->percentage             = $request->education1Percentage;
+             $applicationEducationDetails10->percentageKeySub       = $request->education1Percentage;
+             $applicationEducationDetails10->division               = $request->education1Division;
+             $applicationEducationDetails10->update();
              
-             $applicantEducationDetails = ApplicantEducationDetails::where('applicantId', $nursingScholarshipApplication->applicantId)->where('examinationPassed', '12')->first();
-             $applicantEducationDetails->examinationPassed       = '12';
-             $applicantEducationDetails->examinationLevel        = '12';
-             $applicantEducationDetails->universityBoardCouncil  = $request->universityBoardCouncil12;
-             $applicantEducationDetails->mainSubjects            = $request->mainSubjects12;
-             $applicantEducationDetails->yearOfPassing           = $request->yearOfPassing12;
-             $applicantEducationDetails->percentage              = $request->percentage12;
-             $applicantEducationDetails->division                = $request->division12;
-             $applicantEducationDetails->type                    = '12';
-             $applicantEducationDetails->update();
+             // for 12
+             $getDomainValuesExam12 = DomainValues::where('value',$request->education2ExaminationLevel)->first();
+             $applicationEducationDetails12 = ApplicationEducationDetails::where('applicationId',  $applicationDetails->id)->where('examLevelValueId', $getDomainValuesExam12->id)->first();
+             $applicationEducationDetails12->examBoardValueId       = $request->education2University;
+             $applicationEducationDetails12->examPassedValueId      = $request->education2ExaminationPassed;
+            //  $applicationEducationDetails->examLevelValue            = $request->mainSubjects10;
+            //  $applicationEducationDetails->examBoardValue           = $request->yearOfPassing10;
+            //  $applicationEducationDetails->examPassedValue              = $request->percentage10;
+             $applicationEducationDetails12->mainSubjects           = $request->education2MainSubjects;
+             $applicationEducationDetails12->yearOfPassing          = $request->education2YearOfPassing;
+             $applicationEducationDetails12->percentage             = $request->education2Percentage;
+             $applicationEducationDetails12->percentageKeySub       = $request->education2Percentage;
+             $applicationEducationDetails12->division               = $request->education2Division;
+             $applicationEducationDetails12->update();
+
+             //for 13
+             if($request->scholarshipType == 'Hddlss'){
+                $getDomainValuesExam13 = DomainValues::where('value',$request->education3ExaminationLevel)->first();
+                $applicationEducationDetails13 = ApplicationEducationDetails::where('applicationId',  $applicationDetails->id)->where('examLevelValueId', $getDomainValuesExam13->id)->first();
+                $applicationEducationDetails13->examBoardValueId       = $request->education3University;
+                $applicationEducationDetails13->examPassedValueId      = $request->education3ExaminationPassed;
+               //  $applicationEducationDetails->examLevelValue            = $request->mainSubjects10;
+               //  $applicationEducationDetails->examBoardValue           = $request->yearOfPassing10;
+               //  $applicationEducationDetails->examPassedValue              = $request->percentage10;
+                $applicationEducationDetails13->mainSubjects           = $request->education3MainSubjects;
+                $applicationEducationDetails13->yearOfPassing          = $request->education3YearOfPassing;
+                $applicationEducationDetails13->percentage             = $request->education3Percentage;
+                $applicationEducationDetails13->percentageKeySub       = $request->education3Percentage;
+                $applicationEducationDetails13->division               = $request->education3Division;
+                $applicationEducationDetails13->update();
+             }
+             //end of education
  
-             $allApplicantMiscellaneousDetails = ApplicantMiscellaneousDetails::where('applicantId', $applicantDetails->id)->orderBy('id','ASC')->get();
+             $allApplicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('applicantId', $applicantDetails->id)->orderBy('id','ASC')->get();
  
              if (count($allApplicantMiscellaneousDetails)>0) {
-                 $applicantMiscellaneousDetails = ApplicantMiscellaneousDetails::where('id',$allApplicantMiscellaneousDetails[0]->id)->first();
+                 $applicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('id',$allApplicantMiscellaneousDetails[0]->id)->first();
                  $applicantMiscellaneousDetails->delete();
              } 
  
              if (count($allApplicantMiscellaneousDetails)>1) {
-                 $applicantMiscellaneousDetails = ApplicantMiscellaneousDetails::where('id',$allApplicantMiscellaneousDetails[1]->id)->first();
+                 $applicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('id',$allApplicantMiscellaneousDetails[1]->id)->first();
                  $applicantMiscellaneousDetails->delete();                
              }
  
              if (count($allApplicantMiscellaneousDetails)>2) {
-                 $applicantMiscellaneousDetails = ApplicantMiscellaneousDetails::where('id',$allApplicantMiscellaneousDetails[2]->id)->first();
+                 $applicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('id',$allApplicantMiscellaneousDetails[2]->id)->first();
                  $applicantMiscellaneousDetails->delete();                
              }
  
              if (!empty($request->miscName1) && !empty($request->miscCourse1) && !empty($request->miscYear1)) {
-                 $applicantMiscellaneousDetails = new ApplicantMiscellaneousDetails;
+                 $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
                  $applicantMiscellaneousDetails->name            = $request->miscName1;
                  $applicantMiscellaneousDetails->course          = $request->miscCourse1;
                  $applicantMiscellaneousDetails->year            = $request->miscYear1;
-                 $applicantMiscellaneousDetails->applicantId     = $nursingScholarshipApplication->applicantId;
+                 $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
                  $applicantMiscellaneousDetails->save();
              }
  
              if (!empty($request->miscName2) && !empty($request->miscCourse2) && !empty($request->miscYear2)) {
-                 $applicantMiscellaneousDetails = new ApplicantMiscellaneousDetails;
+                 $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
                  $applicantMiscellaneousDetails->name            = $request->miscName2;
                  $applicantMiscellaneousDetails->course          = $request->miscCourse2;
                  $applicantMiscellaneousDetails->year            = $request->miscYear2;
-                 $applicantMiscellaneousDetails->applicantId     = $nursingScholarshipApplication->applicantId;
+                 $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
                  $applicantMiscellaneousDetails->save();
              }
  
              if (!empty($request->miscName3) && !empty($request->miscCourse3) && !empty($request->miscYear3)) {
-                 $applicantMiscellaneousDetails = new ApplicantMiscellaneousDetails;
+                 $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
                  $applicantMiscellaneousDetails->name            = $request->miscName3;
                  $applicantMiscellaneousDetails->course          = $request->miscCourse3;
                  $applicantMiscellaneousDetails->year            = $request->miscYear3;
-                 $applicantMiscellaneousDetails->applicantId     = $nursingScholarshipApplication->applicantId;
+                 $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
                  $applicantMiscellaneousDetails->save();
              }
  
@@ -459,4 +499,30 @@ class ApplicationController extends Controller
              return array('success' => false, 'msg'=>[$e]);
          }
      }
+
+     # Get Scholarship Application
+     public function getScholarshipApplication(string $applicationId)
+     {
+        $getApplicationId   = ApplicationDetails::where('schApplicationId', $applicationId)->first();
+        $applicationDetails = ApplicationDetails::where('schApplicationId', $applicationId)->with('get_address',
+                                                                                                    'get_applicationScheduleTable',
+                                                                                                    'get_institute',
+                                                                                                    'get_courseDomainValues',
+                                                                                                    'get_courseDomainName',
+                                                                                                    'get_schTypeDomainValues',
+                                                                                                    'get_user',)
+                                                                                            ->get();
+        $getEducationDetails = ApplicationEducationDetails::where('applicationId', $getApplicationId->id)->with('get_examLevelDomainValues',
+                                                                                                                'get_examBoardDomainValues',
+                                                                                                                'get_examPassedDomainValues')->get();
+        $getMiscellaneousDetails = ApplicationMiscellaneousDetails::where('applicationId',$getApplicationId->id)->get();
+        $data = json_decode(json_encode(array($applicationDetails,$getEducationDetails,$getMiscellaneousDetails)));
+        if($data)
+        {
+            return array('success' => true, 'msg'=>['Data Found!'], 'data'=>$data);
+        }
+        else{
+            return array('success' => false, 'msg'=>['No Data Found!']);
+        }
+    }
 }

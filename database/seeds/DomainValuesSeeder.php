@@ -30,6 +30,14 @@ class DomainValuesSeeder extends Seeder
             ]);
         DB::table('domainValues')->insert(
             [
+                'value' => '13',
+                'valueDescription' => 'Examination Level 13',
+                'nameId' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        DB::table('domainValues')->insert(
+            [
                 'value' => 'Madhyamik',
                 'valueDescription' => 'Examination Passed',
                 'nameId' => 2,

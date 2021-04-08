@@ -3,7 +3,7 @@
 namespace App\ModelScholarship;
 
 use Illuminate\Database\Eloquent\Model;
-use ApplicationDetails;
+use App\ModelScholarship\ApplicationDetails;
 
 class ApplicationMiscellaneousDetails extends Model
 {

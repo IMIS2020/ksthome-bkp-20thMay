@@ -14,21 +14,21 @@ class DomainNameSeeder extends Seeder
     {
         DB::table('domainName')->insert(
             [
-                'name' => 'Examination Level',
+                'name' => 'ExamLevel',
                 'description' => 'desc 1',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
         DB::table('domainName')->insert(    
             [
-                'name' => 'Examination Passed',
+                'name' => 'ExamPassed',
                 'description' => 'desc 2',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
         DB::table('domainName')->insert(    
             [
-                'name' => 'University/ Board/ Council',
+                'name' => 'UnivBoard',
                 'description' => 'desc 3',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),

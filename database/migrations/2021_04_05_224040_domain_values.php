@@ -16,7 +16,7 @@ class DomainValues extends Migration
         Schema::create('domainValues', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('nameId');
-            $table->string('value');
+            $table->string('value')->unique();
             $table->string('valueDescription')->nullable();
             $table->timestamps();
         });

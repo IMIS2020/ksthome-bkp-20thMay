@@ -20,7 +20,7 @@ class ApplicationDetails extends Migration
             $table->unsignedBigInteger('scholarshipTypeValueId'); // FK domainValues
             $table->string('scholarshipType');
             $table->unsignedBigInteger('userId'); // FK user
-            $table->unsignedBigInteger('sessionId');// FK userSession
+            $table->unsignedBigInteger('sessionId')->nullable();// FK userSession
             $table->string('applicantNameF');
             $table->string('applicantNameM')->nullable();
             $table->string('applicantNameL');
@@ -39,7 +39,7 @@ class ApplicationDetails extends Migration
             $table->string('applicantColonyLeaderName')->nullable();
             $table->string('applicantContactNoColonyLeader');
             $table->unsignedBigInteger('applicantAddressId'); // FK Address
-            $table->unsignedBigInteger('appSchduleId'); // FK ApplicationSchdule
+            $table->unsignedBigInteger('appSchduleId')->nullable(); // FK ApplicationSchdule
             $table->string('hasAdmissionLetter');
             $table->unsignedBigInteger('instituteId')->nullable(); // FK Institute
             $table->unsignedBigInteger('courseLevelValueId')->nullable(); // FK domainValues

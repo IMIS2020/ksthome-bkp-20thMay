@@ -4,12 +4,12 @@ namespace App\ModelScholarship;
 
 use Illuminate\Database\Eloquent\Model;
 use App\ModelGeneral\Address;
-use ApplicationScheduleTable;
-use Institute;
-use DomainValues;
-use DomainName;
-use ApplicationEducationDetails;
-use ApplicationMiscellaneousDetails;
+use App\ModelScholarship\ApplicationScheduleTable;
+use App\ModelScholarship\Institute;
+use App\ModelScholarship\DomainValues;
+use App\ModelScholarship\DomainName;
+use App\ModelScholarship\ApplicationEducationDetails;
+use App\ModelScholarship\ApplicationMiscellaneousDetails;
 use App\User;
 use App\UserSession;
 class ApplicationDetails extends Model

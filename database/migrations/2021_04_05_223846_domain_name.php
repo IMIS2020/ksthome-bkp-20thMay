@@ -15,7 +15,7 @@ class DomainName extends Migration
     {
         Schema::create('domainName', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('description')->nullable();
             $table->timestamps();
         });

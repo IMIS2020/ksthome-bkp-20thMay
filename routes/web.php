@@ -31,8 +31,8 @@ Route::group(['middleware' => ['auth']], function (){
     * UI Routes to call applicant components from applicant
     * folder
     */
-    Route::get('/application-form/nursing', 'SystemController@applicantForm');
-    Route::get('/application-form/hddlss', 'SystemController@applicantForm');
+    Route::get('/application-form/Nursing', 'SystemController@applicantForm');
+    Route::get('/application-form/Hddlss', 'SystemController@applicantForm');
     Route::get('/application-form/{applicationId}', 'SystemController@applicantForm');
     Route::get('/application-documents/{applicationId}','SystemController@applicantDocuments');
     Route::get('/choose-scholarship','SystemController@chooseScholarship');
@@ -63,7 +63,7 @@ Route::group(['prefix' => 'api'], function() {
    */
    Route::post('/add-application-form/{userId}','Scholarship\ApplicationController@addScholarshipApplication');
    Route::post('/edit-application-form/{applicationId}','Scholarship\NursingScholarshipApplicationController@editNursingScholarshipApplication');
-   Route::get('/get-application-form-data/{applicationId}','Scholarship\NursingScholarshipApplicationController@getNursingScholarshipApplication');
+   Route::get('/get-application-form-data/{applicationId}','Scholarship\ApplicationController@getScholarshipApplication');
   /****
    * End API calls for application from
    */
@@ -71,9 +71,12 @@ Route::group(['prefix' => 'api'], function() {
   /****
    * API Call for domainValues 
    */
-   Route::get('/domain/examinationLevel');
-   Route::get('/domain/examinationPassed');
-   Route::get('/domain/universityBoardCouncil');
+   Route::get('/domain/examinationLevel','Scholarship\DomainController@getExaminationLevel');
+   Route::get('/domain/examinationPassed','Scholarship\DomainController@getExaminationPassed');
+   Route::get('/domain/universityBoardCouncil','Scholarship\DomainController@getUniversityBoardCouncil');
+   Route::get('/domain/scholarship','Scholarship\DomainController@getScholarship');
+   #Add new Domain Values
+   Route::post('/domain/add','Scholarship\DomainController@addDomainValues');
   /****
    * End API calls for domainValues
    */

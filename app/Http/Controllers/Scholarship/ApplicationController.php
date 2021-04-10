@@ -469,8 +469,8 @@ class ApplicationController extends Controller
         }
      }
 
-     # Add Scholarship Annexure1
-     public function addAnnexure1(string $applicationId, Request $request)
+     # Save Scholarship Annexure1
+     public function saveAnnexure1(string $applicationId, Request $request)
      {
        
         $institute = $request->json()->all();

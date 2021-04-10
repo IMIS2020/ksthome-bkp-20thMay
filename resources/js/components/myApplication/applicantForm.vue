@@ -4,7 +4,7 @@
             <form @submit.prevent="saveForm">
                 <div class="form-row">
                     <div class="col-xl-12 text-center mb-3">
-                        <h5 class="text-capitalize text-center color-mg"><strong>Application From for {{this.form.scholarshipType}} ({{getdata.financialYear}})</strong></h5>
+                        <h5 class="text-capitalize text-center color-mg"><strong>Application From for {{this.form.scholarshipType}} ({{form.financialYear}})</strong></h5>
                     </div>
                     <div class="col-xl-12">
                         <div class="mb-3">

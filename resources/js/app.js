@@ -112,96 +112,96 @@ function newFunction(){
   //End-HHDLSS
 
 // Admin Section
-const app21 = new Vue({
-  el: '#adminDashboard',
-  router: new VueRouter(routes)
-});
+// const app21 = new Vue({
+//   el: '#adminDashboard',
+//   router: new VueRouter(routes)
+// });
 
-const app22 = new Vue({
-  el: '#addDomains',
-  router: new VueRouter(routes)
-});
+// const app22 = new Vue({
+//   el: '#addDomains',
+//   router: new VueRouter(routes)
+// });
 
-const app23 = new Vue({
-  el: '#manageDomains',
-  router: new VueRouter(routes)
-});
+// const app23 = new Vue({
+//   el: '#manageDomains',
+//   router: new VueRouter(routes)
+// });
 
-const app24 = new Vue({
-  el: '#addNursingApplicationSchedule',
-  router: new VueRouter(routes)
-});
+// const app24 = new Vue({
+//   el: '#addNursingApplicationSchedule',
+//   router: new VueRouter(routes)
+// });
 
-const app25 = new Vue({
-  el: '#addHHDLSSApplicationSchedule',
-  router: new VueRouter(routes)
-});
+// const app25 = new Vue({
+//   el: '#addHHDLSSApplicationSchedule',
+//   router: new VueRouter(routes)
+// });
 
-const app26 = new Vue({
-  el: '#manageApplicationSchedule',
-  router: new VueRouter(routes)
-});
+// const app26 = new Vue({
+//   el: '#manageApplicationSchedule',
+//   router: new VueRouter(routes)
+// });
 
-const app27 = new Vue({
-  el: '#manageApplicationDetails',
-  router: new VueRouter(routes)
-});
-// Nursing
-const app28 = new Vue({
-  el: '#applicationFormNursingReview',
-  router: new VueRouter(routes)
-});
+// const app27 = new Vue({
+//   el: '#manageApplicationDetails',
+//   router: new VueRouter(routes)
+// });
+// // Nursing
+// const app28 = new Vue({
+//   el: '#applicationFormNursingReview',
+//   router: new VueRouter(routes)
+// });
 
-const app29 = new Vue({
-  el: '#annexure1NursingReview',
-  router: new VueRouter(routes)
-});
+// const app29 = new Vue({
+//   el: '#annexure1NursingReview',
+//   router: new VueRouter(routes)
+// });
 
-const app30 = new Vue({
-  el: '#annexure2NursingReview',
-  router: new VueRouter(routes)
-});
+// const app30 = new Vue({
+//   el: '#annexure2NursingReview',
+//   router: new VueRouter(routes)
+// });
 
-const app31 = new Vue({
-  el: '#uploadDocumentsNursingReview',
-  router: new VueRouter(routes)
-});
+// const app31 = new Vue({
+//   el: '#uploadDocumentsNursingReview',
+//   router: new VueRouter(routes)
+// });
 
-const app32 = new Vue({
-  el: '#reviewNursingReview',
-  router: new VueRouter(routes)
-});
+// const app32 = new Vue({
+//   el: '#reviewNursingReview',
+//   router: new VueRouter(routes)
+// });
 
-// Review-hhdlss start
-const app33 = new Vue({
-  el: '#applicationFormHHDLSSReview',
-  router: new VueRouter(routes)
-});
+// // Review-hhdlss start
+// const app33 = new Vue({
+//   el: '#applicationFormHHDLSSReview',
+//   router: new VueRouter(routes)
+// });
 
-const app34 = new Vue({
-  el: '#annexure1HHDLSSReview',
-  router: new VueRouter(routes)
-});
+// const app34 = new Vue({
+//   el: '#annexure1HHDLSSReview',
+//   router: new VueRouter(routes)
+// });
 
-const app35 = new Vue({
-  el: '#annexure2HHDLSSReview',
-  router: new VueRouter(routes)
-});
+// const app35 = new Vue({
+//   el: '#annexure2HHDLSSReview',
+//   router: new VueRouter(routes)
+// });
 
-const app36 = new Vue({
-  el: '#uploadDocumentsHHDLSSReview',
-  router: new VueRouter(routes)
-});
+// const app36 = new Vue({
+//   el: '#uploadDocumentsHHDLSSReview',
+//   router: new VueRouter(routes)
+// });
 
-const app37 = new Vue({
-  el: '#reviewHHDLSSReview',
-  router: new VueRouter(routes)
-});
-// End hhdlss
+// const app37 = new Vue({
+//   el: '#reviewHHDLSSReview',
+//   router: new VueRouter(routes)
+// });
+// // End hhdlss
 
-const app38 = new Vue({
-  el: '#extendLastDate',
-  router: new VueRouter(routes)
-});
+// const app38 = new Vue({
+//   el: '#extendLastDate',
+//   router: new VueRouter(routes)
+// });
 
 }

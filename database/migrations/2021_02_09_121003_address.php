@@ -13,7 +13,7 @@ class Address extends Migration
      */
     public function up()
     {
-        Schema::create('address', function (Blueprint $table) {
+        Schema::create('portalAddress', function (Blueprint $table) {
             $table->id();
             $table->string('addressAddln1');
             $table->string('addressAddln2')->nullable();
@@ -34,6 +34,6 @@ class Address extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('address');
+         Schema::dropIfExists('portalAddress');
     }
 }

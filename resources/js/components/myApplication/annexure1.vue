@@ -297,7 +297,7 @@ export default{
     data(){
         return{
             userId: document.querySelector("meta[name='userId']").getAttribute('content'),
-            update: false,
+            // update: false,
             universityCourseName:{},
             insData:{},
             insDataDetails:{
@@ -374,8 +374,7 @@ export default{
         saveForm() {
             console.log(this.update);
             if (this.form.hasAdmissionLetter === 'NO'){
-                if (!this.update) {
-                    axios.post('/api/add-annexure1/'+this.form.applicationId,this.rows)
+                axios.post('/api/add-annexure1/'+this.form.applicationId,this.rows)
                     .then(response => {
                         if (response.data['success']) {
                             this.$fire({
@@ -390,24 +389,6 @@ export default{
                         }
                     })
                     .catch(error => this.errorMsg(error.response.status))
-                } else {
-                    axios.post('/api/edit-annexurei/'+this.getdata.applicationId,this.rows)
-                    .then(response => {
-                        if (response.data['success']) {
-                            this.$fire({
-                                position: 'top',
-                                icon: 'success',
-                                title: "Annexure-I Updated",
-                                showConfirmButton: false,
-                                timer: 3000
-                            })
-                        } else {
-                            console.log(response.data['msg'])
-                        }
-                    })
-                    .catch(error => this.errorMsg(error.response.status))
-                }
-                this.getdataNursing();
             }
         },
         errorMsg (status) {

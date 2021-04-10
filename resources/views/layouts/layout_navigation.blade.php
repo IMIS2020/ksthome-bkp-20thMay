@@ -87,7 +87,7 @@
     <div id="applicantForm">
       @yield('applicantForm')
     </div>
-    <div id="uploadDocuments">
+    <div id="applicantDocuments">
       @yield('applicantDocuments')
     </div>
     <div id="choose">

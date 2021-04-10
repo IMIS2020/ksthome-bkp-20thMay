@@ -46,7 +46,7 @@ class ForeignKeyRelations extends Migration
         });
 
         Schema::table('applicantionDetails', function (Blueprint $table) {
-            $table->foreign('applicantAddressId')->references('id')->on('address')->onDelete('cascade');
+            $table->foreign('applicantAddressId')->references('id')->on('portalAddress')->onDelete('cascade');
         });
 
         Schema::table('applicantionDetails', function (Blueprint $table) {
@@ -62,7 +62,7 @@ class ForeignKeyRelations extends Migration
         });
 
         Schema::table('applicantionDetails', function (Blueprint $table) {
-            $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('userId')->references('id')->on('portalUser')->onDelete('cascade');
         });
 
         Schema::table('applicantionDetails', function (Blueprint $table) {
@@ -119,6 +119,10 @@ class ForeignKeyRelations extends Migration
 
         Schema::table('annexureI', function (Blueprint $table) {
             $table->foreign('courseLevelValueId')->references('id')->on('domainValues')->onDelete('cascade');
+        });
+
+        Schema::table('institute', function (Blueprint $table) {
+            $table->foreign('instituteAddressId')->references('id')->on('portalAddress')->onDelete('cascade');
         });
 
     }

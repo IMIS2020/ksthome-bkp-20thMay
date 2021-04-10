@@ -234,6 +234,16 @@ export default{
                  /****
                  * End API calls for Institue details
                  */
+
+                 /***
+                  * Doc Master Api call
+                  */
+                {
+                    path:'/api/doc-master',
+                },
+                 /***
+                  * End Doc Master Api call
+                  */
                 
 
 

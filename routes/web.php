@@ -71,7 +71,7 @@ Route::group(['prefix' => 'api'], function() {
     /****
      * API calls for AnnexureI 
      */
-    Route::post('/add-annexure1/{applicationId}','Scholarship\ApplicationController@addAnnexure1');
+    Route::post('/add-annexure1/{applicationId}','Scholarship\ApplicationController@saveAnnexure1');
     Route::get('/get-annexure1/{applicationId}','Scholarship\ApplicationController@getAnnexure1');
     /****
      * End API calls for AnnexureI 
@@ -100,6 +100,14 @@ Route::group(['prefix' => 'api'], function() {
     Route::get('/institute/get-details/{insId}','Scholarship\InstituteController@getInstituteDetails');
     /****
      * End API calls for Institue details
+     */
+
+    /***
+     * Doc Master Api call
+     */
+    Route::get('/doc-master','Scholarship\DocumentMaster@getDocMasterData');
+    /***
+     * End Doc Master Api call
      */
 
 

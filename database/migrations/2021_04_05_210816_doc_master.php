@@ -16,6 +16,7 @@ class DocMaster extends Migration
         Schema::create('docMaster', function (Blueprint $table) {
             $table->id();
             $table->string('docShortName');
+            $table->unsignedBigInteger('processStepId')->nullable();
             $table->string('docDesc');
             $table->string('docType');
             $table->timestamps();

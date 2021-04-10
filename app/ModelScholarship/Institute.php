@@ -4,6 +4,8 @@ namespace App\ModelScholarship;
 
 use Illuminate\Database\Eloquent\Model;
 use App\ModelScholarship\ApplicationDetails;
+use App\ModelGeneral\Address;
+use App\ModelScholarship\AnnexureI;
 
 class Institute extends Model
 {
@@ -15,4 +17,15 @@ class Institute extends Model
     {
         return $this->hasMany(ApplicationDetails::class);
     }
+
+    public function get_address() // FK 1
+    {
+        return $this->belongsTo(Address::class,'instituteAddressId');    
+    }
+
+    public function get_annexure()
+    {
+        return $this->hasMany(AnnexureI::class);
+    }
+
 }

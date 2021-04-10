@@ -176,6 +176,22 @@ export default{
                  */
 
                 /****
+                 * API calls for annexure1
+                 */
+                {
+                    path:'/api/add-annexure1/:applicationId',
+                },
+                {
+                    path:'/api/edit-annexure1/:applicationId',
+                },
+                {
+                    path:'/api/get-annexure1/:applicationId',
+                },
+                /****
+                 * End API calls for application from
+                 */
+
+                /****
                  * API Call for domainValues 
                  */
                 {
@@ -191,11 +207,34 @@ export default{
                     path:'/api/domain/scholarship',
                 },
                 {
+                    path:'/api/domain/course-level',
+                },
+                {
+                    path:'/api/domain/course-name',
+                },
+                {
                     path:'/api/domain/add',
                 },
                 /****
                  * End API calls for domainValues
                  */
+
+                 /****
+                 * API Call for Institue details 
+                 */
+                {
+                    path:'/api/institute/get-data',
+                },
+                {
+                    path:'/api/institute/add',
+                },
+                {
+                    path:'/api/institute/get-details/:insId',
+                },
+                 /****
+                 * End API calls for Institue details
+                 */
+                
 
 
 

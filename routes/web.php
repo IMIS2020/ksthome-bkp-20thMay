@@ -58,28 +58,51 @@ Route::group(['middleware' => ['auth']], function (){
 
 Route::group(['prefix' => 'api'], function() { 
 
-  /****
-   * API calls for application-from
-   */
-   Route::post('/add-application-form/{userId}','Scholarship\ApplicationController@addScholarshipApplication');
-   Route::post('/edit-application-form/{applicationId}','Scholarship\NursingScholarshipApplicationController@editNursingScholarshipApplication');
-   Route::get('/get-application-form-data/{applicationId}','Scholarship\ApplicationController@getScholarshipApplication');
-  /****
-   * End API calls for application from
-   */
+    /****
+     * API calls for application-from
+     */
+    Route::post('/add-application-form/{userId}','Scholarship\ApplicationController@addScholarshipApplication');
+    Route::post('/edit-application-form/{applicationId}','Scholarship\ApplicationController@editScholarshipApplication');
+    Route::get('/get-application-form-data/{applicationId}','Scholarship\ApplicationController@getScholarshipApplication');
+    /****
+     * End API calls for application from
+     */
 
-  /****
-   * API Call for domainValues 
-   */
-   Route::get('/domain/examinationLevel','Scholarship\DomainController@getExaminationLevel');
-   Route::get('/domain/examinationPassed','Scholarship\DomainController@getExaminationPassed');
-   Route::get('/domain/universityBoardCouncil','Scholarship\DomainController@getUniversityBoardCouncil');
-   Route::get('/domain/scholarship','Scholarship\DomainController@getScholarship');
-   #Add new Domain Values
-   Route::post('/domain/add','Scholarship\DomainController@addDomainValues');
-  /****
-   * End API calls for domainValues
-   */
+    /****
+     * API calls for AnnexureI 
+     */
+    Route::post('/add-annexure1/{applicationId}','Scholarship\ApplicationController@addAnnexure1');
+    Route::get('/get-annexure1/{applicationId}','Scholarship\ApplicationController@getAnnexure1');
+    /****
+     * End API calls for AnnexureI 
+     */
+
+    /****
+     * API Call for domainValues 
+     */
+    Route::get('/domain/examinationLevel','Scholarship\DomainController@getExaminationLevel');
+    Route::get('/domain/examinationPassed','Scholarship\DomainController@getExaminationPassed');
+    Route::get('/domain/universityBoardCouncil','Scholarship\DomainController@getUniversityBoardCouncil');
+    Route::get('/domain/scholarship','Scholarship\DomainController@getScholarship');
+    Route::get('/domain/course-name','Scholarship\DomainController@getCourseName');
+    Route::get('/domain/course-level','Scholarship\DomainController@getCourseLevel');
+    #Add new Domain Values
+    Route::post('/domain/add','Scholarship\DomainController@addDomainValues');
+    /****
+     * End API calls for domainValues
+     */
+    
+    /****
+     * API Call for Institue details 
+     */
+    Route::get('/institute/get-data','Scholarship\InstituteController@getInstitute');
+    Route::post('/institute/add','Scholarship\InstituteController@addInstitute');
+    Route::get('/institute/get-details/{insId}','Scholarship\InstituteController@getInstituteDetails');
+    /****
+     * End API calls for Institue details
+     */
+
+
   
 
 

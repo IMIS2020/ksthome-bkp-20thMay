@@ -21,21 +21,35 @@ class DomainController extends Controller
     public function getExaminationPassed()
     {
         $getDomainNameId = DomainName::where('name','ExamPassed')->first();
-        $getDomainValues = DomainValues::where('nameId',$getDomainNameId->id)->select('value','id')->get()->toJson();
+        $getDomainValues = DomainValues::where('nameId',$getDomainNameId->id)->select('value','id')->orderBy('id','DESC')->get()->toJson();
         return $getDomainValues;
     }
 
     public function getUniversityBoardCouncil()
     {
         $getDomainNameId = DomainName::where('name','UnivBoard')->first();
-        $getDomainValues = DomainValues::where('nameId',$getDomainNameId->id)->select('value','id')->get()->toJson();
+        $getDomainValues = DomainValues::where('nameId',$getDomainNameId->id)->select('value','id')->orderBy('id','DESC')->get()->toJson();
         return $getDomainValues;
     }
 
     public function getScholarship()
     {
         $getDomainNameId = DomainName::where('name','Scholarship')->first();
-        $getDomainValues = DomainValues::where('nameId',$getDomainNameId->id)->select('value','id')->get()->toJson();
+        $getDomainValues = DomainValues::where('nameId',$getDomainNameId->id)->select('value','id')->orderBy('id','DESC')->get()->toJson();
+        return $getDomainValues;
+    }
+
+    public function getCourseName()
+    {
+        $getDomainNameId = DomainName::where('name','CourseName')->first();
+        $getDomainValues = DomainValues::where('nameId',$getDomainNameId->id)->select('value','id')->orderBy('id','DESC')->get()->toJson();
+        return $getDomainValues;
+    }
+
+    public function getCourseLevel()
+    {
+        $getDomainNameId = DomainName::where('name','CourseLevel')->first();
+        $getDomainValues = DomainValues::where('nameId',$getDomainNameId->id)->select('value','id')->orderBy('id','DESC')->get()->toJson();
         return $getDomainValues;
     }
 
@@ -74,6 +88,24 @@ class DomainController extends Controller
                     $domainValues->value            = $request->dValue;
                     $domainValues->valueDescription = $request->dDesc;
                     $getDomainNameId = DomainName::where('name','UnivBoard')->first();
+                    $domainValues->nameId           = $getDomainNameId->id;
+                    $domainValues->save();
+                    
+                }else if($request->domainName == 'CourseName')
+                {
+                    $domainValues = new DomainValues;
+                    $domainValues->value            = $request->dValue;
+                    $domainValues->valueDescription = $request->dDesc;
+                    $getDomainNameId = DomainName::where('name','CourseName')->first();
+                    $domainValues->nameId           = $getDomainNameId->id;
+                    $domainValues->save();
+                    
+                }else if($request->domainName == 'CourseLevel')
+                {
+                    $domainValues = new DomainValues;
+                    $domainValues->value            = $request->dValue;
+                    $domainValues->valueDescription = $request->dDesc;
+                    $getDomainNameId = DomainName::where('name','CourseLevel')->first();
                     $domainValues->nameId           = $getDomainNameId->id;
                     $domainValues->save();
                     

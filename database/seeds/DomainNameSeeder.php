@@ -40,5 +40,19 @@ class DomainNameSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
+        DB::table('domainName')->insert(    
+            [
+                'name' => 'CourseLevel',
+                'description' => 'desc 5',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        DB::table('domainName')->insert(    
+            [
+                'name' => 'CourseName',
+                'description' => 'desc 5',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
     }
 }

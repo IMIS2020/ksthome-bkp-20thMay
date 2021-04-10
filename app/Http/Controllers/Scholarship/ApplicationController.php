@@ -14,6 +14,7 @@ use App\ModelScholarship\ApplicationMiscellaneousDetails;
 use App\ModelScholarship\DomainName;
 use App\ModelScholarship\DomainValues;
 use App\ModelScholarship\ApplicationScheduleTable;
+use App\ModelScholarship\AnnexureI;
 use User;
 // use App\ModelScholarship\AnnexureI;
 // use App\ModelScholarship\ApplicantDocuments;
@@ -249,67 +250,6 @@ class ApplicationController extends Controller
      # Edit Scholarship Application
      public function editScholarshipApplication(string $applicationId, Request $request)
      {
-        $request->validate([  
-            'applicantNameF'                    => [],                
-            'applicantNameM'                    => [],
-            'applicantNameL'                    => [],
-            'applicantFatherName'               => [],
-            'applicantMotherName'               => [],
-            'applicantDOB'                      => ['required'],
-            'applicantGender'                   => ['required'],
-            'applicantLeprosyAffectedSelf'      => [],
-            'applicantLeprosyAffectedFather'    => [],
-            'applicantLeprosyAffectedMother'    => [],
-            'applicantHasBPLCard'               => ['required'],
-            'applicantDomicileState'            => ['required'],
-            
-            'addressAddln1'                     => ['required'],
-            'addressAddln2'                     => [],
-            'addressCity'                       => [],
-            'addressDistprov'                   => [],
-            'addressState'                      => ['required'],
-            'addressPinzip'                     => ['required','digits:6'],
-            'applicantContactNoSelf'            => ['required','digits:10'],
-            'applicantContactNoGuardian'        => ['required','digits:10'],
-            'applicantEmailId'                  => ['required'],
-            'applicantContactNoColonyLeader'    => ['required','digits:10'],
-
-           //  'examinationLevel10'                => ['required'],
-           //  'universityBoardCouncil10'          => ['required'],
-           //  'mainSubjects10'                    => ['required'],
-           //  'yearOfPassing10'                   => ['required','digits:4'],
-           //  'percentage10'                      => ['required'],
-           //  'division10'                        => ['required'],
-            
-           //  'examinationLevel12'                => ['required'],
-           //  'universityBoardCouncil12'          => ['required'],
-           //  'mainSubjects12'                    => ['required'],
-           //  'yearOfPassing12'                   => ['required','digits:4'],
-           //  'percentage12'                      => ['required'],
-           //  'division12'                        => ['required'],
-            
-
-            'hasAdmissionLetter'                => ['required'],
-            'insCourse'                         => [],
-            'insName'                           => [],
-            'insAddressAddln1'                  => [],
-            'insAddressAddln2'                  => [],
-            'insAddressCity'                    => [],
-            'insAddressDistprov'                => [],
-            'insAddressState'                   => [],
-            'insAddressPinzip'                  => [],
-            'recognizedByINC'                   => [],
-            'miscName1'                         => [],
-            'miscCourse1'                       => [],
-            'miscYear1'                         => [],
-            'miscName2'                         => [],
-            'miscCourse2'                       => [],
-            'miscYear2'                         => [],
-            'miscName3'                         => [],
-            'miscCourse3'                       => [],
-            'miscYear3'                         => [],
-        ]);
-         
          DB::beginTransaction();
          try {
             //  $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
@@ -366,6 +306,9 @@ class ApplicationController extends Controller
             //  }
  
              $applicationDetails = ApplicationDetails::where('schApplicationId', $applicationId)->first();
+
+             $applicationDetails->hasAdmissionLetter   = $request->hasAdmissionLetter;
+
              $applicationDetails->applicantNameF                   = $request->applicantNameF;
              $applicationDetails->applicantNameM                   = $request->applicantNameM;
              $applicationDetails->applicantNameL                   = $request->applicantNameL;
@@ -382,7 +325,7 @@ class ApplicationController extends Controller
              $applicationDetails->applicantContactNoGuardian       = $request->applicantContactNoGuardian;
              $applicationDetails->applicantEmailId                 = $request->applicantEmailId;
              $applicationDetails->applicantContactNoColonyLeader   = $request->applicantContactNoColonyLeader;
-             $applicationDetails->applicantAddressId               = $applicationAddress->id;
+            //  $applicationDetails->applicantAddressId               = $applicationAddress->id;
              $applicationDetails->applicationType                  = "Online";
              $applicationDetails->scholarshipType                  = $request->scholarshipType;
              $getDomainValuesApp = DomainValues::where('value',$request->scholarshipType)->first();
@@ -397,7 +340,7 @@ class ApplicationController extends Controller
              $applicationAddress->addressDistprov  = $request->addressDistprov;
              $applicationAddress->addressPinzip    = $request->addressPinzip;
              $applicationAddress->addressCountry   = 'India';
-             $applicantAddress->update();
+             $applicationAddress->update();
              
              // for 10
              $getDomainValuesExam10 = DomainValues::where('value',$request->education1ExaminationLevel)->first();
@@ -447,7 +390,7 @@ class ApplicationController extends Controller
              }
              //end of education
  
-             $allApplicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('applicantId', $applicantDetails->id)->orderBy('id','ASC')->get();
+             $allApplicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('applicationId', $applicationDetails->id)->orderBy('id','ASC')->get();
  
              if (count($allApplicantMiscellaneousDetails)>0) {
                  $applicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('id',$allApplicantMiscellaneousDetails[0]->id)->first();
@@ -524,5 +467,60 @@ class ApplicationController extends Controller
         else{
             return array('success' => false, 'msg'=>['No Data Found!']);
         }
-    }
+     }
+
+     # Add Scholarship Annexure1
+     public function addAnnexure1(string $applicationId, Request $request)
+     {
+       
+        $institute = $request->json()->all();
+        $data = array();
+        foreach ($institute as $key => $value) {
+            foreach ($value as $k => $v) {
+                $data[$key][$k] = $v;
+            }
+        }
+
+        $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first();
+        DB::beginTransaction();
+        try 
+        {
+            foreach ($data as $ins) {
+                $addAnnex1 = new AnnexureI;
+                $addAnnex1->insId         = $ins['insId'];
+                // $addAnnex1->courseLevelValueId = $ins['courseLevelValueId'];
+                $addAnnex1->courseNameValueId  = $ins['courseNameValueId'];
+                $addAnnex1->applicationId      = $getApplicationId->id;
+                $addAnnex1->addressAddln1    = $ins['addressAddln1'];
+                $addAnnex1->addressAddln2    = $ins['addressAddln2'];
+                $addAnnex1->addressCity      = $ins['addressCity'];
+                $addAnnex1->addressState     = $ins['addressState'];
+                $addAnnex1->addressDistprov  = $ins['addressDistprov'];
+                $addAnnex1->addressPinzip    = $ins['addressPinzip'];
+                $addAnnex1->save();
+            }
+
+            DB::commit();
+            return array('success' => true, 'msg'=>[$data]);
+        }
+        catch(Exception $e) {
+            DB::rollBack();
+            return array('success' => false, 'msg'=>[$e]);
+        }
+     }
+
+     #Get annexure1 Data
+     public function getAnnexure1(string $applicationId)
+     {
+        $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first();
+        $getData = AnnexureI::with('get_institute','get_courseLevelName')->where('applicationId',$getApplicationId->id)->get();
+        $data = json_decode(json_encode($getData));
+        if($data)
+        {
+            return array('success' => true, 'msg'=>['Data Found!'], 'data'=>$data);
+        }
+        else{
+            return array('success' => false, 'msg'=>['No Data Found!']);
+        }
+     }
 }

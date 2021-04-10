@@ -10,6 +10,7 @@ use App\ModelScholarship\DomainValues;
 use App\ModelScholarship\DomainName;
 use App\ModelScholarship\ApplicationEducationDetails;
 use App\ModelScholarship\ApplicationMiscellaneousDetails;
+use App\ModelScholarship\AnnexureI;
 use App\User;
 use App\UserSession;
 class ApplicationDetails extends Model
@@ -69,6 +70,9 @@ class ApplicationDetails extends Model
         return $this->hasMany(ApplicationEducationDetails::class);
     }
 
-
+    public function get_annexureI() // 3
+    {
+        return $this->hasMany(AnnexureI::class);
+    }
 
 }

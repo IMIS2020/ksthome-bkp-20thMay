@@ -10,7 +10,7 @@
                         <div class="mb-3">
                             <ul class="nav nav-tabs font-sm" role="tablist">
                                 <li class="nav-item" role="presentation"><router-link class="nav-link active" role="tab" data-toggle="tab" :to="'/application-form'"><strong>Applicant Details</strong></router-link></li>
-                                <li class="nav-item" role="presentation" v-if="getdata.hasAdmissionLetter === 'NO' && form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/annexure-1'"><strong>Annexure-I</strong></router-link></li>
+                                <li class="nav-item" role="presentation" v-if="form.hasAdmissionLetter === 'NO' && form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/annexure-1/'+form.applicationId"><strong>Annexure-I</strong></router-link></li>
                                 <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-I</strong></router-link></li>
                                 <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/annexure-2/'+form.applicationId"><strong>Annexure-II</strong></router-link></li>
                                 <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-II</strong></router-link></li>
@@ -326,7 +326,7 @@
                                                                                         <div class="form-group mb-0">
                                                                                             <select class="form-control form-control-sm" v-model="form.education1University">
                                                                                                 <option value="" disabled>-- select --</option>
-                                                                                                <option v-for="(ubv,index) in universityBoardCouncilValues" :key="index" :value="ubv.id">{{ubv.value}}</option>
+                                                                                                <option v-for="(ubv,index) in universityBoardCouncilValues" :key="index" :value="ubv.id" >{{ubv.value}}</option>
                                                                                                 <!-- <option value="3">WBBSE</option>
                                                                                                 <option value="2">WBCHSE</option>
                                                                                                 <option value="1">WBSCTVE&amp;D</option> -->
@@ -920,6 +920,7 @@ export default {
                 applicantContactNoGuardian:'',
                 applicantEmailId:document.querySelector("meta[name='email']").getAttribute('content'),
                 applicantContactNoColonyLeader:'',
+                financialYear : '',
                 
                 //education level 10
                 education1ExaminationLevel:'10',
@@ -976,8 +977,8 @@ export default {
         }
     },
     methods: {
-        saveForm() 
-        {
+         saveForm() 
+         {
             if (this.form.applicationId == '') 
             {
                 axios.post('/api/add-application-form/'+this.userId,this.form)
@@ -995,6 +996,7 @@ export default {
                             showConfirmButton: false,
                             timer: 3000
                         })
+                        this.readApplicationForm();
                     } else {
                         console.log(response.data['msg'])
                     }
@@ -1016,7 +1018,7 @@ export default {
                     }
                 }).catch(error => this.errorMsg(error.response.status))
               }
-           },
+            },
             async readApplicationForm() 
             {
                 let applicationId = window.location.pathname.split('/').reverse()[0];
@@ -1024,33 +1026,33 @@ export default {
                 axios.get(`/api/get-application-form-data/${applicationId}`)
                 .then(response => {
                     if (response.data['success']) {
-                        this.form.applicationId=response.data['data'][0][0].schApplicationId,
-                        this.form.scholarshipType=response.data['data'][0][0].scholarshipType,
-                        this.form.applicantNameF=response.data['data'][0][0].applicantNameF,
-                        this.form.applicantNameM=response.data['data'][0][0].applicantNameM,
-                        this.form.applicantNameL=response.data['data'][0][0].applicantNameL,
-                        this.form.applicantFatherName=response.data['data'][0][0].applicantFatherName,
-                        this.form.applicantMotherName=response.data['data'][0][0].applicantMotherName,
-                        this.form.applicantDOB=response.data['data'][0][0].applicantDOB,
+                        this.form.applicationId=response.data['data'][0][0].schApplicationId;
+                        this.form.scholarshipType=response.data['data'][0][0].scholarshipType;
+                        this.form.applicantNameF=response.data['data'][0][0].applicantNameF;
+                        this.form.applicantNameM=response.data['data'][0][0].applicantNameM;
+                        this.form.applicantNameL=response.data['data'][0][0].applicantNameL;
+                        this.form.applicantFatherName=response.data['data'][0][0].applicantFatherName;
+                        this.form.applicantMotherName=response.data['data'][0][0].applicantMotherName;
+                        this.form.applicantDOB=response.data['data'][0][0].applicantDOB;
                         this.form.applicantGender=response.data['data'][0][0].applicantGender,
-                        this.form.applicantLeprosyAffectedSelf=response.data['data'][0][0].applicantLeprosyAffectedSelf,
-                        this.form.applicantLeprosyAffectedFather=response.data['data'][0][0].applicantLeprosyAffectedFather,
-                        this.form.applicantLeprosyAffectedMother=response.data['data'][0][0].applicantLeprosyAffectedMother,
-                        this.form.applicantHasBPLCard=response.data['data'][0][0].applicantHasBPLCard,
-                        this.form.applicantDomicileState=response.data['data'][0][0].applicantDomicileState,
-                        this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1,
-                        this.form.addressAddln2=response.data['data'][0][0].get_address.addressAddln2,
-                        this.form.addressCity=response.data['data'][0][0].get_address.addressCity,
-                        this.form.addressDistprov=response.data['data'][0][0].get_address.addressDistprov,
-                        this.form.addressState=response.data['data'][0][0].get_address.addressState,
-                        this.form.addressPinzip=response.data['data'][0][0].get_address.addressPinzip,
-                        this.form.applicantContactNoSelf=response.data['data'][0][0].applicantContactNoSelf,
-                        this.form.applicantContactNoGuardian=response.data['data'][0][0].applicantContactNoGuardian,
-                        this.form.applicantEmailId=response.data['data'][0][0].applicantEmailId,
-                        this.form.applicantContactNoColonyLeader=response.data['data'][0][0].applicantContactNoColonyLeader,
-                        this.getdata.financialYear = response.data['data'][0][0].financialYear,   
-                        this.getdata.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
-                        if(this.getdata.hasAdmissionLetter == 'YES') {
+                        this.form.applicantLeprosyAffectedSelf=response.data['data'][0][0].applicantLeprosyAffectedSelf;
+                        this.form.applicantLeprosyAffectedFather=response.data['data'][0][0].applicantLeprosyAffectedFather;
+                        this.form.applicantLeprosyAffectedMother=response.data['data'][0][0].applicantLeprosyAffectedMother;
+                        this.form.applicantHasBPLCard=response.data['data'][0][0].applicantHasBPLCard;
+                        this.form.applicantDomicileState=response.data['data'][0][0].applicantDomicileState;
+                        this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
+                        this.form.addressAddln2=response.data['data'][0][0].get_address.addressAddln2;
+                        this.form.addressCity=response.data['data'][0][0].get_address.addressCity;
+                        this.form.addressDistprov=response.data['data'][0][0].get_address.addressDistprov;
+                        this.form.addressState=response.data['data'][0][0].get_address.addressState;
+                        this.form.addressPinzip=response.data['data'][0][0].get_address.addressPinzip;
+                        this.form.applicantContactNoSelf=response.data['data'][0][0].applicantContactNoSelf;
+                        this.form.applicantContactNoGuardian=response.data['data'][0][0].applicantContactNoGuardian;
+                        this.form.applicantEmailId=response.data['data'][0][0].applicantEmailId;
+                        this.form.applicantContactNoColonyLeader=response.data['data'][0][0].applicantContactNoColonyLeader;
+                        this.form.financialYear = response.data['data'][0][0].financialYear;  
+                        this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
+                        if(this.form.hasAdmissionLetter == 'YES') {
                             this.inputDisabled = false; 
                             // this.form.insCourse=response.data['data'][0][0].get_institute.,
                             this.form.insName=response.data['data'][0][0].get_institute.instituteName,
@@ -1063,7 +1065,7 @@ export default {
                             this.form.recognizedByINC=response.data['data'][0][0].recognizedByINC;
                         } else {
                             this.inputDisabled = true;
-                        }
+                        };
                         
                         //education level 10
                         if(response.data['data'][1][0].get_exam_level_domain_values.value == 10){
@@ -1074,7 +1076,7 @@ export default {
                                 this.form.education1YearOfPassing= response.data['data'][1][0].yearOfPassing,
                                 this.form.education1Percentage= response.data['data'][1][0].percentage,
                                 this.form.education1Division= response.data['data'][1][0].division;
-                        }
+                        };
 
                         //education level 12
                         if(response.data['data'][1][1].get_exam_level_domain_values.value == 12){
@@ -1085,7 +1087,7 @@ export default {
                                 this.form.education2YearOfPassing= response.data['data'][1][1].yearOfPassing,
                                 this.form.education2Percentage= response.data['data'][1][1].percentage,
                                 this.form.education2Division= response.data['data'][1][1].division;
-                        }
+                        };
 
                         //education level graduate for hddlss only (13)
                         if(response.data['data'][1][2].get_exam_level_domain_values.value == 13){
@@ -1096,23 +1098,27 @@ export default {
                                 this.form.education3YearOfPassing= response.data['data'][1][2].yearOfPassing,
                                 this.form.education3Percentage= response.data['data'][1][2].percentage,
                                 this.form.education3Division= response.data['data'][1][2].division;
-                        }
+                        };
 
-                        //end Education
+                    } 
+                    else {
+                        console.log(response.data['msg'])
+                    }
+                })
+                axios.get(`/api/get-application-form-data/${applicationId}`)
+                .then(response => {
+                    if (response.data['success']) {
 
-                        this.form.miscName1= response.data['data'][2][0].name,
-                        this.form.miscCourse1= response.data['data'][2][0].course,
-                        this.form.miscYear1= response.data['data'][2][0].year,
-                        this.form.miscName2= response.data['data'][2][1].name,
-                        this.form.miscCourse2= response.data['data'][2][1].course,
-                        this.form.miscYear2= response.data['data'][2][1].year,
-                        this.form.miscName3= response.data['data'][2][2].name,
-                        this.form.miscCourse3= response.data['data'][2][2].course,
+                        this.form.miscName1= response.data['data'][2][0].name;
+                        this.form.miscCourse1= response.data['data'][2][0].course;
+                        this.form.miscYear1= response.data['data'][2][0].year;
+                        this.form.miscName2= response.data['data'][2][1].name;
+                        this.form.miscCourse2= response.data['data'][2][1].course;
+                        this.form.miscYear2= response.data['data'][2][1].year;
+                        this.form.miscName3= response.data['data'][2][2].name;
+                        this.form.miscCourse3= response.data['data'][2][2].course;
                         this.form.miscYear3= response.data['data'][2][2].year;
-                        
-                        
-                        // this.form =  response.data['data'];
-                        
+
                     } 
                     else {
                         console.log(response.data['msg'])
@@ -1242,9 +1248,9 @@ export default {
          },
          created()
          {
+           this.readApplicationForm();
            this.checkNewScholarshipType();
            this.readDomainValues();
-           this.readApplicationForm();
            
          }
 }

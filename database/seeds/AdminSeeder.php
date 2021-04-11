@@ -14,12 +14,10 @@ class AdminSeeder extends Seeder
         DB::table('admins')->insert([
             'name' => 'admin',
             'email' => 'admin@imisapp.com',
-            'password' => Hash::make('password'),
-            'contactno' =>'7890123456',
+            'password' => Hash::make('admin@imisapp'),
+            'contactno' =>'9830258747',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            
-            
         ]);
     }
 }

@@ -16,6 +16,8 @@ use App\ModelScholarship\DomainValues;
 use App\ModelScholarship\ApplicationScheduleTable;
 use App\ModelScholarship\AnnexureI;
 use App\ModelScholarship\ApplicationDocs;
+use App\ModelScholarship\DocMaster;
+use App\Http\Controllers\Scholarship\DocumentMaster;
 use User;
 // use App\ModelScholarship\AnnexureI;
 // use App\ModelScholarship\ApplicantDocuments;
@@ -29,8 +31,8 @@ class ApplicationController extends Controller
      {
         $lastId = ApplicationDetails::orderBy('id', 'DESC')->first();
         if(empty($lastId)) { $lastId = 0; }
-        else { $lastId = intval(explode('HHDLSS',$lastId->schApplicationId)[1]); }
-        return 'IMIS-HHDLSS'.str_pad($lastId+1, 5, "0", STR_PAD_LEFT);
+        else { $lastId = intval(explode('APP',$lastId->schApplicationId)[1]); }
+        return 'APP'.str_pad($lastId+1, 5, "0", STR_PAD_LEFT);
      }
      # Add Scholarship Application
      public function addScholarshipApplication(int $userId, Request $request)
@@ -119,6 +121,9 @@ class ApplicationController extends Controller
              $applicationDetails->applicantLeprosyAffectedSelf     = $request->applicantLeprosyAffectedSelf;
              $applicationDetails->applicantLeprosyAffectedFather   = $request->applicantLeprosyAffectedFather;
              $applicationDetails->applicantLeprosyAffectedMother   = $request->applicantLeprosyAffectedMother;
+             $applicationDetails->applicantDisablityMother         = $request->applicantDisablityMother; 
+             $applicationDetails->applicantDisablityFather         = $request->applicantDisablityFather; 
+             $applicationDetails->applicantDisablitySelf           = $request->applicantDisablitySelf;
              $applicationDetails->applicantHasBPLCard              = $request->applicantHasBPLCard;
              $applicationDetails->applicantDomicileState           = $request->applicantDomicileState;
              $applicationDetails->applicantContactNoSelf           = $request->applicantContactNoSelf;
@@ -131,22 +136,22 @@ class ApplicationController extends Controller
              $getDomainValuesApp = DomainValues::where('value',$request->scholarshipType)->first();
              $applicationDetails->scholarshipTypeValueId           = $getDomainValuesApp->id;
 
-             if ($request->hasAdmissionLetter === 'YES') {
-                $instituteAddress = new Address;
-                $instituteAddress->addressAddln1    = $request->insAddressAddln1;
-                $instituteAddress->addressAddln2    = $request->insAddressAddln2;
-                $instituteAddress->addressCity      = $request->insAddressCity;
-                $instituteAddress->addressState     = $request->insAddressState;
-                $instituteAddress->addressDistprov  = $request->insAddressDistprov;
-                $instituteAddress->addressPinzip    = $request->insAddressPinzip;
-                $instituteAddress->addressCountry   = 'India';
-                $instituteAddress->save();
+            //  if ($request->hasAdmissionLetter === 'YES') {
+            //     $instituteAddress = new Address;
+            //     $instituteAddress->addressAddln1    = $request->insAddressAddln1;
+            //     $instituteAddress->addressAddln2    = $request->insAddressAddln2;
+            //     $instituteAddress->addressCity      = $request->insAddressCity;
+            //     $instituteAddress->addressState     = $request->insAddressState;
+            //     $instituteAddress->addressDistprov  = $request->insAddressDistprov;
+            //     $instituteAddress->addressPinzip    = $request->insAddressPinzip;
+            //     $instituteAddress->addressCountry   = 'India';
+            //     $instituteAddress->save();
 
-                $instituteDetails = new InstituteDetails;
-                $instituteDetails->instituteName = $request->insName;
-                $instituteDetails->instituteAddressId = $instituteAddress->id;
-                $instituteDetails->save();
-            }
+            //     $instituteDetails = new InstituteDetails;
+            //     $instituteDetails->instituteName = $request->insName;
+            //     $instituteDetails->instituteAddressId = $instituteAddress->id;
+            //     $instituteDetails->save();
+            // }
 
              $newApplicationId = $this->newApplicationId();
 
@@ -154,9 +159,17 @@ class ApplicationController extends Controller
              $applicationDetails->hasAdmissionLetter   = $request->hasAdmissionLetter;
              $applicationDetails->financialYear        = date('Y').'-'.(intval(date('y'))+1);
              $applicationDetails->userId               = $userId;
+
              if($request->hasAdmissionLetter === 'YES') {
-                $applicationDetails->instituteId      = $instituteDetails->id;
-                $applicationDetails->instituteCourse  = $request->insCourse;
+                $applicationDetails->instituteId      = $request->instituteId;
+                if($request->courseLevelValueId == 'N')
+                {
+                    $getDomainValues = DomainValues::where('value','Graduate')->first();
+                    $applicationDetails->courseLevelValueId  = $getDomainValues->id;
+                }else{
+                    $applicationDetails->courseLevelValueId = $request->courseLevelValueId;
+                }
+                $applicationDetails->courseNameValueId   = $request->courseNameValueId;
                 $applicationDetails->recognizedByINC  = $request->recognizedByINC;
              }
              $applicationDetails->save();
@@ -238,6 +251,18 @@ class ApplicationController extends Controller
                  $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
                  $applicantMiscellaneousDetails->save();
              }
+
+             $createDoc = new DocumentMaster;
+             $createDoc->createDocMasterData($request->applicantLeprosyAffectedMother,
+                                            $request->applicantLeprosyAffectedFather,
+                                            $request->applicantLeprosyAffectedSelf,
+                                            $request->hasAdmissionLetter,
+                                            $request->applicantDisablityMother,
+                                            $request->applicantDisablityFather,
+                                            $request->applicantDisablitySelf,
+                                            $applicationDetails->id);
+
+
              
              DB::commit();
              return array('success' => true, 'msg'=>[], 'data'=>$newApplicationId);
@@ -320,6 +345,9 @@ class ApplicationController extends Controller
              $applicationDetails->applicantLeprosyAffectedSelf     = $request->applicantLeprosyAffectedSelf;
              $applicationDetails->applicantLeprosyAffectedFather   = $request->applicantLeprosyAffectedFather;
              $applicationDetails->applicantLeprosyAffectedMother   = $request->applicantLeprosyAffectedMother;
+             $applicationDetails->applicantDisablityMother         = $request->applicantDisablityMother; 
+             $applicationDetails->applicantDisablityFather         = $request->applicantDisablityFather; 
+             $applicationDetails->applicantDisablitySelf           = $request->applicantDisablitySelf;
              $applicationDetails->applicantHasBPLCard              = $request->applicantHasBPLCard;
              $applicationDetails->applicantDomicileState           = $request->applicantDomicileState;
              $applicationDetails->applicantContactNoSelf           = $request->applicantContactNoSelf;
@@ -434,6 +462,16 @@ class ApplicationController extends Controller
                  $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
                  $applicantMiscellaneousDetails->save();
              }
+
+             $createDoc = new DocumentMaster;
+             $createDoc->createDocMasterData($request->applicantLeprosyAffectedMother,
+                                            $request->applicantLeprosyAffectedFather,
+                                            $request->applicantLeprosyAffectedSelf,
+                                            $request->hasAdmissionLetter,
+                                            $request->applicantDisablityMother,
+                                            $request->applicantDisablityFather,
+                                            $request->applicantDisablitySelf,
+                                            $applicationDetails->id);
  
              DB::commit();
              return array('success' => true, 'msg'=>[]);
@@ -550,6 +588,7 @@ class ApplicationController extends Controller
                 $addDoc->docFilePath               = 'app/public/uploads/schloarshipRecord/';
                 $addDoc->docMasterId               = $saveDoc['idDoc'];
                 $addDoc->applicationId             = $getApplicationId;
+                $addDoc->uploadStatus              = 'YES';
                 $addDoc->save();
             } else {
                 array_push($old,$saveDoc);
@@ -561,7 +600,9 @@ class ApplicationController extends Controller
                     }
 
                     $fileName = $this->uploadFile(storage_path('app/public/uploads/schloarshipRecord/'), $saveDoc['docFileNameFile'],$saveDoc['fileName']);
+                    $editDoc->docFilePath               = 'app/public/uploads/schloarshipRecord/';
                     $editDoc->docFileName  = $fileName;
+                    $editDoc->uploadStatus  = 'YES';
                 }
                 $editDoc->update();
             }
@@ -589,7 +630,15 @@ class ApplicationController extends Controller
     public function getDocuments(string $applicationId)
     {
         $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
-        $getData = ApplicationDocs::where('applicationId', $getApplicationId)->get();
+        $getData = ApplicationDocs::where('applicationId', $getApplicationId)->with('get_docMaster')->orderBy('docMasterId','ASC')->get();
+
+       
+
+        foreach ($getData as $key => $value) {
+            $fileName = $value['docFileName'];
+            $url = Storage::url('uploads/schloarshipRecord/'.$fileName);
+            $getData[$key]['fileURL'] = $url;
+        }
 
         return $getData;
     }
@@ -619,5 +668,25 @@ class ApplicationController extends Controller
         if(!Storage::exists('public/uploads/schloarshipRecord/')){
             Storage::makeDirectory('public/uploads/schloarshipRecord/');
         }
+    }
+
+    public function deleteDoc(string $applicationDocId)
+    {
+        $delDocFile =ApplicationDocs::where('id', $applicationDocId)->first();
+        if (!empty($delDocFile->docFileName)) {
+            unlink(storage_path('app/public/uploads/schloarshipRecord/').$delDocFile->docFileName);
+        }
+        $delDocFile->docFilePath   = null;
+        $delDocFile->docFileName   = null;
+        $delDocFile->uploadStatus  = 'NO';
+
+        if($delDocFile->update())
+        {
+            return 1;
+        }else{
+            return 0;
+        }
+
+       
     }
 }

@@ -19,6 +19,7 @@ class DocMaster extends Migration
             $table->unsignedBigInteger('processStepId')->nullable();
             $table->string('docDesc');
             $table->string('docType');
+            $table->unsignedBigInteger('requiredFor')->nullable();
             $table->timestamps();
         });
     }

@@ -28,11 +28,11 @@
                                                             </div>
                                                           <div class="col-sm-4 col-xl-3 offset-xl-0 text-right align-self-center">
                                                               <p class="text-left mb-0 font-sm" v-if="scholarshipType2 == 'Nursing'">
-                                                                 <router-link to="/application-form"><strong>Click here</strong></router-link>
+                                                                 <router-link to="/application-form/Nursing"><strong>Click here</strong></router-link>
                                                                </p>
 
                                                                <p class="text-left mb-0 font-sm" v-else>
-                                                                 <router-link to="/application-form-HHDLSS"><strong>Click here</strong></router-link>
+                                                                 <router-link to="/application-form/Hddlss"><strong>Click here</strong></router-link>
                                                                </p>
                                                           </div>
                                                       </div>

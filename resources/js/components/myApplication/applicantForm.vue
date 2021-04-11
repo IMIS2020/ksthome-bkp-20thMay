@@ -662,7 +662,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-xl-12">
+                                                <!-- <div class="col-xl-12">
                                                     <div class="card mt-2 det-sec">
                                                         <div class="card-header">
                                                             <h6 class="mb-0 color-mg">Additional Qualification</h6>
@@ -698,9 +698,9 @@
                                                                                             <select class="form-control form-control-sm" v-model="form.additional1ExaminationPassed">
                                                                                                 <option value="" disabled>-- select --</option>
                                                                                                 <option v-for="(epv,index) in examinationPassedValues" :key="index" :value="epv.id">{{epv.value}}</option>
-                                                                                                <!-- <option value="3">Madhyamik</option>
+                                                                                                <option value="3">Madhyamik</option>
                                                                                                 <option value="2">Higher Secondary</option>
-                                                                                                <option value="1">B.Com</option> -->
+                                                                                                <option value="1">B.Com</option>
                                                                                                <option  data-toggle="modal" data-target="#others-exam-passed4" @click="addName('ExamPassed')">Others</option>
                                                                                             </select>
                                                                                         </div>
@@ -735,9 +735,9 @@
                                                                                             <select class="form-control form-control-sm" v-model="form.additional1University">
                                                                                                 <option value="" disabled>-- select --</option>
                                                                                                 <option v-for="(ubv,index) in universityBoardCouncilValues" :key="index" :value="ubv.id" >{{ubv.value}}</option>
-                                                                                                <!-- <option value="3">WBBSE</option>
+                                                                                                <option value="3">WBBSE</option>
                                                                                                 <option value="2">WBCHSE</option>
-                                                                                                <option value="1">WBSCTVE&amp;D</option> -->
+                                                                                                <option value="1">WBSCTVE&amp;D</option>
                                                                                                 <option  data-toggle="modal" data-target="#others-exam-board4" @click="addName('UnivBoard')">Others</option>
                                                                                             </select>
                                                                                         </div>
@@ -820,9 +820,9 @@
                                                                                             <select class="form-control form-control-sm" v-model="form.additional2ExaminationPassed">
                                                                                                 <option value="" disabled>-- select --</option>
                                                                                                 <option v-for="(epv,index) in examinationPassedValues" :key="index" :value="epv.id">{{epv.value}}</option>
-                                                                                                <!-- <option value="3">Madhyamik</option>
+                                                                                                <option value="3">Madhyamik</option>
                                                                                                 <option value="2">Higher Secondary</option>
-                                                                                                <option value="1">B.Com</option> -->
+                                                                                                <option value="1">B.Com</option>
                                                                                                 <option  data-toggle="modal" data-target="#others-exam-passed5" @click="addName('ExamPassed')">Others</option>
                                                                                             </select>
                                                                                         </div>
@@ -857,9 +857,9 @@
                                                                                             <select class="form-control form-control-sm" v-model="form.additional2University">
                                                                                                 <option value="" disabled>-- select --</option>
                                                                                                 <option v-for="(ubv,index) in universityBoardCouncilValues" :key="index" :value="ubv.id">{{ubv.value}}</option>
-                                                                                                <!-- <option value="3">WBBSE</option>
+                                                                                                <option value="3">WBBSE</option>
                                                                                                 <option value="2">WBCHSE</option>
-                                                                                                <option value="1">WBSCTVE&amp;D</option> -->
+                                                                                                <option value="1">WBSCTVE&amp;D</option>
                                                                                                 <option  data-toggle="modal" data-target="#others-exam-board6"  @click="addName('UnivBoard')">Others</option>
                                                                                             </select>
                                                                                         </div>
@@ -935,7 +935,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
 
                                                 <div class="col-xl-12">
                                                     <div class="card mt-2 det-sec">
@@ -960,47 +960,225 @@
                                                                 <div class="col-xl-12 mb-2">
                                                                     <label class="col-form-label">Name of the course you have been selected for:&nbsp;<span class="text-danger"><strong>*</strong></span><br></label>
                                                                 </div>
-                                                                <div class="col-xl-6">
-                                                                    <label>Name of the course&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                    <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insCourse" :disabled="inputDisabled" required>
+                                                                <div class="col-xl-3">
+                                                                    <label>Name of the Level&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                     <div class="form-group mb-0" v-if="form.scholarshipType == 'Nursing'">
+                                                                        <select class="form-control form-control-sm" v-model="form.courseLevelValueId" disabled>
+                                                                            <option value="N" disabled selected>Graduate</option>
+                                                                            <!-- <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id">{{ucl.value}}</option>
+                                                                            <option  data-toggle="modal" data-target="#others-course-level" @click="addName('CourseLevel')">Others</option> -->
+                                                                        </select>
+                                                                     </div>
+                                                                     <div class="form-group mb-0" v-else>
+                                                                        <select class="form-control form-control-sm" v-model="form.courseLevelValueId" :disabled="inputDisabled">
+                                                                            <option value="" disabled selected>-- select --</option>
+                                                                            <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id">{{ucl.value}}</option>
+                                                                            <option  data-toggle="modal" data-target="#others-course-level" @click="addName('CourseLevel')">Others</option>
+                                                                        </select>
+                                                                     </div>
+                                                                    <!-- Star Course Level modal -->
+                                                                    <div role="dialog" tabindex="-1" class="modal fade" id="others-course-level">
+                                                                        <div class="modal-dialog modal-sm" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header py-1">
+                                                                                    <h6 class="modal-title color-mg font-md"><strong>Add Other Course Level</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                                                </div>
+                                                                                <div class="modal-body cs-modal-body">
+                                                                                    <div class="form-row">
+                                                                                        <div class="col-xl-12 mb-2">
+                                                                                            <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" />
+                                                                                            <div class="form-group mb-0"><label class="mb-0">Course Level</label>
+                                                                                                <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue"/>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-xl-12 mb-2">
+                                                                                            <div class="form-group mb-0"><label class="mb-0">Course Level Desc</label>
+                                                                                                <input type="text" class="form-control form-control-sm" v-model="domainForm.dDesc" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
+                                                                    <!-- End course name modal -->
+                                                                </div>
+                                                                <div class="col-xl-3">
+                                                                    <label>Name of the course&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                    <div class="form-group mb-0">
+                                                                        <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled">
+                                                                            <option value="" disabled>-- select --</option>
+                                                                            <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
+                                                                            <option  data-toggle="modal" data-target="#others-course-name" @click="addName('CourseName')">Others</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <!-- Star Course name modal -->
+                                                                    <div role="dialog" tabindex="-1" class="modal fade" id="others-course-name">
+                                                                        <div class="modal-dialog modal-sm" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header py-1">
+                                                                                    <h6 class="modal-title color-mg font-md"><strong>Add Other Course Name</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                                                </div>
+                                                                                <div class="modal-body cs-modal-body">
+                                                                                    <div class="form-row">
+                                                                                        <div class="col-xl-12 mb-2">
+                                                                                            <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" />
+                                                                                            <div class="form-group mb-0"><label class="mb-0">Course Name</label>
+                                                                                                <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue"/>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-xl-12 mb-2">
+                                                                                            <div class="form-group mb-0"><label class="mb-0">Course Name Desc</label>
+                                                                                                <input type="text" class="form-control form-control-sm" v-model="domainForm.dDesc" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- End course name modal -->
                                                                 </div>
                                                                 <div class="col-xl-6">
                                                                     <label>Name of the institute</label>
-                                                                    <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insName" :disabled="inputDisabled" required>
+                                                                    <div class="form-group mb-0">
+                                                                        <select class="form-control form-control-sm" @change="onChangeIns($event)" v-model="form.instituteId" :disabled="inputDisabled">
+                                                                            <option v-for="(i,index) in insData" :key="index" :value="i.id">{{i.instituteName}} - {{i.get_address.addressCity}}, {{i.get_address.addressState}}</option>
+                                                                            <option  data-toggle="modal" data-target="#others-add-institute" >Others</option>
+                                                                            <option value="" disabled>-- select --</option>
+                                                                        </select>
                                                                     </div>
+                                                                    <!--Institute Details modal -->
+                                                                    <div role="dialog" tabindex="-1" class="modal fade" id="others-add-institute">
+                                                                        <div class="modal-dialog modal-md" role="document">
+                                                                            <form>
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header py-1">
+                                                                                        <h6 class="modal-title color-mg font-md"><strong>Add Institute</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                                                    </div>
+                                                                                    <div class="modal-body cs-modal-body">
+                                                                                        <div class="form-row">
+                                                                                            <div class="col-xl-12 mb-2">
+                                                                                                <label>Institute Name</label>
+                                                                                                <div class="form-group">
+                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insName" required>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-xl-12 mb-2">
+                                                                                                <label>Address Line 1</label>
+                                                                                                <div class="form-group">
+                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln1" required>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-xl-12 mb-2">
+                                                                                                <label>Address Line 2</label>
+                                                                                                <div class="form-group">
+                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln2" required>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-xl-12 mb-2">
+                                                                                                <label>City</label>
+                                                                                                <div class="form-group">
+                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressCity" required>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-xl-12 mb-2">
+                                                                                                <label>District</label>
+                                                                                                <div class="form-group">
+                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressDistprov" required>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            
+                                                                                            <div class="col-xl-12 mb-2">
+                                                                                                <label>State&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                                                <div class="form-group"> 
+                                                                                                    <select class="form-control form-control-sm" v-model="insForm.insAddressState" required>
+                                                                                                        <option value="" disabled>--Select--</option>
+                                                                                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                                                                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                                                                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                                                                        <option value="Assam">Assam</option>
+                                                                                                        <option value="Bihar">Bihar</option>
+                                                                                                        <option value="Chandigarh">Chandigarh</option>
+                                                                                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                                                                                        <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                                                                                        <option value="Daman and Diu">Daman and Diu</option>
+                                                                                                        <option value="Delhi">Delhi</option>
+                                                                                                        <option value="Lakshadweep">Lakshadweep</option>
+                                                                                                        <option value="Puducherry">Puducherry</option>
+                                                                                                        <option value="Goa">Goa</option>
+                                                                                                        <option value="Gujarat">Gujarat</option>
+                                                                                                        <option value="Haryana">Haryana</option>
+                                                                                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                                                                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                                                                        <option value="Jharkhand">Jharkhand</option>
+                                                                                                        <option value="Karnataka">Karnataka</option>
+                                                                                                        <option value="Kerala">Kerala</option>
+                                                                                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                                                                        <option value="Maharashtra">Maharashtra</option>
+                                                                                                        <option value="Manipur">Manipur</option>
+                                                                                                        <option value="Meghalaya">Meghalaya</option>
+                                                                                                        <option value="Mizoram">Mizoram</option>
+                                                                                                        <option value="Nagaland">Nagaland</option>
+                                                                                                        <option value="Odisha">Odisha</option>
+                                                                                                        <option value="Punjab">Punjab</option>
+                                                                                                        <option value="Rajasthan">Rajasthan</option>
+                                                                                                        <option value="Sikkim">Sikkim</option>
+                                                                                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                                                                                        <option value="Telangana">Telangana</option>
+                                                                                                        <option value="Tripura">Tripura</option>
+                                                                                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                                                                        <option value="Uttarakhand">Uttarakhand</option>
+                                                                                                        <option value="West Bengal">West Bengal</option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                                <div class="col-xl-12 mb-2">
+                                                                                                    <label>PIN/ZIP Code&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                                                <div class="form-group">
+                                                                                                    <input class="form-control form-control-sm" type="number" v-model="insForm.insAddressPinzip" required>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveInstitute"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- End of Institute modal -->
                                                                 </div>
                                                                 <div class="col-xl-4">
                                                                     <label>Address Line 1&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insAddressAddln1" :disabled="inputDisabled" required>
+                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insAddressAddln1" disabled >
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-4">
                                                                     <label>Address Line 2</label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insAddressAddln2" :disabled="inputDisabled" >
+                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insAddressAddln2" disabled>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-2">
                                                                     <label>City</label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insAddressCity" :disabled="inputDisabled" >
+                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insAddressCity" disabled>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-2">
                                                                     <label>District</label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insAddressDistprov" :disabled="inputDisabled" >
+                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insAddressDistprov" disabled>
                                                                     </div>
                                                                 </div>
                                                                 
                                                                 <div class="col-xl-3">
                                                                     <label>State&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
-                                                                        <select class="form-control form-control-sm" v-model="form.insAddressState" :disabled="inputDisabled" required>
+                                                                        <select class="form-control form-control-sm" v-model="form.insAddressState" disabled>
                                                                             <option value="" disabled>--Select--</option>
                                                                             <option value="Andhra Pradesh">Andhra Pradesh</option>
                                                                             <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -1044,7 +1222,7 @@
                                                                     <div class="col-xl-3">
                                                                     <label>PIN/ZIP Code&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insAddressPinzip" :disabled="inputDisabled" required>
+                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insAddressPinzip" disabled>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-3"><label>Whether recognized by Indian Nursing Council&nbsp;<span class="text-danger"><strong>*</strong></span><br></label>
@@ -1175,6 +1353,8 @@ export default {
             userId: document.querySelector("meta[name='userId']").getAttribute('content'),
             examinationPassedValues:{},
             universityBoardCouncilValues:{},
+            universityCourseLevel: {},
+            universityCourseName: {},
             domainForm: {
                 domainName : '',
                 dValue : '',
@@ -1210,7 +1390,6 @@ export default {
                 applicantEmailId:document.querySelector("meta[name='email']").getAttribute('content'),
                 applicantContactNoColonyLeader:'',
                 financialYear : '',
-                
                 //education level 10
                 education1ExaminationLevel:'10',
                 education1ExaminationPassed: '',
@@ -1260,8 +1439,11 @@ export default {
                 //end of qualification
                 
                 hasAdmissionLetter:'YES',
-                insCourse:'',
-                insName:'',
+                courseLevelValueId: 'N',
+                courseNameValueId: '',
+                instituteId:'',
+                // insCourse:'',
+                // insName:'',
                 insAddressAddln1:'',
                 insAddressAddln2:'',
                 insAddressCity:'',
@@ -1282,6 +1464,19 @@ export default {
             getdata: {},
             errors :'',
             error:[],
+
+            //institute
+            insData:{},
+            insId: '',
+            insForm: {
+                insName:'',
+                insAddressAddln1:'',
+                insAddressAddln2:'',
+                insAddressCity:'',
+                insAddressDistprov:'',
+                insAddressState:'',
+                insAddressPinzip:'',
+            },
         }
     },
     methods: {
@@ -1346,6 +1541,9 @@ export default {
                         this.form.applicantLeprosyAffectedSelf=response.data['data'][0][0].applicantLeprosyAffectedSelf;
                         this.form.applicantLeprosyAffectedFather=response.data['data'][0][0].applicantLeprosyAffectedFather;
                         this.form.applicantLeprosyAffectedMother=response.data['data'][0][0].applicantLeprosyAffectedMother;
+                        this.form.applicantDisablityMother         = response.data['data'][0][0].applicantDisablityMother; 
+                        this.form.applicantDisablityFather         = response.data['data'][0][0].applicantDisablityFather; 
+                        this.form.applicantDisablitySelf           = response.data['data'][0][0].applicantDisablitySelf;
                         this.form.applicantHasBPLCard=response.data['data'][0][0].applicantHasBPLCard;
                         this.form.applicantDomicileState=response.data['data'][0][0].applicantDomicileState;
                         this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
@@ -1363,13 +1561,15 @@ export default {
                         if(this.form.hasAdmissionLetter == 'YES') {
                             this.inputDisabled = false; 
                             // this.form.insCourse=response.data['data'][0][0].get_institute.,
-                            this.form.insName=response.data['data'][0][0].get_institute.instituteName,
-                            this.form.insAddressAddln1=response.data['data'][0][0].courseNameValue,
-                            this.form.insAddressAddln2=response.data['data'][0][0].get_institute.addressAddln2,
-                            this.form.insAddressCity=response.data['data'][0][0].get_institute.addressCity,
-                            this.form.insAddressDistprov=response.data['data'][0][0].get_institute.addressDistprov,
-                            this.form.insAddressState=response.data['data'][0][0].get_institute.addressState,
-                            this.form.insAddressPinzip=response.data['data'][0][0].get_institute.addressPinzip,
+                            this.form.instituteId=response.data['data'][0][0].instituteId,
+                            this.dataIns(response.data['data'][0][0].instituteId),
+                            this.form.courseNameValueId = response.data['data'][0][0].courseNameValueId,
+                            // this.form.insAddressAddln1=response.data['data'][0][0].courseNameValue,
+                            // this.form.insAddressAddln2=response.data['data'][0][0].get_institute.addressAddln2,
+                            // this.form.insAddressCity=response.data['data'][0][0].get_institute.addressCity,
+                            // this.form.insAddressDistprov=response.data['data'][0][0].get_institute.addressDistprov,
+                            // this.form.insAddressState=response.data['data'][0][0].get_institute.addressState,
+                            // this.form.insAddressPinzip=response.data['data'][0][0].get_institute.addressPinzip,
                             this.form.recognizedByINC=response.data['data'][0][0].recognizedByINC;
                         } else {
                             this.inputDisabled = true;
@@ -1519,6 +1719,14 @@ export default {
                     .then(response => {
                         this.universityBoardCouncilValues = response.data;
                     });
+                axios.get('/api/domain/course-level')
+                    .then(response => {
+                        this.universityCourseLevel= response.data;
+                    });
+                axios.get('/api/domain/course-name')
+                    .then(response => {
+                        this.universityCourseName = response.data;
+                    });
                 
             },
             saveDomainValues()
@@ -1534,6 +1742,12 @@ export default {
                         }else if(this.domainForm.domainName == 'UnivBoard')
                         {
                             showMsg = 'University/Board'
+                        }else if(this.domainForm.domainName == 'CourseLevel')
+                        {
+                            showMsg = 'Course Level'
+                        }else if(this.domainForm.domainName == 'CourseName')
+                        {
+                            showMsg = 'Course Name'
                         }
                         this.$fire({
                             position: 'top',
@@ -1551,6 +1765,78 @@ export default {
             addName(data)
             {
                 this.domainForm.domainName = data;
+            },
+
+            //institute
+
+            readInsValue()
+            {
+                axios.get('/api/institute/get-data')
+                    .then(response => {
+                        this.insData = response.data;
+                    });
+            },
+
+            saveInstitute()
+            {
+                axios.post('/api/institute/add',this.insForm)
+                .then(response => {
+                    if (response.data['success']) {
+                        this.readInsValue();
+                        
+                        this.$fire({
+                            position: 'top',
+                            icon: 'success',
+                            title: "Added new Institute",
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                        
+                    } else {
+                        console.log(response.data['msg'])
+                    }
+                }).catch(error => this.errorMsg(error.response.status))
+            },
+
+            onChangeIns(event)
+            {
+                this.insId = event.target.value;
+                console.log(this.insId);
+                if(this.insId != 'Others'){
+                    axios.get('/api/institute/get-details/'+this.insId)
+                    .then(response => {
+                        if (response.data['success']) {
+                            this.form.insAddressAddln1 = response.data['data'][0].get_address.addressAddln1;
+                            this.form.insAddressAddln2 = response.data['data'][0].get_address.addressAddln2;
+                            this.form.insAddressCity = response.data['data'][0].get_address.addressCity;
+                            this.form.insAddressDistprov = response.data['data'][0].get_address.addressDistprov;
+                            this.form.insAddressState = response.data['data'][0].get_address.addressState;
+                            this.form.insAddressPinzip = response.data['data'][0].get_address.addressPinzip;
+                        } else {
+                            console.log(response.data['msg'])
+                        }
+                    }).catch(error => this.errorMsg(error.response.status))
+                }
+            },
+
+            dataIns(id)
+            {
+                
+                if(this.insId != 'Others'){
+                    axios.get('/api/institute/get-details/'+id)
+                    .then(response => {
+                        if (response.data['success']) {
+                            this.form.insAddressAddln1 = response.data['data'][0].get_address.addressAddln1;
+                            this.form.insAddressAddln2 = response.data['data'][0].get_address.addressAddln2;
+                            this.form.insAddressCity = response.data['data'][0].get_address.addressCity;
+                            this.form.insAddressDistprov = response.data['data'][0].get_address.addressDistprov;
+                            this.form.insAddressState = response.data['data'][0].get_address.addressState;
+                            this.form.insAddressPinzip = response.data['data'][0].get_address.addressPinzip;
+                        } else {
+                            console.log(response.data['msg'])
+                        }
+                    }).catch(error => this.errorMsg(error.response.status))
+                }
             }
 
          },
@@ -1559,6 +1845,7 @@ export default {
            this.readApplicationForm();
            this.checkNewScholarshipType();
            this.readDomainValues();
+           this.readInsValue();
            
          }
 }

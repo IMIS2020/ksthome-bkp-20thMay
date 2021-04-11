@@ -48,19 +48,29 @@
                                                                             <tbody>
                                                                                 <tr v-for="(row,index) in docRows" :key="index">
                                                                                     <td colspan="2">
-                                                                                        <strong>{{row.docDesc}} {{}}</strong><br>
+                                                                                        <strong>{{row.docFileDesc}}</strong><br>
                                                                                     </td>
 
                                                                                     <td>
-                                                                                        <input type="hidden" v-model="row.idDoc"/>
-                                                                                        <input type="hidden" v-model="row.id"/>
+                                                                                        <!-- <input type="hidden" v-model="row.idDoc"/> -->
+                                                                                        <input  type="hidden" v-model="row.id"/>
                                                                                         <div class="form-group">
                                                                                             <input class="form-control-file font-sm" type="file" :ref="index" multiple v-on:change="selectFile(index)" >
                                                                                         </div>
                                                                                     </td>
-                                                                                    <td>{{row.docFileName}}</td>
-                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">No</span></td>
-                                                                                    <td class="text-center" ><span class="act-link"  style="color:#808080;"><i class="fa fa-eye"></i></span><span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span></td>
+                                                                                    <td>{{row._docFileName}}</td>
+                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{row.uploadStatus}}</span></td>
+                                                                                    <td class="text-center"  v-if="row.uploadStatus == 'YES'"> 
+                                                                                        <router-link target="_blank" class="act-link" :to="''+row.fileURL">
+                                                                                            <i class="fa fa-eye"></i>
+                                                                                        </router-link>
+                                                                                        <a class="act-link" href="#" @click.prevent="deleteFile(row.id)">
+                                                                                            <i class="fa fa-trash"></i>
+                                                                                        </a>
+                                                                                    </td>
+                                                                                    <td class="text-center" v-else>
+                                                                                        <span class="act-link"  style="color:#808080;"><i class="fa fa-eye"></i></span><span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
+                                                                                    </td>
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
@@ -92,11 +102,10 @@ export default{
         return {
             userId: document.querySelector("meta[name='userId']").getAttribute('content'),
             // docRows1:{},
-            showDoc:{},
+            // update: false,
             docRows:[
                 {
                     id: '',
-                    idDoc: '',
                     docFileName: '',
                 }
             ],
@@ -124,6 +133,7 @@ export default{
             axios.post('/api/add-documents/'+this.form.applicationId,this.docRows)
                 .then(response => {
                 if (response.data==1){
+                    this.readApplicationForm();
                     this.$fire({
                         position: 'top',
                         icon: 'success',
@@ -168,6 +178,7 @@ export default{
                     console.log(response.data['msg'])
                 }
             })
+            this.getMasterDoc();
         },
       
         getMasterDoc(){
@@ -176,13 +187,14 @@ export default{
             axios.get('/api/get-documents/'+applicationId)
                 .then(response => {
                     this.docRows = response.data;
-                    if(response.data == null)
-                    {
-                         axios.get('/api/doc-master/')
-                            .then(response => {
-                                this.docRows = response.data;
-                            });
-                    }
+                    if(response.data.length != 0)
+                    this.docRows = response.data
+                    this.docRows=this.docRows.map((row)=>{
+                        let fname = row.docFileName.split('-');
+                        fname.shift()
+                        row._docFileName= fname.join('-');
+                        return row
+                    })
                 })
         },
 
@@ -197,11 +209,27 @@ export default{
             this.docRows[index].fileName = fileName;
         },
 
-
+       deleteFile(applicationDocId)
+       {
+           axios.get(`/api/del-documents/${applicationDocId}`)
+            .then(response => {
+                   if (response.data==1){
+                    this.readApplicationForm();
+                    this.$fire({
+                        position: 'top',
+                        icon: 'success',
+                        title: "Document Deleted Successfully",
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                    
+                }
+            })
+       }
     },
     created(){
      this.readApplicationForm() ;
-     this.getMasterDoc();
+     
     }
  }
 </script>

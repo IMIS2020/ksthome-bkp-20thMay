@@ -253,6 +253,9 @@ export default{
                  {
                      path: '/api/get-documents/:applicatioId',
                  },
+                 {
+                    path: '/api/del-documents/:applicationDocId'
+                 },
                  /***
                   * end document
                   */

@@ -15,14 +15,15 @@ class ApplicationDocs extends Migration
     {
         Schema::create('applicationDocs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('docMasterId');
-            $table->unsignedBigInteger('applicationId');
-            $table->string('docFileName');
-            $table->string('docFilePath');
-            $table->string('docFormat');
-            $table->string('uploadStatus');
-            $table->string('reviewStatus');
-            $table->string('reviewComments');
+            $table->unsignedBigInteger('docMasterId')->nullable();
+            $table->unsignedBigInteger('applicationId')->nullable();
+            $table->string('docFileDesc')->nullable();
+            $table->string('docFileName')->nullable();
+            $table->string('docFilePath')->nullable();
+            $table->string('docFormat')->nullable();
+            $table->string('uploadStatus')->default('NO');
+            $table->string('reviewStatus')->nullable();
+            $table->string('reviewComments')->nullable();
             $table->timestamps();
         });
     }

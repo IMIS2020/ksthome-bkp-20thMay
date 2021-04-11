@@ -66,7 +66,7 @@
                                                                         <td>
                                                                             <div class="form-group mb-0">
                                                                                 <select class="form-control form-control-sm" @change="onChange($event,index)" v-model="row.insId">
-                                                                                    <option v-for="(i,index) in insData" :key="index" :value="i.id">{{i.instituteName}} - {{i.get_address.addressAddln1}}, {{i.get_address.addressDistprov}}</option>
+                                                                                    <option v-for="(i,index) in insData" :key="index" :value="i.id">{{i.instituteName}} - {{i.get_address.addressCity}}, {{i.get_address.addressState}}</option>
                                                                                 </select>
                                                                             </div>
                                                                         </td>
@@ -155,11 +155,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Cancel</strong></button></div>
+                        <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                     </div>
                 </div>
             </div>
-            <!-- End course name modal -->
+            <!-- End course level modal -->
 
             <!-- Star Course name modal -->
             <div role="dialog" tabindex="-1" class="modal fade" id="others-course-name">
@@ -183,7 +183,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Cancel</strong></button></div>
+                        <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                     </div>
                 </div>
             </div>
@@ -282,7 +282,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveInstitute"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Cancel</strong></button></div>
+                            <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveInstitute"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                         </div>
                     </form>
                 </div>

@@ -17,7 +17,7 @@ class DocumentMaster extends Controller
     public function createDocMasterData($motherL,$fatherL,$selfL,$hasAdmission,$motherD,$fatherD,$selfD,$applictionId)
     {
 
-        $getData = DocMaster::where('docType','Uploaded')->get();
+        $getData = DocMaster::where('docType','Uploaded')->where('requiredFor',3)->get();
 
         foreach($getData as $data)
         {

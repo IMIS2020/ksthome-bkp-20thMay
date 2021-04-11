@@ -11,7 +11,7 @@
                     <div class="col-xl-12">
                         <div class="mb-3">
                             <ul class="nav nav-tabs font-sm" role="tablist">
-                               <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/application-form/'+form.applicationId"><strong>Applicant Details</strong></router-link></li>
+                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/application-form/'+form.applicationId"><strong>Applicant Details</strong></router-link></li>
                                 <li class="nav-item" role="presentation" v-if="form.hasAdmissionLetter === 'NO' && form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/annexure-1/'+form.applicationId"><strong>Annexure-I</strong></router-link></li>
                                 <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-I</strong></router-link></li>
                                 <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/annexure-2/'+form.applicationId"><strong>Annexure-II</strong></router-link></li>
@@ -48,15 +48,17 @@
                                                                             <tbody>
                                                                                 <tr v-for="(row,index) in docRows" :key="index">
                                                                                     <td colspan="2">
-                                                                                        <strong>{{row.docDesc}}</strong><br>
+                                                                                        <strong>{{row.docDesc}} {{}}</strong><br>
                                                                                     </td>
 
                                                                                     <td>
+                                                                                        <input type="hidden" v-model="row.idDoc"/>
+                                                                                        <input type="hidden" v-model="row.id"/>
                                                                                         <div class="form-group">
-                                                                                            <input class="form-control-file font-sm" type="file" ref="admissionLetter" v-on:change="selectFile('admissionLetter')">
+                                                                                            <input class="form-control-file font-sm" type="file" :ref="index" multiple v-on:change="selectFile(index)" >
                                                                                         </div>
                                                                                     </td>
-                                                                                    <td></td>
+                                                                                    <td>{{row.docFileName}}</td>
                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">No</span></td>
                                                                                     <td class="text-center" ><span class="act-link"  style="color:#808080;"><i class="fa fa-eye"></i></span><span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span></td>
                                                                                 </tr>
@@ -89,7 +91,16 @@ export default{
     data(){
         return {
             userId: document.querySelector("meta[name='userId']").getAttribute('content'),
-            docRows:{},
+            // docRows1:{},
+            showDoc:{},
+            docRows:[
+                {
+                    id: '',
+                    idDoc: '',
+                    docFileName: '',
+                }
+            ],
+           
             form:
             {
                 // courseLevel:'',
@@ -108,10 +119,11 @@ export default{
         }
     },
     methods:{
-          saveForm(){
-            axios.post('/api/update-documents/'+this.getdata.applicationId,this.uploadFiles)
+
+        saveForm(){
+            axios.post('/api/add-documents/'+this.form.applicationId,this.docRows)
                 .then(response => {
-                if (response.data['success']){
+                if (response.data==1){
                     this.$fire({
                         position: 'top',
                         icon: 'success',
@@ -125,7 +137,6 @@ export default{
                 }
             })
             .catch(error => this.errorMsg(error.response.status))
-        // }
         },
 
 
@@ -160,11 +171,33 @@ export default{
         },
       
         getMasterDoc(){
-            axios.get('/api/doc-master/')
+           
+            let applicationId = window.location.pathname.split('/').reverse()[0];
+            axios.get('/api/get-documents/'+applicationId)
                 .then(response => {
                     this.docRows = response.data;
+                    if(response.data == null)
+                    {
+                         axios.get('/api/doc-master/')
+                            .then(response => {
+                                this.docRows = response.data;
+                            });
+                    }
                 })
-        }
+        },
+
+        selectFile(index){
+            let file = this.$refs[index][0].files[0];
+            let fileName = file.name;
+            let fileReader = new FileReader()
+            fileReader.readAsDataURL(file)
+            fileReader.onload = (e) => {
+                this.docRows[index].docFileNameFile=e.target.result;
+            }
+            this.docRows[index].fileName = fileName;
+        },
+
+
     },
     created(){
      this.readApplicationForm() ;

@@ -110,6 +110,15 @@ Route::group(['prefix' => 'api'], function() {
      * End Doc Master Api call
      */
 
+    /***
+     * Document upadte 
+     */
+    Route::post('/add-documents/{applicatioId}','Scholarship\ApplicationController@saveDocuments');
+    Route::get('/get-documents/{applicationIs}','Scholarship\ApplicationController@getDocuments');
+    /***
+     * end Document upadte 
+     */
+
 
   
 

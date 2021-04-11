@@ -15,6 +15,7 @@ use App\ModelScholarship\DomainName;
 use App\ModelScholarship\DomainValues;
 use App\ModelScholarship\ApplicationScheduleTable;
 use App\ModelScholarship\AnnexureI;
+use App\ModelScholarship\ApplicationDocs;
 use User;
 // use App\ModelScholarship\AnnexureI;
 // use App\ModelScholarship\ApplicantDocuments;
@@ -523,4 +524,100 @@ class ApplicationController extends Controller
             return array('success' => false, 'msg'=>['No Data Found!']);
         }
      }
+
+     # Save Scholarship Documents
+     public function saveDocuments(string $applicationId,Request $request)
+     {
+        $this->createFolder();       
+        $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
+        $prevJ = ApplicationDocs::where('applicationId', $getApplicationId)->get();
+        $prev = [];
+        $old = [];
+        foreach ($prevJ as $key => $d) {
+            $prev[$key] = $d;
+        }
+
+        foreach ($request->json()->all() as $saveDoc) {
+            if (!isset($saveDoc['id'])) {
+                $addDoc = new ApplicationDocs;
+                
+                if (isset($saveDoc['docFileNameFile'])) {
+                    $fileName = $this->uploadFile(storage_path('app/public/uploads/schloarshipRecord/'), $saveDoc['docFileNameFile'],$saveDoc['fileName']);
+                } else {
+                    $fileName = '';
+                }
+                $addDoc->docFileName               = $fileName;
+                $addDoc->docFilePath               = 'app/public/uploads/schloarshipRecord/';
+                $addDoc->docMasterId               = $saveDoc['idDoc'];
+                $addDoc->applicationId             = $getApplicationId;
+                $addDoc->save();
+            } else {
+                array_push($old,$saveDoc);
+                $editDoc = ApplicationDocs::where('id',$saveDoc['id'])->first();
+
+                if (isset($saveDoc['docFileNameFile'])) {
+                    if (!empty($editDoc->docFileName)) {
+                        unlink(storage_path('app/public/uploads/schloarshipRecord/').$editDoc->docFileName);
+                    }
+
+                    $fileName = $this->uploadFile(storage_path('app/public/uploads/schloarshipRecord/'), $saveDoc['docFileNameFile'],$saveDoc['fileName']);
+                    $editDoc->docFileName  = $fileName;
+                }
+                $editDoc->update();
+            }
+        }
+
+        // Delete
+        $deletable = array_filter($prev, function ($p) use ($old) {
+            foreach($old as $o) {
+                if ($o['id'] == $p['id']) { return 0; }
+            }
+            return 1;
+        });
+        foreach ($deletable as $del) {
+            $delete = ApplicationDocs::where('id',$del['id'])->first();
+            if (!empty($delete->docFileName)) {
+                unlink(storage_path('app/public/uploads/schloarshipRecord/').$delete->docFileName);
+            }
+            $delete->delete();
+        }
+
+        return 1;
+     }
+
+    # get Scholarship Documents
+    public function getDocuments(string $applicationId)
+    {
+        $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
+        $getData = ApplicationDocs::where('applicationId', $getApplicationId)->get();
+
+        return $getData;
+    }
+
+     # File Uploader
+    public function uploadFile(string $path, $base64file, string $filename='')
+    {   
+        $File =  explode(',', $base64file);
+        $file = base64_decode($File[1]);
+        $extention = explode(';',explode('/',$File[0])[1])[0];
+
+        if ($filename !== '') {
+            $fileName = time().'-'.$filename;
+        } else {
+            $fileName = time().'.'.$extention;
+        }
+        
+        $path = $path.$fileName;
+        file_put_contents($path, $file);
+
+        return $fileName;
+    }
+
+    #create DIR
+    public function createFolder()
+    {
+        if(!Storage::exists('public/uploads/schloarshipRecord/')){
+            Storage::makeDirectory('public/uploads/schloarshipRecord/');
+        }
+    }
 }

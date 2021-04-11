@@ -11,6 +11,7 @@ use App\ModelScholarship\DomainName;
 use App\ModelScholarship\ApplicationEducationDetails;
 use App\ModelScholarship\ApplicationMiscellaneousDetails;
 use App\ModelScholarship\AnnexureI;
+use App\ModelScholarship\ApplicationDocs;
 use App\User;
 use App\UserSession;
 class ApplicationDetails extends Model
@@ -73,6 +74,11 @@ class ApplicationDetails extends Model
     public function get_annexureI() // 3
     {
         return $this->hasMany(AnnexureI::class);
+    }
+
+    public function get_applicationDocs()
+    {
+        return $this->hasMany(ApplicationDocs::class);
     }
 
 }

@@ -31,6 +31,9 @@ class ApplicationDetails extends Migration
             $table->boolean('applicantLeprosyAffectedSelf')->default(0);
             $table->boolean('applicantLeprosyAffectedFather')->default(0);
             $table->boolean('applicantLeprosyAffectedMother')->default(0);
+            $table->boolean('applicantDisablitySelf')->default(0);
+            $table->boolean('applicantDisablityFather')->default(0);
+            $table->boolean('applicantDisablityMother')->default(0);
             $table->string('applicantHasBPLCard');
             $table->string('applicantDomicileState');
             $table->string('applicantContactNoSelf');

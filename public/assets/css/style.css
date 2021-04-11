@@ -315,6 +315,12 @@ a:hover {
   }
 }
 
+@media (max-width: 768px) {
+  .font-xl {
+    font-size: 14px !important;
+  }
+}
+
 .pre-sub-form {
   padding: 10px;
   border: 2px solid #000000;
@@ -352,13 +358,6 @@ a:hover {
 
 .txt-blk-bg {
   background-color: #000;
-}
-
-@media print {
-  .txt-blk-bg {
-    background-color: #000 !important;
-    -webkit-print-color-adjust: exact;
-  }
 }
 
 @media (min-width:576px) {
@@ -1174,12 +1173,6 @@ label {
   height: 250px;
 }
 
-@media print {
-  .print-1-sec {
-    page-break-after: always;
-  }
-}
-
 .adm-tab {
   height: 520px;
   overflow-y: scroll;
@@ -1244,5 +1237,30 @@ label {
 
 .h-30x {
   height: 300px;
+}
+
+.print-stl {
+  margin: 0px !important;
+}
+
+.w-40x {
+  width: 400px;
+}
+
+.form-control:disabled, .form-control[readonly] {
+  background-color: #a9a9a9;
+  opacity: 1;
+}
+
+.home-tabs > ul > li > .nav-link {
+  padding: 40px 20px;
+  font-size: 24px;
+}
+
+.home-tabs > .tab-content > .active {
+  border-top: 20px solid #702e2e !important;
+  border: 2px solid #702e2e;
+  border-radius: 0px 0px 5px 5px;
+  background-color: #eeeeee;
 }
 

@@ -9,45 +9,41 @@
             <div class="col-xl-10 offset-xl-1 text-center mb-4">
                 <hr class="cs-hr" />
             </div>
+
+
             @if (!Auth::check())
-            <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 offset-lg-0 offset-xl-0 mb-2">
-                <div class="login-box">
-                   <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Guidelines-for-Nursing-Scholarship.pdf');">
-                        <h5 class="text-break mb-3 home-links"><strong>Download Guidelines for Nursing Scholarship </strong><i class="fa fa-download"></i></h5>
-                    </a>
-                    <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Guidelines-for-HHDL-Scholarship.pdf');">
-                        <h5 class="text-break mb-3 home-links"><strong>Download Guidelines for HHDLSS Scholarship </strong><i class="fa fa-download"></i></h5>
-                    </a>
-                    <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Application-for-Nursing-schol.pdf');">
-                        <h5 class="text-break mb-3 home-links"><strong>Download Application form for Nursing Scholarship </strong><i class="fa fa-download"></i></h5>
-                    </a>
-                    <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Application-for-HHDL-schol.pdf');">
-                        <h5 class="text-break mb-3 home-links"><strong>Download Application form for HHDLSS Scholarship </strong><i class="fa fa-download"></i></h5>
-                    </a>
-                    @if (Auth::check())
-                    <a href="/application-form/Nursing">
-                        <h5 class="text-break mb-3 home-links"><strong>Apply Online for Nursing Scholarship</strong><i class="fa fa-sign-in"></i></h5>
-                    </a>
-                    <a href="/application-form/Hddlss">
-                        <h5 class="text-break home-links"><strong>Apply Online for HHDLSS Scholarship </strong><i class="fa fa-sign-in"></i></h5>
-                    </a>
-                    @else
-                    <a href="/">
-                        <h5 class="text-break mb-3 home-links"><strong>Apply Online for Nursing Scholarship (You need to be logged in) </strong><i class="fa fa-sign-in"></i></h5>
-                    </a>
-                    <a href="/">
-                        <h5 class="text-break home-links"><strong>Apply Online for HHDLSS Scholarship (You need to be logged in) </strong><i class="fa fa-sign-in"></i></h5>
-                    </a>
-                    @endif
-              </div>
-            
+            <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 offset-lg-0 offset-xl-0 mb-2 pr-1">
+                <div class="home-tabs">
+                    <ul class="nav nav-tabs nav-justified" role="tablist">
+                        <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1"><strong>HHDLSS Scholarship</strong></a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2"><strong>Nursing Scholarship</strong></a></li>
+                        <!-- <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3"><strong>One Year Scholarship</strong></a></li> -->
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active p-3" role="tabpanel" id="tab-1">
+                            <h5 class="text-break mb-3 color-mg"><a href="add-new-hhdl-scholarship-application.html"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for HHDLS Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-sign-in"></i></h5>
+                            <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="#"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for HHDLS Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
+                            <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="#"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for HHDLS Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
+                        </div>
+                        <div class="tab-pane p-3" role="tabpanel" id="tab-2">
+                            <h5 class="text-break mb-3 color-mg"><a href="add-new-nursing-scholarship-application.html"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for Nursing Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-sign-in"></i></h5>
+                            <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-nur"><a href="#"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for Nursing Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
+                            <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-nur"><a href="#"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for Nursing Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
+                        </div>
+                        <!-- <div class="tab-pane p-3" role="tabpanel" id="tab-3">
+                            <h5 class="text-break mb-3 color-mg"><a href="add-new-hhdl-scholarship-application.html"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for One Year Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-sign-in"></i></h5>
+                            <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="#"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for One Year Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
+                            <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="#"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download FAQ for One Year Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
+                        </div> -->
+                    </div>
+                </div>
             </div>
-       
+
             <div class="col-sm-12 col-lg-4 col-xl-4 offset-xl-0">
                 <div class="login-box">
                 @if(Session::has('message'))
                      <div class="alert alert-success">{{Session::get('message')}}
-                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
                      </div>
                   @endif
                     <form method="POST" action="{{ route('login') }}">
@@ -76,8 +72,10 @@
                 </div>
             </div>
            @else
-            <div class="col-sm-8 col-md-8">
-                <div class="login-box">
+           
+
+
+                <!-- <div class="login-box">
                     <a href="#" onclick="javascipt:window.open('/assets/downloadInstruction/Guidelines-for-Nursing-Scholarship.pdf');">
                         <h5 class="text-break mb-3 home-links"><strong>Download Guidelines for Nursing Scholarship </strong><i class="fa fa-download"></i></h5>
                     </a>
@@ -105,8 +103,8 @@
                         <h5 class="text-break home-links"><strong>Apply Online for HHDLSS Scholarship (You need to be logged in) </strong><i class="fa fa-sign-in"></i></h5>
                     </a>
                     @endif
-                </div>
-                <div class="login-box mt-2 pb-2">
+                </div> -->
+                <!-- <div class="login-box mt-2 pb-2">
                         <form method="post">
                             <h6 class="color-mg mb-2"><strong>Update Password</strong></h6>
                             <div class="form-row">
@@ -131,11 +129,11 @@
                             <div class="form-group mb-0">
                                 <p class="text-muted font-md mb-0"><strong>Forgot your password, reset it&nbsp;</strong><a href="#"><strong>here</strong></a></p>
                             </div>
-                        </form>
+                        </form> 
                     </div>
-               </div>
+               </div> -->
 
-               <div class="col-sm-12 col-lg-4 col-xl-4 offset-xl-0 pl-1">
+                <div class="col-sm-12 col-lg-4 col-xl-4 offset-xl-0 pl-1">
                     <form action="{{ url('/update-profile-photo') }}" enctype="multipart/form-data" method="POST">
                     @csrf
                         <div class="form-group mb-0">

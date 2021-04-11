@@ -13,7 +13,7 @@ class DocumentMaster extends Controller
 {
     public function getDocMasterData()
     {
-        $getData = DocMaster::all();
+        $getData = DocMaster::where('docType','Uploaded')->get()->toJson();
         return $getData;
     }
 }

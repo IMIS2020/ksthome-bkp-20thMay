@@ -92,5 +92,61 @@ class DocMasterSeed extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
+        DB::table('docMaster')->insert(
+            [
+                'docShortName' => 'DOC011',
+                'docDesc' => 'Self attested marksheet for Graduation',
+                'docType' => 'Uploaded',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        DB::table('docMaster')->insert(
+            [
+                'docShortName' => 'DOC012',
+                'docDesc' => 'Self attested Leprosy Certificate of Mother',
+                'docType' => 'Uploaded',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        DB::table('docMaster')->insert(
+            [
+                'docShortName' => 'DOC013',
+                'docDesc' => 'Self attested Leprosy Certificate of Father',
+                'docType' => 'Uploaded',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        DB::table('docMaster')->insert(
+            [
+                'docShortName' => 'DOC014',
+                'docDesc' => 'Self attested Leprosy Certificate of Self',
+                'docType' => 'Uploaded',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        DB::table('docMaster')->insert(
+            [
+                'docShortName' => 'DOC015',
+                'docDesc' => 'Self attested Diability Certificate of Mother',
+                'docType' => 'Uploaded',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        DB::table('docMaster')->insert(
+            [
+                'docShortName' => 'DOC016',
+                'docDesc' => 'Self attested Diability Certificate of Father',
+                'docType' => 'Uploaded',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        DB::table('docMaster')->insert(
+            [
+                'docShortName' => 'DOC017',
+                'docDesc' => 'Self attested Diability Certificate of Self',
+                'docType' => 'Uploaded',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
     }
 }

@@ -244,6 +244,18 @@ export default{
                  /***
                   * End Doc Master Api call
                   */
+                 /***
+                  * Document upadte 
+                  */
+                 {
+                     path:'/api/add-documents/:applicatioId',
+                 },
+                 {
+                     path: '/api/get-documents/:applicatioId',
+                 },
+                 /***
+                  * end document
+                  */
                 
 
 

@@ -8,7 +8,7 @@ use App\ModelScholarship\Institute;
 
 class Address extends Model
 {
-    protected $table = 'address';
+    protected $table = 'portalAddress';
     public $primarykey = 'id';
     public $timestamp = true;
 

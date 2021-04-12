@@ -118,6 +118,7 @@ Route::group(['prefix' => 'api'], function() {
     Route::post('/add-documents/{applicatioId}','Scholarship\ApplicationController@saveDocuments');
     Route::get('/get-documents/{applicationIs}','Scholarship\ApplicationController@getDocuments');
     Route::get('/del-documents/{applicationDocId}','Scholarship\ApplicationController@deleteDoc');
+    Route::get('/get-application-file/{shcName}/{applicationId}','Scholarship\DocumentMaster@getApplicantDoc');
     /***
      * end Document upadte 
      */

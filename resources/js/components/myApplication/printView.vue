@@ -177,7 +177,7 @@
                         </div>
                     </div>
                       <div class="col-sm-3 col-md-2 col-lg-3 col-xl-2 text-center">
-                        <img class="img-thumbnail img-fluid applicant-img" :src="(getFiles.photograph == '#')?'https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg':getFiles.photograph" width="180" height="230" style="border: 2px solid black;">
+                        <img class="img-thumbnail img-fluid applicant-img" :src="(form.userPhoto == '#')?'https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg':form.userPhoto" width="180" height="230" style="border: 2px solid black;">
                     </div>
                     <div class="col-xl-12 mt-4">
                         <p class="mb-2 font-xl"><strong>10. Details of Educational Qualification:&nbsp;</strong>Matriculation / Higher Secondary<br></p>
@@ -292,6 +292,7 @@ export default{
                 }
             ],
         form: {
+                userPhoto: '',
                 applicationId:'',
                 scholarshipType: '',
                 applicantNameF:'',
@@ -567,20 +568,29 @@ export default{
 
     getMasterDoc(){
            
-            let applicationId = window.location.pathname.split('/').reverse()[0];
-            axios.get('/api/get-documents/'+applicationId)
-                .then(response => {
-                    this.docRows = response.data;
-                    // if(response.data.length != 0)
-                    // this.docRows = response.data
-                    // this.docRows=this.docRows.map((row)=>{
-                    //     let fname = row.docFileName.split('-');
-                    //     fname.shift()
-                    //     row._docFileName= fname.join('-');
-                    //     return row
-                    // })
+        let applicationId = window.location.pathname.split('/').reverse()[0];
+        axios.get('/api/get-documents/'+applicationId)
+            .then(response => {
+                this.docRows = response.data;
+                // if(response.data.length != 0)
+                // this.docRows = response.data
+                // this.docRows=this.docRows.map((row)=>{
+                //     let fname = row.docFileName.split('-');
+                //     fname.shift()
+                //     row._docFileName= fname.join('-');
+                //     return row
+                // })
+            })
+    },
+
+    getSingleDocument()
+    {
+         let applicationId = window.location.pathname.split('/').reverse()[0];
+            axios.get('/api/get-application-file/'+'DOC007'+'/'+applicationId)
+                 .then(response => {
+                    this.form.userPhoto = response.data;
                 })
-        },
+    }
 
   },
   computed: {
@@ -591,6 +601,7 @@ export default{
     created(){
      this.readApplicationForm();
      this.getMasterDoc();
+     this.getSingleDocument();
     }
  }
 </script>

@@ -11,6 +11,7 @@ use App\ModelScholarship\DocMaster;
 use App\ModelScholarship\ApplicationDocs;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\ModelScholarship\ApplicationDetails;
 
 class DocumentMaster extends Controller
 {
@@ -276,8 +277,15 @@ class DocumentMaster extends Controller
        
     }
 
-    public function getApplicantDoc($d)
+    public function getApplicantDoc($shcName,$applicationId)
     {
-        
+        $docDataObj = DocMaster::where('docShortName',$shcName)->first();
+        $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
+        $checkFg = ApplicationDocs::where('docMasterId',$docDataObj->id)->where('applicationId',$getApplicationId)->first();
+
+        $url = Storage::url('uploads/schloarshipRecord/'.$checkFg->docFileName);
+
+        return $url;
+
     }
 }

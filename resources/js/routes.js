@@ -254,7 +254,10 @@ export default{
                      path: '/api/get-documents/:applicatioId',
                  },
                  {
-                    path: '/api/del-documents/:applicationDocId'
+                    path: '/api/del-documents/:applicationDocId',
+                 },
+                 {
+                    path: '/api/get-application-file/:shcName/:applicationId',
                  },
                  /***
                   * end document

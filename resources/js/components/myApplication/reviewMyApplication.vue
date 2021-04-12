@@ -42,8 +42,8 @@
                                                                 <tbody>
                                                                     <tr>
                                                                         <td><strong>My {{form.scholarshipType}} application </strong>({{form.applicationId}})<strong>,&nbsp; for {{form.financialYear}}</strong></td>
-                                                                        <td class="text-center" v-if="form.applicationId == '' "><span class="act-link" style="color:#808080;"><i class="fa fa-download"></i></span></td>
-                                                                        <td class="text-center" v-else><router-link class="act-link" :to="'/print-view-application/'+form.applicationId" ><i class="fa fa-download"></i></router-link></td>
+                                                                        <td class="text-center" v-if="form.applicationId == '' "><span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span></td>
+                                                                        <td class="text-center" v-else><router-link class="act-link" :to="'/print-view-application/'+form.applicationId" ><i class="fa fa-eye"></i></router-link></td>
                                                                         <!-- <td class="text-center" v-if="form.applicationId == '' "><span class="act-link"  style="color:#808080;"><i class="fa fa-eye"></i></span></td>
                                                                         <td class="text-center" v-else><router-link class="act-link" to="/print-view-nursing"><i class="fa fa-eye"></i></router-link></td> -->
                                                                     </tr>
@@ -131,13 +131,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 offset-xl-4 my-2"><button class="btn btn-block btn-sm btn-mg" type="submit"><strong>Save</strong></button></div>
-                    <div class="col-xl-2 offset-xl-0 my-2"><router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-scholarship"><strong>Cancel</strong></router-link></div>
+                    <!-- <div class="col-xl-2 offset-xl-4 my-2"><button class="btn btn-block btn-sm btn-mg" type="submit"><strong>Save</strong></button></div>
+                    <div class="col-xl-2 offset-xl-0 my-2"><router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-scholarship"><strong>Cancel</strong></router-link></div> -->
                 </div>
             </form>
         </div>
     <!-- Modal - 1 -->
-    <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form1">
+    <!-- <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form1">
         <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -159,7 +159,7 @@
                 </div>
             </div>
           </div>
-    </div>
+    </div> -->
 
     <!-- Modal-2 -->
     <!-- <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form2">

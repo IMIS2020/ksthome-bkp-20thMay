@@ -6,7 +6,7 @@
         <button class="btn btn-lg btn-mg mt-4 d-print-none" onclick = "window.print();">
           <strong>Print Blank Form</strong>
         </button>&nbsp;
-            <router-link class="btn btn-lg btn-danger mt-4 d-print-none" type="button" to="/annexure-2"><strong>Cancel</strong></router-link>
+            <router-link class="btn btn-lg btn-danger mt-4 d-print-none" type="button" :to="'/annexure-2/'+applicationId"><strong>Cancel</strong></router-link>
       </div>
     </div>
     </section>
@@ -14,6 +14,20 @@
 
 <script>
 export default{
-
+    data(){
+       return{
+         applicationId :'',
+       }
+    },
+    methods:{
+        getId()
+        {
+            this.applicationId = window.location.pathname.split('/').reverse()[0];
+            console.log(this.applicationId);
+        }
+    },
+     created(){
+       this.getId();
+     }
  }
 </script>

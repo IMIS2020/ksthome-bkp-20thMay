@@ -36,7 +36,7 @@
                                                                     <p class="text-uppercase mb-0 color-mg"><strong><span style="text-decoration: underline;">to whom it may concern</span></strong></p>
                                                                 </div>
                                                                 <div class="col-xl-5 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>I&nbsp; &nbsp; &nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of colony leader" v-model="form.applicantColonyLeaderName"></span>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>I&nbsp; &nbsp; &nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of colony leader" v-model="Nform.applicantColonyLeaderName"></span>
                                                                 </div>
                                                                 <div class="col-xl-7 text-center align-self-center mb-2">
                                                                     <p class="float-left mb-0 color-mg font-md"><strong>hereby certify that Mr./ Miss.&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of the candidate" v-model="form.fullName"></span>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="col-xl-2 offset-xl-0 my-2">
                         <!-- <a class="btn btn-block btn-sm btn-mg" onclick="javascipt:window.open('/assets/annexure-II/DeclarationForm.pdf');"><strong>Print Blank Form</strong></a> -->
-                         <router-link class="btn btn-block btn-sm btn-mg" to="/annexure-2-blank-form"><strong>Print Blank Form</strong></router-link>
+                         <router-link class="btn btn-block btn-sm btn-mg" :to="'/annexure-2-blank-form/'+form.applicationId"><strong>Print Blank Form</strong></router-link>
                      </div>
                 </div>
             </form>
@@ -85,38 +85,38 @@
 export default{
     data(){
        return{
-         userId: document.querySelector("meta[name='userId']").getAttribute('content'),
-         fullName:{},
-         form:
-            {
-                // courseLevel:'',
-                hasAdmissionLetter:'',
-                applicationId:'',
-                scholarshipType: '',
-                financialYear:'',
-                applicantNameF:'',
-                applicantNameM:'',
-                applicantNameL:'',
-                applicantFatherName:'',
-                applicantMotherName:'',
-                addressAddln1:'',
-                fullName:'',
-            },
-         Nform:{
-           applicantColonyLeaderName:'',
-        },
-         getdata:{
-                applicantNameF:'',
-                applicantNameM:'',
-                applicantNameL:'',
-                applicantFatherName:'',
-                applicantMotherName:'',
-                addressAddln1:'',
-                hasAdmissionLetter:'',
-                applicationId:'',
-                financialYear:'',
-             },
-              errors:[]
+                userId: document.querySelector("meta[name='userId']").getAttribute('content'),
+                fullName:{},
+                form:
+                {
+                    // courseLevel:'',
+                    hasAdmissionLetter:'',
+                    applicationId:'',
+                    scholarshipType: '',
+                    financialYear:'',
+                    applicantNameF:'',
+                    applicantNameM:'',
+                    applicantNameL:'',
+                    applicantFatherName:'',
+                    applicantMotherName:'',
+                    addressAddln1:'',
+                    fullName:'',
+                },
+                Nform:{
+                    applicantColonyLeaderName:'',
+                },
+                getdata:{
+                    applicantNameF:'',
+                    applicantNameM:'',
+                    applicantNameL:'',
+                    applicantFatherName:'',
+                    applicantMotherName:'',
+                    addressAddln1:'',
+                    hasAdmissionLetter:'',
+                    applicationId:'',
+                    financialYear:'',
+                },
+                errors:[]
             }
          },
 

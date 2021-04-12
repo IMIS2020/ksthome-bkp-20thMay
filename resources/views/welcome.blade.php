@@ -35,6 +35,7 @@
                             <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="#"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for One Year Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
                             <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="#"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download FAQ for One Year Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
                         </div> -->
+                        
                     </div>
                 </div>
             </div>
@@ -66,7 +67,8 @@
                         </div>
                         <div class="form-group mb-0">
                             <p class="text-muted font-md mb-0"><strong>Not have any account, register </strong><a href="{{ route('register') }}"><strong>here</strong></a></p>
-                            <p class="text-muted font-md mb-0"><strong>Having trouble logging in? </strong><a href="/forgot-password"><strong>reset password</strong></a></p>
+                            <br>
+                            <!-- <p class="text-muted font-md mb-0"><strong>Having trouble logging in? </strong><a href="/forgot-password"><strong>reset password</strong></a></p> -->
                         </div>
                     </form>
                 </div>
@@ -167,10 +169,10 @@
                                            
                                         </tbody>
                                     </table>
+                                    <!-- <br>
                                     <br>
                                     <br>
-                                    <br>
-                                    <br>
+                                    <br> -->
                                 </div>
                             </div>
                         </div>

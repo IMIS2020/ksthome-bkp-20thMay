@@ -61,12 +61,12 @@
                                                                                     <td>{{row.docFileName}}</td>
                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{row.uploadStatus}}</span></td>
                                                                                     <td class="text-center"  v-if="row.uploadStatus == 'YES'"> 
-                                                                                        <router-link target="_blank" class="act-link" :to="''+row.fileURL">
+                                                                                        <span><router-link target="_blank" class="act-link" :to="''+row.fileURL">
                                                                                             <i class="fa fa-eye"></i>
-                                                                                        </router-link>
-                                                                                        <a class="act-link" href="#" @click.prevent="deleteFile(row.id)">
+                                                                                        </router-link></span>
+                                                                                        <span><a class="act-link" href="#" @click.prevent="deleteFile(row.id)">
                                                                                             <i class="fa fa-trash"></i>
-                                                                                        </a>
+                                                                                        </a></span>
                                                                                     </td>
                                                                                     <td class="text-center" v-else>
                                                                                         <span class="act-link"  style="color:#808080;"><i class="fa fa-eye"></i></span><span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>

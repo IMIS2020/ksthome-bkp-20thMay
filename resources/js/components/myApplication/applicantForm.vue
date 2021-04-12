@@ -303,7 +303,7 @@
                                                                                                 <!-- <option value="3">Madhyamik</option>
                                                                                                 <option value="2">Higher Secondary</option>
                                                                                                 <option value="1">B.Com</option> -->
-                                                                                               <option  data-toggle="modal" data-target="#others-exam-passed1" @click="addName('ExamPassed')">Others</option>
+                                                                                               <!-- <option  data-toggle="modal" data-target="#others-exam-passed1" @click="addName('ExamPassed')">Others</option> -->
                                                                                             </select>
                                                                                         </div>
                                                                                         <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-passed1">
@@ -327,7 +327,7 @@
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Cancel</strong></button></div>
+                                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -340,7 +340,7 @@
                                                                                                 <!-- <option value="3">WBBSE</option>
                                                                                                 <option value="2">WBCHSE</option>
                                                                                                 <option value="1">WBSCTVE&amp;D</option> -->
-                                                                                                <option  data-toggle="modal" data-target="#others-exam-board1" @click="addName('UnivBoard')">Others</option>
+                                                                                                <!-- <option  data-toggle="modal" data-target="#others-exam-board1" @click="addName('UnivBoard')">Others</option> -->
                                                                                             </select>
                                                                                         </div>
                                                                                         <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-board1">
@@ -364,7 +364,7 @@
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Cancel</strong></button></div>
+                                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -425,7 +425,7 @@
                                                                                                 <!-- <option value="3">Madhyamik</option>
                                                                                                 <option value="2">Higher Secondary</option>
                                                                                                 <option value="1">B.Com</option> -->
-                                                                                                <option  data-toggle="modal" data-target="#others-exam-passed2" @click="addName('ExamPassed')">Others</option>
+                                                                                                <!-- <option  data-toggle="modal" data-target="#others-exam-passed2" @click="addName('ExamPassed')">Others</option> -->
                                                                                             </select>
                                                                                         </div>
                                                                                         <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-passed2">
@@ -449,7 +449,7 @@
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Cancel</strong></button></div>
+                                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -462,7 +462,7 @@
                                                                                                 <!-- <option value="3">WBBSE</option>
                                                                                                 <option value="2">WBCHSE</option>
                                                                                                 <option value="1">WBSCTVE&amp;D</option> -->
-                                                                                                <option  data-toggle="modal" data-target="#others-exam-board2"  @click="addName('UnivBoard')">Others</option>
+                                                                                                <!-- <option  data-toggle="modal" data-target="#others-exam-board2"  @click="addName('UnivBoard')">Others</option> -->
                                                                                             </select>
                                                                                         </div>
                                                                                         <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-board2">
@@ -486,7 +486,7 @@
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Cancel</strong></button></div>
+                                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -548,7 +548,7 @@
                                                                                                 <!-- <option value="Madhyamik">Madhyamik</option>
                                                                                                 <option value="Higher Secondary">Higher Secondary</option>
                                                                                                 <option value="B.Com">B.Com</option> -->
-                                                                                                <option  data-toggle="modal" data-target="#others-exam-passed3" @click="addName('ExamPassed')">Others</option>
+                                                                                                <!-- <option  data-toggle="modal" data-target="#others-exam-passed3" @click="addName('ExamPassed')">Others</option> -->
                                                                                             </select>
                                                                                         </div>
                                                                                         <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-passed3">
@@ -572,7 +572,7 @@
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Cancel</strong></button></div>
+                                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -585,7 +585,7 @@
                                                                                                 <!-- <option value="WBBSE">WBBSE</option>
                                                                                                 <option value="WBCHSE">WBCHSE</option>
                                                                                                 <option value="WBSCTVE&D">WBSCTVE&amp;D</option> -->
-                                                                                                <option  data-toggle="modal" data-target="#others-exam-board3" @click="addName('UnivBoard')">Others</option>
+                                                                                                <!-- <option  data-toggle="modal" data-target="#others-exam-board3" @click="addName('UnivBoard')">Others</option> -->
                                                                                             </select>
                                                                                         </div>
                                                                                         <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-board3">
@@ -609,7 +609,7 @@
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Cancel</strong></button></div>
+                                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -973,7 +973,7 @@
                                                                         <select class="form-control form-control-sm" v-model="form.courseLevelValueId" :disabled="inputDisabled">
                                                                             <option value="" disabled selected>-- select --</option>
                                                                             <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id">{{ucl.value}}</option>
-                                                                            <option  data-toggle="modal" data-target="#others-course-level" @click="addName('CourseLevel')">Others</option>
+                                                                            <!-- <option  data-toggle="modal" data-target="#others-course-level" @click="addName('CourseLevel')">Others</option> -->
                                                                         </select>
                                                                      </div>
                                                                     <!-- Star Course Level modal -->
@@ -1010,7 +1010,7 @@
                                                                         <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled">
                                                                             <option value="" disabled>-- select --</option>
                                                                             <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
-                                                                            <option  data-toggle="modal" data-target="#others-course-name" @click="addName('CourseName')">Others</option>
+                                                                            <!-- <option  data-toggle="modal" data-target="#others-course-name" @click="addName('CourseName')">Others</option> -->
                                                                         </select>
                                                                     </div>
                                                                     <!-- Star Course name modal -->
@@ -1046,13 +1046,13 @@
                                                                     <div class="form-group mb-0">
                                                                         <select class="form-control form-control-sm" @change="onChangeIns($event)" v-model="form.instituteId" :disabled="inputDisabled">
                                                                             <option v-for="(i,index) in insData" :key="index" :value="i.id">{{i.instituteName}} - {{i.get_address.addressCity}}, {{i.get_address.addressState}}</option>
-                                                                            <option  data-toggle="modal" data-target="#others-add-institute" >Others</option>
+                                                                            <!-- <option  data-toggle="modal" data-target="#others-add-institute" >Others</option> -->
                                                                             <option value="" disabled>-- select --</option>
                                                                         </select>
                                                                     </div>
                                                                     <!--Institute Details modal -->
                                                                     <div role="dialog" tabindex="-1" class="modal fade" id="others-add-institute">
-                                                                        <div class="modal-dialog modal-md" role="document">
+                                                                        <div class="modal-dialog modal-lg" role="document">
                                                                             <form>
                                                                                 <div class="modal-content">
                                                                                     <div class="modal-header py-1">
@@ -1066,35 +1066,35 @@
                                                                                                     <input class="form-control form-control-sm" type="text" v-model="insForm.insName" required>
                                                                                                 </div>
                                                                                             </div>
-                                                                                            <div class="col-xl-12 mb-2">
+                                                                                            <div class="col-xl-6 mb-2">
                                                                                                 <label>Address Line 1</label>
                                                                                                 <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln1" required>
+                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln1" >
                                                                                                 </div>
                                                                                             </div>
-                                                                                            <div class="col-xl-12 mb-2">
+                                                                                            <div class="col-xl-6 mb-2">
                                                                                                 <label>Address Line 2</label>
                                                                                                 <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln2" required>
+                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln2" >
                                                                                                 </div>
                                                                                             </div>
-                                                                                            <div class="col-xl-12 mb-2">
+                                                                                            <div class="col-xl-6 mb-2">
                                                                                                 <label>City</label>
                                                                                                 <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressCity" required>
+                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressCity" >
                                                                                                 </div>
                                                                                             </div>
-                                                                                            <div class="col-xl-12 mb-2">
+                                                                                            <div class="col-xl-6 mb-2">
                                                                                                 <label>District</label>
                                                                                                 <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressDistprov" required>
+                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressDistprov" >
                                                                                                 </div>
                                                                                             </div>
                                                                                             
-                                                                                            <div class="col-xl-12 mb-2">
+                                                                                            <div class="col-xl-6 mb-2">
                                                                                                 <label>State&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                                                 <div class="form-group"> 
-                                                                                                    <select class="form-control form-control-sm" v-model="insForm.insAddressState" required>
+                                                                                                    <select class="form-control form-control-sm" v-model="insForm.insAddressState" >
                                                                                                         <option value="" disabled>--Select--</option>
                                                                                                         <option value="Andhra Pradesh">Andhra Pradesh</option>
                                                                                                         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -1135,10 +1135,10 @@
                                                                                                     </select>
                                                                                                 </div>
                                                                                             </div>
-                                                                                                <div class="col-xl-12 mb-2">
+                                                                                                <div class="col-xl-6 mb-2">
                                                                                                     <label>PIN/ZIP Code&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                                                 <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="number" v-model="insForm.insAddressPinzip" required>
+                                                                                                    <input class="form-control form-control-sm" type="number" v-model="insForm.insAddressPinzip" >
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -1492,6 +1492,14 @@ export default {
                         this.$router.push({ 
                             path:`/application-form/${applicationId}`,
                         });
+                        
+                        // if(this.form.hasAdmissionLetter != 'YES') {
+                        //     this.form.instituteId='';
+                        //     this.dataIns('');
+                        //     this.form.courseNameValueId = '';
+                        //     this.form.recognizedByINC='';
+                        // }
+
                         this.$fire({
                             position: 'top',
                             icon: 'success',
@@ -1516,6 +1524,12 @@ export default {
                             showConfirmButton: false,
                             timer: 3000
                         })
+                        if(this.form.hasAdmissionLetter != 'YES') {
+                            this.form.instituteId='';
+                            this.dataIns('');
+                            this.form.courseNameValueId = '';
+                            this.form.recognizedByINC='';
+                        }
                     } else {
                         console.log(response.data['msg'])
                     }
@@ -1749,6 +1763,9 @@ export default {
                         {
                             showMsg = 'Course Name'
                         }
+                        this.domainForm.domainName = '';
+                        this.domainForm.dValue = '';
+                        this.domainForm.dDesc = '';
                         this.$fire({
                             position: 'top',
                             icon: 'success',
@@ -1803,19 +1820,20 @@ export default {
                 this.insId = event.target.value;
                 console.log(this.insId);
                 if(this.insId != 'Others'){
-                    axios.get('/api/institute/get-details/'+this.insId)
-                    .then(response => {
-                        if (response.data['success']) {
-                            this.form.insAddressAddln1 = response.data['data'][0].get_address.addressAddln1;
-                            this.form.insAddressAddln2 = response.data['data'][0].get_address.addressAddln2;
-                            this.form.insAddressCity = response.data['data'][0].get_address.addressCity;
-                            this.form.insAddressDistprov = response.data['data'][0].get_address.addressDistprov;
-                            this.form.insAddressState = response.data['data'][0].get_address.addressState;
-                            this.form.insAddressPinzip = response.data['data'][0].get_address.addressPinzip;
-                        } else {
-                            console.log(response.data['msg'])
-                        }
-                    }).catch(error => this.errorMsg(error.response.status))
+                   axios.get('/api/institute/get-details/'+this.insId)
+                        .then(response => {
+                            if (response.data['success']) {
+                                this.form.insAddressAddln1 = response.data['data'][0].get_address.addressAddln1;
+                                this.form.insAddressAddln2 = response.data['data'][0].get_address.addressAddln2;
+                                this.form.insAddressCity = response.data['data'][0].get_address.addressCity;
+                                this.form.insAddressDistprov = response.data['data'][0].get_address.addressDistprov;
+                                this.form.insAddressState = response.data['data'][0].get_address.addressState;
+                                this.form.insAddressPinzip = response.data['data'][0].get_address.addressPinzip;
+                            } else {
+                                console.log(response.data['msg'])
+                            }
+                        }).catch(error => this.errorMsg(error.response.status))
+                    
                 }
             },
 
@@ -1823,19 +1841,30 @@ export default {
             {
                 
                 if(this.insId != 'Others'){
-                    axios.get('/api/institute/get-details/'+id)
-                    .then(response => {
-                        if (response.data['success']) {
-                            this.form.insAddressAddln1 = response.data['data'][0].get_address.addressAddln1;
-                            this.form.insAddressAddln2 = response.data['data'][0].get_address.addressAddln2;
-                            this.form.insAddressCity = response.data['data'][0].get_address.addressCity;
-                            this.form.insAddressDistprov = response.data['data'][0].get_address.addressDistprov;
-                            this.form.insAddressState = response.data['data'][0].get_address.addressState;
-                            this.form.insAddressPinzip = response.data['data'][0].get_address.addressPinzip;
-                        } else {
-                            console.log(response.data['msg'])
-                        }
-                    }).catch(error => this.errorMsg(error.response.status))
+                    
+                    if(id == '')
+                    {
+                        this.form.insAddressAddln1 = '';
+                        this.form.insAddressAddln2 = '';
+                        this.form.insAddressCity = '';
+                        this.form.insAddressDistprov = '';
+                        this.form.insAddressState = '';
+                        this.form.insAddressPinzip = '';
+                    }else{
+                        axios.get('/api/institute/get-details/'+id)
+                        .then(response => {
+                            if (response.data['success']) {
+                                this.form.insAddressAddln1 = response.data['data'][0].get_address.addressAddln1;
+                                this.form.insAddressAddln2 = response.data['data'][0].get_address.addressAddln2;
+                                this.form.insAddressCity = response.data['data'][0].get_address.addressCity;
+                                this.form.insAddressDistprov = response.data['data'][0].get_address.addressDistprov;
+                                this.form.insAddressState = response.data['data'][0].get_address.addressState;
+                                this.form.insAddressPinzip = response.data['data'][0].get_address.addressPinzip;
+                            } else {
+                                console.log(response.data['msg'])
+                            }
+                        }).catch(error => this.errorMsg(error.response.status))
+                    }
                 }
             }
 

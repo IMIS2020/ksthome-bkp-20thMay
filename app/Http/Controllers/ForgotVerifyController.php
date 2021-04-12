@@ -15,11 +15,12 @@ class ForgotVerifyController extends Controller
 
     public function postForgotVerify(Request $request)
     {
+        dd($request);
         $request->validate([  
             'password' =>['required'],
          ]);
         if($user=User::where('email', $request->email)->where('code',$request->code)->first()){
-    
+          
             $user->code=null;
             $user->password = Hash::make($request->password);
             $user->update();

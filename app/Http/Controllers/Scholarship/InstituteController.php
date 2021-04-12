@@ -35,12 +35,12 @@ class InstituteController extends Controller
     {
         $request->validate([
             'insName'  => ['required'],
-            'insAddressAddln1'  => ['required'],
-            'insAddressAddln2'  => ['required'],
-            'insAddressCity'  => ['required'],
-            'insAddressDistprov'  => ['required'],
-            'insAddressState'  => ['required'],
-            'insAddressPinzip'  => ['required'],
+            // 'insAddressAddln1'  => ['required'],
+            // 'insAddressAddln2'  => ['required'],
+            // 'insAddressCity'  => ['required'],
+            // 'insAddressDistprov'  => ['required'],
+            // 'insAddressState'  => ['required'],
+            // 'insAddressPinzip'  => ['required'],
         ]);
 
         DB::beginTransaction();

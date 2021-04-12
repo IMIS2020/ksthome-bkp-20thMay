@@ -743,7 +743,24 @@ class ApplicationController extends Controller
         }else{
             return 0;
         }
-
        
+    }
+
+    public function saveAnnexure2(Request $request, $applicationId)
+    {
+        $editApplication = ApplicationDetails::where('schApplicationId', $applicationId)->first();
+        DB::beginTransaction();
+        try {
+                $editApplication->applicantColonyLeaderName = $request->applicantColonyLeaderName;
+                $editApplication->update();
+
+                DB::commit();
+                return array('success' => true, 'msg'=>[]);
+            }
+            catch(Exception $e) 
+            {
+                DB::rollBack();
+                return array('success' => false, 'msg'=>[$e]);
+            }
     }
 }

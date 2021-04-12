@@ -102,8 +102,8 @@
     <div id="annexure2">
       @yield('annexure2')
     </div>
-    <div id="annexure2PrintForm">
-      @yield('annexure2PrintForm')
+    <div id="annexure2BlankForm">
+      @yield('annexure2BlankForm')
     </div>
     <div id="annexure2PrintForm">
       @yield('annexure2PrintForm')

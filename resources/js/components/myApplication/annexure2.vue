@@ -52,7 +52,7 @@
                                                                     <p class="float-left mb-0 color-mg font-md"><strong>is / are affected by leprosy.</strong></p>
                                                                 </div>
                                                                 <div class="col-xl-12 align-self-center mt-3">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>I certify that, to the best of my knowledge, the information provided by the candidate is true. I recommend her for Nursing Scholarship.</strong><br></p>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>I certify that, to the best of my knowledge, the information provided by the candidate is true. I recommend her for {{form.scholarshipType}} Scholarship.</strong><br></p>
                                                                     <p class="float-left mb-0 color-mg font-md mt-4"><strong>Signature of Colony Leader: ____________________________________,&nbsp; Date: ____/____/___________</strong><br></p>
                                                                 </div>
                                                             </div>
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="col-xl-2 offset-xl-4 my-2">
-                        <router-link class="btn btn-block btn-sm btn-mg" to="/annexure-2-print-form"><strong>Print/Download PDF</strong></router-link>
+                        <router-link class="btn btn-block btn-sm btn-mg" :to="'/annexure-2-print-form/'+form.applicationId"><strong>Print/Download PDF</strong></router-link>
                     </div>
                     <div class="col-xl-2 offset-xl-0 my-2">
                         <!-- <a class="btn btn-block btn-sm btn-mg" onclick="javascipt:window.open('/assets/annexure-II/DeclarationForm.pdf');"><strong>Print Blank Form</strong></a> -->
@@ -123,7 +123,7 @@ export default{
    methods:{
 
      saveForm(){
-            axios.post('/api/save-annexureii/'+this.getdata.applicationId,this.form)
+            axios.post('/api/save-annexure2/'+this.form.applicationId,this.Nform)
             .then(response => {
                     if (response.data['success']){
                         this.$fire({
@@ -215,6 +215,7 @@ export default{
                     this.form.financialYear = response.data['data'][0][0].financialYear;  
                     this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
+                    this.Nform.applicantColonyLeaderName = response.data['data'][0][0].applicantColonyLeaderName;
                     if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
                     {
                         this.getData.genderType = "son";

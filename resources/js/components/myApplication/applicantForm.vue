@@ -271,14 +271,14 @@
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="form-row">
-                                                                <div class="col-xl-12 mb-2"><label>Details of educational qualification: Matriculation/Higher Secondary/ Graduation:<br></label>
+                                                                <div class="col-xl-12 mb-2"><label>Details of educational qualification: Matriculation/Higher Secondary/ Graduation: <br></label>
                                                                     <div class="table-responsive font-md">
                                                                         <table class="table table-sm mb-0">
                                                                             <thead class="font-sm color-mg">
                                                                                 <tr>
                                                                                     <th>Examination Level&nbsp;<span class="text-danger">*</span></th>
-                                                                                    <th>Examination Passed&nbsp;<span class="text-danger">*</span></th>
-                                                                                    <th>University/ Board/ Council&nbsp;<span class="text-danger">*</span></th>
+                                                                                    <th>Examination Passed&nbsp;<span class="text-danger">*</span><br><span><a data-toggle="modal" href="#" data-target="#others-exam-passed1" @click="addName('ExamPassed')"> + Add New Value</a></span></th>
+                                                                                    <th>University/ Board&nbsp;<span class="text-danger">*</span><br><span><a data-toggle="modal" href="#" data-target="#others-exam-board1" @click="addName('UnivBoard')"> + Add New Value</a></span></th>
                                                                                     <th>Main Subjects&nbsp;<span class="text-danger">*</span></th>
                                                                                     <th>Year of Passing&nbsp;<span class="text-danger">*</span></th>
                                                                                     <th>Percentage(%)&nbsp;<span class="text-danger">*</span></th>
@@ -961,7 +961,7 @@
                                                                     <label class="col-form-label">Name of the course you have been selected for:&nbsp;<span class="text-danger"><strong>*</strong></span><br></label>
                                                                 </div>
                                                                 <div class="col-xl-3">
-                                                                    <label>Name of the Level&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                    <label>Name of the Level&nbsp;<span class="text-danger"><strong>*</strong></span><a data-toggle="modal" href="#" data-target="#others-course-level" v-if="inputDisabled == false" @click="addName('CourseLevel')" > + Add New Value</a></label>
                                                                      <div class="form-group mb-0" v-if="form.scholarshipType == 'Nursing'">
                                                                         <select class="form-control form-control-sm" v-model="form.courseLevelValueId" disabled>
                                                                             <option value="N" disabled selected>Graduate</option>
@@ -1005,7 +1005,7 @@
                                                                     <!-- End course name modal -->
                                                                 </div>
                                                                 <div class="col-xl-3">
-                                                                    <label>Name of the course&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                    <label>Name of the course&nbsp;<span class="text-danger"><strong>*</strong></span><a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-course-name" @click="addName('CourseName')"> + Add New Value</a></label>
                                                                     <div class="form-group mb-0">
                                                                         <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled">
                                                                             <option value="" disabled>-- select --</option>
@@ -1042,7 +1042,7 @@
                                                                     <!-- End course name modal -->
                                                                 </div>
                                                                 <div class="col-xl-6">
-                                                                    <label>Name of the institute</label>
+                                                                    <label>Name of the institute <a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-add-institute" > + Add New Value</a> </label>
                                                                     <div class="form-group mb-0">
                                                                         <select class="form-control form-control-sm" @change="onChangeIns($event)" v-model="form.instituteId" :disabled="inputDisabled">
                                                                             <option v-for="(i,index) in insData" :key="index" :value="i.id">{{i.instituteName}} - {{i.get_address.addressCity}}, {{i.get_address.addressState}}</option>

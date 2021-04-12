@@ -66,6 +66,7 @@ Route::group(['prefix' => 'api'], function() {
     Route::post('/add-application-form/{userId}','Scholarship\ApplicationController@addScholarshipApplication');
     Route::post('/edit-application-form/{applicationId}','Scholarship\ApplicationController@editScholarshipApplication');
     Route::get('/get-application-form-data/{applicationId}','Scholarship\ApplicationController@getScholarshipApplication');
+    Route::post('/save-annexure2/{applicationId}','Scholarship\ApplicationController@saveAnnexure2');
     /****
      * End API calls for application from
      */

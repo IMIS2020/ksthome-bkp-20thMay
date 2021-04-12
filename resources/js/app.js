@@ -49,12 +49,12 @@ function newFunction(){
   });
 
   const app6 = new Vue({
-    el: '#annexure2NursingPrintForm',
+    el: '#annexure2PrintForm',
     router: new VueRouter(routes)
   });
 
   const app7 = new Vue({
-    el: '#annexure2NursingBlankForm',
+    el: '#annexure2BlankForm',
     router: new VueRouter(routes)
   });
 

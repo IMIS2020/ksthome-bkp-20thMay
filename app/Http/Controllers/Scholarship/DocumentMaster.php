@@ -275,4 +275,9 @@ class DocumentMaster extends Controller
        
        
     }
+
+    public function getApplicantDoc($d)
+    {
+        
+    }
 }

@@ -6,8 +6,8 @@
                     
                     <div class="col-sm-12 col-md-12 col-xl-12 text-center mt-3 pr-1">
                         <h3><strong>DOCUMENTS ATTACHED</strong></h3>
-                        <h6 class="text-uppercase text-center"><strong>Applicant Name. : {{getdata.fullName}}</strong></h6>
-                        <h6 class="text-uppercase"><strong>Application No. : {{getdata.applicationId}}, (submitted online)</strong></h6>
+                        <h6 class="text-uppercase text-center"><strong>Applicant Name. : {{form.fullName}}</strong></h6>
+                        <h6 class="text-uppercase"><strong>Application No. : {{form.applicationId}}, (submitted online)</strong></h6>
                         
                     </div>
                     <div class="col-xl-12 mb-2">
@@ -20,41 +20,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Proof of admission in recognised institute/ admission call letter issued by the institute<br></td>
-                                        <td class="text-center">{{(getFiles.admissionLetter === '#')?'No':'Yes'}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Annexure-II letter from colony leader stating the candidate is residing in the colony<br></td>
-                                        <td class="text-center">{{(getFiles.annexureII === '#')?'No':'Yes'}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Passport size photograph<br></td>
-                                        <td class="text-center">{{(getFiles.photograph === '#')?'No':'Yes'}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Self attested Birth certificate/ proof of age<br></td>
-                                        <td class="text-center">{{(getFiles.proofOfAge === '#')?'No':'Yes'}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Self attested marksheet for 10th<br></td>
-                                        <td class="text-center">{{(getFiles.markSheets10 === '#')?'No':'Yes'}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Self attested marksheet for 12th<br></td>
-                                        <td class="text-center">{{(getFiles.markSheets12 === '#')?'No':'Yes'}}</td>
-                                    </tr>
-                                    <tr v-if="getdata.applicantLeprosyAffectedMother === true">
-                                        <td>Self attested Leprosy Certificate of Mother<br></td>
-                                        <td class="text-center">{{(getFiles.leprosyCertificateMother === '#')?'No':'Yes'}}</td>
-                                    </tr>
-                                    <tr v-if="getdata.applicantLeprosyAffectedFather === true">
-                                        <td>Self attested Leprosy Certificate of Father<br></td>
-                                        <td class="text-center">{{(getFiles.leprosyCertificateFather === '#')?'No':'Yes'}}</td>
-                                    </tr>
-                                    <tr v-if="getdata.applicantLeprosyAffectedSelf === true">
-                                        <td>Self attested Leprosy Certificate of Self<br></td>
-                                        <td class="text-center">{{(getFiles.leprosyCertificateSelf === '#')?'No':'Yes'}}</td>
+                                    <tr v-for="(row,index) in docRows" :key="index">
+                                        <td>{{row.docFileDesc}}<br></td>
+                                        <td class="text-center">{{row.uploadStatus}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -88,8 +56,8 @@
                         <h3 class="text-uppercase"><strong>application form</strong></h3>
                     </div>
                     <div class="col-xl-12 text-center mb-1">
-                        <h6 class="text-uppercase"><strong>nursing scholarship PROGRAMME - {{getdata.financialYear}}</strong></h6>
-                        <h6 class="text-uppercase"><strong>Application No. : {{getdata.applicationId}} (submitted online)</strong></h6>
+                        <h6 class="text-uppercase"><strong>{{form.scholarshipType}} scholarship PROGRAMME - {{form.financialYear}}</strong></h6>
+                        <h6 class="text-uppercase"><strong>Application No. : {{form.applicationId}} (submitted online)</strong></h6>
                     </div>
                     <div class="col-md-8 col-xl-10 offset-md-2 offset-xl-1 text-center mb-1">
                         <hr class="cs-hr">
@@ -103,7 +71,7 @@
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-7 col-md-5 col-lg-6 col-xl-7 mt-2">
-                                <p class="mb-0 font-xl">{{getdata.fullName}}<br></p>
+                                <p class="mb-0 font-xl">{{form.fullName}}</p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-6 col-xl-4 mt-2">
                                 <p class="mb-0 font-xl"><strong>2. Father's Name</strong><br></p>
@@ -112,7 +80,7 @@
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-6 col-xl-7 offset-xl-0 mt-2">
-                                <p class="mb-0 font-xl">{{getdata.applicantFatherName}}<br></p>
+                                <p class="mb-0 font-xl">{{form.applicantFatherName}}<br></p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-6 col-xl-4 mt-2">
                                 <p class="mb-0 font-xl"><strong>3. Mother's Name</strong><br></p>
@@ -121,7 +89,7 @@
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-6 col-xl-7 mt-2">
-                                <p class="mb-0 font-xl">{{getdata.applicantMotherName}}<br></p>
+                                <p class="mb-0 font-xl">{{form.applicantMotherName}}<br></p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-6 col-xl-4 mt-2">
                                 <p class="mb-0 font-xl"><strong>4. Domicile&nbsp;State</strong><br></p>
@@ -130,7 +98,7 @@
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-6 col-xl-7 offset-xl-0 mt-2">
-                                <p class="mb-0 font-xl">{{getdata.applicantDomicileState}}<br></p>
+                                <p class="mb-0 font-xl">{{form.applicantDomicileState}}<br></p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2">
                                 <p class="mb-0 font-xl"><strong>5. Applicant's Address</strong><br></p>
@@ -139,7 +107,7 @@
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-8 col-xl-7 mt-2">
-                                <p class="mb-0 font-xl">{{getdata.addressAddln1}},{{(getdata.addressAddln2==null)?'':getdata.addressAddln2}},City: {{(getdata.addressCity==null)?'':getdata.addressCity}}, Dist :{{(getdata.addressDistprov==null)?'':getdata.addressDistprov}}, {{getdata.addressState}} - {{getdata.addressPinzip}}</p>
+                                <p class="mb-0 font-xl">{{form.addressAddln1}},{{(form.addressAddln2==null)?'':form.addressAddln2}},City: {{(form.addressCity==null)?'':form.addressCity}}, Dist :{{(form.addressDistprov==null)?'':form.addressDistprov}}, {{form.addressState}} - {{form.addressPinzip}}</p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2 pl-4">
                                 <p class="mb-0 font-xl"><strong>5.1. Contact No. (Self)</strong><br></p>
@@ -148,7 +116,7 @@
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-2 col-xl-7 mt-2">
-                                <p class="mb-0 font-xl">{{getdata.applicantContactNoSelf}}<br></p>
+                                <p class="mb-0 font-xl">{{form.applicantContactNoSelf}}<br></p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 offset-xl-0 mt-2 pl-4">
                                 <p class="mb-0 font-xl"><strong>5.2. Contact No (Father)</strong><br></p>
@@ -157,7 +125,7 @@
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-2 col-xl-7 mt-2">
-                                <p class="mb-0 font-xl">{{getdata.applicantContactNoGuardian}}<br></p>
+                                <p class="mb-0 font-xl">{{form.applicantContactNoGuardian}}<br></p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2 pl-4">
                                 <p class="mb-0 font-xl"><strong>5.3. Contact No. (Colony Leader)</strong><br></p>
@@ -166,7 +134,7 @@
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-2 col-xl-7 mt-2">
-                                <p class="mb-0 font-xl"> {{getdata.applicantContactNoColonyLeader}}<br></p>
+                                <p class="mb-0 font-xl"> {{form.applicantContactNoColonyLeader}}<br></p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-2 col-xl-4 mt-2">
                                 <p class="mb-0 font-xl"><strong>6. Email Address</strong><br></p>
@@ -175,7 +143,7 @@
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-4 col-xl-7 mt-2">
-                                <p class="mb-0 font-xl">{{getdata.applicantEmailId}}<br></p>
+                                <p class="mb-0 font-xl">{{form.applicantEmailId}}<br></p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 offset-xl-0 mt-2">
                                 <p class="mb-0 font-xl"><strong>7. Date of Birth</strong><br></p>
@@ -184,7 +152,7 @@
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-2 col-xl-7 mt-2">
-                                <p class="mb-0 font-xl">{{getdata.applicantDOB.split('-').reverse().join('/')}}<br></p>
+                                <p class="mb-0 font-xl">{{form.applicantDOB.split('-').reverse().join('/')}}<br></p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2">
                                 <p class="mb-0 font-xl"><strong>8. Affected by leprosy</strong></p>
@@ -193,9 +161,9 @@
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-2 col-md-6 col-lg-2 col-xl-2 mt-2">
-                                <span class="mb-0 font-xl" v-if="getdata.applicantLeprosyAffectedSelf   == true">Self,</span>
-                                <span class="mb-0 font-xl" v-if="getdata.applicantLeprosyAffectedFather == true">Father,</span>
-                                <span class="mb-0 font-xl" v-if="getdata.applicantLeprosyAffectedMother == true">Mother</span>
+                                <span class="mb-0 font-xl" v-if="form.applicantLeprosyAffectedSelf   == true">Self,</span>
+                                <span class="mb-0 font-xl" v-if="form.applicantLeprosyAffectedFather == true">Father,</span>
+                                <span class="mb-0 font-xl" v-if="form.applicantLeprosyAffectedMother == true">Mother</span>
                             </div>
                             <div class="col-sm-4 col-md-5 col-lg-4 col-xl-3 offset-xl-0 mt-2">
                                 <p class="mb-0 font-xl"><strong>9. BPL card holder</strong><br></p>
@@ -204,12 +172,11 @@
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-1 col-md-6 col-lg-1 col-xl-1 mt-2">
-                                <p class="mb-0 font-xl">{{getdata.applicantHasBPLCard}}<br></p>
+                                <p class="mb-0 font-xl">{{form.applicantHasBPLCard}}<br></p>
                             </div>
                         </div>
                     </div>
                       <div class="col-sm-3 col-md-2 col-lg-3 col-xl-2 text-center">
-                        
                         <img class="img-thumbnail img-fluid applicant-img" :src="(getFiles.photograph == '#')?'https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg':getFiles.photograph" width="180" height="230" style="border: 2px solid black;">
                     </div>
                     <div class="col-xl-12 mt-4">
@@ -231,23 +198,32 @@
                                 </thead>
                                 <tbody>
                                     <tr class="fw-600">
-                                        <td>{{getdata.examinationLevel10}}th</td>
-                                        <td>{{(getdata.examinationPassed10 == '10')?'Madhyamik':''}}</td>
-                                        <td>{{getdata.universityBoardCouncil10}}</td>
-                                        <td>{{getdata.mainSubjects10}}</td>
-                                        <td>{{getdata.yearOfPassing10}}</td>
-                                        <td>{{getdata.percentage10}}%</td>
-                                        <td>{{getdata.division10}}</td>
+                                        <td>{{form.education1ExaminationLevel}}th</td>
+                                        <td>{{(form.education1ExaminationLevel== '10')?'Madhyamik':''}}</td>
+                                        <td>{{form.education1University}}</td>
+                                        <td>{{form.education1MainSubjects}}</td>
+                                        <td>{{form.education1YearOfPassing}}</td>
+                                        <td>{{form.education1Percentage}}%</td>
+                                        <td>{{form.education1Division}}</td>
                                        
                                     </tr>
                                     <tr class="fw-600">
-                                       <td>{{getdata.examinationLevel12}}th</td>
-                                        <td>{{(getdata.examinationPassed12 == '12')?'Higher Secondary':''}}</td>
-                                        <td>{{getdata.universityBoardCouncil12}}</td>
-                                        <td>{{getdata.mainSubjects12}}</td>
-                                        <td>{{getdata.yearOfPassing12}}</td>
-                                        <td>{{getdata.percentage12}}%</td>
-                                        <td>{{getdata.division12}}</td>
+                                       <td>{{form.education2ExaminationLevel}}th</td>
+                                        <td>{{(form.education2ExaminationLevel == '12')?'Higher Secondary':''}}</td>
+                                        <td>{{form.education2University}}</td>
+                                        <td>{{form.education2MainSubjects}}</td>
+                                        <td>{{form.education2YearOfPassing}}</td>
+                                        <td>{{form.education2Percentage}}%</td>
+                                        <td>{{form.education2Division}}</td>
+                                    </tr>
+                                     <tr class="fw-600" v-if="form.scholarshipType == 'Hddlss'">
+                                       <td>{{form.education3ExaminationLevel}}</td>
+                                        <td>{{(form.education3ExaminationLevel == '13')?'Graduate':''}}</td>
+                                        <td>{{form.education3University}}</td>
+                                        <td>{{form.education3MainSubjects}}</td>
+                                        <td>{{form.education3YearOfPassing}}</td>
+                                        <td>{{form.education3Percentage}}%</td>
+                                        <td>{{form.education3Division}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -262,19 +238,24 @@
                                 <tbody>
                                     <tr>
                                         <td><strong>Name of the Course</strong></td>
-                                        <td class="fw-600">{{(getdata.insCourse == null)?'N/A':getdata.insCourse}}</td>
+                                        <td class="fw-600">{{(form.courseNameValueId == null)?'N/A':form.insCourse}}</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Name of the institute</strong></td>
-                                        <td class="fw-600">{{(getdata.insName == '')?'N/A':getdata.insName}}</td>
+                                        <td class="fw-600">{{(form.insName == '')?'N/A':form.insName}}</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Address&nbsp;of the institute</strong></td>
-                                        <td class="fw-600">{{getdata.fullInstituteAddress}}</td>
+                                        <td class="fw-600">{{form.insAddressAddln1}}, 
+                                                            {{form.insAddressAddln2}}, 
+                                                            {{form.insAddressCity}}, 
+                                                            {{form.insAddressDistprov}}, 
+                                                            {{form.insAddressState}},
+                                                            {{form.insAddressPinzip}} </td>
                                     </tr>
                                     <tr>
                                         <td><strong>Whether recognized by Indian Nursing Council</strong></td>
-                                        <td class="fw-600">{{(getdata.recognizedByINC == null)?'N/A':getdata.recognizedByINC}}<br></td>
+                                        <td class="fw-600">{{(form.recognizedByINC == null)?'N/A':form.recognizedByINC}}<br></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -284,7 +265,7 @@
                         <p class="text-white mb-2 font-xl txt-blk-bg">&nbsp;Self Declaration</p>
                     </div>
                     <div class="col-xl-12 mt-1">
-                        <p class="font-md"><span><input type="checkbox" v-model='terms'></span>&nbsp;I {{getdata.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under "Nursing Scholarship" could be withdrawn.<br></p>
+                        <p class="font-md"><span><input type="checkbox" v-model='terms'></span>&nbsp;I {{form.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under "Nursing Scholarship" could be withdrawn.<br></p>
                          <p class="color-mg text-center">This is an electronically generated document and does not require a signature</p>
                     </div>
                 </div>
@@ -304,66 +285,118 @@ export default{
          userId: document.querySelector("meta[name='userId']").getAttribute('content'),
          csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
           terms: false,
-         getdata:{
-            hasAdmissionLetter:'',
-            financialYear:'',
-            fullName:'',
-            fullAddress:'',
-            fullInstituteAddress:'',
-            applicationId:'',
-            applicantNameF:'',
-            applicantNameM:'',
-            applicantNameL:'',
-            applicantFatherName:'',
-            applicantMotherName:'',
-            applicantDOB:'',
-            applicantGender:'',
-            applicantLeprosyAffectedSelf: '',
-            applicantLeprosyAffectedFather:'',
-            applicantLeprosyAffectedMother:'',
-            applicantHasBPLCard:'',
-            applicantDomicileState:'',
-            applicantColonyName:'',
-            addressAddln1:'',
-            addressAddln2:'',
-            addressCity:'',
-            addressDistprov:'',
-            addressState:'',
-            addressPinzip:'',
-            addressCountry:'',
-            applicantContactNoSelf:'',
-            applicantContactNoGuardian:'',
-            applicantEmailId:'',
-            applicantContactNoColonyLeader:'',
+           docRows:[
+                {
+                    id: '',
+                    docFileName: '',
+                }
+            ],
+        form: {
+                applicationId:'',
+                scholarshipType: '',
+                applicantNameF:'',
+                applicantNameM:'',
+                applicantNameL:'',
+                applicantFatherName:'',
+                applicantMotherName:'',
+                applicantDOB:'',
+                applicantGender:'',
+                applicantLeprosyAffectedSelf: false,
+                applicantLeprosyAffectedFather: false,
+                applicantLeprosyAffectedMother: false,
+                applicantDisablitySelf: false,
+                applicantDisablityFather: false,
+                applicantDisablityMother: false,
+                applicantHasBPLCard:'',
+                applicantDomicileState:'',
+                applicantColonyName:'',
+                addressAddln1:'',
+                addressAddln2:'',
+                addressCity:'',
+                addressDistprov:'',
+                addressState:'',
+                addressPinzip:'',
+                applicantContactNoSelf: '',
+                applicantContactNoGuardian:'',
+                applicantEmailId:'',
+                applicantContactNoColonyLeader:'',
+                financialYear : '',
+                //education level 10
+                education1ExaminationLevel:'10',
+                education1ExaminationPassed: '',
+                education1University: '',
+                education1UniversityValue: '',
+                education1MainSubjects: '',
+                education1YearOfPassing: '',
+                education1Percentage: '',
+                education1Division: '',
 
-            examinationLevel10:'',
-            examinationPassed10:'',
-            universityBoardCouncil10:'',
-            mainSubjects10:'',
-            yearOfPassing10:'',
-            percentage10:'',
-            division10:'',
-           
-            examinationLevel12:'',
-            examinationPassed12:'',
-            universityBoardCouncil12:'',
-            mainSubjects12:'',
-            yearOfPassing12:'',
-            percentage12:'',
-            division12:'',
-            
-            insCourse:'',
-            insName:'',
-            insAddressAddln1:'',
-            insAddressAddln2:'',
-            insAddressCity:'',
-            insAddressDistprov:'',
-            insAddressState:'',
-            insAddressPinzip:'',
-            recognizedByINC:'',
-            applicantColonyLeaderName:'',  
-            districtState:'',
-        },
+                //education level 12
+                education2ExaminationLevel:'12',
+                education2ExaminationPassed: '',
+                education2University: '',
+                 education2UniversityValue: '',
+                education2MainSubjects: '',
+                education2YearOfPassing: '',
+                education2Percentage: '',
+                education2Division: '',
+
+                //education level graduate for hddlss only (13)
+                education3ExaminationLevel:'13',
+                education3ExaminationPassed: '',
+                education3University: '',
+                 education3UniversityValue: '',
+                education3MainSubjects: '',
+                education3YearOfPassing: '',
+                education3Percentage: '',
+                education3Division: '',
+                
+                //end Education
+
+                //additional qualification
+                additional1ExaminationLevel:'10',
+                additional1ExaminationPassed: '',
+                additional1University: '',
+                additional1MainSubjects: '',
+                additional1YearOfPassing: '',
+                additional1Percentage: '',
+                additional1Division: '',
+
+                additional2ExaminationLevel:'12',
+                additional2ExaminationPassed: '',
+                additional2University: '',
+                additional2MainSubjects: '',
+                additional2YearOfPassing: '',
+                additional2Percentage: '',
+                additional2Division: '',
+
+                //end of qualification
+                
+                hasAdmissionLetter:'YES',
+                courseLevelValueId: 'N',
+                courseNameValueId: '',
+                instituteId:'',
+                insCourse:'',
+                insName:'',
+                insAddressAddln1:'',
+                insAddressAddln2:'',
+                insAddressCity:'',
+                insAddressDistprov:'',
+                insAddressState:'',
+                insAddressPinzip:'',
+                recognizedByINC:'',
+                miscName1:'',
+                miscCourse1:'',
+                miscYear1:'',
+                miscName2:'',
+                miscCourse2:'',
+                miscYear2:'',
+                miscName3:'',
+                miscCourse3:'',
+                miscYear3:'',
+
+                fullName: '',
+            },
             getFiles: {
                 admissionLetter:'#',
                 annexureII:'#',
@@ -376,95 +409,178 @@ export default{
                 leprosyCertificateSelf:'#',
                 
             },
+            insData:{},
         errors:[]
         }
     },
    methods:{
-      getdataNursing(){
-       axios.get(`/api/application-form/${this.userId}`)
-        .then(response => {
-          if (response.data['success']) {
-            const data = response.data['data']
-            console.log(data)
-                this.getdata.hasAdmissionLetter                  = data.hasAdmissionLetter;
-                this.getdata.financialYear                       = data.financialYear ;
-                this.getdata.applicationId                       = data.applicationId;
-                this.getdata.applicantNameF                      = data.applicantNameF;
-                this.getdata.applicantNameM                      = data.applicantNameM;
-                this.getdata.applicantNameL                      = data.applicantNameL;
-                this.getdata.applicantFatherName                 = data.applicantFatherName;
-                this.getdata.applicantMotherName                 = data.applicantMotherName;
-                this.getdata.applicantDOB                        = data.applicantDOB;
-                this.getdata.applicantGender                     = data.applicantGender;
-                this.getdata.applicantLeprosyAffectedSelf        = data.applicantLeprosyAffectedSelf;
-                this.getdata.applicantLeprosyAffectedFather      = data.applicantLeprosyAffectedFather;
-                this.getdata.applicantLeprosyAffectedMother      = data.applicantLeprosyAffectedMother;
-                this.getdata.applicantHasBPLCard                = data.applicantHasBPLCard;
-                this.getdata.applicantDomicileState              = data.applicantDomicileState;
-                this.getdata.applicantColonyName                 = data.applicantColonyName;
-                this.getdata.addressAddln1                       = data.addressAddln1;
-                this.getdata.addressAddln2                       = data.addressAddln2;
-                this.getdata.addressCity                         = data.addressCity;
-                this.getdata.addressDistprov                     = data.addressDistprov;
-                this.getdata.addressState                        = data.addressState;
-                this.getdata.addressPinzip                       = data.addressPinzip;
-                this.getdata.applicantContactNoSelf              = data.applicantContactNoSelf;
-                this.getdata.applicantContactNoGuardian          = data.applicantContactNoGuardian;
-                this.getdata.applicantEmailId                    = data.applicantEmailId;
-                this.getdata.applicantContactNoColonyLeader      = data.applicantContactNoColonyLeader;
-                this.getdata.examinationLevel10                  = data.examinationLevel10;
-                this.getdata.examinationPassed10                 = data.examinationPassed10;
-                this.getdata.universityBoardCouncil10            = data.universityBoardCouncil10;
-                this.getdata.mainSubjects10                      = data.mainSubjects10;
-                this.getdata.yearOfPassing10                     = data.yearOfPassing10;
-                this.getdata.percentage10                        = data.percentage10;
-                this.getdata.division10                          = data.division10;
-                this.getdata.examinationLevel12                  = data.examinationLevel12;
-                this.getdata.examinationPassed12                 = data.examinationPassed12;
-                this.getdata.universityBoardCouncil12            = data.universityBoardCouncil12;
-                this.getdata.mainSubjects12                      = data.mainSubjects12;
-                this.getdata.yearOfPassing12                     = data.yearOfPassing12;
-                this.getdata.percentage12                        = data.percentage12;
-                this.getdata.division12                          = data.division12;
-             
-                this.getdata.insCourse                           = data.insCourse;
-                this.getdata.insName                             = data.insName;
-                this.getdata.insAddressAddln1                    = data.insAddressAddln1;
-                this.getdata.insAddressAddln2                    = data.insAddressAddln2;
-                this.getdata.insAddressCity                      = data.insAddressCity;
-                this.getdata.insAddressDistprov                  = data.insAddressDistprov;
-                this.getdata.insAddressState                     = data.insAddressState;
-                this.getdata.insAddressPinzip                    = data.insAddressPinzip;
-                this.getdata.recognizedByINC                     = data.recognizedByINC;
-                this.getdata.addressCountry                      = data.addressCountry;
-                this.getdata.applicantColonyLeaderName           = data.applicantColonyLeaderName;
-                this.getdata.fullName = `${this.getdata.applicantNameF}${(this.getdata.applicantNameM)?" "+this.getdata.applicantNameM:''} ${this.getdata.applicantNameL}`;
-                this.getdata.fullAddress = `${this.getdata.addressAddln1},${(this.getdata.addressAddln2)?" "+this.getdata.addressAddln2:''} ${(this.getdata.addressCity)?" "+this.getdata.addressCity:''} ,`;
-                this.districtState = `Dist: ${(this.getdata.insAddressDistprov)?" "+this.getdata.insAddressDistprov:''}  ${this.getdata.addressState} - ${this.getdata.addressPinzip}, ${this.getdata.addressCountry}`;
-                this.getdata.fullInstituteAddress = `${this.getdata.insAddressAddln1} ${this.getdata.insAddressAddln2} ${this.getdata.insAddressCity} ${this.getdata.insAddressDistprov} ${this.getdata.insAddressState} ${this.getdata.insAddressPinzip}`;
-                this.getFileData();
-             }
-         })
-       }, 
-       
-        getFileData(){
-        axios.get('/api/get-upload-documents/'+this.getdata.applicationId)
-        .then(response => {
-            if (response.data['success']) {
-                this.getFiles = response.data['data'],
+       async readApplicationForm() 
+            {
+                let applicationId = window.location.pathname.split('/').reverse()[0];
                 
-                this.getFiles.admissionLetter    = data.admissionLetter;
-                this.getFiles.annexureII         = data.annexureII;
-                this.getFiles.photograph         = data.photograph;
-                this.getFiles.proofOfAge         = data.proofOfAge;
-                this.getFiles.markSheets10       = data.markSheets10;
-                this.getFiles.markSheets12       = data.markSheets12;
-                this.getFiles.leprosyCertificateMother = data.leprosyCertificateMother;
-                this.getFiles.leprosyCertificateFather = data.leprosyCertificateFather;
-                this.getFiles.leprosyCertificateSelf   = data.leprosyCertificateSelf;
-            }
-        })
-    },
+                axios.get(`/api/get-application-form-data/${applicationId}`)
+                .then(response => {
+                    if (response.data['success']) {
+                        this.form.applicationId=response.data['data'][0][0].schApplicationId;
+                        this.form.scholarshipType=response.data['data'][0][0].scholarshipType;
+                        this.form.applicantNameF=response.data['data'][0][0].applicantNameF;
+                        this.form.applicantNameM=response.data['data'][0][0].applicantNameM;
+                        this.form.applicantNameL=response.data['data'][0][0].applicantNameL;
+                        this.form.applicantFatherName=response.data['data'][0][0].applicantFatherName;
+                        this.form.applicantMotherName=response.data['data'][0][0].applicantMotherName;
+                        this.form.applicantDOB=response.data['data'][0][0].applicantDOB;
+                        this.form.applicantGender=response.data['data'][0][0].applicantGender,
+                        this.form.applicantLeprosyAffectedSelf=response.data['data'][0][0].applicantLeprosyAffectedSelf;
+                        this.form.applicantLeprosyAffectedFather=response.data['data'][0][0].applicantLeprosyAffectedFather;
+                        this.form.applicantLeprosyAffectedMother=response.data['data'][0][0].applicantLeprosyAffectedMother;
+                        this.form.applicantDisablityMother         = response.data['data'][0][0].applicantDisablityMother; 
+                        this.form.applicantDisablityFather         = response.data['data'][0][0].applicantDisablityFather; 
+                        this.form.applicantDisablitySelf           = response.data['data'][0][0].applicantDisablitySelf;
+                        this.form.applicantHasBPLCard=response.data['data'][0][0].applicantHasBPLCard;
+                        this.form.applicantDomicileState=response.data['data'][0][0].applicantDomicileState;
+                        this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
+                        this.form.addressAddln2=response.data['data'][0][0].get_address.addressAddln2;
+                        this.form.addressCity=response.data['data'][0][0].get_address.addressCity;
+                        this.form.addressDistprov=response.data['data'][0][0].get_address.addressDistprov;
+                        this.form.addressState=response.data['data'][0][0].get_address.addressState;
+                        this.form.addressPinzip=response.data['data'][0][0].get_address.addressPinzip;
+                        this.form.applicantContactNoSelf=response.data['data'][0][0].applicantContactNoSelf;
+                        this.form.applicantContactNoGuardian=response.data['data'][0][0].applicantContactNoGuardian;
+                        this.form.applicantEmailId=response.data['data'][0][0].applicantEmailId;
+                        this.form.applicantContactNoColonyLeader=response.data['data'][0][0].applicantContactNoColonyLeader;
+                        this.form.financialYear = response.data['data'][0][0].financialYear;  
+                        this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
+                        this.form.fullName = response.data['data'][0][0].applicantNameF+' '+ (response.data['data'][0][0].applicantNameM == null ? ' ' : response.data['data'][0][0].applicantNameM )+' '+response.data['data'][0][0].applicantNameL;
+                        if(this.form.hasAdmissionLetter == 'YES') {
+                            // this.inputDisabled = false; 
+                            // this.form.insCourse=response.data['data'][0][0].get_institute.,
+                            this.form.instituteId=response.data['data'][0][0].instituteId,
+                            this.dataIns(response.data['data'][0][0].instituteId),
+                            this.form.courseNameValueId = response.data['data'][0][0].courseNameValueId,
+                            // this.form.insAddressAddln1=response.data['data'][0][0].courseNameValue,
+                            // this.form.insAddressAddln2=response.data['data'][0][0].get_institute.addressAddln2,
+                            // this.form.insAddressCity=response.data['data'][0][0].get_institute.addressCity,
+                            // this.form.insAddressDistprov=response.data['data'][0][0].get_institute.addressDistprov,
+                            // this.form.insAddressState=response.data['data'][0][0].get_institute.addressState,
+                            // this.form.insAddressPinzip=response.data['data'][0][0].get_institute.addressPinzip,
+                            this.form.recognizedByINC=response.data['data'][0][0].recognizedByINC;
+                        } ;
+                        
+                        //education level 10
+                        if(response.data['data'][1][0].get_exam_level_domain_values.value == 10){
+                                this.form.education1ExaminationLevel='10',
+                                this.form.education1ExaminationPassed= response.data['data'][1][0].get_exam_passed_domain_values.id,
+                                this.form.education1University= response.data['data'][1][0].get_exam_board_domain_values.value,
+                                this.form.education1MainSubjects= response.data['data'][1][0].mainSubjects,
+                                this.form.education1YearOfPassing= response.data['data'][1][0].yearOfPassing,
+                                this.form.education1Percentage= response.data['data'][1][0].percentage,
+                                this.form.education1Division= response.data['data'][1][0].division;
+                        };
+
+                        //education level 12
+                        if(response.data['data'][1][1].get_exam_level_domain_values.value == 12){
+                                this.form.education2ExaminationLevel='12',
+                                this.form.education2ExaminationPassed= response.data['data'][1][1].get_exam_passed_domain_values.id,
+                                this.form.education2University= response.data['data'][1][1].get_exam_board_domain_values.value,
+                                this.form.education2MainSubjects= response.data['data'][1][1].mainSubjects,
+                                this.form.education2YearOfPassing= response.data['data'][1][1].yearOfPassing,
+                                this.form.education2Percentage= response.data['data'][1][1].percentage,
+                                this.form.education2Division= response.data['data'][1][1].division;
+                        };
+
+                        //education level graduate for hddlss only (13)
+                        if(response.data['data'][1][2].get_exam_level_domain_values.value == 13){
+                                this.form.education3ExaminationLevel='13',
+                                this.form.education3ExaminationPassed= response.data['data'][1][2].get_exam_passed_domain_values.id,
+                                this.form.education3University= response.data['data'][1][2].get_exam_board_domain_values.value,
+                                this.form.education3MainSubjects= response.data['data'][1][2].mainSubjects,
+                                this.form.education3YearOfPassing= response.data['data'][1][2].yearOfPassing,
+                                this.form.education3Percentage= response.data['data'][1][2].percentage,
+                                this.form.education3Division= response.data['data'][1][2].division;
+                        };
+
+                    } 
+                    else {
+                        console.log(response.data['msg'])
+                    }
+                })
+                axios.get(`/api/get-application-form-data/${applicationId}`)
+                .then(response => {
+                    if (response.data['success']) {
+
+                        this.form.miscName1= response.data['data'][2][0].name;
+                        this.form.miscCourse1= response.data['data'][2][0].course;
+                        this.form.miscYear1= response.data['data'][2][0].year;
+                        this.form.miscName2= response.data['data'][2][1].name;
+                        this.form.miscCourse2= response.data['data'][2][1].course;
+                        this.form.miscYear2= response.data['data'][2][1].year;
+                        this.form.miscName3= response.data['data'][2][2].name;
+                        this.form.miscCourse3= response.data['data'][2][2].course;
+                        this.form.miscYear3= response.data['data'][2][2].year;
+
+                    } 
+                    else {
+                        console.log(response.data['msg'])
+                    }
+                })
+            },
+
+          dataIns(id)
+            {
+                
+                if(this.insId != 'Others'){
+                    axios.get('/api/institute/get-details/'+id)
+                    .then(response => {
+                        if (response.data['success']) {
+                            this.form.insName = response.data['data'][0].instituteName;
+                            this.form.insAddressAddln1 = response.data['data'][0].get_address.addressAddln1;
+                            this.form.insAddressAddln2 = response.data['data'][0].get_address.addressAddln2;
+                            this.form.insAddressCity = response.data['data'][0].get_address.addressCity;
+                            this.form.insAddressDistprov = response.data['data'][0].get_address.addressDistprov;
+                            this.form.insAddressState = response.data['data'][0].get_address.addressState;
+                            this.form.insAddressPinzip = response.data['data'][0].get_address.addressPinzip;
+                        } else {
+                            console.log(response.data['msg'])
+                        }
+                    }).catch(error => this.errorMsg(error.response.status))
+                }
+            },
+       
+    //     getFileData(){
+    //     axios.get('/api/get-upload-documents/'+this.form.applicationId)
+    //     .then(response => {
+    //         if (response.data['success']) {
+    //             this.getFiles = response.data['data'],
+                
+    //             this.getFiles.admissionLetter    = data.admissionLetter;
+    //             this.getFiles.annexureII         = data.annexureII;
+    //             this.getFiles.photograph         = data.photograph;
+    //             this.getFiles.proofOfAge         = data.proofOfAge;
+    //             this.getFiles.markSheets10       = data.markSheets10;
+    //             this.getFiles.markSheets12       = data.markSheets12;
+    //             this.getFiles.leprosyCertificateMother = data.leprosyCertificateMother;
+    //             this.getFiles.leprosyCertificateFather = data.leprosyCertificateFather;
+    //             this.getFiles.leprosyCertificateSelf   = data.leprosyCertificateSelf;
+    //         }
+    //     })
+    // },
+
+    getMasterDoc(){
+           
+            let applicationId = window.location.pathname.split('/').reverse()[0];
+            axios.get('/api/get-documents/'+applicationId)
+                .then(response => {
+                    this.docRows = response.data;
+                    // if(response.data.length != 0)
+                    // this.docRows = response.data
+                    // this.docRows=this.docRows.map((row)=>{
+                    //     let fname = row.docFileName.split('-');
+                    //     fname.shift()
+                    //     row._docFileName= fname.join('-');
+                    //     return row
+                    // })
+                })
+        },
 
   },
   computed: {
@@ -473,7 +589,8 @@ export default{
         }
       },
     created(){
-     this.getdataNursing();
+     this.readApplicationForm();
+     this.getMasterDoc();
     }
  }
 </script>

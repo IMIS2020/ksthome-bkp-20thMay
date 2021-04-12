@@ -35,6 +35,8 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('/application-form/Hddlss', 'SystemController@applicantForm');
     Route::get('/application-form/{applicationId}', 'SystemController@applicantForm');
     Route::get('/application-documents/{applicationId}','SystemController@applicantDocuments');
+    Route::get('/review-submit/{applicationId}','SystemController@reviewMyApplication');
+    Route::get('/print-view-application/{applicationId}','SystemController@viewMyApplication');
     Route::get('/choose-scholarship','SystemController@chooseScholarship');
 
     /******

@@ -10,12 +10,15 @@
                     <div class="col-xl-12">
                         <div class="mb-3">
                             <ul class="nav nav-tabs font-sm" role="tablist">
-                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/application-form'"><strong>Application Form</strong></router-link></li>
-                                <li class="nav-item" role="presentation" v-if="getdata.hasAdmissionLetter === 'NO'"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/annexure-1'"><strong>Annexure-I</strong></router-link></li>
-                                <li class="nav-item " role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-I</strong></router-link></li>
-                                <li class="nav-item" role="presentation"><router-link class="nav-link  active" role="tab" data-toggle="tab" :to="'/annexure-2'"><strong>Annexure-II</strong></router-link></li>
-                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/application-documents'"><strong>Upload Documents</strong></router-link></li>
-                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/review-submit'"><strong>Review &amp; Submit</strong></router-link></li>
+                                <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/application-form/'+form.applicationId"><strong>Applicant Details</strong></router-link></li>
+                                <li class="nav-item" role="presentation" v-if="form.hasAdmissionLetter === 'NO' && form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/annexure-1/'+form.applicationId"><strong>Annexure-I</strong></router-link></li>
+                                <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-I</strong></router-link></li>
+                                <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link  active" role="tab" data-toggle="tab" :to="'/annexure-2/'+form.applicationId"><strong>Annexure-II</strong></router-link></li>
+                                <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-II</strong></router-link></li>
+                                <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/application-documents/'+form.applicationId"><strong>Upload Documents</strong></router-link></li>
+                                <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Upload Documents</strong></router-link></li>
+                                <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/review-submit/'+form.applicationId"><strong>Review &amp; Submit</strong></router-link></li>
+                                <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Review &amp; Submit</strong></router-link></li>
                             </ul>
                             <div class="tab-content">
                                   <div class="tab-pane active" role="tabpanel" id="tab-3">
@@ -36,15 +39,15 @@
                                                                     <p class="float-left mb-0 color-mg font-md"><strong>I&nbsp; &nbsp; &nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of colony leader" v-model="form.applicantColonyLeaderName"></span>
                                                                 </div>
                                                                 <div class="col-xl-7 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>hereby certify that Mr./ Miss.&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of the candidate" v-model="getdata.fullName"></span>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>hereby certify that Mr./ Miss.&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of the candidate" v-model="form.fullName"></span>
                                                                 </div>
                                                                 <div class="col-xl-6 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>has been residing in this colony&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Colony name" v-model="getdata.addressAddln1"></span>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>has been residing in this colony&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Colony name" v-model="form.addressAddln1"></span>
                                                                 </div>
                                                                 <div class="col-xl-6 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>and his/her parent / parents&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Mother name" v-model="getdata.applicantMotherName"></span>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>and his/her parent / parents&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Mother name" v-model="form.applicantMotherName"></span>
                                                                 </div>
-                                                                <div class="col-xl-4 text-center align-self-center mb-2"><input class="form-control form-control-sm" type="text" placeholder="Father name" v-model="getdata.applicantFatherName"></div>
+                                                                <div class="col-xl-4 text-center align-self-center mb-2"><input class="form-control form-control-sm" type="text" placeholder="Father name" v-model="form.applicantFatherName"></div>
                                                                 <div class="col-xl-8 text-center align-self-center mb-2">
                                                                     <p class="float-left mb-0 color-mg font-md"><strong>is / are affected by leprosy.</strong></p>
                                                                 </div>
@@ -84,7 +87,22 @@ export default{
        return{
          userId: document.querySelector("meta[name='userId']").getAttribute('content'),
          fullName:{},
-         form:{
+         form:
+            {
+                // courseLevel:'',
+                hasAdmissionLetter:'',
+                applicationId:'',
+                scholarshipType: '',
+                financialYear:'',
+                applicantNameF:'',
+                applicantNameM:'',
+                applicantNameL:'',
+                applicantFatherName:'',
+                applicantMotherName:'',
+                addressAddln1:'',
+                fullName:'',
+            },
+         Nform:{
            applicantColonyLeaderName:'',
         },
          getdata:{
@@ -176,33 +194,42 @@ export default{
                     console.log(response.data['msg'])
                 }
             })
-            .catch(error => this.errorMsg(error.response.status))
+            
         },
 
-      getdataNursing(){
-       axios.get(`/api/application-form/${this.userId}`)
-        .then(response => {
-          if (response.data['success']) {
-            const data = response.data['data']
-            console.log(data)
-            this.getdata.applicantNameF      = data.applicantNameF;
-            this.getdata.applicantNameM      = data.applicantNameM;
-            this.getdata.applicantNameL      = data.applicantNameL;
-            this.getdata.applicantFatherName = data.applicantFatherName;
-            this.getdata.applicantMotherName = data.applicantMotherName;
-            this.getdata.addressAddln1       = data.addressAddln1;
-            this.getdata.hasAdmissionLetter  = data.hasAdmissionLetter;
-            this.getdata.applicationId       = data.applicationId;
-            this.getdata.financialYear       = data.financialYear;
-            this.getdata.fullName = `${this.getdata.applicantNameF}${(this.getdata.applicantNameM)?" "+this.getdata.applicantNameM:''} ${this.getdata.applicantNameL}`;
-            
-         }
-         
-      })
-    }
+      async readApplicationForm() 
+        {
+            let applicationId = window.location.pathname.split('/').reverse()[0];
+            axios.get(`/api/get-application-form-data/${applicationId}`)
+            .then(response => {
+                if (response.data['success']) 
+                {
+                    this.form.applicationId=response.data['data'][0][0].schApplicationId;
+                    this.form.scholarshipType=response.data['data'][0][0].scholarshipType;
+                    this.form.applicantNameF=response.data['data'][0][0].applicantNameF;
+                    this.form.fullName = response.data['data'][0][0].applicantNameF+' '+ (response.data['data'][0][0].applicantNameM == null ? ' ' : response.data['data'][0][0].applicantNameM )+' '+response.data['data'][0][0].applicantNameL;
+                    this.form.applicantNameM=response.data['data'][0][0].applicantNameM;
+                    this.form.applicantNameL=response.data['data'][0][0].applicantNameL;
+                    this.form.applicantFatherName=response.data['data'][0][0].applicantFatherName;
+                    this.form.applicantMotherName=response.data['data'][0][0].applicantMotherName;
+                    this.form.financialYear = response.data['data'][0][0].financialYear;  
+                    this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
+                    this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
+                    if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
+                    {
+                        this.getData.genderType = "son";
+                    }else{
+                        this.getData.genderType = "daughter";
+                    }
+                } 
+                else {
+                    console.log(response.data['msg'])
+                }
+            })
+        },
   },
     created(){
-     this.getdataNursing();
+     this.readApplicationForm() ;
      this.readAnnexureII();
     }
  }

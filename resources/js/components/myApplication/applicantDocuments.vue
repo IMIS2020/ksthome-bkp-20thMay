@@ -58,7 +58,7 @@
                                                                                             <input class="form-control-file font-sm" type="file" :ref="index" multiple v-on:change="selectFile(index)" >
                                                                                         </div>
                                                                                     </td>
-                                                                                    <td>{{row._docFileName}}</td>
+                                                                                    <td>{{row.docFileName}}</td>
                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{row.uploadStatus}}</span></td>
                                                                                     <td class="text-center"  v-if="row.uploadStatus == 'YES'"> 
                                                                                         <router-link target="_blank" class="act-link" :to="''+row.fileURL">
@@ -187,14 +187,14 @@ export default{
             axios.get('/api/get-documents/'+applicationId)
                 .then(response => {
                     this.docRows = response.data;
-                    if(response.data.length != 0)
-                    this.docRows = response.data
-                    this.docRows=this.docRows.map((row)=>{
-                        let fname = row.docFileName.split('-');
-                        fname.shift()
-                        row._docFileName= fname.join('-');
-                        return row
-                    })
+                    // if(response.data.length != 0)
+                    // this.docRows = response.data
+                    // this.docRows=this.docRows.map((row)=>{
+                    //     let fname = row.docFileName.split('-');
+                    //     fname.shift()
+                    //     row._docFileName= fname.join('-');
+                    //     return row
+                    // })
                 })
         },
 

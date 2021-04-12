@@ -359,6 +359,22 @@ class ApplicationController extends Controller
              $applicationDetails->scholarshipType                  = $request->scholarshipType;
              $getDomainValuesApp = DomainValues::where('value',$request->scholarshipType)->first();
              $applicationDetails->scholarshipTypeValueId           = $getDomainValuesApp->id;
+             if($request->hasAdmissionLetter === 'YES') {
+                $applicationDetails->instituteId      = $request->instituteId;
+                if($request->courseLevelValueId == 'N')
+                {
+                    $getDomainValues = DomainValues::where('value','Graduate')->first();
+                    $applicationDetails->courseLevelValueId  = $getDomainValues->id;
+                }else{
+                    $applicationDetails->courseLevelValueId = $request->courseLevelValueId;
+                }
+                $applicationDetails->courseNameValueId   = $request->courseNameValueId;
+                $applicationDetails->recognizedByINC  = $request->recognizedByINC;
+             }else{
+                $applicationDetails->courseLevelValueId = null;
+                $applicationDetails->courseNameValueId   = null;
+                $applicationDetails->recognizedByINC  = null;
+             }
              $applicationDetails->update();
  
              $applicationAddress = Address::where('id', $applicationDetails->applicantAddressId)->first();

@@ -174,6 +174,9 @@ export default{
                 {
                     path:'/api/save-annexure2/:applicationId',
                 },
+                {
+                    path:'/api/submit-app/:applicationId',
+                },
                 /****
                  * End API calls for application from
                  */

@@ -74,7 +74,7 @@
                                               </div>
                                           </td>
                                       </tr>
-                                      <tr v-if="getdataHHDLSS.applicationId != 'N/A' " class="font-md text-black">
+                                      <!-- <tr v-if="getdataHHDLSS.applicationId != 'N/A' " class="font-md text-black">
                                           <td><em>{{getdataHHDLSS.financialYear}}</em></td>
                                           <td class="text-break"><em>HHDLSS Scholarship</em></td>
                                           <td class="text-break"><em>N/A</em></td>
@@ -90,7 +90,7 @@
                                                   </div>
                                               </div>
                                           </td>
-                                      </tr>
+                                      </tr> -->
                                   </tbody>
                               </table>
                           </div>

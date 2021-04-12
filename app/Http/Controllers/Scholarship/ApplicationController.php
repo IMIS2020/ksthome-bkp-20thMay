@@ -763,4 +763,26 @@ class ApplicationController extends Controller
                 return array('success' => false, 'msg'=>[$e]);
             }
     }
+
+    public function submitApplication(Request $request, $applicationId)
+    {
+        $editApplication = ApplicationDetails::where('schApplicationId', $applicationId)->first();
+        DB::beginTransaction();
+        try {
+                if($request->appStatus == 1){
+                    $editApplication->appStatus = 'Submit';
+                    $editApplication->update();
+                }
+
+                DB::commit();
+                return array('success' => true, 'msg'=>[]);
+            }
+            catch(Exception $e) 
+            {
+                DB::rollBack();
+                return array('success' => false, 'msg'=>[$e]);
+            }
+    }
+
+
 }

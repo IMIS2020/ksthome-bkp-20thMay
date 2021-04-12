@@ -117,11 +117,13 @@
                                                         <h6 class="mb-0 color-mg">Self Declaration</h6>
                                                     </div>
                                                     <div class="card-body">
-                                                        <p class="t-c-text">I {{form.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under “{{form.scholarshipType}} Scholarship Programme” could be withdrawn.</p>
+                                                        <p class="t-c-text">I {{form.appStatus}}{{form.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under “{{form.scholarshipType}} Scholarship Programme” could be withdrawn.</p>
+                                                        <div v-if="form.appStatus != 'Submit'">
                                                         <div class="form-group mb-3">
-                                                            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1" v-model='terms'><label class="form-check-label" for="formCheck-1">I accept the terms &amp; conditions</label></div>
+                                                            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1" v-model='terms' @click="changeStatus()"><label class="form-check-label" for="formCheck-1">I accept the terms &amp; conditions</label></div>
                                                         </div>
-                                                        <div class="form-group"><button class="btn btn-sm btn-mg" type="button" :disabled='isDisabled'>Submit Application Form</button></div>
+                                                        <div class="form-group"><button class="btn btn-sm btn-mg" type="button" :disabled='isDisabled' @click="saveForm">Submit Application Form</button></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -380,6 +382,9 @@ export default{
                     docFileName: '',
                 }
             ],
+        Sform:{
+            appStatus: false,
+        },
 
          form:
             {
@@ -395,28 +400,29 @@ export default{
                 applicantMotherName:'',
                 addressAddln1:'',
                 fullName: '',
+                appStatus: '',
             },
 
-        getdata:{
-            hasAdmissionLetter:'',
-            applicationId:'',
-            financialYear:'',
-            applicantLeprosyAffectedFather:'',
-            applicantLeprosyAffectedMother:'',
-            applicantLeprosyAffectedSelf:'',
-        },
-        getFiles:{
-            admissionLetter: '#',
-            annexureI: '#',
-            annexureII: '#',
-            photograph: '#',
-            proofOfAge: '#',
-            markSheets10: '#',
-            markSheets12: '#',
-            leprosyCertificateSelf: '#',
-            leprosyCertificateMother: '#',
-            leprosyCertificateFather: '#'
-         },
+        // getdata:{
+        //     hasAdmissionLetter:'',
+        //     applicationId:'',
+        //     financialYear:'',
+        //     applicantLeprosyAffectedFather:'',
+        //     applicantLeprosyAffectedMother:'',
+        //     applicantLeprosyAffectedSelf:'',
+        // },
+        // getFiles:{
+        //     admissionLetter: '#',
+        //     annexureI: '#',
+        //     annexureII: '#',
+        //     photograph: '#',
+        //     proofOfAge: '#',
+        //     markSheets10: '#',
+        //     markSheets12: '#',
+        //     leprosyCertificateSelf: '#',
+        //     leprosyCertificateMother: '#',
+        //     leprosyCertificateFather: '#'
+        //  },
         errors:[]
         }
     },
@@ -462,13 +468,14 @@ export default{
                     this.form.financialYear = response.data['data'][0][0].financialYear;  
                     this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
-                    this.form.fullName = response.data['data'][0][0].applicantNameF+' '+ (response.data['data'][0][0].applicantNameM == null ? ' ' : response.data['data'][0][0].applicantNameM )+' '+response.data['data'][0][0].applicantNameL;
-                    if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
-                    {
-                        this.getData.genderType = "son";
-                    }else{
-                        this.getData.genderType = "daughter";
-                    }
+                    this.form.fullName = response.data['data'][0][0].applicantNameF+' '+ (response.data['data'][0][0].applicantNameM == null ? ' ' : response.data['data'][0][0].applicantNameM )+' '+response.data['data'][0][0].applicantNameL
+                    this.form.appStatus = response.data['data'][0][0].appStatus;
+                    // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
+                    // {
+                    //     this.getData.genderType = "son";
+                    // }else{
+                    //     this.getData.genderType = "daughter";
+                    // }
                 } 
                 else {
                     console.log(response.data['msg'])
@@ -482,6 +489,7 @@ export default{
             axios.get('/api/get-documents/'+applicationId)
                 .then(response => {
                     this.docRows = response.data;
+                    this.readApplicationForm();
                     // if(response.data.length != 0)
                     // this.docRows = response.data
                     // this.docRows=this.docRows.map((row)=>{
@@ -492,6 +500,30 @@ export default{
                     // })
                 })
         },
+
+        changeStatus()
+        {
+            //console.log(event.target.value)
+            this.Sform.appStatus = true;
+            //console.log(this.Sform.appStatus);
+        },
+
+        saveForm(){
+            axios.post('/api/submit-app/'+this.form.applicationId,this.Sform)
+            .then(response => {
+                    if (response.data['success']){
+                        this.$fire({
+                            position: 'top',
+                            icon: 'success',
+                            title: "Application Submit",
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                    } else {
+                        console.log(response.data['msg'])
+                    }
+                })
+       },
   },
 
   computed: {

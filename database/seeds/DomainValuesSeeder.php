@@ -100,6 +100,22 @@ class DomainValuesSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
+        DB::table('domainValues')->insert(
+            [
+                'value' => 'Graduate',
+                'valueDescription' => 'Examination Level',
+                'nameId' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        DB::table('domainValues')->insert(
+            [
+                'value' => 'Post Graduate',
+                'valueDescription' => 'Examination Level',
+                'nameId' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
         
             
     }

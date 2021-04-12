@@ -511,41 +511,70 @@ class ApplicationController extends Controller
      # Save Scholarship Annexure1
      public function saveAnnexure1(string $applicationId, Request $request)
      {
-       
-        $institute = $request->json()->all();
-        $data = array();
-        foreach ($institute as $key => $value) {
-            foreach ($value as $k => $v) {
-                $data[$key][$k] = $v;
-            }
+        $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
+        $prevJ = AnnexureI::where('applicationId', $getApplicationId)->get();
+        $prev = [];
+        $old = [];
+        foreach ($prevJ as $key => $d) {
+            $prev[$key] = $d;
         }
 
-        $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first();
         DB::beginTransaction();
-        try 
-        {
-            foreach ($data as $ins) {
-                $addAnnex1 = new AnnexureI;
-                $addAnnex1->insId         = $ins['insId'];
-                // $addAnnex1->courseLevelValueId = $ins['courseLevelValueId'];
-                $addAnnex1->courseNameValueId  = $ins['courseNameValueId'];
-                $addAnnex1->applicationId      = $getApplicationId->id;
-                $addAnnex1->addressAddln1    = $ins['addressAddln1'];
-                $addAnnex1->addressAddln2    = $ins['addressAddln2'];
-                $addAnnex1->addressCity      = $ins['addressCity'];
-                $addAnnex1->addressState     = $ins['addressState'];
-                $addAnnex1->addressDistprov  = $ins['addressDistprov'];
-                $addAnnex1->addressPinzip    = $ins['addressPinzip'];
-                $addAnnex1->save();
+         try {
+     
+                foreach ($request->json()->all() as $ins) {
+                    if (!isset($ins['id'])) {
+                        $addAnnex1 = new AnnexureI;
+                        $addAnnex1->insId              = $ins['insId'];
+                        $addAnnex1->courseNameValueId  = $ins['courseNameValueId'];
+                        $addAnnex1->applicationId      = $getApplicationId;
+                        $addAnnex1->addressAddln1    = $ins['addressAddln1'];
+                        $addAnnex1->addressAddln2    = $ins['addressAddln2'];
+                        $addAnnex1->addressCity      = $ins['addressCity'];
+                        $addAnnex1->addressState     = $ins['addressState'];
+                        $addAnnex1->addressDistprov  = $ins['addressDistprov'];
+                        $addAnnex1->addressPinzip    = $ins['addressPinzip'];
+                        $addAnnex1->save();
+                    } else {
+                        array_push($old,$ins);
+                        $editAnnex1 = AnnexureI::where('id',$ins['id'])->first();
+                        $editAnnex1->insId              = $ins['insId'];
+                        $editAnnex1->courseNameValueId  = $ins['courseNameValueId'];
+                        $editAnnex1->applicationId      = $getApplicationId;
+                        $editAnnex1->addressAddln1    = $ins['addressAddln1'];
+                        $editAnnex1->addressAddln2    = $ins['addressAddln2'];
+                        $editAnnex1->addressCity      = $ins['addressCity'];
+                        $editAnnex1->addressState     = $ins['addressState'];
+                        $editAnnex1->addressDistprov  = $ins['addressDistprov'];
+                        $editAnnex1->addressPinzip    = $ins['addressPinzip'];
+                        $editAnnex1->save();
+                    }
+                }
+
+                // Delete
+                $deletable = array_filter($prev, function ($p) use ($old) {
+                    foreach($old as $o) {
+                        if ($o['id'] == $p['id']) { return 0; }
+                    }
+
+                    DB::commit();
+                    return array('success' => true, 'msg'=>[]);
+
+                });
+                foreach ($deletable as $del) {
+                    $delete = AnnexureI::where('id',$del['id'])->first();
+                    $delete->delete();
+                }
+
+                DB::commit();
+                return array('success' => true, 'msg'=>[]);
+            }
+            catch(Exception $e) 
+            {
+                DB::rollBack();
+                return array('success' => false, 'msg'=>[$e]);
             }
 
-            DB::commit();
-            return array('success' => true, 'msg'=>[$data]);
-        }
-        catch(Exception $e) {
-            DB::rollBack();
-            return array('success' => false, 'msg'=>[$e]);
-        }
      }
 
      #Get annexure1 Data
@@ -575,55 +604,67 @@ class ApplicationController extends Controller
             $prev[$key] = $d;
         }
 
-        foreach ($request->json()->all() as $saveDoc) {
-            if (!isset($saveDoc['id'])) {
-                $addDoc = new ApplicationDocs;
-                
-                if (isset($saveDoc['docFileNameFile'])) {
-                    $fileName = $this->uploadFile(storage_path('app/public/uploads/schloarshipRecord/'), $saveDoc['docFileNameFile'],$saveDoc['fileName']);
-                } else {
-                    $fileName = '';
-                }
-                $addDoc->docFileName               = $fileName;
-                $addDoc->docFilePath               = 'app/public/uploads/schloarshipRecord/';
-                $addDoc->docMasterId               = $saveDoc['idDoc'];
-                $addDoc->applicationId             = $getApplicationId;
-                $addDoc->uploadStatus              = 'YES';
-                $addDoc->save();
-            } else {
-                array_push($old,$saveDoc);
-                $editDoc = ApplicationDocs::where('id',$saveDoc['id'])->first();
+        DB::beginTransaction();
+        try {
 
-                if (isset($saveDoc['docFileNameFile'])) {
-                    if (!empty($editDoc->docFileName)) {
-                        unlink(storage_path('app/public/uploads/schloarshipRecord/').$editDoc->docFileName);
+            foreach ($request->json()->all() as $saveDoc) {
+                if (!isset($saveDoc['id'])) {
+                    $addDoc = new ApplicationDocs;
+                    
+                    if (isset($saveDoc['docFileNameFile'])) {
+                        $fileName = $this->uploadFile(storage_path('app/public/uploads/schloarshipRecord/'), $saveDoc['docFileNameFile'],$saveDoc['fileName']);
+                    } else {
+                        $fileName = '';
                     }
+                    $addDoc->docFileName               = $fileName;
+                    $addDoc->docFilePath               = 'app/public/uploads/schloarshipRecord/';
+                    $addDoc->docMasterId               = $saveDoc['idDoc'];
+                    $addDoc->applicationId             = $getApplicationId;
+                    $addDoc->uploadStatus              = 'YES';
+                    $addDoc->save();
+                } else {
+                    array_push($old,$saveDoc);
+                    $editDoc = ApplicationDocs::where('id',$saveDoc['id'])->first();
 
-                    $fileName = $this->uploadFile(storage_path('app/public/uploads/schloarshipRecord/'), $saveDoc['docFileNameFile'],$saveDoc['fileName']);
-                    $editDoc->docFilePath               = 'app/public/uploads/schloarshipRecord/';
-                    $editDoc->docFileName  = $fileName;
-                    $editDoc->uploadStatus  = 'YES';
+                    if (isset($saveDoc['docFileNameFile'])) {
+                        if (!empty($editDoc->docFileName)) {
+                            unlink(storage_path('app/public/uploads/schloarshipRecord/').$editDoc->docFileName);
+                        }
+
+                        $fileName = $this->uploadFile(storage_path('app/public/uploads/schloarshipRecord/'), $saveDoc['docFileNameFile'],$saveDoc['fileName']);
+                        $editDoc->docFilePath               = 'app/public/uploads/schloarshipRecord/';
+                        $editDoc->docFileName  = $fileName;
+                        $editDoc->uploadStatus  = 'YES';
+                    }
+                    $editDoc->update();
                 }
-                $editDoc->update();
             }
-        }
 
-        // Delete
-        $deletable = array_filter($prev, function ($p) use ($old) {
-            foreach($old as $o) {
-                if ($o['id'] == $p['id']) { return 0; }
+            // Delete
+            $deletable = array_filter($prev, function ($p) use ($old) {
+                foreach($old as $o) {
+                    if ($o['id'] == $p['id']) { return 0; }
+                }
+                
+                DB::commit();
+                return array('success' => true, 'msg'=>[]);
+            });
+            foreach ($deletable as $del) {
+                $delete = ApplicationDocs::where('id',$del['id'])->first();
+                if (!empty($delete->docFileName)) {
+                    unlink(storage_path('app/public/uploads/schloarshipRecord/').$delete->docFileName);
+                }
+                $delete->delete();
             }
-            return 1;
-        });
-        foreach ($deletable as $del) {
-            $delete = ApplicationDocs::where('id',$del['id'])->first();
-            if (!empty($delete->docFileName)) {
-                unlink(storage_path('app/public/uploads/schloarshipRecord/').$delete->docFileName);
-            }
-            $delete->delete();
-        }
 
-        return 1;
+            DB::commit();
+            return array('success' => true, 'msg'=>[]);
+        }
+        catch(Exception $e) 
+        {
+            DB::rollBack();
+            return array('success' => false, 'msg'=>[$e]);
+        }
      }
 
     # get Scholarship Documents

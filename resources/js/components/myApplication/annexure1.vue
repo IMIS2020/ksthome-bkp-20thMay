@@ -64,6 +64,7 @@
                                                                 <tbody class="h-25x">
                                                                     <tr v-for="(row, index) in rows" :key="index">
                                                                         <td>
+                                                                            <input type="hidden" v-model="row.id" />
                                                                             <div class="form-group mb-0">
                                                                                 <select class="form-control form-control-sm" @change="onChange($event,index)" v-model="row.insId">
                                                                                     <option v-for="(i,index) in insData" :key="index" :value="i.id">{{i.instituteName}} - {{i.get_address.addressCity}}, {{i.get_address.addressState}}</option>
@@ -357,6 +358,7 @@ export default{
         addNewData()
         {
             this.rows.push({
+                id: '',
                 insId : '',
                 courseNameValueId : '',
                 addressAddln1 : '',

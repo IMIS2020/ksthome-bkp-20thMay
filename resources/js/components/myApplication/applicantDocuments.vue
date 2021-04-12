@@ -132,7 +132,7 @@ export default{
         saveForm(){
             axios.post('/api/add-documents/'+this.form.applicationId,this.docRows)
                 .then(response => {
-                if (response.data==1){
+                if (response.data['success']){
                     this.readApplicationForm();
                     this.$fire({
                         position: 'top',

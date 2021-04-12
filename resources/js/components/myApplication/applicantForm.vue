@@ -531,7 +531,7 @@
                                                                                     </td>
                                                                                 </tr>
 
-                                                                                <tr v-if="form.scholarshipType == 'Hddlss'">
+                                                                                <tr v-if="form.scholarshipType == 'HHDLS'">
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
                                                                                             <select class="form-control form-control-sm" v-model="form.education3ExaminationLevel" disabled>
@@ -1408,7 +1408,7 @@ export default {
                 education2Percentage: '',
                 education2Division: '',
 
-                //education level graduate for hddlss only (13)
+                //education level graduate for HHDLS only (13)
                 education3ExaminationLevel:'13',
                 education3ExaminationPassed: '',
                 education3University: '',
@@ -1597,7 +1597,7 @@ export default {
                                 this.form.education2Division= response.data['data'][1][1].division;
                         };
 
-                        //education level graduate for hddlss only (13)
+                        //education level graduate for HHDLS only (13)
                         if(response.data['data'][1][2].get_exam_level_domain_values.value == 13){
                                 this.form.education3ExaminationLevel='13',
                                 this.form.education3ExaminationPassed= response.data['data'][1][2].get_exam_passed_domain_values.id,

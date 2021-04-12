@@ -94,7 +94,7 @@ class DomainValuesSeeder extends Seeder
             ]);
         DB::table('domainValues')->insert(
             [
-                'value' => 'Hddlls',
+                'value' => 'HHDLS',
                 'valueDescription' => 'Scholarship',
                 'nameId' => 4,
                 'created_at' => Carbon::now(),

@@ -216,7 +216,7 @@
                                         <td>{{form.education2Percentage}}%</td>
                                         <td>{{form.education2Division}}</td>
                                     </tr>
-                                     <tr class="fw-600" v-if="form.scholarshipType == 'Hddlss'">
+                                     <tr class="fw-600" v-if="form.scholarshipType == 'HHDLS'">
                                        <td>{{form.education3ExaminationLevel}}</td>
                                         <td>{{(form.education3ExaminationLevel == '13')?'Graduate':''}}</td>
                                         <td>{{form.education3University}}</td>
@@ -342,7 +342,7 @@ export default{
                 education2Percentage: '',
                 education2Division: '',
 
-                //education level graduate for hddlss only (13)
+                //education level graduate for HHDLS only (13)
                 education3ExaminationLevel:'13',
                 education3ExaminationPassed: '',
                 education3University: '',
@@ -489,7 +489,7 @@ export default{
                                 this.form.education2Division= response.data['data'][1][1].division;
                         };
 
-                        //education level graduate for hddlss only (13)
+                        //education level graduate for HHDLS only (13)
                         if(response.data['data'][1][2].get_exam_level_domain_values.value == 13){
                                 this.form.education3ExaminationLevel='13',
                                 this.form.education3ExaminationPassed= response.data['data'][1][2].get_exam_passed_domain_values.id,

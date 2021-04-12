@@ -106,7 +106,7 @@ export default{
                     name: "application-form-nursing"
                 },
                 {
-                    path: '/application-form/Hddlss',
+                    path: '/application-form/HHDLS',
                     component: ApplicantForm,
                     name: "application-form-hddlss"
                 },

@@ -207,7 +207,7 @@ class ApplicationController extends Controller
              $applicationEducationDetails12->applicationId          = $applicationDetails->id;
              $applicationEducationDetails12->save();
 
-             if($request->scholarshipType == 'Hddlss'){
+             if($request->scholarshipType == 'HHDLS'){
                 $applicationEducationDetails13 = new ApplicationEducationDetails; // Graduate only for hddlls
                 $getDomainValuesExam13 = DomainValues::where('value',$request->education3ExaminationLevel)->first();
                 $applicationEducationDetails13->examLevelValueId       = $getDomainValuesExam13->id;
@@ -418,7 +418,7 @@ class ApplicationController extends Controller
              $applicationEducationDetails12->update();
 
              //for 13
-             if($request->scholarshipType == 'Hddlss'){
+             if($request->scholarshipType == 'HHDLS'){
                 $getDomainValuesExam13 = DomainValues::where('value',$request->education3ExaminationLevel)->first();
                 $applicationEducationDetails13 = ApplicationEducationDetails::where('applicationId',  $applicationDetails->id)->where('examLevelValueId', $getDomainValuesExam13->id)->first();
                 $applicationEducationDetails13->examBoardValueId       = $request->education3University;

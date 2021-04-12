@@ -32,7 +32,7 @@
                                                                </p>
 
                                                                <p class="text-left mb-0 font-sm" v-else>
-                                                                 <router-link to="/application-form/Hddlss"><strong>Click here</strong></router-link>
+                                                                 <router-link to="/application-form/HHDLS"><strong>Click here</strong></router-link>
                                                                </p>
                                                           </div>
                                                       </div>

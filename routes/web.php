@@ -32,7 +32,7 @@ Route::group(['middleware' => ['auth']], function (){
     * folder
     */
     Route::get('/application-form/Nursing', 'SystemController@applicantForm');
-    Route::get('/application-form/Hddlss', 'SystemController@applicantForm');
+    Route::get('/application-form/HHDLS', 'SystemController@applicantForm');
     Route::get('/application-form/{applicationId}', 'SystemController@applicantForm');
     Route::get('/application-documents/{applicationId}','SystemController@applicantDocuments');
     Route::get('/review-submit/{applicationId}','SystemController@reviewMyApplication');

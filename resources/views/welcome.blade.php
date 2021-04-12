@@ -21,7 +21,7 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active p-3" role="tabpanel" id="tab-1">
-                            <h5 class="text-break mb-3 color-mg"><a href="/application-form/Hddlss"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for HHDLS Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-sign-in"></i></h5>
+                            <h5 class="text-break mb-3 color-mg"><a href="/application-form/HHDLS"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for HHDLS Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-sign-in"></i></h5>
                             <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Instructions-for-HHDL-Scholarship-Programme.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for HHDLS Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
                             <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Guidelines-for-HHDL-Scholarship 2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for HHDLS Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
                         </div>
@@ -81,7 +81,7 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active p-3" role="tabpanel" id="tab-1">
-                                <h5 class="text-break mb-3 color-mg"><a href="/application-form/Hddlss"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for HHDLS Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-sign-in"></i></h5>
+                                <h5 class="text-break mb-3 color-mg"><a href="/application-form/HHDLS"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for HHDLS Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-sign-in"></i></h5>
                                 <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Instructions-for-HHDL-Scholarship-Programme.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for HHDLS Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
                                 <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Guidelines-for-HHDL-Scholarship 2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for HHDLS Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
                             </div>

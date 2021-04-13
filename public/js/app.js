@@ -61381,8 +61381,7 @@ var render = function() {
                                                               staticClass:
                                                                 "form-control form-control-sm",
                                                               attrs: {
-                                                                disabled:
-                                                                  _vm.globalDisable
+                                                                disabled: ""
                                                               },
                                                               on: {
                                                                 change: function(

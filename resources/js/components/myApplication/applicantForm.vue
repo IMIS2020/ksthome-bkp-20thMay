@@ -289,7 +289,7 @@
                                                                                 <tr>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.education1ExaminationLevel" :disabled="globalDisable">
+                                                                                            <select class="form-control form-control-sm" v-model="form.education1ExaminationLevel" disabled>
                                                                                                 <option value="" disabled>-- select --</option>
                                                                                                 <option value="10" selected>10th</option>
                                                                                             </select>

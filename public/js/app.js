@@ -3186,11 +3186,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       userId: document.querySelector("meta[name='userId']").getAttribute('content'),
       fullName: {},
+      globalDisable: false,
       form: {
         // courseLevel:'',
         hasAdmissionLetter: '',
@@ -3340,13 +3342,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this3.form.financialYear = response.data['data'][0][0].financialYear;
                     _this3.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     _this3.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
-                    _this3.Nform.applicantColonyLeaderName = response.data['data'][0][0].applicantColonyLeaderName;
+                    _this3.Nform.applicantColonyLeaderName = response.data['data'][0][0].applicantColonyLeaderName; // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
+                    // {
+                    //     this.getData.genderType = "son";
+                    // }else{
+                    //     this.getData.genderType = "daughter";
+                    // };
 
-                    if (_this3.form.applicantGender = response.data['data'][0][0].applicantGender == "Male") {
-                      _this3.getData.genderType = "son";
-                    } else {
-                      _this3.getData.genderType = "daughter";
+                    _this3.form.appStatus = response.data['data'][0][0].appStatus;
+
+                    if (_this3.form.appStatus == 'Submit') {
+                      _this3.globalDisable = true;
                     }
+
+                    ;
                   } else {
                     console.log(response.data['msg']);
                   }
@@ -3637,12 +3646,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       userId: document.querySelector("meta[name='userId']").getAttribute('content'),
       // docRows1:{},
       // update: false,
+      globalDisable: false,
       docRows: [{
         id: '',
         docFileName: ''
@@ -3706,13 +3724,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this2.form.applicantMotherName = response.data['data'][0][0].applicantMotherName;
                     _this2.form.financialYear = response.data['data'][0][0].financialYear;
                     _this2.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
-                    _this2.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
+                    _this2.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1; // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
+                    // {
+                    //     this.getData.genderType = "son";
+                    // }else{
+                    //     this.getData.genderType = "daughter";
+                    // }
 
-                    if (_this2.form.applicantGender = response.data['data'][0][0].applicantGender == "Male") {
-                      _this2.getData.genderType = "son";
-                    } else {
-                      _this2.getData.genderType = "daughter";
+                    _this2.form.appStatus = response.data['data'][0][0].appStatus;
+
+                    if (_this2.form.appStatus == 'Submit') {
+                      _this2.globalDisable = true;
                     }
+
+                    ;
                   } else {
                     console.log(response.data['msg']);
                   }
@@ -57485,7 +57510,8 @@ var render = function() {
                                               attrs: {
                                                 type: "text",
                                                 placeholder:
-                                                  "Name of colony leader"
+                                                  "Name of colony leader",
+                                                disabled: _vm.globalDisable
                                               },
                                               domProps: {
                                                 value:
@@ -57539,7 +57565,8 @@ var render = function() {
                                               attrs: {
                                                 type: "text",
                                                 placeholder:
-                                                  "Name of the candidate"
+                                                  "Name of the candidate",
+                                                disabled: _vm.globalDisable
                                               },
                                               domProps: {
                                                 value: _vm.form.fullName
@@ -57591,7 +57618,8 @@ var render = function() {
                                                 "form-control form-control-sm",
                                               attrs: {
                                                 type: "text",
-                                                placeholder: "Colony name"
+                                                placeholder: "Colony name",
+                                                disabled: _vm.globalDisable
                                               },
                                               domProps: {
                                                 value: _vm.form.addressAddln1
@@ -57645,7 +57673,8 @@ var render = function() {
                                                 "form-control form-control-sm",
                                               attrs: {
                                                 type: "text",
-                                                placeholder: "Mother name"
+                                                placeholder: "Mother name",
+                                                disabled: _vm.globalDisable
                                               },
                                               domProps: {
                                                 value:
@@ -57691,7 +57720,8 @@ var render = function() {
                                             "form-control form-control-sm",
                                           attrs: {
                                             type: "text",
-                                            placeholder: "Father name"
+                                            placeholder: "Father name",
+                                            disabled: _vm.globalDisable
                                           },
                                           domProps: {
                                             value: _vm.form.applicantFatherName
@@ -57749,27 +57779,53 @@ var render = function() {
                               ])
                             ]),
                             _vm._v(" "),
-                            _vm._m(8),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "col-xl-3 offset-xl-0" },
-                              [
-                                _c(
-                                  "router-link",
-                                  {
-                                    staticClass:
-                                      "btn btn-danger btn-block btn-sm",
-                                    attrs: {
-                                      type: "button",
-                                      to: "/manage-my-application"
-                                    }
-                                  },
-                                  [_c("strong", [_vm._v("Cancel")])]
+                            _vm.globalDisable == false
+                              ? _c(
+                                  "div",
+                                  { staticClass: "col-xl-3 offset-xl-3" },
+                                  [_vm._m(8)]
                                 )
-                              ],
-                              1
-                            )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.globalDisable == false
+                              ? _c(
+                                  "div",
+                                  { staticClass: "col-xl-3 offset-xl-0" },
+                                  [
+                                    _c(
+                                      "router-link",
+                                      {
+                                        staticClass:
+                                          "btn btn-danger btn-block btn-sm",
+                                        attrs: {
+                                          type: "button",
+                                          to: "/manage-my-application"
+                                        }
+                                      },
+                                      [_c("strong", [_vm._v("Cancel")])]
+                                    )
+                                  ],
+                                  1
+                                )
+                              : _c(
+                                  "div",
+                                  { staticClass: "col-xl-3 offset-xl-5" },
+                                  [
+                                    _c(
+                                      "router-link",
+                                      {
+                                        staticClass:
+                                          "btn btn-danger btn-block btn-sm",
+                                        attrs: {
+                                          type: "button",
+                                          to: "/manage-my-application"
+                                        }
+                                      },
+                                      [_c("strong", [_vm._v("Cancel")])]
+                                    )
+                                  ],
+                                  1
+                                )
                           ])
                         ])
                       ])
@@ -57912,16 +57968,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xl-3 offset-xl-3" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-block btn-sm btn-mg",
-          attrs: { type: "submit" }
-        },
-        [_c("strong", [_vm._v("Save")])]
-      )
-    ])
+    return _c(
+      "button",
+      { staticClass: "btn btn-block btn-sm btn-mg", attrs: { type: "submit" } },
+      [_c("strong", [_vm._v("Save")])]
+    )
   }
 ]
 render._withStripped = true
@@ -58538,7 +58589,9 @@ var render = function() {
                                                             }
                                                           ],
                                                           attrs: {
-                                                            type: "hidden"
+                                                            type: "hidden",
+                                                            disabled:
+                                                              _vm.globalDisable
                                                           },
                                                           domProps: {
                                                             value: row.id
@@ -58577,7 +58630,9 @@ var render = function() {
                                                                 "form-control-file font-sm",
                                                               attrs: {
                                                                 type: "file",
-                                                                multiple: ""
+                                                                multiple: "",
+                                                                disabled:
+                                                                  _vm.globalDisable
                                                               },
                                                               on: {
                                                                 change: function(
@@ -58660,34 +58715,41 @@ var render = function() {
                                                                 1
                                                               ),
                                                               _vm._v(" "),
-                                                              _c("span", [
-                                                                _c(
-                                                                  "a",
-                                                                  {
-                                                                    staticClass:
-                                                                      "act-link",
-                                                                    attrs: {
-                                                                      href: "#"
-                                                                    },
-                                                                    on: {
-                                                                      click: function(
-                                                                        $event
-                                                                      ) {
-                                                                        $event.preventDefault()
-                                                                        return _vm.deleteFile(
-                                                                          row.id
+                                                              _vm.globalDisable ==
+                                                              false
+                                                                ? _c("span", [
+                                                                    _c(
+                                                                      "a",
+                                                                      {
+                                                                        staticClass:
+                                                                          "act-link",
+                                                                        attrs: {
+                                                                          href:
+                                                                            "#"
+                                                                        },
+                                                                        on: {
+                                                                          click: function(
+                                                                            $event
+                                                                          ) {
+                                                                            $event.preventDefault()
+                                                                            return _vm.deleteFile(
+                                                                              row.id
+                                                                            )
+                                                                          }
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _c(
+                                                                          "i",
+                                                                          {
+                                                                            staticClass:
+                                                                              "fa fa-trash"
+                                                                          }
                                                                         )
-                                                                      }
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _c("i", {
-                                                                      staticClass:
-                                                                        "fa fa-trash"
-                                                                    })
-                                                                  ]
-                                                                )
-                                                              ])
+                                                                      ]
+                                                                    )
+                                                                  ])
+                                                                : _vm._e()
                                                             ]
                                                           )
                                                         : _c(
@@ -58724,23 +58786,43 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(4),
+            _vm.globalDisable == false
+              ? _c("div", { staticClass: "col-xl-2 offset-xl-4 my-2" }, [
+                  _vm._m(4)
+                ])
+              : _vm._e(),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col-xl-2 offset-xl-0 my-2" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "btn btn-danger btn-block btn-sm",
-                    attrs: { type: "button", to: "/manage-my-application" }
-                  },
-                  [_c("strong", [_vm._v("Cancel")])]
+            _vm.globalDisable == false
+              ? _c(
+                  "div",
+                  { staticClass: "col-xl-2 offset-xl-0 my-2" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-danger btn-block btn-sm",
+                        attrs: { type: "button", to: "/manage-my-application" }
+                      },
+                      [_c("strong", [_vm._v("Cancel")])]
+                    )
+                  ],
+                  1
                 )
-              ],
-              1
-            )
+              : _c(
+                  "div",
+                  { staticClass: "col-xl-2 offset-xl-5 my-2" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-danger btn-block btn-sm",
+                        attrs: { type: "button", to: "/manage-my-application" }
+                      },
+                      [_c("strong", [_vm._v("Cancel")])]
+                    )
+                  ],
+                  1
+                )
           ])
         ]
       )
@@ -58803,16 +58885,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xl-2 offset-xl-4 my-2" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-block btn-sm btn-mg",
-          attrs: { type: "submit" }
-        },
-        [_c("strong", [_vm._v("Save")])]
-      )
-    ])
+    return _c(
+      "button",
+      { staticClass: "btn btn-block btn-sm btn-mg", attrs: { type: "submit" } },
+      [_c("strong", [_vm._v("Save")])]
+    )
   }
 ]
 render._withStripped = true

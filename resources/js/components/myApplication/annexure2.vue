@@ -36,18 +36,18 @@
                                                                     <p class="text-uppercase mb-0 color-mg"><strong><span style="text-decoration: underline;">to whom it may concern</span></strong></p>
                                                                 </div>
                                                                 <div class="col-xl-5 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>I&nbsp; &nbsp; &nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of colony leader" v-model="Nform.applicantColonyLeaderName"></span>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>I&nbsp; &nbsp; &nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of colony leader" v-model="Nform.applicantColonyLeaderName" :disabled="globalDisable"></span>
                                                                 </div>
                                                                 <div class="col-xl-7 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>hereby certify that Mr./ Miss.&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of the candidate" v-model="form.fullName"></span>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>hereby certify that Mr./ Miss.&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of the candidate" v-model="form.fullName" :disabled="globalDisable"></span>
                                                                 </div>
                                                                 <div class="col-xl-6 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>has been residing in this colony&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Colony name" v-model="form.addressAddln1"></span>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>has been residing in this colony&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Colony name" v-model="form.addressAddln1" :disabled="globalDisable"></span>
                                                                 </div>
                                                                 <div class="col-xl-6 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>and his/her parent / parents&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Mother name" v-model="form.applicantMotherName"></span>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>and his/her parent / parents&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Mother name" v-model="form.applicantMotherName" :disabled="globalDisable"></span>
                                                                 </div>
-                                                                <div class="col-xl-4 text-center align-self-center mb-2"><input class="form-control form-control-sm" type="text" placeholder="Father name" v-model="form.applicantFatherName"></div>
+                                                                <div class="col-xl-4 text-center align-self-center mb-2"><input class="form-control form-control-sm" type="text" placeholder="Father name" v-model="form.applicantFatherName" :disabled="globalDisable"></div>
                                                                 <div class="col-xl-8 text-center align-self-center mb-2">
                                                                     <p class="float-left mb-0 color-mg font-md"><strong>is / are affected by leprosy.</strong></p>
                                                                 </div>
@@ -59,8 +59,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-3 offset-xl-3"><button class="btn btn-block btn-sm btn-mg" type="submit"><strong>Save</strong></button></div>
-                                                <div class="col-xl-3 offset-xl-0"><router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-my-application"><strong>Cancel</strong></router-link></div>
+                                                <div class="col-xl-3 offset-xl-3" v-if="globalDisable == false"><button class="btn btn-block btn-sm btn-mg" type="submit"><strong>Save</strong></button></div>
+                                                <div class="col-xl-3 offset-xl-0" v-if="globalDisable == false"><router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-my-application"><strong>Cancel</strong></router-link></div>
+                                                <div class="col-xl-3 offset-xl-5" v-else><router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-my-application"><strong>Cancel</strong></router-link></div>
                                             </div>
                                         </div>
                                     </div>
@@ -87,6 +88,7 @@ export default{
        return{
                 userId: document.querySelector("meta[name='userId']").getAttribute('content'),
                 fullName:{},
+                globalDisable: false,
                 form:
                 {
                     // courseLevel:'',
@@ -216,12 +218,17 @@ export default{
                     this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
                     this.Nform.applicantColonyLeaderName = response.data['data'][0][0].applicantColonyLeaderName;
-                    if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
+                    // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
+                    // {
+                    //     this.getData.genderType = "son";
+                    // }else{
+                    //     this.getData.genderType = "daughter";
+                    // };
+                    this.form.appStatus = response.data['data'][0][0].appStatus;
+                    if(this.form.appStatus == 'Submit')
                     {
-                        this.getData.genderType = "son";
-                    }else{
-                        this.getData.genderType = "daughter";
-                    }
+                        this.globalDisable = true;
+                    };
                 } 
                 else {
                     console.log(response.data['msg'])

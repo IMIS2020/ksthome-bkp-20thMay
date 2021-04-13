@@ -53,9 +53,9 @@
 
                                                                                     <td>
                                                                                         <!-- <input type="hidden" v-model="row.idDoc"/> -->
-                                                                                        <input  type="hidden" v-model="row.id"/>
+                                                                                        <input  type="hidden" v-model="row.id" :disabled="globalDisable"/>
                                                                                         <div class="form-group">
-                                                                                            <input class="form-control-file font-sm" type="file" :ref="index" multiple v-on:change="selectFile(index)" >
+                                                                                            <input class="form-control-file font-sm" type="file" :ref="index" multiple v-on:change="selectFile(index)" :disabled="globalDisable">
                                                                                         </div>
                                                                                     </td>
                                                                                     <td>{{row.docFileName}}</td>
@@ -64,7 +64,7 @@
                                                                                         <span><router-link target="_blank" class="act-link" :to="''+row.fileURL">
                                                                                             <i class="fa fa-eye"></i>
                                                                                         </router-link></span>
-                                                                                        <span><a class="act-link" href="#" @click.prevent="deleteFile(row.id)">
+                                                                                        <span v-if="globalDisable == false"><a class="act-link" href="#" @click.prevent="deleteFile(row.id)">
                                                                                             <i class="fa fa-trash"></i>
                                                                                         </a></span>
                                                                                     </td>
@@ -87,8 +87,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 offset-xl-4 my-2"><button class="btn btn-block btn-sm btn-mg" type="submit"><strong>Save</strong></button></div>
-                    <div class="col-xl-2 offset-xl-0 my-2"><router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-my-application"><strong>Cancel</strong></router-link>
+                    <div class="col-xl-2 offset-xl-4 my-2" v-if="globalDisable == false">
+                        <button class="btn btn-block btn-sm btn-mg" type="submit">
+                            <strong>Save</strong>
+                        </button>
+                    </div>
+                    <div class="col-xl-2 offset-xl-0 my-2" v-if="globalDisable == false">
+                        <router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-my-application"><strong>Cancel</strong></router-link>
+                    </div>
+                    <div class="col-xl-2 offset-xl-5 my-2" v-else>
+                        <router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-my-application"><strong>Cancel</strong></router-link>
                     </div>
                 </div>
              </form>
@@ -103,6 +111,7 @@ export default{
             userId: document.querySelector("meta[name='userId']").getAttribute('content'),
             // docRows1:{},
             // update: false,
+            globalDisable: false,
             docRows:[
                 {
                     id: '',
@@ -167,12 +176,17 @@ export default{
                     this.form.financialYear = response.data['data'][0][0].financialYear;  
                     this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
-                    if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
+                    // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
+                    // {
+                    //     this.getData.genderType = "son";
+                    // }else{
+                    //     this.getData.genderType = "daughter";
+                    // }
+                    this.form.appStatus = response.data['data'][0][0].appStatus;
+                    if(this.form.appStatus == 'Submit')
                     {
-                        this.getData.genderType = "son";
-                    }else{
-                        this.getData.genderType = "daughter";
-                    }
+                        this.globalDisable = true;
+                    };
                 } 
                 else {
                     console.log(response.data['msg'])

@@ -112,10 +112,10 @@ function newFunction(){
   //End-HHDLSS
 
 // Admin Section
-// const app21 = new Vue({
-//   el: '#adminDashboard',
-//   router: new VueRouter(routes)
-// });
+const app12 = new Vue({
+  el: '#adminDashboard',
+  router: new VueRouter(routes)
+});
 
 // const app22 = new Vue({
 //   el: '#addDomains',

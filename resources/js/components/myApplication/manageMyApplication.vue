@@ -47,6 +47,7 @@
                               <table class="table table-sm mb-0">
                                   <thead class="cs-tbl-hd">
                                       <tr>
+                                          <th class="w-3x">Sl No.</th>
                                           <th>Financial Year</th>
                                           <th>Scholarship Type</th>
                                           <th>Last Date of Application</th>
@@ -57,17 +58,23 @@
                                       </tr>
                                   </thead>
                                   <tbody class="h-41x">
-                                      <tr class="font-md text-black" v-if="getdata.applicationId != 'N/A' ">
-                                          <td><em>{{getdata.financialYear}}</em></td>
+                                      <tr class="font-md text-black" v-for="(row,index) in getdata" :key="index">
+                                          <td class="w-3x"><em>{{index+1}}</em></td>
+                                          <td><em>{{row.financialYear}}</em></td>
                                           <td class="text-break"><em>Nursing Scholarship</em></td>
                                           <td class="text-break"><em>N/A</em></td>
-                                          <td><em>{{getdata.applicationId}}</em></td>
-                                          <td class="text-nowrap"><em>{{getdata.submissionDate}}</em></td>
-                                          <td class="text-center"><em>{{getdata.status}}</em><span class="badge badge-success"></span></td>
+                                          <td><em>{{row.schApplicationId}}</em></td>
+                                          <td class="text-nowrap"><em>N/A</em></td>
+                                          <td class="text-center">
+                                              <em>
+                                                  <span class="badge badge-danger" v-if="row.appStatus == 'Submit'">Submitted</span>
+                                                  <span class="badge badge-success" v-else>{{row.appStatus}}</span>
+                                              </em>
+                                          </td>
                                           <td class="text-center w-5x">
                                               <div class="dropdown no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
                                                   <div class="dropdown-menu dropdown-menu-left shadow dropdown-menu-right animated--fade-in">
-                                                      <router-link class="dropdown-item" to="/application-form"><strong>Edit Application</strong></router-link>
+                                                      <router-link class="dropdown-item" :to="'/application-form/'+row.schApplicationId"  v-if="row.appStatus == 'Saved'"><strong>Edit Application</strong></router-link>
                                                       <router-link class="dropdown-item" to="/view-nursing"><strong>View Application</strong></router-link>
                                                       <router-link class="dropdown-item" to="/print-view-nursing"><strong>Download Application</strong></router-link>
                                                     </div>
@@ -108,42 +115,44 @@ export default {
       return {
          userId: document.querySelector("meta[name='userId']").getAttribute('content'),
          scholarshipType2:"Nursing",
-         getdata:{
-            applicationId:'N/A',	
-            status:'Not Applied',	
-            submissionDate:'N/A',
-            financialYear:'N/A',
-         },
-         getdataHHDLSS:{
-            applicationId:'N/A',	
-            status:'Not Applied',	
-            submissionDate:'N/A',
-            financialYear:'N/A',
-         },
+         getdata:{},
          errors:[]
          }
-   },
+    },
+
+    methods:
+    {
+        getApplicationData()
+        {
+         axios.get('/api/manage-my-application')
+              .then(response=>{
+                 this.getdata = response.data;
+              });
+        },
+
+    },
    created() {
-      axios.get(`/api/application-form/${this.userId}`)
-      .then(response => {
-         if (response.data['success']) {
-            const data = response.data['data']
-            this.getdata.financialYear = data.financialYear;
-            this.getdata.applicationId = data.applicationId;
-            this.getdata.status = data.status;
-            this.getdata.submissionDate = data.created_at.split('T')[0].split('-').reverse().join('/');
-         }
-      });
-      axios.get(`/api/application-form-HHDLSS/${this.userId}`)
-      .then(response => {
-         if (response.data['success']) {
-            const data = response.data['data']
-            this.getdataHHDLSS.financialYear = data.financialYear;
-            this.getdataHHDLSS.applicationId = data.applicationId;
-            this.getdataHHDLSS.status = data.status;
-            this.getdataHHDLSS.submissionDate = data.created_at.split('T')[0].split('-').reverse().join('/');
-         }
-      })
+       this.getApplicationData();
+    //   axios.get(`/api/application-form/${this.userId}`)
+    //   .then(response => {
+    //      if (response.data['success']) {
+    //         const data = response.data['data']
+    //         this.getdata.financialYear = data.financialYear;
+    //         this.getdata.applicationId = data.applicationId;
+    //         this.getdata.status = data.status;
+    //         this.getdata.submissionDate = data.created_at.split('T')[0].split('-').reverse().join('/');
+    //      }
+    //   });
+    //   axios.get(`/api/application-form-HHDLSS/${this.userId}`)
+    //   .then(response => {
+    //      if (response.data['success']) {
+    //         const data = response.data['data']
+    //         this.getdataHHDLSS.financialYear = data.financialYear;
+    //         this.getdataHHDLSS.applicationId = data.applicationId;
+    //         this.getdataHHDLSS.status = data.status;
+    //         this.getdataHHDLSS.submissionDate = data.created_at.split('T')[0].split('-').reverse().join('/');
+    //      }
+    //   })
    }
 }
 </script>

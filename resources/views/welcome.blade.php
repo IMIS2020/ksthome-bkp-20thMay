@@ -15,20 +15,20 @@
             <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 offset-lg-0 offset-xl-0 mb-2 pr-1">
                 <div class="home-tabs">
                     <ul class="nav nav-tabs nav-justified" role="tablist">
-                        <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1"><strong>HHDLSS Scholarship</strong></a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1"><strong>HHDLS Scholarship</strong></a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2"><strong>Nursing Scholarship</strong></a></li>
                         <!-- <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3"><strong>One Year Scholarship</strong></a></li> -->
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active p-3" role="tabpanel" id="tab-1">
-                            <h5 class="text-break mb-3 color-mg"><a href="/application-form/HHDLS"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for HHDLS Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-sign-in"></i></h5>
-                            <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Instructions-for-HHDL-Scholarship-Programme.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for HHDLS Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
-                            <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Guidelines-for-HHDL-Scholarship 2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for HHDLS Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
+                            <h5 class="text-break mb-3 color-mg"><a href="/application-form/HHDLS"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for HHDLS Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-sign-in"></i></h5>
+                            <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Instructions-for-HHDL-Scholarship-Programme.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for HHDLS Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?>  &nbsp;</strong><i class="fa fa-download"></i></h5>
+                            <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Guidelines-for-HHDL-Scholarship 2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for HHDLS Scholarship <?php echo date("Y");?> -<?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-download"></i></h5>
                         </div>
                         <div class="tab-pane p-3" role="tabpanel" id="tab-2">
-                            <h5 class="text-break mb-3 color-mg"><a href="/application-form/Nursing"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for Nursing Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-sign-in"></i></h5>
-                            <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-nur"><a href="{{asset('assets/files/Instructions-for-Nursing-Scholarship-Programme.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for Nursing Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
-                            <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-nur"><a href="{{asset('assets/files/Guidelines-for-Nursing-Scholarship 2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for Nursing Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
+                            <h5 class="text-break mb-3 color-mg"><a href="/application-form/Nursing"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for Nursing Scholarship <?php echo date("Y");?> - <?php echo date("Y")+1; ?> &nbsp;</strong><i class="fa fa-sign-in"></i></h5>
+                            <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-nur"><a href="{{asset('assets/files/Instructions-for-Nursing-Scholarship-Programme.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for Nursing Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-download"></i></h5>
+                            <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-nur"><a href="{{asset('assets/files/Guidelines-for-Nursing-Scholarship 2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for Nursing Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-download"></i></h5>
                         </div>
                         <!-- <div class="tab-pane p-3" role="tabpanel" id="tab-3">
                             <h5 class="text-break mb-3 color-mg"><a href="add-new-hhdl-scholarship-application.html"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for One Year Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-sign-in"></i></h5>
@@ -67,8 +67,8 @@
                         </div>
                         <div class="form-group mb-0">
                             <p class="text-muted font-md mb-0"><strong>Not have any account, register </strong><a href="{{ route('register') }}"><strong>here</strong></a></p>
-                            <br>
-                            <!-- <p class="text-muted font-md mb-0"><strong>Having trouble logging in? </strong><a href="/forgot-password"><strong>reset password</strong></a></p> -->
+                            <p class="text-muted font-md mb-0"><strong>Having trouble logging in? </strong><a href="{{ route('password.request') }}"><strong>reset password</strong></a></p>
+                            
                         </div>
                     </form>
                 </div>
@@ -83,14 +83,14 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active p-3" role="tabpanel" id="tab-1">
-                                <h5 class="text-break mb-3 color-mg"><a href="/application-form/HHDLS"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for HHDLS Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-sign-in"></i></h5>
-                                <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Instructions-for-HHDL-Scholarship-Programme.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for HHDLS Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
-                                <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Guidelines-for-HHDL-Scholarship 2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for HHDLS Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
+                                <h5 class="text-break mb-3 color-mg"><a href="/application-form/HHDLS"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for HHDLS Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-sign-in"></i></h5>
+                                <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Instructions-for-HHDL-Scholarship-Programme.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for HHDLS Scholarship <?php echo date("Y");?> - <?php echo date("Y")+1; ?>&nbsp;</strong><i class="fa fa-download"></i></h5>
+                                <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Guidelines-for-HHDL-Scholarship 2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for HHDLS Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-download"></i></h5>
                             </div>
                             <div class="tab-pane p-3" role="tabpanel" id="tab-2">
-                                <h5 class="text-break mb-3 color-mg"><a href="/application-form/Nursing"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for Nursing Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-sign-in"></i></h5>
-                                <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-nur"><a href="{{asset('assets/files/Instructions-for-Nursing-Scholarship-Programme.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for Nursing Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
-                                <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-nur"><a href="{{asset('assets/files/Guidelines-for-Nursing-Scholarship 2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for Nursing Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-download"></i></h5>
+                                <h5 class="text-break mb-3 color-mg"><a href="/application-form/Nursing"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for Nursing Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-sign-in"></i></h5>
+                                <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-nur"><a href="{{asset('assets/files/Instructions-for-Nursing-Scholarship-Programme.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for Nursing Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-download"></i></h5>
+                                <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-nur"><a href="{{asset('assets/files/Guidelines-for-Nursing-Scholarship 2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for Nursing Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-download"></i></h5>
                             </div>
                             <!-- <div class="tab-pane p-3" role="tabpanel" id="tab-3">
                                 <h5 class="text-break mb-3 color-mg"><a href="add-new-hhdl-scholarship-application.html"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for One Year Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-sign-in"></i></h5>
@@ -162,10 +162,10 @@
                                                 <td><strong>Gender</strong></td>
                                                 <td>{{$user->gender}}</td>
                                             </tr>
-                                            <tr>
+                                            <!-- <tr>
                                                 <td><strong>Last Login</strong></td>
                                                
-                                            </tr>
+                                            </tr> -->
                                            
                                         </tbody>
                                     </table>

@@ -138,7 +138,8 @@
                                             <div class="home-icon">
                                                 <h3 class="text-break text-uppercase"><strong>manage </strong><br><strong>application</strong><br></h3>
                                             </div>
-                                        </router-link></div>
+                                        </router-link>
+                                    </div>
                                 </div>
                             </div>
                         </div>

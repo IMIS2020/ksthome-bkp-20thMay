@@ -241,18 +241,19 @@ export default{
                  * End API calls for Institue details
                  */
 
-                 /***
-                  * Doc Master Api call
-                  */
+                /***
+                 * Doc Master Api call
+                 */
                 {
                     path:'/api/doc-master',
                 },
-                 /***
-                  * End Doc Master Api call
-                  */
-                 /***
-                  * Document upadte 
-                  */
+                /***
+                 * End Doc Master Api call
+                 */
+
+                /***
+                 * Document upadte 
+                 */
                  {
                      path:'/api/add-documents/:applicatioId',
                  },
@@ -265,9 +266,20 @@ export default{
                  {
                     path: '/api/get-application-file/:shcName/:applicationId',
                  },
-                 /***
-                  * end document
-                  */
+                /***
+                 * end document
+                 */
+
+                /***
+                 * Manage my application
+                 */
+
+                 {
+                    path: '/api/manage-my-application',
+                 },
+                /***
+                 * end Manage my application
+                 */
                 
 
 

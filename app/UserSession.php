@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\ModelScholarship\ApplicationDetails;
 class UserSession extends Model
 {
-    protected $table = 'userSessio';
+    protected $table = 'userSession';
     public $primarykey = 'id';
     public $timestamp = true;
 

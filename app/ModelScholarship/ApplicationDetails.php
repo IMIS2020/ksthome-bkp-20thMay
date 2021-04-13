@@ -13,7 +13,9 @@ use App\ModelScholarship\ApplicationMiscellaneousDetails;
 use App\ModelScholarship\AnnexureI;
 use App\ModelScholarship\ApplicationDocs;
 use App\User;
-use App\UserSession;
+//use App\UserSession;
+use App\ModelScholarship\ApplicationSession;
+
 class ApplicationDetails extends Model
 {
     protected $table = 'applicantionDetails';
@@ -55,9 +57,14 @@ class ApplicationDetails extends Model
         return $this->belongsTo(User::class,'userId');
     }
 
-    public function get_userSession() // FK 8
+    // public function get_userSession() // FK 8
+    // {
+    //     return $this->belongsTo(UserSession::class,'sessionId');
+    // }
+
+    public function get_applicationSession() // FK 8
     {
-        return $this->belongsTo(UserSession::class,'sessionId');
+        return $this->belongsTo(ApplicationSession::class,'sessionId');
     }
 
     //hasMany

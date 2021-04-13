@@ -60,7 +60,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-3 offset-xl-3"><button class="btn btn-block btn-sm btn-mg" type="submit"><strong>Save</strong></button></div>
-                                                <div class="col-xl-3 offset-xl-0"><router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-scholarship"><strong>Cancel</strong></router-link></div>
+                                                <div class="col-xl-3 offset-xl-0"><router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-my-application"><strong>Cancel</strong></router-link></div>
                                             </div>
                                         </div>
                                     </div>

@@ -77,8 +77,11 @@
                             </div>
                             <div class="col-xl-5">
                                 <div class="form-group">
-                                <button class="btn btn-sm btn-mg" type="submit">Verify OTP</button>
+                                <button class="btn btn-sm btn-mg" type="submit">Verify OTP</button>&nbsp;&nbsp;
+                                <a class="btn btn-secondary btn-sm" href="/register">Cancel</a>
+                                
                                 </div>
+                                <br><br>
                             </div>
                             </form>
 
@@ -87,13 +90,14 @@
                               @csrf
                                   <p class="color-mg font-md mt-2">Didn't received yet?&nbsp;
                                     <input type="hidden" name="email" value="{{ request()->get('email') }}">
-                                    <input class="btn btn-link" type="submit" value="Resend OTP">
+                                    <input class="btn btn-mg btn-sm" type="submit" value="Resend OTP">
                                     </p>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
+             
             </div>
         </div>
   </div>

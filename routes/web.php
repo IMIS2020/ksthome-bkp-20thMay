@@ -125,8 +125,14 @@ Route::group(['prefix' => 'api'], function() {
      * end Document upadte 
      */
 
+    /***
+    *  Manage my application
+    */
+    Route::get('/manage-my-application','Scholarship\ManageMyApplications@getAllApplication');
+    /***
+    * end Manage my application
+    */
 
-  
 
 
 
@@ -135,6 +141,111 @@ Route::group(['prefix' => 'api'], function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
    //NURSING 
 //Add-application-form
   

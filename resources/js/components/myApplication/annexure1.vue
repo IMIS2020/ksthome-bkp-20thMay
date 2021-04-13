@@ -33,7 +33,7 @@
                                                             <div class="col-xl-2 offset-xl-9">
                                                                 <div class="form-group mb-0">
                                                                     <a data-toggle="modal" href="#" data-target="#others-course-level" @click="addName('CourseLevel')">+ Add Other level</a>
-                                                                    <select class="form-control form-control-sm" v-model="rows.courseLevelValueId">
+                                                                    <select class="form-control form-control-sm" v-model="rows.courseLevelValueId" :disabled="globalDisable">
                                                                         <option value="" disabled>-- select --</option>
                                                                         <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id">{{ucl.value}}</option>
                                                                     </select>
@@ -64,16 +64,16 @@
                                                                 <tbody class="h-25x">
                                                                     <tr v-for="(row, index) in rows" :key="index">
                                                                         <td>
-                                                                            <input type="hidden" v-model="row.id" />
+                                                                            <input type="hidden" v-model="row.id" :disabled="globalDisable"/>
                                                                             <div class="form-group mb-0">
-                                                                                <select class="form-control form-control-sm" @change="onChange($event,index)" v-model="row.insId">
+                                                                                <select class="form-control form-control-sm" @change="onChange($event,index)" v-model="row.insId" :disabled="globalDisable">
                                                                                     <option v-for="(i,index) in insData" :key="index" :value="i.id">{{i.instituteName}} - {{i.get_address.addressCity}}, {{i.get_address.addressState}}</option>
                                                                                 </select>
                                                                             </div>
                                                                         </td>
                                                                         <td>
                                                                             <div class="form-group mb-0">
-                                                                                <select class="form-control form-control-sm" v-model="row.courseNameValueId">
+                                                                                <select class="form-control form-control-sm" v-model="row.courseNameValueId" :disabled="globalDisable">
                                                                                     <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
                                                                                 </select>
                                                                             </div>
@@ -125,11 +125,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 offset-xl-4 my-2">
-                         <button class="btn btn-block btn-sm btn-mg" type="submit"><strong>Save</strong></button>
+                    <div class="col-xl-2 offset-xl-4 my-2" v-if="globalDisable == false">
+                        <button class="btn btn-block btn-sm btn-mg" type="submit">
+                            <strong>Save</strong>
+                        </button>
                     </div>
-                    <div class="col-xl-2 offset-xl-0 my-2">
-                        <router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-scholarship"><strong>Cancel</strong></router-link>
+                    <div class="col-xl-2 offset-xl-0 my-2" v-if="globalDisable == false">
+                        <router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-my-application"><strong>Cancel</strong></router-link>
+                    </div>
+                    <div class="col-xl-2 offset-xl-5 my-2" v-else>
+                        <router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-my-application"><strong>Cancel</strong></router-link>
                     </div>
                 </div>
             </form>
@@ -299,6 +304,7 @@ export default{
         return{
             userId: document.querySelector("meta[name='userId']").getAttribute('content'),
             // update: false,
+            globalDisable: false,
             universityCourseName:{},
             insData:{},
             insDataDetails:{
@@ -474,7 +480,12 @@ export default{
                         this.getData.genderType = "son";
                     }else{
                         this.getData.genderType = "daughter";
-                    }
+                    };
+                    this.form.appStatus = response.data['data'][0][0].appStatus;
+                    if(this.form.appStatus == 'Submit')
+                    {
+                        this.globalDisable = true;
+                    };
                 } 
                 else {
                     console.log(response.data['msg'])

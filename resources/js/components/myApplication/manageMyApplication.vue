@@ -75,7 +75,7 @@
                                               <div class="dropdown no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
                                                   <div class="dropdown-menu dropdown-menu-left shadow dropdown-menu-right animated--fade-in">
                                                       <router-link class="dropdown-item" :to="'/application-form/'+row.schApplicationId"  v-if="row.appStatus == 'Saved'"><strong>Edit Application</strong></router-link>
-                                                      <router-link class="dropdown-item" to="/view-nursing"><strong>View Application</strong></router-link>
+                                                      <router-link class="dropdown-item" :to="'/application-form/'+row.schApplicationId"><strong>View Application</strong></router-link>
                                                       <router-link class="dropdown-item" to="/print-view-nursing"><strong>Download Application</strong></router-link>
                                                     </div>
                                               </div>

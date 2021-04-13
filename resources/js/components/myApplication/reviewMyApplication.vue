@@ -512,10 +512,11 @@ export default{
             axios.post('/api/submit-app/'+this.form.applicationId,this.Sform)
             .then(response => {
                     if (response.data['success']){
+                        this.readApplicationForm();
                         this.$fire({
                             position: 'top',
                             icon: 'success',
-                            title: "Application Submit",
+                            title: "Application Submitted",
                             showConfirmButton: false,
                             timer: 3000
                         })

@@ -191,104 +191,104 @@
             <!-- End course name modal -->
 
             <!--Institute Details modal -->
-            <div role="dialog" tabindex="-1" class="modal fade" id="others-add-institute">
-                <div class="modal-dialog modal-sm" role="document">
-                    <form>
-                        <div class="modal-content">
-                            <div class="modal-header py-1">
-                                <h6 class="modal-title color-mg font-md"><strong>Add Institute</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                            </div>
-                            <div class="modal-body cs-modal-body">
-                                <div class="form-row">
-                                    <div class="col-xl-12 mb-2">
-                                        <label>Institute Name</label>
-                                        <div class="form-group">
-                                            <input class="form-control form-control-sm" type="text" v-model="insForm.insName" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 mb-2">
-                                        <label>Address Line 1</label>
-                                        <div class="form-group">
-                                            <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln1" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 mb-2">
-                                        <label>Address Line 2</label>
-                                        <div class="form-group">
-                                            <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln2" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 mb-2">
-                                        <label>City</label>
-                                        <div class="form-group">
-                                            <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressCity" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 mb-2">
-                                        <label>District</label>
-                                        <div class="form-group">
-                                            <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressDistprov" required>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-xl-12 mb-2">
-                                        <label>State&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                        <div class="form-group"> 
-                                            <select class="form-control form-control-sm" v-model="insForm.insAddressState" required>
-                                                <option value="" disabled>--Select--</option>
-                                                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                                <option value="Assam">Assam</option>
-                                                <option value="Bihar">Bihar</option>
-                                                <option value="Chandigarh">Chandigarh</option>
-                                                <option value="Chhattisgarh">Chhattisgarh</option>
-                                                <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                                                <option value="Daman and Diu">Daman and Diu</option>
-                                                <option value="Delhi">Delhi</option>
-                                                <option value="Lakshadweep">Lakshadweep</option>
-                                                <option value="Puducherry">Puducherry</option>
-                                                <option value="Goa">Goa</option>
-                                                <option value="Gujarat">Gujarat</option>
-                                                <option value="Haryana">Haryana</option>
-                                                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                                <option value="Jharkhand">Jharkhand</option>
-                                                <option value="Karnataka">Karnataka</option>
-                                                <option value="Kerala">Kerala</option>
-                                                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                                <option value="Maharashtra">Maharashtra</option>
-                                                <option value="Manipur">Manipur</option>
-                                                <option value="Meghalaya">Meghalaya</option>
-                                                <option value="Mizoram">Mizoram</option>
-                                                <option value="Nagaland">Nagaland</option>
-                                                <option value="Odisha">Odisha</option>
-                                                <option value="Punjab">Punjab</option>
-                                                <option value="Rajasthan">Rajasthan</option>
-                                                <option value="Sikkim">Sikkim</option>
-                                                <option value="Tamil Nadu">Tamil Nadu</option>
-                                                <option value="Telangana">Telangana</option>
-                                                <option value="Tripura">Tripura</option>
-                                                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                                <option value="Uttarakhand">Uttarakhand</option>
-                                                <option value="West Bengal">West Bengal</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                <div role="dialog" tabindex="-1" class="modal fade" id="others-add-institute">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <form>
+                            <div class="modal-content">
+                                <div class="modal-header py-1">
+                                    <h6 class="modal-title color-mg font-md"><strong>Add Institute</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                </div>
+                                <div class="modal-body cs-modal-body">
+                                    <div class="form-row">
                                         <div class="col-xl-12 mb-2">
-                                            <label>PIN/ZIP Code&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                        <div class="form-group">
-                                            <input class="form-control form-control-sm" type="number" v-model="insForm.insAddressPinzip" required>
+                                            <label>Institute Name</label>
+                                            <div class="form-group">
+                                                <input class="form-control form-control-sm" type="text" v-model="insForm.insName" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 mb-2">
+                                            <label>Address Line 1</label>
+                                            <div class="form-group">
+                                                <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln1">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 mb-2">
+                                            <label>Address Line 2</label>
+                                            <div class="form-group">
+                                                <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln2" >
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 mb-2">
+                                            <label>City</label>
+                                            <div class="form-group">
+                                                <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressCity" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 mb-2">
+                                            <label>District</label>
+                                            <div class="form-group">
+                                                <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressDistprov" >
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xl-6 mb-2">
+                                            <label>State&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                            <div class="form-group"> 
+                                                <select class="form-control form-control-sm" v-model="insForm.insAddressState" required>
+                                                    <option value="" disabled>--Select--</option>
+                                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                    <option value="Assam">Assam</option>
+                                                    <option value="Bihar">Bihar</option>
+                                                    <option value="Chandigarh">Chandigarh</option>
+                                                    <option value="Chhattisgarh">Chhattisgarh</option>
+                                                    <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                                    <option value="Daman and Diu">Daman and Diu</option>
+                                                    <option value="Delhi">Delhi</option>
+                                                    <option value="Lakshadweep">Lakshadweep</option>
+                                                    <option value="Puducherry">Puducherry</option>
+                                                    <option value="Goa">Goa</option>
+                                                    <option value="Gujarat">Gujarat</option>
+                                                    <option value="Haryana">Haryana</option>
+                                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                    <option value="Jharkhand">Jharkhand</option>
+                                                    <option value="Karnataka">Karnataka</option>
+                                                    <option value="Kerala">Kerala</option>
+                                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                    <option value="Maharashtra">Maharashtra</option>
+                                                    <option value="Manipur">Manipur</option>
+                                                    <option value="Meghalaya">Meghalaya</option>
+                                                    <option value="Mizoram">Mizoram</option>
+                                                    <option value="Nagaland">Nagaland</option>
+                                                    <option value="Odisha">Odisha</option>
+                                                    <option value="Punjab">Punjab</option>
+                                                    <option value="Rajasthan">Rajasthan</option>
+                                                    <option value="Sikkim">Sikkim</option>
+                                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                                    <option value="Telangana">Telangana</option>
+                                                    <option value="Tripura">Tripura</option>
+                                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                    <option value="Uttarakhand">Uttarakhand</option>
+                                                    <option value="West Bengal">West Bengal</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                            <div class="col-xl-6 mb-2">
+                                                <label>PIN/ZIP Code&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                            <div class="form-group">
+                                                <input class="form-control form-control-sm" type="number" v-model="insForm.insAddressPinzip" >
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveInstitute"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                             </div>
-                            <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveInstitute"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <!-- End course level modal -->
+                <!-- End of Institute modal -->
         </div>
     </section>
 </template>

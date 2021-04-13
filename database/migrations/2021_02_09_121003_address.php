@@ -15,7 +15,7 @@ class Address extends Migration
     {
         Schema::create('portalAddress', function (Blueprint $table) {
             $table->id();
-            $table->string('addressAddln1');
+            $table->string('addressAddln1')->nullable();
             $table->string('addressAddln2')->nullable();
             $table->string('addressCity')->nullable();
             $table->string('addressDistprov')->nullable();

@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-8 offset-xl-2 text-center">
-                <h2 class="text-break color-mg"><strong>Welcome to I-MIS, Apply for Scholarship</strong></h2>
+                <h2 class="text-break color-mg"><strong>Welcome to Application for S-ILF Scholarship</strong></h2>
             </div>
             <div class="col-xl-10 offset-xl-1 text-center mb-4">
                 <hr class="cs-hr" />
@@ -138,7 +138,7 @@
                                     <table class="table color-mg">
                                         <tbody>
                                         
-                                            <tr>
+                                            <!-- <tr>
                                                 <td><strong>Profile Photo</strong></td>
                                                 <td class="text-nowrap text-truncate text-break w-15x" colspan="2">
                                                 @if(empty($user->profilePhoto))
@@ -149,7 +149,7 @@
                                                 <button class="btn btn-sm btn-custom font-xs" type="submit"><strong>Update</strong></button><br>
                                                 <input class="form-control-file font-xs" name="profilePhoto" type="file"  accept="image/*" required></td>
                                                 <td><br></td>
-                                            </tr>
+                                            </tr> -->
                                             <tr>
                                                 <td><strong>Email ID</strong></td>
                                                 <td>{{$user->email}}</td>

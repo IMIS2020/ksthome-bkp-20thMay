@@ -1069,7 +1069,7 @@
                                                                                             <div class="col-xl-6 mb-2">
                                                                                                 <label>Address Line 1</label>
                                                                                                 <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln1" >
+                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln1">
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="col-xl-6 mb-2">
@@ -1079,22 +1079,22 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="col-xl-6 mb-2">
-                                                                                                <label>City</label>
+                                                                                                <label>City *</label>
                                                                                                 <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressCity" >
+                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressCity" required>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="col-xl-6 mb-2">
                                                                                                 <label>District</label>
                                                                                                 <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressDistprov" >
+                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressDistprov">
                                                                                                 </div>
                                                                                             </div>
                                                                                             
                                                                                             <div class="col-xl-6 mb-2">
                                                                                                 <label>State&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                                                 <div class="form-group"> 
-                                                                                                    <select class="form-control form-control-sm" v-model="insForm.insAddressState" >
+                                                                                                    <select class="form-control form-control-sm" v-model="insForm.insAddressState" required>
                                                                                                         <option value="" disabled>--Select--</option>
                                                                                                         <option value="Andhra Pradesh">Andhra Pradesh</option>
                                                                                                         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>

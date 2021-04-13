@@ -33,15 +33,15 @@ class InstituteController extends Controller
 
     public function addInstitute(Request $request)
     {
-        $request->validate([
-            'insName'  => ['required'],
-            // 'insAddressAddln1'  => ['required'],
-            // 'insAddressAddln2'  => ['required'],
-            // 'insAddressCity'  => ['required'],
-            // 'insAddressDistprov'  => ['required'],
-            // 'insAddressState'  => ['required'],
-            // 'insAddressPinzip'  => ['required'],
-        ]);
+        // $request->validate([
+        //     'insName'  => ['required'],
+        //     // 'insAddressAddln1'  => ['required'],
+        //     // 'insAddressAddln2'  => ['required'],
+        //     // 'insAddressCity'  => ['required'],
+        //     // 'insAddressDistprov'  => ['required'],
+        //     // 'insAddressState'  => ['required'],
+        //     // 'insAddressPinzip'  => ['required'],
+        // ]);
 
         DB::beginTransaction();
         try 

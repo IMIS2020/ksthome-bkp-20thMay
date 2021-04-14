@@ -30,9 +30,14 @@
                                                 <div class="col-xl-12">
                                                     <div class="com-bg-1">
                                                         <div class="form-row mb-1">
-                                                            <div class="col-xl-2 offset-xl-9">
-                                                                <div class="form-group mb-0">
-                                                                    <a data-toggle="modal" href="#" data-target="#others-course-level" @click="addName('CourseLevel')">+ Add Other level</a>
+                                                            <div class="col-xl-2 offset-xl-7 align-self-cente">
+                                                                <button class="btn btn-block btn-sm font-xs btn-mg add-anex-i-row" type="button" data-toggle="modal" href="#" data-target="#others-course-level" @click="addName('CourseLevel')">
+                                                                    <i class="fa fa-plus"></i><strong>&nbsp;Add other level</strong>
+                                                                 </button>
+                                                            </div>
+                                                            <div class="col-xl-2">
+                                                                <div class="form-group mb-0 align-self-center">
+                                                                    <!-- <a data-toggle="modal" href="#" data-target="#others-course-level" @click="addName('CourseLevel')">+ Add Other level</a> -->
                                                                     <select class="form-control form-control-sm" v-model="rows.courseLevelValueId" :disabled="globalDisable">
                                                                         <option value="" disabled>-- select --</option>
                                                                         <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id">{{ucl.value}}</option>
@@ -40,7 +45,6 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-2 col-xl-1 offset-md-3 offset-xl-0 align-self-center">
-                                                                <br>
                                                                 <button class="btn btn-block btn-sm font-xs btn-mg add-anex-i-row" type="button" @click="addNewData">
                                                                     <i class="fa fa-plus"></i><strong>&nbsp;Add row</strong>
                                                                  </button>

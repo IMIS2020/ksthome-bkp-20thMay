@@ -47,7 +47,7 @@
             @if (Route::has('login'))
             @auth
           <li class="nav-item dropdown align-self-center">
-          <a class="nav-link text-white font-xl" aria-expanded="false" data-toggle="dropdown" href="#"><strong>Hello, {{Auth::user()->firstname}} {{Auth::user()->middlename}} {{Auth::user()->lastname}}&nbsp;&nbsp;</strong><img class="rounded-circle img-fluid" width="25px" src="assets/img/avatar_2x.png"></a>
+          <a class="nav-link text-white font-xl" aria-expanded="false" data-toggle="dropdown" href="#"><strong>Hello, {{Auth::user()->firstname}} {{Auth::user()->middlename}} {{Auth::user()->lastname}}&nbsp;&nbsp;</strong><img class="rounded-circle img-fluid" width="25px" src="{{ asset('storage/uploads/profilephoto/'.Auth::user()->profilePhoto) }}"></a>
               <div class="dropdown-menu font-md">
                 <a class="dropdown-item color-mg" href="{{ route('logout') }}" onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
@@ -147,10 +147,10 @@
      </div>
  
     <!-- <script src="{{ asset('js/app.js') }}"></script> -->
-    <!-- <script src="{{asset('assets/js/jquery.min.js')}}"></script> -->
-    <!-- <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
+    <!-- <script src="{{asset('assets/js/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
     <!-- <script src="{{asset('assets/js/style.js')}}"></script> -->
 </body>
 </html>

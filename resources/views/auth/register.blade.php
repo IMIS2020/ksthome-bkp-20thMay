@@ -116,14 +116,14 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                         <input class="form-control @error('password') is-invalid @enderror" type="password" id="password" name="password" placeholder="Password" required autocomplete="new-password">
-                                        @if ($errors->has('password'))
+                                      
+                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button>
+                                            </div>
+                                            @if ($errors->has('password'))
                                             <span class="invalid-feedback">
                                                 <strong>{{ $errors->first('password') }}</strong>
                                             </span>
-                                        @endif
-                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button>
-                                            
-                                            </div>
+                                             @endif
                                         </div>
                                     </div>
                                 </div>
@@ -131,13 +131,15 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                         <input class="form-control" type="password" id="password1" name="password_confirmation" required autocomplete="new-password" placeholder="Re-type Password">
-                                    <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword1"></i></button>
+                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword1"></i></button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 offset-xl-4">
+                                <div class="col-xl-4 offset-xl-2">
                                 <button class="btn btn-block btn-sm btn-mg" type="submit"><strong> {{ __('Register') }} </strong></button>
+                                </div>
+                                <div class="col-xl-4">
                                 <a href="/" class="btn btn-block btn-sm btn-secondary" type="submit"><strong> {{ __('Cancel') }} </strong></a>
                                 </div>
                             </div>

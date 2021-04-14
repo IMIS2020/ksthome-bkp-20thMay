@@ -42,7 +42,7 @@
                                                                                     <th>Choose file</th>
                                                                                     <th>Document Name</th>
                                                                                     <th>Uploaded</th>
-                                                                                    <th>Action</th>
+                                                                                    <th class="text-center w-7x">Action</th>
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
@@ -60,16 +60,25 @@
                                                                                     </td>
                                                                                     <td>{{row.docFileName}}</td>
                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{row.uploadStatus}}</span></td>
-                                                                                    <td class="text-center"  v-if="row.uploadStatus == 'YES'"> 
-                                                                                        <span><router-link target="_blank" class="act-link" :to="''+row.fileURL">
-                                                                                            <i class="fa fa-eye"></i>
-                                                                                        </router-link></span>
-                                                                                        <span v-if="globalDisable == false"><a class="act-link" href="#" @click.prevent="deleteFile(row.id)">
-                                                                                            <i class="fa fa-trash"></i>
-                                                                                        </a></span>
+                                                                                    <td class="text-center w-7x"  v-if="row.uploadStatus == 'YES'"> 
+                                                                                        <span>
+                                                                                            <router-link target="_blank"  class="act-link"  :to="''+row.fileURL">
+                                                                                                <i class="fa fa-eye"></i>
+                                                                                            </router-link>
+                                                                                        </span>
+                                                                                        <span v-if="globalDisable == false">
+                                                                                            <a  href="#"  class="act-link" @click.prevent="deleteFile(row.id)">
+                                                                                                <i class="fa fa-trash"></i>
+                                                                                            </a>
+                                                                                        </span>
                                                                                     </td>
                                                                                     <td class="text-center" v-else>
-                                                                                        <span class="act-link"  style="color:#808080;"><i class="fa fa-eye"></i></span><span class="act-link" style="color:#808080;"><i class="fa fa-trash"></i></span>
+                                                                                        <span class="act-link"  style="color:#808080;">
+                                                                                            <i class="fa fa-eye"></i>
+                                                                                        </span>
+                                                                                        <span class="act-link" style="color:#808080;">
+                                                                                            <i class="fa fa-trash"></i>
+                                                                                        </span>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>

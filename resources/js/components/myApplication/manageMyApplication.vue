@@ -47,8 +47,8 @@
                               <table class="table table-sm mb-0">
                                   <thead class="cs-tbl-hd">
                                       <tr>
-                                          <th class="w-3x">Sl No.</th>
-                                          <th>Financial Year</th>
+                                          <th class="w-5x">Sl No.</th>
+                                          <th class="w-10x">Financial Year</th>
                                           <th>Scholarship Type</th>
                                           <th>Last Date of Application</th>
                                           <th>Application No.</th>
@@ -59,8 +59,8 @@
                                   </thead>
                                   <tbody class="h-41x">
                                       <tr class="font-md text-black" v-for="(row,index) in getdata" :key="index">
-                                          <td class="w-3x"><em>{{index+1}}</em></td>
-                                          <td><em>{{row.financialYear}}</em></td>
+                                          <td class="w-5x"><em>{{index+1}}</em></td>
+                                          <td class="w-10x" ><em>{{row.financialYear}}</em></td>
                                           <td class="text-break"><em>Nursing Scholarship</em></td>
                                           <td class="text-break"><em>N/A</em></td>
                                           <td><em>{{row.schApplicationId}}</em></td>

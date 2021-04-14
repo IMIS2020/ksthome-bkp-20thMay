@@ -138,18 +138,18 @@
                                     <table class="table color-mg">
                                         <tbody>
                                         
-                                            <!-- <tr>
+                                            <tr>
                                                 <td><strong>Profile Photo</strong></td>
                                                 <td class="text-nowrap text-truncate text-break w-15x" colspan="2">
                                                 @if(empty($user->profilePhoto))
                                                 <img class="img-fluid mb-2 mr-2" src="assets/img/avatar_2x.png" width="80px" height="90px">
                                                 @else
-                                                <img class="img-fluid mb-2 mr-2" src="storage/uploads/profilephoto/{{$user->profilePhoto}}" width="80px" height="90px">
+                                                <img class="img-fluid mb-2 mr-2" src="{{ asset('storage/uploads/profilephoto/'.$user->profilePhoto) }}" width="80px" height="90px">
                                                 @endif
                                                 <button class="btn btn-sm btn-custom font-xs" type="submit"><strong>Update</strong></button><br>
                                                 <input class="form-control-file font-xs" name="profilePhoto" type="file"  accept="image/*" required></td>
                                                 <td><br></td>
-                                            </tr> -->
+                                            </tr>
                                             <tr>
                                                 <td><strong>Email ID</strong></td>
                                                 <td>{{$user->email}}</td>

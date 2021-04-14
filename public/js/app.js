@@ -2743,6 +2743,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3548,6 +3552,15 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -55463,115 +55476,128 @@ var render = function() {
                                   _c("div", { staticClass: "form-row mb-1" }, [
                                     _c(
                                       "div",
-                                      { staticClass: "col-xl-2 offset-xl-9" },
+                                      {
+                                        staticClass:
+                                          "col-xl-2 offset-xl-7 align-self-cente"
+                                      },
                                       [
                                         _c(
-                                          "div",
-                                          { staticClass: "form-group mb-0" },
-                                          [
-                                            _c(
-                                              "a",
-                                              {
-                                                attrs: {
-                                                  "data-toggle": "modal",
-                                                  href: "#",
-                                                  "data-target":
-                                                    "#others-course-level"
-                                                },
-                                                on: {
-                                                  click: function($event) {
-                                                    return _vm.addName(
-                                                      "CourseLevel"
-                                                    )
-                                                  }
-                                                }
-                                              },
-                                              [_vm._v("+ Add Other level")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "select",
-                                              {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value:
-                                                      _vm.rows
-                                                        .courseLevelValueId,
-                                                    expression:
-                                                      "rows.courseLevelValueId"
-                                                  }
-                                                ],
-                                                staticClass:
-                                                  "form-control form-control-sm",
-                                                attrs: {
-                                                  disabled: _vm.globalDisable
-                                                },
-                                                on: {
-                                                  change: function($event) {
-                                                    var $$selectedVal = Array.prototype.filter
-                                                      .call(
-                                                        $event.target.options,
-                                                        function(o) {
-                                                          return o.selected
-                                                        }
-                                                      )
-                                                      .map(function(o) {
-                                                        var val =
-                                                          "_value" in o
-                                                            ? o._value
-                                                            : o.value
-                                                        return val
-                                                      })
-                                                    _vm.$set(
-                                                      _vm.rows,
-                                                      "courseLevelValueId",
-                                                      $event.target.multiple
-                                                        ? $$selectedVal
-                                                        : $$selectedVal[0]
-                                                    )
-                                                  }
-                                                }
-                                              },
-                                              [
-                                                _c(
-                                                  "option",
-                                                  {
-                                                    attrs: {
-                                                      value: "",
-                                                      disabled: ""
-                                                    }
-                                                  },
-                                                  [_vm._v("-- select --")]
-                                                ),
-                                                _vm._v(" "),
-                                                _vm._l(
-                                                  _vm.universityCourseLevel,
-                                                  function(ucl, index) {
-                                                    return _c(
-                                                      "option",
-                                                      {
-                                                        key: index,
-                                                        domProps: {
-                                                          value: ucl.id
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          _vm._s(ucl.value)
-                                                        )
-                                                      ]
-                                                    )
-                                                  }
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "btn btn-block btn-sm font-xs btn-mg add-anex-i-row",
+                                            attrs: {
+                                              type: "button",
+                                              "data-toggle": "modal",
+                                              href: "#",
+                                              "data-target":
+                                                "#others-course-level"
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.addName(
+                                                  "CourseLevel"
                                                 )
-                                              ],
-                                              2
-                                            )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-plus"
+                                            }),
+                                            _c("strong", [
+                                              _vm._v(" Add other level")
+                                            ])
                                           ]
                                         )
                                       ]
                                     ),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-2" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "form-group mb-0 align-self-center"
+                                        },
+                                        [
+                                          _c(
+                                            "select",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value:
+                                                    _vm.rows.courseLevelValueId,
+                                                  expression:
+                                                    "rows.courseLevelValueId"
+                                                }
+                                              ],
+                                              staticClass:
+                                                "form-control form-control-sm",
+                                              attrs: {
+                                                disabled: _vm.globalDisable
+                                              },
+                                              on: {
+                                                change: function($event) {
+                                                  var $$selectedVal = Array.prototype.filter
+                                                    .call(
+                                                      $event.target.options,
+                                                      function(o) {
+                                                        return o.selected
+                                                      }
+                                                    )
+                                                    .map(function(o) {
+                                                      var val =
+                                                        "_value" in o
+                                                          ? o._value
+                                                          : o.value
+                                                      return val
+                                                    })
+                                                  _vm.$set(
+                                                    _vm.rows,
+                                                    "courseLevelValueId",
+                                                    $event.target.multiple
+                                                      ? $$selectedVal
+                                                      : $$selectedVal[0]
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "",
+                                                    disabled: ""
+                                                  }
+                                                },
+                                                [_vm._v("-- select --")]
+                                              ),
+                                              _vm._v(" "),
+                                              _vm._l(
+                                                _vm.universityCourseLevel,
+                                                function(ucl, index) {
+                                                  return _c(
+                                                    "option",
+                                                    {
+                                                      key: index,
+                                                      domProps: {
+                                                        value: ucl.id
+                                                      }
+                                                    },
+                                                    [_vm._v(_vm._s(ucl.value))]
+                                                  )
+                                                }
+                                              )
+                                            ],
+                                            2
+                                          )
+                                        ]
+                                      )
+                                    ]),
                                     _vm._v(" "),
                                     _c(
                                       "div",
@@ -55580,8 +55606,6 @@ var render = function() {
                                           "col-md-2 col-xl-1 offset-md-3 offset-xl-0 align-self-center"
                                       },
                                       [
-                                        _c("br"),
-                                        _vm._v(" "),
                                         _c(
                                           "button",
                                           {
@@ -58685,7 +58709,7 @@ var render = function() {
                                                             "td",
                                                             {
                                                               staticClass:
-                                                                "text-center"
+                                                                "text-center w-7x"
                                                             },
                                                             [
                                                               _c(
@@ -58760,6 +58784,7 @@ var render = function() {
                                                             },
                                                             [
                                                               _vm._m(2, true),
+                                                              _vm._v(" "),
                                                               _vm._m(3, true)
                                                             ]
                                                           )
@@ -58857,7 +58882,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Uploaded")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Action")])
+        _c("th", { staticClass: "text-center w-7x" }, [_vm._v("Action")])
       ])
     ])
   },
@@ -70205,11 +70230,11 @@ var render = function() {
                           "tr",
                           { key: index, staticClass: "font-md text-black" },
                           [
-                            _c("td", { staticClass: "w-3x" }, [
+                            _c("td", { staticClass: "w-5x" }, [
                               _c("em", [_vm._v(_vm._s(index + 1))])
                             ]),
                             _vm._v(" "),
-                            _c("td", [
+                            _c("td", { staticClass: "w-10x" }, [
                               _c("em", [_vm._v(_vm._s(row.financialYear))])
                             ]),
                             _vm._v(" "),
@@ -70353,9 +70378,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "cs-tbl-hd" }, [
       _c("tr", [
-        _c("th", { staticClass: "w-3x" }, [_vm._v("Sl No.")]),
+        _c("th", { staticClass: "w-5x" }, [_vm._v("Sl No.")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Financial Year")]),
+        _c("th", { staticClass: "w-10x" }, [_vm._v("Financial Year")]),
         _vm._v(" "),
         _c("th", [_vm._v("Scholarship Type")]),
         _vm._v(" "),

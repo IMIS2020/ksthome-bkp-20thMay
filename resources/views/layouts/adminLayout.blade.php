@@ -24,7 +24,33 @@
       @yield('adminDashboard')
     </div>
 
+    <!-- Manage application -->
+    <div id="manageApplicationDetails">
+      @yield('manageApplicationDetails')
+    </div>
+    <!-- End manage application -->
    
+   <!-- Review Application -->
+   <div id="applicantForm">
+      @yield('applicantForm')
+    </div>
+
+    <div id="annexure1">
+      @yield('annexure1')
+    </div>
+
+    <div id="annexure2">
+      @yield('annexure2')
+    </div>
+
+    <div id="applicantDocuments">
+      @yield('applicantDocuments')
+    </div>
+
+    <div id="printView">
+      @yield('review')
+    </div>
+   <!-- End review Application -->
     
     <!-- <script src="{{asset('assets/js/jquery.min.js')}}"></script> -->
     <!-- <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script> -->

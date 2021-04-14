@@ -16,10 +16,18 @@ import ReviewMyApplication       from './components/myApplication/reviewMyApplic
 import ViewMyApplication         from './components/myApplication/viewMyApplication';
 import PrintView                 from './components/myApplication/printView';
 
+import AdminDashboard            from './components/admin/adminDashboard';
+import ApplicationDetails        from './components/admin/manageApplication/applicationDetails';
 
-import AdminDashboard from './components/admin/adminDashboard';
+// Review Application
+import AdminApplicantForm      from './components/admin/manageApplication/reviewApplication/applicantForm';
+import AdminAnnexure1          from './components/admin/manageApplication/reviewApplication/annexure1';
+import AdminAnnexure2          from './components/admin/manageApplication/reviewApplication/annexure2';
+import AdminApplicantDocuments from './components/admin/manageApplication/reviewApplication/applicantDocuments';
+import AdminReview             from './components/admin/manageApplication/reviewApplication/review';
+// End review application
 
-export default{
+export default{ 
     mode: 'history',
     linkActiveClass: 'font-semibold',
     routes: [ 
@@ -33,7 +41,6 @@ export default{
                     name: 'dashboard'
                 },
 
-        
                /***********
                 * UI Routes to call applicant components from applicant
                 * folder
@@ -250,13 +257,68 @@ export default{
     
 // //-------------------------------------//
 
-// Admin Section start
-{
-    path: '/admin',
-    component:AdminDashboard,
-    name: "admin-dashboard"
-},
+                    // Admin Section start
+                    /***
+                     * Admin Dashboard
+                     */
+                    {
+                        path: '/admin',
+                        component:AdminDashboard,
+                        name: "admin-dashboard"
+                    },
+                    /***
+                     * End Admin Dashboard
+                     */
 
-// End HHDLSS
+                    /***
+                     * Manage my application
+                     */
+                    {
+                        path: '/admin/manage-application-details',
+                        component:ApplicationDetails,
+                        name: "manage-application"
+                    },
+                    /***
+                     * Manage my application
+                     */
+
+                    /***
+                     * 
+                     * Review Application
+                     */
+
+                    {
+                        path: '/admin/review-application-form',
+                        component:AdminApplicantForm,
+                        name: "review-application-form"
+                    },
+
+                    {
+                        path: '/admin/review-annexure-1',
+                        component:AdminAnnexure1,
+                        name: "review-annexure-1"
+                    },
+
+                    {
+                        path: '/admin/review-annexure-2',
+                        component:AdminAnnexure2,
+                        name: "review-annexure-2"
+                    },
+
+                    {
+                        path: '/admin/review-applicant-documents',
+                        component:AdminApplicantDocuments,
+                        name: "review-applicant-documents"
+                    },
+
+                    {
+                        path: '/admin/review',
+                        component:AdminReview,
+                        name: "review"
+                    },
+                     /***
+                     * 
+                     * End Review Application
+                     */
  ]
 }

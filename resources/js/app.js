@@ -74,12 +74,41 @@ function newFunction(){
   });
  
 
-
   const app12 = new Vue({
     el: '#adminDashboard',
     router: new VueRouter(routes)
   });
 
+  const app13 = new Vue({
+    el: '#manageApplicationDetails',
+    router: new VueRouter(routes)
+  });
 
+  // Review Application
+  const app14 = new Vue({
+    el: '#applicantForm',
+    router: new VueRouter(routes)
+  });
+
+  const app15 = new Vue({
+    el: '#annexure1',
+    router: new VueRouter(routes)
+  });
+
+  const app16 = new Vue({
+    el: '#annexure2',
+    router: new VueRouter(routes)
+  });
+
+  const app17 = new Vue({
+    el: '#applicantDocuments',
+    router: new VueRouter(routes)
+  });
+
+  const app18 = new Vue({
+    el: '#review',
+    router: new VueRouter(routes)
+  });
+  // End review Application
 
 }

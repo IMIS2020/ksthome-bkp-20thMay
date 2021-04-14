@@ -31,6 +31,38 @@ class AdminSystemController extends Controller
        return view('admin.adminDashboard');
       }
 
-      
+      public function manageApplicationDetails()
+      {
+          return view('admin.manageApplication.applicationDetails');
+      }
+
+    //Review application 
+
+    public function reviewApplicantForm()
+    {
+       return view('admin.manageApplication.reviewApplication.applicantForm');
+    }
+
+    public function reviewAnnexure1()
+    {
+       return view('admin.manageApplication.reviewApplication.annexure1');
+    }
+
+    public function reviewAnnexure2()
+    {
+       return view('admin.manageApplication.reviewApplication.annexure2');
+    }
+
+    public function reviewApplicantDocuments()
+    {
+       return view('admin.manageApplication.reviewApplication.applicantDocuments');
+    }
+
+    public function review()
+    {
+       return view('admin.manageApplication.reviewApplication.review');
+    }
+
+    //Review application end
 
 }

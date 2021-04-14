@@ -256,8 +256,26 @@ Route::prefix('admin')->group(function() {
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'Admin\AdminSystemController@adminDashboard')->name('admin.dashboard');
 
-   
+    /***
+    *Manage application
+    */
+     Route::get('/manage-application-details', 'Admin\AdminSystemController@manageApplicationDetails');
+     /***
+    *End Manage application
+    */
 
+
+    /***
+    *Review application
+    */
+    Route::get('/review-application-form', 'Admin\AdminSystemController@reviewApplicantForm');
+    Route::get('/review-annexure-1', 'Admin\AdminSystemController@reviewAnnexure1');
+    Route::get('/review-annexure-2', 'Admin\AdminSystemController@reviewAnnexure2');
+    Route::get('/review-applicant-documents', 'Admin\AdminSystemController@reviewApplicantDocuments');
+    Route::get('/review', 'Admin\AdminSystemController@review');
+    /***
+   *Review application
+   */
     
     Route::group(['prefix' => 'admin-api'], function() { 
 

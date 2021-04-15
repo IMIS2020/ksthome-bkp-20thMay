@@ -65,4 +65,16 @@ class AdminSystemController extends Controller
 
     //Review application end
 
+   //  Domains
+   public function addDomains()
+   {
+      return view('admin.domains.addDomains');
+   }
+
+   public function manageDomains()
+   {
+      return view('admin.domains.manageDomains');
+   }
+   // Domains end
+
 }

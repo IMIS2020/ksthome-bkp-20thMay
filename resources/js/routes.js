@@ -27,6 +27,11 @@ import AdminApplicantDocuments from './components/admin/manageApplication/review
 import AdminReview             from './components/admin/manageApplication/reviewApplication/review';
 // End review application
 
+// Domains
+    import AddDomains    from './components/admin/domains/addDomains';
+    import ManageDomains from './components/admin/domains/manageDomains';
+// End Domains
+
 export default{ 
     mode: 'history',
     linkActiveClass: 'font-semibold',
@@ -320,5 +325,26 @@ export default{
                      * 
                      * End Review Application
                      */
+
+                    /***
+                     * 
+                     * Admin Domain
+                     */
+                     {
+                        path: '/admin/add-domains',
+                        component:AddDomains,
+                        name: "add-domains"
+                     },
+                     {
+                        path: '/admin/manage-domains',
+                        component:ManageDomains,
+                        name: "manage-domains"
+                     },
+                    /***
+                     * 
+                     * End Admin Domain
+                     */
+
+
  ]
 }

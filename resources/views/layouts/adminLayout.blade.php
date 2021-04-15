@@ -51,6 +51,16 @@
       @yield('review')
     </div>
    <!-- End review Application -->
+
+   <!--Domains start-->
+   <div id="addDomains">
+      @yield('addDomains')
+    </div>
+
+    <div id="manageDomains">
+      @yield('manageDomains')
+    </div>
+   <!--Domains end-->
     
     <!-- <script src="{{asset('assets/js/jquery.min.js')}}"></script> -->
     <!-- <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script> -->

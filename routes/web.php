@@ -277,7 +277,16 @@ Route::prefix('admin')->group(function() {
     /***
    *Review application
    */
-    
+
+  /***
+   *Domains 
+   */
+    Route::get('/add-domains',    'Admin\AdminSystemController@addDomains');
+    Route::get('/manage-domains', 'Admin\AdminSystemController@manageDomains');
+    /***
+   *End Domains 
+   */
+  
     Route::group(['prefix' => 'admin-api'], function() { 
 
       

@@ -12,7 +12,6 @@
 </head>
 <body>
 
-   </style>
    <div class="container">
       <div class="col-md-10 m-auto">
          <!-- <div style="background-color:#702e2e; color:#fff; padding-top:10px; padding-bottom:10px; text-align:center">
@@ -26,21 +25,21 @@
              font-style:bold;margin-left:30px;">Dear Applicant,
             </h5>
               <p style="margin-left:30px; font-size:20px;
-              font-style:italic;">Thank you for registering on the S-ILF Scholarship portal.
+              ">Thank you for registering on the S-ILF Scholarship portal.
               </p>
 
               <p style=" margin-left:30px; font-size:20px;
-              font-style:italic;">Kindly use the following 6 Digit OTP (One Time Password) to verify your identity in the registration screen.
+             ">Kindly use the following 6 Digit OTP (One Time Password) to verify your identity in the registration screen.
               </p>
             
              <h2 style="color:#702e2e; margin-left:30px; font-size:20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" >OTP : {{$code}}</h2>
 
              <p style=" margin-left:30px; font-size:20px;
-              font-style:italic;">Once you have verified your identity correctly with the OTP, your account will be created and you can login with your email and password.
+             ">Once you have verified your identity correctly with the OTP, your account will be created and you can login with your email and password.
               </p>
 
               <p style=" margin-left:30px; font-size:20px;
-              font-style:italic;">For any clarification kindly contact us using the contact details provided in the website.
+              ">For any clarification kindly contact us using the contact details provided in the website.
               </p>
 
              <h5 style=" font-size:20px;

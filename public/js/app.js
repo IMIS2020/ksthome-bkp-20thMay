@@ -5649,6 +5649,59 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5684,6 +5737,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         applicantHasBPLCard: '',
         applicantDomicileState: '',
         applicantColonyName: '',
+        applicantColonyleaderName: '',
         addressAddln1: '',
         addressAddln2: '',
         addressCity: '',
@@ -5757,7 +5811,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         miscYear2: '',
         miscName3: '',
         miscCourse3: '',
-        miscYear3: ''
+        miscYear3: '',
+        miscRelationship1: '',
+        miscRelationship2: '',
+        miscRelationship3: ''
       },
       getdata: {},
       errors: '',
@@ -5957,7 +6014,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             this.$fire({
               position: 'top',
               icon: 'error',
-              title: "All requied fields must be enter",
+              title: "All required fields must be enter",
               showConfirmButton: false,
               timer: 3000
             });
@@ -5981,7 +6038,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             this.$fire({
               position: 'top',
               icon: 'error',
-              title: "Duplicate value alread exists",
+              title: "Duplicate value already exists",
               showConfirmButton: false,
               timer: 3000
             });
@@ -6182,6 +6239,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -61800,11 +61858,10 @@ var render = function() {
                 [
                   _c("strong", [
                     _vm._v(
-                      "Application From for " +
+                      "Application Form for " +
                         _vm._s(this.form.scholarshipType) +
-                        " (" +
-                        _vm._s(_vm.form.financialYear) +
-                        ")"
+                        " Scholarship " +
+                        _vm._s(_vm.form.financialYear)
                     )
                   ])
                 ]
@@ -62152,7 +62209,9 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _c("label", [_vm._v("Father's name:")]),
+                                      _c("label", [
+                                        _vm._v("Father's full name:")
+                                      ]),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -62192,7 +62251,9 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _c("label", [_vm._v("Mother's name:")]),
+                                      _c("label", [
+                                        _vm._v("Mother's full name:")
+                                      ]),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -62346,618 +62407,8 @@ var render = function() {
                                       ])
                                     ]),
                                     _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "col-xl-3 align-self-center"
-                                      },
-                                      [
-                                        _vm._m(5),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "form-group" },
-                                          [
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "form-check form-check-inline"
-                                              },
-                                              [
-                                                _c("input", {
-                                                  directives: [
-                                                    {
-                                                      name: "model",
-                                                      rawName: "v-model",
-                                                      value:
-                                                        _vm.form
-                                                          .applicantLeprosyAffectedMother,
-                                                      expression:
-                                                        "form.applicantLeprosyAffectedMother"
-                                                    }
-                                                  ],
-                                                  staticClass:
-                                                    "form-check-input",
-                                                  attrs: {
-                                                    type: "checkbox",
-                                                    id: "formCheck-4",
-                                                    disabled: _vm.globalDisable
-                                                  },
-                                                  domProps: {
-                                                    checked: Array.isArray(
-                                                      _vm.form
-                                                        .applicantLeprosyAffectedMother
-                                                    )
-                                                      ? _vm._i(
-                                                          _vm.form
-                                                            .applicantLeprosyAffectedMother,
-                                                          null
-                                                        ) > -1
-                                                      : _vm.form
-                                                          .applicantLeprosyAffectedMother
-                                                  },
-                                                  on: {
-                                                    change: function($event) {
-                                                      var $$a =
-                                                          _vm.form
-                                                            .applicantLeprosyAffectedMother,
-                                                        $$el = $event.target,
-                                                        $$c = $$el.checked
-                                                          ? true
-                                                          : false
-                                                      if (Array.isArray($$a)) {
-                                                        var $$v = null,
-                                                          $$i = _vm._i($$a, $$v)
-                                                        if ($$el.checked) {
-                                                          $$i < 0 &&
-                                                            _vm.$set(
-                                                              _vm.form,
-                                                              "applicantLeprosyAffectedMother",
-                                                              $$a.concat([$$v])
-                                                            )
-                                                        } else {
-                                                          $$i > -1 &&
-                                                            _vm.$set(
-                                                              _vm.form,
-                                                              "applicantLeprosyAffectedMother",
-                                                              $$a
-                                                                .slice(0, $$i)
-                                                                .concat(
-                                                                  $$a.slice(
-                                                                    $$i + 1
-                                                                  )
-                                                                )
-                                                            )
-                                                        }
-                                                      } else {
-                                                        _vm.$set(
-                                                          _vm.form,
-                                                          "applicantLeprosyAffectedMother",
-                                                          $$c
-                                                        )
-                                                      }
-                                                    }
-                                                  }
-                                                }),
-                                                _c(
-                                                  "label",
-                                                  {
-                                                    staticClass:
-                                                      "form-check-label font-md",
-                                                    attrs: {
-                                                      for: "formCheck-1"
-                                                    }
-                                                  },
-                                                  [_vm._v("Mother")]
-                                                )
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "form-check form-check-inline"
-                                              },
-                                              [
-                                                _c("input", {
-                                                  directives: [
-                                                    {
-                                                      name: "model",
-                                                      rawName: "v-model",
-                                                      value:
-                                                        _vm.form
-                                                          .applicantLeprosyAffectedFather,
-                                                      expression:
-                                                        "form.applicantLeprosyAffectedFather"
-                                                    }
-                                                  ],
-                                                  staticClass:
-                                                    "form-check-input",
-                                                  attrs: {
-                                                    type: "checkbox",
-                                                    id: "formCheck-2",
-                                                    disabled: _vm.globalDisable
-                                                  },
-                                                  domProps: {
-                                                    checked: Array.isArray(
-                                                      _vm.form
-                                                        .applicantLeprosyAffectedFather
-                                                    )
-                                                      ? _vm._i(
-                                                          _vm.form
-                                                            .applicantLeprosyAffectedFather,
-                                                          null
-                                                        ) > -1
-                                                      : _vm.form
-                                                          .applicantLeprosyAffectedFather
-                                                  },
-                                                  on: {
-                                                    change: function($event) {
-                                                      var $$a =
-                                                          _vm.form
-                                                            .applicantLeprosyAffectedFather,
-                                                        $$el = $event.target,
-                                                        $$c = $$el.checked
-                                                          ? true
-                                                          : false
-                                                      if (Array.isArray($$a)) {
-                                                        var $$v = null,
-                                                          $$i = _vm._i($$a, $$v)
-                                                        if ($$el.checked) {
-                                                          $$i < 0 &&
-                                                            _vm.$set(
-                                                              _vm.form,
-                                                              "applicantLeprosyAffectedFather",
-                                                              $$a.concat([$$v])
-                                                            )
-                                                        } else {
-                                                          $$i > -1 &&
-                                                            _vm.$set(
-                                                              _vm.form,
-                                                              "applicantLeprosyAffectedFather",
-                                                              $$a
-                                                                .slice(0, $$i)
-                                                                .concat(
-                                                                  $$a.slice(
-                                                                    $$i + 1
-                                                                  )
-                                                                )
-                                                            )
-                                                        }
-                                                      } else {
-                                                        _vm.$set(
-                                                          _vm.form,
-                                                          "applicantLeprosyAffectedFather",
-                                                          $$c
-                                                        )
-                                                      }
-                                                    }
-                                                  }
-                                                }),
-                                                _c(
-                                                  "label",
-                                                  {
-                                                    staticClass:
-                                                      "form-check-label font-md",
-                                                    attrs: {
-                                                      for: "formCheck-2"
-                                                    }
-                                                  },
-                                                  [_vm._v("Father")]
-                                                )
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "form-check form-check-inline"
-                                              },
-                                              [
-                                                _c("input", {
-                                                  directives: [
-                                                    {
-                                                      name: "model",
-                                                      rawName: "v-model",
-                                                      value:
-                                                        _vm.form
-                                                          .applicantLeprosyAffectedSelf,
-                                                      expression:
-                                                        "form.applicantLeprosyAffectedSelf"
-                                                    }
-                                                  ],
-                                                  staticClass:
-                                                    "form-check-input",
-                                                  attrs: {
-                                                    type: "checkbox",
-                                                    id: "formCheck-3",
-                                                    disabled: _vm.globalDisable
-                                                  },
-                                                  domProps: {
-                                                    checked: Array.isArray(
-                                                      _vm.form
-                                                        .applicantLeprosyAffectedSelf
-                                                    )
-                                                      ? _vm._i(
-                                                          _vm.form
-                                                            .applicantLeprosyAffectedSelf,
-                                                          null
-                                                        ) > -1
-                                                      : _vm.form
-                                                          .applicantLeprosyAffectedSelf
-                                                  },
-                                                  on: {
-                                                    change: function($event) {
-                                                      var $$a =
-                                                          _vm.form
-                                                            .applicantLeprosyAffectedSelf,
-                                                        $$el = $event.target,
-                                                        $$c = $$el.checked
-                                                          ? true
-                                                          : false
-                                                      if (Array.isArray($$a)) {
-                                                        var $$v = null,
-                                                          $$i = _vm._i($$a, $$v)
-                                                        if ($$el.checked) {
-                                                          $$i < 0 &&
-                                                            _vm.$set(
-                                                              _vm.form,
-                                                              "applicantLeprosyAffectedSelf",
-                                                              $$a.concat([$$v])
-                                                            )
-                                                        } else {
-                                                          $$i > -1 &&
-                                                            _vm.$set(
-                                                              _vm.form,
-                                                              "applicantLeprosyAffectedSelf",
-                                                              $$a
-                                                                .slice(0, $$i)
-                                                                .concat(
-                                                                  $$a.slice(
-                                                                    $$i + 1
-                                                                  )
-                                                                )
-                                                            )
-                                                        }
-                                                      } else {
-                                                        _vm.$set(
-                                                          _vm.form,
-                                                          "applicantLeprosyAffectedSelf",
-                                                          $$c
-                                                        )
-                                                      }
-                                                    }
-                                                  }
-                                                }),
-                                                _c(
-                                                  "label",
-                                                  {
-                                                    staticClass:
-                                                      "form-check-label font-md",
-                                                    attrs: {
-                                                      for: "formCheck-3"
-                                                    }
-                                                  },
-                                                  [_vm._v("Self")]
-                                                )
-                                              ]
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "col-xl-3 align-self-center"
-                                      },
-                                      [
-                                        _vm._m(6),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "form-group" },
-                                          [
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "form-check form-check-inline"
-                                              },
-                                              [
-                                                _c("input", {
-                                                  directives: [
-                                                    {
-                                                      name: "model",
-                                                      rawName: "v-model",
-                                                      value:
-                                                        _vm.form
-                                                          .applicantDisablityMother,
-                                                      expression:
-                                                        "form.applicantDisablityMother"
-                                                    }
-                                                  ],
-                                                  staticClass:
-                                                    "form-check-input",
-                                                  attrs: {
-                                                    type: "checkbox",
-                                                    id: "formCheck-4",
-                                                    disabled: _vm.globalDisable
-                                                  },
-                                                  domProps: {
-                                                    checked: Array.isArray(
-                                                      _vm.form
-                                                        .applicantDisablityMother
-                                                    )
-                                                      ? _vm._i(
-                                                          _vm.form
-                                                            .applicantDisablityMother,
-                                                          null
-                                                        ) > -1
-                                                      : _vm.form
-                                                          .applicantDisablityMother
-                                                  },
-                                                  on: {
-                                                    change: function($event) {
-                                                      var $$a =
-                                                          _vm.form
-                                                            .applicantDisablityMother,
-                                                        $$el = $event.target,
-                                                        $$c = $$el.checked
-                                                          ? true
-                                                          : false
-                                                      if (Array.isArray($$a)) {
-                                                        var $$v = null,
-                                                          $$i = _vm._i($$a, $$v)
-                                                        if ($$el.checked) {
-                                                          $$i < 0 &&
-                                                            _vm.$set(
-                                                              _vm.form,
-                                                              "applicantDisablityMother",
-                                                              $$a.concat([$$v])
-                                                            )
-                                                        } else {
-                                                          $$i > -1 &&
-                                                            _vm.$set(
-                                                              _vm.form,
-                                                              "applicantDisablityMother",
-                                                              $$a
-                                                                .slice(0, $$i)
-                                                                .concat(
-                                                                  $$a.slice(
-                                                                    $$i + 1
-                                                                  )
-                                                                )
-                                                            )
-                                                        }
-                                                      } else {
-                                                        _vm.$set(
-                                                          _vm.form,
-                                                          "applicantDisablityMother",
-                                                          $$c
-                                                        )
-                                                      }
-                                                    }
-                                                  }
-                                                }),
-                                                _c(
-                                                  "label",
-                                                  {
-                                                    staticClass:
-                                                      "form-check-label font-md",
-                                                    attrs: {
-                                                      for: "formCheck-1"
-                                                    }
-                                                  },
-                                                  [_vm._v("Mother")]
-                                                )
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "form-check form-check-inline"
-                                              },
-                                              [
-                                                _c("input", {
-                                                  directives: [
-                                                    {
-                                                      name: "model",
-                                                      rawName: "v-model",
-                                                      value:
-                                                        _vm.form
-                                                          .applicantDisablityFather,
-                                                      expression:
-                                                        "form.applicantDisablityFather"
-                                                    }
-                                                  ],
-                                                  staticClass:
-                                                    "form-check-input",
-                                                  attrs: {
-                                                    type: "checkbox",
-                                                    id: "formCheck-2",
-                                                    disabled: _vm.globalDisable
-                                                  },
-                                                  domProps: {
-                                                    checked: Array.isArray(
-                                                      _vm.form
-                                                        .applicantDisablityFather
-                                                    )
-                                                      ? _vm._i(
-                                                          _vm.form
-                                                            .applicantDisablityFather,
-                                                          null
-                                                        ) > -1
-                                                      : _vm.form
-                                                          .applicantDisablityFather
-                                                  },
-                                                  on: {
-                                                    change: function($event) {
-                                                      var $$a =
-                                                          _vm.form
-                                                            .applicantDisablityFather,
-                                                        $$el = $event.target,
-                                                        $$c = $$el.checked
-                                                          ? true
-                                                          : false
-                                                      if (Array.isArray($$a)) {
-                                                        var $$v = null,
-                                                          $$i = _vm._i($$a, $$v)
-                                                        if ($$el.checked) {
-                                                          $$i < 0 &&
-                                                            _vm.$set(
-                                                              _vm.form,
-                                                              "applicantDisablityFather",
-                                                              $$a.concat([$$v])
-                                                            )
-                                                        } else {
-                                                          $$i > -1 &&
-                                                            _vm.$set(
-                                                              _vm.form,
-                                                              "applicantDisablityFather",
-                                                              $$a
-                                                                .slice(0, $$i)
-                                                                .concat(
-                                                                  $$a.slice(
-                                                                    $$i + 1
-                                                                  )
-                                                                )
-                                                            )
-                                                        }
-                                                      } else {
-                                                        _vm.$set(
-                                                          _vm.form,
-                                                          "applicantDisablityFather",
-                                                          $$c
-                                                        )
-                                                      }
-                                                    }
-                                                  }
-                                                }),
-                                                _c(
-                                                  "label",
-                                                  {
-                                                    staticClass:
-                                                      "form-check-label font-md",
-                                                    attrs: {
-                                                      for: "formCheck-2"
-                                                    }
-                                                  },
-                                                  [_vm._v("Father")]
-                                                )
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "form-check form-check-inline"
-                                              },
-                                              [
-                                                _c("input", {
-                                                  directives: [
-                                                    {
-                                                      name: "model",
-                                                      rawName: "v-model",
-                                                      value:
-                                                        _vm.form
-                                                          .applicantDisablitySelf,
-                                                      expression:
-                                                        "form.applicantDisablitySelf"
-                                                    }
-                                                  ],
-                                                  staticClass:
-                                                    "form-check-input",
-                                                  attrs: {
-                                                    type: "checkbox",
-                                                    id: "formCheck-3",
-                                                    disabled: _vm.globalDisable
-                                                  },
-                                                  domProps: {
-                                                    checked: Array.isArray(
-                                                      _vm.form
-                                                        .applicantDisablitySelf
-                                                    )
-                                                      ? _vm._i(
-                                                          _vm.form
-                                                            .applicantDisablitySelf,
-                                                          null
-                                                        ) > -1
-                                                      : _vm.form
-                                                          .applicantDisablitySelf
-                                                  },
-                                                  on: {
-                                                    change: function($event) {
-                                                      var $$a =
-                                                          _vm.form
-                                                            .applicantDisablitySelf,
-                                                        $$el = $event.target,
-                                                        $$c = $$el.checked
-                                                          ? true
-                                                          : false
-                                                      if (Array.isArray($$a)) {
-                                                        var $$v = null,
-                                                          $$i = _vm._i($$a, $$v)
-                                                        if ($$el.checked) {
-                                                          $$i < 0 &&
-                                                            _vm.$set(
-                                                              _vm.form,
-                                                              "applicantDisablitySelf",
-                                                              $$a.concat([$$v])
-                                                            )
-                                                        } else {
-                                                          $$i > -1 &&
-                                                            _vm.$set(
-                                                              _vm.form,
-                                                              "applicantDisablitySelf",
-                                                              $$a
-                                                                .slice(0, $$i)
-                                                                .concat(
-                                                                  $$a.slice(
-                                                                    $$i + 1
-                                                                  )
-                                                                )
-                                                            )
-                                                        }
-                                                      } else {
-                                                        _vm.$set(
-                                                          _vm.form,
-                                                          "applicantDisablitySelf",
-                                                          $$c
-                                                        )
-                                                      }
-                                                    }
-                                                  }
-                                                }),
-                                                _c(
-                                                  "label",
-                                                  {
-                                                    staticClass:
-                                                      "form-check-label font-md",
-                                                    attrs: {
-                                                      for: "formCheck-3"
-                                                    }
-                                                  },
-                                                  [_vm._v("Self")]
-                                                )
-                                              ]
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(7),
+                                    _c("div", { staticClass: "col-xl-2" }, [
+                                      _vm._m(5),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c(
@@ -63033,8 +62484,8 @@ var render = function() {
                                       ])
                                     ]),
                                     _vm._v(" "),
-                                    _c("div", { staticClass: "col-xl-2" }, [
-                                      _vm._m(8),
+                                    _c("div", { staticClass: "col-xl-5" }, [
+                                      _vm._m(6),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c(
@@ -63371,7 +62822,713 @@ var render = function() {
                                           ]
                                         )
                                       ])
-                                    ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-xl-3 align-self-center"
+                                      },
+                                      [
+                                        _vm._m(7),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "form-check form-check-inline"
+                                              },
+                                              [
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .applicantLeprosyAffectedMother,
+                                                      expression:
+                                                        "form.applicantLeprosyAffectedMother"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-check-input",
+                                                  attrs: {
+                                                    type: "checkbox",
+                                                    id: "formCheck-4",
+                                                    disabled: _vm.globalDisable
+                                                  },
+                                                  domProps: {
+                                                    checked: Array.isArray(
+                                                      _vm.form
+                                                        .applicantLeprosyAffectedMother
+                                                    )
+                                                      ? _vm._i(
+                                                          _vm.form
+                                                            .applicantLeprosyAffectedMother,
+                                                          null
+                                                        ) > -1
+                                                      : _vm.form
+                                                          .applicantLeprosyAffectedMother
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$a =
+                                                          _vm.form
+                                                            .applicantLeprosyAffectedMother,
+                                                        $$el = $event.target,
+                                                        $$c = $$el.checked
+                                                          ? true
+                                                          : false
+                                                      if (Array.isArray($$a)) {
+                                                        var $$v = null,
+                                                          $$i = _vm._i($$a, $$v)
+                                                        if ($$el.checked) {
+                                                          $$i < 0 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantLeprosyAffectedMother",
+                                                              $$a.concat([$$v])
+                                                            )
+                                                        } else {
+                                                          $$i > -1 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantLeprosyAffectedMother",
+                                                              $$a
+                                                                .slice(0, $$i)
+                                                                .concat(
+                                                                  $$a.slice(
+                                                                    $$i + 1
+                                                                  )
+                                                                )
+                                                            )
+                                                        }
+                                                      } else {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "applicantLeprosyAffectedMother",
+                                                          $$c
+                                                        )
+                                                      }
+                                                    }
+                                                  }
+                                                }),
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "form-check-label font-md",
+                                                    attrs: {
+                                                      for: "formCheck-1"
+                                                    }
+                                                  },
+                                                  [_vm._v("Mother")]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "form-check form-check-inline"
+                                              },
+                                              [
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .applicantLeprosyAffectedFather,
+                                                      expression:
+                                                        "form.applicantLeprosyAffectedFather"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-check-input",
+                                                  attrs: {
+                                                    type: "checkbox",
+                                                    id: "formCheck-2",
+                                                    disabled: _vm.globalDisable
+                                                  },
+                                                  domProps: {
+                                                    checked: Array.isArray(
+                                                      _vm.form
+                                                        .applicantLeprosyAffectedFather
+                                                    )
+                                                      ? _vm._i(
+                                                          _vm.form
+                                                            .applicantLeprosyAffectedFather,
+                                                          null
+                                                        ) > -1
+                                                      : _vm.form
+                                                          .applicantLeprosyAffectedFather
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$a =
+                                                          _vm.form
+                                                            .applicantLeprosyAffectedFather,
+                                                        $$el = $event.target,
+                                                        $$c = $$el.checked
+                                                          ? true
+                                                          : false
+                                                      if (Array.isArray($$a)) {
+                                                        var $$v = null,
+                                                          $$i = _vm._i($$a, $$v)
+                                                        if ($$el.checked) {
+                                                          $$i < 0 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantLeprosyAffectedFather",
+                                                              $$a.concat([$$v])
+                                                            )
+                                                        } else {
+                                                          $$i > -1 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantLeprosyAffectedFather",
+                                                              $$a
+                                                                .slice(0, $$i)
+                                                                .concat(
+                                                                  $$a.slice(
+                                                                    $$i + 1
+                                                                  )
+                                                                )
+                                                            )
+                                                        }
+                                                      } else {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "applicantLeprosyAffectedFather",
+                                                          $$c
+                                                        )
+                                                      }
+                                                    }
+                                                  }
+                                                }),
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "form-check-label font-md",
+                                                    attrs: {
+                                                      for: "formCheck-2"
+                                                    }
+                                                  },
+                                                  [_vm._v("Father")]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "form-check form-check-inline"
+                                              },
+                                              [
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .applicantLeprosyAffectedSelf,
+                                                      expression:
+                                                        "form.applicantLeprosyAffectedSelf"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-check-input",
+                                                  attrs: {
+                                                    type: "checkbox",
+                                                    id: "formCheck-3",
+                                                    disabled: _vm.globalDisable
+                                                  },
+                                                  domProps: {
+                                                    checked: Array.isArray(
+                                                      _vm.form
+                                                        .applicantLeprosyAffectedSelf
+                                                    )
+                                                      ? _vm._i(
+                                                          _vm.form
+                                                            .applicantLeprosyAffectedSelf,
+                                                          null
+                                                        ) > -1
+                                                      : _vm.form
+                                                          .applicantLeprosyAffectedSelf
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$a =
+                                                          _vm.form
+                                                            .applicantLeprosyAffectedSelf,
+                                                        $$el = $event.target,
+                                                        $$c = $$el.checked
+                                                          ? true
+                                                          : false
+                                                      if (Array.isArray($$a)) {
+                                                        var $$v = null,
+                                                          $$i = _vm._i($$a, $$v)
+                                                        if ($$el.checked) {
+                                                          $$i < 0 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantLeprosyAffectedSelf",
+                                                              $$a.concat([$$v])
+                                                            )
+                                                        } else {
+                                                          $$i > -1 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantLeprosyAffectedSelf",
+                                                              $$a
+                                                                .slice(0, $$i)
+                                                                .concat(
+                                                                  $$a.slice(
+                                                                    $$i + 1
+                                                                  )
+                                                                )
+                                                            )
+                                                        }
+                                                      } else {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "applicantLeprosyAffectedSelf",
+                                                          $$c
+                                                        )
+                                                      }
+                                                    }
+                                                  }
+                                                }),
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "form-check-label font-md",
+                                                    attrs: {
+                                                      for: "formCheck-3"
+                                                    }
+                                                  },
+                                                  [_vm._v("Self")]
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-xl-5 align-self-center"
+                                      },
+                                      [
+                                        _vm._m(8),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "form-check form-check-inline"
+                                              },
+                                              [
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .applicantDisablityMother,
+                                                      expression:
+                                                        "form.applicantDisablityMother"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-check-input",
+                                                  attrs: {
+                                                    type: "checkbox",
+                                                    id: "formCheck-4",
+                                                    disabled: _vm.globalDisable
+                                                  },
+                                                  domProps: {
+                                                    checked: Array.isArray(
+                                                      _vm.form
+                                                        .applicantDisablityMother
+                                                    )
+                                                      ? _vm._i(
+                                                          _vm.form
+                                                            .applicantDisablityMother,
+                                                          null
+                                                        ) > -1
+                                                      : _vm.form
+                                                          .applicantDisablityMother
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$a =
+                                                          _vm.form
+                                                            .applicantDisablityMother,
+                                                        $$el = $event.target,
+                                                        $$c = $$el.checked
+                                                          ? true
+                                                          : false
+                                                      if (Array.isArray($$a)) {
+                                                        var $$v = null,
+                                                          $$i = _vm._i($$a, $$v)
+                                                        if ($$el.checked) {
+                                                          $$i < 0 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantDisablityMother",
+                                                              $$a.concat([$$v])
+                                                            )
+                                                        } else {
+                                                          $$i > -1 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantDisablityMother",
+                                                              $$a
+                                                                .slice(0, $$i)
+                                                                .concat(
+                                                                  $$a.slice(
+                                                                    $$i + 1
+                                                                  )
+                                                                )
+                                                            )
+                                                        }
+                                                      } else {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "applicantDisablityMother",
+                                                          $$c
+                                                        )
+                                                      }
+                                                    }
+                                                  }
+                                                }),
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "form-check-label font-md",
+                                                    attrs: {
+                                                      for: "formCheck-1"
+                                                    }
+                                                  },
+                                                  [_vm._v("Mother")]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "form-check form-check-inline"
+                                              },
+                                              [
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .applicantDisablityFather,
+                                                      expression:
+                                                        "form.applicantDisablityFather"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-check-input",
+                                                  attrs: {
+                                                    type: "checkbox",
+                                                    id: "formCheck-2",
+                                                    disabled: _vm.globalDisable
+                                                  },
+                                                  domProps: {
+                                                    checked: Array.isArray(
+                                                      _vm.form
+                                                        .applicantDisablityFather
+                                                    )
+                                                      ? _vm._i(
+                                                          _vm.form
+                                                            .applicantDisablityFather,
+                                                          null
+                                                        ) > -1
+                                                      : _vm.form
+                                                          .applicantDisablityFather
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$a =
+                                                          _vm.form
+                                                            .applicantDisablityFather,
+                                                        $$el = $event.target,
+                                                        $$c = $$el.checked
+                                                          ? true
+                                                          : false
+                                                      if (Array.isArray($$a)) {
+                                                        var $$v = null,
+                                                          $$i = _vm._i($$a, $$v)
+                                                        if ($$el.checked) {
+                                                          $$i < 0 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantDisablityFather",
+                                                              $$a.concat([$$v])
+                                                            )
+                                                        } else {
+                                                          $$i > -1 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantDisablityFather",
+                                                              $$a
+                                                                .slice(0, $$i)
+                                                                .concat(
+                                                                  $$a.slice(
+                                                                    $$i + 1
+                                                                  )
+                                                                )
+                                                            )
+                                                        }
+                                                      } else {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "applicantDisablityFather",
+                                                          $$c
+                                                        )
+                                                      }
+                                                    }
+                                                  }
+                                                }),
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "form-check-label font-md",
+                                                    attrs: {
+                                                      for: "formCheck-2"
+                                                    }
+                                                  },
+                                                  [_vm._v("Father")]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "form-check form-check-inline"
+                                              },
+                                              [
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .applicantDisablitySelf,
+                                                      expression:
+                                                        "form.applicantDisablitySelf"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-check-input",
+                                                  attrs: {
+                                                    type: "checkbox",
+                                                    id: "formCheck-3",
+                                                    disabled: _vm.globalDisable
+                                                  },
+                                                  domProps: {
+                                                    checked: Array.isArray(
+                                                      _vm.form
+                                                        .applicantDisablitySelf
+                                                    )
+                                                      ? _vm._i(
+                                                          _vm.form
+                                                            .applicantDisablitySelf,
+                                                          null
+                                                        ) > -1
+                                                      : _vm.form
+                                                          .applicantDisablitySelf
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$a =
+                                                          _vm.form
+                                                            .applicantDisablitySelf,
+                                                        $$el = $event.target,
+                                                        $$c = $$el.checked
+                                                          ? true
+                                                          : false
+                                                      if (Array.isArray($$a)) {
+                                                        var $$v = null,
+                                                          $$i = _vm._i($$a, $$v)
+                                                        if ($$el.checked) {
+                                                          $$i < 0 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantDisablitySelf",
+                                                              $$a.concat([$$v])
+                                                            )
+                                                        } else {
+                                                          $$i > -1 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantDisablitySelf",
+                                                              $$a
+                                                                .slice(0, $$i)
+                                                                .concat(
+                                                                  $$a.slice(
+                                                                    $$i + 1
+                                                                  )
+                                                                )
+                                                            )
+                                                        }
+                                                      } else {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "applicantDisablitySelf",
+                                                          $$c
+                                                        )
+                                                      }
+                                                    }
+                                                  }
+                                                }),
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "form-check-label font-md",
+                                                    attrs: {
+                                                      for: "formCheck-3"
+                                                    }
+                                                  },
+                                                  [_vm._v("Self")]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "form-check form-check-inline"
+                                              },
+                                              [
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .applicantDisablityNone,
+                                                      expression:
+                                                        "form.applicantDisablityNone"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-check-input",
+                                                  attrs: {
+                                                    type: "checkbox",
+                                                    id: "formCheck-1",
+                                                    disabled: _vm.globalDisable
+                                                  },
+                                                  domProps: {
+                                                    checked: Array.isArray(
+                                                      _vm.form
+                                                        .applicantDisablityNone
+                                                    )
+                                                      ? _vm._i(
+                                                          _vm.form
+                                                            .applicantDisablityNone,
+                                                          null
+                                                        ) > -1
+                                                      : _vm.form
+                                                          .applicantDisablityNone
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$a =
+                                                          _vm.form
+                                                            .applicantDisablityNone,
+                                                        $$el = $event.target,
+                                                        $$c = $$el.checked
+                                                          ? true
+                                                          : false
+                                                      if (Array.isArray($$a)) {
+                                                        var $$v = null,
+                                                          $$i = _vm._i($$a, $$v)
+                                                        if ($$el.checked) {
+                                                          $$i < 0 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantDisablityNone",
+                                                              $$a.concat([$$v])
+                                                            )
+                                                        } else {
+                                                          $$i > -1 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantDisablityNone",
+                                                              $$a
+                                                                .slice(0, $$i)
+                                                                .concat(
+                                                                  $$a.slice(
+                                                                    $$i + 1
+                                                                  )
+                                                                )
+                                                            )
+                                                        }
+                                                      } else {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "applicantDisablityNone",
+                                                          $$c
+                                                        )
+                                                      }
+                                                    }
+                                                  }
+                                                }),
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "form-check-label font-md",
+                                                    attrs: {
+                                                      for: "formCheck-1"
+                                                    }
+                                                  },
+                                                  [_vm._v("None")]
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
                                   ])
                                 ])
                               ])
@@ -64016,7 +64173,7 @@ var render = function() {
                                             "form-control form-control-sm",
                                           attrs: {
                                             type: "email",
-                                            disabled: _vm.globalDisable,
+                                            disabled: "",
                                             required: ""
                                           },
                                           domProps: {
@@ -64080,6 +64237,45 @@ var render = function() {
                                           }
                                         })
                                       ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-3" }, [
+                                      _vm._m(17),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.form
+                                                  .applicantColonyleaderName,
+                                              expression:
+                                                "form.applicantColonyleaderName"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: { type: "text", required: "" },
+                                          domProps: {
+                                            value:
+                                              _vm.form.applicantColonyleaderName
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "applicantColonyleaderName",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
                                     ])
                                   ])
                                 ])
@@ -64088,7 +64284,7 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "col-xl-12" }, [
                               _c("div", { staticClass: "card mt-2 det-sec" }, [
-                                _vm._m(17),
+                                _vm._m(18),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "card-body" }, [
                                   _c("div", { staticClass: "form-row" }, [
@@ -64096,7 +64292,7 @@ var render = function() {
                                       "div",
                                       { staticClass: "col-xl-12 mb-2" },
                                       [
-                                        _vm._m(18),
+                                        _vm._m(19),
                                         _vm._v(" "),
                                         _c(
                                           "div",
@@ -64120,7 +64316,7 @@ var render = function() {
                                                   },
                                                   [
                                                     _c("tr", [
-                                                      _vm._m(19),
+                                                      _vm._m(20),
                                                       _vm._v(" "),
                                                       _c("th", [
                                                         _vm._v(
@@ -64208,13 +64404,13 @@ var render = function() {
                                                         ])
                                                       ]),
                                                       _vm._v(" "),
-                                                      _vm._m(20),
-                                                      _vm._v(" "),
                                                       _vm._m(21),
                                                       _vm._v(" "),
                                                       _vm._m(22),
                                                       _vm._v(" "),
-                                                      _vm._m(23)
+                                                      _vm._m(23),
+                                                      _vm._v(" "),
+                                                      _vm._m(24)
                                                     ])
                                                   ]
                                                 ),
@@ -64465,7 +64661,7 @@ var render = function() {
                                                                     "modal-content"
                                                                 },
                                                                 [
-                                                                  _vm._m(24),
+                                                                  _vm._m(25),
                                                                   _vm._v(" "),
                                                                   _c(
                                                                     "div",
@@ -64749,7 +64945,7 @@ var render = function() {
                                                                           )
                                                                         ]
                                                                       ),
-                                                                      _vm._m(25)
+                                                                      _vm._m(26)
                                                                     ]
                                                                   )
                                                                 ]
@@ -64905,7 +65101,7 @@ var render = function() {
                                                                     "modal-content"
                                                                 },
                                                                 [
-                                                                  _vm._m(26),
+                                                                  _vm._m(27),
                                                                   _vm._v(" "),
                                                                   _c(
                                                                     "div",
@@ -65189,7 +65385,7 @@ var render = function() {
                                                                           )
                                                                         ]
                                                                       ),
-                                                                      _vm._m(27)
+                                                                      _vm._m(28)
                                                                     ]
                                                                   )
                                                                 ]
@@ -65887,7 +66083,7 @@ var render = function() {
                                                                     "modal-content"
                                                                 },
                                                                 [
-                                                                  _vm._m(28),
+                                                                  _vm._m(29),
                                                                   _vm._v(" "),
                                                                   _c(
                                                                     "div",
@@ -66171,7 +66367,7 @@ var render = function() {
                                                                           )
                                                                         ]
                                                                       ),
-                                                                      _vm._m(29)
+                                                                      _vm._m(30)
                                                                     ]
                                                                   )
                                                                 ]
@@ -66327,7 +66523,7 @@ var render = function() {
                                                                     "modal-content"
                                                                 },
                                                                 [
-                                                                  _vm._m(30),
+                                                                  _vm._m(31),
                                                                   _vm._v(" "),
                                                                   _c(
                                                                     "div",
@@ -66611,7 +66807,7 @@ var render = function() {
                                                                           )
                                                                         ]
                                                                       ),
-                                                                      _vm._m(31)
+                                                                      _vm._m(32)
                                                                     ]
                                                                   )
                                                                 ]
@@ -67325,7 +67521,7 @@ var render = function() {
                                                                     },
                                                                     [
                                                                       _vm._m(
-                                                                        32
+                                                                        33
                                                                       ),
                                                                       _vm._v(
                                                                         " "
@@ -67615,7 +67811,7 @@ var render = function() {
                                                                             ]
                                                                           ),
                                                                           _vm._m(
-                                                                            33
+                                                                            34
                                                                           )
                                                                         ]
                                                                       )
@@ -67777,7 +67973,7 @@ var render = function() {
                                                                     },
                                                                     [
                                                                       _vm._m(
-                                                                        34
+                                                                        35
                                                                       ),
                                                                       _vm._v(
                                                                         " "
@@ -68067,7 +68263,7 @@ var render = function() {
                                                                             ]
                                                                           ),
                                                                           _vm._m(
-                                                                            35
+                                                                            36
                                                                           )
                                                                         ]
                                                                       )
@@ -68604,18 +68800,30 @@ var render = function() {
                                         )
                                       ]
                                     )
-                                  ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "m-auto text-danger font-sm"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Note: Click on 'Add new values' above to add values to the list if required. "
+                                      )
+                                    ]
+                                  )
                                 ])
                               ])
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-xl-12" }, [
                               _c("div", { staticClass: "card mt-2 det-sec" }, [
-                                _vm._m(36),
+                                _vm._m(37),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "card-body" }, [
                                   _c("div", { staticClass: "form-row" }, [
-                                    _vm._m(37),
+                                    _vm._m(38),
                                     _vm._v(" "),
                                     _c(
                                       "div",
@@ -68711,33 +68919,23 @@ var render = function() {
                                       ]
                                     ),
                                     _vm._v(" "),
-                                    _vm._m(38),
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "text-danger font-sm mt-2"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "  (If 'YES' Annexure-I will be disabled. If 'NO' fill up Annexure-I)"
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _vm._m(39),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
                                       _c("label", [
-                                        _vm._v("Name of the Level "),
-                                        _vm._m(39),
-                                        _vm.inputDisabled == false
-                                          ? _c(
-                                              "a",
-                                              {
-                                                attrs: {
-                                                  "data-toggle": "modal",
-                                                  href: "#",
-                                                  "data-target":
-                                                    "#others-course-level"
-                                                },
-                                                on: {
-                                                  click: function($event) {
-                                                    return _vm.addName(
-                                                      "CourseLevel"
-                                                    )
-                                                  }
-                                                }
-                                              },
-                                              [_vm._v(" + Add New Value")]
-                                            )
-                                          : _vm._e()
+                                        _vm._v("Name of the Level ")
                                       ]),
                                       _vm._v(" "),
                                       _vm.form.scholarshipType == "Nursing"
@@ -71493,7 +71691,7 @@ var render = function() {
                                       ])
                                     ]),
                                     _vm._v(" "),
-                                    _c("div", { staticClass: "col-xl-3" }, [
+                                    _c("div", { staticClass: "col-xl-4" }, [
                                       _vm._m(52),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
@@ -71555,12 +71753,6 @@ var render = function() {
                                             _vm._v(" "),
                                             _c(
                                               "option",
-                                              { attrs: { value: "N/A" } },
-                                              [_vm._v("N/A")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
                                               { attrs: { value: "YES" } },
                                               [_vm._v("YES")]
                                             ),
@@ -71569,6 +71761,14 @@ var render = function() {
                                               "option",
                                               { attrs: { value: "NO" } },
                                               [_vm._v("NO")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: { value: "Don't know" }
+                                              },
+                                              [_vm._v("Don't know")]
                                             )
                                           ]
                                         )
@@ -71661,6 +71861,125 @@ var render = function() {
                                                               }
                                                             }
                                                           })
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "select",
+                                                            {
+                                                              directives: [
+                                                                {
+                                                                  name: "model",
+                                                                  rawName:
+                                                                    "v-model",
+                                                                  value:
+                                                                    _vm.form
+                                                                      .miscRelationship1,
+                                                                  expression:
+                                                                    "form.miscRelationship1"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "form-control form-control-sm",
+                                                              attrs: {
+                                                                disabled:
+                                                                  _vm.globalDisable
+                                                              },
+                                                              on: {
+                                                                change: function(
+                                                                  $event
+                                                                ) {
+                                                                  var $$selectedVal = Array.prototype.filter
+                                                                    .call(
+                                                                      $event
+                                                                        .target
+                                                                        .options,
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        return o.selected
+                                                                      }
+                                                                    )
+                                                                    .map(
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        var val =
+                                                                          "_value" in
+                                                                          o
+                                                                            ? o._value
+                                                                            : o.value
+                                                                        return val
+                                                                      }
+                                                                    )
+                                                                  _vm.$set(
+                                                                    _vm.form,
+                                                                    "miscRelationship1",
+                                                                    $event
+                                                                      .target
+                                                                      .multiple
+                                                                      ? $$selectedVal
+                                                                      : $$selectedVal[0]
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "",
+                                                                    disabled: ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "--Select--"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "Brother"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Brother"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "Sister"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Sister"
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
                                                         ]
                                                       )
                                                     ]),
@@ -71843,6 +72162,125 @@ var render = function() {
                                                             "form-group mb-0"
                                                         },
                                                         [
+                                                          _c(
+                                                            "select",
+                                                            {
+                                                              directives: [
+                                                                {
+                                                                  name: "model",
+                                                                  rawName:
+                                                                    "v-model",
+                                                                  value:
+                                                                    _vm.form
+                                                                      .miscRelationship2,
+                                                                  expression:
+                                                                    "form.miscRelationship2"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "form-control form-control-sm",
+                                                              attrs: {
+                                                                disabled:
+                                                                  _vm.globalDisable
+                                                              },
+                                                              on: {
+                                                                change: function(
+                                                                  $event
+                                                                ) {
+                                                                  var $$selectedVal = Array.prototype.filter
+                                                                    .call(
+                                                                      $event
+                                                                        .target
+                                                                        .options,
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        return o.selected
+                                                                      }
+                                                                    )
+                                                                    .map(
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        var val =
+                                                                          "_value" in
+                                                                          o
+                                                                            ? o._value
+                                                                            : o.value
+                                                                        return val
+                                                                      }
+                                                                    )
+                                                                  _vm.$set(
+                                                                    _vm.form,
+                                                                    "miscRelationship2",
+                                                                    $event
+                                                                      .target
+                                                                      .multiple
+                                                                      ? $$selectedVal
+                                                                      : $$selectedVal[0]
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "",
+                                                                    disabled: ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "--Select--"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "Brother"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Brother"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "Sister"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Sister"
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
                                                           _c("input", {
                                                             directives: [
                                                               {
@@ -72001,6 +72439,125 @@ var render = function() {
                                                               }
                                                             }
                                                           })
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "select",
+                                                            {
+                                                              directives: [
+                                                                {
+                                                                  name: "model",
+                                                                  rawName:
+                                                                    "v-model",
+                                                                  value:
+                                                                    _vm.form
+                                                                      .miscRelationship3,
+                                                                  expression:
+                                                                    "form.miscRelationship3"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "form-control form-control-sm",
+                                                              attrs: {
+                                                                disabled:
+                                                                  _vm.globalDisable
+                                                              },
+                                                              on: {
+                                                                change: function(
+                                                                  $event
+                                                                ) {
+                                                                  var $$selectedVal = Array.prototype.filter
+                                                                    .call(
+                                                                      $event
+                                                                        .target
+                                                                        .options,
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        return o.selected
+                                                                      }
+                                                                    )
+                                                                    .map(
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        var val =
+                                                                          "_value" in
+                                                                          o
+                                                                            ? o._value
+                                                                            : o.value
+                                                                        return val
+                                                                      }
+                                                                    )
+                                                                  _vm.$set(
+                                                                    _vm.form,
+                                                                    "miscRelationship3",
+                                                                    $event
+                                                                      .target
+                                                                      .multiple
+                                                                      ? $$selectedVal
+                                                                      : $$selectedVal[0]
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "",
+                                                                    disabled: ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "--Select--"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "Brother"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Brother"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "Sister"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Sister"
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
                                                         ]
                                                       )
                                                     ]),
@@ -72212,7 +72769,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", [
-      _vm._v("DOB: "),
+      _vm._v("Date of Birth: "),
       _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
     ])
   },
@@ -72230,25 +72787,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", [
-      _vm._v("Who is affected by leprosy: "),
-      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("Who has disability: "),
-      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("whether family has a BPL card: "),
+      _vm._v("Family has a BPL card ?: "),
       _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
     ])
   },
@@ -72258,6 +72797,26 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", [
       _vm._v("Domicile state "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Who is affected by Leprosy in the family: "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v(
+        "Who has disability due to Leprosy in the family (Certificate required): "
+      ),
       _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
     ])
   },
@@ -72310,7 +72869,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", [
-      _vm._v("Contact no. (father) "),
+      _vm._v("Alternate Contact No "),
       _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
     ])
   },
@@ -72329,6 +72888,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", [
       _vm._v("Contact no. (colony leader) "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Colony leader Name "),
       _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
     ])
   },
@@ -72621,7 +73189,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-xl-4 align-self-center mb-2" }, [
       _c("p", { staticClass: "color-mg font-md mb-0" }, [
         _c("strong", [
-          _vm._v("Do you have Admission letter / Call letter: "),
+          _vm._v("Have you been selected for a course? "),
           _c("span", { staticClass: "text-danger" }, [
             _c("strong", [_vm._v("*")])
           ])
@@ -72636,20 +73204,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-xl-12 mb-2" }, [
       _c("label", { staticClass: "col-form-label" }, [
-        _vm._v("Name of the course you have been selected for: "),
-        _c("span", { staticClass: "text-danger" }, [
-          _c("strong", [_vm._v("*")])
-        ]),
+        _vm._v("Details of the course you have been selected for : "),
         _c("br")
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "text-danger" }, [
-      _c("strong", [_vm._v("*")])
     ])
   },
   function() {
@@ -72826,7 +73383,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c("h6", { staticClass: "mb-0 color-mg" }, [
-        _vm._v("Other Miscellaneous Details")
+        _vm._v("Miscellaneous Details")
       ])
     ])
   },
@@ -72850,6 +73407,8 @@ var staticRenderFns = [
     return _c("thead", { staticClass: "color-mg" }, [
       _c("tr", [
         _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Relationship")]),
         _vm._v(" "),
         _c("th", [_vm._v("Course")]),
         _vm._v(" "),
@@ -72890,7 +73449,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "page-main mt-4" }, [
-    _c("div", { staticClass: "container-fluid" }, [
+    _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row" }, [
         _vm._m(0),
         _vm._v(" "),
@@ -73079,15 +73638,17 @@ var render = function() {
                               _c("em", [_vm._v(_vm._s(row.financialYear))])
                             ]),
                             _vm._v(" "),
-                            _vm._m(3, true),
+                            _c("td", { staticClass: "text-break" }, [
+                              _c("em", [_vm._v(_vm._s(row.scholarshipType))])
+                            ]),
                             _vm._v(" "),
-                            _vm._m(4, true),
+                            _vm._m(3, true),
                             _vm._v(" "),
                             _c("td", [
                               _c("em", [_vm._v(_vm._s(row.schApplicationId))])
                             ]),
                             _vm._v(" "),
-                            _vm._m(5, true),
+                            _vm._m(4, true),
                             _vm._v(" "),
                             _c("td", { staticClass: "text-center" }, [
                               _c("em", [
@@ -73110,7 +73671,7 @@ var render = function() {
                                 "div",
                                 { staticClass: "dropdown no-arrow dr-all" },
                                 [
-                                  _vm._m(6, true),
+                                  _vm._m(5, true),
                                   _vm._v(" "),
                                   _c(
                                     "div",
@@ -73235,14 +73796,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "text-center w-5x" }, [_vm._v("Action")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "text-break" }, [
-      _c("em", [_vm._v("Nursing Scholarship")])
     ])
   },
   function() {
@@ -92865,23 +93418,23 @@ function newFunction() {
   }); // Review Application
 
   var app14 = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-    el: '#applicantForm',
+    el: '#adminapplicantForm',
     router: new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"](_routes__WEBPACK_IMPORTED_MODULE_2__["default"])
   });
   var app15 = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-    el: '#annexure1',
+    el: '#adminannexure1',
     router: new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"](_routes__WEBPACK_IMPORTED_MODULE_2__["default"])
   });
   var app16 = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-    el: '#annexure2',
+    el: '#adminannexure2',
     router: new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"](_routes__WEBPACK_IMPORTED_MODULE_2__["default"])
   });
   var app17 = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-    el: '#applicantDocuments',
+    el: '#adminapplicantDocuments',
     router: new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"](_routes__WEBPACK_IMPORTED_MODULE_2__["default"])
   });
   var app18 = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-    el: '#review',
+    el: '#adminReview',
     router: new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"](_routes__WEBPACK_IMPORTED_MODULE_2__["default"])
   }); // End review Application
 }

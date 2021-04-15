@@ -4,7 +4,7 @@
             <form @submit.prevent="saveForm">
                 <div class="form-row">
                     <div class="col-xl-12 text-center mb-3">
-                        <h5 class="text-capitalize text-center color-mg"><strong>Application From for {{this.form.scholarshipType}} ({{form.financialYear}})</strong></h5>
+                        <h5 class="text-capitalize text-center color-mg"><strong>Application Form for {{this.form.scholarshipType}} Scholarship {{form.financialYear}}</strong></h5>
                     </div>
                     <div class="col-xl-12">
                         <div class="mb-3">
@@ -50,19 +50,19 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-3">
-                                                                    <label>Father's name:</label>
+                                                                    <label>Father's full name:</label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.applicantFatherName" :disabled="globalDisable">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-3">
-                                                                    <label>Mother's name:</label>
+                                                                    <label>Mother's full name:</label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.applicantMotherName" :disabled="globalDisable">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-2">
-                                                                    <label>DOB:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                    <label>Date of Birth:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="date" v-model="form.applicantDOB" :disabled="globalDisable" required>
                                                                     </div>
@@ -76,26 +76,9 @@
                                                                             <option value="Female">Female</option>
                                                                         </select>
                                                                         </div>
-                                                                </div>
-                                                                <div class="col-xl-3 align-self-center">
-                                                                    <label>Who is affected by leprosy:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                    <div class="form-group">
-                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedMother" id="formCheck-4" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-1">Mother</label></div>
-                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedFather" id="formCheck-2" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-2">Father</label></div>
-                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedSelf"   id="formCheck-3" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-3">Self</label></div>
-                                                                    </div>
-                                                                </div>
-
-                                                                 <div class="col-xl-3 align-self-center">
-                                                                    <label>Who has disability:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                    <div class="form-group">
-                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablityMother" id="formCheck-4" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-1">Mother</label></div>
-                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablityFather" id="formCheck-2" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-2">Father</label></div>
-                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablitySelf"   id="formCheck-3" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-3">Self</label></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-xl-3">
-                                                                    <label>whether family has a BPL card:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                  </div>
+                                                                     <div class="col-xl-2">
+                                                                    <label>Family has a BPL card ?:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <select class="form-control form-control-sm" v-model="form.applicantHasBPLCard" :disabled="globalDisable" required>
                                                                             <option value="" disabled>--Select--</option>
@@ -104,7 +87,7 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-xl-2">
+                                                                <div class="col-xl-5">
                                                                     <label>Domicile state&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <select class="form-control form-control-sm" v-model="form.applicantDomicileState" :disabled="globalDisable" required>
@@ -148,6 +131,26 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
+
+                                                                <div class="col-xl-3 align-self-center">
+                                                                    <label>Who is affected by Leprosy in the family:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                    <div class="form-group">
+                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedMother" id="formCheck-4" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-1">Mother</label></div>
+                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedFather" id="formCheck-2" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-2">Father</label></div>
+                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedSelf"   id="formCheck-3" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-3">Self</label></div>
+                                                                    </div>
+                                                                </div>
+
+                                                                 <div class="col-xl-5 align-self-center">
+                                                                    <label>Who has disability due to Leprosy in the family (Certificate required):&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                    <div class="form-group">
+                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablityMother" id="formCheck-4" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-1">Mother</label></div>
+                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablityFather" id="formCheck-2" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-2">Father</label></div>
+                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablitySelf"   id="formCheck-3" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-3">Self</label></div>
+                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablityNone"   id="formCheck-1" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-1">None</label></div>
+                                                                    </div>
+                                                                </div>
+                                                               
                                                             </div>
                                                         </div>
                                                     </div>
@@ -242,7 +245,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-3">
-                                                                    <label>Contact no. (father)&nbsp;<span class="text-danger">*</span></label>
+                                                                    <label>Alternate Contact No&nbsp;<span class="text-danger">*</span></label>
                                                                     <div class="form-group">
                                                                     <input class="form-control form-control-sm" type="number"  v-model="form.applicantContactNoGuardian" :disabled="globalDisable" required>
                                                                     </div>
@@ -250,13 +253,20 @@
                                                                 <div class="col-xl-3">
                                                                     <label>Email ID&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="email" v-model="form.applicantEmailId" :disabled="globalDisable" required>
+                                                                        <input class="form-control form-control-sm" type="email" disabled v-model="form.applicantEmailId"  required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-3">
                                                                     <label>Contact no. (colony leader)&nbsp;<span class="text-danger">*</span></label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="number"  v-model="form.applicantContactNoColonyLeader" :disabled="globalDisable" required>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-xl-3">
+                                                                    <label>Colony leader Name&nbsp;<span class="text-danger">*</span></label>
+                                                                    <div class="form-group">
+                                                                        <input class="form-control form-control-sm" type="text" v-model="form.applicantColonyleaderName"  required>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -658,8 +668,11 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <span class="m-auto text-danger font-sm">Note: Click on 'Add new values' above to add values to the list if required. </span>
                                                         </div>
+                                                        
                                                     </div>
+                                                    
                                                 </div>
 
                                                 <!-- <div class="col-xl-12">
@@ -946,7 +959,9 @@
                                                             <div class="form-row">
                                                                 <div class="col-xl-4 align-self-center mb-2">
                                                                     <p class="color-mg font-md mb-0">
-                                                                        <strong>Do you have Admission letter / Call letter:&nbsp;<span class="text-danger"><strong>*</strong></span></strong><br></p>
+                                                                        <strong>Have you been selected for a course?&nbsp;<span class="text-danger"><strong>*</strong></span></strong><br>
+                                                                    </p>
+                                                               
                                                                 </div>
                                                                 <div class="col-xl-2 align-self-center mb-2">
                                                                     <div class="form-group mb-0">
@@ -956,12 +971,17 @@
                                                                             <option value="NO">NO</option>
                                                                         </select>
                                                                     </div>
+                                                                     
                                                                 </div>
+                                                                <!-- <span class="font-sm color-mg mt-2"><strong> &nbsp; (If 'YES' Annexure-I will be disabled.If 'NO' fill up Annexure-I)</strong></span> -->
+
+                                                                <span class="text-danger font-sm mt-2">&nbsp; (If 'YES' Annexure-I will be disabled.&nbsp;If 'NO' fill up Annexure-I)</span>
                                                                 <div class="col-xl-12 mb-2">
-                                                                    <label class="col-form-label">Name of the course you have been selected for:&nbsp;<span class="text-danger"><strong>*</strong></span><br></label>
+                                                                    <label class="col-form-label">Details of the course you have been selected for :&nbsp;<br></label>
                                                                 </div>
                                                                 <div class="col-xl-3">
-                                                                    <label>Name of the Level&nbsp;<span class="text-danger"><strong>*</strong></span><a data-toggle="modal" href="#" data-target="#others-course-level" v-if="inputDisabled == false" @click="addName('CourseLevel')" > + Add New Value</a></label>
+                                                                    <!-- <label>Name of the Level&nbsp;<span class="text-danger"><strong>*</strong></span><a data-toggle="modal" href="#" data-target="#others-course-level" v-if="inputDisabled == false" @click="addName('CourseLevel')" > + Add New Value</a></label> -->
+                                                                    <label>Name of the Level&nbsp;</label>
                                                                      <div class="form-group mb-0" v-if="form.scholarshipType == 'Nursing'">
                                                                         <select class="form-control form-control-sm" v-model="form.courseLevelValueId" disabled>
                                                                             <option value="N" disabled selected>Graduate</option>
@@ -1225,13 +1245,13 @@
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.insAddressPinzip" disabled>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-xl-3"><label>Whether recognized by Indian Nursing Council&nbsp;<span class="text-danger"><strong>*</strong></span><br></label>
+                                                                <div class="col-xl-4"><label>Whether recognized by Indian Nursing Council&nbsp;<span class="text-danger"><strong>*</strong></span><br></label>
                                                                     <div class="form-group">
                                                                         <select class="form-control form-control-sm" v-model="form.recognizedByINC" :disabled="inputDisabled" required>
                                                                             <option value="" disabled >--Select--</option>
-                                                                            <option value="N/A">N/A</option>
                                                                             <option value="YES">YES</option>
                                                                             <option value="NO">NO</option>
+                                                                            <option value="Don't know">Don't know</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -1242,7 +1262,7 @@
                                                 <div class="col-xl-12">
                                                     <div class="card mt-2 det-sec">
                                                         <div class="card-header">
-                                                            <h6 class="mb-0 color-mg">Other Miscellaneous Details</h6>
+                                                            <h6 class="mb-0 color-mg">Miscellaneous Details</h6>
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="form-row">
@@ -1253,6 +1273,7 @@
                                                                             <thead class="color-mg">
                                                                                 <tr>
                                                                                     <th>Name</th>
+                                                                                    <th>Relationship</th>
                                                                                     <th>Course</th>
                                                                                     <th>Selection year</th>
                                                                                 </tr>
@@ -1262,6 +1283,17 @@
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
                                                                                         <input class="form-control form-control-sm" type="text" v-model="form.miscName1" :disabled="globalDisable">
+                                                                                        </div>
+                                                                                    </td>
+
+                                                                                     <td>
+                                                                                        <div class="form-group mb-0">
+                                                                                            <select class="form-control form-control-sm" v-model="form.miscRelationship1" :disabled="globalDisable" >
+                                                                                                <option value="" disabled>--Select--</option>
+                                                                                                <option value="Brother">Brother</option>
+                                                                                                <option value="Sister">Sister</option>
+                                                                                                
+                                                                                            </select>
                                                                                         </div>
                                                                                     </td>
 
@@ -1286,6 +1318,17 @@
 
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
+                                                                                            <select class="form-control form-control-sm" v-model="form.miscRelationship2" :disabled="globalDisable" >
+                                                                                                <option value="" disabled>--Select--</option>
+                                                                                                <option value="Brother">Brother</option>
+                                                                                                <option value="Sister">Sister</option>
+                                                                                              
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </td>
+
+                                                                                    <td>
+                                                                                        <div class="form-group mb-0">
                                                                                         <input class="form-control form-control-sm" type="text" v-model="form.miscCourse2" :disabled="globalDisable">
                                                                                         </div>
                                                                                     </td>
@@ -1300,6 +1343,16 @@
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
                                                                                         <input class="form-control form-control-sm" type="text" v-model="form.miscName3" :disabled="globalDisable">
+                                                                                        </div>
+                                                                                    </td>
+
+                                                                                    <td>
+                                                                                        <div class="form-group mb-0">
+                                                                                            <select class="form-control form-control-sm" v-model="form.miscRelationship3" :disabled="globalDisable" >
+                                                                                                <option value="" disabled>--Select--</option>
+                                                                                                <option value="Brother">Brother</option>
+                                                                                                <option value="Sister">Sister</option>
+                                                                                            </select>
                                                                                         </div>
                                                                                     </td>
 
@@ -1383,6 +1436,7 @@ export default {
                 applicantHasBPLCard:'',
                 applicantDomicileState:'',
                 applicantColonyName:'',
+                applicantColonyleaderName:'',
                 addressAddln1:'',
                 addressAddln2:'',
                 addressCity:'',
@@ -1464,6 +1518,9 @@ export default {
                 miscName3:'',
                 miscCourse3:'',
                 miscYear3:'',
+                miscRelationship1:'',
+                miscRelationship2:'',
+                miscRelationship3:'',
             },
             getdata: {},
             errors :'',
@@ -1665,7 +1722,7 @@ export default {
                         this.$fire({
                             position: 'top',
                             icon: 'error',
-                            title: "All requied fields must be enter",
+                            title: "All required fields must be enter",
                             showConfirmButton: false,
                             timer: 3000
                         })
@@ -1685,7 +1742,7 @@ export default {
                         this.$fire({
                             position: 'top',
                             icon: 'error',
-                            title: "Duplicate value alread exists",
+                            title: "Duplicate value already exists",
                             showConfirmButton: false,
                             timer: 3000
                         })

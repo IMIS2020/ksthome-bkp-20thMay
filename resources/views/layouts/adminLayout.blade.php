@@ -31,23 +31,23 @@
     <!-- End manage application -->
    
    <!-- Review Application -->
-   <div id="applicantForm">
+   <div id="adminapplicantForm">
       @yield('applicantForm')
     </div>
 
-    <div id="annexure1">
+    <div id="adminannexure1">
       @yield('annexure1')
     </div>
 
-    <div id="annexure2">
+    <div id="adminannexure2">
       @yield('annexure2')
     </div>
 
-    <div id="applicantDocuments">
+    <div id="adminapplicantDocuments">
       @yield('applicantDocuments')
     </div>
 
-    <div id="printView">
+    <div id="adminReview">
       @yield('review')
     </div>
    <!-- End review Application -->

@@ -47,7 +47,15 @@
             @if (Route::has('login'))
             @auth
           <li class="nav-item dropdown align-self-center">
-          <a class="nav-link text-white font-xl" aria-expanded="false" data-toggle="dropdown" href="#"><strong>Hello, {{Auth::user()->firstname}} {{Auth::user()->middlename}} {{Auth::user()->lastname}}&nbsp;&nbsp;</strong><img class="rounded-circle img-fluid" width="25px" src="{{ asset('storage/uploads/profilephoto/'.Auth::user()->profilePhoto) }}"></a>
+          <a class="nav-link text-white" aria-expanded="false" data-toggle="dropdown" href="#"><strong>{{Auth::user()->firstname}} {{Auth::user()->middlename}} {{Auth::user()->lastname}}&nbsp;&nbsp;</strong>
+          
+          <!-- <img class="rounded-circle img-fluid" width="25px" src="{{ asset('storage/uploads/profilephoto/'.Auth::user()->profilePhoto) }}"> -->
+
+    @if(empty(Auth::user()->profilePhoto))
+      <img class="rounded-circle img-fluid" width="25px" src="assets/img/avatar_2x.png">
+      @else
+      <img class="rounded-circle img-fluid" width="25px" src="{{ asset('storage/uploads/profilephoto/'.Auth::user()->profilePhoto) }}">
+      @endif
               <div class="dropdown-menu font-md">
                 <a class="dropdown-item color-mg" href="{{ route('logout') }}" onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">

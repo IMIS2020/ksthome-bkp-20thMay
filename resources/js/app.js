@@ -86,27 +86,27 @@ function newFunction(){
 
   // Review Application
   const app14 = new Vue({
-    el: '#applicantForm',
+    el: '#adminapplicantForm',
     router: new VueRouter(routes)
   });
 
   const app15 = new Vue({
-    el: '#annexure1',
+    el: '#adminannexure1',
     router: new VueRouter(routes)
   });
 
   const app16 = new Vue({
-    el: '#annexure2',
+    el: '#adminannexure2',
     router: new VueRouter(routes)
   });
 
   const app17 = new Vue({
-    el: '#applicantDocuments',
+    el: '#adminapplicantDocuments',
     router: new VueRouter(routes)
   });
 
   const app18 = new Vue({
-    el: '#review',
+    el: '#adminReview',
     router: new VueRouter(routes)
   });
   // End review Application

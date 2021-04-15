@@ -18,7 +18,7 @@
                       @if (Route::has('login'))
                       @auth
                     <li class="nav-item dropdown align-self-center">
-                    <a class="nav-link text-white" aria-expanded="false" data-toggle="dropdown" href="#"><strong>Hello, {{Auth::user()->firstname}} {{Auth::user()->middlename}} {{Auth::user()->lastname}}&nbsp;&nbsp;</strong><img class="rounded-circle img-fluid" width="25px" src="assets/img/avatar_2x.png"></a>
+                    <a class="nav-link text-white" aria-expanded="false" data-toggle="dropdown" href="#"><strong>{{Auth::user()->firstname}} {{Auth::user()->middlename}} {{Auth::user()->lastname}}&nbsp;&nbsp;</strong><img class="rounded-circle img-fluid" width="25px" src="assets/img/avatar_2x.png"></a>
                         <div class="dropdown-menu font-md"><a class="dropdown-item color-mg" href="#"><i class="fa fa-user"></i>&nbsp;Profile</a>
                          <a class="dropdown-item color-mg" href="{{ route('logout') }}" onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();">
@@ -72,11 +72,15 @@
                                 @enderror
                              </div>
                             </div>
-                            <div class="col-xl-5">
+                            <div class="col-xl-3">
                                 <div class="form-group">
-                                <button class="btn btn-sm btn-mg" type="submit">{{ __('Send Password Reset Link') }}</button>
+                                <button class="btn btn-sm btn-mg" type="submit">{{ __('Send Reset Link') }}</button>
                                 </div>
                             </div>
+                            <div class="col-xl-3"> 
+                            <a href="/" class="btn btn-sm btn-secondary">Cancel</a>
+                            </div>
+                           
                             </form>
 
                             <div class="col-xl-12">

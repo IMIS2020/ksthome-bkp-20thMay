@@ -54,13 +54,18 @@
                             <h6 class="text-center color-mg mb-4"><strong>Login to apply for scholarship</strong></h6>
                             <div class="form-group">
                               <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" placeholder="Email address" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                              @if ($errors->has('email'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
                             </div>
 
                            <div class="form-group">
                               <div class="input-group">
                                  <input class="form-control @error('password') is-invalid @enderror" type="password" id="password" name="password" placeholder="Password" required autocomplete="current-password">
                                  <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button></div>
-                                 @error('password')
+                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                           <strong>{{ $message }}</strong>
                                     </span>

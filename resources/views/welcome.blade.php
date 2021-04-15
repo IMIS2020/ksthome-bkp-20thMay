@@ -66,8 +66,8 @@
                         <button class="btn btn-block btn-sm btn-mg" type="submit"><strong>{{ __('Login') }}</strong></button>
                         </div>
                         <div class="form-group mb-0">
-                            <p class="text-muted font-md mb-0"><strong>Not have any account, register </strong><a href="{{ route('register') }}"><strong>here</strong></a></p>
-                            <p class="text-muted font-md mb-0"><strong>Having trouble logging in? </strong><a href="{{ route('password.request') }}"><strong>reset password</strong></a></p>
+                            <p class="text-muted font-md mb-0"><strong>If you donot have a login account </strong><a href="{{ route('register') }}"><strong>click here</strong></a>&nbsp;to register</p>
+                            <p class="text-muted font-md mb-0"><strong>forgot your password? </strong><a href="{{ route('password.request') }}"><strong></strong>click here</a>&nbsp;to reset password</p>
                             
                         </div>
                     </form>

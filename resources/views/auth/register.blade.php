@@ -115,15 +115,17 @@
                                 <div class="col-xl-6 mb-3">
                                     <div class="form-group">
                                         <div class="input-group">
-                                        <input class="form-control @error('password') is-invalid @enderror" type="password" id="password" name="password" placeholder="Password" required autocomplete="new-password">
+                                        <input class="form-control @error('password') is-invalid @enderror" type="password" id="password" name="password" placeholder="Password (minimum 8 characters)" required autocomplete="new-password">
                                       
                                             <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button>
                                             </div>
+                                            
                                             @if ($errors->has('password'))
                                             <span class="invalid-feedback">
                                                 <strong>{{ $errors->first('password') }}</strong>
                                             </span>
                                              @endif
+                                            
                                         </div>
                                     </div>
                                 </div>

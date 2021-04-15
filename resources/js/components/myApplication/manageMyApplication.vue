@@ -1,6 +1,6 @@
 <template>
    <section class="page-main mt-4">
-      <div class="container-fluid">
+      <div class="container">
           <div class="row">
               <div class="col-xl-12 text-center mb-3">
                   <h4 class="color-mg"><strong>Manage Your Applications</strong></h4>
@@ -61,7 +61,7 @@
                                       <tr class="font-md text-black" v-for="(row,index) in getdata" :key="index">
                                           <td class="w-5x"><em>{{index+1}}</em></td>
                                           <td class="w-10x" ><em>{{row.financialYear}}</em></td>
-                                          <td class="text-break"><em>Nursing Scholarship</em></td>
+                                          <td class="text-break"><em>{{row.scholarshipType}}</em></td>
                                           <td class="text-break"><em>N/A</em></td>
                                           <td><em>{{row.schApplicationId}}</em></td>
                                           <td class="text-nowrap"><em>N/A</em></td>
@@ -105,6 +105,7 @@
                   </div>
               </div>
           </div>
+          <!-- <router-link class="btn btn-mg m-auto btn-sm"  to="/"><strong>Cancel</strong></router-link> -->
       </div>
   </section>
 </template>

@@ -61,7 +61,7 @@ class ApplicationController extends Controller
              'applicantContactNoGuardian'        => ['required','digits:10'],
              'applicantEmailId'                  => ['required'],
              'applicantContactNoColonyLeader'    => ['required','digits:10'],
-             'applicantColonyLeaderName'         => ['required'],
+             'applicantColonyleaderName'         => [],
  
             //  'examinationLevel10'                => ['required'],
             //  'universityBoardCouncil10'          => ['required'],

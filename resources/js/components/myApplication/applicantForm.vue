@@ -266,7 +266,7 @@
                                                                 <div class="col-xl-3">
                                                                     <label>Colony leader Name&nbsp;<span class="text-danger">*</span></label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="form.applicantColonyleaderName"  required>
+                                                                        <input class="form-control form-control-sm" type="text" v-model="form.applicantColonyleaderName">
                                                                     </div>
                                                                 </div>
                                                             </div>

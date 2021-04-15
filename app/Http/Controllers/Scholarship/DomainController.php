@@ -11,11 +11,22 @@ use App\ModelScholarship\DomainValues;
 
 class DomainController extends Controller
 {
-    public function getExaminationLevel()
+    public function getExaminationLevel10()
     {
-        $getDomainNameId = DomainName::where('name','ExamLevel')->first();
-        $getDomainValues = DomainValues::where('nameId',$getDomainNameId->id)->select('value','id')->get()->toJson();
-        return $getDomainValues;
+        $getDomainNameId = DomainName::where('name','ExamLevel-10')->get();  
+        return $getDomainNameId ;
+    }
+
+    public function getExaminationLevel12()
+    {
+        $getDomainNameId = DomainName::where('name','ExamLevel-12')->get();
+        return $getDomainNameId;
+    }
+
+    public function getExaminationLevel13()
+    {
+        $getDomainNameId = DomainName::where('name','ExamLevel-Graduate')->get();
+        return $getDomainNameId;
     }
 
     public function getExaminationPassed()

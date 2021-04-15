@@ -298,11 +298,13 @@
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td>
-                                                                                        <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.education1ExaminationLevel" disabled>
+                                                                                        <div class="form-group text-center mb-0" >
+                                                                                            <input type="hidden" v-model="form.education1ExaminationLevel" />
+                                                                                            <strong>{{getExaminationLevel10.split('-').reverse().shift()}}</strong>
+                                                                                            <!-- <select class="form-control form-control-sm" v-model="form.education1ExaminationLevel" disabled>
                                                                                                 <option value="" disabled>-- select --</option>
                                                                                                 <option value="10" selected>10th</option>
-                                                                                            </select>
+                                                                                            </select> -->
                                                                                         </div>
                                                                                     </td>
                                                                                     <td>
@@ -421,10 +423,12 @@
                                                                                 <tr>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.education2ExaminationLevel" disabled>
+                                                                                            <input type="hidden" v-model="form.education2ExaminationLevel" />
+                                                                                            <strong>{{getExaminationLevel12.split('-').reverse().shift()}}</strong>
+                                                                                            <!-- <select class="form-control form-control-sm" v-model="form.education2ExaminationLevel" disabled>
                                                                                                 <option value="" disabled>-- select --</option>
                                                                                                 <option value="12" selected>12th</option>
-                                                                                            </select>
+                                                                                            </select> -->
                                                                                         </div>
                                                                                     </td>
                                                                                     <td>
@@ -544,10 +548,12 @@
                                                                                 <tr v-if="form.scholarshipType == 'HHDLS'">
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.education3ExaminationLevel" disabled>
+                                                                                            <input type="hidden" v-model="form.education3ExaminationLevel" />
+                                                                                            <strong>{{getExaminationLevel13.split('-').reverse().shift()}}</strong>
+                                                                                            <!-- <select class="form-control form-control-sm" v-model="form.education3ExaminationLevel" disabled>
                                                                                                 <option value="" disabled>-- select --</option>
                                                                                                 <option value="13" selected>Graduation</option>
-                                                                                            </select>
+                                                                                            </select> -->
                                                                                         </div>
                                                                                     </td>
                                                                                     <td>
@@ -1408,6 +1414,11 @@ export default {
             globalDisable: false,
             csrf:   document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             userId: document.querySelector("meta[name='userId']").getAttribute('content'),
+
+            getExaminationLevel10 : '',
+            getExaminationLevel12 : '',
+            getExaminationLevel13 : '',
+
             examinationPassedValues:{},
             universityBoardCouncilValues:{},
             universityCourseLevel: {},
@@ -1449,7 +1460,7 @@ export default {
                 applicantContactNoColonyLeader:'',
                 financialYear : '',
                 //education level 10
-                education1ExaminationLevel:'10',
+                education1ExaminationLevel:'',
                 education1ExaminationPassed: '',
                 education1University: '',
                 education1MainSubjects: '',
@@ -1458,7 +1469,7 @@ export default {
                 education1Division: '',
 
                 //education level 12
-                education2ExaminationLevel:'12',
+                education2ExaminationLevel:'',
                 education2ExaminationPassed: '',
                 education2University: '',
                 education2MainSubjects: '',
@@ -1467,7 +1478,7 @@ export default {
                 education2Division: '',
 
                 //education level graduate for HHDLS only (13)
-                education3ExaminationLevel:'13',
+                education3ExaminationLevel:'',
                 education3ExaminationPassed: '',
                 education3University: '',
                 education3MainSubjects: '',
@@ -1778,21 +1789,27 @@ export default {
                    this.form.scholarshipType =  window.location.pathname.split('/').reverse()[0];
                 }
             },
+            readInitialDomainValues()
+            {
+                 axios.get('/api/domain/examinationLevel10')
+                    .then(response => {
+                        this.getExaminationLevel10= response.data[0].name;
+                        this.form.education1ExaminationLevel = response.data[0].id;
+                    });
+                axios.get('/api/domain/examinationLevel12')
+                    .then(response => {
+                        this.getExaminationLevel12= response.data[0].name;
+                        this.form.education2ExaminationLevel = response.data.id;
+                    });
+                axios.get('/api/domain/examinationLevel13')
+                    .then(response => {
+                        this.getExaminationLevel13= response.data[0].name;
+                        this.form.education3ExaminationLevel = response.data[0].id;
+                    });
+            },
             readDomainValues()
             {
-                // axios.get('/api/domain/examinationLevel')
-                //     .then(response => {
-                //         for(let res in response.data)
-                //         {
-                //             console.log(res);
-                //             if(response.data[res].value == 10)
-                //             {    
-                //                  this.form.education1ExaminationLevel = response.data[res].value;
-                //                  console.log(this.form.education1ExaminationLevel);
-                //             }
-                //         }
-                       
-                //     });
+                
                 axios.get('/api/domain/examinationPassed')
                     .then(response => {
                         this.examinationPassedValues= response.data;
@@ -1939,10 +1956,10 @@ export default {
          },
          created()
          {
-        
+           this.readInitialDomainValues();
            this.readApplicationForm();
            this.checkNewScholarshipType();
-           this.readDomainValues();
+        //    this.readDomainValues();
            this.readInsValue();
 
          }

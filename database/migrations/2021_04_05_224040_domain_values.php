@@ -15,8 +15,9 @@ class DomainValues extends Migration
     {
         Schema::create('domainValues', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('nameId');
-            $table->string('value')->unique();
+            $table->unsignedBigInteger('nameId');  // Examination level FK for 10 12 graduate , nusing , HDDLS
+            $table->string('value');
+            $table->unsignedBigInteger('domainTypeId')->nullable(); // Examination Passed domain in domain Type
             $table->string('valueDescription')->nullable();
             $table->timestamps();
         });

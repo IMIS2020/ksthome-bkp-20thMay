@@ -173,7 +173,13 @@ export default{
                  * API Call for domainValues 
                  */
                 {
-                    path:'/api/domain/examinationLevel',
+                    path:'/api/domain/examinationLevel10',
+                },
+                {
+                    path:'/api/domain/examinationLevel12',
+                },
+                {
+                    path:'/api/domain/examinationLevel13',
                 },
                 {
                     path:'/api/domain/examinationPassed',

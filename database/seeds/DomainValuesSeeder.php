@@ -14,108 +14,276 @@ class DomainValuesSeeder extends Seeder
     {
         DB::table('domainValues')->insert(
             [
-                'value' => '10',
-                'valueDescription' => 'Examination Level 10',
+                'value' => '10th Standard',
+                'valueDescription' => 'Examination passed 10th Standard',
                 'nameId' => 1,
+                'domainTypeId' => 9,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
         DB::table('domainValues')->insert(
             [
-                'value' => '12',
-                'valueDescription' => 'Examination Level 12',
+                'value' => '12th - Science',
+                'valueDescription' => 'Examination passed 12th Science',
+                'nameId' => 2,
+                'domainTypeId' => 9,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        DB::table('domainValues')->insert(
+            [
+                'value' => '12th - Commerce',
+                'valueDescription' => 'Examination passed 12th Commerce',
+                'nameId' => 2,
+                'domainTypeId' => 9,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        DB::table('domainValues')->insert(
+            [
+                'value' => '12th - Arts',
+                'valueDescription' => 'Examination passed 12th Arts',
+                'nameId' => 2,
+                'domainTypeId' => 9,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        DB::table('domainValues')->insert(
+            [
+                'value' => 'B.Ed',
+                'valueDescription' => 'B.Ed',
+                'nameId' => 3,
+                'domainTypeId' => 9,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        DB::table('domainValues')->insert(
+            [
+                'value' => 'B.Sc Agriculture',
+                'valueDescription' => 'B.Sc Agriculture',
+                'nameId' => 3,
+                'domainTypeId' => 9,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+
+
+
+
+        DB::table('domainValues')->insert(
+            [
+                'value' => 'CISCE - Council for the Indian School Certificate Examinations',
+                'valueDescription' => 'CISCE - Council for the Indian School Certificate Examinations',
                 'nameId' => 1,
+                'domainTypeId' => 10,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
         DB::table('domainValues')->insert(
             [
-                'value' => '13',
-                'valueDescription' => 'Examination Level 13',
+                'value' => 'CISCE - Council for the Indian School Certificate Examinations',
+                'valueDescription' => 'CISCE - Council for the Indian School Certificate Examinations',
+                'nameId' => 2,
+                'domainTypeId' => 10,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        DB::table('domainValues')->insert(
+            [
+                'value' => 'WBBSE - Council for the Indian School Certificate Examinations',
+                'valueDescription' => 'WBBSE - Council for the Indian School Certificate Examinations',
                 'nameId' => 1,
+                'domainTypeId' => 10,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
         DB::table('domainValues')->insert(
             [
-                'value' => 'Madhyamik',
-                'valueDescription' => 'Examination Passed',
+                'value' => 'WBCHSE - West Bengal Council of Higher Secondary Education',
+                'valueDescription' => 'WBCHSE - West Bengal Council of Higher Secondary Education',
                 'nameId' => 2,
+                'domainTypeId' => 10,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
         DB::table('domainValues')->insert(
             [
-                'value' => 'Higher Secondary',
-                'valueDescription' => 'Examination Passed',
-                'nameId' => 2,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ]);
-        DB::table('domainValues')->insert(
-            [
-                'value' => 'B.Com',
-                'valueDescription' => 'Examination Passed',
-                'nameId' => 2,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ]);
-        DB::table('domainValues')->insert(
-            [
-                'value' => 'WBBSE',
-                'valueDescription' => 'University/ Board/ Council',
+                'value' => 'Clacutta University',
+                'valueDescription' => 'Clacutta University',
                 'nameId' => 3,
+                'domainTypeId' => 10,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
         DB::table('domainValues')->insert(
             [
-                'value' => 'WBCHSE',
-                'valueDescription' => 'University/ Board/ Council',
+                'value' => 'Delhi University',
+                'valueDescription' => 'Delhi University',
                 'nameId' => 3,
+                'domainTypeId' => 10,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+
+
+
+        DB::table('domainValues')->insert(
+            [
+                'value' => 'Bachelors Nursing',
+                'valueDescription' => 'Bachelors Nursing',
+                'nameId' => 11,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]); 
+        DB::table('domainValues')->insert(
+            [
+                'value' => 'Bachelors in Pharmacy',
+                'valueDescription' => 'Bachelors in Pharmacy',
+                'nameId' => 11,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
         DB::table('domainValues')->insert(
             [
-                'value' => 'WBSCTVE&D',
-                'valueDescription' => 'University/ Board/ Council',
-                'nameId' => 3,
+                'value' => 'Master in Pharmacy',
+                'valueDescription' => 'Master in Pharmacy',
+                'nameId' => 12,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]); 
+        DB::table('domainValues')->insert(
+            [
+                'value' => 'Diploma in Pharmacy',
+                'valueDescription' => 'Diploma in Pharmacy',
+                'nameId' => 13,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
+        DB::table('domainValues')->insert(
+            [
+                'value' => 'Hotel Management',
+                'valueDescription' => 'Hotel Management',
+                'nameId' => 15,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+
+
         DB::table('domainValues')->insert(
             [
                 'value' => 'Nursing',
                 'valueDescription' => 'Scholarship',
-                'nameId' => 4,
+                'nameId' => 16,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
-        DB::table('domainValues')->insert(
-            [
-                'value' => 'HHDLS',
-                'valueDescription' => 'Scholarship',
-                'nameId' => 4,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ]);
-        DB::table('domainValues')->insert(
-            [
-                'value' => 'Graduate',
-                'valueDescription' => 'Examination Level',
-                'nameId' => 1,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ]);
-        DB::table('domainValues')->insert(
-            [
-                'value' => 'Post Graduate',
-                'valueDescription' => 'Examination Level',
-                'nameId' => 1,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ]);
+            
+       
+
+        // DB::table('domainValues')->insert(
+        //     [
+        //         'value' => '10',
+        //         'valueDescription' => 'Examination Level 10',
+        //         'nameId' => 1,
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now(),
+        //     ]);
+        // DB::table('domainValues')->insert(
+        //     [
+        //         'value' => '12',
+        //         'valueDescription' => 'Examination Level 12',
+        //         'nameId' => 1,
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now(),
+        //     ]);
+        // DB::table('domainValues')->insert(
+        //     [
+        //         'value' => '13',
+        //         'valueDescription' => 'Examination Level 13',
+        //         'nameId' => 1,
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now(),
+        //     ]);
+        // DB::table('domainValues')->insert(
+        //     [
+        //         'value' => 'Madhyamik',
+        //         'valueDescription' => 'Examination Passed',
+        //         'nameId' => 2,
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now(),
+        //     ]);
+        // DB::table('domainValues')->insert(
+        //     [
+        //         'value' => 'Higher Secondary',
+        //         'valueDescription' => 'Examination Passed',
+        //         'nameId' => 2,
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now(),
+        //     ]);
+        // DB::table('domainValues')->insert(
+        //     [
+        //         'value' => 'B.Com',
+        //         'valueDescription' => 'Examination Passed',
+        //         'nameId' => 2,
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now(),
+        //     ]);
+        // DB::table('domainValues')->insert(
+        //     [
+        //         'value' => 'WBBSE',
+        //         'valueDescription' => 'University/ Board/ Council',
+        //         'nameId' => 3,
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now(),
+        //     ]);
+        // DB::table('domainValues')->insert(
+        //     [
+        //         'value' => 'WBCHSE',
+        //         'valueDescription' => 'University/ Board/ Council',
+        //         'nameId' => 3,
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now(),
+        //     ]);
+        // DB::table('domainValues')->insert(
+        //     [
+        //         'value' => 'WBSCTVE&D',
+        //         'valueDescription' => 'University/ Board/ Council',
+        //         'nameId' => 3,
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now(),
+        //     ]);
+        // DB::table('domainValues')->insert(
+        //     [
+        //         'value' => 'Nursing',
+        //         'valueDescription' => 'Scholarship',
+        //         'nameId' => 4,
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now(),
+        //     ]);
+        // DB::table('domainValues')->insert(
+        //     [
+        //         'value' => 'HHDLS',
+        //         'valueDescription' => 'Scholarship',
+        //         'nameId' => 4,
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now(),
+        //     ]);
+        // DB::table('domainValues')->insert(
+        //     [
+        //         'value' => 'Graduate',
+        //         'valueDescription' => 'Examination Level',
+        //         'nameId' => 1,
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now(),
+        //     ]);
+        // DB::table('domainValues')->insert(
+        //     [
+        //         'value' => 'Post Graduate',
+        //         'valueDescription' => 'Examination Level',
+        //         'nameId' => 1,
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now(),
+        //     ]);
         
             
     }

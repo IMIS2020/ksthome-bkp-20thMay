@@ -107,6 +107,10 @@ class ForeignKeyRelations extends Migration
             $table->foreign('nameId')->references('id')->on('domainName')->onDelete('cascade');
         });
 
+        Schema::table('domainValues', function (Blueprint $table) {
+            $table->foreign('domainTypeId')->references('id')->on('domainName')->onDelete('cascade');
+        });
+
         Schema::table('annexureI', function (Blueprint $table) {
             $table->foreign('insId')->references('id')->on('institute')->onDelete('cascade');
         });

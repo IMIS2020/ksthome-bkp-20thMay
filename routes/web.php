@@ -85,7 +85,10 @@ Route::group(['prefix' => 'api'], function() {
     /****
      * API Call for domainValues 
      */
-    Route::get('/domain/examinationLevel','Scholarship\DomainController@getExaminationLevel');
+    Route::get('/domain/examinationLevel10','Scholarship\DomainController@getExaminationLevel10');
+    Route::get('/domain/examinationLevel12','Scholarship\DomainController@getExaminationLevel12');
+    Route::get('/domain/examinationLevel13','Scholarship\DomainController@getExaminationLevel13');
+
     Route::get('/domain/examinationPassed','Scholarship\DomainController@getExaminationPassed');
     Route::get('/domain/universityBoardCouncil','Scholarship\DomainController@getUniversityBoardCouncil');
     Route::get('/domain/scholarship','Scholarship\DomainController@getScholarship');

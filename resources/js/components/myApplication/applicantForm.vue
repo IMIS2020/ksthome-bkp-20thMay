@@ -147,7 +147,7 @@
                                                                         <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablityMother" id="formCheck-4" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-1">Mother</label></div>
                                                                         <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablityFather" id="formCheck-2" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-2">Father</label></div>
                                                                         <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablitySelf"   id="formCheck-3" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-3">Self</label></div>
-                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablityNone"   id="formCheck-1" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-1">None</label></div>
+                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablityNone"   id="formCheck-1" :disabled="applicantDisablitySelfShow"><label class="form-check-label font-md" for="formCheck-1">None</label></div>
                                                                     </div>
                                                                 </div>
                                                                
@@ -298,9 +298,9 @@
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td>
-                                                                                        <div class="form-group text-center mb-0" >
+                                                                                        <div class="form-group text-center mb-0" style="color:#702E2E" >
                                                                                             <input type="hidden" v-model="form.education1ExaminationLevel" />
-                                                                                            <strong>{{getExaminationLevel10.split('-').reverse().shift()}}</strong>
+                                                                                            <strong>{{getExaminationLevel10}}</strong>
                                                                                             <!-- <select class="form-control form-control-sm" v-model="form.education1ExaminationLevel" disabled>
                                                                                                 <option value="" disabled>-- select --</option>
                                                                                                 <option value="10" selected>10th</option>
@@ -311,7 +311,7 @@
                                                                                         <div class="form-group mb-0">
                                                                                             <select class="form-control form-control-sm" v-model="form.education1ExaminationPassed" :disabled="globalDisable">
                                                                                                 <option value="" disabled>-- select --</option>
-                                                                                                <option v-for="(epv,index) in examinationPassedValues" :key="index" :value="epv.id">{{epv.value}}</option>
+                                                                                                <option v-for="(epv,index) in examinationPassedValues10" :key="index" :value="epv.id">{{epv.value}}</option>
                                                                                                 <!-- <option value="3">Madhyamik</option>
                                                                                                 <option value="2">Higher Secondary</option>
                                                                                                 <option value="1">B.Com</option> -->
@@ -327,16 +327,24 @@
                                                                                                     <div class="modal-body cs-modal-body">
                                                                                                         <div class="form-row">
                                                                                                             <div class="col-xl-12 mb-2">
+                                                                                                                <div class="form-group mb-0"><label class="mb-0">Examination Level</label>
+                                                                                                                    <select class="form-control form-control-sm" v-model="domainForm.domianLevel" :disabled="globalDisable">
+                                                                                                                        <option value="" disabled>-- select --</option>
+                                                                                                                        <option v-for="(elv,index) in getExaminationLevel" :key="index" :value="elv[0].id">{{elv[0].description}}</option>
+                                                                                                                    </select>
+                                                                                                                </div>
+                                                                                                            </div>    
+                                                                                                            <div class="col-xl-12 mb-2">
                                                                                                                 <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" :disabled="globalDisable"/>
                                                                                                                 <div class="form-group mb-0"><label class="mb-0">Examination Passed</label>
                                                                                                                     <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable"/>
                                                                                                                 </div>
                                                                                                             </div>
-                                                                                                            <div class="col-xl-12 mb-2">
+                                                                                                            <!-- <div class="col-xl-12 mb-2">
                                                                                                                 <div class="form-group mb-0"><label class="mb-0">Examination Passed Desc</label>
                                                                                                                     <input type="text" class="form-control form-control-sm" v-model="domainForm.dDesc" :disabled="globalDisable" />
                                                                                                                 </div>
-                                                                                                            </div>
+                                                                                                            </div> -->
                                                                                                         </div>
                                                                                                     </div>
                                                                                                     <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
@@ -348,7 +356,7 @@
                                                                                         <div class="form-group mb-0">
                                                                                             <select class="form-control form-control-sm" v-model="form.education1University" :disabled="globalDisable">
                                                                                                 <option value="" disabled>-- select --</option>
-                                                                                                <option v-for="(ubv,index) in universityBoardCouncilValues" :key="index" :value="ubv.id" >{{ubv.value}}</option>
+                                                                                                <option v-for="(ubv,index) in universityBoardCouncilValues10" :key="index" :value="ubv.id" >{{ubv.value}}</option>
                                                                                                 <!-- <option value="3">WBBSE</option>
                                                                                                 <option value="2">WBCHSE</option>
                                                                                                 <option value="1">WBSCTVE&amp;D</option> -->
@@ -364,16 +372,24 @@
                                                                                                     <div class="modal-body cs-modal-body">
                                                                                                         <div class="form-row">
                                                                                                             <div class="col-xl-12 mb-2">
+                                                                                                                <div class="form-group mb-0"><label class="mb-0">Examination Level</label>
+                                                                                                                    <select class="form-control form-control-sm" v-model="domainForm.domianLevel" :disabled="globalDisable">
+                                                                                                                        <option value="" disabled>-- select --</option>
+                                                                                                                        <option v-for="(elv,index) in universityBoardCouncilValues" :key="index" :value="elv[0].id">{{elv[0].description}}</option>
+                                                                                                                    </select>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="col-xl-12 mb-2">
                                                                                                                 <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" :disabled="globalDisable"/>
                                                                                                                 <div class="form-group mb-0"><label class="mb-0">Examination Board</label>
                                                                                                                     <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable"/>
                                                                                                                 </div>
                                                                                                             </div>
-                                                                                                            <div class="col-xl-12 mb-2">
+                                                                                                            <!-- <div class="col-xl-12 mb-2">
                                                                                                                 <div class="form-group mb-0"><label class="mb-0">Examination Board Desc</label>
                                                                                                                     <input type="text" class="form-control form-control-sm" v-model="domainForm.dDesc" :disabled="globalDisable"/>
                                                                                                                 </div>
-                                                                                                            </div>
+                                                                                                            </div> -->
                                                                                                         </div>
                                                                                                     </div>
                                                                                                     <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues" ><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
@@ -397,9 +413,9 @@
                                                                                                 <option value="2017">2017</option>
                                                                                                 <option value="2016">2016</option>
                                                                                                 <option value="2015">2015</option>
-                                                                                                <option value="3">2014</option>
-                                                                                                <option value="2">2013</option>
-                                                                                                <option value="1">2012</option>
+                                                                                                <option value="2014">2014</option>
+                                                                                                <option value="2013">2013</option>
+                                                                                                <option value="2012">2012</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </td>
@@ -422,9 +438,9 @@
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td>
-                                                                                        <div class="form-group mb-0">
+                                                                                        <div class="form-group text-center mb-0" style="color:#702E2E">
                                                                                             <input type="hidden" v-model="form.education2ExaminationLevel" />
-                                                                                            <strong>{{getExaminationLevel12.split('-').reverse().shift()}}</strong>
+                                                                                            <strong>{{getExaminationLevel12}}</strong>
                                                                                             <!-- <select class="form-control form-control-sm" v-model="form.education2ExaminationLevel" disabled>
                                                                                                 <option value="" disabled>-- select --</option>
                                                                                                 <option value="12" selected>12th</option>
@@ -435,7 +451,7 @@
                                                                                         <div class="form-group mb-0">
                                                                                             <select class="form-control form-control-sm" v-model="form.education2ExaminationPassed" :disabled="globalDisable">
                                                                                                 <option value="" disabled>-- select --</option>
-                                                                                                <option v-for="(epv,index) in examinationPassedValues" :key="index" :value="epv.id">{{epv.value}}</option>
+                                                                                                <option v-for="(epv,index) in examinationPassedValues12" :key="index" :value="epv.id">{{epv.value}}</option>
                                                                                                 <!-- <option value="3">Madhyamik</option>
                                                                                                 <option value="2">Higher Secondary</option>
                                                                                                 <option value="1">B.Com</option> -->
@@ -472,7 +488,7 @@
                                                                                         <div class="form-group mb-0">
                                                                                             <select class="form-control form-control-sm" v-model="form.education2University" :disabled="globalDisable">
                                                                                                 <option value="" disabled>-- select --</option>
-                                                                                                <option v-for="(ubv,index) in universityBoardCouncilValues" :key="index" :value="ubv.id">{{ubv.value}}</option>
+                                                                                                <option v-for="(ubv,index) in universityBoardCouncilValues12" :key="index" :value="ubv.id">{{ubv.value}}</option>
                                                                                                 <!-- <option value="3">WBBSE</option>
                                                                                                 <option value="2">WBCHSE</option>
                                                                                                 <option value="1">WBSCTVE&amp;D</option> -->
@@ -521,9 +537,9 @@
                                                                                                 <option value="2017">2017</option>
                                                                                                 <option value="2016">2016</option>
                                                                                                 <option value="2015">2015</option>
-                                                                                                <option value="3">2014</option>
-                                                                                                <option value="2">2013</option>
-                                                                                                <option value="1">2012</option>
+                                                                                                <option value="2014">2014</option>
+                                                                                                <option value="2013">2013</option>
+                                                                                                <option value="2012">2012</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </td>
@@ -547,9 +563,9 @@
 
                                                                                 <tr v-if="form.scholarshipType == 'HHDLS'">
                                                                                     <td>
-                                                                                        <div class="form-group mb-0">
+                                                                                        <div class="form-group text-center mb-0" style="color:#702E2E">
                                                                                             <input type="hidden" v-model="form.education3ExaminationLevel" />
-                                                                                            <strong>{{getExaminationLevel13.split('-').reverse().shift()}}</strong>
+                                                                                            <strong>{{getExaminationLevel13}}</strong>
                                                                                             <!-- <select class="form-control form-control-sm" v-model="form.education3ExaminationLevel" disabled>
                                                                                                 <option value="" disabled>-- select --</option>
                                                                                                 <option value="13" selected>Graduation</option>
@@ -560,7 +576,7 @@
                                                                                         <div class="form-group mb-0">
                                                                                             <select class="form-control form-control-sm" v-model="form.education3ExaminationPassed" :disabled="globalDisable">
                                                                                                 <option value="" disabled>-- select --</option>
-                                                                                                <option v-for="(epv,index) in examinationPassedValues" :key="index" :value="epv.id">{{epv.value}}</option>
+                                                                                                <option v-for="(epv,index) in examinationPassedValues13" :key="index" :value="epv.id">{{epv.value}}</option>
                                                                                                 <!-- <option value="Madhyamik">Madhyamik</option>
                                                                                                 <option value="Higher Secondary">Higher Secondary</option>
                                                                                                 <option value="B.Com">B.Com</option> -->
@@ -597,7 +613,7 @@
                                                                                         <div class="form-group mb-0">
                                                                                             <select class="form-control form-control-sm" v-model="form.education3University" :disabled="globalDisable">
                                                                                                 <option value="" disabled>-- select --</option>
-                                                                                                <option v-for="(ubv,index) in universityBoardCouncilValues" :key="index" :value="ubv.id">{{ubv.value}}</option>
+                                                                                                <option v-for="(ubv,index) in universityBoardCouncilValues13" :key="index" :value="ubv.id">{{ubv.value}}</option>
                                                                                                 <!-- <option value="WBBSE">WBBSE</option>
                                                                                                 <option value="WBCHSE">WBCHSE</option>
                                                                                                 <option value="WBSCTVE&D">WBSCTVE&amp;D</option> -->
@@ -988,22 +1004,22 @@
                                                                 <div class="col-xl-3">
                                                                     <!-- <label>Name of the Level&nbsp;<span class="text-danger"><strong>*</strong></span><a data-toggle="modal" href="#" data-target="#others-course-level" v-if="inputDisabled == false" @click="addName('CourseLevel')" > + Add New Value</a></label> -->
                                                                     <label>Name of the Level&nbsp;</label>
-                                                                     <div class="form-group mb-0" v-if="form.scholarshipType == 'Nursing'">
+                                                                     <!-- <div class="form-group mb-0" v-if="form.scholarshipType == 'Nursing'">
                                                                         <select class="form-control form-control-sm" v-model="form.courseLevelValueId" disabled>
                                                                             <option value="N" disabled selected>Graduate</option>
-                                                                            <!-- <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id">{{ucl.value}}</option>
-                                                                            <option  data-toggle="modal" data-target="#others-course-level" @click="addName('CourseLevel')">Others</option> -->
-                                                                        </select>
-                                                                     </div>
-                                                                     <div class="form-group mb-0" v-else>
-                                                                        <select class="form-control form-control-sm" v-model="form.courseLevelValueId" :disabled="inputDisabled">
-                                                                            <option value="" disabled selected>-- select --</option>
                                                                             <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id">{{ucl.value}}</option>
+                                                                            <option  data-toggle="modal" data-target="#others-course-level" @click="addName('CourseLevel')">Others</option>
+                                                                        </select>
+                                                                     </div> -->
+                                                                     <div class="form-group mb-0">
+                                                                        <select class="form-control form-control-sm" v-model="form.courseLevelValueId" :disabled="inputDisabled">
+                                                                            <option value="" disabled>-- select --</option>
+                                                                            <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id" selected>{{ucl.description}}</option>
                                                                             <!-- <option  data-toggle="modal" data-target="#others-course-level" @click="addName('CourseLevel')">Others</option> -->
                                                                         </select>
                                                                      </div>
                                                                     <!-- Star Course Level modal -->
-                                                                    <div role="dialog" tabindex="-1" class="modal fade" id="others-course-level">
+                                                                    <!-- <div role="dialog" tabindex="-1" class="modal fade" id="others-course-level">
                                                                         <div class="modal-dialog modal-sm" role="document">
                                                                             <div class="modal-content">
                                                                                 <div class="modal-header py-1">
@@ -1027,7 +1043,7 @@
                                                                                 <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> -->
                                                                     <!-- End course name modal -->
                                                                 </div>
                                                                 <div class="col-xl-3">
@@ -1035,7 +1051,7 @@
                                                                     <div class="form-group mb-0">
                                                                         <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled">
                                                                             <option value="" disabled>-- select --</option>
-                                                                            <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
+                                                                            <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn[0].value}}</option>
                                                                             <!-- <option  data-toggle="modal" data-target="#others-course-name" @click="addName('CourseName')">Others</option> -->
                                                                         </select>
                                                                     </div>
@@ -1048,17 +1064,27 @@
                                                                                 </div>
                                                                                 <div class="modal-body cs-modal-body">
                                                                                     <div class="form-row">
+                                                                                         <div class="col-xl-12 mb-2">
+                                                                                        <div class="form-group mb-0">
+                                                                                            <label class="mb-0">Course Level</label>
+                                                                                            <select class="form-control form-control-sm" v-model="domainForm.domainLevel" :disabled="inputDisabled">
+                                                                                                <option value="" disabled>-- select --</option>
+                                                                                                <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id" selected>{{ucl.description}}</option>
+                                                                                                <!-- <option  data-toggle="modal" data-target="#others-course-level" @click="addName('CourseLevel')">Others</option> -->
+                                                                                            </select>
+                                                                                        </div>
+                                                                                         </div>
                                                                                         <div class="col-xl-12 mb-2">
                                                                                             <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" :disabled="globalDisable"/>
                                                                                             <div class="form-group mb-0"><label class="mb-0">Course Name</label>
                                                                                                 <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable"/>
                                                                                             </div>
                                                                                         </div>
-                                                                                        <div class="col-xl-12 mb-2">
+                                                                                        <!-- <div class="col-xl-12 mb-2">
                                                                                             <div class="form-group mb-0"><label class="mb-0">Course Name Desc</label>
                                                                                                 <input type="text" class="form-control form-control-sm" v-model="domainForm.dDesc" :disabled="globalDisable"/>
                                                                                             </div>
-                                                                                        </div>
+                                                                                        </div> -->
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
@@ -1415,15 +1441,27 @@ export default {
             csrf:   document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             userId: document.querySelector("meta[name='userId']").getAttribute('content'),
 
+            applicantDisablitySelfShow : true,
+
+            getExaminationLevel: {},
             getExaminationLevel10 : '',
             getExaminationLevel12 : '',
             getExaminationLevel13 : '',
 
-            examinationPassedValues:{},
+            examinationPassedValues: {},
+            examinationPassedValues10:{},
+            examinationPassedValues12:{},
+            examinationPassedValues13:{},
+
             universityBoardCouncilValues:{},
+            universityBoardCouncilValues10:{},
+            universityBoardCouncilValues12:{},
+            universityBoardCouncilValues13:{},
+
             universityCourseLevel: {},
             universityCourseName: {},
             domainForm: {
+                domianLevel : '',
                 domainName : '',
                 dValue : '',
                 dDesc : '',
@@ -1791,21 +1829,89 @@ export default {
             },
             readInitialDomainValues()
             {
-                 axios.get('/api/domain/examinationLevel10')
+
+                axios.get('/api/domain/examinationLevel')
                     .then(response => {
-                        this.getExaminationLevel10= response.data[0].name;
+                        this.getExaminationLevel= response.data;
+                        // this.form.education1ExaminationLevel = response.data[0].id;
+                    });
+                axios.get('/api/domain/examinationLevel10')
+                    .then(response => {
+                        this.getExaminationLevel10= response.data[0].description;
                         this.form.education1ExaminationLevel = response.data[0].id;
                     });
                 axios.get('/api/domain/examinationLevel12')
                     .then(response => {
-                        this.getExaminationLevel12= response.data[0].name;
+                        this.getExaminationLevel12= response.data[0].description;
                         this.form.education2ExaminationLevel = response.data.id;
                     });
                 axios.get('/api/domain/examinationLevel13')
                     .then(response => {
-                        this.getExaminationLevel13= response.data[0].name;
+                        this.getExaminationLevel13= response.data[0].description;
                         this.form.education3ExaminationLevel = response.data[0].id;
                     });
+                
+                 //Examination Passed
+
+                axios.get('/api/domain/examinationPassed10')
+                    .then(response => {
+                        this.examinationPassedValues10= response.data;
+                    });
+                axios.get('/api/domain/examinationPassed12')
+                    .then(response => {
+                        this.examinationPassedValues12= response.data;
+                    });
+                axios.get('/api/domain/examinationPassed13')
+                    .then(response => {
+                        this.examinationPassedValues13= response.data;
+                    });
+
+                 //Board and council
+
+                axios.get('/api/domain/universityBoardCouncil')
+                    .then(response => {
+                        this.universityBoardCouncilValues= response.data;
+                    });
+                axios.get('/api/domain/universityBoardCouncil10')
+                    .then(response => {
+                        this.universityBoardCouncilValues10= response.data;
+                    });
+                axios.get('/api/domain/universityBoardCouncil12')
+                    .then(response => {
+                        this.universityBoardCouncilValues12= response.data;
+                    });
+                axios.get('/api/domain/universityBoardCouncil13')
+                    .then(response => {
+                        this.universityBoardCouncilValues13= response.data;
+                    });
+
+                //Course Level
+
+                if(this.form.scholarshipType == 'Nursing')
+                {
+                    axios.get('/api/domain/course-level/nursing')
+                        .then(response => {
+                            this.universityCourseLevel= response.data;
+                        });
+                }else if(this.form.scholarshipType == 'HHDLS')
+                {
+                    axios.get('/api/domain/course-level/hhdls')
+                        .then(response => {
+                            this.universityCourseLevel= response.data;
+                        });
+
+                };
+
+                if(this.form.scholarshipType == 'HHDLS')
+                {
+                    axios.get('/api/domain/course-name/hhdls')
+                        .then(response => {
+                            this.universityCourseName = response.data;
+                        });   
+                }
+
+
+
             },
             readDomainValues()
             {
@@ -1818,22 +1924,15 @@ export default {
                     .then(response => {
                         this.universityBoardCouncilValues = response.data;
                     });
-                axios.get('/api/domain/course-level')
-                    .then(response => {
-                        this.universityCourseLevel= response.data;
-                    });
-                axios.get('/api/domain/course-name')
-                    .then(response => {
-                        this.universityCourseName = response.data;
-                    });
-                
+             
+               
             },
             saveDomainValues()
             {
                 axios.post('/api/domain/add',this.domainForm)
                 .then(response => {
                     if (response.data['success']) {
-                        this.readDomainValues();
+                        this.readInitialDomainValues();
                         let showMsg = '';
                         if(this.domainForm.domainName == 'ExamPassed')
                         {
@@ -1851,13 +1950,14 @@ export default {
                         this.domainForm.domainName = '';
                         this.domainForm.dValue = '';
                         this.domainForm.dDesc = '';
-                        this.$fire({
-                            position: 'top',
-                            icon: 'success',
-                            title: "Added new "+showMsg,
-                            showConfirmButton: false,
-                            timer: 3000
-                        });
+                        this.domainForm.domainLevel = '';
+                        // this.$fire({
+                        //     position: 'top',
+                        //     icon: 'success',
+                        //     title: "Added new "+showMsg,
+                        //     showConfirmButton: false,
+                        //     timer: 3000
+                        // });
                         
                     } else {
                         console.log(response.data['msg'])
@@ -1954,11 +2054,22 @@ export default {
             }
 
          },
+         computed:{
+             check()
+             {
+                 if(this.form.applicantLeprosyAffectedSelf == 'on')
+                 {
+                     applicantDisablitySelfShow == true;
+                 }
+             }
+             
+         },
          created()
          {
-           this.readInitialDomainValues();
+          
            this.readApplicationForm();
            this.checkNewScholarshipType();
+           this.readInitialDomainValues();
         //    this.readDomainValues();
            this.readInsValue();
 

@@ -173,6 +173,9 @@ export default{
                  * API Call for domainValues 
                  */
                 {
+                    path:'/api/domain/examinationLevel',
+                },
+                {
                     path:'/api/domain/examinationLevel10',
                 },
                 {
@@ -182,19 +185,40 @@ export default{
                     path:'/api/domain/examinationLevel13',
                 },
                 {
-                    path:'/api/domain/examinationPassed',
+                    path:'/api/domain/examinationPassed10',
+                },
+                {
+                    path:'/api/domain/examinationPassed12',
+                },
+                {
+                    path:'/api/domain/examinationPassed13',
                 },
                 {
                     path:'/api/domain/universityBoardCouncil',
                 },
                 {
+                    path:'/api/domain/universityBoardCouncil10',
+                },
+                {
+                    path:'/api/domain/universityBoardCouncil12',
+                },
+                {
+                    path:'/api/domain/universityBoardCouncil13',
+                },
+                {
                     path:'/api/domain/scholarship',
                 },
                 {
-                    path:'/api/domain/course-level',
+                    path:'/api/domain/course-level/hhdls',
                 },
                 {
-                    path:'/api/domain/course-name',
+                    path:'/api/domain/course-level/nursing',
+                },
+                {
+                    path:'/api/domain/course-name/hhdls',
+                },
+                {
+                    path:'/api/domain/course-name/nursing',
                 },
                 {
                     path:'/api/domain/add',

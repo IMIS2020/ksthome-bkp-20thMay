@@ -85,15 +85,29 @@ Route::group(['prefix' => 'api'], function() {
     /****
      * API Call for domainValues 
      */
+    //Examination Level
+    Route::get('/domain/examinationLevel','Scholarship\DomainController@getExaminationLevel');
     Route::get('/domain/examinationLevel10','Scholarship\DomainController@getExaminationLevel10');
     Route::get('/domain/examinationLevel12','Scholarship\DomainController@getExaminationLevel12');
     Route::get('/domain/examinationLevel13','Scholarship\DomainController@getExaminationLevel13');
 
-    Route::get('/domain/examinationPassed','Scholarship\DomainController@getExaminationPassed');
+    //Examination Passed
+    Route::get('/domain/examinationPassed10','Scholarship\DomainController@getExaminationPassed10');
+    Route::get('/domain/examinationPassed12','Scholarship\DomainController@getExaminationPassed12');
+    Route::get('/domain/examinationPassed13','Scholarship\DomainController@getExaminationPassed13');
+
+    //Board and council
     Route::get('/domain/universityBoardCouncil','Scholarship\DomainController@getUniversityBoardCouncil');
+    Route::get('/domain/universityBoardCouncil10','Scholarship\DomainController@getUniversityBoardCouncil10');
+    Route::get('/domain/universityBoardCouncil12','Scholarship\DomainController@getUniversityBoardCouncil12');
+    Route::get('/domain/universityBoardCouncil13','Scholarship\DomainController@getUniversityBoardCouncil13');
+
+    // Route::get('/domain/examinationPassed','Scholarship\DomainController@getExaminationPassed');
+    // Route::get('/domain/universityBoardCouncil','Scholarship\DomainController@getUniversityBoardCouncil');
     Route::get('/domain/scholarship','Scholarship\DomainController@getScholarship');
-    Route::get('/domain/course-name','Scholarship\DomainController@getCourseName');
-    Route::get('/domain/course-level','Scholarship\DomainController@getCourseLevel');
+    Route::get('/domain/course-name/hhdls','Scholarship\DomainController@getCourseNameHHDLS');
+    Route::get('/domain/course-level/hhdls','Scholarship\DomainController@getCourseLevelHHDLS');
+    Route::get('/domain/course-level/nursing','Scholarship\DomainController@getCourseLevelNursing');
     #Add new Domain Values
     Route::post('/domain/add','Scholarship\DomainController@addDomainValues');
     /****

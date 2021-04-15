@@ -64939,7 +64939,7 @@ var render = function() {
                                                                             "strong",
                                                                             [
                                                                               _vm._v(
-                                                                                "Submit"
+                                                                                "Add"
                                                                               )
                                                                             ]
                                                                           )
@@ -65379,7 +65379,7 @@ var render = function() {
                                                                             "strong",
                                                                             [
                                                                               _vm._v(
-                                                                                "Submit"
+                                                                                "Add"
                                                                               )
                                                                             ]
                                                                           )
@@ -66361,7 +66361,7 @@ var render = function() {
                                                                             "strong",
                                                                             [
                                                                               _vm._v(
-                                                                                "Submit"
+                                                                                "Add"
                                                                               )
                                                                             ]
                                                                           )
@@ -66801,7 +66801,7 @@ var render = function() {
                                                                             "strong",
                                                                             [
                                                                               _vm._v(
-                                                                                "Submit"
+                                                                                "Add"
                                                                               )
                                                                             ]
                                                                           )
@@ -67804,7 +67804,7 @@ var render = function() {
                                                                                 "strong",
                                                                                 [
                                                                                   _vm._v(
-                                                                                    "Submit"
+                                                                                    "Add"
                                                                                   )
                                                                                 ]
                                                                               )
@@ -68256,7 +68256,7 @@ var render = function() {
                                                                                 "strong",
                                                                                 [
                                                                                   _vm._v(
-                                                                                    "Submit"
+                                                                                    "Add"
                                                                                   )
                                                                                 ]
                                                                               )
@@ -69371,7 +69371,7 @@ var render = function() {
                                                         },
                                                         [
                                                           _c("strong", [
-                                                            _vm._v("Submit")
+                                                            _vm._v("Add")
                                                           ])
                                                         ]
                                                       ),
@@ -69776,7 +69776,7 @@ var render = function() {
                                                         },
                                                         [
                                                           _c("strong", [
-                                                            _vm._v("Submit")
+                                                            _vm._v("Add")
                                                           ])
                                                         ]
                                                       ),
@@ -71160,7 +71160,7 @@ var render = function() {
                                                           },
                                                           [
                                                             _c("strong", [
-                                                              _vm._v("Submit")
+                                                              _vm._v("Add")
                                                             ])
                                                           ]
                                                         ),

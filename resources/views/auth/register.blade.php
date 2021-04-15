@@ -117,8 +117,8 @@
                                         <div class="input-group">
                                         <input class="form-control @error('password') is-invalid @enderror" type="password" id="password" name="password" placeholder="Password (minimum 8 characters)" required autocomplete="new-password">
                                       
-                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button>
-                                            </div>
+                                            <!-- <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button>
+                                            </div> -->
                                             
                                             @if ($errors->has('password'))
                                             <span class="invalid-feedback">
@@ -133,8 +133,8 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                         <input class="form-control" type="password" id="password1" name="password_confirmation" required autocomplete="new-password" placeholder="Re-type Password">
-                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword1"></i></button>
-                                            </div>
+                                            <!-- <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword1"></i></button>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>

@@ -61,6 +61,7 @@ class ApplicationController extends Controller
              'applicantContactNoGuardian'        => ['required','digits:10'],
              'applicantEmailId'                  => ['required'],
              'applicantContactNoColonyLeader'    => ['required','digits:10'],
+             'applicantColonyLeaderName'         => ['required'],
  
             //  'examinationLevel10'                => ['required'],
             //  'universityBoardCouncil10'          => ['required'],
@@ -96,6 +97,9 @@ class ApplicationController extends Controller
              'miscName3'                         => [],
              'miscCourse3'                       => [],
              'miscYear3'                         => [],
+             'miscRelationship1'                 => [],
+             'miscRelationship2'                 => [],
+             'miscRelationship3'                 => [],
          ]);
          
          DB::beginTransaction();
@@ -129,6 +133,8 @@ class ApplicationController extends Controller
              $applicationDetails->applicantContactNoSelf           = $request->applicantContactNoSelf;
              $applicationDetails->applicantContactNoGuardian       = $request->applicantContactNoGuardian;
              $applicationDetails->applicantEmailId                 = $request->applicantEmailId;
+             $applicationDetails->applicantColonyLeaderName        = $request->applicantColonyleaderName;
+
              $applicationDetails->applicantContactNoColonyLeader   = $request->applicantContactNoColonyLeader;
              $applicationDetails->applicantAddressId               = $applicationAddress->id;
              $applicationDetails->applicationType                  = "Online";
@@ -228,6 +234,7 @@ class ApplicationController extends Controller
              if (!empty($request->miscName1) && !empty($request->miscCourse1) && !empty($request->miscYear1)) {
                  $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
                  $applicantMiscellaneousDetails->name            = $request->miscName1;
+                 $applicantMiscellaneousDetails->relationship    = $request->miscRelationship1;
                  $applicantMiscellaneousDetails->course          = $request->miscCourse1;
                  $applicantMiscellaneousDetails->year            = $request->miscYear1;
                  $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
@@ -237,6 +244,7 @@ class ApplicationController extends Controller
              if (!empty($request->miscName2) && !empty($request->miscCourse2) && !empty($request->miscYear2)) {
                  $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
                  $applicantMiscellaneousDetails->name            = $request->miscName2;
+                 $applicantMiscellaneousDetails->relationship    = $request->miscRelationship2;
                  $applicantMiscellaneousDetails->course          = $request->miscCourse2;
                  $applicantMiscellaneousDetails->year            = $request->miscYear2;
                  $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
@@ -246,6 +254,7 @@ class ApplicationController extends Controller
              if (!empty($request->miscName3) && !empty($request->miscCourse3) && !empty($request->miscYear3)) {
                  $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
                  $applicantMiscellaneousDetails->name            = $request->miscName3;
+                 $applicantMiscellaneousDetails->relationship    = $request->miscRelationship3;
                  $applicantMiscellaneousDetails->course          = $request->miscCourse3;
                  $applicantMiscellaneousDetails->year            = $request->miscYear3;
                  $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
@@ -262,8 +271,6 @@ class ApplicationController extends Controller
                                             $request->applicantDisablitySelf,
                                             $applicationDetails->id);
 
-
-             
              DB::commit();
              return array('success' => true, 'msg'=>[], 'data'=>$newApplicationId);
          }
@@ -354,6 +361,7 @@ class ApplicationController extends Controller
              $applicationDetails->applicantContactNoGuardian       = $request->applicantContactNoGuardian;
              $applicationDetails->applicantEmailId                 = $request->applicantEmailId;
              $applicationDetails->applicantContactNoColonyLeader   = $request->applicantContactNoColonyLeader;
+             $applicationDetails->applicantColonyLeaderName        = $request->applicantColonyleaderName;
             //  $applicationDetails->applicantAddressId               = $applicationAddress->id;
              $applicationDetails->applicationType                  = "Online";
              $applicationDetails->scholarshipType                  = $request->scholarshipType;
@@ -455,6 +463,7 @@ class ApplicationController extends Controller
              if (!empty($request->miscName1) && !empty($request->miscCourse1) && !empty($request->miscYear1)) {
                  $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
                  $applicantMiscellaneousDetails->name            = $request->miscName1;
+                 $applicantMiscellaneousDetails->relationship    = $request->miscRelationship1;
                  $applicantMiscellaneousDetails->course          = $request->miscCourse1;
                  $applicantMiscellaneousDetails->year            = $request->miscYear1;
                  $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
@@ -464,6 +473,7 @@ class ApplicationController extends Controller
              if (!empty($request->miscName2) && !empty($request->miscCourse2) && !empty($request->miscYear2)) {
                  $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
                  $applicantMiscellaneousDetails->name            = $request->miscName2;
+                 $applicantMiscellaneousDetails->relationship    = $request->miscRelationship2;
                  $applicantMiscellaneousDetails->course          = $request->miscCourse2;
                  $applicantMiscellaneousDetails->year            = $request->miscYear2;
                  $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
@@ -473,6 +483,7 @@ class ApplicationController extends Controller
              if (!empty($request->miscName3) && !empty($request->miscCourse3) && !empty($request->miscYear3)) {
                  $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
                  $applicantMiscellaneousDetails->name            = $request->miscName3;
+                 $applicantMiscellaneousDetails->relationship    = $request->miscRelationship3;
                  $applicantMiscellaneousDetails->course          = $request->miscCourse3;
                  $applicantMiscellaneousDetails->year            = $request->miscYear3;
                  $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
@@ -488,7 +499,6 @@ class ApplicationController extends Controller
                                             $request->applicantDisablityFather,
                                             $request->applicantDisablitySelf,
                                             $applicationDetails->id);
- 
              DB::commit();
              return array('success' => true, 'msg'=>[]);
          }

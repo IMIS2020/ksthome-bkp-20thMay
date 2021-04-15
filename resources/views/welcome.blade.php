@@ -56,10 +56,10 @@
                         <div class="form-group">
                             <div class="input-group">
                             <input class="form-control @error('password') is-invalid @enderror" type="password" id="password" name="password" placeholder="Password" required autocomplete="current-password">
-                                <div class="input-group-append">
+                                <!-- <div class="input-group-append">
                                 <button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button>
                              </div>
-                             
+                              -->
                             </div>
                         </div>
                         <div class="form-group text-center mb-4">

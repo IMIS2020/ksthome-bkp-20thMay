@@ -11,11 +11,12 @@ Route::get('/verify','VerifyController@getVerify')->name('getverify');
 Route::post('/verify','VerifyController@postVerify')->name('verify');
 Route::post('/resend-otp','Auth\LoginController@resendOTP')->name('resend');
 
-Route::get('/forgot-password','ForgotPasswordController@showForgotPassword');
-Route::post('/forgot-password','ForgotPasswordController@postForgotPassword');
 
-Route::get('/forgot-verify','ForgotVerifyController@getForgotVerify')->name('forgot.verify');
-Route::post('/forgot-verify','ForgotVerifyController@postForgotVerify');
+// Route::get('/forgot-password','ForgotPasswordController@showForgotPassword');
+// Route::post('/forgot-password','ForgotPasswordController@postForgotPassword');
+
+// Route::get('/forgot-verify','ForgotVerifyController@getForgotVerify')->name('forgot.verify');
+// Route::post('/forgot-verify','ForgotVerifyController@postForgotVerify');
 
 
 Route::group(['middleware' => ['auth']], function (){

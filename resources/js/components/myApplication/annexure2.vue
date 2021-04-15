@@ -39,21 +39,22 @@
                                                                     <p class="float-left mb-0 color-mg font-md"><strong>I&nbsp; &nbsp; &nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of colony leader" v-model="Nform.applicantColonyLeaderName" :disabled="globalDisable"></span>
                                                                 </div>
                                                                 <div class="col-xl-7 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>hereby certify that Mr./ Miss.&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of the candidate" v-model="form.fullName" :disabled="globalDisable"></span>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>hereby certify that &nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of the candidate" v-model="form.fullName" :disabled="globalDisable"></span>
                                                                 </div>
                                                                 <div class="col-xl-6 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>has been residing in this colony&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Colony name" v-model="form.addressAddln1" :disabled="globalDisable"></span>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>has been residing in the colony&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Colony name" v-model="form.addressAddln1" :disabled="globalDisable"></span>
                                                                 </div>
-                                                                <div class="col-xl-6 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>and his/her parent / parents&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Mother name" v-model="form.applicantMotherName" :disabled="globalDisable"></span>
+                                                                <div class="col-xl-6 text-center align-self-center mb-2" v-if="form.applicantLeprosyAffectedMother == true">
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>, and  &nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Mother name" v-model="form.applicantMotherName" :disabled="globalDisable"></span>
                                                                 </div>
-                                                                <div class="col-xl-4 text-center align-self-center mb-2"><input class="form-control form-control-sm" type="text" placeholder="Father name" v-model="form.applicantFatherName" :disabled="globalDisable"></div>
+                                                                <div class="col-xl-4 text-center align-self-center mb-2" v-if="form.applicantLeprosyAffectedFather == true"><input class="form-control form-control-sm" type="text" placeholder="Father name" v-model="form.applicantFatherName" :disabled="globalDisable"></div>
                                                                 <div class="col-xl-8 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>is / are affected by leprosy.</strong></p>
+                                                                     <p class="float-left mb-0 color-mg font-md" v-if="form.applicantLeprosyAffectedFather == true || form.applicantLeprosyAffectedMother == true"><strong>is affected by leprosy.</strong></p>
+                                                                     <p class="float-left mb-0 color-mg font-md" v-if="form.applicantLeprosyAffectedFather == true && form.applicantLeprosyAffectedMother == true"><strong> are affected by leprosy.</strong></p>
                                                                 </div>
                                                                 <div class="col-xl-12 align-self-center mt-3">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>I certify that, to the best of my knowledge, the information provided by the candidate is true. I recommend her for {{form.scholarshipType}} Scholarship.</strong><br></p>
-                                                                    <p class="float-left mb-0 color-mg font-md mt-4"><strong>Signature of Colony Leader: ____________________________________,&nbsp; Date: ____/____/___________</strong><br></p>
+                                                                    <p class="float-left mb-0 color-mg font-md"><strong>I certify that, to the best of my knowledge, the information provided by the candidate is true. I recommend for {{form.scholarshipType}} Scholarship.</strong><br></p>
+                                                                    <!-- <p class="float-left mb-0 color-mg font-md mt-4"><strong>Signature of Colony Leader: ____________________________________,&nbsp; Date: ____/____/___________</strong><br></p> -->
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -92,6 +93,9 @@ export default{
                 form:
                 {
                     // courseLevel:'',
+                    applicantLeprosyAffectedSelf: false,
+                    applicantLeprosyAffectedFather: false,
+                    applicantLeprosyAffectedMother: false,
                     hasAdmissionLetter:'',
                     applicationId:'',
                     scholarshipType: '',
@@ -218,6 +222,9 @@ export default{
                     this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
                     this.Nform.applicantColonyLeaderName = response.data['data'][0][0].applicantColonyLeaderName;
+                     this.form.applicantLeprosyAffectedSelf=response.data['data'][0][0].applicantLeprosyAffectedSelf;
+                        this.form.applicantLeprosyAffectedFather=response.data['data'][0][0].applicantLeprosyAffectedFather;
+                        this.form.applicantLeprosyAffectedMother=response.data['data'][0][0].applicantLeprosyAffectedMother;
                     // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
                     // {
                     //     this.getData.genderType = "son";

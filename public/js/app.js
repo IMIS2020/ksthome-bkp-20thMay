@@ -4135,6 +4135,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4143,6 +4144,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       globalDisable: false,
       form: {
         // courseLevel:'',
+        applicantLeprosyAffectedSelf: false,
+        applicantLeprosyAffectedFather: false,
+        applicantLeprosyAffectedMother: false,
         hasAdmissionLetter: '',
         applicationId: '',
         scholarshipType: '',
@@ -4290,7 +4294,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this3.form.financialYear = response.data['data'][0][0].financialYear;
                     _this3.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     _this3.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
-                    _this3.Nform.applicantColonyLeaderName = response.data['data'][0][0].applicantColonyLeaderName; // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
+                    _this3.Nform.applicantColonyLeaderName = response.data['data'][0][0].applicantColonyLeaderName;
+                    _this3.form.applicantLeprosyAffectedSelf = response.data['data'][0][0].applicantLeprosyAffectedSelf;
+                    _this3.form.applicantLeprosyAffectedFather = response.data['data'][0][0].applicantLeprosyAffectedFather;
+                    _this3.form.applicantLeprosyAffectedMother = response.data['data'][0][0].applicantLeprosyAffectedMother; // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
                     // {
                     //     this.getData.genderType = "son";
                     // }else{
@@ -63036,19 +63043,77 @@ var render = function() {
                                       ]
                                     ),
                                     _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "col-xl-6 text-center align-self-center mb-2"
-                                      },
-                                      [
-                                        _vm._m(5),
-                                        _c(
-                                          "span",
+                                    _vm.form.applicantLeprosyAffectedMother ==
+                                    true
+                                      ? _c(
+                                          "div",
                                           {
-                                            staticClass: "d-block color-mg",
-                                            staticStyle: { overflow: "hidden" }
+                                            staticClass:
+                                              "col-xl-6 text-center align-self-center mb-2"
+                                          },
+                                          [
+                                            _vm._m(5),
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass: "d-block color-mg",
+                                                staticStyle: {
+                                                  overflow: "hidden"
+                                                }
+                                              },
+                                              [
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .applicantMotherName,
+                                                      expression:
+                                                        "form.applicantMotherName"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-control form-control-sm",
+                                                  attrs: {
+                                                    type: "text",
+                                                    placeholder: "Mother name",
+                                                    disabled: _vm.globalDisable
+                                                  },
+                                                  domProps: {
+                                                    value:
+                                                      _vm.form
+                                                        .applicantMotherName
+                                                  },
+                                                  on: {
+                                                    input: function($event) {
+                                                      if (
+                                                        $event.target.composing
+                                                      ) {
+                                                        return
+                                                      }
+                                                      _vm.$set(
+                                                        _vm.form,
+                                                        "applicantMotherName",
+                                                        $event.target.value
+                                                      )
+                                                    }
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _vm.form.applicantLeprosyAffectedFather ==
+                                    true
+                                      ? _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "col-xl-4 text-center align-self-center mb-2"
                                           },
                                           [
                                             _c("input", {
@@ -63058,21 +63123,21 @@ var render = function() {
                                                   rawName: "v-model",
                                                   value:
                                                     _vm.form
-                                                      .applicantMotherName,
+                                                      .applicantFatherName,
                                                   expression:
-                                                    "form.applicantMotherName"
+                                                    "form.applicantFatherName"
                                                 }
                                               ],
                                               staticClass:
                                                 "form-control form-control-sm",
                                               attrs: {
                                                 type: "text",
-                                                placeholder: "Mother name",
+                                                placeholder: "Father name",
                                                 disabled: _vm.globalDisable
                                               },
                                               domProps: {
                                                 value:
-                                                  _vm.form.applicantMotherName
+                                                  _vm.form.applicantFatherName
                                               },
                                               on: {
                                                 input: function($event) {
@@ -63081,7 +63146,7 @@ var render = function() {
                                                   }
                                                   _vm.$set(
                                                     _vm.form,
-                                                    "applicantMotherName",
+                                                    "applicantFatherName",
                                                     $event.target.value
                                                   )
                                                 }
@@ -63089,54 +63154,60 @@ var render = function() {
                                             })
                                           ]
                                         )
-                                      ]
-                                    ),
+                                      : _vm._e(),
                                     _vm._v(" "),
                                     _c(
                                       "div",
                                       {
                                         staticClass:
-                                          "col-xl-4 text-center align-self-center mb-2"
+                                          "col-xl-8 text-center align-self-center mb-2"
                                       },
                                       [
-                                        _c("input", {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value:
-                                                _vm.form.applicantFatherName,
-                                              expression:
-                                                "form.applicantFatherName"
-                                            }
-                                          ],
-                                          staticClass:
-                                            "form-control form-control-sm",
-                                          attrs: {
-                                            type: "text",
-                                            placeholder: "Father name",
-                                            disabled: _vm.globalDisable
-                                          },
-                                          domProps: {
-                                            value: _vm.form.applicantFatherName
-                                          },
-                                          on: {
-                                            input: function($event) {
-                                              if ($event.target.composing) {
-                                                return
-                                              }
-                                              _vm.$set(
-                                                _vm.form,
-                                                "applicantFatherName",
-                                                $event.target.value
-                                              )
-                                            }
-                                          }
-                                        })
+                                        _vm.form
+                                          .applicantLeprosyAffectedFather ==
+                                          true ||
+                                        _vm.form
+                                          .applicantLeprosyAffectedMother ==
+                                          true
+                                          ? _c(
+                                              "p",
+                                              {
+                                                staticClass:
+                                                  "float-left mb-0 color-mg font-md"
+                                              },
+                                              [
+                                                _c("strong", [
+                                                  _vm._v(
+                                                    "is affected by leprosy."
+                                                  )
+                                                ])
+                                              ]
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.form
+                                          .applicantLeprosyAffectedFather ==
+                                          true &&
+                                        _vm.form
+                                          .applicantLeprosyAffectedMother ==
+                                          true
+                                          ? _c(
+                                              "p",
+                                              {
+                                                staticClass:
+                                                  "float-left mb-0 color-mg font-md"
+                                              },
+                                              [
+                                                _c("strong", [
+                                                  _vm._v(
+                                                    " are affected by leprosy."
+                                                  )
+                                                ])
+                                              ]
+                                            )
+                                          : _vm._e()
                                       ]
                                     ),
-                                    _vm._v(" "),
-                                    _vm._m(6),
                                     _vm._v(" "),
                                     _c(
                                       "div",
@@ -63154,7 +63225,7 @@ var render = function() {
                                           [
                                             _c("strong", [
                                               _vm._v(
-                                                "I certify that, to the best of my knowledge, the information provided by the candidate is true. I recommend her for " +
+                                                "I certify that, to the best of my knowledge, the information provided by the candidate is true. I recommend for " +
                                                   _vm._s(
                                                     _vm.form.scholarshipType
                                                   ) +
@@ -63163,9 +63234,7 @@ var render = function() {
                                             ]),
                                             _c("br")
                                           ]
-                                        ),
-                                        _vm._v(" "),
-                                        _vm._m(7)
+                                        )
                                       ]
                                     )
                                   ])
@@ -63177,7 +63246,7 @@ var render = function() {
                               ? _c(
                                   "div",
                                   { staticClass: "col-xl-3 offset-xl-3" },
-                                  [_vm._m(8)]
+                                  [_vm._m(6)]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
@@ -63312,7 +63381,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "float-left mb-0 color-mg font-md" }, [
-      _c("strong", [_vm._v("hereby certify that Mr./ Miss. ")])
+      _c("strong", [_vm._v("hereby certify that  ")])
     ])
   },
   function() {
@@ -63320,7 +63389,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "float-left mb-0 color-mg font-md" }, [
-      _c("strong", [_vm._v("has been residing in this colony ")])
+      _c("strong", [_vm._v("has been residing in the colony ")])
     ])
   },
   function() {
@@ -63328,34 +63397,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "float-left mb-0 color-mg font-md" }, [
-      _c("strong", [_vm._v("and his/her parent / parents ")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-xl-8 text-center align-self-center mb-2" },
-      [
-        _c("p", { staticClass: "float-left mb-0 color-mg font-md" }, [
-          _c("strong", [_vm._v("is / are affected by leprosy.")])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "float-left mb-0 color-mg font-md mt-4" }, [
-      _c("strong", [
-        _vm._v(
-          "Signature of Colony Leader: ____________________________________,  Date: ____/____/___________"
-        )
-      ]),
-      _c("br")
+      _c("strong", [_vm._v(", and   ")])
     ])
   },
   function() {

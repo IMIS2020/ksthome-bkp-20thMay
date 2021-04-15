@@ -7,7 +7,7 @@
     <!-- @if (Auth::check()) 
       <meta name="userName" content="{{ Auth::user()->name }}" >
      @endif  -->
-    <title>I-MIS-APP</title>
+    <title>I - MIS Portal</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">

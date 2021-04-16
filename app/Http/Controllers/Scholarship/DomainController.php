@@ -138,30 +138,30 @@ class DomainController extends Controller
         return $getDomainName;
     }
 
-    public function getCourseNameHHDLS()
+    public function getCourseNameHHDLS($id)
     {
-        $data = array();
+        // $data = array();
         
-        $getDomainNameId1 = DomainName::where('name','AdmissionCourse-Bachelors-HHDLS')->first();
-        $getDomainNameId2 = DomainName::where('name','AdmissionCourse-Diploma-HHDLS')->first();
-        $getDomainNameId3 = DomainName::where('name','AdmissionCourse-Certificate-HHDLS')->first();
+        // $getDomainNameId1 = DomainName::where('name','AdmissionLevel-Bachelors-HHDLS')->first();
+        // $getDomainNameId2 = DomainName::where('name','AdmissionLevel-Diploma-HHDLS')->first();
+        // $getDomainNameId3 = DomainName::where('name','AdmissionLevel-Certificate-HHDLS')->first();
 
-        $getDomainValues1 = DomainValues::where('nameId',$getDomainNameId1->id)->select('value','id')->orderBy('id','DESC')->get();
-        $getDomainValues2 = DomainValues::where('nameId',$getDomainNameId2->id)->select('value','id')->orderBy('id','DESC')->get();
-        $getDomainValues3 = DomainValues::where('nameId',$getDomainNameId3->id)->select('value','id')->orderBy('id','DESC')->get();
+        $getDomainValues1 = DomainValues::where('nameId',$id)->select('value','id')->orderBy('id','DESC')->get();
+        // $getDomainValues2 = DomainValues::where('nameId',$getDomainNameId2->id)->select('value','id')->orderBy('id','DESC')->get();
+        // $getDomainValues3 = DomainValues::where('nameId',$getDomainNameId3->id)->select('value','id')->orderBy('id','DESC')->get();
         
 
-        array_push($data,$getDomainValues1,$getDomainValues2,$getDomainValues3);
+        // array_push($data,$getDomainValues1,$getDomainValues2,$getDomainValues3);
     
         
-        return $data;
+        return $getDomainValues1;
     }
 
     public function getCourseNameNursing()
     {
         // $data = array();
         
-        $getDomainNameId1 = DomainName::where('name','AdmissionCourse-Bachelors-Nursing')->first();
+        $getDomainNameId1 = DomainName::where('name','AdmissionLevel-Bachelors-Nursing')->first();
         $getDomainValues1 = DomainValues::where('nameId',$getDomainNameId1->id)->select('value','id')->orderBy('id','DESC')->get();
 
         // array_push($data,$getDomainValues1);
@@ -206,7 +206,7 @@ class DomainController extends Controller
                     $domainValues = new DomainValues;
                     $domainValues->value            = $request->dValue;
                     $domainValues->valueDescription = $request->dDesc;
-                    $domainValues->nameId           = $request->domianLevel;
+                    $domainValues->nameId           = $request->domainLevel2;
                     $getDomainNameId = DomainName::where('name','CourseName')->first();
                     $domainValues->domainTypeId           = $getDomainNameId->id;
                     $domainValues->save();

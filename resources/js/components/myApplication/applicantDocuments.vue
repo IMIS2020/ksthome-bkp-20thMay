@@ -221,28 +221,56 @@ export default{
                 })
         },
 
-        selectFile(index){
+        selectFile(index)
+        {
             let file = this.$refs[index][0].files[0];
-            if (file.size > 1024 * 1024) {
-               //this.$refs[index][0].files[0] ='';
-                // e.preventDefault();
+            console.log(index);
+            if(file.type == 'image/jpeg'|| file.type =='image/jpg'|| file.type =='image/png' || file.type=='file/pdf')
+            { 
+                if(index == 1)
+                {
+                    if(file.type !='image/jpeg')
+                    {
+                        this.$fire({
+                            position: 'top',
+                            icon: 'success',
+                           title: "Passport size photograph must be image type",
+                            showConfirmButton: false,
+                            timer: 4000
+                        })
+                    }
+                }
+                if (file.size > 1024 * 1024) 
+                {
+                //this.$refs[index][0].files[0] ='';
+                    // e.preventDefault();
+                    this.$fire({
+                            position: 'top',
+                            icon: 'success',
+                            title: "Document is Too Large - Max 1 MB each",
+                            showConfirmButton: false,
+                            timer: 4000
+                    })
+                
+                    return
+                }else
+                {
+                    let fileName = file.name;
+                    let fileReader = new FileReader()
+                    fileReader.readAsDataURL(file)
+                    fileReader.onload = (e) => {
+                        this.docRows[index].docFileNameFile=e.target.result;
+                    }
+                    this.docRows[index].fileName = fileName;
+                }
+            }else{
                 this.$fire({
                         position: 'top',
                         icon: 'success',
-                        title: "Document is Too Large",
+                        title: "pdf,png,jpeg or jpg files only",
                         showConfirmButton: false,
-                        timer: 3000
+                        timer: 4000
                 })
-               
-                return
-            }else{
-                let fileName = file.name;
-                let fileReader = new FileReader()
-                fileReader.readAsDataURL(file)
-                fileReader.onload = (e) => {
-                    this.docRows[index].docFileNameFile=e.target.result;
-                }
-                this.docRows[index].fileName = fileName;
             }
         },
 

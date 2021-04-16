@@ -105,7 +105,7 @@ Route::group(['prefix' => 'api'], function() {
     // Route::get('/domain/examinationPassed','Scholarship\DomainController@getExaminationPassed');
     // Route::get('/domain/universityBoardCouncil','Scholarship\DomainController@getUniversityBoardCouncil');
     Route::get('/domain/scholarship','Scholarship\DomainController@getScholarship');
-    Route::get('/domain/course-name/hhdls','Scholarship\DomainController@getCourseNameHHDLS');
+    Route::get('/domain/course-name/hhdls/{id}','Scholarship\DomainController@getCourseNameHHDLS');
     Route::get('/domain/course-name/nursing','Scholarship\DomainController@getCourseNameNursing');
     Route::get('/domain/course-level/hhdls','Scholarship\DomainController@getCourseLevelHHDLS');
     Route::get('/domain/course-level/nursing','Scholarship\DomainController@getCourseLevelNursing');

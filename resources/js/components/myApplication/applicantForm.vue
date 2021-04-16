@@ -257,16 +257,16 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-3">
-                                                                    <label>Contact no. (colony leader)&nbsp;<span class="text-danger">*</span></label>
+                                                                    <label>Colony leader Full Name&nbsp;<span class="text-danger">*</span></label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="number"  v-model="form.applicantContactNoColonyLeader" :disabled="globalDisable" required>
+                                                                        <input class="form-control form-control-sm" type="text" v-model="form.applicantColonyleaderName" :disabled="globalDisable">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="col-xl-3">
-                                                                    <label>Colony leader Name&nbsp;<span class="text-danger">*</span></label>
+                                                                    <label>Contact no. (colony leader)&nbsp;<span class="text-danger">*</span></label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="form.applicantColonyleaderName" :disabled="globalDisable">
+                                                                        <input class="form-control form-control-sm" type="number"  v-model="form.applicantContactNoColonyLeader" :disabled="globalDisable" required>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -697,280 +697,7 @@
                                                     
                                                 </div>
 
-                                                <!-- <div class="col-xl-12">
-                                                    <div class="card mt-2 det-sec">
-                                                        <div class="card-header">
-                                                            <h6 class="mb-0 color-mg">Additional Qualification</h6>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div class="form-row">
-                                                                <div class="col-xl-12 mb-2"><label>Details of educational qualification: Matriculation/Higher Secondary/ Graduation:<br></label>
-                                                                    <div class="table-responsive font-md">
-                                                                        <table class="table table-sm mb-0">
-                                                                            <thead class="font-sm color-mg">
-                                                                                <tr>
-                                                                                    <th>Examination Level&nbsp;<span class="text-danger">*</span></th>
-                                                                                    <th>Examination Passed&nbsp;<span class="text-danger">*</span></th>
-                                                                                    <th>University/ Board/ Council&nbsp;<span class="text-danger">*</span></th>
-                                                                                    <th>Main Subjects&nbsp;<span class="text-danger">*</span></th>
-                                                                                    <th>Year of Passing&nbsp;<span class="text-danger">*</span></th>
-                                                                                    <th>Percentage(%)&nbsp;<span class="text-danger">*</span></th>
-                                                                                    <th>Division&nbsp;<span class="text-danger">*</span></th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td>
-                                                                                        <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.additionalExaminationLevel" disabled>
-                                                                                                <option value="" disabled>-- select --</option>
-                                                                                                <option value="10" selected>10th</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.additional1ExaminationPassed">
-                                                                                                <option value="" disabled>-- select --</option>
-                                                                                                <option v-for="(epv,index) in examinationPassedValues" :key="index" :value="epv.id">{{epv.value}}</option>
-                                                                                                <option value="3">Madhyamik</option>
-                                                                                                <option value="2">Higher Secondary</option>
-                                                                                                <option value="1">B.Com</option>
-                                                                                               <option  data-toggle="modal" data-target="#others-exam-passed4" @click="addName('ExamPassed')">Others</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                        <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-passed4">
-                                                                                            <div class="modal-dialog modal-sm" role="document">
-                                                                                                <div class="modal-content">
-                                                                                                    <div class="modal-header py-1">
-                                                                                                        <h6 class="modal-title color-mg font-md"><strong>Add Other Examination Passed</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                                                                                    </div>
-                                                                                                    <div class="modal-body cs-modal-body">
-                                                                                                        <div class="form-row">
-                                                                                                            <div class="col-xl-12 mb-2">
-                                                                                                                <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName"/>
-                                                                                                                <div class="form-group mb-0"><label class="mb-0">Examination Passed</label>
-                                                                                                                    <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue"/>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                            <div class="col-xl-12 mb-2">
-                                                                                                                <div class="form-group mb-0"><label class="mb-0">Examination Passed Desc</label>
-                                                                                                                    <input type="text" class="form-control form-control-sm" v-model="domainForm.dDesc" />
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Cancel</strong></button></div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.additional1University">
-                                                                                                <option value="" disabled>-- select --</option>
-                                                                                                <option v-for="(ubv,index) in universityBoardCouncilValues" :key="index" :value="ubv.id" >{{ubv.value}}</option>
-                                                                                                <option value="3">WBBSE</option>
-                                                                                                <option value="2">WBCHSE</option>
-                                                                                                <option value="1">WBSCTVE&amp;D</option>
-                                                                                                <option  data-toggle="modal" data-target="#others-exam-board4" @click="addName('UnivBoard')">Others</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                        <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-board1">
-                                                                                            <div class="modal-dialog modal-sm" role="document">
-                                                                                                <div class="modal-content">
-                                                                                                    <div class="modal-header py-1">
-                                                                                                        <h6 class="modal-title color-mg font-md"><strong>Add Other Examination Board</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                                                                                    </div>
-                                                                                                    <div class="modal-body cs-modal-body">
-                                                                                                        <div class="form-row">
-                                                                                                            <div class="col-xl-12 mb-2">
-                                                                                                                <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName"/>
-                                                                                                                <div class="form-group mb-0"><label class="mb-0">Examination Board</label>
-                                                                                                                    <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue"/>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                            <div class="col-xl-12 mb-2">
-                                                                                                                <div class="form-group mb-0"><label class="mb-0">Examination Board Desc</label>
-                                                                                                                    <input type="text" class="form-control form-control-sm" v-model="domainForm.dDesc" />
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Cancel</strong></button></div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <div class="form-group mb-0">
-                                                                                            <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.additional1MainSubjects"></textarea>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.additional1YearOfPassing">
-                                                                                                <option value="" disabled>-- select --</option>
-                                                                                                <option value="2021">2021</option>
-                                                                                                <option value="2020">2020</option>
-                                                                                                <option value="2019">2019</option>
-                                                                                                <option value="2018">2018</option>
-                                                                                                <option value="2017">2017</option>
-                                                                                                <option value="2016">2016</option>
-                                                                                                <option value="2015">2015</option>
-                                                                                                <option value="3">2014</option>
-                                                                                                <option value="2">2013</option>
-                                                                                                <option value="1">2012</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <div class="form-group mb-0">
-                                                                                            <input class="form-control form-control-sm" type="number" min="0" max="100" step="0.01" v-model="form.additional1Percentage">
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.additional1Division">
-                                                                                                <option value="" disabled>-- select --</option>
-                                                                                                <option value="1st">1st</option>
-                                                                                                <option value="2nd">2nd</option>
-                                                                                                <option value="3rd">3rd</option>
-                                                                                                <option value="N/A">N/A</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>
-                                                                                        <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.additional2ExaminationLevel" disabled>
-                                                                                                <option value="" disabled>-- select --</option>
-                                                                                                <option value="12" selected>12th</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.additional2ExaminationPassed">
-                                                                                                <option value="" disabled>-- select --</option>
-                                                                                                <option v-for="(epv,index) in examinationPassedValues" :key="index" :value="epv.id">{{epv.value}}</option>
-                                                                                                <option value="3">Madhyamik</option>
-                                                                                                <option value="2">Higher Secondary</option>
-                                                                                                <option value="1">B.Com</option>
-                                                                                                <option  data-toggle="modal" data-target="#others-exam-passed5" @click="addName('ExamPassed')">Others</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                        <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-passed5">
-                                                                                            <div class="modal-dialog modal-sm" role="document">
-                                                                                                <div class="modal-content">
-                                                                                                    <div class="modal-header py-1">
-                                                                                                        <h6 class="modal-title color-mg font-md"><strong>Add Other Examination Passes</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                                                                                    </div>
-                                                                                                    <div class="modal-body cs-modal-body">
-                                                                                                        <div class="form-row">
-                                                                                                            <div class="col-xl-12 mb-2">
-                                                                                                                <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName"/>
-                                                                                                                <div class="form-group mb-0"><label class="mb-0">Examination Passed</label>
-                                                                                                                    <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue"/>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                            <div class="col-xl-12 mb-2">
-                                                                                                                <div class="form-group mb-0"><label class="mb-0">Examination Passed Desc</label>
-                                                                                                                    <input type="text" class="form-control form-control-sm" v-model="domainForm.dDesc" />
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Cancel</strong></button></div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.additional2University">
-                                                                                                <option value="" disabled>-- select --</option>
-                                                                                                <option v-for="(ubv,index) in universityBoardCouncilValues" :key="index" :value="ubv.id">{{ubv.value}}</option>
-                                                                                                <option value="3">WBBSE</option>
-                                                                                                <option value="2">WBCHSE</option>
-                                                                                                <option value="1">WBSCTVE&amp;D</option>
-                                                                                                <option  data-toggle="modal" data-target="#others-exam-board6"  @click="addName('UnivBoard')">Others</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                        <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-board6">
-                                                                                            <div class="modal-dialog modal-sm" role="document">
-                                                                                                <div class="modal-content">
-                                                                                                    <div class="modal-header py-1">
-                                                                                                        <h6 class="modal-title color-mg font-md"><strong>Add Other Examination Board</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                                                                                    </div>
-                                                                                                    <div class="modal-body cs-modal-body">
-                                                                                                        <div class="form-row">
-                                                                                                            <div class="col-xl-12 mb-2">
-                                                                                                                <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName"/>
-                                                                                                                <div class="form-group mb-0"><label class="mb-0">Examination Board</label>
-                                                                                                                    <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue"/>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                            <div class="col-xl-12 mb-2">
-                                                                                                                <div class="form-group mb-0"><label class="mb-0">Examination Board Desc</label>
-                                                                                                                    <input type="text" class="form-control form-control-sm" v-model="domainForm.dDesc" />
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Cancel</strong></button></div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <div class="form-group mb-0">
-                                                                                            <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.additional2MainSubjects"></textarea>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.additional2YearOfPassing">
-                                                                                                <option value="" disabled>-- select --</option>
-                                                                                                <option value="2021">2021</option>
-                                                                                                <option value="2020">2020</option>
-                                                                                                <option value="2019">2019</option>
-                                                                                                <option value="2018">2018</option>
-                                                                                                <option value="2017">2017</option>
-                                                                                                <option value="2016">2016</option>
-                                                                                                <option value="2015">2015</option>
-                                                                                                <option value="3">2014</option>
-                                                                                                <option value="2">2013</option>
-                                                                                                <option value="1">2012</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <div class="form-group mb-0">
-                                                                                            <input class="form-control form-control-sm" type="number" min="0" max="100" step="0.01" v-model="form.additional2Percentage">
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.additional2Division">
-                                                                                                <option value="" disabled>-- select --</option>
-                                                                                                <option value="1st">1st</option>
-                                                                                                <option value="2nd">2nd</option>
-                                                                                                <option value="3rd">3rd</option>
-                                                                                                <option value="N/A">N/A</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
+                                               
 
                                                 <div class="col-xl-12">
                                                     <div class="card mt-2 det-sec">
@@ -1002,64 +729,28 @@
                                                                     <label class="col-form-label">Details of the course you have been selected for :&nbsp;<br></label>
                                                                 </div>
                                                                 <div class="col-xl-3">
-                                                                    <!-- <label>Name of the Level&nbsp;<span class="text-danger"><strong>*</strong></span><a data-toggle="modal" href="#" data-target="#others-course-level" v-if="inputDisabled == false" @click="addName('CourseLevel')" > + Add New Value</a></label> -->
+                                                                    
                                                                     <label>Name of the Level&nbsp;</label>
-                                                                     <!-- <div class="form-group mb-0" v-if="form.scholarshipType == 'Nursing'">
-                                                                        <select class="form-control form-control-sm" v-model="form.courseLevelValueId" disabled>
-                                                                            <option value="N" disabled selected>Graduate</option>
-                                                                            <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id">{{ucl.value}}</option>
-                                                                            <option  data-toggle="modal" data-target="#others-course-level" @click="addName('CourseLevel')">Others</option>
-                                                                        </select>
-                                                                     </div> -->
+                                                                    
                                                                      <div class="form-group mb-0">
-                                                                        <select class="form-control form-control-sm" v-model="form.courseLevelValueId" :disabled="inputDisabled">
+                                                                        <select class="form-control form-control-sm" v-model="form.courseLevelValueId" :disabled="inputDisabled" @click="getHHDLSData($event)">
                                                                             <option value="" disabled>-- select --</option>
                                                                             <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id" selected>{{ucl.description}}</option>
-                                                                            <!-- <option  data-toggle="modal" data-target="#others-course-level" @click="addName('CourseLevel')">Others</option> -->
                                                                         </select>
                                                                      </div>
-                                                                    <!-- Star Course Level modal -->
-                                                                    <!-- <div role="dialog" tabindex="-1" class="modal fade" id="others-course-level">
-                                                                        <div class="modal-dialog modal-sm" role="document">
-                                                                            <div class="modal-content">
-                                                                                <div class="modal-header py-1">
-                                                                                    <h6 class="modal-title color-mg font-md"><strong>Add Other Course Level</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                                                                </div>
-                                                                                <div class="modal-body cs-modal-body">
-                                                                                    <div class="form-row">
-                                                                                        <div class="col-xl-12 mb-2">
-                                                                                            <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" :disabled="globalDisable"/>
-                                                                                            <div class="form-group mb-0"><label class="mb-0">Course Level</label>
-                                                                                                <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable"/>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-xl-12 mb-2">
-                                                                                            <div class="form-group mb-0"><label class="mb-0">Course Level Desc</label>
-                                                                                                <input type="text" class="form-control form-control-sm" v-model="domainForm.dDesc" :disabled="globalDisable"/>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div> -->
-                                                                    <!-- End course name modal -->
                                                                 </div>
                                                                 <div class="col-xl-3">
                                                                     <label>Name of the course&nbsp;<span class="text-danger"><strong>*</strong></span><a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-course-name" @click="addName('CourseName')"> + Add New Value</a></label>
                                                                     <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
                                                                         <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled">
                                                                             <option value="" disabled>-- select --</option>
-                                                                            <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn[0].id">{{ucn[0].value}}</option>
-                                                                            <!-- <option  data-toggle="modal" data-target="#others-course-name" @click="addName('CourseName')">Others</option> -->
+                                                                            <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group mb-0" v-if="form.scholarshipType=='Nursing'">
                                                                         <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled">
                                                                             <option value="" disabled>-- select --</option>
                                                                             <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
-                                                                            <!-- <option  data-toggle="modal" data-target="#others-course-name" @click="addName('CourseName')">Others</option> -->
                                                                         </select>
                                                                     </div>
                                                                     <!-- Star Course name modal -->
@@ -1074,10 +765,11 @@
                                                                                          <div class="col-xl-12 mb-2">
                                                                                         <div class="form-group mb-0">
                                                                                             <label class="mb-0">Course Level</label>
-                                                                                            <select class="form-control form-control-sm" v-model="domainForm.domainLevel" :disabled="inputDisabled">
+                                                                                            <input type="hidden" v-model="domainForm.domainName" />
+                                                                                            
+                                                                                            <select class="form-control form-control-sm" v-model="domainForm.domainLevel2" :disabled="inputDisabled">
                                                                                                 <option value="" disabled>-- select --</option>
                                                                                                 <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id" selected>{{ucl.description}}</option>
-                                                                                                <!-- <option  data-toggle="modal" data-target="#others-course-level" @click="addName('CourseLevel')">Others</option> -->
                                                                                             </select>
                                                                                         </div>
                                                                                          </div>
@@ -1087,11 +779,6 @@
                                                                                                 <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable"/>
                                                                                             </div>
                                                                                         </div>
-                                                                                        <!-- <div class="col-xl-12 mb-2">
-                                                                                            <div class="form-group mb-0"><label class="mb-0">Course Name Desc</label>
-                                                                                                <input type="text" class="form-control form-control-sm" v-model="domainForm.dDesc" :disabled="globalDisable"/>
-                                                                                            </div>
-                                                                                        </div> -->
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
@@ -1470,7 +1157,7 @@ export default {
             universityCourseLevel: {},
             universityCourseName: {},
             domainForm: {
-                domianLevel : '',
+                // domianLevel : '',
                 domainName : '',
                 dValue : '',
                 dDesc : '',
@@ -1755,15 +1442,15 @@ export default {
 
                          this.readDomainValues(this.form.scholarshipType);
 
-                        this.form.miscName1= response.data['data'][2][0].name;
-                        this.form.miscCourse1= response.data['data'][2][0].course;
-                        this.form.miscYear1= response.data['data'][2][0].year;
-                        this.form.miscName2= response.data['data'][2][1].name;
-                        this.form.miscCourse2= response.data['data'][2][1].course;
-                        this.form.miscYear2= response.data['data'][2][1].year;
-                        this.form.miscName3= response.data['data'][2][2].name;
-                        this.form.miscCourse3= response.data['data'][2][2].course;
-                        this.form.miscYear3= response.data['data'][2][2].year;
+                        // this.form.miscName1= response.data['data'][2][0].name;
+                        // this.form.miscCourse1= response.data['data'][2][0].course;
+                        // this.form.miscYear1= response.data['data'][2][0].year;
+                        // this.form.miscName2= response.data['data'][2][1].name;
+                        // this.form.miscCourse2= response.data['data'][2][1].course;
+                        // this.form.miscYear2= response.data['data'][2][1].year;
+                        // this.form.miscName3= response.data['data'][2][2].name;
+                        // this.form.miscCourse3= response.data['data'][2][2].course;
+                        // this.form.miscYear3= response.data['data'][2][2].year;
 
                         
 
@@ -1928,10 +1615,10 @@ export default {
                 
                 if(type == 'HHDLS')
                 {
-                    axios.get('/api/domain/course-name/hhdls')
-                        .then(response => {
-                            this.universityCourseName = response.data;
-                        });   
+                    // axios.get('/api/domain/course-name/hhdls')
+                    //     .then(response => {
+                    //         this.universityCourseName = response.data;
+                    //     });   
                     axios.get('/api/domain/course-level/hhdls')
                         .then(response => {
                             this.universityCourseLevel= response.data;
@@ -1971,10 +1658,11 @@ export default {
                         {
                             showMsg = 'Course Name'
                         }
-                        this.domainForm.domainName = '';
+                        // this.domainForm.domainName = '';
                         this.domainForm.dValue = '';
                         this.domainForm.dDesc = '';
-                        this.domainForm.domainLevel = '';
+                        // this.domainForm.domainLevel = null;
+                        // this.domainForm.domainLevel2 = null;
                         this.$fire({
                             position: 'top',
                             icon: 'success',
@@ -2111,6 +1799,15 @@ export default {
                 }
                     this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedMother;
                 
+
+            },
+            getHHDLSData(event)
+            {
+                let id = event.target.value;
+                axios.get('/api/domain/course-name/hhdls/'+id)
+                    .then(response => {
+                        this.universityCourseName = response.data;
+                    });   
 
             }
 

@@ -220,7 +220,7 @@ export default{
                     path:'/api/domain/course-level/nursing',
                 },
                 {
-                    path:'/api/domain/course-name/hhdls',
+                    path:'/api/domain/course-name/hhdls/:id',
                 },
                 {
                     path:'/api/domain/course-name/nursing',

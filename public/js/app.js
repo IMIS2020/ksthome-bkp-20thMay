@@ -4788,28 +4788,51 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this4 = this;
 
       var file = this.$refs[index][0].files[0];
+      console.log(index);
 
-      if (file.size > 1024 * 1024) {
-        //this.$refs[index][0].files[0] ='';
-        // e.preventDefault();
+      if (file.type == 'image/jpeg' || file.type == 'image/jpg' || file.type == 'image/png' || file.type == 'file/pdf') {
+        if (index == 1) {
+          if (file.type != 'image/jpeg') {
+            this.$fire({
+              position: 'top',
+              icon: 'success',
+              title: "Passport size photograph must be image type",
+              showConfirmButton: false,
+              timer: 4000
+            });
+          }
+        }
+
+        if (file.size > 1024 * 1024) {
+          //this.$refs[index][0].files[0] ='';
+          // e.preventDefault();
+          this.$fire({
+            position: 'top',
+            icon: 'success',
+            title: "Document is Too Large - Max 1 MB each",
+            showConfirmButton: false,
+            timer: 4000
+          });
+          return;
+        } else {
+          var fileName = file.name;
+          var fileReader = new FileReader();
+          fileReader.readAsDataURL(file);
+
+          fileReader.onload = function (e) {
+            _this4.docRows[index].docFileNameFile = e.target.result;
+          };
+
+          this.docRows[index].fileName = fileName;
+        }
+      } else {
         this.$fire({
           position: 'top',
           icon: 'success',
-          title: "Document is Too Large",
+          title: "pdf,png,jpeg or jpg files only",
           showConfirmButton: false,
-          timer: 3000
+          timer: 4000
         });
-        return;
-      } else {
-        var fileName = file.name;
-        var fileReader = new FileReader();
-        fileReader.readAsDataURL(file);
-
-        fileReader.onload = function (e) {
-          _this4.docRows[index].docFileNameFile = e.target.result;
-        };
-
-        this.docRows[index].fileName = fileName;
       }
     },
     deleteFile: function deleteFile(applicationDocId) {
@@ -5982,319 +6005,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6320,7 +6030,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       universityCourseLevel: {},
       universityCourseName: {},
       domainForm: {
-        domianLevel: '',
+        // domianLevel : '',
         domainName: '',
         dValue: '',
         dDesc: ''
@@ -6594,17 +6304,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                     ;
 
-                    _this2.readDomainValues(_this2.form.scholarshipType);
+                    _this2.readDomainValues(_this2.form.scholarshipType); // this.form.miscName1= response.data['data'][2][0].name;
+                    // this.form.miscCourse1= response.data['data'][2][0].course;
+                    // this.form.miscYear1= response.data['data'][2][0].year;
+                    // this.form.miscName2= response.data['data'][2][1].name;
+                    // this.form.miscCourse2= response.data['data'][2][1].course;
+                    // this.form.miscYear2= response.data['data'][2][1].year;
+                    // this.form.miscName3= response.data['data'][2][2].name;
+                    // this.form.miscCourse3= response.data['data'][2][2].course;
+                    // this.form.miscYear3= response.data['data'][2][2].year;
 
-                    _this2.form.miscName1 = response.data['data'][2][0].name;
-                    _this2.form.miscCourse1 = response.data['data'][2][0].course;
-                    _this2.form.miscYear1 = response.data['data'][2][0].year;
-                    _this2.form.miscName2 = response.data['data'][2][1].name;
-                    _this2.form.miscCourse2 = response.data['data'][2][1].course;
-                    _this2.form.miscYear2 = response.data['data'][2][1].year;
-                    _this2.form.miscName3 = response.data['data'][2][2].name;
-                    _this2.form.miscCourse3 = response.data['data'][2][2].course;
-                    _this2.form.miscYear3 = response.data['data'][2][2].year;
                   } else {
                     console.log(response.data['msg']);
                   }
@@ -6743,9 +6452,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this4 = this;
 
       if (type == 'HHDLS') {
-        axios.get('/api/domain/course-name/hhdls').then(function (response) {
-          _this4.universityCourseName = response.data;
-        });
+        // axios.get('/api/domain/course-name/hhdls')
+        //     .then(response => {
+        //         this.universityCourseName = response.data;
+        //     });   
         axios.get('/api/domain/course-level/hhdls').then(function (response) {
           _this4.universityCourseLevel = response.data;
         });
@@ -6775,12 +6485,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             showMsg = 'Course Level';
           } else if (_this5.domainForm.domainName == 'CourseName') {
             showMsg = 'Course Name';
-          }
+          } // this.domainForm.domainName = '';
 
-          _this5.domainForm.domainName = '';
+
           _this5.domainForm.dValue = '';
-          _this5.domainForm.dDesc = '';
-          _this5.domainForm.domainLevel = '';
+          _this5.domainForm.dDesc = ''; // this.domainForm.domainLevel = null;
+          // this.domainForm.domainLevel2 = null;
 
           _this5.$fire({
             position: 'top',
@@ -6900,6 +6610,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedMother;
+    },
+    getHHDLSData: function getHHDLSData(event) {
+      var _this10 = this;
+
+      var id = event.target.value;
+      axios.get('/api/domain/course-name/hhdls/' + id).then(function (response) {
+        _this10.universityCourseName = response.data;
+      });
     }
   },
   computed: {},
@@ -63173,7 +62891,7 @@ var render = function() {
                                             ])
                                           : _vm._e(),
                                         _vm._v(
-                                          "\r\n                                                                    , from the family\r\n                                                                    "
+                                          "\r\n                                                                     from the family\r\n                                                                    "
                                         ),
                                         _vm.countLeprosy > 1
                                           ? _c("span", [_vm._v("are")])
@@ -63192,7 +62910,7 @@ var render = function() {
                                         ),
                                         _c("br"),
                                         _vm._v(
-                                          " I recommended the applicant for "
+                                          " I recommend the applicant for "
                                         ),
                                         _c("span", [
                                           _c("strong", [
@@ -66695,6 +66413,48 @@ var render = function() {
                                               rawName: "v-model",
                                               value:
                                                 _vm.form
+                                                  .applicantColonyleaderName,
+                                              expression:
+                                                "form.applicantColonyleaderName"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: {
+                                            type: "text",
+                                            disabled: _vm.globalDisable
+                                          },
+                                          domProps: {
+                                            value:
+                                              _vm.form.applicantColonyleaderName
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "applicantColonyleaderName",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-3" }, [
+                                      _vm._m(17),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.form
                                                   .applicantContactNoColonyLeader,
                                               expression:
                                                 "form.applicantContactNoColonyLeader"
@@ -66720,48 +66480,6 @@ var render = function() {
                                               _vm.$set(
                                                 _vm.form,
                                                 "applicantContactNoColonyLeader",
-                                                $event.target.value
-                                              )
-                                            }
-                                          }
-                                        })
-                                      ])
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(17),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "form-group" }, [
-                                        _c("input", {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value:
-                                                _vm.form
-                                                  .applicantColonyleaderName,
-                                              expression:
-                                                "form.applicantColonyleaderName"
-                                            }
-                                          ],
-                                          staticClass:
-                                            "form-control form-control-sm",
-                                          attrs: {
-                                            type: "text",
-                                            disabled: _vm.globalDisable
-                                          },
-                                          domProps: {
-                                            value:
-                                              _vm.form.applicantColonyleaderName
-                                          },
-                                          on: {
-                                            input: function($event) {
-                                              if ($event.target.composing) {
-                                                return
-                                              }
-                                              _vm.$set(
-                                                _vm.form,
-                                                "applicantColonyleaderName",
                                                 $event.target.value
                                               )
                                             }
@@ -71480,6 +71198,11 @@ var render = function() {
                                                 disabled: _vm.inputDisabled
                                               },
                                               on: {
+                                                click: function($event) {
+                                                  return _vm.getHHDLSData(
+                                                    $event
+                                                  )
+                                                },
                                                 change: function($event) {
                                                   var $$selectedVal = Array.prototype.filter
                                                     .call(
@@ -71641,12 +71364,12 @@ var render = function() {
                                                         {
                                                           key: index,
                                                           domProps: {
-                                                            value: ucn[0].id
+                                                            value: ucn.id
                                                           }
                                                         },
                                                         [
                                                           _vm._v(
-                                                            _vm._s(ucn[0].value)
+                                                            _vm._s(ucn.value)
                                                           )
                                                         ]
                                                       )
@@ -71815,6 +71538,53 @@ var render = function() {
                                                                     ]
                                                                   ),
                                                                   _vm._v(" "),
+                                                                  _c("input", {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "model",
+                                                                        rawName:
+                                                                          "v-model",
+                                                                        value:
+                                                                          _vm
+                                                                            .domainForm
+                                                                            .domainName,
+                                                                        expression:
+                                                                          "domainForm.domainName"
+                                                                      }
+                                                                    ],
+                                                                    attrs: {
+                                                                      type:
+                                                                        "hidden"
+                                                                    },
+                                                                    domProps: {
+                                                                      value:
+                                                                        _vm
+                                                                          .domainForm
+                                                                          .domainName
+                                                                    },
+                                                                    on: {
+                                                                      input: function(
+                                                                        $event
+                                                                      ) {
+                                                                        if (
+                                                                          $event
+                                                                            .target
+                                                                            .composing
+                                                                        ) {
+                                                                          return
+                                                                        }
+                                                                        _vm.$set(
+                                                                          _vm.domainForm,
+                                                                          "domainName",
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  }),
+                                                                  _vm._v(" "),
                                                                   _c(
                                                                     "select",
                                                                     {
@@ -71827,9 +71597,9 @@ var render = function() {
                                                                           value:
                                                                             _vm
                                                                               .domainForm
-                                                                              .domainLevel,
+                                                                              .domainLevel2,
                                                                           expression:
-                                                                            "domainForm.domainLevel"
+                                                                            "domainForm.domainLevel2"
                                                                         }
                                                                       ],
                                                                       staticClass:
@@ -71867,7 +71637,7 @@ var render = function() {
                                                                             )
                                                                           _vm.$set(
                                                                             _vm.domainForm,
-                                                                            "domainLevel",
+                                                                            "domainLevel2",
                                                                             $event
                                                                               .target
                                                                               .multiple
@@ -75214,7 +74984,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", [
-      _vm._v("Contact no. (colony leader) "),
+      _vm._v("Colony leader Full Name "),
       _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
     ])
   },
@@ -75223,7 +74993,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", [
-      _vm._v("Colony leader Name "),
+      _vm._v("Contact no. (colony leader) "),
       _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
     ])
   },
@@ -76627,7 +76397,7 @@ var render = function() {
                         _c("td", { staticClass: "fw-600" }, [
                           _vm._v(
                             _vm._s(
-                              _vm.form.courseNameValueId == null
+                              _vm.form.courseNameValueId == ""
                                 ? "N/A"
                                 : _vm.form.insCourse
                             )
@@ -76652,7 +76422,11 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", { staticClass: "fw-600" }, [
                           _vm._v(
-                            _vm._s(_vm.form.insAddressAddln1) +
+                            _vm._s(
+                              _vm.form.insAddressAddln1 == ""
+                                ? "N/A"
+                                : _vm.form.insAddressAddln1
+                            ) +
                               "\n                                                           " +
                               _vm._s(_vm.form.insAddressAddln2) +
                               "\n                                                           " +
@@ -76683,7 +76457,7 @@ var render = function() {
                           ? _c("td", { staticClass: "fw-600" }, [
                               _vm._v(
                                 _vm._s(
-                                  _vm.form.recognizedByINC == null
+                                  _vm.form.recognizedByINC == ""
                                     ? "N/A"
                                     : _vm.form.recognizedByINC
                                 )
@@ -77714,7 +77488,6 @@ var render = function() {
                                 _c("p", { staticClass: "t-c-text" }, [
                                   _vm._v(
                                     "I " +
-                                      _vm._s(_vm.form.appStatus) +
                                       _vm._s(_vm.form.fullName) +
                                       " hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under “" +
                                       _vm._s(_vm.form.scholarshipType) +
@@ -97288,7 +97061,7 @@ __webpack_require__.r(__webpack_exports__);
   }, {
     path: '/api/domain/course-level/nursing'
   }, {
-    path: '/api/domain/course-name/hhdls'
+    path: '/api/domain/course-name/hhdls/:id'
   }, {
     path: '/api/domain/course-name/nursing'
   }, {

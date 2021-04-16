@@ -238,7 +238,7 @@
                                 <tbody>
                                     <tr>
                                         <td><strong>Name of the Course</strong></td>
-                                        <td class="fw-600">{{(form.courseNameValueId == null)?'N/A':form.insCourse}}</td>
+                                        <td class="fw-600">{{(form.courseNameValueId == '')?'N/A':form.insCourse}}</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Name of the institute</strong></td>
@@ -246,7 +246,7 @@
                                     </tr>
                                     <tr>
                                         <td><strong>Address&nbsp;of the institute</strong></td>
-                                        <td class="fw-600">{{form.insAddressAddln1}}
+                                        <td class="fw-600">{{(form.insAddressAddln1 == '')?'N/A':form.insAddressAddln1}}
                                                             {{form.insAddressAddln2}}
                                                             {{form.insAddressCity}}
                                                             {{form.insAddressDistprov}}
@@ -255,7 +255,7 @@
                                     </tr>
                                     <tr>
                                         <td v-if="form.scholarshipType == 'Nursing'"><strong>Whether recognized by Indian Nursing Council</strong></td>
-                                        <td v-if="form.scholarshipType == 'Nursing'" class="fw-600">{{(form.recognizedByINC == null)?'N/A':form.recognizedByINC}}<br></td>
+                                        <td v-if="form.scholarshipType == 'Nursing'" class="fw-600">{{(form.recognizedByINC == '')?'N/A':form.recognizedByINC}}<br></td>
                                     </tr>
                                 </tbody>
                             </table>

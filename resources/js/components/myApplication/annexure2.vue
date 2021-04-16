@@ -44,12 +44,12 @@
                                                                   <!-- <span v-else>,</span> -->
                                                                 <span v-if="form.applicantLeprosyAffectedMother == true"><strong> {{form.applicantMotherName}}</strong></span>
                                                                 <span v-if="form.applicantLeprosyAffectedSelf == true"><strong>and {{form.fullName}}</strong></span>
-                                                                    , from the family
+                                                                     from the family
                                                                     <span v-if="countLeprosy > 1">are</span>
                                                                     <span v-if="countLeprosy == 1">is</span> 
                                                                     affected by leprosy.&nbsp;
                                                                 <br><br>I certify that, to best of my knowledge, the information provided by the candidate is true. 
-                                                                <br> I recommended the applicant for&nbsp;<span><strong>{{form.scholarshipType}} Scholarship Programme</strong></span>.</p>
+                                                                <br> I recommend the applicant for&nbsp;<span><strong>{{form.scholarshipType}} Scholarship Programme</strong></span>.</p>
                                                                 <!-- <br><br><br><br>Signature of Colony Leader: __________________________________, Date: ____________________</p> -->
                                                             </div>
                                                         </div>

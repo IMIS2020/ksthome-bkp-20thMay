@@ -117,7 +117,7 @@
                                                         <h6 class="mb-0 color-mg">Self Declaration</h6>
                                                     </div>
                                                     <div class="card-body">
-                                                        <p class="t-c-text">I {{form.appStatus}}{{form.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under “{{form.scholarshipType}} Scholarship Programme” could be withdrawn.</p>
+                                                        <p class="t-c-text">I {{form.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under “{{form.scholarshipType}} Scholarship Programme” could be withdrawn.</p>
                                                         <div v-if="form.appStatus != 'Submit'">
                                                         <div class="form-group mb-3">
                                                             <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1" v-model='terms' @click="changeStatus()"><label class="form-check-label" for="formCheck-1">I accept the terms &amp; conditions</label></div>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class ApplicationSchduleSeed extends Seeder
 {
@@ -14,7 +15,7 @@ class ApplicationSchduleSeed extends Seeder
         DB::table('applicationSessionSeed')->insert(
             [
                 'sessionId' => 1,
-                'scholarshipTypeValueId' => 16
+                'scholarshipTypeValueId' => 16,
                 'startDate'=> '01-04-2021',
                 'lastDate'=>  '31-05-2021',
                 'applicationNoPrefixFormat'=> 'NURS-21-22-',
@@ -28,7 +29,7 @@ class ApplicationSchduleSeed extends Seeder
             DB::table('applicationSessionSeed')->insert(
                 [
                     'sessionId' => 1,
-                    'scholarshipTypeValueId' => 17
+                    'scholarshipTypeValueId' => 17,
                     'startDate'=> '01-04-2021',
                     'lastDate'=>  '31-05-2021',
                     'applicationNoPrefixFormat'=> 'DLSS-21-22-',

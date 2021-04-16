@@ -10,7 +10,7 @@ Auth::routes();
 Route::get('/verify','VerifyController@getVerify')->name('getverify');
 Route::post('/verify','VerifyController@postVerify')->name('verify');
 Route::post('/resend-otp','Auth\LoginController@resendOTP')->name('resend');
-
+Route::post('/change-password', 'ChangePasswordController@store')->name('change.password');
 
 // Route::get('/forgot-password','ForgotPasswordController@showForgotPassword');
 // Route::post('/forgot-password','ForgotPasswordController@postForgotPassword');

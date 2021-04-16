@@ -1692,6 +1692,7 @@ export default {
                         this.form.financialYear = response.data['data'][0][0].financialYear;  
                         this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                         this.form.appStatus = response.data['data'][0][0].appStatus;
+                        this.form.applicantColonyleaderName = response.data['data'][0][0].applicantColonyLeaderName;
                         if(this.form.appStatus == 'Submit')
                         {
                             this.inputDisabled = true;
@@ -1756,25 +1757,25 @@ export default {
                         console.log(response.data['msg'])
                     }
                 })
-                // axios.get(`/api/get-application-form-data/${applicationId}`)
-                // .then(response => {
-                //     if (response.data['success']) {
+                axios.get(`/api/get-application-form-data/${applicationId}`)
+                .then(response => {
+                    if (response.data['success']) {
 
-                //         this.form.miscName1= response.data['data'][2][0].name;
-                //         this.form.miscCourse1= response.data['data'][2][0].course;
-                //         this.form.miscYear1= response.data['data'][2][0].year;
-                //         this.form.miscName2= response.data['data'][2][1].name;
-                //         this.form.miscCourse2= response.data['data'][2][1].course;
-                //         this.form.miscYear2= response.data['data'][2][1].year;
-                //         this.form.miscName3= response.data['data'][2][2].name;
-                //         this.form.miscCourse3= response.data['data'][2][2].course;
-                //         this.form.miscYear3= response.data['data'][2][2].year;
+                        this.form.miscName1= response.data['data'][2][0].name;
+                        this.form.miscCourse1= response.data['data'][2][0].course;
+                        this.form.miscYear1= response.data['data'][2][0].year;
+                        this.form.miscName2= response.data['data'][2][1].name;
+                        this.form.miscCourse2= response.data['data'][2][1].course;
+                        this.form.miscYear2= response.data['data'][2][1].year;
+                        this.form.miscName3= response.data['data'][2][2].name;
+                        this.form.miscCourse3= response.data['data'][2][2].course;
+                        this.form.miscYear3= response.data['data'][2][2].year;
 
-                //     } 
-                //     else {
-                //         console.log(response.data['msg'])
-                //     }
-                // })
+                    } 
+                    else {
+                        console.log(response.data['msg'])
+                    }
+                })
             },
             errorMsg (status) 
             {

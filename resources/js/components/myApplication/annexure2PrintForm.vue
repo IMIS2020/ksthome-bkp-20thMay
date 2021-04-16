@@ -7,8 +7,26 @@
        <br>
        <br>
         <div class="container mt-4 text-center">
-        <p class="text-uppercase text-center text-black font-xl font-weight-bold"><span style="text-decoration: underline;">to whom it may concern</span></p>
-        <p class="lead mb-0 text-left text-black font-l font-weight-bold">I<strong>&nbsp;</strong><span><strong><em>{{Nform.applicantColonyLeaderName}}</em></strong></span><strong><em>&nbsp;</em></strong>hereby certify that the applicant&nbsp;<span><strong><em>{{form.fullName}}</em></strong></span>&nbsp;has been residing in this colony&nbsp;<span><strong><em>{{form.addressAddln1}}</em></strong></span>&nbsp;and <br> the applicant's parent/parents&nbsp;<span><strong><em>{{form.applicantFatherName}}</em></strong></span> &amp;&nbsp;<span><strong><em>{{form.applicantMotherName}}</em></strong></span><em> </em> is/are affected by leprosy.&nbsp;<br><br>I certify that, to best of my knowledge, the information provided by the candidate is true. <br> I recommended the applicant for&nbsp;<span><strong><em>{{form.scholarshipType}} Scholarship Programme</em></strong></span>.<br><br><br><br>Signature of Colony Leader: __________________________________, Date: ____________________</p><div>
+            <p class="text-uppercase text-center text-black font-xl font-weight-bold">
+                    <span style="text-decoration: underline;">to whom it may concern</span></p>
+                <p class="lead mb-0 text-left text-black font-l font-weight-bold">I<strong>&nbsp;</strong><span>
+                <strong>{{this.Nform.applicantColonyLeaderName}}</strong></span><strong>
+                <em>&nbsp;</em></strong>hereby certify that the applicant&nbsp;<span>
+                <strong>{{form.fullName}}</strong></span>&nbsp;has been residing in the colony ,&nbsp;
+                <span><strong>{{form.addressAddln1}}</strong></span> , and
+                <span v-if="form.applicantLeprosyAffectedFather == true"><strong>{{form.applicantFatherName}} ,</strong></span> 
+                    <!-- <span v-if="form.applicantLeprosyAffectedSelf == true && form.applicantLeprosyAffectedFather == true && form.applicantLeprosyAffectedMother == true">&amp;&nbsp;</span> -->
+                    <!-- <span v-else>,</span> -->
+                <span v-if="form.applicantLeprosyAffectedMother == true"><strong> {{form.applicantMotherName}}</strong></span>
+                <span v-if="form.applicantLeprosyAffectedSelf == true"><strong>and {{form.fullName}}</strong></span>
+                    , from the family
+                    <span v-if="countLeprosy > 1">are</span>
+                    <span v-if="countLeprosy == 1">is</span> 
+                    affected by leprosy.&nbsp;
+                <br><br>I certify that, to best of my knowledge, the information provided by the candidate is true. 
+                <br> I recommended the applicant for&nbsp;<span><strong>{{form.scholarshipType}} Scholarship Programme</strong></span>.
+            <br><br><br><br>Signature of Colony Leader: __________________________________, Date: ____________________</p>
+        <div>
          <button class="btn btn-lg btn-mg mt-4 d-print-none" onclick = "window.print();">
           <strong>Print </strong>
         </button>
@@ -38,10 +56,15 @@ export default{
               applicantMotherName:'',
               addressAddln1:'',
               fullName:'',
+               applicantLeprosyAffectedSelf: false,
+                    applicantLeprosyAffectedFather: false,
+                    applicantLeprosyAffectedMother: false,
           },
           Nform:{
               applicantColonyLeaderName:'',
           },
+
+          countLeprosy : 0,
        
             }
          },
@@ -66,6 +89,10 @@ export default{
                     this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
                     this.Nform.applicantColonyLeaderName = response.data['data'][0][0].applicantColonyLeaderName;
+                    this.form.applicantLeprosyAffectedSelf=response.data['data'][0][0].applicantLeprosyAffectedSelf;
+                        this.form.applicantLeprosyAffectedFather=response.data['data'][0][0].applicantLeprosyAffectedFather;
+                        this.form.applicantLeprosyAffectedMother=response.data['data'][0][0].applicantLeprosyAffectedMother;
+                        this.check();
                   
                 } 
                 else {
@@ -73,6 +100,25 @@ export default{
                 }
             })
         },
+
+         check(){
+
+            if(this.form.applicantLeprosyAffectedSelf == true)
+            {
+                this.countLeprosy = this.countLeprosy + 1;
+            }
+
+            if(this.form.applicantLeprosyAffectedFather == true)
+            {
+                this.countLeprosy = this.countLeprosy + 1;
+            }
+
+            if(this.form.applicantLeprosyAffectedMother == true)
+            {
+                this.countLeprosy = this.countLeprosy + 1;
+            }
+
+        }
   },
   created(){
     this.readApplicationForm();

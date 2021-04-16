@@ -5,7 +5,7 @@
             <form @submit.prevent="saveForm">
                 <div class="form-row">
                     <div class="col-xl-12 text-center mb-3">
-                         <h5 class="text-capitalize text-center color-mg"><strong>Application form (Nursing scholarship  {{getdata.financialYear}})</strong></h5>
+                         <h5 class="text-capitalize text-center color-mg"><strong>Application form ({{this.form.scholarshipType}} scholarship  {{getdata.financialYear}})</strong></h5>
                     </div>
                     <div class="col-xl-12">
                         <div class="mb-3">
@@ -32,30 +32,25 @@
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="form-row">
-                                                                <div class="col-xl-12 text-center align-self-center mb-4">
-                                                                    <p class="text-uppercase mb-0 color-mg"><strong><span style="text-decoration: underline;">to whom it may concern</span></strong></p>
-                                                                </div>
-                                                                <div class="col-xl-5 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>I&nbsp; &nbsp; &nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of colony leader" v-model="Nform.applicantColonyLeaderName" :disabled="globalDisable"></span>
-                                                                </div>
-                                                                <div class="col-xl-7 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>hereby certify that &nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Name of the candidate" v-model="form.fullName" :disabled="globalDisable"></span>
-                                                                </div>
-                                                                <div class="col-xl-6 text-center align-self-center mb-2">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>has been residing in the colony&nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Colony name" v-model="form.addressAddln1" :disabled="globalDisable"></span>
-                                                                </div>
-                                                                <div class="col-xl-6 text-center align-self-center mb-2" v-if="form.applicantLeprosyAffectedMother == true">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>, and  &nbsp;</strong></p><span class="d-block color-mg" style="overflow: hidden;"><input class="form-control form-control-sm" type="text" placeholder="Mother name" v-model="form.applicantMotherName" :disabled="globalDisable"></span>
-                                                                </div>
-                                                                <div class="col-xl-4 text-center align-self-center mb-2" v-if="form.applicantLeprosyAffectedFather == true"><input class="form-control form-control-sm" type="text" placeholder="Father name" v-model="form.applicantFatherName" :disabled="globalDisable"></div>
-                                                                <div class="col-xl-8 text-center align-self-center mb-2">
-                                                                     <p class="float-left mb-0 color-mg font-md" v-if="form.applicantLeprosyAffectedFather == true || form.applicantLeprosyAffectedMother == true"><strong>is affected by leprosy.</strong></p>
-                                                                     <p class="float-left mb-0 color-mg font-md" v-if="form.applicantLeprosyAffectedFather == true && form.applicantLeprosyAffectedMother == true"><strong> are affected by leprosy.</strong></p>
-                                                                </div>
-                                                                <div class="col-xl-12 align-self-center mt-3">
-                                                                    <p class="float-left mb-0 color-mg font-md"><strong>I certify that, to the best of my knowledge, the information provided by the candidate is true. I recommend for {{form.scholarshipType}} Scholarship.</strong><br></p>
-                                                                    <!-- <p class="float-left mb-0 color-mg font-md mt-4"><strong>Signature of Colony Leader: ____________________________________,&nbsp; Date: ____/____/___________</strong><br></p> -->
-                                                                </div>
+                                                                <p class="text-uppercase text-center text-black font-xl font-weight-bold">
+                                                                    <span style="text-decoration: underline;">to whom it may concern</span></p>
+                                                                <p class="lead mb-0 text-left text-black font-l font-weight-bold">I<strong>&nbsp;</strong><span>
+                                                                <strong>{{this.Nform.applicantColonyLeaderName}}</strong></span><strong>
+                                                                <em>&nbsp;</em></strong>hereby certify that the applicant&nbsp;<span>
+                                                                <strong>{{form.fullName}}</strong></span>&nbsp;has been residing in the colony ,&nbsp;
+                                                                <span><strong>{{form.addressAddln1}}</strong></span> , and
+                                                                <span v-if="form.applicantLeprosyAffectedFather == true"><strong>{{form.applicantFatherName}} ,</strong></span> 
+                                                                  <!-- <span v-if="form.applicantLeprosyAffectedSelf == true && form.applicantLeprosyAffectedFather == true && form.applicantLeprosyAffectedMother == true">&amp;&nbsp;</span> -->
+                                                                  <!-- <span v-else>,</span> -->
+                                                                <span v-if="form.applicantLeprosyAffectedMother == true"><strong> {{form.applicantMotherName}}</strong></span>
+                                                                <span v-if="form.applicantLeprosyAffectedSelf == true"><strong>and {{form.fullName}}</strong></span>
+                                                                    , from the family
+                                                                    <span v-if="countLeprosy > 1">are</span>
+                                                                    <span v-if="countLeprosy == 1">is</span> 
+                                                                    affected by leprosy.&nbsp;
+                                                                <br><br>I certify that, to best of my knowledge, the information provided by the candidate is true. 
+                                                                <br> I recommended the applicant for&nbsp;<span><strong>{{form.scholarshipType}} Scholarship Programme</strong></span>.</p>
+                                                                <!-- <br><br><br><br>Signature of Colony Leader: __________________________________, Date: ____________________</p> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -90,6 +85,7 @@ export default{
                 userId: document.querySelector("meta[name='userId']").getAttribute('content'),
                 fullName:{},
                 globalDisable: false,
+                countLeprosy : 0,
                 form:
                 {
                     // courseLevel:'',
@@ -225,6 +221,7 @@ export default{
                      this.form.applicantLeprosyAffectedSelf=response.data['data'][0][0].applicantLeprosyAffectedSelf;
                         this.form.applicantLeprosyAffectedFather=response.data['data'][0][0].applicantLeprosyAffectedFather;
                         this.form.applicantLeprosyAffectedMother=response.data['data'][0][0].applicantLeprosyAffectedMother;
+                        this.check();
                     // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
                     // {
                     //     this.getData.genderType = "son";
@@ -242,10 +239,30 @@ export default{
                 }
             })
         },
+
+        check(){
+
+            if(this.form.applicantLeprosyAffectedSelf == true)
+            {
+                this.countLeprosy = this.countLeprosy + 1;
+            }
+
+            if(this.form.applicantLeprosyAffectedFather == true)
+            {
+                this.countLeprosy = this.countLeprosy + 1;
+            }
+
+            if(this.form.applicantLeprosyAffectedMother == true)
+            {
+                this.countLeprosy = this.countLeprosy + 1;
+            }
+
+        }
   },
     created(){
      this.readApplicationForm() ;
      this.readAnnexureII();
+     
     }
  }
 </script>

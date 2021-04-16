@@ -4131,17 +4131,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       userId: document.querySelector("meta[name='userId']").getAttribute('content'),
       fullName: {},
       globalDisable: false,
+      countLeprosy: 0,
       form: {
         // courseLevel:'',
         applicantLeprosyAffectedSelf: false,
@@ -4297,12 +4293,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this3.Nform.applicantColonyLeaderName = response.data['data'][0][0].applicantColonyLeaderName;
                     _this3.form.applicantLeprosyAffectedSelf = response.data['data'][0][0].applicantLeprosyAffectedSelf;
                     _this3.form.applicantLeprosyAffectedFather = response.data['data'][0][0].applicantLeprosyAffectedFather;
-                    _this3.form.applicantLeprosyAffectedMother = response.data['data'][0][0].applicantLeprosyAffectedMother; // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
+                    _this3.form.applicantLeprosyAffectedMother = response.data['data'][0][0].applicantLeprosyAffectedMother;
+
+                    _this3.check(); // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
                     // {
                     //     this.getData.genderType = "son";
                     // }else{
                     //     this.getData.genderType = "daughter";
                     // };
+
 
                     _this3.form.appStatus = response.data['data'][0][0].appStatus;
 
@@ -4323,6 +4322,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee2);
       }))();
+    },
+    check: function check() {
+      if (this.form.applicantLeprosyAffectedSelf == true) {
+        this.countLeprosy = this.countLeprosy + 1;
+      }
+
+      if (this.form.applicantLeprosyAffectedFather == true) {
+        this.countLeprosy = this.countLeprosy + 1;
+      }
+
+      if (this.form.applicantLeprosyAffectedMother == true) {
+        this.countLeprosy = this.countLeprosy + 1;
+      }
     }
   },
   created: function created() {
@@ -4418,6 +4430,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4433,11 +4463,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         applicantFatherName: '',
         applicantMotherName: '',
         addressAddln1: '',
-        fullName: ''
+        fullName: '',
+        applicantLeprosyAffectedSelf: false,
+        applicantLeprosyAffectedFather: false,
+        applicantLeprosyAffectedMother: false
       },
       Nform: {
         applicantColonyLeaderName: ''
-      }
+      },
+      countLeprosy: 0
     };
   },
   methods: {
@@ -4465,6 +4499,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     _this.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
                     _this.Nform.applicantColonyLeaderName = response.data['data'][0][0].applicantColonyLeaderName;
+                    _this.form.applicantLeprosyAffectedSelf = response.data['data'][0][0].applicantLeprosyAffectedSelf;
+                    _this.form.applicantLeprosyAffectedFather = response.data['data'][0][0].applicantLeprosyAffectedFather;
+                    _this.form.applicantLeprosyAffectedMother = response.data['data'][0][0].applicantLeprosyAffectedMother;
+
+                    _this.check();
                   } else {
                     console.log(response.data['msg']);
                   }
@@ -4477,6 +4516,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    },
+    check: function check() {
+      if (this.form.applicantLeprosyAffectedSelf == true) {
+        this.countLeprosy = this.countLeprosy + 1;
+      }
+
+      if (this.form.applicantLeprosyAffectedFather == true) {
+        this.countLeprosy = this.countLeprosy + 1;
+      }
+
+      if (this.form.applicantLeprosyAffectedMother == true) {
+        this.countLeprosy = this.countLeprosy + 1;
+      }
     }
   },
   created: function created() {
@@ -6493,6 +6545,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this2.form.financialYear = response.data['data'][0][0].financialYear;
                     _this2.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     _this2.form.appStatus = response.data['data'][0][0].appStatus;
+                    _this2.form.applicantColonyleaderName = response.data['data'][0][0].applicantColonyLeaderName;
 
                     if (_this2.form.appStatus == 'Submit') {
                       _this2.inputDisabled = true;
@@ -6542,25 +6595,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   } else {
                     console.log(response.data['msg']);
                   }
-                }); // axios.get(`/api/get-application-form-data/${applicationId}`)
-                // .then(response => {
-                //     if (response.data['success']) {
-                //         this.form.miscName1= response.data['data'][2][0].name;
-                //         this.form.miscCourse1= response.data['data'][2][0].course;
-                //         this.form.miscYear1= response.data['data'][2][0].year;
-                //         this.form.miscName2= response.data['data'][2][1].name;
-                //         this.form.miscCourse2= response.data['data'][2][1].course;
-                //         this.form.miscYear2= response.data['data'][2][1].year;
-                //         this.form.miscName3= response.data['data'][2][2].name;
-                //         this.form.miscCourse3= response.data['data'][2][2].course;
-                //         this.form.miscYear3= response.data['data'][2][2].year;
-                //     } 
-                //     else {
-                //         console.log(response.data['msg'])
-                //     }
-                // })
+                });
+                axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
+                  if (response.data['success']) {
+                    _this2.form.miscName1 = response.data['data'][2][0].name;
+                    _this2.form.miscCourse1 = response.data['data'][2][0].course;
+                    _this2.form.miscYear1 = response.data['data'][2][0].year;
+                    _this2.form.miscName2 = response.data['data'][2][1].name;
+                    _this2.form.miscCourse2 = response.data['data'][2][1].course;
+                    _this2.form.miscYear2 = response.data['data'][2][1].year;
+                    _this2.form.miscName3 = response.data['data'][2][2].name;
+                    _this2.form.miscCourse3 = response.data['data'][2][2].course;
+                    _this2.form.miscYear3 = response.data['data'][2][2].year;
+                  } else {
+                    console.log(response.data['msg']);
+                  }
+                });
 
-              case 2:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -62791,7 +62843,9 @@ var render = function() {
                 [
                   _c("strong", [
                     _vm._v(
-                      "Application form (Nursing scholarship  " +
+                      "Application form (" +
+                        _vm._s(this.form.scholarshipType) +
+                        " scholarship  " +
                         _vm._s(_vm.getdata.financialYear) +
                         ")"
                     )
@@ -63025,361 +63079,118 @@ var render = function() {
                                     _vm._m(1),
                                     _vm._v(" "),
                                     _c(
-                                      "div",
+                                      "p",
                                       {
                                         staticClass:
-                                          "col-xl-5 text-center align-self-center mb-2"
+                                          "lead mb-0 text-left text-black font-l font-weight-bold"
                                       },
                                       [
-                                        _vm._m(2),
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass: "d-block color-mg",
-                                            staticStyle: { overflow: "hidden" }
-                                          },
-                                          [
-                                            _c("input", {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value:
-                                                    _vm.Nform
-                                                      .applicantColonyLeaderName,
-                                                  expression:
-                                                    "Nform.applicantColonyLeaderName"
-                                                }
-                                              ],
-                                              staticClass:
-                                                "form-control form-control-sm",
-                                              attrs: {
-                                                type: "text",
-                                                placeholder:
-                                                  "Name of colony leader",
-                                                disabled: _vm.globalDisable
-                                              },
-                                              domProps: {
-                                                value:
-                                                  _vm.Nform
-                                                    .applicantColonyLeaderName
-                                              },
-                                              on: {
-                                                input: function($event) {
-                                                  if ($event.target.composing) {
-                                                    return
-                                                  }
-                                                  _vm.$set(
-                                                    _vm.Nform,
-                                                    "applicantColonyLeaderName",
-                                                    $event.target.value
-                                                  )
-                                                }
-                                              }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "col-xl-7 text-center align-self-center mb-2"
-                                      },
-                                      [
-                                        _vm._m(3),
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass: "d-block color-mg",
-                                            staticStyle: { overflow: "hidden" }
-                                          },
-                                          [
-                                            _c("input", {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value: _vm.form.fullName,
-                                                  expression: "form.fullName"
-                                                }
-                                              ],
-                                              staticClass:
-                                                "form-control form-control-sm",
-                                              attrs: {
-                                                type: "text",
-                                                placeholder:
-                                                  "Name of the candidate",
-                                                disabled: _vm.globalDisable
-                                              },
-                                              domProps: {
-                                                value: _vm.form.fullName
-                                              },
-                                              on: {
-                                                input: function($event) {
-                                                  if ($event.target.composing) {
-                                                    return
-                                                  }
-                                                  _vm.$set(
-                                                    _vm.form,
-                                                    "fullName",
-                                                    $event.target.value
-                                                  )
-                                                }
-                                              }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "col-xl-6 text-center align-self-center mb-2"
-                                      },
-                                      [
-                                        _vm._m(4),
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass: "d-block color-mg",
-                                            staticStyle: { overflow: "hidden" }
-                                          },
-                                          [
-                                            _c("input", {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value: _vm.form.addressAddln1,
-                                                  expression:
-                                                    "form.addressAddln1"
-                                                }
-                                              ],
-                                              staticClass:
-                                                "form-control form-control-sm",
-                                              attrs: {
-                                                type: "text",
-                                                placeholder: "Colony name",
-                                                disabled: _vm.globalDisable
-                                              },
-                                              domProps: {
-                                                value: _vm.form.addressAddln1
-                                              },
-                                              on: {
-                                                input: function($event) {
-                                                  if ($event.target.composing) {
-                                                    return
-                                                  }
-                                                  _vm.$set(
-                                                    _vm.form,
-                                                    "addressAddln1",
-                                                    $event.target.value
-                                                  )
-                                                }
-                                              }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _vm.form.applicantLeprosyAffectedMother ==
-                                    true
-                                      ? _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "col-xl-6 text-center align-self-center mb-2"
-                                          },
-                                          [
-                                            _vm._m(5),
-                                            _c(
-                                              "span",
-                                              {
-                                                staticClass: "d-block color-mg",
-                                                staticStyle: {
-                                                  overflow: "hidden"
-                                                }
-                                              },
-                                              [
-                                                _c("input", {
-                                                  directives: [
-                                                    {
-                                                      name: "model",
-                                                      rawName: "v-model",
-                                                      value:
-                                                        _vm.form
-                                                          .applicantMotherName,
-                                                      expression:
-                                                        "form.applicantMotherName"
-                                                    }
-                                                  ],
-                                                  staticClass:
-                                                    "form-control form-control-sm",
-                                                  attrs: {
-                                                    type: "text",
-                                                    placeholder: "Mother name",
-                                                    disabled: _vm.globalDisable
-                                                  },
-                                                  domProps: {
-                                                    value:
-                                                      _vm.form
-                                                        .applicantMotherName
-                                                  },
-                                                  on: {
-                                                    input: function($event) {
-                                                      if (
-                                                        $event.target.composing
-                                                      ) {
-                                                        return
-                                                      }
-                                                      _vm.$set(
-                                                        _vm.form,
-                                                        "applicantMotherName",
-                                                        $event.target.value
-                                                      )
-                                                    }
-                                                  }
-                                                })
-                                              ]
+                                        _vm._v("I"),
+                                        _c("strong", [_vm._v(" ")]),
+                                        _c("span", [
+                                          _c("strong", [
+                                            _vm._v(
+                                              _vm._s(
+                                                this.Nform
+                                                  .applicantColonyLeaderName
+                                              )
                                             )
-                                          ]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    _vm.form.applicantLeprosyAffectedFather ==
-                                    true
-                                      ? _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "col-xl-4 text-center align-self-center mb-2"
-                                          },
-                                          [
-                                            _c("input", {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value:
-                                                    _vm.form
-                                                      .applicantFatherName,
-                                                  expression:
-                                                    "form.applicantFatherName"
-                                                }
-                                              ],
-                                              staticClass:
-                                                "form-control form-control-sm",
-                                              attrs: {
-                                                type: "text",
-                                                placeholder: "Father name",
-                                                disabled: _vm.globalDisable
-                                              },
-                                              domProps: {
-                                                value:
-                                                  _vm.form.applicantFatherName
-                                              },
-                                              on: {
-                                                input: function($event) {
-                                                  if ($event.target.composing) {
-                                                    return
-                                                  }
-                                                  _vm.$set(
-                                                    _vm.form,
-                                                    "applicantFatherName",
-                                                    $event.target.value
-                                                  )
-                                                }
-                                              }
-                                            })
-                                          ]
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "col-xl-8 text-center align-self-center mb-2"
-                                      },
-                                      [
+                                          ])
+                                        ]),
+                                        _vm._m(2),
+                                        _vm._v(
+                                          "hereby certify that the applicant "
+                                        ),
+                                        _c("span", [
+                                          _c("strong", [
+                                            _vm._v(_vm._s(_vm.form.fullName))
+                                          ])
+                                        ]),
+                                        _vm._v(
+                                          " has been residing in the colony , \r\n                                                                "
+                                        ),
+                                        _c("span", [
+                                          _c("strong", [
+                                            _vm._v(
+                                              _vm._s(_vm.form.addressAddln1)
+                                            )
+                                          ])
+                                        ]),
+                                        _vm._v(
+                                          " , and\r\n                                                                "
+                                        ),
                                         _vm.form
                                           .applicantLeprosyAffectedFather ==
-                                          true ||
-                                        _vm.form
-                                          .applicantLeprosyAffectedMother ==
-                                          true
-                                          ? _c(
-                                              "p",
-                                              {
-                                                staticClass:
-                                                  "float-left mb-0 color-mg font-md"
-                                              },
-                                              [
-                                                _c("strong", [
-                                                  _vm._v(
-                                                    "is affected by leprosy."
-                                                  )
-                                                ])
-                                              ]
-                                            )
+                                        true
+                                          ? _c("span", [
+                                              _c("strong", [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.form.applicantFatherName
+                                                  ) + " ,"
+                                                )
+                                              ])
+                                            ])
                                           : _vm._e(),
                                         _vm._v(" "),
                                         _vm.form
-                                          .applicantLeprosyAffectedFather ==
-                                          true &&
-                                        _vm.form
                                           .applicantLeprosyAffectedMother ==
-                                          true
-                                          ? _c(
-                                              "p",
-                                              {
-                                                staticClass:
-                                                  "float-left mb-0 color-mg font-md"
-                                              },
-                                              [
-                                                _c("strong", [
-                                                  _vm._v(
-                                                    " are affected by leprosy."
-                                                  )
-                                                ])
-                                              ]
+                                        true
+                                          ? _c("span", [
+                                              _c("strong", [
+                                                _vm._v(
+                                                  " " +
+                                                    _vm._s(
+                                                      _vm.form
+                                                        .applicantMotherName
+                                                    )
+                                                )
+                                              ])
+                                            ])
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.form.applicantLeprosyAffectedSelf ==
+                                        true
+                                          ? _c("span", [
+                                              _c("strong", [
+                                                _vm._v(
+                                                  "and " +
+                                                    _vm._s(_vm.form.fullName)
+                                                )
+                                              ])
+                                            ])
+                                          : _vm._e(),
+                                        _vm._v(
+                                          "\r\n                                                                    , from the family\r\n                                                                    "
+                                        ),
+                                        _vm.countLeprosy > 1
+                                          ? _c("span", [_vm._v("are")])
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.countLeprosy == 1
+                                          ? _c("span", [_vm._v("is")])
+                                          : _vm._e(),
+                                        _vm._v(
+                                          " \r\n                                                                    affected by leprosy. \r\n                                                                "
+                                        ),
+                                        _c("br"),
+                                        _c("br"),
+                                        _vm._v(
+                                          "I certify that, to best of my knowledge, the information provided by the candidate is true. \r\n                                                                "
+                                        ),
+                                        _c("br"),
+                                        _vm._v(
+                                          " I recommended the applicant for "
+                                        ),
+                                        _c("span", [
+                                          _c("strong", [
+                                            _vm._v(
+                                              _vm._s(_vm.form.scholarshipType) +
+                                                " Scholarship Programme"
                                             )
-                                          : _vm._e()
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "col-xl-12 align-self-center mt-3"
-                                      },
-                                      [
-                                        _c(
-                                          "p",
-                                          {
-                                            staticClass:
-                                              "float-left mb-0 color-mg font-md"
-                                          },
-                                          [
-                                            _c("strong", [
-                                              _vm._v(
-                                                "I certify that, to the best of my knowledge, the information provided by the candidate is true. I recommend for " +
-                                                  _vm._s(
-                                                    _vm.form.scholarshipType
-                                                  ) +
-                                                  " Scholarship."
-                                              )
-                                            ]),
-                                            _c("br")
-                                          ]
-                                        )
+                                          ])
+                                        ]),
+                                        _vm._v(".")
                                       ]
                                     )
                                   ])
@@ -63391,7 +63202,7 @@ var render = function() {
                               ? _c(
                                   "div",
                                   { staticClass: "col-xl-3 offset-xl-3" },
-                                  [_vm._m(6)]
+                                  [_vm._m(3)]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
@@ -63500,15 +63311,14 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "div",
-      { staticClass: "col-xl-12 text-center align-self-center mb-4" },
+      "p",
+      {
+        staticClass:
+          "text-uppercase text-center text-black font-xl font-weight-bold"
+      },
       [
-        _c("p", { staticClass: "text-uppercase mb-0 color-mg" }, [
-          _c("strong", [
-            _c("span", { staticStyle: { "text-decoration": "underline" } }, [
-              _vm._v("to whom it may concern")
-            ])
-          ])
+        _c("span", { staticStyle: { "text-decoration": "underline" } }, [
+          _vm._v("to whom it may concern")
         ])
       ]
     )
@@ -63517,33 +63327,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "float-left mb-0 color-mg font-md" }, [
-      _c("strong", [_vm._v("I     ")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "float-left mb-0 color-mg font-md" }, [
-      _c("strong", [_vm._v("hereby certify that  ")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "float-left mb-0 color-mg font-md" }, [
-      _c("strong", [_vm._v("has been residing in the colony ")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "float-left mb-0 color-mg font-md" }, [
-      _c("strong", [_vm._v(", and   ")])
-    ])
+    return _c("strong", [_c("em", [_vm._v(" ")])])
   },
   function() {
     var _vm = this
@@ -63724,52 +63508,55 @@ var render = function() {
           _vm._v("I"),
           _c("strong", [_vm._v(" ")]),
           _c("span", [
-            _c("strong", [
-              _c("em", [_vm._v(_vm._s(_vm.Nform.applicantColonyLeaderName))])
-            ])
+            _c("strong", [_vm._v(_vm._s(this.Nform.applicantColonyLeaderName))])
           ]),
           _vm._m(1),
           _vm._v("hereby certify that the applicant "),
-          _c("span", [
-            _c("strong", [_c("em", [_vm._v(_vm._s(_vm.form.fullName))])])
-          ]),
-          _vm._v(" has been residing in this colony "),
-          _c("span", [
-            _c("strong", [_c("em", [_vm._v(_vm._s(_vm.form.addressAddln1))])])
-          ]),
-          _vm._v(" and "),
-          _c("br"),
-          _vm._v(" the applicant's parent/parents "),
-          _c("span", [
-            _c("strong", [
-              _c("em", [_vm._v(_vm._s(_vm.form.applicantFatherName))])
-            ])
-          ]),
-          _vm._v(" & "),
-          _c("span", [
-            _c("strong", [
-              _c("em", [_vm._v(_vm._s(_vm.form.applicantMotherName))])
-            ])
-          ]),
-          _c("em"),
-          _vm._v(" is/are affected by leprosy. "),
+          _c("span", [_c("strong", [_vm._v(_vm._s(_vm.form.fullName))])]),
+          _vm._v(" has been residing in the colony , \n             "),
+          _c("span", [_c("strong", [_vm._v(_vm._s(_vm.form.addressAddln1))])]),
+          _vm._v(" , and\n             "),
+          _vm.form.applicantLeprosyAffectedFather == true
+            ? _c("span", [
+                _c("strong", [
+                  _vm._v(_vm._s(_vm.form.applicantFatherName) + " ,")
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.form.applicantLeprosyAffectedMother == true
+            ? _c("span", [
+                _c("strong", [
+                  _vm._v(" " + _vm._s(_vm.form.applicantMotherName))
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.form.applicantLeprosyAffectedSelf == true
+            ? _c("span", [
+                _c("strong", [_vm._v("and " + _vm._s(_vm.form.fullName))])
+              ])
+            : _vm._e(),
+          _vm._v("\n                 , from the family\n                 "),
+          _vm.countLeprosy > 1 ? _c("span", [_vm._v("are")]) : _vm._e(),
+          _vm._v(" "),
+          _vm.countLeprosy == 1 ? _c("span", [_vm._v("is")]) : _vm._e(),
+          _vm._v(" \n                 affected by leprosy. \n             "),
           _c("br"),
           _c("br"),
           _vm._v(
-            "I certify that, to best of my knowledge, the information provided by the candidate is true. "
+            "I certify that, to best of my knowledge, the information provided by the candidate is true. \n             "
           ),
           _c("br"),
           _vm._v(" I recommended the applicant for "),
           _c("span", [
             _c("strong", [
-              _c("em", [
-                _vm._v(
-                  _vm._s(_vm.form.scholarshipType) + " Scholarship Programme"
-                )
-              ])
+              _vm._v(
+                _vm._s(_vm.form.scholarshipType) + " Scholarship Programme"
+              )
             ])
           ]),
-          _vm._v("."),
+          _vm._v(".\n         "),
           _c("br"),
           _c("br"),
           _c("br"),
@@ -63779,6 +63566,7 @@ var render = function() {
           )
         ]
       ),
+      _vm._v(" "),
       _c(
         "div",
         [

@@ -6550,6 +6550,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     if (_this2.form.appStatus == 'Submit') {
                       _this2.inputDisabled = true;
                       _this2.globalDisable = true;
+                      _this2.applicantDisablitySelfShow = true;
+                      _this2.applicantDisablityMotherShow = true;
+                      _this2.applicantDisablityFatherShow = true;
                     }
 
                     ;
@@ -6591,13 +6594,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                     ;
 
-                    _this2.readInitialDomainValues();
-                  } else {
-                    console.log(response.data['msg']);
-                  }
-                });
-                axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
-                  if (response.data['success']) {
+                    _this2.readDomainValues(_this2.form.scholarshipType);
+
                     _this2.form.miscName1 = response.data['data'][2][0].name;
                     _this2.form.miscCourse1 = response.data['data'][2][0].course;
                     _this2.form.miscYear1 = response.data['data'][2][0].year;
@@ -6610,9 +6608,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   } else {
                     console.log(response.data['msg']);
                   }
-                });
+                }); // axios.get(`/api/get-application-form-data/${applicationId}`)
+                // .then(response => {
+                //     if (response.data['success']) {
+                //     } 
+                //     else {
+                //         console.log(response.data['msg'])
+                //     }
+                // })
 
-              case 3:
+              case 2:
               case "end":
                 return _context.stop();
             }
@@ -6682,6 +6687,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       if (this.form.applicationId == '') {
         this.form.scholarshipType = window.location.pathname.split('/').reverse()[0];
       }
+
+      this.readDomainValues(this.form.scholarshipType);
     },
     readInitialDomainValues: function readInitialDomainValues() {
       var _this3 = this;
@@ -6724,41 +6731,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       axios.get('/api/domain/universityBoardCouncil13').then(function (response) {
         _this3.universityBoardCouncilValues13 = response.data;
       }); //Course Level
-
-      console.log(this.form.scholarshipType);
-
-      if (this.form.scholarshipType == 'Nursing') {
-        axios.get('/api/domain/course-level/nursing').then(function (response) {
-          _this3.universityCourseLevel = response.data;
-        });
-      } else if (this.form.scholarshipType == 'HHDLS') {
-        console.log("test");
-        axios.get('/api/domain/course-level/hhdls').then(function (response) {
-          _this3.universityCourseLevel = response.data;
-        });
-      }
-
-      ;
-
-      if (this.form.scholarshipType == 'HHDLS') {
-        axios.get('/api/domain/course-name/hhdls').then(function (response) {
-          _this3.universityCourseName = response.data;
-        });
-      } else if (this.form.scholarshipType == 'Nursing') {
-        axios.get('/api/domain/course-name/nursing').then(function (response) {
-          _this3.universityCourseName = response.data;
-        });
-      }
+      // console.log(this.form.scholarshipType)
+      // if(this.form.scholarshipType == 'HHDLS')
+      // {
+      //     console.log("test")
+      // }else 
+      // {
+      // };
     },
-    readDomainValues: function readDomainValues() {
+    readDomainValues: function readDomainValues(type) {
       var _this4 = this;
 
-      axios.get('/api/domain/examinationPassed').then(function (response) {
-        _this4.examinationPassedValues = response.data;
-      });
-      axios.get('/api/domain/universityBoardCouncil').then(function (response) {
-        _this4.universityBoardCouncilValues = response.data;
-      });
+      if (type == 'HHDLS') {
+        axios.get('/api/domain/course-name/hhdls').then(function (response) {
+          _this4.universityCourseName = response.data;
+        });
+        axios.get('/api/domain/course-level/hhdls').then(function (response) {
+          _this4.universityCourseLevel = response.data;
+        });
+      } else {
+        axios.get('/api/domain/course-name/nursing').then(function (response) {
+          _this4.universityCourseName = response.data;
+        });
+        axios.get('/api/domain/course-level/nursing').then(function (response) {
+          _this4.universityCourseLevel = response.data;
+        });
+      }
     },
     saveDomainValues: function saveDomainValues() {
       var _this5 = this;
@@ -6782,13 +6780,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           _this5.domainForm.domainName = '';
           _this5.domainForm.dValue = '';
           _this5.domainForm.dDesc = '';
-          _this5.domainForm.domainLevel = ''; // this.$fire({
-          //     position: 'top',
-          //     icon: 'success',
-          //     title: "Added new "+showMsg,
-          //     showConfirmButton: false,
-          //     timer: 3000
-          // });
+          _this5.domainForm.domainLevel = '';
+
+          _this5.$fire({
+            position: 'top',
+            icon: 'success',
+            title: "Added new " + showMsg,
+            showConfirmButton: false,
+            timer: 3000
+          });
         } else {
           console.log(response.data['msg']);
         }
@@ -7377,12 +7377,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       userId: document.querySelector("meta[name='userId']").getAttribute('content'),
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-      terms: false,
+      terms: true,
       docRows: [{
         id: '',
         docFileName: ''
@@ -7419,7 +7420,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         applicantContactNoColonyLeader: '',
         financialYear: '',
         //education level 10
-        education1ExaminationLevel: '10',
+        education1ExaminationLevel: '',
         education1ExaminationPassed: '',
         education1University: '',
         education1UniversityValue: '',
@@ -7428,7 +7429,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         education1Percentage: '',
         education1Division: '',
         //education level 12
-        education2ExaminationLevel: '12',
+        education2ExaminationLevel: '',
         education2ExaminationPassed: '',
         education2University: '',
         education2UniversityValue: '',
@@ -7437,7 +7438,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         education2Percentage: '',
         education2Division: '',
         //education level graduate for HHDLS only (13)
-        education3ExaminationLevel: '13',
+        education3ExaminationLevel: '',
         education3ExaminationPassed: '',
         education3University: '',
         education3UniversityValue: '',
@@ -7447,7 +7448,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         education3Division: '',
         //end Education
         //additional qualification
-        additional1ExaminationLevel: '10',
+        additional1ExaminationLevel: '',
         additional1ExaminationPassed: '',
         additional1University: '',
         additional1MainSubjects: '',
@@ -7484,7 +7485,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         miscName3: '',
         miscCourse3: '',
         miscYear3: '',
-        fullName: ''
+        fullName: '',
+        lastdateSubmit: ''
       },
       getFiles: {
         admissionLetter: '#',
@@ -7543,11 +7545,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this.form.financialYear = response.data['data'][0][0].financialYear;
                     _this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     _this.form.fullName = response.data['data'][0][0].applicantNameF + ' ' + (response.data['data'][0][0].applicantNameM == null ? ' ' : response.data['data'][0][0].applicantNameM) + ' ' + response.data['data'][0][0].applicantNameL;
+                    _this.form.lastdateSubmit = response.data['data'][0][0].dateLastSubmitted;
 
                     if (_this.form.hasAdmissionLetter == 'YES') {
                       // this.inputDisabled = false; 
-                      // this.form.insCourse=response.data['data'][0][0].get_institute.,
-                      _this.form.instituteId = response.data['data'][0][0].instituteId, _this.dataIns(response.data['data'][0][0].instituteId), _this.form.courseNameValueId = response.data['data'][0][0].courseNameValueId, // this.form.insAddressAddln1=response.data['data'][0][0].courseNameValue,
+                      _this.form.insCourse = response.data['data'][0][0].get_course_domain_values.value, _this.form.instituteId = response.data['data'][0][0].instituteId, _this.dataIns(response.data['data'][0][0].instituteId), _this.form.courseNameValueId = response.data['data'][0][0].courseNameValueId, // this.form.insAddressAddln1=response.data['data'][0][0].courseNameValue,
                       // this.form.insAddressAddln2=response.data['data'][0][0].get_institute.addressAddln2,
                       // this.form.insAddressCity=response.data['data'][0][0].get_institute.addressCity,
                       // this.form.insAddressDistprov=response.data['data'][0][0].get_institute.addressDistprov,
@@ -7558,20 +7560,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                     ; //education level 10
 
-                    if (response.data['data'][1][0].get_exam_level_domain_values.value == 10) {
-                      _this.form.education1ExaminationLevel = '10', _this.form.education1ExaminationPassed = response.data['data'][1][0].get_exam_passed_domain_values.id, _this.form.education1University = response.data['data'][1][0].get_exam_board_domain_values.value, _this.form.education1MainSubjects = response.data['data'][1][0].mainSubjects, _this.form.education1YearOfPassing = response.data['data'][1][0].yearOfPassing, _this.form.education1Percentage = response.data['data'][1][0].percentage, _this.form.education1Division = response.data['data'][1][0].division;
+                    if (response.data['data'][1][0].get_exam_level_domain_values.id == 1) {
+                      _this.form.education1ExaminationLevel = response.data['data'][1][0].get_exam_level_domain_values.description, _this.form.education1ExaminationPassed = response.data['data'][1][0].get_exam_passed_domain_values.value, _this.form.education1University = response.data['data'][1][0].get_exam_board_domain_values.value, _this.form.education1MainSubjects = response.data['data'][1][0].mainSubjects, _this.form.education1YearOfPassing = response.data['data'][1][0].yearOfPassing, _this.form.education1Percentage = response.data['data'][1][0].percentage, _this.form.education1Division = response.data['data'][1][0].division;
                     }
 
                     ; //education level 12
 
-                    if (response.data['data'][1][1].get_exam_level_domain_values.value == 12) {
-                      _this.form.education2ExaminationLevel = '12', _this.form.education2ExaminationPassed = response.data['data'][1][1].get_exam_passed_domain_values.id, _this.form.education2University = response.data['data'][1][1].get_exam_board_domain_values.value, _this.form.education2MainSubjects = response.data['data'][1][1].mainSubjects, _this.form.education2YearOfPassing = response.data['data'][1][1].yearOfPassing, _this.form.education2Percentage = response.data['data'][1][1].percentage, _this.form.education2Division = response.data['data'][1][1].division;
+                    if (response.data['data'][1][1].get_exam_level_domain_values.id == 2) {
+                      _this.form.education2ExaminationLevel = response.data['data'][1][1].get_exam_level_domain_values.description, _this.form.education2ExaminationPassed = response.data['data'][1][1].get_exam_passed_domain_values.value, _this.form.education2University = response.data['data'][1][1].get_exam_board_domain_values.value, _this.form.education2MainSubjects = response.data['data'][1][1].mainSubjects, _this.form.education2YearOfPassing = response.data['data'][1][1].yearOfPassing, _this.form.education2Percentage = response.data['data'][1][1].percentage, _this.form.education2Division = response.data['data'][1][1].division;
                     }
 
                     ; //education level graduate for HHDLS only (13)
 
-                    if (response.data['data'][1][2].get_exam_level_domain_values.value == 13) {
-                      _this.form.education3ExaminationLevel = '13', _this.form.education3ExaminationPassed = response.data['data'][1][2].get_exam_passed_domain_values.id, _this.form.education3University = response.data['data'][1][2].get_exam_board_domain_values.value, _this.form.education3MainSubjects = response.data['data'][1][2].mainSubjects, _this.form.education3YearOfPassing = response.data['data'][1][2].yearOfPassing, _this.form.education3Percentage = response.data['data'][1][2].percentage, _this.form.education3Division = response.data['data'][1][2].division;
+                    if (response.data['data'][1][2].get_exam_level_domain_values.id == 3) {
+                      _this.form.education3ExaminationLevel = response.data['data'][1][2].get_exam_level_domain_values.description, _this.form.education3ExaminationPassed = response.data['data'][1][2].get_exam_passed_domain_values.value, _this.form.education3University = response.data['data'][1][2].get_exam_board_domain_values.value, _this.form.education3MainSubjects = response.data['data'][1][2].mainSubjects, _this.form.education3YearOfPassing = response.data['data'][1][2].yearOfPassing, _this.form.education3Percentage = response.data['data'][1][2].percentage, _this.form.education3Division = response.data['data'][1][2].division;
                     }
 
                     ;
@@ -60776,11 +60778,16 @@ var render = function() {
                 [
                   _c("strong", [
                     _vm._v(
-                      "Application form (" +
+                      "Application for " +
                         _vm._s(_vm.form.scholarshipType) +
-                        "  " +
+                        " scholarship " +
                         _vm._s(_vm.form.financialYear) +
-                        ")"
+                        " " +
+                        _vm._s(
+                          _vm.form.applicationId == ""
+                            ? ""
+                            : "( APP NO: " + _vm.form.applicationId + ")"
+                        )
                     )
                   ])
                 ]
@@ -62843,11 +62850,16 @@ var render = function() {
                 [
                   _c("strong", [
                     _vm._v(
-                      "Application form (" +
-                        _vm._s(this.form.scholarshipType) +
-                        " scholarship  " +
-                        _vm._s(_vm.getdata.financialYear) +
-                        ")"
+                      "Application for " +
+                        _vm._s(_vm.form.scholarshipType) +
+                        " scholarship " +
+                        _vm._s(_vm.form.financialYear) +
+                        " " +
+                        _vm._s(
+                          _vm.form.applicationId == ""
+                            ? ""
+                            : "( APP NO: " + _vm.form.applicationId + ")"
+                        )
                     )
                   ])
                 ]
@@ -63669,9 +63681,16 @@ var render = function() {
                 [
                   _c("strong", [
                     _vm._v(
-                      "Application form (" +
+                      "Application for " +
+                        _vm._s(_vm.form.scholarshipType) +
+                        " scholarship " +
                         _vm._s(_vm.form.financialYear) +
-                        ")"
+                        " " +
+                        _vm._s(
+                          _vm.form.applicationId == ""
+                            ? ""
+                            : "( APP NO: " + _vm.form.applicationId + ")"
+                        )
                     )
                   ])
                 ]
@@ -64310,10 +64329,16 @@ var render = function() {
                 [
                   _c("strong", [
                     _vm._v(
-                      "Application Form for " +
-                        _vm._s(this.form.scholarshipType) +
-                        " Scholarship " +
-                        _vm._s(_vm.form.financialYear)
+                      "Application for " +
+                        _vm._s(_vm.form.scholarshipType) +
+                        " scholarship " +
+                        _vm._s(_vm.form.financialYear) +
+                        " " +
+                        _vm._s(
+                          _vm.form.applicationId == ""
+                            ? ""
+                            : "( APP NO: " + _vm.form.applicationId + ")"
+                        )
                     )
                   ])
                 ]
@@ -66721,7 +66746,10 @@ var render = function() {
                                           ],
                                           staticClass:
                                             "form-control form-control-sm",
-                                          attrs: { type: "text" },
+                                          attrs: {
+                                            type: "text",
+                                            disabled: _vm.globalDisable
+                                          },
                                           domProps: {
                                             value:
                                               _vm.form.applicantColonyleaderName
@@ -76240,8 +76268,7 @@ var render = function() {
                   },
                   [
                     _c("p", { staticClass: "mb-0 font-xl" }, [
-                      _vm._v(_vm._s(_vm.form.applicantFatherName)),
-                      _c("br")
+                      _vm._v(_vm._s(_vm.form.applicantFatherName))
                     ])
                   ]
                 ),
@@ -76255,8 +76282,7 @@ var render = function() {
                   { staticClass: "col-sm-7 col-md-6 col-lg-6 col-xl-7 mt-2" },
                   [
                     _c("p", { staticClass: "mb-0 font-xl" }, [
-                      _vm._v(_vm._s(_vm.form.applicantMotherName)),
-                      _c("br")
+                      _vm._v(_vm._s(_vm.form.applicantMotherName))
                     ])
                   ]
                 ),
@@ -76273,8 +76299,7 @@ var render = function() {
                   },
                   [
                     _c("p", { staticClass: "mb-0 font-xl" }, [
-                      _vm._v(_vm._s(_vm.form.applicantDomicileState)),
-                      _c("br")
+                      _vm._v(_vm._s(_vm.form.applicantDomicileState))
                     ])
                   ]
                 ),
@@ -76326,8 +76351,7 @@ var render = function() {
                   { staticClass: "col-sm-7 col-md-6 col-lg-2 col-xl-7 mt-2" },
                   [
                     _c("p", { staticClass: "mb-0 font-xl" }, [
-                      _vm._v(_vm._s(_vm.form.applicantContactNoSelf)),
-                      _c("br")
+                      _vm._v(_vm._s(_vm.form.applicantContactNoSelf))
                     ])
                   ]
                 ),
@@ -76341,8 +76365,7 @@ var render = function() {
                   { staticClass: "col-sm-6 col-md-6 col-lg-2 col-xl-7 mt-2" },
                   [
                     _c("p", { staticClass: "mb-0 font-xl" }, [
-                      _vm._v(_vm._s(_vm.form.applicantContactNoGuardian)),
-                      _c("br")
+                      _vm._v(_vm._s(_vm.form.applicantContactNoGuardian))
                     ])
                   ]
                 ),
@@ -76358,8 +76381,7 @@ var render = function() {
                     _c("p", { staticClass: "mb-0 font-xl" }, [
                       _vm._v(
                         " " + _vm._s(_vm.form.applicantContactNoColonyLeader)
-                      ),
-                      _c("br")
+                      )
                     ])
                   ]
                 ),
@@ -76373,8 +76395,7 @@ var render = function() {
                   { staticClass: "col-sm-7 col-md-6 col-lg-4 col-xl-7 mt-2" },
                   [
                     _c("p", { staticClass: "mb-0 font-xl" }, [
-                      _vm._v(_vm._s(_vm.form.applicantEmailId)),
-                      _c("br")
+                      _vm._v(_vm._s(_vm.form.applicantEmailId))
                     ])
                   ]
                 ),
@@ -76395,8 +76416,7 @@ var render = function() {
                             .reverse()
                             .join("/")
                         )
-                      ),
-                      _c("br")
+                      )
                     ])
                   ]
                 ),
@@ -76438,8 +76458,7 @@ var render = function() {
                   { staticClass: "col-sm-1 col-md-6 col-lg-1 col-xl-1 mt-2" },
                   [
                     _c("p", { staticClass: "mb-0 font-xl" }, [
-                      _vm._v(_vm._s(_vm.form.applicantHasBPLCard)),
-                      _c("br")
+                      _vm._v(_vm._s(_vm.form.applicantHasBPLCard))
                     ])
                   ]
                 )
@@ -76491,13 +76510,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("td", [
-                          _vm._v(
-                            _vm._s(
-                              _vm.form.education1ExaminationLevel == "10"
-                                ? "Madhyamik"
-                                : ""
-                            )
-                          )
+                          _vm._v(_vm._s(_vm.form.education1ExaminationPassed))
                         ]),
                         _vm._v(" "),
                         _c("td", [
@@ -76527,13 +76540,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("td", [
-                          _vm._v(
-                            _vm._s(
-                              _vm.form.education2ExaminationLevel == "12"
-                                ? "Higher Secondary"
-                                : ""
-                            )
-                          )
+                          _vm._v(_vm._s(_vm.form.education2ExaminationPassed))
                         ]),
                         _vm._v(" "),
                         _c("td", [
@@ -76565,11 +76572,7 @@ var render = function() {
                             _vm._v(" "),
                             _c("td", [
                               _vm._v(
-                                _vm._s(
-                                  _vm.form.education3ExaminationLevel == "13"
-                                    ? "Graduate"
-                                    : ""
-                                )
+                                _vm._s(_vm.form.education3ExaminationPassed)
                               )
                             ]),
                             _vm._v(" "),
@@ -76650,15 +76653,15 @@ var render = function() {
                         _c("td", { staticClass: "fw-600" }, [
                           _vm._v(
                             _vm._s(_vm.form.insAddressAddln1) +
-                              ", \n                                                           " +
+                              "\n                                                           " +
                               _vm._s(_vm.form.insAddressAddln2) +
-                              ", \n                                                           " +
+                              "\n                                                           " +
                               _vm._s(_vm.form.insAddressCity) +
-                              ", \n                                                           " +
+                              "\n                                                           " +
                               _vm._s(_vm.form.insAddressDistprov) +
-                              ", \n                                                           " +
+                              "\n                                                           " +
                               _vm._s(_vm.form.insAddressState) +
-                              ",\n                                                           " +
+                              "\n                                                           " +
                               _vm._s(_vm.form.insAddressPinzip) +
                               " "
                           )
@@ -76666,18 +76669,28 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("tr", [
-                        _vm._m(35),
+                        _vm.form.scholarshipType == "Nursing"
+                          ? _c("td", [
+                              _c("strong", [
+                                _vm._v(
+                                  "Whether recognized by Indian Nursing Council"
+                                )
+                              ])
+                            ])
+                          : _vm._e(),
                         _vm._v(" "),
-                        _c("td", { staticClass: "fw-600" }, [
-                          _vm._v(
-                            _vm._s(
-                              _vm.form.recognizedByINC == null
-                                ? "N/A"
-                                : _vm.form.recognizedByINC
-                            )
-                          ),
-                          _c("br")
-                        ])
+                        _vm.form.scholarshipType == "Nursing"
+                          ? _c("td", { staticClass: "fw-600" }, [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.form.recognizedByINC == null
+                                    ? "N/A"
+                                    : _vm.form.recognizedByINC
+                                )
+                              ),
+                              _c("br")
+                            ])
+                          : _vm._e()
                       ])
                     ])
                   ]
@@ -76686,82 +76699,44 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _vm._m(36),
+          _vm._m(35),
           _vm._v(" "),
           _c("div", { staticClass: "col-xl-12 mt-1" }, [
             _c("p", { staticClass: "font-md" }, [
-              _c("span", [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.terms,
-                      expression: "terms"
-                    }
-                  ],
-                  attrs: { type: "checkbox" },
-                  domProps: {
-                    checked: Array.isArray(_vm.terms)
-                      ? _vm._i(_vm.terms, null) > -1
-                      : _vm.terms
-                  },
-                  on: {
-                    change: function($event) {
-                      var $$a = _vm.terms,
-                        $$el = $event.target,
-                        $$c = $$el.checked ? true : false
-                      if (Array.isArray($$a)) {
-                        var $$v = null,
-                          $$i = _vm._i($$a, $$v)
-                        if ($$el.checked) {
-                          $$i < 0 && (_vm.terms = $$a.concat([$$v]))
-                        } else {
-                          $$i > -1 &&
-                            (_vm.terms = $$a
-                              .slice(0, $$i)
-                              .concat($$a.slice($$i + 1)))
-                        }
-                      } else {
-                        _vm.terms = $$c
-                      }
-                    }
-                  }
-                })
-              ]),
               _vm._v(
                 " I " +
                   _vm._s(_vm.form.fullName) +
-                  ' hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under "Nursing Scholarship" could be withdrawn.'
-              ),
-              _c("br")
+                  ' hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under "' +
+                  _vm._s(_vm.form.scholarshipType) +
+                  ' Scholarship" could be withdrawn.'
+              )
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "color-mg text-center" }, [
               _vm._v(
                 "This is an electronically generated document and does not require a signature"
               )
-            ])
+            ]),
+            _vm._v(" "),
+            _vm.form.lastdateSubmit != null
+              ? _c("p", { staticClass: "color-mg text-center" }, [
+                  _vm._v(
+                    "Date Submitted : " +
+                      _vm._s(
+                        _vm.form.lastdateSubmit
+                          .split("T")[0]
+                          .split("-")
+                          .reverse()
+                          .join("/")
+                      )
+                  )
+                ])
+              : _vm._e()
           ])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row mb-4 d-print-none" }, [
-        _c("div", { staticClass: "col-xl-4 offset-xl-4 text-center" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-sm btn-mg mr-2",
-              attrs: {
-                role: "button",
-                disabled: _vm.isDisabled,
-                onclick: "window.print()"
-              }
-            },
-            [_vm._v("Print/Download Application Form")]
-          )
-        ])
-      ])
+      _vm._m(36)
     ])
   ])
 }
@@ -76860,8 +76835,7 @@ var staticRenderFns = [
       { staticClass: "col-sm-5 col-md-5 col-lg-6 col-xl-4 mt-2" },
       [
         _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v("1. Applicant's Name")]),
-          _c("br")
+          _c("strong", [_vm._v("1. Applicant's Name")])
         ])
       ]
     )
@@ -76873,12 +76847,7 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2" },
-      [
-        _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v(":")]),
-          _c("br")
-        ])
-      ]
+      [_c("p", { staticClass: "mb-0 font-xl" }, [_c("strong", [_vm._v(":")])])]
     )
   },
   function() {
@@ -76890,8 +76859,7 @@ var staticRenderFns = [
       { staticClass: "col-sm-5 col-md-5 col-lg-6 col-xl-4 mt-2" },
       [
         _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v("2. Father's Name")]),
-          _c("br")
+          _c("strong", [_vm._v("2. Father's Name")])
         ])
       ]
     )
@@ -76903,12 +76871,7 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2" },
-      [
-        _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v(":")]),
-          _c("br")
-        ])
-      ]
+      [_c("p", { staticClass: "mb-0 font-xl" }, [_c("strong", [_vm._v(":")])])]
     )
   },
   function() {
@@ -76920,8 +76883,7 @@ var staticRenderFns = [
       { staticClass: "col-sm-5 col-md-5 col-lg-6 col-xl-4 mt-2" },
       [
         _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v("3. Mother's Name")]),
-          _c("br")
+          _c("strong", [_vm._v("3. Mother's Name")])
         ])
       ]
     )
@@ -76933,12 +76895,7 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2" },
-      [
-        _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v(":")]),
-          _c("br")
-        ])
-      ]
+      [_c("p", { staticClass: "mb-0 font-xl" }, [_c("strong", [_vm._v(":")])])]
     )
   },
   function() {
@@ -76950,8 +76907,7 @@ var staticRenderFns = [
       { staticClass: "col-sm-5 col-md-5 col-lg-6 col-xl-4 mt-2" },
       [
         _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v("4. Domicile State")]),
-          _c("br")
+          _c("strong", [_vm._v("4. Domicile State")])
         ])
       ]
     )
@@ -76963,12 +76919,7 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2" },
-      [
-        _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v(":")]),
-          _c("br")
-        ])
-      ]
+      [_c("p", { staticClass: "mb-0 font-xl" }, [_c("strong", [_vm._v(":")])])]
     )
   },
   function() {
@@ -76980,8 +76931,7 @@ var staticRenderFns = [
       { staticClass: "col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2" },
       [
         _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v("5. Applicant's Address")]),
-          _c("br")
+          _c("strong", [_vm._v("5. Applicant's Address")])
         ])
       ]
     )
@@ -76993,12 +76943,7 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2" },
-      [
-        _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v(":")]),
-          _c("br")
-        ])
-      ]
+      [_c("p", { staticClass: "mb-0 font-xl" }, [_c("strong", [_vm._v(":")])])]
     )
   },
   function() {
@@ -77010,8 +76955,7 @@ var staticRenderFns = [
       { staticClass: "col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2 pl-4" },
       [
         _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v("5.1. Contact No. (Self)")]),
-          _c("br")
+          _c("strong", [_vm._v("5.1. Contact No. (Self)")])
         ])
       ]
     )
@@ -77023,12 +76967,7 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2" },
-      [
-        _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v(":")]),
-          _c("br")
-        ])
-      ]
+      [_c("p", { staticClass: "mb-0 font-xl" }, [_c("strong", [_vm._v(":")])])]
     )
   },
   function() {
@@ -77042,8 +76981,7 @@ var staticRenderFns = [
       },
       [
         _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v("5.2. Contact No (Father)")]),
-          _c("br")
+          _c("strong", [_vm._v("5.2. Contact No (Father)")])
         ])
       ]
     )
@@ -77055,12 +76993,7 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2" },
-      [
-        _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v(":")]),
-          _c("br")
-        ])
-      ]
+      [_c("p", { staticClass: "mb-0 font-xl" }, [_c("strong", [_vm._v(":")])])]
     )
   },
   function() {
@@ -77072,8 +77005,7 @@ var staticRenderFns = [
       { staticClass: "col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2 pl-4" },
       [
         _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v("5.3. Contact No. (Colony Leader)")]),
-          _c("br")
+          _c("strong", [_vm._v("5.3. Contact No. (Colony Leader)")])
         ])
       ]
     )
@@ -77102,8 +77034,7 @@ var staticRenderFns = [
       { staticClass: "col-sm-5 col-md-5 col-lg-2 col-xl-4 mt-2" },
       [
         _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v("6. Email Address")]),
-          _c("br")
+          _c("strong", [_vm._v("6. Email Address")])
         ])
       ]
     )
@@ -77115,12 +77046,7 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2" },
-      [
-        _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v(":")]),
-          _c("br")
-        ])
-      ]
+      [_c("p", { staticClass: "mb-0 font-xl" }, [_c("strong", [_vm._v(":")])])]
     )
   },
   function() {
@@ -77132,8 +77058,7 @@ var staticRenderFns = [
       { staticClass: "col-sm-5 col-md-5 col-lg-4 col-xl-4 offset-xl-0 mt-2" },
       [
         _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v("7. Date of Birth")]),
-          _c("br")
+          _c("strong", [_vm._v("7. Date of Birth")])
         ])
       ]
     )
@@ -77145,12 +77070,7 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2" },
-      [
-        _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v(":")]),
-          _c("br")
-        ])
-      ]
+      [_c("p", { staticClass: "mb-0 font-xl" }, [_c("strong", [_vm._v(":")])])]
     )
   },
   function() {
@@ -77191,8 +77111,7 @@ var staticRenderFns = [
       { staticClass: "col-sm-4 col-md-5 col-lg-4 col-xl-3 offset-xl-0 mt-2" },
       [
         _c("p", { staticClass: "mb-0 font-xl" }, [
-          _c("strong", [_vm._v("9. BPL card holder")]),
-          _c("br")
+          _c("strong", [_vm._v("9. BPL card holder")])
         ])
       ]
     )
@@ -77252,8 +77171,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-xl-12 mt-3" }, [
       _c("p", { staticClass: "mb-2 font-xl" }, [
-        _c("strong", [_vm._v("11. Name of the courses you have selected:")]),
-        _c("br")
+        _c("strong", [
+          _vm._v("11. Details of the course you have been selected for:")
+        ])
       ])
     ])
   },
@@ -77279,17 +77199,26 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("strong", [_vm._v("Whether recognized by Indian Nursing Council")])
+    return _c("div", { staticClass: "col-sm-4 col-xl-3 mt-3 pr-1" }, [
+      _c("p", { staticClass: "text-white mb-2 font-xl txt-blk-bg" }, [
+        _vm._v(" Self Declaration")
+      ])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-4 col-xl-3 mt-3 pr-1" }, [
-      _c("p", { staticClass: "text-white mb-2 font-xl txt-blk-bg" }, [
-        _vm._v(" Self Declaration")
+    return _c("div", { staticClass: "row mb-4 d-print-none" }, [
+      _c("div", { staticClass: "col-xl-4 offset-xl-4 text-center" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-sm btn-mg mr-2",
+            attrs: { role: "button", onclick: "window.print()" }
+          },
+          [_vm._v("Print/Download Application Form")]
+        )
       ])
     ])
   }
@@ -77336,10 +77265,16 @@ var render = function() {
                 [
                   _c("strong", [
                     _vm._v(
-                      "Application form (Nursing scholarship   " +
+                      "Application for " +
+                        _vm._s(_vm.form.scholarshipType) +
+                        " scholarship " +
                         _vm._s(_vm.form.financialYear) +
-                        ") " +
-                        _vm._s(_vm.form.applicationId)
+                        " " +
+                        _vm._s(
+                          _vm.form.applicationId == ""
+                            ? ""
+                            : "( APP NO: " + _vm.form.applicationId + ")"
+                        )
                     )
                   ])
                 ]
@@ -77694,7 +77629,16 @@ var render = function() {
                                               ]),
                                               _vm._v(" "),
                                               _c("td", [
-                                                _vm._v(_vm._s(row.docFileName))
+                                                _vm._v(
+                                                  _vm._s(
+                                                    row.docFileName == null
+                                                      ? ""
+                                                      : row.docFileName
+                                                          .split("-")
+                                                          .reverse()
+                                                          .shift()
+                                                  )
+                                                )
                                               ]),
                                               _vm._v(" "),
                                               _c(

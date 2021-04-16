@@ -55,6 +55,7 @@ class ApplicationDetails extends Migration
             $table->string('appSpecificLastDt')->nullable();
             $table->string('offlineAppMatch')->nullable();
             $table->string('offlineAppAnnMatch')->nullable();
+            $table->timestamp('dateLastSubmitted')->nullable();
             $table->timestamps();
         });
     }

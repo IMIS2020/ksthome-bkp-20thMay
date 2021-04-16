@@ -19,6 +19,7 @@ use App\ModelScholarship\ApplicationDocs;
 use App\ModelScholarship\DocMaster;
 use App\Http\Controllers\Scholarship\DocumentMaster;
 use User;
+use Carbon\Carbon;
 // use App\ModelScholarship\AnnexureI;
 // use App\ModelScholarship\ApplicantDocuments;
 // use App\ModelScholarship\NursingScholarshipApplication;
@@ -786,6 +787,7 @@ class ApplicationController extends Controller
         try {
                 if($request->appStatus == 1){
                     $editApplication->appStatus = 'Submit';
+                    $editApplication->dateLastSubmitted = Carbon::now();
                     $editApplication->update();
                 }
 

@@ -14,7 +14,7 @@ class ApplicationEducationDetails extends Model
 
     public function get_examLevelDomainValues() // FK 1
     {
-        return $this->belongsTo(DomainValues::class,'examLevelValueId');    
+        return $this->belongsTo(DomainName::class,'examLevelValueId');    
     }
 
     public function get_examBoardDomainValues() // FK 2

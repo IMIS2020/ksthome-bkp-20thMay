@@ -65,94 +65,94 @@
                     <div class="col-sm-9 col-md-10 col-lg-9 col-xl-10 px-0">
                         <div class="row mx-2">
                             <div class="col-sm-5 col-md-5 col-lg-6 col-xl-4 mt-2">
-                                <p class="mb-0 font-xl"><strong>1. Applicant's Name</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>1. Applicant's Name</strong></p>
                             </div>
                             <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
-                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>:</strong></p>
                             </div>
                             <div class="col-sm-7 col-md-5 col-lg-6 col-xl-7 mt-2">
                                 <p class="mb-0 font-xl">{{form.fullName}}</p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-6 col-xl-4 mt-2">
-                                <p class="mb-0 font-xl"><strong>2. Father's Name</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>2. Father's Name</strong></p>
                             </div>
                             <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
-                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>:</strong></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-6 col-xl-7 offset-xl-0 mt-2">
-                                <p class="mb-0 font-xl">{{form.applicantFatherName}}<br></p>
+                                <p class="mb-0 font-xl">{{form.applicantFatherName}}</p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-6 col-xl-4 mt-2">
-                                <p class="mb-0 font-xl"><strong>3. Mother's Name</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>3. Mother's Name</strong></p>
                             </div>
                             <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
-                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>:</strong></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-6 col-xl-7 mt-2">
-                                <p class="mb-0 font-xl">{{form.applicantMotherName}}<br></p>
+                                <p class="mb-0 font-xl">{{form.applicantMotherName}}</p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-6 col-xl-4 mt-2">
-                                <p class="mb-0 font-xl"><strong>4. Domicile&nbsp;State</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>4. Domicile&nbsp;State</strong></p>
                             </div>
                             <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
-                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>:</strong></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-6 col-xl-7 offset-xl-0 mt-2">
-                                <p class="mb-0 font-xl">{{form.applicantDomicileState}}<br></p>
+                                <p class="mb-0 font-xl">{{form.applicantDomicileState}}</p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2">
-                                <p class="mb-0 font-xl"><strong>5. Applicant's Address</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>5. Applicant's Address</strong></p>
                             </div>
                             <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
-                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>:</strong></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-8 col-xl-7 mt-2">
                                 <p class="mb-0 font-xl">{{form.addressAddln1}},{{(form.addressAddln2==null)?'':form.addressAddln2}},City: {{(form.addressCity==null)?'':form.addressCity}}, Dist :{{(form.addressDistprov==null)?'':form.addressDistprov}}, {{form.addressState}} - {{form.addressPinzip}}</p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2 pl-4">
-                                <p class="mb-0 font-xl"><strong>5.1. Contact No. (Self)</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>5.1. Contact No. (Self)</strong></p>
                             </div>
                             <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
-                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>:</strong></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-2 col-xl-7 mt-2">
-                                <p class="mb-0 font-xl">{{form.applicantContactNoSelf}}<br></p>
+                                <p class="mb-0 font-xl">{{form.applicantContactNoSelf}}</p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 offset-xl-0 mt-2 pl-4">
-                                <p class="mb-0 font-xl"><strong>5.2. Contact No (Father)</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>5.2. Contact No (Father)</strong></p>
                             </div>
                             <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
-                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>:</strong></p>
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-2 col-xl-7 mt-2">
-                                <p class="mb-0 font-xl">{{form.applicantContactNoGuardian}}<br></p>
+                                <p class="mb-0 font-xl">{{form.applicantContactNoGuardian}}</p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2 pl-4">
-                                <p class="mb-0 font-xl"><strong>5.3. Contact No. (Colony Leader)</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>5.3. Contact No. (Colony Leader)</strong></p>
                             </div>
                             <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-2 col-xl-7 mt-2">
-                                <p class="mb-0 font-xl"> {{form.applicantContactNoColonyLeader}}<br></p>
+                                <p class="mb-0 font-xl"> {{form.applicantContactNoColonyLeader}}</p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-2 col-xl-4 mt-2">
-                                <p class="mb-0 font-xl"><strong>6. Email Address</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>6. Email Address</strong></p>
                             </div>
                             <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
-                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>:</strong></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-4 col-xl-7 mt-2">
-                                <p class="mb-0 font-xl">{{form.applicantEmailId}}<br></p>
+                                <p class="mb-0 font-xl">{{form.applicantEmailId}}</p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 offset-xl-0 mt-2">
-                                <p class="mb-0 font-xl"><strong>7. Date of Birth</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>7. Date of Birth</strong></p>
                             </div>
                             <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
-                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>:</strong></p>
                             </div>
                             <div class="col-sm-7 col-md-6 col-lg-2 col-xl-7 mt-2">
-                                <p class="mb-0 font-xl">{{form.applicantDOB.split('-').reverse().join('/')}}<br></p>
+                                <p class="mb-0 font-xl">{{form.applicantDOB.split('-').reverse().join('/')}}</p>
                             </div>
                             <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2">
                                 <p class="mb-0 font-xl"><strong>8. Affected by leprosy</strong></p>
@@ -166,13 +166,13 @@
                                 <span class="mb-0 font-xl" v-if="form.applicantLeprosyAffectedMother == true">Mother</span>
                             </div>
                             <div class="col-sm-4 col-md-5 col-lg-4 col-xl-3 offset-xl-0 mt-2">
-                                <p class="mb-0 font-xl"><strong>9. BPL card holder</strong><br></p>
+                                <p class="mb-0 font-xl"><strong>9. BPL card holder</strong></p>
                             </div>
                             <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-1 col-md-6 col-lg-1 col-xl-1 mt-2">
-                                <p class="mb-0 font-xl">{{form.applicantHasBPLCard}}<br></p>
+                                <p class="mb-0 font-xl">{{form.applicantHasBPLCard}}</p>
                             </div>
                         </div>
                     </div>
@@ -199,7 +199,7 @@
                                 <tbody>
                                     <tr class="fw-600">
                                         <td>{{form.education1ExaminationLevel}}th</td>
-                                        <td>{{(form.education1ExaminationLevel== '10')?'Madhyamik':''}}</td>
+                                        <td>{{form.education1ExaminationPassed}}</td>
                                         <td>{{form.education1University}}</td>
                                         <td>{{form.education1MainSubjects}}</td>
                                         <td>{{form.education1YearOfPassing}}</td>
@@ -209,7 +209,7 @@
                                     </tr>
                                     <tr class="fw-600">
                                        <td>{{form.education2ExaminationLevel}}th</td>
-                                        <td>{{(form.education2ExaminationLevel == '12')?'Higher Secondary':''}}</td>
+                                        <td>{{form.education2ExaminationPassed}}</td>
                                         <td>{{form.education2University}}</td>
                                         <td>{{form.education2MainSubjects}}</td>
                                         <td>{{form.education2YearOfPassing}}</td>
@@ -218,7 +218,7 @@
                                     </tr>
                                      <tr class="fw-600" v-if="form.scholarshipType == 'HHDLS'">
                                        <td>{{form.education3ExaminationLevel}}</td>
-                                        <td>{{(form.education3ExaminationLevel == '13')?'Graduate':''}}</td>
+                                        <td>{{form.education3ExaminationPassed}}</td>
                                         <td>{{form.education3University}}</td>
                                         <td>{{form.education3MainSubjects}}</td>
                                         <td>{{form.education3YearOfPassing}}</td>
@@ -230,7 +230,7 @@
                         </div>
                     </div>
                     <div class="col-xl-12 mt-3">
-                        <p class="mb-2 font-xl"><strong>11. Name of the courses you have selected:</strong><br></p>
+                        <p class="mb-2 font-xl"><strong>11. Details of the course you have been selected for:</strong></p>
                     </div>
                     <div class="col-xl-12">
                         <div class="table-responsive table-bordered rev-tbl font-md ofc-only">
@@ -246,16 +246,16 @@
                                     </tr>
                                     <tr>
                                         <td><strong>Address&nbsp;of the institute</strong></td>
-                                        <td class="fw-600">{{form.insAddressAddln1}}, 
-                                                            {{form.insAddressAddln2}}, 
-                                                            {{form.insAddressCity}}, 
-                                                            {{form.insAddressDistprov}}, 
-                                                            {{form.insAddressState}},
+                                        <td class="fw-600">{{form.insAddressAddln1}}
+                                                            {{form.insAddressAddln2}}
+                                                            {{form.insAddressCity}}
+                                                            {{form.insAddressDistprov}}
+                                                            {{form.insAddressState}}
                                                             {{form.insAddressPinzip}} </td>
                                     </tr>
                                     <tr>
-                                        <td><strong>Whether recognized by Indian Nursing Council</strong></td>
-                                        <td class="fw-600">{{(form.recognizedByINC == null)?'N/A':form.recognizedByINC}}<br></td>
+                                        <td v-if="form.scholarshipType == 'Nursing'"><strong>Whether recognized by Indian Nursing Council</strong></td>
+                                        <td v-if="form.scholarshipType == 'Nursing'" class="fw-600">{{(form.recognizedByINC == null)?'N/A':form.recognizedByINC}}<br></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -265,14 +265,15 @@
                         <p class="text-white mb-2 font-xl txt-blk-bg">&nbsp;Self Declaration</p>
                     </div>
                     <div class="col-xl-12 mt-1">
-                        <p class="font-md"><span><input type="checkbox" v-model='terms'></span>&nbsp;I {{form.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under "Nursing Scholarship" could be withdrawn.<br></p>
+                        <p class="font-md">&nbsp;I {{form.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under "{{form.scholarshipType}} Scholarship" could be withdrawn.</p>
                          <p class="color-mg text-center">This is an electronically generated document and does not require a signature</p>
+                         <p class="color-mg text-center" v-if="form.lastdateSubmit != null">Date Submitted : {{form.lastdateSubmit.split('T')[0].split('-').reverse().join('/')}}</p>
                     </div>
                 </div>
             </div>
             <div class="row mb-4 d-print-none">
                 <div class="col-xl-4 offset-xl-4 text-center">
-                <button class="btn btn-sm btn-mg mr-2" role="button" :disabled='isDisabled' onclick="window.print()">Print/Download Application Form</button></div>
+                <button class="btn btn-sm btn-mg mr-2" role="button"  onclick="window.print()">Print/Download Application Form</button></div>
             </div>
         </div>
     </section>
@@ -284,7 +285,7 @@ export default{
        return{
          userId: document.querySelector("meta[name='userId']").getAttribute('content'),
          csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-          terms: false,
+          terms: true,
            docRows:[
                 {
                     id: '',
@@ -323,7 +324,7 @@ export default{
                 applicantContactNoColonyLeader:'',
                 financialYear : '',
                 //education level 10
-                education1ExaminationLevel:'10',
+                education1ExaminationLevel:'',
                 education1ExaminationPassed: '',
                 education1University: '',
                 education1UniversityValue: '',
@@ -333,7 +334,7 @@ export default{
                 education1Division: '',
 
                 //education level 12
-                education2ExaminationLevel:'12',
+                education2ExaminationLevel:'',
                 education2ExaminationPassed: '',
                 education2University: '',
                  education2UniversityValue: '',
@@ -343,7 +344,7 @@ export default{
                 education2Division: '',
 
                 //education level graduate for HHDLS only (13)
-                education3ExaminationLevel:'13',
+                education3ExaminationLevel:'',
                 education3ExaminationPassed: '',
                 education3University: '',
                  education3UniversityValue: '',
@@ -355,7 +356,7 @@ export default{
                 //end Education
 
                 //additional qualification
-                additional1ExaminationLevel:'10',
+                additional1ExaminationLevel:'',
                 additional1ExaminationPassed: '',
                 additional1University: '',
                 additional1MainSubjects: '',
@@ -397,6 +398,8 @@ export default{
                 miscYear3:'',
 
                 fullName: '',
+
+                lastdateSubmit: '',
             },
             getFiles: {
                 admissionLetter:'#',
@@ -452,9 +455,10 @@ export default{
                         this.form.financialYear = response.data['data'][0][0].financialYear;  
                         this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                         this.form.fullName = response.data['data'][0][0].applicantNameF+' '+ (response.data['data'][0][0].applicantNameM == null ? ' ' : response.data['data'][0][0].applicantNameM )+' '+response.data['data'][0][0].applicantNameL;
+                        this.form.lastdateSubmit = response.data['data'][0][0].dateLastSubmitted;
                         if(this.form.hasAdmissionLetter == 'YES') {
                             // this.inputDisabled = false; 
-                            // this.form.insCourse=response.data['data'][0][0].get_institute.,
+                            this.form.insCourse=response.data['data'][0][0].get_course_domain_values.value,
                             this.form.instituteId=response.data['data'][0][0].instituteId,
                             this.dataIns(response.data['data'][0][0].instituteId),
                             this.form.courseNameValueId = response.data['data'][0][0].courseNameValueId,
@@ -468,9 +472,9 @@ export default{
                         } ;
                         
                         //education level 10
-                        if(response.data['data'][1][0].get_exam_level_domain_values.value == 10){
-                                this.form.education1ExaminationLevel='10',
-                                this.form.education1ExaminationPassed= response.data['data'][1][0].get_exam_passed_domain_values.id,
+                        if(response.data['data'][1][0].get_exam_level_domain_values.id == 1){
+                                this.form.education1ExaminationLevel=response.data['data'][1][0].get_exam_level_domain_values.description,
+                                this.form.education1ExaminationPassed= response.data['data'][1][0].get_exam_passed_domain_values.value,
                                 this.form.education1University= response.data['data'][1][0].get_exam_board_domain_values.value,
                                 this.form.education1MainSubjects= response.data['data'][1][0].mainSubjects,
                                 this.form.education1YearOfPassing= response.data['data'][1][0].yearOfPassing,
@@ -479,9 +483,9 @@ export default{
                         };
 
                         //education level 12
-                        if(response.data['data'][1][1].get_exam_level_domain_values.value == 12){
-                                this.form.education2ExaminationLevel='12',
-                                this.form.education2ExaminationPassed= response.data['data'][1][1].get_exam_passed_domain_values.id,
+                        if(response.data['data'][1][1].get_exam_level_domain_values.id == 2){
+                                this.form.education2ExaminationLevel=response.data['data'][1][1].get_exam_level_domain_values.description,
+                                this.form.education2ExaminationPassed= response.data['data'][1][1].get_exam_passed_domain_values.value,
                                 this.form.education2University= response.data['data'][1][1].get_exam_board_domain_values.value,
                                 this.form.education2MainSubjects= response.data['data'][1][1].mainSubjects,
                                 this.form.education2YearOfPassing= response.data['data'][1][1].yearOfPassing,
@@ -490,9 +494,9 @@ export default{
                         };
 
                         //education level graduate for HHDLS only (13)
-                        if(response.data['data'][1][2].get_exam_level_domain_values.value == 13){
-                                this.form.education3ExaminationLevel='13',
-                                this.form.education3ExaminationPassed= response.data['data'][1][2].get_exam_passed_domain_values.id,
+                        if(response.data['data'][1][2].get_exam_level_domain_values.id == 3){
+                                this.form.education3ExaminationLevel=response.data['data'][1][2].get_exam_level_domain_values.description,
+                                this.form.education3ExaminationPassed= response.data['data'][1][2].get_exam_passed_domain_values.value,
                                 this.form.education3University= response.data['data'][1][2].get_exam_board_domain_values.value,
                                 this.form.education3MainSubjects= response.data['data'][1][2].mainSubjects,
                                 this.form.education3YearOfPassing= response.data['data'][1][2].yearOfPassing,

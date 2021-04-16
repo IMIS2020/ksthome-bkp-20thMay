@@ -5,7 +5,7 @@
                 <div class="form-row">
                     <div class="col-xl-12 text-center mb-3" >
                          <h5 class="text-capitalize text-center color-mg" >
-                             <strong>Application form ({{form.financialYear}})</strong>
+                             <strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.applicationId == '' ? '' : '( APP NO: '+form.applicationId+')'}}</strong>
                         </h5>
                     </div>
                     <div class="col-xl-12">

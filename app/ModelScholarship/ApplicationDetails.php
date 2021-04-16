@@ -13,6 +13,7 @@ use App\ModelScholarship\ApplicationMiscellaneousDetails;
 use App\ModelScholarship\AnnexureI;
 use App\ModelScholarship\ApplicationDocs;
 use App\User;
+
 //use App\UserSession;
 use App\ModelScholarship\ApplicationSession;
 
@@ -37,14 +38,14 @@ class ApplicationDetails extends Model
         return $this->belongsTo(Institute::class,'instituteId');
     }
 
-    public function get_courseDomainValues() // FK 4
+    public function get_courseDomainName() // FK 4
     {
-        return $this->belongsTo(DomainValues::class,'courseLevelValueId');
+        return $this->belongsTo(DomainName::class,'courseLevelValueId');
     }
  
-    public function get_courseDomainName() // FK 5
+    public function get_courseDomainValues() // FK 5
     {
-        return $this->belongsTo(DomainName::class,'courseNameValueId');
+        return $this->belongsTo(DomainValues::class,'courseNameValueId');
     }
 
     public function get_schTypeDomainValues() // FK 6

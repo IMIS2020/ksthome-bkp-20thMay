@@ -5,7 +5,7 @@
             <form @submit.prevent="saveForm">
                 <div class="form-row">
                     <div class="col-xl-12 text-center mb-3">
-                       <h5 class="text-capitalize text-center color-mg"><strong>Application form (Nursing scholarship   {{form.financialYear}}) {{form.applicationId}}</strong></h5>
+                       <h5 class="text-capitalize text-center color-mg"><strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.applicationId == '' ? '' : '( APP NO: '+form.applicationId+')'}}</strong></h5>
                     </div>
                     <div class="col-xl-12">
                         <div class="mb-3">
@@ -73,7 +73,7 @@
                                                                 <tbody>
                                                                     <tr v-for="(row,index) in docRows" :key="index">
                                                                         <td><strong>{{row.docFileDesc}}</strong><br></td>
-                                                                        <td>{{row.docFileName}}</td>
+                                                                        <td>{{row.docFileName == null? '' : row.docFileName.split('-').reverse().shift()}}</td>
                                                                         <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{row.uploadStatus}}</span></td>
                                                                         <td class="text-center" v-if="row.uploadStatus == 'YES'"><router-link target="_blank" class="act-link" :to="''+row.fileURL"><i class="fa fa-eye"></i></router-link></td>
                                                                         <td class="text-center" v-else><span class="act-link" style="color:#808080;"> <i class="fa fa-eye"></i></span></td>

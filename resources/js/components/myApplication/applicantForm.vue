@@ -4,7 +4,7 @@
             <form @submit.prevent="saveForm">
                 <div class="form-row">
                     <div class="col-xl-12 text-center mb-3">
-                        <h5 class="text-capitalize text-center color-mg"><strong>Application Form for {{this.form.scholarshipType}} Scholarship {{form.financialYear}}</strong></h5>
+                        <h5 class="text-capitalize text-center color-mg"><strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.applicationId == '' ? '' : '( APP NO: '+form.applicationId+')'}}</strong></h5>
                     </div>
                     <div class="col-xl-12">
                         <div class="mb-3">
@@ -266,7 +266,7 @@
                                                                 <div class="col-xl-3">
                                                                     <label>Colony leader Name&nbsp;<span class="text-danger">*</span></label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="form.applicantColonyleaderName">
+                                                                        <input class="form-control form-control-sm" type="text" v-model="form.applicantColonyleaderName" :disabled="globalDisable">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1697,6 +1697,9 @@ export default {
                         {
                             this.inputDisabled = true;
                             this.globalDisable = true;
+                            this.applicantDisablitySelfShow = true;
+                            this.applicantDisablityMotherShow = true;
+                            this.applicantDisablityFatherShow = true;
                         };
                         
                         if(this.form.hasAdmissionLetter == 'YES') {
@@ -1750,16 +1753,7 @@ export default {
                                 this.form.education3Division= response.data['data'][1][2].division;
                         };
 
-                         this.readInitialDomainValues();
-
-                    } 
-                    else {
-                        console.log(response.data['msg'])
-                    }
-                })
-                axios.get(`/api/get-application-form-data/${applicationId}`)
-                .then(response => {
-                    if (response.data['success']) {
+                         this.readDomainValues(this.form.scholarshipType);
 
                         this.form.miscName1= response.data['data'][2][0].name;
                         this.form.miscCourse1= response.data['data'][2][0].course;
@@ -1771,11 +1765,24 @@ export default {
                         this.form.miscCourse3= response.data['data'][2][2].course;
                         this.form.miscYear3= response.data['data'][2][2].year;
 
+                        
+
                     } 
                     else {
                         console.log(response.data['msg'])
                     }
                 })
+                // axios.get(`/api/get-application-form-data/${applicationId}`)
+                // .then(response => {
+                //     if (response.data['success']) {
+
+                     
+
+                //     } 
+                //     else {
+                //         console.log(response.data['msg'])
+                //     }
+                // })
             },
             errorMsg (status) 
             {
@@ -1839,6 +1846,7 @@ export default {
                 if(this.form.applicationId == ''){
                    this.form.scholarshipType =  window.location.pathname.split('/').reverse()[0];
                 }
+                this.readDomainValues(this.form.scholarshipType);
             },
             readInitialDomainValues()
             {
@@ -1899,52 +1907,47 @@ export default {
                     });
 
                 //Course Level
-                console.log(this.form.scholarshipType)
-                if(this.form.scholarshipType == 'Nursing')
-                {
-                    axios.get('/api/domain/course-level/nursing')
-                        .then(response => {
-                            this.universityCourseLevel= response.data;
-                        });
-                }else if(this.form.scholarshipType == 'HHDLS')
-                {
-                    console.log("test")
-                    axios.get('/api/domain/course-level/hhdls')
-                        .then(response => {
-                            this.universityCourseLevel= response.data;
-                        });
+                // console.log(this.form.scholarshipType)
+                // if(this.form.scholarshipType == 'HHDLS')
+                // {
+                //     console.log("test")
+                    
 
-                };
+                    
+                // }else 
+                // {
+                   
+                // };
 
-                if(this.form.scholarshipType == 'HHDLS')
+
+
+
+            },
+            readDomainValues(type)
+            {
+                
+                if(type == 'HHDLS')
                 {
                     axios.get('/api/domain/course-name/hhdls')
                         .then(response => {
                             this.universityCourseName = response.data;
                         });   
-                }else if(this.form.scholarshipType == 'Nursing')
+                    axios.get('/api/domain/course-level/hhdls')
+                        .then(response => {
+                            this.universityCourseLevel= response.data;
+                        });
+                }else 
                 {
                     axios.get('/api/domain/course-name/nursing')
                         .then(response => {
                             this.universityCourseName = response.data;
                         }); 
+                     axios.get('/api/domain/course-level/nursing')
+                        .then(response => {
+                            this.universityCourseLevel= response.data;
+                        });
 
                 }
-
-
-
-            },
-            readDomainValues()
-            {
-                
-                axios.get('/api/domain/examinationPassed')
-                    .then(response => {
-                        this.examinationPassedValues= response.data;
-                    });
-                axios.get('/api/domain/universityBoardCouncil')
-                    .then(response => {
-                        this.universityBoardCouncilValues = response.data;
-                    });
              
                
             },
@@ -1972,13 +1975,13 @@ export default {
                         this.domainForm.dValue = '';
                         this.domainForm.dDesc = '';
                         this.domainForm.domainLevel = '';
-                        // this.$fire({
-                        //     position: 'top',
-                        //     icon: 'success',
-                        //     title: "Added new "+showMsg,
-                        //     showConfirmButton: false,
-                        //     timer: 3000
-                        // });
+                        this.$fire({
+                            position: 'top',
+                            icon: 'success',
+                            title: "Added new "+showMsg,
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
                         
                     } else {
                         console.log(response.data['msg'])
@@ -2124,7 +2127,7 @@ export default {
             this.checkNewScholarshipType();
             this.readInitialDomainValues();
         //    this.readDomainValues();
-           this.readInsValue();
+            this.readInsValue();
 
          }
 }

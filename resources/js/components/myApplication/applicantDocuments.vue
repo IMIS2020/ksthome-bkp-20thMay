@@ -58,7 +58,7 @@
                                                                                             <input class="form-control-file font-sm" type="file" :ref="index" multiple v-on:change="selectFile(index)" :disabled="globalDisable">
                                                                                         </div>
                                                                                     </td>
-                                                                                    <td>{{row.docFileName.split('-').reverse().join()}}</td>
+                                                                                    <td>{{row.docFileName == null? '' : row.docFileName.split('-').reverse().shift()}}</td>
                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{row.uploadStatus}}</span></td>
                                                                                     <td class="text-center w-7x"  v-if="row.uploadStatus == 'YES'"> 
                                                                                         <span>

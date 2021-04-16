@@ -182,8 +182,8 @@ class ApplicationController extends Controller
             
              #Education Details
              $applicationEducationDetails10 = new ApplicationEducationDetails; // class 10
-             $getDomainValuesExam10 = DomainValues::where('value',$request->education1ExaminationLevel)->first();
-             $applicationEducationDetails10->examLevelValueId       = $getDomainValuesExam10->id;
+            //  $getDomainValuesExam10 = DomainValues::where('value',$request->education1ExaminationLevel)->first();
+             $applicationEducationDetails10->examLevelValueId       = 1;
              $applicationEducationDetails10->examBoardValueId       = $request->education1University;
              $applicationEducationDetails10->examPassedValueId      = $request->education1ExaminationPassed;
             //  $applicationEducationDetails->examLevelValue            = $request->mainSubjects10;
@@ -198,8 +198,8 @@ class ApplicationController extends Controller
              $applicationEducationDetails10->save();
 
              $applicationEducationDetails12 = new ApplicationEducationDetails; // class 12
-             $getDomainValuesExam12 = DomainValues::where('value',$request->education2ExaminationLevel)->first();
-             $applicationEducationDetails12->examLevelValueId       = $getDomainValuesExam12->id;
+            //  $getDomainValuesExam12 = DomainValues::where('value',$request->education2ExaminationLevel)->first();
+             $applicationEducationDetails12->examLevelValueId       = 2;
              $applicationEducationDetails12->examBoardValueId       = $request->education2University;
              $applicationEducationDetails12->examPassedValueId      = $request->education2ExaminationPassed;
             //  $applicationEducationDetails->examLevelValue            = $request->mainSubjects10;
@@ -215,8 +215,8 @@ class ApplicationController extends Controller
 
              if($request->scholarshipType == 'HHDLS'){
                 $applicationEducationDetails13 = new ApplicationEducationDetails; // Graduate only for hddlls
-                $getDomainValuesExam13 = DomainValues::where('value',$request->education3ExaminationLevel)->first();
-                $applicationEducationDetails13->examLevelValueId       = $getDomainValuesExam13->id;
+                // $getDomainValuesExam13 = DomainValues::where('value',$request->education3ExaminationLevel)->first();
+                $applicationEducationDetails13->examLevelValueId       = 3;
                 $applicationEducationDetails13->examBoardValueId       = $request->education3University;
                 $applicationEducationDetails13->examPassedValueId      = $request->education3ExaminationPassed;
                //  $applicationEducationDetails->examLevelValue            = $request->mainSubjects10;
@@ -396,8 +396,8 @@ class ApplicationController extends Controller
              $applicationAddress->update();
              
              // for 10
-             $getDomainValuesExam10 = DomainValues::where('value',$request->education1ExaminationLevel)->first();
-             $applicationEducationDetails10 = ApplicationEducationDetails::where('applicationId',  $applicationDetails->id)->where('examLevelValueId', $getDomainValuesExam10->id)->first();
+            // $getDomainValuesExam10 = DomainValues::where('value',$request->education1ExaminationLevel)->first();
+             $applicationEducationDetails10 = ApplicationEducationDetails::where('applicationId',  $applicationDetails->id)->where('examLevelValueId',1)->first();
              $applicationEducationDetails10->examBoardValueId       = $request->education1University;
              $applicationEducationDetails10->examPassedValueId      = $request->education1ExaminationPassed;
             //  $applicationEducationDetails->examLevelValue            = $request->mainSubjects10;
@@ -411,8 +411,8 @@ class ApplicationController extends Controller
              $applicationEducationDetails10->update();
              
              // for 12
-             $getDomainValuesExam12 = DomainValues::where('value',$request->education2ExaminationLevel)->first();
-             $applicationEducationDetails12 = ApplicationEducationDetails::where('applicationId',  $applicationDetails->id)->where('examLevelValueId', $getDomainValuesExam12->id)->first();
+             //$getDomainValuesExam12 = DomainValues::where('value',$request->education2ExaminationLevel)->first();
+             $applicationEducationDetails12 = ApplicationEducationDetails::where('applicationId',  $applicationDetails->id)->where('examLevelValueId', 2)->first();
              $applicationEducationDetails12->examBoardValueId       = $request->education2University;
              $applicationEducationDetails12->examPassedValueId      = $request->education2ExaminationPassed;
             //  $applicationEducationDetails->examLevelValue            = $request->mainSubjects10;
@@ -427,8 +427,8 @@ class ApplicationController extends Controller
 
              //for 13
              if($request->scholarshipType == 'HHDLS'){
-                $getDomainValuesExam13 = DomainValues::where('value',$request->education3ExaminationLevel)->first();
-                $applicationEducationDetails13 = ApplicationEducationDetails::where('applicationId',  $applicationDetails->id)->where('examLevelValueId', $getDomainValuesExam13->id)->first();
+               // $getDomainValuesExam13 = DomainValues::where('value',$request->education3ExaminationLevel)->first();
+                $applicationEducationDetails13 = ApplicationEducationDetails::where('applicationId',  $applicationDetails->id)->where('examLevelValueId', 3)->first();
                 $applicationEducationDetails13->examBoardValueId       = $request->education3University;
                 $applicationEducationDetails13->examPassedValueId      = $request->education3ExaminationPassed;
                //  $applicationEducationDetails->examLevelValue            = $request->mainSubjects10;
@@ -520,16 +520,21 @@ class ApplicationController extends Controller
                                                                                                     'get_schTypeDomainValues',
                                                                                                     'get_user',)
                                                                                             ->get();
-        $getEducationDetails = ApplicationEducationDetails::where('applicationId', $getApplicationId->id)->with('get_examLevelDomainValues',
-                                                                                                                'get_examBoardDomainValues',
-                                                                                                                'get_examPassedDomainValues')->get();
-        $getMiscellaneousDetails = ApplicationMiscellaneousDetails::where('applicationId',$getApplicationId->id)->get();
-        $data = json_decode(json_encode(array($applicationDetails,$getEducationDetails,$getMiscellaneousDetails)));
-        if($data)
+        if($getApplicationId)
         {
-            return array('success' => true, 'msg'=>['Data Found!'], 'data'=>$data);
-        }
-        else{
+            $getEducationDetails = ApplicationEducationDetails::where('applicationId', $getApplicationId->id)->with('get_examLevelDomainValues',
+                                                                                                                    'get_examBoardDomainValues',
+                                                                                                                    'get_examPassedDomainValues')->get();
+            $getMiscellaneousDetails = ApplicationMiscellaneousDetails::where('applicationId',$getApplicationId->id)->get();
+            $data = json_decode(json_encode(array($applicationDetails,$getEducationDetails,$getMiscellaneousDetails)));
+            if($data)
+            {
+                return array('success' => true, 'msg'=>['Data Found!'], 'data'=>$data);
+            }
+            else{
+                return array('success' => false, 'msg'=>['No Data Found!']);
+            }
+        }else{
             return array('success' => false, 'msg'=>['No Data Found!']);
         }
      }

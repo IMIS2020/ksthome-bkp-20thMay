@@ -135,19 +135,19 @@
                                                                 <div class="col-xl-3 align-self-center">
                                                                     <label>Who is affected by Leprosy in the family:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
-                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedMother" id="formCheck-4" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-1">Mother</label></div>
-                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedFather" id="formCheck-2" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-2">Father</label></div>
-                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedSelf"   id="formCheck-3" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-3">Self</label></div>
+                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedMother"  @click="check3($event)" id="formCheck-4" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-1">Mother</label></div>
+                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedFather" @click="check2($event)" id="formCheck-2" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-2">Father</label></div>
+                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedSelf" @click="check1($event)"  id="formCheck-3"  :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-3">Self</label></div>
                                                                     </div>
                                                                 </div>
 
                                                                  <div class="col-xl-5 align-self-center">
                                                                     <label>Who has disability due to Leprosy in the family (Certificate required):&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
-                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablityMother" id="formCheck-4" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-1">Mother</label></div>
-                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablityFather" id="formCheck-2" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-2">Father</label></div>
-                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablitySelf"   id="formCheck-3" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-3">Self</label></div>
-                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablityNone"   id="formCheck-1" :disabled="applicantDisablitySelfShow"><label class="form-check-label font-md" for="formCheck-1">None</label></div>
+                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablityMother" id="formCheck-4" :disabled="applicantDisablityMotherShow"><label class="form-check-label font-md" for="formCheck-1">Mother</label></div>
+                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablityFather" id="formCheck-2" :disabled="applicantDisablityFatherShow"><label class="form-check-label font-md" for="formCheck-2">Father</label></div>
+                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablitySelf"   id="formCheck-3" :disabled="applicantDisablitySelfShow"><label class="form-check-label font-md" for="formCheck-3">Self</label></div>
+                                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablityNone"   id="formCheck-1" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-1">None</label></div>
                                                                     </div>
                                                                 </div>
                                                                
@@ -1051,7 +1051,7 @@
                                                                     <div class="form-group mb-0">
                                                                         <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled">
                                                                             <option value="" disabled>-- select --</option>
-                                                                            <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn[0].value}}</option>
+                                                                            <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn[0].id">{{ucn[0].value}}</option>
                                                                             <!-- <option  data-toggle="modal" data-target="#others-course-name" @click="addName('CourseName')">Others</option> -->
                                                                         </select>
                                                                     </div>
@@ -1442,6 +1442,8 @@ export default {
             userId: document.querySelector("meta[name='userId']").getAttribute('content'),
 
             applicantDisablitySelfShow : true,
+            applicantDisablityMotherShow: true,
+            applicantDisablityFatherShow: true,
 
             getExaminationLevel: {},
             getExaminationLevel10 : '',
@@ -1694,6 +1696,7 @@ export default {
                             // this.form.insCourse=response.data['data'][0][0].get_institute.,
                             this.form.instituteId=response.data['data'][0][0].instituteId,
                             this.dataIns(response.data['data'][0][0].instituteId),
+                            this.form.courseLevelValueId = response.data['data'][0][0].courseLevelValueId,
                             this.form.courseNameValueId = response.data['data'][0][0].courseNameValueId,
                             // this.form.insAddressAddln1=response.data['data'][0][0].courseNameValue,
                             // this.form.insAddressAddln2=response.data['data'][0][0].get_institute.addressAddln2,
@@ -1707,8 +1710,8 @@ export default {
                         };
                         
                         //education level 10
-                        if(response.data['data'][1][0].get_exam_level_domain_values.value == 10){
-                                this.form.education1ExaminationLevel='10',
+                        if(response.data['data'][1][0].get_exam_level_domain_values.id == 1){
+                                // this.form.education1ExaminationLevel='10',
                                 this.form.education1ExaminationPassed= response.data['data'][1][0].get_exam_passed_domain_values.id,
                                 this.form.education1University= response.data['data'][1][0].get_exam_board_domain_values.id,
                                 this.form.education1MainSubjects= response.data['data'][1][0].mainSubjects,
@@ -1718,8 +1721,8 @@ export default {
                         };
 
                         //education level 12
-                        if(response.data['data'][1][1].get_exam_level_domain_values.value == 12){
-                                this.form.education2ExaminationLevel='12',
+                        if(response.data['data'][1][1].get_exam_level_domain_values.id == 2){
+                               // this.form.education2ExaminationLevel='12',
                                 this.form.education2ExaminationPassed= response.data['data'][1][1].get_exam_passed_domain_values.id,
                                 this.form.education2University= response.data['data'][1][1].get_exam_board_domain_values.id,
                                 this.form.education2MainSubjects= response.data['data'][1][1].mainSubjects,
@@ -1729,8 +1732,8 @@ export default {
                         };
 
                         //education level graduate for HHDLS only (13)
-                        if(response.data['data'][1][2].get_exam_level_domain_values.value == 13){
-                                this.form.education3ExaminationLevel='13',
+                        if(response.data['data'][1][2].get_exam_level_domain_values.id == 3){
+                               // this.form.education3ExaminationLevel='13',
                                 this.form.education3ExaminationPassed= response.data['data'][1][2].get_exam_passed_domain_values.id,
                                 this.form.education3University= response.data['data'][1][2].get_exam_board_domain_values.id,
                                 this.form.education3MainSubjects= response.data['data'][1][2].mainSubjects,
@@ -1739,30 +1742,32 @@ export default {
                                 this.form.education3Division= response.data['data'][1][2].division;
                         };
 
-                    } 
-                    else {
-                        console.log(response.data['msg'])
-                    }
-                })
-                axios.get(`/api/get-application-form-data/${applicationId}`)
-                .then(response => {
-                    if (response.data['success']) {
-
-                        this.form.miscName1= response.data['data'][2][0].name;
-                        this.form.miscCourse1= response.data['data'][2][0].course;
-                        this.form.miscYear1= response.data['data'][2][0].year;
-                        this.form.miscName2= response.data['data'][2][1].name;
-                        this.form.miscCourse2= response.data['data'][2][1].course;
-                        this.form.miscYear2= response.data['data'][2][1].year;
-                        this.form.miscName3= response.data['data'][2][2].name;
-                        this.form.miscCourse3= response.data['data'][2][2].course;
-                        this.form.miscYear3= response.data['data'][2][2].year;
+                         this.readInitialDomainValues();
 
                     } 
                     else {
                         console.log(response.data['msg'])
                     }
                 })
+                // axios.get(`/api/get-application-form-data/${applicationId}`)
+                // .then(response => {
+                //     if (response.data['success']) {
+
+                //         this.form.miscName1= response.data['data'][2][0].name;
+                //         this.form.miscCourse1= response.data['data'][2][0].course;
+                //         this.form.miscYear1= response.data['data'][2][0].year;
+                //         this.form.miscName2= response.data['data'][2][1].name;
+                //         this.form.miscCourse2= response.data['data'][2][1].course;
+                //         this.form.miscYear2= response.data['data'][2][1].year;
+                //         this.form.miscName3= response.data['data'][2][2].name;
+                //         this.form.miscCourse3= response.data['data'][2][2].course;
+                //         this.form.miscYear3= response.data['data'][2][2].year;
+
+                //     } 
+                //     else {
+                //         console.log(response.data['msg'])
+                //     }
+                // })
             },
             errorMsg (status) 
             {
@@ -1886,7 +1891,7 @@ export default {
                     });
 
                 //Course Level
-
+                console.log(this.form.scholarshipType)
                 if(this.form.scholarshipType == 'Nursing')
                 {
                     axios.get('/api/domain/course-level/nursing')
@@ -1895,6 +1900,7 @@ export default {
                         });
                 }else if(this.form.scholarshipType == 'HHDLS')
                 {
+                    console.log("test")
                     axios.get('/api/domain/course-level/hhdls')
                         .then(response => {
                             this.universityCourseLevel= response.data;
@@ -2051,25 +2057,57 @@ export default {
                         }).catch(error => this.errorMsg(error.response.status))
                     }
                 }
+            },
+            check1(event)
+            {
+                 
+                if(event.target.value == 'on')
+                {
+                    this.applicantDisablitySelfShow = false;
+                  
+                }
+                    this.applicantDisablitySelfShow = this.form.applicantLeprosyAffectedSelf;
+
+                
+               
+            },
+
+            check2(event)
+            {
+                if(event.target.value == 'on')
+                {
+                    this.applicantDisablityFatherShow = false;
+                   
+                }
+                    this.applicantDisablityFatherShow = this.form.applicantLeprosyAffectedFather;
+
+                
+            },
+
+            check3(event)
+            {
+                if(event.target.value == 'on')
+                {
+                    this.applicantDisablityMotherShow = false;
+                  
+                }
+                    this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedMother;
+                
+
             }
 
          },
          computed:{
-             check()
-             {
-                 if(this.form.applicantLeprosyAffectedSelf == 'on')
-                 {
-                     applicantDisablitySelfShow == true;
-                 }
-             }
+             
              
          },
          created()
          {
+          //
           
-           this.readApplicationForm();
-           this.checkNewScholarshipType();
-           this.readInitialDomainValues();
+            this.readApplicationForm();
+            this.checkNewScholarshipType();
+            this.readInitialDomainValues();
         //    this.readDomainValues();
            this.readInsValue();
 

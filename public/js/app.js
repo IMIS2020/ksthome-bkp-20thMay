@@ -5742,6 +5742,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       userId: document.querySelector("meta[name='userId']").getAttribute('content'),
       applicantDisablitySelfShow: true,
+      applicantDisablityMotherShow: true,
+      applicantDisablityFatherShow: true,
       getExaminationLevel: {},
       getExaminationLevel10: '',
       getExaminationLevel12: '',
@@ -5993,7 +5995,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     if (_this2.form.hasAdmissionLetter == 'YES') {
                       _this2.inputDisabled = false; // this.form.insCourse=response.data['data'][0][0].get_institute.,
 
-                      _this2.form.instituteId = response.data['data'][0][0].instituteId, _this2.dataIns(response.data['data'][0][0].instituteId), _this2.form.courseNameValueId = response.data['data'][0][0].courseNameValueId, // this.form.insAddressAddln1=response.data['data'][0][0].courseNameValue,
+                      _this2.form.instituteId = response.data['data'][0][0].instituteId, _this2.dataIns(response.data['data'][0][0].instituteId), _this2.form.courseLevelValueId = response.data['data'][0][0].courseLevelValueId, _this2.form.courseNameValueId = response.data['data'][0][0].courseNameValueId, // this.form.insAddressAddln1=response.data['data'][0][0].courseNameValue,
                       // this.form.insAddressAddln2=response.data['data'][0][0].get_institute.addressAddln2,
                       // this.form.insAddressCity=response.data['data'][0][0].get_institute.addressCity,
                       // this.form.insAddressDistprov=response.data['data'][0][0].get_institute.addressDistprov,
@@ -6006,44 +6008,50 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                     ; //education level 10
 
-                    if (response.data['data'][1][0].get_exam_level_domain_values.value == 10) {
-                      _this2.form.education1ExaminationLevel = '10', _this2.form.education1ExaminationPassed = response.data['data'][1][0].get_exam_passed_domain_values.id, _this2.form.education1University = response.data['data'][1][0].get_exam_board_domain_values.id, _this2.form.education1MainSubjects = response.data['data'][1][0].mainSubjects, _this2.form.education1YearOfPassing = response.data['data'][1][0].yearOfPassing, _this2.form.education1Percentage = response.data['data'][1][0].percentage, _this2.form.education1Division = response.data['data'][1][0].division;
+                    if (response.data['data'][1][0].get_exam_level_domain_values.id == 1) {
+                      // this.form.education1ExaminationLevel='10',
+                      _this2.form.education1ExaminationPassed = response.data['data'][1][0].get_exam_passed_domain_values.id, _this2.form.education1University = response.data['data'][1][0].get_exam_board_domain_values.id, _this2.form.education1MainSubjects = response.data['data'][1][0].mainSubjects, _this2.form.education1YearOfPassing = response.data['data'][1][0].yearOfPassing, _this2.form.education1Percentage = response.data['data'][1][0].percentage, _this2.form.education1Division = response.data['data'][1][0].division;
                     }
 
                     ; //education level 12
 
-                    if (response.data['data'][1][1].get_exam_level_domain_values.value == 12) {
-                      _this2.form.education2ExaminationLevel = '12', _this2.form.education2ExaminationPassed = response.data['data'][1][1].get_exam_passed_domain_values.id, _this2.form.education2University = response.data['data'][1][1].get_exam_board_domain_values.id, _this2.form.education2MainSubjects = response.data['data'][1][1].mainSubjects, _this2.form.education2YearOfPassing = response.data['data'][1][1].yearOfPassing, _this2.form.education2Percentage = response.data['data'][1][1].percentage, _this2.form.education2Division = response.data['data'][1][1].division;
+                    if (response.data['data'][1][1].get_exam_level_domain_values.id == 2) {
+                      // this.form.education2ExaminationLevel='12',
+                      _this2.form.education2ExaminationPassed = response.data['data'][1][1].get_exam_passed_domain_values.id, _this2.form.education2University = response.data['data'][1][1].get_exam_board_domain_values.id, _this2.form.education2MainSubjects = response.data['data'][1][1].mainSubjects, _this2.form.education2YearOfPassing = response.data['data'][1][1].yearOfPassing, _this2.form.education2Percentage = response.data['data'][1][1].percentage, _this2.form.education2Division = response.data['data'][1][1].division;
                     }
 
                     ; //education level graduate for HHDLS only (13)
 
-                    if (response.data['data'][1][2].get_exam_level_domain_values.value == 13) {
-                      _this2.form.education3ExaminationLevel = '13', _this2.form.education3ExaminationPassed = response.data['data'][1][2].get_exam_passed_domain_values.id, _this2.form.education3University = response.data['data'][1][2].get_exam_board_domain_values.id, _this2.form.education3MainSubjects = response.data['data'][1][2].mainSubjects, _this2.form.education3YearOfPassing = response.data['data'][1][2].yearOfPassing, _this2.form.education3Percentage = response.data['data'][1][2].percentage, _this2.form.education3Division = response.data['data'][1][2].division;
+                    if (response.data['data'][1][2].get_exam_level_domain_values.id == 3) {
+                      // this.form.education3ExaminationLevel='13',
+                      _this2.form.education3ExaminationPassed = response.data['data'][1][2].get_exam_passed_domain_values.id, _this2.form.education3University = response.data['data'][1][2].get_exam_board_domain_values.id, _this2.form.education3MainSubjects = response.data['data'][1][2].mainSubjects, _this2.form.education3YearOfPassing = response.data['data'][1][2].yearOfPassing, _this2.form.education3Percentage = response.data['data'][1][2].percentage, _this2.form.education3Division = response.data['data'][1][2].division;
                     }
 
                     ;
-                  } else {
-                    console.log(response.data['msg']);
-                  }
-                });
-                axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
-                  if (response.data['success']) {
-                    _this2.form.miscName1 = response.data['data'][2][0].name;
-                    _this2.form.miscCourse1 = response.data['data'][2][0].course;
-                    _this2.form.miscYear1 = response.data['data'][2][0].year;
-                    _this2.form.miscName2 = response.data['data'][2][1].name;
-                    _this2.form.miscCourse2 = response.data['data'][2][1].course;
-                    _this2.form.miscYear2 = response.data['data'][2][1].year;
-                    _this2.form.miscName3 = response.data['data'][2][2].name;
-                    _this2.form.miscCourse3 = response.data['data'][2][2].course;
-                    _this2.form.miscYear3 = response.data['data'][2][2].year;
-                  } else {
-                    console.log(response.data['msg']);
-                  }
-                });
 
-              case 3:
+                    _this2.readInitialDomainValues();
+                  } else {
+                    console.log(response.data['msg']);
+                  }
+                }); // axios.get(`/api/get-application-form-data/${applicationId}`)
+                // .then(response => {
+                //     if (response.data['success']) {
+                //         this.form.miscName1= response.data['data'][2][0].name;
+                //         this.form.miscCourse1= response.data['data'][2][0].course;
+                //         this.form.miscYear1= response.data['data'][2][0].year;
+                //         this.form.miscName2= response.data['data'][2][1].name;
+                //         this.form.miscCourse2= response.data['data'][2][1].course;
+                //         this.form.miscYear2= response.data['data'][2][1].year;
+                //         this.form.miscName3= response.data['data'][2][2].name;
+                //         this.form.miscCourse3= response.data['data'][2][2].course;
+                //         this.form.miscYear3= response.data['data'][2][2].year;
+                //     } 
+                //     else {
+                //         console.log(response.data['msg'])
+                //     }
+                // })
+
+              case 2:
               case "end":
                 return _context.stop();
             }
@@ -6156,11 +6164,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         _this3.universityBoardCouncilValues13 = response.data;
       }); //Course Level
 
+      console.log(this.form.scholarshipType);
+
       if (this.form.scholarshipType == 'Nursing') {
         axios.get('/api/domain/course-level/nursing').then(function (response) {
           _this3.universityCourseLevel = response.data;
         });
       } else if (this.form.scholarshipType == 'HHDLS') {
+        console.log("test");
         axios.get('/api/domain/course-level/hhdls').then(function (response) {
           _this3.universityCourseLevel = response.data;
         });
@@ -6303,16 +6314,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           });
         }
       }
-    }
-  },
-  computed: {
-    check: function check() {
-      if (this.form.applicantLeprosyAffectedSelf == 'on') {
-        applicantDisablitySelfShow == true;
+    },
+    check1: function check1(event) {
+      if (event.target.value == 'on') {
+        this.applicantDisablitySelfShow = false;
       }
+
+      this.applicantDisablitySelfShow = this.form.applicantLeprosyAffectedSelf;
+    },
+    check2: function check2(event) {
+      if (event.target.value == 'on') {
+        this.applicantDisablityFatherShow = false;
+      }
+
+      this.applicantDisablityFatherShow = this.form.applicantLeprosyAffectedFather;
+    },
+    check3: function check3(event) {
+      if (event.target.value == 'on') {
+        this.applicantDisablityMotherShow = false;
+      }
+
+      this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedMother;
     }
   },
+  computed: {},
   created: function created() {
+    //
     this.readApplicationForm();
     this.checkNewScholarshipType();
     this.readInitialDomainValues(); //    this.readDomainValues();
@@ -61667,10 +61694,13 @@ var render = function() {
                                                       _c("td", [
                                                         _vm._v(
                                                           _vm._s(
-                                                            row.docFileName
-                                                              .split("-")
-                                                              .reverse()
-                                                              .join()
+                                                            row.docFileName ==
+                                                              null
+                                                              ? ""
+                                                              : row.docFileName
+                                                                  .split("-")
+                                                                  .reverse()
+                                                                  .shift()
                                                           )
                                                         )
                                                       ]),
@@ -62973,6 +63003,9 @@ var render = function() {
                                                           .applicantLeprosyAffectedMother
                                                   },
                                                   on: {
+                                                    click: function($event) {
+                                                      return _vm.check3($event)
+                                                    },
                                                     change: function($event) {
                                                       var $$a =
                                                           _vm.form
@@ -63069,6 +63102,9 @@ var render = function() {
                                                           .applicantLeprosyAffectedFather
                                                   },
                                                   on: {
+                                                    click: function($event) {
+                                                      return _vm.check2($event)
+                                                    },
                                                     change: function($event) {
                                                       var $$a =
                                                           _vm.form
@@ -63165,6 +63201,9 @@ var render = function() {
                                                           .applicantLeprosyAffectedSelf
                                                   },
                                                   on: {
+                                                    click: function($event) {
+                                                      return _vm.check1($event)
+                                                    },
                                                     change: function($event) {
                                                       var $$a =
                                                           _vm.form
@@ -63262,7 +63301,8 @@ var render = function() {
                                                   attrs: {
                                                     type: "checkbox",
                                                     id: "formCheck-4",
-                                                    disabled: _vm.globalDisable
+                                                    disabled:
+                                                      _vm.applicantDisablityMotherShow
                                                   },
                                                   domProps: {
                                                     checked: Array.isArray(
@@ -63358,7 +63398,8 @@ var render = function() {
                                                   attrs: {
                                                     type: "checkbox",
                                                     id: "formCheck-2",
-                                                    disabled: _vm.globalDisable
+                                                    disabled:
+                                                      _vm.applicantDisablityFatherShow
                                                   },
                                                   domProps: {
                                                     checked: Array.isArray(
@@ -63454,7 +63495,8 @@ var render = function() {
                                                   attrs: {
                                                     type: "checkbox",
                                                     id: "formCheck-3",
-                                                    disabled: _vm.globalDisable
+                                                    disabled:
+                                                      _vm.applicantDisablitySelfShow
                                                   },
                                                   domProps: {
                                                     checked: Array.isArray(
@@ -63550,8 +63592,7 @@ var render = function() {
                                                   attrs: {
                                                     type: "checkbox",
                                                     id: "formCheck-1",
-                                                    disabled:
-                                                      _vm.applicantDisablitySelfShow
+                                                    disabled: _vm.globalDisable
                                                   },
                                                   domProps: {
                                                     checked: Array.isArray(
@@ -69227,7 +69268,7 @@ var render = function() {
                                                     {
                                                       key: index,
                                                       domProps: {
-                                                        value: ucn.id
+                                                        value: ucn[0].id
                                                       }
                                                     },
                                                     [

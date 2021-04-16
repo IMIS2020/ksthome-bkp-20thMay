@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <nav class="navbar navbar-dark navbar-expand-md shadow-lg  imis-nav">
-        <div class="container-fluid"><a class="navbar-brand text-white"  href="/">I-MIS</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid"><a class="navbar-brand text-white"  href="/">S-ILF Scholarships</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ml-auto font-md">
                     @if (Route::has('login'))

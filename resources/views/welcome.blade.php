@@ -4,8 +4,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-8 offset-xl-2 text-center">
-                <h2 class="text-break color-mg"><strong>Welcome to Application for S-ILF Scholarship</strong></h2>
+                <h2 class="text-break color-mg"><strong>Welcome to Application for S-ILF Scholarships</strong></h2>
             </div>
+           
             <div class="col-xl-10 offset-xl-1 text-center mb-4">
                 <hr class="cs-hr" />
             </div>
@@ -23,12 +24,12 @@
                         <div class="tab-pane active p-3" role="tabpanel" id="tab-1">
                             <h5 class="text-break mb-3 color-mg"><a href="/application-form/HHDLS"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for HHDLS Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-sign-in"></i></h5>
                             <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Instructions-for-HHDL-Scholarship-Programme.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for HHDLS Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?>  &nbsp;</strong><i class="fa fa-download"></i></h5>
-                            <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Guidelines-for-HHDL-Scholarship 2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for HHDLS Scholarship <?php echo date("Y");?> -<?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-download"></i></h5>
+                            <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Guidelines-HHDL-2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for HHDLS Scholarship <?php echo date("Y");?> -<?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-download"></i></h5>
                         </div>
                         <div class="tab-pane p-3" role="tabpanel" id="tab-2">
                             <h5 class="text-break mb-3 color-mg"><a href="/application-form/Nursing"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for Nursing Scholarship <?php echo date("Y");?> - <?php echo date("Y")+1; ?> &nbsp;</strong><i class="fa fa-sign-in"></i></h5>
                             <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-nur"><a href="{{asset('assets/files/Instructions-for-Nursing-Scholarship-Programme.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for Nursing Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-download"></i></h5>
-                            <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-nur"><a href="{{asset('assets/files/Guidelines-for-Nursing-Scholarship 2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for Nursing Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-download"></i></h5>
+                            <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-nur"><a href="{{asset('assets/files/Guidelines-Nursing-2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for Nursing Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-download"></i></h5>
                         </div>
                         <!-- <div class="tab-pane p-3" role="tabpanel" id="tab-3">
                             <h5 class="text-break mb-3 color-mg"><a href="add-new-hhdl-scholarship-application.html"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for One Year Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-sign-in"></i></h5>
@@ -77,7 +78,7 @@
                         <button class="btn btn-block btn-sm btn-mg" type="submit"><strong>{{ __('Login') }}</strong></button>
                         </div>
                         <div class="form-group mb-0">
-                            <p class="text-muted font-md mb-0"><strong>If you donot have a login account </strong><a href="{{ route('register') }}"><strong>click here</strong></a>&nbsp;to register</p>
+                            <p class="text-muted font-md mb-0"><strong>If you do not have a login account </strong><a href="{{ route('register') }}"><strong>click here</strong></a>&nbsp;to register</p>
                             <p class="text-muted font-md mb-0"><strong>forgot your password? </strong><a href="{{ route('password.request') }}"><strong>click here</strong></a>&nbsp;to reset password</p>
                             
                         </div>
@@ -96,12 +97,12 @@
                             <div class="tab-pane active p-3" role="tabpanel" id="tab-1">
                                 <h5 class="text-break mb-3 color-mg"><a href="/application-form/HHDLS"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for HHDLS Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-sign-in"></i></h5>
                                 <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Instructions-for-HHDL-Scholarship-Programme.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for HHDLS Scholarship <?php echo date("Y");?> - <?php echo date("Y")+1; ?>&nbsp;</strong><i class="fa fa-download"></i></h5>
-                                <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Guidelines-for-HHDL-Scholarship 2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for HHDLS Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-download"></i></h5>
+                                <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-hhdl"><a href="{{asset('assets/files/Guidelines-HHDL-2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for HHDLS Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-download"></i></h5>
                             </div>
                             <div class="tab-pane p-3" role="tabpanel" id="tab-2">
                                 <h5 class="text-break mb-3 color-mg"><a href="/application-form/Nursing"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for Nursing Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-sign-in"></i></h5>
                                 <h5 class="text-break mb-3 color-mg" data-toggle="modal" data-target="#dw-gdl-nur"><a href="{{asset('assets/files/Instructions-for-Nursing-Scholarship-Programme.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Instructions for Nursing Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-download"></i></h5>
-                                <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-nur"><a href="{{asset('assets/files/Guidelines-for-Nursing-Scholarship 2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for Nursing Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-download"></i></h5>
+                                <h5 class="text-break mb-2 color-mg" data-toggle="modal" data-target="#dw-gdl-nur"><a href="{{asset('assets/files/Guidelines-Nursing-2021-22.pdf')}}"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to View/Download Guidelines for Nursing Scholarship <?php echo date("Y");?> - <?php echo substr(date("Y")+1,2); ?> &nbsp;</strong><i class="fa fa-download"></i></h5>
                             </div>
                             <!-- <div class="tab-pane p-3" role="tabpanel" id="tab-3">
                                 <h5 class="text-break mb-3 color-mg"><a href="add-new-hhdl-scholarship-application.html"><strong><span style="text-decoration: underline;">Click here</span></strong></a><strong> to Apply for One Year Scholarship 2021 - 22&nbsp;</strong><i class="fa fa-sign-in"></i></h5>
@@ -140,9 +141,11 @@
                                     <div class="form-group"><button class="btn btn-block btn-sm btn-mg" type="submit"><strong>Update</strong></button></div>
                                 </div>
                             </div>
+                            <br>
+                            <!-- <br>
                             <div class="form-group mb-0">
                             <p class="text-muted font-md mb-0"><strong>forgot your password? </strong><a href="{{ route('password.request') }}"><strong>click here</strong></a>&nbsp;to reset password</p>
-                            </div>
+                            </div> -->
                         </form>
                     </div>
                 </div>

@@ -179,7 +179,7 @@
                                                                             <option value="14">HHDL Scholarship</option>
                                                                         </select></div>
                                                                     <div class="col-sm-4 col-xl-3 offset-xl-0 text-right align-self-center">
-                                                                        <p class="text-left mb-0 font-sm"><strong>&nbsp;</strong><a href="admin-add-offline-nursing-application.html"><strong>Click here</strong></a></p>
+                                                                        <p class="text-left mb-0 font-sm"><strong>&nbsp;</strong><a href="#"><strong>Click here</strong></a></p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -195,28 +195,28 @@
                                                 <tr>
                                                     <th class="w-20x">Application Details</th>
                                                     <th>Applicant's Details</th>
-                                                    <th class="w-15x">Contact Details</th>
+                                                    <th class="w-20x">Contact Details</th>
                                                     <th>Applicant's Address</th>
                                                     <th class="w-15x">Submission</th>
                                                     <th class="text-center w-10x">Status</th>
                                                     <th class="text-center w-5x">Action</th>
                                                 </tr>
                                             </thead>
-                                            <tbody class="h-35x font-sm">
-                                                <tr>
-                                                    <td class="w-20x">AP-NURSCH-2021-22-0001<br>Session: 2020 - 2021<br>Type: Nursing</td>
-                                                    <td>Mukti Moti Khalsa,<br>Gender: Female, <br>Age: 25 Yrs. 6 mo 25 days</td>
-                                                    <td class="w-15x"><em>9876543210,</em><br><em>user@gmail.com</em></td>
-                                                    <td>234 P.N.MUKHERJEE ROAD KOLKATA WEST-BENGAL -700114<br></td>
-                                                    <td class="w-15x">Date: 27-02-2021,<br>Type: Online</td>
-                                                    <td class="text-center w-10x">Submitted,<br>dd/mm/yyyy<span class="badge badge-success"></span></td>
+                                            <tbody  class="h-35x font-sm">
+                                                <tr v-for="(eachData,i) in getAllData" :key="i">
+                                                    <td class="w-20x">Application No: {{eachData.schApplicationId}}<br>Session: {{eachData.financialYear}}<br>Type: {{eachData.scholarshipType}}</td>
+                                                    <td>{{eachData.applicantNameF}} {{(eachData.applicantNameM)?" "+eachData.applicantNameM:''}} {{eachData.applicantNameL}} ,<br>Gender: {{eachData.applicantGender}}, <br>Age: 25 Yrs. 6 mo 25 days</td>
+                                                    <td class="w-20x"><em>{{eachData.applicantContactNoSelf}},</em><br><em>{{eachData.applicantEmailId}}</em></td>
+                                                    <td>234 P.N.MUKHERJEE ROAD <br>KOLKATA WEST-BENGAL -700116<br></td>
+                                                    <td class="w-15x">Date: {{eachData.updated_at.split('T')[0].split('-').reverse().join('/')}},<br>Type: {{eachData.applicationType}}</td>
+                                                    <td class="text-center w-10x"><span>Submitted</span><br>{{eachData.created_at.split('T')[0].split('-').reverse().join('/')}}</td>
                                                     <td class="text-center w-5x">
                                                         <div class="dropdown no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
-                                                            <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in"><a class="dropdown-item" href="admin-review-scholarship-applications.html"><strong>Review Application</strong></a><a class="dropdown-item" href="admin-view-nursing-application.html"><strong>View Application</strong></a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#view-application-comments"><strong>View Comments</strong></a></div>
+                                                            <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in"><a class="dropdown-item" href="#"><strong>Review Application</strong></a><a class="dropdown-item" href="#"><strong>View Application</strong></a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#view-application-comments"><strong>View Comments</strong></a></div>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <tr>
+                                                <!-- <tr>
                                                     <td class="w-20x">AP-HHDLSCH-2021-22-0010<br>Session: 2020 - 2021<br>Type: HHDL</td>
                                                     <td>Rahul Kr. Pandit<br>Gender: Male, <br>Age: 24 Yrs. 7 mo 20 days</td>
                                                     <td class="w-15x"><em>7278491931,</em><br><em>rahul@gmail.com</em></td>
@@ -228,7 +228,7 @@
                                                             <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in"><a class="dropdown-item" href="#"><strong>Edit Application</strong></a><a class="dropdown-item" href="admin-view-hhdl-application.html"><strong>View Application</strong></a><a class="dropdown-item" href="#"><strong>Review Application</strong></a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#view-application-comments"><strong>View Comments</strong></a></div>
                                                         </div>
                                                     </td>
-                                                </tr>
+                                                </tr> -->
                                             </tbody>
                                         </table>
                                     </div>
@@ -441,15 +441,27 @@
 export default {
     data(){
         return{
-            
+           getAllData:{}, 
           }
     },
     methods:{
+
+        getData(){
+             axios.get('/admin/admin-api/get-application-details')
+             .then(response => {
+                   this.getAllData = response.data
+             });
+        },
       logout(){
          axios.get('/admin/logout').then(function(){
             document.location.href = "/admin/login";
          })
       },
     },
+
+    created()
+         {
+           this.getData();
+         }
 }
 </script>

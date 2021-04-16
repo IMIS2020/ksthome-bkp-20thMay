@@ -152,120 +152,6 @@ Route::group(['prefix' => 'api'], function() {
     * end Manage my application
     */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-   
   });
 });
 
@@ -304,9 +190,20 @@ Route::prefix('admin')->group(function() {
     /***
    *End Domains 
    */
+
+   /***
+   *schedule 
+   */
+   Route::get('/add-application-schedule',    'Admin\AdminSystemController@addSchedule');
+   Route::get('/manage-application-schedule',    'Admin\AdminSystemController@manageSchedule');
+   Route::get('/extend-last-date',    'Admin\AdminSystemController@extendLastDate');
+   /***
+   *End schedule 
+   */
   
     Route::group(['prefix' => 'admin-api'], function() { 
-
+ 
+      Route::get('/get-application-details','Admin\ApplicationDetails\AdminApplicationDetails@getData');
       
     });
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');

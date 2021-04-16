@@ -42,6 +42,8 @@
                 <div class="col-xl-8 offset-xl-2 mb-2">
                     <h3 class="text-white">Don't have any account?</h3>
                     <h6 class="text-white mb-3">Enter your personal details and start journey with us</h6>
+                    <h6 class="text-white mb-3">Note :&nbsp;&nbsp; The password must be at least 8 characters.</h6>
+                    <h6 class="text-white mb-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An Email address is required in order to register.</h6>
                 </div>
                 <div class="col-xl-8 offset-xl-2">
                     <div class="login-box">
@@ -80,7 +82,7 @@
                                 </div>
                                 <div class="col-xl-4 mb-3">
                                     <div class="form-group">
-                                   <input class="form-control @error('contactno') is-invalid @enderror" type="text" name="contactno" placeholder="Contact No." maxlength="10">
+                                   <input class="form-control @error('contactno') is-invalid @enderror" type="text" name="contactno" placeholder="Contact No." value="{{ old('contactno') }}" maxlength="10">
                                         @if ($errors->has('contactno'))
                                             <span class="invalid-feedback">
                                                 <strong>{{ $errors->first('contactno') }}</strong>
@@ -100,10 +102,10 @@
                                 </div>
                                 <div class="col-xl-2 mb-3">
                                     <div class="form-group">
-                                    <select class="form-control @error('gender') is-invalid @enderror" name="gender">
+                                    <select class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}">
                                     <option value="" selected="" disabled>Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
+                                    <option value="Male" @if (old('gender') == 'Male') selected="selected" @endif>Male</option>
+                                    <option value="Female" @if (old('gender') == 'Female') selected="selected" @endif>Female</option>
                                 </select>
                                 @if ($errors->has('gender'))
                                             <span class="invalid-feedback">

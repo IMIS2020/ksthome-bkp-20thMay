@@ -51,11 +51,22 @@
                     @csrf
                         <h6 class="text-center color-mg mb-4"><strong>Login to apply for scholarship</strong></h6>
                         <div class="form-group mb-3">
-                        <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" placeholder="Email address" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" placeholder="Enter your registered email address" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                        @if ($errors->has('email'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                         @endif
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                            <input class="form-control @error('password') is-invalid @enderror" type="password" id="password" name="password" placeholder="Password" required autocomplete="current-password">
+                            <input class="form-control @error('password') is-invalid @enderror" type="password" id="password" name="password" placeholder="Enter your 8 character login password" required autocomplete="current-password">
+                            @if ($errors->has('password'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
                                 <!-- <div class="input-group-append">
                                 <button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button>
                              </div>
@@ -99,21 +110,29 @@
                             </div> -->
                         </div>
                     </div>
-                    <!-- <div class="login-box mt-2 pb-2">
-                        <form method="post">
+                    <div class="login-box mt-2 pb-2">
+                    <form method="POST" action="{{url('/change-password') }}">
+                        @csrf 
                             <h6 class="color-mg mb-2"><strong>Update Password</strong></h6>
+                            @if(Session::has('msg'))
+                                <div class="alert alert-success">{{Session::get('msg')}}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                </div>
+                            @endif
+
+                          
                             <div class="form-row">
                                 <div class="col-xl-5">
                                     <div class="form-group">
-                                        <div class="input-group input-group-sm"><input class="form-control" type="password" id="password" name="password" placeholder="Current Password">
-                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button></div>
+                                        <div class="input-group input-group-sm"><input class="form-control" type="password" id="password" name="current_password" placeholder="Current Password">
+                                            <!-- <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button></div> -->
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-5">
                                     <div class="form-group">
-                                        <div class="input-group input-group-sm"><input class="form-control form-control-sm" type="password" id="password-1" name="password" placeholder="New Password">
-                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword-1"></i></button></div>
+                                        <div class="input-group input-group-sm"><input class="form-control form-control-sm" type="password" id="password-1" name="new_password" placeholder="New Password">
+                                            <!-- <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword-1"></i></button></div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -122,10 +141,10 @@
                                 </div>
                             </div>
                             <div class="form-group mb-0">
-                                <p class="text-muted font-md mb-0"><strong>Forgot your password, reset it&nbsp;</strong><a href="#"><strong>here</strong></a></p>
+                            <p class="text-muted font-md mb-0"><strong>forgot your password? </strong><a href="{{ route('password.request') }}"><strong>click here</strong></a>&nbsp;to reset password</p>
                             </div>
                         </form>
-                    </div> -->
+                    </div>
                 </div>
 
                 <div class="col-sm-12 col-lg-4 col-xl-4 offset-xl-0 pl-1">

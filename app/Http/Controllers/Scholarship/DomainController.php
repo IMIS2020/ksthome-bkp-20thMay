@@ -157,6 +157,20 @@ class DomainController extends Controller
         return $data;
     }
 
+    public function getCourseNameNursing()
+    {
+        // $data = array();
+        
+        $getDomainNameId1 = DomainName::where('name','AdmissionCourse-Bachelors-Nursing')->first();
+        $getDomainValues1 = DomainValues::where('nameId',$getDomainNameId1->id)->select('value','id')->orderBy('id','DESC')->get();
+
+        // array_push($data,$getDomainValues1);
+
+        return $getDomainValues1;
+
+    }
+    
+
     public function addDomainValues(Request $request)
     {
         $request->validate([ 

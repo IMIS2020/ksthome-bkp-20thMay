@@ -223,13 +223,27 @@ export default{
 
         selectFile(index){
             let file = this.$refs[index][0].files[0];
-            let fileName = file.name;
-            let fileReader = new FileReader()
-            fileReader.readAsDataURL(file)
-            fileReader.onload = (e) => {
-                this.docRows[index].docFileNameFile=e.target.result;
+            if (file.size > 1024 * 1024) {
+               //this.$refs[index][0].files[0] ='';
+                // e.preventDefault();
+                this.$fire({
+                        position: 'top',
+                        icon: 'success',
+                        title: "Document is Too Large",
+                        showConfirmButton: false,
+                        timer: 3000
+                })
+               
+                return
+            }else{
+                let fileName = file.name;
+                let fileReader = new FileReader()
+                fileReader.readAsDataURL(file)
+                fileReader.onload = (e) => {
+                    this.docRows[index].docFileNameFile=e.target.result;
+                }
+                this.docRows[index].fileName = fileName;
             }
-            this.docRows[index].fileName = fileName;
         },
 
        deleteFile(applicationDocId)

@@ -45,6 +45,7 @@ class UserProfileController extends Controller
         $newFilename = "profile-photo-". $filename;
         $path = $file->storeAs('public/'.$this->PATH, $newFilename );
         $user->profilePhoto =  $newFilename;
+         $url = Storage::url('uploads/schloarshipRecord/'.$fileName);
         $user->update();
         return redirect()->back();
       }

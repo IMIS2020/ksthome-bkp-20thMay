@@ -4736,15 +4736,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this4 = this;
 
       var file = this.$refs[index][0].files[0];
-      var fileName = file.name;
-      var fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
 
-      fileReader.onload = function (e) {
-        _this4.docRows[index].docFileNameFile = e.target.result;
-      };
+      if (file.size > 1024 * 1024) {
+        //this.$refs[index][0].files[0] ='';
+        // e.preventDefault();
+        this.$fire({
+          position: 'top',
+          icon: 'success',
+          title: "Document is Too Large",
+          showConfirmButton: false,
+          timer: 3000
+        });
+        return;
+      } else {
+        var fileName = file.name;
+        var fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
 
-      this.docRows[index].fileName = fileName;
+        fileReader.onload = function (e) {
+          _this4.docRows[index].docFileNameFile = e.target.result;
+        };
+
+        this.docRows[index].fileName = fileName;
+      }
     },
     deleteFile: function deleteFile(applicationDocId) {
       var _this5 = this;
@@ -4788,6 +4802,13 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6669,6 +6690,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       if (this.form.scholarshipType == 'HHDLS') {
         axios.get('/api/domain/course-name/hhdls').then(function (response) {
+          _this3.universityCourseName = response.data;
+        });
+      } else if (this.form.scholarshipType == 'Nursing') {
+        axios.get('/api/domain/course-name/nursing').then(function (response) {
           _this3.universityCourseName = response.data;
         });
       }
@@ -67158,7 +67183,8 @@ var render = function() {
                                                                 "form-control form-control-sm",
                                                               attrs: {
                                                                 disabled:
-                                                                  _vm.globalDisable
+                                                                  _vm.globalDisable,
+                                                                required: ""
                                                               },
                                                               on: {
                                                                 change: function(
@@ -67657,7 +67683,8 @@ var render = function() {
                                                                 "form-control form-control-sm",
                                                               attrs: {
                                                                 disabled:
-                                                                  _vm.globalDisable
+                                                                  _vm.globalDisable,
+                                                                required: ""
                                                               },
                                                               on: {
                                                                 change: function(
@@ -68156,7 +68183,8 @@ var render = function() {
                                                               placeholder:
                                                                 "Type separated by comma",
                                                               disabled:
-                                                                _vm.globalDisable
+                                                                _vm.globalDisable,
+                                                              required: ""
                                                             },
                                                             domProps: {
                                                               value:
@@ -68213,7 +68241,8 @@ var render = function() {
                                                                 "form-control form-control-sm",
                                                               attrs: {
                                                                 disabled:
-                                                                  _vm.globalDisable
+                                                                  _vm.globalDisable,
+                                                                required: ""
                                                               },
                                                               on: {
                                                                 change: function(
@@ -68414,7 +68443,8 @@ var render = function() {
                                                               max: "100",
                                                               step: "0.01",
                                                               disabled:
-                                                                _vm.globalDisable
+                                                                _vm.globalDisable,
+                                                              required: ""
                                                             },
                                                             domProps: {
                                                               value:
@@ -68471,7 +68501,8 @@ var render = function() {
                                                                 "form-control form-control-sm",
                                                               attrs: {
                                                                 disabled:
-                                                                  _vm.globalDisable
+                                                                  _vm.globalDisable,
+                                                                required: ""
                                                               },
                                                               on: {
                                                                 change: function(
@@ -68665,7 +68696,8 @@ var render = function() {
                                                                 "form-control form-control-sm",
                                                               attrs: {
                                                                 disabled:
-                                                                  _vm.globalDisable
+                                                                  _vm.globalDisable,
+                                                                required: ""
                                                               },
                                                               on: {
                                                                 change: function(
@@ -69105,7 +69137,8 @@ var render = function() {
                                                                 "form-control form-control-sm",
                                                               attrs: {
                                                                 disabled:
-                                                                  _vm.globalDisable
+                                                                  _vm.globalDisable,
+                                                                required: ""
                                                               },
                                                               on: {
                                                                 change: function(
@@ -69545,7 +69578,8 @@ var render = function() {
                                                               placeholder:
                                                                 "Type separated by comma",
                                                               disabled:
-                                                                _vm.globalDisable
+                                                                _vm.globalDisable,
+                                                              required: ""
                                                             },
                                                             domProps: {
                                                               value:
@@ -69602,7 +69636,8 @@ var render = function() {
                                                                 "form-control form-control-sm",
                                                               attrs: {
                                                                 disabled:
-                                                                  _vm.globalDisable
+                                                                  _vm.globalDisable,
+                                                                required: ""
                                                               },
                                                               on: {
                                                                 change: function(
@@ -69803,7 +69838,8 @@ var render = function() {
                                                               max: "100",
                                                               step: "0.01",
                                                               disabled:
-                                                                _vm.globalDisable
+                                                                _vm.globalDisable,
+                                                              required: ""
                                                             },
                                                             domProps: {
                                                               value:
@@ -69860,7 +69896,8 @@ var render = function() {
                                                                 "form-control form-control-sm",
                                                               attrs: {
                                                                 disabled:
-                                                                  _vm.globalDisable
+                                                                  _vm.globalDisable,
+                                                                required: ""
                                                               },
                                                               on: {
                                                                 change: function(
@@ -70060,7 +70097,8 @@ var render = function() {
                                                                     "form-control form-control-sm",
                                                                   attrs: {
                                                                     disabled:
-                                                                      _vm.globalDisable
+                                                                      _vm.globalDisable,
+                                                                    required: ""
                                                                   },
                                                                   on: {
                                                                     change: function(
@@ -70512,7 +70550,8 @@ var render = function() {
                                                                     "form-control form-control-sm",
                                                                   attrs: {
                                                                     disabled:
-                                                                      _vm.globalDisable
+                                                                      _vm.globalDisable,
+                                                                    required: ""
                                                                   },
                                                                   on: {
                                                                     change: function(
@@ -70964,7 +71003,8 @@ var render = function() {
                                                                   placeholder:
                                                                     "Type separated by comma",
                                                                   disabled:
-                                                                    _vm.globalDisable
+                                                                    _vm.globalDisable,
+                                                                  required: ""
                                                                 },
                                                                 domProps: {
                                                                   value:
@@ -71024,7 +71064,8 @@ var render = function() {
                                                                     "form-control form-control-sm",
                                                                   attrs: {
                                                                     disabled:
-                                                                      _vm.globalDisable
+                                                                      _vm.globalDisable,
+                                                                    required: ""
                                                                   },
                                                                   on: {
                                                                     change: function(
@@ -71329,7 +71370,8 @@ var render = function() {
                                                                     "form-control form-control-sm",
                                                                   attrs: {
                                                                     disabled:
-                                                                      _vm.globalDisable
+                                                                      _vm.globalDisable,
+                                                                    required: ""
                                                                   },
                                                                   on: {
                                                                     change: function(
@@ -71713,90 +71755,181 @@ var render = function() {
                                           : _vm._e()
                                       ]),
                                       _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        { staticClass: "form-group mb-0" },
-                                        [
-                                          _c(
-                                            "select",
-                                            {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value:
-                                                    _vm.form.courseNameValueId,
-                                                  expression:
-                                                    "form.courseNameValueId"
-                                                }
-                                              ],
-                                              staticClass:
-                                                "form-control form-control-sm",
-                                              attrs: {
-                                                disabled: _vm.inputDisabled
-                                              },
-                                              on: {
-                                                change: function($event) {
-                                                  var $$selectedVal = Array.prototype.filter
-                                                    .call(
-                                                      $event.target.options,
-                                                      function(o) {
-                                                        return o.selected
-                                                      }
-                                                    )
-                                                    .map(function(o) {
-                                                      var val =
-                                                        "_value" in o
-                                                          ? o._value
-                                                          : o.value
-                                                      return val
-                                                    })
-                                                  _vm.$set(
-                                                    _vm.form,
-                                                    "courseNameValueId",
-                                                    $event.target.multiple
-                                                      ? $$selectedVal
-                                                      : $$selectedVal[0]
-                                                  )
-                                                }
-                                              }
-                                            },
+                                      _vm.form.scholarshipType == "HHDLS"
+                                        ? _c(
+                                            "div",
+                                            { staticClass: "form-group mb-0" },
                                             [
                                               _c(
-                                                "option",
+                                                "select",
                                                 {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .courseNameValueId,
+                                                      expression:
+                                                        "form.courseNameValueId"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-control form-control-sm",
                                                   attrs: {
-                                                    value: "",
-                                                    disabled: ""
+                                                    disabled: _vm.inputDisabled
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$selectedVal = Array.prototype.filter
+                                                        .call(
+                                                          $event.target.options,
+                                                          function(o) {
+                                                            return o.selected
+                                                          }
+                                                        )
+                                                        .map(function(o) {
+                                                          var val =
+                                                            "_value" in o
+                                                              ? o._value
+                                                              : o.value
+                                                          return val
+                                                        })
+                                                      _vm.$set(
+                                                        _vm.form,
+                                                        "courseNameValueId",
+                                                        $event.target.multiple
+                                                          ? $$selectedVal
+                                                          : $$selectedVal[0]
+                                                      )
+                                                    }
                                                   }
                                                 },
-                                                [_vm._v("-- select --")]
-                                              ),
-                                              _vm._v(" "),
-                                              _vm._l(
-                                                _vm.universityCourseName,
-                                                function(ucn, index) {
-                                                  return _c(
+                                                [
+                                                  _c(
                                                     "option",
                                                     {
-                                                      key: index,
-                                                      domProps: {
-                                                        value: ucn[0].id
+                                                      attrs: {
+                                                        value: "",
+                                                        disabled: ""
                                                       }
                                                     },
-                                                    [
-                                                      _vm._v(
-                                                        _vm._s(ucn[0].value)
+                                                    [_vm._v("-- select --")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _vm._l(
+                                                    _vm.universityCourseName,
+                                                    function(ucn, index) {
+                                                      return _c(
+                                                        "option",
+                                                        {
+                                                          key: index,
+                                                          domProps: {
+                                                            value: ucn[0].id
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(ucn[0].value)
+                                                          )
+                                                        ]
                                                       )
-                                                    ]
+                                                    }
                                                   )
-                                                }
+                                                ],
+                                                2
                                               )
-                                            ],
-                                            2
+                                            ]
                                           )
-                                        ]
-                                      ),
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _vm.form.scholarshipType == "Nursing"
+                                        ? _c(
+                                            "div",
+                                            { staticClass: "form-group mb-0" },
+                                            [
+                                              _c(
+                                                "select",
+                                                {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .courseNameValueId,
+                                                      expression:
+                                                        "form.courseNameValueId"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-control form-control-sm",
+                                                  attrs: {
+                                                    disabled: _vm.inputDisabled
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$selectedVal = Array.prototype.filter
+                                                        .call(
+                                                          $event.target.options,
+                                                          function(o) {
+                                                            return o.selected
+                                                          }
+                                                        )
+                                                        .map(function(o) {
+                                                          var val =
+                                                            "_value" in o
+                                                              ? o._value
+                                                              : o.value
+                                                          return val
+                                                        })
+                                                      _vm.$set(
+                                                        _vm.form,
+                                                        "courseNameValueId",
+                                                        $event.target.multiple
+                                                          ? $$selectedVal
+                                                          : $$selectedVal[0]
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    {
+                                                      attrs: {
+                                                        value: "",
+                                                        disabled: ""
+                                                      }
+                                                    },
+                                                    [_vm._v("-- select --")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _vm._l(
+                                                    _vm.universityCourseName,
+                                                    function(ucn, index) {
+                                                      return _c(
+                                                        "option",
+                                                        {
+                                                          key: index,
+                                                          domProps: {
+                                                            value: ucn.id
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(ucn.value)
+                                                          )
+                                                        ]
+                                                      )
+                                                    }
+                                                  )
+                                                ],
+                                                2
+                                              )
+                                            ]
+                                          )
+                                        : _vm._e(),
                                       _vm._v(" "),
                                       _c(
                                         "div",
@@ -74059,89 +74192,99 @@ var render = function() {
                                       ])
                                     ]),
                                     _vm._v(" "),
-                                    _c("div", { staticClass: "col-xl-4" }, [
-                                      _vm._m(50),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "form-group" }, [
-                                        _c(
-                                          "select",
-                                          {
-                                            directives: [
-                                              {
-                                                name: "model",
-                                                rawName: "v-model",
-                                                value: _vm.form.recognizedByINC,
-                                                expression:
-                                                  "form.recognizedByINC"
-                                              }
-                                            ],
-                                            staticClass:
-                                              "form-control form-control-sm",
-                                            attrs: {
-                                              disabled: _vm.inputDisabled,
-                                              required: ""
-                                            },
-                                            on: {
-                                              change: function($event) {
-                                                var $$selectedVal = Array.prototype.filter
-                                                  .call(
-                                                    $event.target.options,
-                                                    function(o) {
-                                                      return o.selected
+                                    _vm.form.scholarshipType == "Nursing"
+                                      ? _c("div", { staticClass: "col-xl-4" }, [
+                                          _vm._m(50),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "form-group" },
+                                            [
+                                              _c(
+                                                "select",
+                                                {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .recognizedByINC,
+                                                      expression:
+                                                        "form.recognizedByINC"
                                                     }
+                                                  ],
+                                                  staticClass:
+                                                    "form-control form-control-sm",
+                                                  attrs: {
+                                                    disabled: _vm.inputDisabled,
+                                                    required: ""
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$selectedVal = Array.prototype.filter
+                                                        .call(
+                                                          $event.target.options,
+                                                          function(o) {
+                                                            return o.selected
+                                                          }
+                                                        )
+                                                        .map(function(o) {
+                                                          var val =
+                                                            "_value" in o
+                                                              ? o._value
+                                                              : o.value
+                                                          return val
+                                                        })
+                                                      _vm.$set(
+                                                        _vm.form,
+                                                        "recognizedByINC",
+                                                        $event.target.multiple
+                                                          ? $$selectedVal
+                                                          : $$selectedVal[0]
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    {
+                                                      attrs: {
+                                                        value: "",
+                                                        disabled: ""
+                                                      }
+                                                    },
+                                                    [_vm._v("--Select--")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "YES" } },
+                                                    [_vm._v("YES")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "NO" } },
+                                                    [_vm._v("NO")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "option",
+                                                    {
+                                                      attrs: {
+                                                        value: "Don't know"
+                                                      }
+                                                    },
+                                                    [_vm._v("Don't know")]
                                                   )
-                                                  .map(function(o) {
-                                                    var val =
-                                                      "_value" in o
-                                                        ? o._value
-                                                        : o.value
-                                                    return val
-                                                  })
-                                                _vm.$set(
-                                                  _vm.form,
-                                                  "recognizedByINC",
-                                                  $event.target.multiple
-                                                    ? $$selectedVal
-                                                    : $$selectedVal[0]
-                                                )
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "",
-                                                  disabled: ""
-                                                }
-                                              },
-                                              [_vm._v("--Select--")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "YES" } },
-                                              [_vm._v("YES")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "NO" } },
-                                              [_vm._v("NO")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: { value: "Don't know" }
-                                              },
-                                              [_vm._v("Don't know")]
-                                            )
-                                          ]
-                                        )
-                                      ])
-                                    ])
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ])
+                                      : _vm._e()
                                   ])
                                 ])
                               ])
@@ -75697,7 +75840,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", [
       _vm._v("PIN/ZIP Code "),
-      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+      _c("span", { staticClass: "text-danger" })
     ])
   },
   function() {

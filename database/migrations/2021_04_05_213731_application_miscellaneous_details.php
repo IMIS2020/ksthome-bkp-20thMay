@@ -15,10 +15,10 @@ class ApplicationMiscellaneousDetails extends Migration
     {
         Schema::create('applicationMiscellaneousDetails', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('relationship');
-            $table->string('course');
-            $table->string('year');
+            $table->string('name')->nullable();
+            $table->string('relationship')->nullable();
+            $table->string('course')->nullable();
+            $table->string('year')->nullable();
             $table->unsignedBigInteger('applicationId'); // FK applicationDetails
             $table->timestamps();
         });

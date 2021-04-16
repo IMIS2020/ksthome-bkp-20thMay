@@ -14,25 +14,25 @@ class ApplicationSessionSeed extends Seeder
     {
         DB::table('applicationSession')->insert(
             [
-                'sessionName'=> '21-22',
+                'sessionName'=> '2021-22',
                 'start_date' => '1-1-2021',
-                'end_date'   => '1-1-2022',
+                'end_date'   => '31-12-2021',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
         DB::table('applicationSession')->insert(
             [
-                'sessionName'=> '22-23',
+                'sessionName'=> '2022-23',
                 'start_date' => '1-1-2022',
-                'end_date'   => '1-1-2023',
+                'end_date'   => '31-12-2022',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
         DB::table('applicationSession')->insert(
             [
-                'sessionName'=> '23-24',
+                'sessionName'=> '2023-24',
                 'start_date' => '1-1-2023',
-                'end_date'   => '1-1-2024',
+                'end_date'   => '31-12-2023',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);

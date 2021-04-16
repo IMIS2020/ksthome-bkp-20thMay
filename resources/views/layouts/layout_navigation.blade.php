@@ -12,7 +12,7 @@
       <meta name="email"     content="{{ Auth::user()->email }}" >
       <meta name="userId"    content="{{ Auth::user()->id }}" >
     @endif 
-    <title>I-MIS-APP</title>
+    <title>I - MIS Portal</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">

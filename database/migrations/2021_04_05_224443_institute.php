@@ -17,6 +17,7 @@ class Institute extends Migration
             $table->id();
             $table->string('instituteName');
             $table->unsignedBigInteger('instituteAddressId');
+            $table->unsignedBigInteger('scholarshipTypeValueId')->nullable();
             $table->timestamps();
         });
     }

@@ -67,7 +67,7 @@
                         </div>
                         <div class="form-group mb-0">
                             <p class="text-muted font-md mb-0"><strong>If you donot have a login account </strong><a href="{{ route('register') }}"><strong>click here</strong></a>&nbsp;to register</p>
-                            <p class="text-muted font-md mb-0"><strong>forgot your password? </strong><a href="{{ route('password.request') }}"><strong></strong>click here</a>&nbsp;to reset password</p>
+                            <p class="text-muted font-md mb-0"><strong>forgot your password? </strong><a href="{{ route('password.request') }}"><strong>click here</strong></a>&nbsp;to reset password</p>
                             
                         </div>
                     </form>

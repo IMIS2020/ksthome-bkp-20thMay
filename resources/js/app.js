@@ -111,4 +111,16 @@ function newFunction(){
   });
   // End review Application
 
+  // Domains start
+  const app19 = new Vue({
+    el: '#addDomains',
+    router: new VueRouter(routes)
+  });
+  const app20 = new Vue({
+    el: '#manageDomains',
+    router: new VueRouter(routes)
+  });
+ 
+  // Domains end
+
 }

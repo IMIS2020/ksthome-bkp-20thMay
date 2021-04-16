@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <nav class="navbar navbar-dark navbar-expand-md shadow-lg  imis-nav">
-        <div class="container-fluid"><a class="navbar-brand text-white"  href="/">I-MIS</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid"><a class="navbar-brand text-white"  href="/">S-ILF Scholarships</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ml-auto font-md">
                     @if (Route::has('login'))
@@ -40,10 +40,10 @@
         <div class="container mt-10">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2 mb-2">
-                    <h3 class="text-white">Don't have any account?</h3>
-                    <h6 class="text-white mb-3">Enter your personal details and start journey with us</h6>
-                    <h6 class="text-white mb-3">Note :&nbsp;&nbsp; The password must be at least 8 characters.</h6>
-                    <h6 class="text-white mb-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An Email address is required in order to register.</h6>
+                    <h3 class="text-white">Register to Create a Login account.</h3>
+                    <h6 class="text-white mb-1">Enter your details below to Register and create the Login account.</h6>
+                    <h6 class="text-white mb-1 font-sm">Note :&nbsp;&nbsp; The password must be at least 8 characters.</h6>
+                    <h6 class="text-white mb-1 font-sm">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An Email address is required in order to register.</h6>
                 </div>
                 <div class="col-xl-8 offset-xl-2">
                     <div class="login-box">

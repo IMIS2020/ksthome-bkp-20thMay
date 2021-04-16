@@ -12,7 +12,7 @@
       <meta name="email"     content="{{ Auth::user()->email }}" >
       <meta name="userId"    content="{{ Auth::user()->id }}" >
     @endif 
-    <title>I - MIS Portal</title>
+    <title>S-ILF Scholarships</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
@@ -27,7 +27,7 @@
 <body>
   
 <nav class="navbar navbar-dark navbar-expand-md shadow-lg imis-nav">
-  <div class="container-fluid"><a class="navbar-brand text-white"  href="/">I-MIS</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+  <div class="container-fluid"><a class="navbar-brand text-white"  href="/">S-ILF Scholarships</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navcol-1">
       <ul class="navbar-nav ml-auto font-md">
           @if (Route::has('login'))

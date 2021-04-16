@@ -7,7 +7,7 @@
     <!-- @if (Auth::check()) 
       <meta name="userName" content="{{ Auth::user()->name }}" >
      @endif  -->
-    <title>I - MIS Portal</title>
+    <title>S-ILF Scholarships</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
@@ -61,6 +61,18 @@
       @yield('manageDomains')
     </div>
    <!--Domains end-->
+
+   <!-- Schedule  -->
+   <div id="addSchedule">
+      @yield('addSchedule')
+    </div>
+    <div id="manageSchedule">
+      @yield('manageSchedule')
+    </div>
+    <div id="extendLastDate">
+      @yield('extendLastDate')
+    </div>
+   <!-- End schedule -->
     
     <!-- <script src="{{asset('assets/js/jquery.min.js')}}"></script> -->
     <!-- <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script> -->

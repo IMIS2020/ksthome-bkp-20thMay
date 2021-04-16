@@ -32,6 +32,12 @@ import AdminReview             from './components/admin/manageApplication/review
     import ManageDomains from './components/admin/domains/manageDomains';
 // End Domains
 
+// Admin Schedule
+    import AddSchedule    from './components/admin/applicationSchedule/addSchedule';
+    import ManageSchedule from './components/admin/applicationSchedule/manageSchedule';
+    import ExtendLastDate from './components/admin/applicationSchedule/extendLastDate';
+// End Admin Schedule
+
 export default{ 
     mode: 'history',
     linkActiveClass: 'font-semibold',
@@ -375,6 +381,41 @@ export default{
                      * End Admin Domain
                      */
 
+                    /***
+                     * 
+                     * Admin Schedule
+                     */
+                     {
+                        path: '/admin/add-application-schedule',
+                        component:AddSchedule,
+                        name: "add-schedule"
+                     },
+                     {
+                        path: '/admin/manage-application-schedule',
+                        component:ManageSchedule,
+                        name: "manage-schedule"
+                     },
+                     {
+                        path: '/admin/extend-last-date',
+                        component:ExtendLastDate,
+                        name: "extend-last-date"
+                     },
+                     /***
+                     * 
+                     * End Admin Schedule
+                     */
+
+                     /***
+                     * 
+                     * Admin API call for get application details
+                     */
+                     {
+                       path: '/admin/admin-api/get-application-details',
+                     },
+                     /***
+                     * 
+                     *End Admin API call for get application details
+                     */
 
  ]
 }

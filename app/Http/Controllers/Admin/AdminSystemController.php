@@ -77,4 +77,23 @@ class AdminSystemController extends Controller
    }
    // Domains end
 
+   // Admin schedule
+
+   public function addSchedule()
+   {
+      return view('admin.applicationSchedule.addSchedule');
+   }
+
+   public function manageSchedule()
+   {
+      return view('admin.applicationSchedule.manageSchedule');
+   }
+
+   public function extendLastDate()
+   {
+      return view('admin.applicationSchedule.extendLastDate');
+   }
+
+   // Admin schedule end
+
 }

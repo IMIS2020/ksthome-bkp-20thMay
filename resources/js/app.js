@@ -123,4 +123,20 @@ function newFunction(){
  
   // Domains end
 
+  // Schedule start
+  const app21 = new Vue({
+    el: '#addSchedule',
+    router: new VueRouter(routes)
+  });
+  const app22 = new Vue({
+    el: '#manageSchedule',
+    router: new VueRouter(routes)
+  });
+  const app23 = new Vue({
+    el: '#extendLastDate',
+    router: new VueRouter(routes)
+  });
+
+  // Schedule end
+
 }

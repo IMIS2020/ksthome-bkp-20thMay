@@ -38,8 +38,8 @@
              ">Once you have verified your identity correctly with the OTP, your account will be created and you can login with your email and password.
               </p>
 
-              <p style=" margin-left:30px; font-size:20px;
-              ">For any clarification kindly contact us using the contact details provided in the website.
+              <p style=" margin-left:30px; font-size:20px;">
+              For any clarification kindly contact us using the details provided in the website.
               </p>
 
              <h5 style=" font-size:20px;

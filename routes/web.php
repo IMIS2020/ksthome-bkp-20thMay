@@ -118,7 +118,7 @@ Route::group(['prefix' => 'api'], function() {
     /****
      * API Call for Institue details 
      */
-    Route::get('/institute/get-data','Scholarship\InstituteController@getInstitute');
+    Route::get('/institute/get-data/{type}','Scholarship\InstituteController@getInstitute');
     Route::post('/institute/add','Scholarship\InstituteController@addInstitute');
     Route::get('/institute/get-details/{insId}','Scholarship\InstituteController@getInstituteDetails');
     /****

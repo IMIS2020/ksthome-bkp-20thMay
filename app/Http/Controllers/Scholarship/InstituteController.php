@@ -8,13 +8,15 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\ModelGeneral\Address;
 use App\ModelScholarship\Institute;
+use App\ModelScholarship\DomainValues;
 
 class InstituteController extends Controller
 {
 
-    public function getInstitute()
+    public function getInstitute($type)
     {
-        $getIns = Institute::with('get_address')->orderBy('id','DESC')->get()->toJson();
+        $getDomainId = DomainValues::where('value',$type)->first();
+        $getIns = Institute::where('scholarshipTypeValueId',$getDomainId->id)->with('get_address')->orderBy('id','DESC')->get()->toJson();
         return $getIns;
     }
 
@@ -59,6 +61,8 @@ class InstituteController extends Controller
             $instituteDetails = new Institute;
             $instituteDetails->instituteName = $request->insName;
             $instituteDetails->instituteAddressId = $instituteAddress->id;
+            $getDomainId = DomainValues::where('value',$request->insType)->first();
+            $instituteDetails->scholarshipTypeValueId = $getDomainId->id;
             $instituteDetails->save();
             DB::commit();
             return array('success' => true, 'msg'=>[]);

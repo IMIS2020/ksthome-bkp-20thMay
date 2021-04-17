@@ -808,6 +808,7 @@
                                                                                         <div class="form-row">
                                                                                             <div class="col-xl-12 mb-2">
                                                                                                 <label>Institute Name</label>
+                                                                                                 <input type="hidden" v-model="insForm.insType" :disabled="globalDisable" required>
                                                                                                 <div class="form-group">
                                                                                                     <input class="form-control form-control-sm" type="text" v-model="insForm.insName" :disabled="globalDisable" required>
                                                                                                 </div>
@@ -1242,7 +1243,7 @@ export default {
                 //end of qualification
                 
                 hasAdmissionLetter:'YES',
-                courseLevelValueId: 'N',
+                courseLevelValueId: '',
                 courseNameValueId: '',
                 instituteId:'',
                 // insCourse:'',
@@ -1276,6 +1277,7 @@ export default {
             insId: '',
             insForm: {
                 insName:'',
+                insType:'',
                 insAddressAddln1:'',
                 insAddressAddln2:'',
                 insAddressCity:'',
@@ -1380,6 +1382,7 @@ export default {
                         this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                         this.form.appStatus = response.data['data'][0][0].appStatus;
                         this.form.applicantColonyleaderName = response.data['data'][0][0].applicantColonyLeaderName;
+                        this.insForm.insType = response.data['data'][0][0].scholarshipType;
                         if(this.form.appStatus == 'Submit')
                         {
                             this.inputDisabled = true;
@@ -1441,16 +1444,17 @@ export default {
                         };
 
                          this.readDomainValues(this.form.scholarshipType);
+                         this. readInsValue(this.form.scholarshipType);
 
-                        // this.form.miscName1= response.data['data'][2][0].name;
-                        // this.form.miscCourse1= response.data['data'][2][0].course;
-                        // this.form.miscYear1= response.data['data'][2][0].year;
-                        // this.form.miscName2= response.data['data'][2][1].name;
-                        // this.form.miscCourse2= response.data['data'][2][1].course;
-                        // this.form.miscYear2= response.data['data'][2][1].year;
-                        // this.form.miscName3= response.data['data'][2][2].name;
-                        // this.form.miscCourse3= response.data['data'][2][2].course;
-                        // this.form.miscYear3= response.data['data'][2][2].year;
+                        this.form.miscName1= response.data['data'][2][0].name;
+                        this.form.miscCourse1= response.data['data'][2][0].course;
+                        this.form.miscYear1= response.data['data'][2][0].year;
+                        this.form.miscName2= response.data['data'][2][1].name;
+                        this.form.miscCourse2= response.data['data'][2][1].course;
+                        this.form.miscYear2= response.data['data'][2][1].year;
+                        this.form.miscName3= response.data['data'][2][2].name;
+                        this.form.miscCourse3= response.data['data'][2][2].course;
+                        this.form.miscYear3= response.data['data'][2][2].year;
 
                         
 
@@ -1533,7 +1537,9 @@ export default {
                 if(this.form.applicationId == ''){
                    this.form.scholarshipType =  window.location.pathname.split('/').reverse()[0];
                 }
+                this.insForm.insType = this.form.scholarshipType;
                 this.readDomainValues(this.form.scholarshipType);
+                this. readInsValue(this.form.scholarshipType);
             },
             readInitialDomainValues()
             {
@@ -1683,9 +1689,9 @@ export default {
 
             //institute
 
-            readInsValue()
+            readInsValue(type)
             {
-                axios.get('/api/institute/get-data')
+                axios.get('/api/institute/get-data/'+type)
                     .then(response => {
                         this.insData = response.data;
                     });
@@ -1696,7 +1702,7 @@ export default {
                 axios.post('/api/institute/add',this.insForm)
                 .then(response => {
                     if (response.data['success']) {
-                        this.readInsValue();
+                        this.readInsValue(this.insForm.insType);
                         
                         this.$fire({
                             position: 'top',
@@ -1824,7 +1830,7 @@ export default {
             this.checkNewScholarshipType();
             this.readInitialDomainValues();
         //    this.readDomainValues();
-            this.readInsValue();
+            // this.readInsValue();
 
          }
 }

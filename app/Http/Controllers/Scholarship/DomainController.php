@@ -123,7 +123,7 @@ class DomainController extends Controller
 
     public function getCourseLevelHHDLS()
     {
-        $getDomainName = DomainName::where('name','AdmissionLevel-Bachelors-HHDLS')
+        $getDomainName = DomainName::where('name','AdmissionLevel-Masters-HHDLS')
                                      ->orWhere('name','AdmissionLevel-Bachelors-HHDLS')
                                      ->orWhere('name','AdmissionLevel-Diploma-HHDLS')
                                      ->orWhere('name','AdmissionLevel-Certificate-HHDLS')->get();

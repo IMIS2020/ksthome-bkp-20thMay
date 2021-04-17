@@ -242,7 +242,7 @@ export default{
                  * API Call for Institue details 
                  */
                 {
-                    path:'/api/institute/get-data',
+                    path:'/api/institute/get-data/:type',
                 },
                 {
                     path:'/api/institute/add',

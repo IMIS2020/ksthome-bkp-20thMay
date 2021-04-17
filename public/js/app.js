@@ -6017,6 +6017,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6120,7 +6121,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         additional2Division: '',
         //end of qualification
         hasAdmissionLetter: 'YES',
-        courseLevelValueId: 'N',
+        courseLevelValueId: '',
         courseNameValueId: '',
         instituteId: '',
         // insCourse:'',
@@ -6153,6 +6154,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       insId: '',
       insForm: {
         insName: '',
+        insType: '',
         insAddressAddln1: '',
         insAddressAddln2: '',
         insAddressCity: '',
@@ -6268,6 +6270,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this2.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     _this2.form.appStatus = response.data['data'][0][0].appStatus;
                     _this2.form.applicantColonyleaderName = response.data['data'][0][0].applicantColonyLeaderName;
+                    _this2.insForm.insType = response.data['data'][0][0].scholarshipType;
 
                     if (_this2.form.appStatus == 'Submit') {
                       _this2.inputDisabled = true;
@@ -6316,16 +6319,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                     ;
 
-                    _this2.readDomainValues(_this2.form.scholarshipType); // this.form.miscName1= response.data['data'][2][0].name;
-                    // this.form.miscCourse1= response.data['data'][2][0].course;
-                    // this.form.miscYear1= response.data['data'][2][0].year;
-                    // this.form.miscName2= response.data['data'][2][1].name;
-                    // this.form.miscCourse2= response.data['data'][2][1].course;
-                    // this.form.miscYear2= response.data['data'][2][1].year;
-                    // this.form.miscName3= response.data['data'][2][2].name;
-                    // this.form.miscCourse3= response.data['data'][2][2].course;
-                    // this.form.miscYear3= response.data['data'][2][2].year;
+                    _this2.readDomainValues(_this2.form.scholarshipType);
 
+                    _this2.readInsValue(_this2.form.scholarshipType);
+
+                    _this2.form.miscName1 = response.data['data'][2][0].name;
+                    _this2.form.miscCourse1 = response.data['data'][2][0].course;
+                    _this2.form.miscYear1 = response.data['data'][2][0].year;
+                    _this2.form.miscName2 = response.data['data'][2][1].name;
+                    _this2.form.miscCourse2 = response.data['data'][2][1].course;
+                    _this2.form.miscYear2 = response.data['data'][2][1].year;
+                    _this2.form.miscName3 = response.data['data'][2][2].name;
+                    _this2.form.miscCourse3 = response.data['data'][2][2].course;
+                    _this2.form.miscYear3 = response.data['data'][2][2].year;
                   } else {
                     console.log(response.data['msg']);
                   }
@@ -6409,7 +6415,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.form.scholarshipType = window.location.pathname.split('/').reverse()[0];
       }
 
+      this.insForm.insType = this.form.scholarshipType;
       this.readDomainValues(this.form.scholarshipType);
+      this.readInsValue(this.form.scholarshipType);
     },
     readInitialDomainValues: function readInitialDomainValues() {
       var _this3 = this;
@@ -6522,10 +6530,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.domainForm.domainName = data;
     },
     //institute
-    readInsValue: function readInsValue() {
+    readInsValue: function readInsValue(type) {
       var _this6 = this;
 
-      axios.get('/api/institute/get-data').then(function (response) {
+      axios.get('/api/institute/get-data/' + type).then(function (response) {
         _this6.insData = response.data;
       });
     },
@@ -6534,7 +6542,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       axios.post('/api/institute/add', this.insForm).then(function (response) {
         if (response.data['success']) {
-          _this7.readInsValue();
+          _this7.readInsValue(_this7.insForm.insType);
 
           _this7.$fire({
             position: 'top',
@@ -6638,8 +6646,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     this.readApplicationForm();
     this.checkNewScholarshipType();
     this.readInitialDomainValues(); //    this.readDomainValues();
-
-    this.readInsValue();
+    // this.readInsValue();
   }
 });
 
@@ -74661,6 +74668,56 @@ var render = function() {
                                                                   )
                                                                 ]),
                                                                 _vm._v(" "),
+                                                                _c("input", {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model",
+                                                                      value:
+                                                                        _vm
+                                                                          .insForm
+                                                                          .insType,
+                                                                      expression:
+                                                                        "insForm.insType"
+                                                                    }
+                                                                  ],
+                                                                  attrs: {
+                                                                    type:
+                                                                      "hidden",
+                                                                    disabled:
+                                                                      _vm.globalDisable,
+                                                                    required: ""
+                                                                  },
+                                                                  domProps: {
+                                                                    value:
+                                                                      _vm
+                                                                        .insForm
+                                                                        .insType
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      if (
+                                                                        $event
+                                                                          .target
+                                                                          .composing
+                                                                      ) {
+                                                                        return
+                                                                      }
+                                                                      _vm.$set(
+                                                                        _vm.insForm,
+                                                                        "insType",
+                                                                        $event
+                                                                          .target
+                                                                          .value
+                                                                      )
+                                                                    }
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
                                                                 _c(
                                                                   "div",
                                                                   {
@@ -99867,7 +99924,7 @@ __webpack_require__.r(__webpack_exports__);
   * API Call for Institue details 
   */
   {
-    path: '/api/institute/get-data'
+    path: '/api/institute/get-data/:type'
   }, {
     path: '/api/institute/add'
   }, {
@@ -100043,8 +100100,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! H:\I-MIS-PORTAL\I-MIS-APP-FINAL-04-03-2021\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! H:\I-MIS-PORTAL\I-MIS-APP-FINAL-04-03-2021\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! H:\I-MIS-PROTAL\I-MIS-APP-FINAL-04-03-2021\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! H:\I-MIS-PROTAL\I-MIS-APP-FINAL-04-03-2021\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

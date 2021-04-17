@@ -30,18 +30,14 @@
                                                 <div class="col-xl-12">
                                                     <div class="com-bg-1">
                                                         <div class="form-row mb-1">
-                                                            <div class="col-xl-2 offset-xl-7 align-self-cente">
-                                                                <button class="btn btn-block btn-sm font-xs btn-mg add-anex-i-row" type="button" data-toggle="modal" href="#" data-target="#others-course-level" @click="addName('CourseLevel')">
-                                                                    <i class="fa fa-plus"></i><strong>&nbsp;Add other level</strong>
-                                                                 </button>
-                                                            </div>
                                                             <div class="col-xl-2">
                                                                 <div class="form-group mb-0 align-self-center">
-                                                                    <!-- <a data-toggle="modal" href="#" data-target="#others-course-level" @click="addName('CourseLevel')">+ Add Other level</a> -->
-                                                                    <select class="form-control form-control-sm" v-model="rows.courseLevelValueId" :disabled="globalDisable">
-                                                                        <option value="" disabled>-- select --</option>
-                                                                        <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id">{{ucl.value}}</option>
-                                                                    </select>
+                                                                    <div class="form-group mb-0">
+                                                                        <select class="form-control form-control-sm" v-model="courseLevelValueId2" :disabled="inputDisabled" @click="getHHDLSData($event)">
+                                                                            <option value="" disabled>-- select --</option>
+                                                                            <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id" selected>{{ucl.description}}</option>
+                                                                        </select>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-2 col-xl-1 offset-md-3 offset-xl-0 align-self-center">
@@ -54,8 +50,8 @@
                                                             <table class="table table-sm mb-2">
                                                                 <thead class="font-md">
                                                                     <tr class="color-mg font-sm">
+                                                                        <th>Course </th>
                                                                         <th>Institute <a data-toggle="modal" href="#" data-target="#others-add-institute">+ Add</a></th>
-                                                                        <th>Course <a data-toggle="modal" href="#" data-target="#others-course-name" @click="addName('CourseName')">+ Add</a></th>
                                                                         <th>Address Line-1</th>
                                                                         <th>Address Line-2</th>
                                                                         <th>City</th>
@@ -68,20 +64,29 @@
                                                                 <tbody class="h-25x">
                                                                     <tr v-for="(row, index) in rows" :key="index">
                                                                         <td>
+                                                                            <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
+                                                                                <select class="form-control form-control-sm" v-model="row.courseNameValueId" :disabled="inputDisabled">
+                                                                                    <option value="" disabled>-- select --</option>
+                                                                                    <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="form-group mb-0" v-if="form.scholarshipType=='Nursing'">
+                                                                                <select class="form-control form-control-sm" v-model="row.courseNameValueId" :disabled="inputDisabled">
+                                                                                    <option value="" disabled>-- select --</option>
+                                                                                    <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
                                                                             <input type="hidden" v-model="row.id" :disabled="globalDisable"/>
+                                                                            <input type="hidden" v-model="row.courseLevelValueId" :disabled="globalDisable" />
                                                                             <div class="form-group mb-0">
                                                                                 <select class="form-control form-control-sm" @change="onChange($event,index)" v-model="row.insId" :disabled="globalDisable">
                                                                                     <option v-for="(i,index) in insData" :key="index" :value="i.id">{{i.instituteName}} - {{i.get_address.addressCity}}, {{i.get_address.addressState}}</option>
                                                                                 </select>
                                                                             </div>
                                                                         </td>
-                                                                        <td>
-                                                                            <div class="form-group mb-0">
-                                                                                <select class="form-control form-control-sm" v-model="row.courseNameValueId" :disabled="globalDisable">
-                                                                                    <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </td>
+                                                                        
                                                                         <td>
                                                                             <div class="form-group mb-0">
                                                                                 <input class="form-control form-control-sm" rows="1"  v-model="row.addressAddln1" disabled  />
@@ -309,11 +314,15 @@ export default{
             userId: document.querySelector("meta[name='userId']").getAttribute('content'),
             // update: false,
             globalDisable: false,
-            universityCourseName:{},
+            universityCourseLevel:{},
+            universityCourseName: {},
             insData:{},
             insDataDetails:{
                 address1: '',
             },
+           
+            courseLevelValueId2: '',
+          
             domainForm: {
                 domainName : 'CourseName',
                 dValue : '',
@@ -321,6 +330,7 @@ export default{
             },
             insId: '',
             insForm: {
+                
                 insName:'',
                 insAddressAddln1:'',
                 insAddressAddln2:'',
@@ -353,7 +363,8 @@ export default{
             [
               {  
                 insId : '',
-                courseNameValueId : '',
+                courseLevelValueId : '',
+                courseNameValueId: '',
                 addressAddln1 : '',
                 addressAddln2 :'',
                 addressCity : '',
@@ -365,11 +376,14 @@ export default{
           }
     },
     methods: {
+        
         addNewData()
         {
+            let data = this.courseLevelValueId2;
             this.rows.push({
                 id: '',
                 insId : '',
+                courseLevelValueId : data,
                 courseNameValueId : '',
                 addressAddln1 : '',
                 addressAddln2 :'',
@@ -386,6 +400,7 @@ export default{
         saveForm() {
             console.log(this.update);
             if (this.form.hasAdmissionLetter === 'NO'){
+                // this.rows.courseLevelValueId = this.cLform.courseLevelValueId,
                 axios.post('/api/add-annexure1/'+this.form.applicationId,this.rows)
                     .then(response => {
                         if (response.data['success']) {
@@ -479,6 +494,8 @@ export default{
                     this.form.financialYear = response.data['data'][0][0].financialYear;  
                     this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
+                    this.readDomainValues(this.form.scholarshipType);
+                    this.readInsValue(this.form.scholarshipType);
                     if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
                     {
                         this.getData.genderType = "son";
@@ -496,35 +513,40 @@ export default{
                 }
             })
         },
-        readDomainValues()
+       
+
+        readDomainValues(type)
         {
-            // axios.get('/api/domain/examinationLevel')
-            //     .then(response => {
-            //         for(let res in response.data)
-            //         {
-            //             console.log(res);
-            //             if(response.data[res].value == 10)
-            //             {    
-            //                  this.form.education1ExaminationLevel = response.data[res].value;
-            //                  console.log(this.form.education1ExaminationLevel);
-            //             }
-            //         }
-                    
-            //     });
-            axios.get('/api/domain/course-level')
-                .then(response => {
-                    this.universityCourseLevel= response.data;
-                });
-            axios.get('/api/domain/course-name')
-                .then(response => {
-                    this.universityCourseName = response.data;
-                });
+            
+            if(type == 'HHDLS')
+            {
+                // axios.get('/api/domain/course-name/hhdls')
+                //     .then(response => {
+                //         this.universityCourseName = response.data;
+                //     });   
+                axios.get('/api/domain/course-level/hhdls')
+                    .then(response => {
+                        this.universityCourseLevel= response.data;
+                    });
+            }else 
+            {
+                axios.get('/api/domain/course-name/nursing')
+                    .then(response => {
+                        this.universityCourseName = response.data;
+                    }); 
+                    axios.get('/api/domain/course-level/nursing')
+                    .then(response => {
+                        this.universityCourseLevel= response.data;
+                    });
+
+            }
+            
             
         },
 
-        readInsValue()
+        readInsValue(type)
         {
-            axios.get('/api/institute/get-data')
+            axios.get('/api/institute/get-data/'+type)
                 .then(response => {
                     this.insData = response.data;
                 });
@@ -582,7 +604,7 @@ export default{
         addName(data)
         {
             this.domainForm.domainName = data;
-            this.rows.courseLevelValueId = data;
+          //  this.rows.courseLevelValueId = data;
         },
 
         getData(insId,index)
@@ -620,10 +642,18 @@ export default{
                     console.log(response.data['msg'])
                 }
             }).catch(error => this.errorMsg(error.response.status))
+        },
+        getHHDLSData(event,index)
+        {
+            let id = event.target.value;
+            axios.get('/api/domain/course-name/hhdls/'+id)
+                .then(response => {
+                    this.universityCourseName = response.data;
+                });  
         }
     },
     created(){
-        this.readInsValue();
+        // this.readInsValue();
         this.readDomainValues();
         this.readApplicationForm();
         this.getannexurei();

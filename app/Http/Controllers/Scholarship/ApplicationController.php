@@ -558,6 +558,7 @@ class ApplicationController extends Controller
                     if (!isset($ins['id'])) {
                         $addAnnex1 = new AnnexureI;
                         $addAnnex1->insId              = $ins['insId'];
+                        $addAnnex1->courseLevelValueId  = $ins['courseLevelValueId'];
                         $addAnnex1->courseNameValueId  = $ins['courseNameValueId'];
                         $addAnnex1->applicationId      = $getApplicationId;
                         $addAnnex1->addressAddln1    = $ins['addressAddln1'];
@@ -571,6 +572,7 @@ class ApplicationController extends Controller
                         array_push($old,$ins);
                         $editAnnex1 = AnnexureI::where('id',$ins['id'])->first();
                         $editAnnex1->insId              = $ins['insId'];
+                        $editAnnex1->courseLevelValueId  = $ins['courseLevelValueId'];
                         $editAnnex1->courseNameValueId  = $ins['courseNameValueId'];
                         $editAnnex1->applicationId      = $getApplicationId;
                         $editAnnex1->addressAddln1    = $ins['addressAddln1'];

@@ -3,8 +3,8 @@
     <div id="wrapper" style="height: 100vh;">
     <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-custom p-0">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand" href="#">
-                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-building"></i></div>
-                    <div class="sidebar-brand-text mx-3"><span>i-mis</span></div>
+                    <div class="sidebar-brand-icon rotate-n-15 text-white"><i class="fas fa-building"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>S-ILF</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
@@ -24,7 +24,7 @@
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content" class="grey-bg">
                 <nav class="navbar navbar-light navbar-expand shadow topbar static-top top-nav">
-                    <div class="container-fluid"><a class="navbar-brand text-uppercase text-white" href="#"><strong>I-MIS APPlication</strong></a><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                    <div class="container-fluid"><a class="navbar-brand text-uppercase text-white" href="#"><strong>S-ILF scholarships</strong></a><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <ul class="navbar-nav flex-nowrap ml-auto">
                             <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><i class="fas fa-search"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" aria-labelledby="searchDropdown">
@@ -179,7 +179,8 @@
                                         <div class="com-bg pt-2 mt-2">
                                             <div class="form-row">
                                                 <div class="col-xl-2 offset-xl-4 pr-1"><a class="btn btn-block btn-sm btn-custom btn-smd" role="button" href="#"><strong><em>Save</em></strong></a></div>
-                                                <div class="col-xl-2 offset-xl-0 pr-1"><a class="btn btn-block btn-sm btn-cancel btn-smd" role="button" href="#"><strong><em>Cancel</em></strong></a></div>
+                                                <div class="col-xl-2 offset-xl-0 pr-1"><router-link class="btn btn-block btn-sm btn-cancel btn-smd"  to="/admin/manage-domains"><strong><em>Cancel</em></strong></router-link>
+                                                </div>
                                             </div>
                                         </div>
                                     </form>

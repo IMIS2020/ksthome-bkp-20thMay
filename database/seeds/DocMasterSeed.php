@@ -182,5 +182,15 @@ class DocMasterSeed extends Seeder
                 'processStepId' => 1,
                 'requiredFor' => '3',
             ]);
+        DB::table('docMaster')->insert(
+            [
+                'docShortName' => 'DOC018',
+                'docDesc' => 'Pr',
+                'docType' => 'Uploaded',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'processStepId' => 1,
+                'requiredFor' => '3',
+            ]);
     }
 }

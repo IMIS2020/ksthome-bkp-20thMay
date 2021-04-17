@@ -65,7 +65,7 @@ class DocMasterSeed extends Seeder
         DB::table('docMaster')->insert(
             [
                 'docShortName' => 'DOC006',
-                'docDesc' => 'Annexure-II letter from colony leader stating the candidate is residing in the colony',
+                'docDesc' => 'Annexure-II - certificate from colony leader',
                 'docType' => 'Uploaded',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -181,6 +181,17 @@ class DocMasterSeed extends Seeder
                 'updated_at' => Carbon::now(),
                 'processStepId' => 1,
                 'requiredFor' => '3',
+            ]);
+
+            DB::table('docMaster')->insert(
+                [
+                    'docShortName' => 'DOC018',
+                    'docDesc' => 'Self attested Proof of Address',
+                    'docType' => 'Uploaded',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                    'processStepId' => 1,
+                    'requiredFor' => '3',
             ]);
     }
 }

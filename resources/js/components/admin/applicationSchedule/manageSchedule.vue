@@ -3,8 +3,8 @@
     <div id="wrapper" style="height: 100vh;">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-custom p-0">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand" href="#">
-                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-building"></i></div>
-                    <div class="sidebar-brand-text mx-3"><span>i-mis</span></div>
+                    <div class="sidebar-brand-icon rotate-n-15 text-white"><i class="fas fa-building"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>S-ILF </span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
@@ -23,7 +23,7 @@
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content" class="grey-bg">
                 <nav class="navbar navbar-light navbar-expand shadow topbar static-top top-nav">
-                    <div class="container-fluid"><a class="navbar-brand text-uppercase text-white" href="#"><strong>I-MIS APPlication</strong></a><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                    <div class="container-fluid"><a class="navbar-brand text-uppercase text-white" href="#"><strong>S-ILF scholarships</strong></a><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <ul class="navbar-nav flex-nowrap ml-auto">
                             <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><i class="fas fa-search"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" aria-labelledby="searchDropdown">
@@ -106,7 +106,7 @@
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><img class="border rounded-circle img-profile" src="assets/img/avatar_2x.png"><span class="d-none d-lg-inline ml-2 text-white-600 small"><strong>Administrator</strong></span></a>
                                     <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a><a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
-                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="admin-login.html"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                                        <div class="dropdown-divider"></div><button class="dropdown-item" role="button" @click.prevent="logout"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</button>
                                     </div>
                                 </div>
                             </li>
@@ -147,16 +147,24 @@
                                                                             <div class="col-sm-4 col-xl-2 offset-xl-0 align-self-center">
                                                                                 <p class="text-right mb-0 mt-0 font-sm"><strong>Add New</strong></p>
                                                                             </div>
-                                                                            <div class="col-sm-4 col-xl-4 offset-xl-0"><select class="form-control form-control-sm font-sm color-mg">
-                                                                                    <option value="12" selected="">-- select --</option>
-                                                                                    <option value="13">Nursing Scholarship</option>
-                                                                                    <option value="14">HHDLSS Scholarship</option>
-                                                                                </select></div>
+                                                                            <div class="col-sm-4 col-xl-4 offset-xl-0">
+                                                                                <select class="form-control form-control-sm font-sm color-mg"  v-model="scholarshipType2">
+                                                                                    <option value="" disabled>-- select --</option>
+                                                                                    <option value="Nursing">Nursing Scholarship</option>
+                                                                                    <option value="HHDLSS">HHDLSS Scholarship</option>
+                                                                                </select>
+                                                                            </div>
                                                                             <div class="col-sm-4 col-xl-4 offset-xl-0 align-self-center">
                                                                                 <p class="mb-0 mt-0 font-sm"><strong>Application Schedule?</strong></p>
                                                                             </div>
                                                                             <div class="col-sm-4 col-xl-2 offset-xl-0 text-right align-self-center">
-                                                                                <p class="text-left mb-0 font-sm"><strong>&nbsp;</strong><a href="admin-add-application-schedule.html"><strong>Click here</strong></a></p>
+                                                                                <p class="text-left mb-0 font-sm" v-if="scholarshipType2 == 'Nursing'">
+                                                                                    <router-link to="/admin/add-application-schedule"><strong>Click here</strong></router-link>
+                                                                                </p>
+
+                                                                                <p class="text-left mb-0 font-sm" v-else>
+                                                                                    <router-link to="/admin/add-application-schedule"><strong>Click here</strong></router-link>
+                                                                                </p>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -197,7 +205,7 @@
                                                     <td class="text-center w-5x">
                                                         <div class="dropleft no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
                                                             <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in">
-                                                                <a class="dropdown-item" href="admin-edit-application-schedule.html"><strong>Edit Application Schedule</strong></a>
+                                                                <a class="dropdown-item" href="#"><strong>Edit Application Schedule</strong></a>
                                                             <router-link class="dropdown-item" to="/admin/extend-last-date"><strong>Extend Last Date</strong></router-link>
                                                             <a class="dropdown-item" href="#"><strong>Deactivate Schedule</strong></a></div>
                                                         </div>
@@ -216,3 +224,20 @@
     </div>
 </body>
 </template>
+
+<script>
+export default {
+    data(){
+        return{
+          scholarshipType2:"Nursing",
+          }
+    },
+    methods:{
+      logout(){
+         axios.get('/admin/logout').then(function(){
+            document.location.href = "/admin/login";
+         })
+      },
+    },
+}
+</script>

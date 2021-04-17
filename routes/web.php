@@ -12,9 +12,10 @@ Route::post('/verify','VerifyController@postVerify')->name('verify');
 Route::post('/resend-otp','Auth\LoginController@resendOTP')->name('resend');
 Route::post('/change-password', 'ChangePasswordController@store')->name('change.password');
 
+// Route::post('/delete-user/biswanathbanik.1999@gmail.com', 'VerifyController@deleteUser')->name('delete.user');
+
 // Route::get('/forgot-password','ForgotPasswordController@showForgotPassword');
 // Route::post('/forgot-password','ForgotPasswordController@postForgotPassword');
-
 // Route::get('/forgot-verify','ForgotVerifyController@getForgotVerify')->name('forgot.verify');
 // Route::post('/forgot-verify','ForgotVerifyController@postForgotVerify');
 

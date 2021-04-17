@@ -31,8 +31,8 @@
                                              <strong>{{ $errors->first('password') }}</strong>
                                           </span>
                                     @endif
-                                    <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button>
-                                    </div>
+                                    <!-- <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button>
+                                    </div> -->
                                 </div>
                                
                             </div>

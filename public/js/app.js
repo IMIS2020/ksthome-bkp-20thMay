@@ -3708,6 +3708,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3721,6 +3724,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         address1: ''
       },
       courseLevelValueId2: '',
+      courseNameValueId2: '',
       domainForm: {
         domainName: 'CourseName',
         dValue: '',
@@ -3728,6 +3732,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       },
       insId: '',
       insForm: {
+        insType: '',
         insName: '',
         insAddressAddln1: '',
         insAddressAddln2: '',
@@ -3768,12 +3773,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     addNewData: function addNewData() {
-      var data = this.courseLevelValueId2;
       this.rows.push({
         id: '',
         insId: '',
-        courseLevelValueId: data,
-        courseNameValueId: '',
+        courseLevelValueId: this.courseLevelValueId2,
+        courseNameValueId: this.courseNameValueId2,
         addressAddln1: '',
         addressAddln2: '',
         addressCity: '',
@@ -3867,6 +3871,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       axios.get("/api/get-annexure1/".concat(applicationId)).then(function (response) {
         if (response.data['success']) {
           _this2.rows = response.data['data'];
+          _this2.courseLevelValueId2 = response.data['data'][0].courseLevelValueId;
+          _this2.courseNameValueId2 = response.data['data'][0].courseNameValueId;
+
+          _this2.getHHDLSData2(_this2.courseLevelValueId2);
+
           _this2.update = true;
         } else {
           console.log(response.data['msg']);
@@ -3896,6 +3905,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this3.form.financialYear = response.data['data'][0][0].financialYear;
                     _this3.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     _this3.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
+                    _this3.insForm.insType = response.data['data'][0][0].scholarshipType;
 
                     _this3.readDomainValues(_this3.form.scholarshipType);
 
@@ -3939,7 +3949,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         axios.get('/api/domain/course-level/hhdls').then(function (response) {
           _this4.universityCourseLevel = response.data;
         });
-      } else {
+      } else if (type == 'Nursing') {
         axios.get('/api/domain/course-name/nursing').then(function (response) {
           _this4.universityCourseName = response.data;
         });
@@ -3989,7 +3999,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       axios.post('/api/institute/add', this.insForm).then(function (response) {
         if (response.data['success']) {
-          _this7.readInsValue();
+          _this7.readInsValue(_this7.form.scholarshipType);
 
           _this7.$fire({
             position: 'top',
@@ -4047,13 +4057,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return _this9.errorMsg(error.response.status);
       });
     },
-    getHHDLSData: function getHHDLSData(event, index) {
+    getHHDLSData: function getHHDLSData(event) {
       var _this10 = this;
 
+      // clearRow();
       var id = event.target.value;
       axios.get('/api/domain/course-name/hhdls/' + id).then(function (response) {
         _this10.universityCourseName = response.data;
       });
+    },
+    getHHDLSData2: function getHHDLSData2(id) {
+      var _this11 = this;
+
+      axios.get('/api/domain/course-name/hhdls/' + id).then(function (response) {
+        _this11.universityCourseName = response.data;
+      });
+    },
+    clearRow: function clearRow() {//    this.rows = [];
     }
   },
   created: function created() {
@@ -6636,6 +6656,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       this.applicantDisablitySelfShow = this.form.applicantLeprosyAffectedSelf;
+      this.form.applicantDisablitySelf = false;
     },
     check2: function check2(event) {
       if (event.target.value == 'on') {
@@ -6643,6 +6664,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       this.applicantDisablityFatherShow = this.form.applicantLeprosyAffectedFather;
+      this.form.applicantDisablityFather = false;
     },
     check3: function check3(event) {
       if (event.target.value == 'on') {
@@ -6650,6 +6672,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedMother;
+      this.form.applicantDisablityMother = false;
     },
     getHHDLSData: function getHHDLSData(event) {
       var _this10 = this;
@@ -63514,6 +63537,145 @@ var render = function() {
                                       )
                                     ]),
                                     _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-2" }, [
+                                      _vm.form.scholarshipType == "HHDLS"
+                                        ? _c(
+                                            "div",
+                                            { staticClass: "form-group mb-0" },
+                                            [
+                                              _c(
+                                                "select",
+                                                {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.courseNameValueId2,
+                                                      expression:
+                                                        "courseNameValueId2"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-control form-control-sm",
+                                                  attrs: {
+                                                    disabled: _vm.inputDisabled
+                                                  },
+                                                  on: {
+                                                    click: _vm.clearRow,
+                                                    change: function($event) {
+                                                      var $$selectedVal = Array.prototype.filter
+                                                        .call(
+                                                          $event.target.options,
+                                                          function(o) {
+                                                            return o.selected
+                                                          }
+                                                        )
+                                                        .map(function(o) {
+                                                          var val =
+                                                            "_value" in o
+                                                              ? o._value
+                                                              : o.value
+                                                          return val
+                                                        })
+                                                      _vm.courseNameValueId2 = $event
+                                                        .target.multiple
+                                                        ? $$selectedVal
+                                                        : $$selectedVal[0]
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    {
+                                                      attrs: {
+                                                        value: "",
+                                                        disabled: ""
+                                                      }
+                                                    },
+                                                    [_vm._v("-- select --")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _vm._l(
+                                                    _vm.universityCourseName,
+                                                    function(ucn, index) {
+                                                      return _c(
+                                                        "option",
+                                                        {
+                                                          key: index,
+                                                          domProps: {
+                                                            value: ucn.id
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(ucn.value)
+                                                          )
+                                                        ]
+                                                      )
+                                                    }
+                                                  )
+                                                ],
+                                                2
+                                              )
+                                            ]
+                                          )
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _vm.form.scholarshipType == "Nursing"
+                                        ? _c(
+                                            "div",
+                                            { staticClass: "form-group mb-0" },
+                                            [
+                                              _c(
+                                                "select",
+                                                {
+                                                  staticClass:
+                                                    "form-control form-control-sm",
+                                                  attrs: {
+                                                    disabled: _vm.inputDisabled
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    {
+                                                      attrs: {
+                                                        value: "",
+                                                        disabled: ""
+                                                      }
+                                                    },
+                                                    [_vm._v("-- select --")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _vm._l(
+                                                    _vm.universityCourseName,
+                                                    function(ucn, index) {
+                                                      return _c(
+                                                        "option",
+                                                        {
+                                                          key: index,
+                                                          domProps: {
+                                                            value: ucn.id
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(ucn.value)
+                                                          )
+                                                        ]
+                                                      )
+                                                    }
+                                                  )
+                                                ],
+                                                2
+                                              )
+                                            ]
+                                          )
+                                        : _vm._e()
+                                    ]),
+                                    _vm._v(" "),
                                     _c(
                                       "div",
                                       {
@@ -63561,240 +63723,6 @@ var render = function() {
                                               index
                                             ) {
                                               return _c("tr", { key: index }, [
-                                                _c("td", [
-                                                  _vm.form.scholarshipType ==
-                                                  "HHDLS"
-                                                    ? _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "form-group mb-0"
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "select",
-                                                            {
-                                                              directives: [
-                                                                {
-                                                                  name: "model",
-                                                                  rawName:
-                                                                    "v-model",
-                                                                  value:
-                                                                    row.courseNameValueId,
-                                                                  expression:
-                                                                    "row.courseNameValueId"
-                                                                }
-                                                              ],
-                                                              staticClass:
-                                                                "form-control form-control-sm",
-                                                              attrs: {
-                                                                disabled:
-                                                                  _vm.inputDisabled
-                                                              },
-                                                              on: {
-                                                                change: function(
-                                                                  $event
-                                                                ) {
-                                                                  var $$selectedVal = Array.prototype.filter
-                                                                    .call(
-                                                                      $event
-                                                                        .target
-                                                                        .options,
-                                                                      function(
-                                                                        o
-                                                                      ) {
-                                                                        return o.selected
-                                                                      }
-                                                                    )
-                                                                    .map(
-                                                                      function(
-                                                                        o
-                                                                      ) {
-                                                                        var val =
-                                                                          "_value" in
-                                                                          o
-                                                                            ? o._value
-                                                                            : o.value
-                                                                        return val
-                                                                      }
-                                                                    )
-                                                                  _vm.$set(
-                                                                    row,
-                                                                    "courseNameValueId",
-                                                                    $event
-                                                                      .target
-                                                                      .multiple
-                                                                      ? $$selectedVal
-                                                                      : $$selectedVal[0]
-                                                                  )
-                                                                }
-                                                              }
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "option",
-                                                                {
-                                                                  attrs: {
-                                                                    value: "",
-                                                                    disabled: ""
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    "-- select --"
-                                                                  )
-                                                                ]
-                                                              ),
-                                                              _vm._v(" "),
-                                                              _vm._l(
-                                                                _vm.universityCourseName,
-                                                                function(
-                                                                  ucn,
-                                                                  index
-                                                                ) {
-                                                                  return _c(
-                                                                    "option",
-                                                                    {
-                                                                      key: index,
-                                                                      domProps: {
-                                                                        value:
-                                                                          ucn.id
-                                                                      }
-                                                                    },
-                                                                    [
-                                                                      _vm._v(
-                                                                        _vm._s(
-                                                                          ucn.value
-                                                                        )
-                                                                      )
-                                                                    ]
-                                                                  )
-                                                                }
-                                                              )
-                                                            ],
-                                                            2
-                                                          )
-                                                        ]
-                                                      )
-                                                    : _vm._e(),
-                                                  _vm._v(" "),
-                                                  _vm.form.scholarshipType ==
-                                                  "Nursing"
-                                                    ? _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "form-group mb-0"
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "select",
-                                                            {
-                                                              directives: [
-                                                                {
-                                                                  name: "model",
-                                                                  rawName:
-                                                                    "v-model",
-                                                                  value:
-                                                                    row.courseNameValueId,
-                                                                  expression:
-                                                                    "row.courseNameValueId"
-                                                                }
-                                                              ],
-                                                              staticClass:
-                                                                "form-control form-control-sm",
-                                                              attrs: {
-                                                                disabled:
-                                                                  _vm.inputDisabled
-                                                              },
-                                                              on: {
-                                                                change: function(
-                                                                  $event
-                                                                ) {
-                                                                  var $$selectedVal = Array.prototype.filter
-                                                                    .call(
-                                                                      $event
-                                                                        .target
-                                                                        .options,
-                                                                      function(
-                                                                        o
-                                                                      ) {
-                                                                        return o.selected
-                                                                      }
-                                                                    )
-                                                                    .map(
-                                                                      function(
-                                                                        o
-                                                                      ) {
-                                                                        var val =
-                                                                          "_value" in
-                                                                          o
-                                                                            ? o._value
-                                                                            : o.value
-                                                                        return val
-                                                                      }
-                                                                    )
-                                                                  _vm.$set(
-                                                                    row,
-                                                                    "courseNameValueId",
-                                                                    $event
-                                                                      .target
-                                                                      .multiple
-                                                                      ? $$selectedVal
-                                                                      : $$selectedVal[0]
-                                                                  )
-                                                                }
-                                                              }
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "option",
-                                                                {
-                                                                  attrs: {
-                                                                    value: "",
-                                                                    disabled: ""
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    "-- select --"
-                                                                  )
-                                                                ]
-                                                              ),
-                                                              _vm._v(" "),
-                                                              _vm._l(
-                                                                _vm.universityCourseName,
-                                                                function(
-                                                                  ucn,
-                                                                  index
-                                                                ) {
-                                                                  return _c(
-                                                                    "option",
-                                                                    {
-                                                                      key: index,
-                                                                      domProps: {
-                                                                        value:
-                                                                          ucn.id
-                                                                      }
-                                                                    },
-                                                                    [
-                                                                      _vm._v(
-                                                                        _vm._s(
-                                                                          ucn.value
-                                                                        )
-                                                                      )
-                                                                    ]
-                                                                  )
-                                                                }
-                                                              )
-                                                            ],
-                                                            2
-                                                          )
-                                                        ]
-                                                      )
-                                                    : _vm._e()
-                                                ]),
-                                                _vm._v(" "),
                                                 _c("td", [
                                                   _c("input", {
                                                     directives: [
@@ -63972,316 +63900,119 @@ var render = function() {
                                                   )
                                                 ]),
                                                 _vm._v(" "),
-                                                _c("td", [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "form-group mb-0"
-                                                    },
-                                                    [
-                                                      _c("input", {
-                                                        directives: [
-                                                          {
-                                                            name: "model",
-                                                            rawName: "v-model",
-                                                            value:
-                                                              row.addressAddln1,
-                                                            expression:
-                                                              "row.addressAddln1"
-                                                          }
-                                                        ],
+                                                _c(
+                                                  "td",
+                                                  { staticClass: "w-20x" },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
                                                         staticClass:
-                                                          "form-control form-control-sm",
-                                                        attrs: {
-                                                          rows: "1",
-                                                          disabled: ""
-                                                        },
-                                                        domProps: {
-                                                          value:
-                                                            row.addressAddln1
-                                                        },
-                                                        on: {
-                                                          input: function(
-                                                            $event
-                                                          ) {
-                                                            if (
-                                                              $event.target
-                                                                .composing
-                                                            ) {
-                                                              return
+                                                          "form-group mb-0"
+                                                      },
+                                                      [
+                                                        _c("input", {
+                                                          directives: [
+                                                            {
+                                                              name: "model",
+                                                              rawName:
+                                                                "v-model",
+                                                              value:
+                                                                row.addressCity,
+                                                              expression:
+                                                                "row.addressCity"
                                                             }
-                                                            _vm.$set(
-                                                              row,
-                                                              "addressAddln1",
-                                                              $event.target
-                                                                .value
-                                                            )
+                                                          ],
+                                                          staticClass:
+                                                            "form-control form-control-sm",
+                                                          attrs: {
+                                                            rows: "1",
+                                                            disabled: ""
+                                                          },
+                                                          domProps: {
+                                                            value:
+                                                              row.addressCity
+                                                          },
+                                                          on: {
+                                                            input: function(
+                                                              $event
+                                                            ) {
+                                                              if (
+                                                                $event.target
+                                                                  .composing
+                                                              ) {
+                                                                return
+                                                              }
+                                                              _vm.$set(
+                                                                row,
+                                                                "addressCity",
+                                                                $event.target
+                                                                  .value
+                                                              )
+                                                            }
                                                           }
-                                                        }
-                                                      })
-                                                    ]
-                                                  )
-                                                ]),
+                                                        })
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
                                                 _vm._v(" "),
-                                                _c("td", [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "form-group mb-0"
-                                                    },
-                                                    [
-                                                      _c("input", {
-                                                        directives: [
-                                                          {
-                                                            name: "model",
-                                                            rawName: "v-model",
-                                                            value:
-                                                              row.addressAddln2,
-                                                            expression:
-                                                              "row.addressAddln2"
-                                                          }
-                                                        ],
+                                                _c(
+                                                  "td",
+                                                  { staticClass: "w-20x" },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
                                                         staticClass:
-                                                          "form-control form-control-sm",
-                                                        attrs: {
-                                                          rows: "1",
-                                                          disabled: ""
-                                                        },
-                                                        domProps: {
-                                                          value:
-                                                            row.addressAddln2
-                                                        },
-                                                        on: {
-                                                          input: function(
-                                                            $event
-                                                          ) {
-                                                            if (
-                                                              $event.target
-                                                                .composing
-                                                            ) {
-                                                              return
+                                                          "form-group mb-0"
+                                                      },
+                                                      [
+                                                        _c("input", {
+                                                          directives: [
+                                                            {
+                                                              name: "model",
+                                                              rawName:
+                                                                "v-model",
+                                                              value:
+                                                                row.addressState,
+                                                              expression:
+                                                                "row.addressState"
                                                             }
-                                                            _vm.$set(
-                                                              row,
-                                                              "addressAddln2",
-                                                              $event.target
-                                                                .value
-                                                            )
-                                                          }
-                                                        }
-                                                      })
-                                                    ]
-                                                  )
-                                                ]),
-                                                _vm._v(" "),
-                                                _c("td", [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "form-group mb-0"
-                                                    },
-                                                    [
-                                                      _c("input", {
-                                                        directives: [
-                                                          {
-                                                            name: "model",
-                                                            rawName: "v-model",
+                                                          ],
+                                                          staticClass:
+                                                            "form-control form-control-sm",
+                                                          attrs: {
+                                                            rows: "1",
+                                                            disabled: ""
+                                                          },
+                                                          domProps: {
                                                             value:
-                                                              row.addressCity,
-                                                            expression:
-                                                              "row.addressCity"
-                                                          }
-                                                        ],
-                                                        staticClass:
-                                                          "form-control form-control-sm",
-                                                        attrs: {
-                                                          rows: "1",
-                                                          disabled: ""
-                                                        },
-                                                        domProps: {
-                                                          value: row.addressCity
-                                                        },
-                                                        on: {
-                                                          input: function(
-                                                            $event
-                                                          ) {
-                                                            if (
-                                                              $event.target
-                                                                .composing
+                                                              row.addressState
+                                                          },
+                                                          on: {
+                                                            input: function(
+                                                              $event
                                                             ) {
-                                                              return
+                                                              if (
+                                                                $event.target
+                                                                  .composing
+                                                              ) {
+                                                                return
+                                                              }
+                                                              _vm.$set(
+                                                                row,
+                                                                "addressState",
+                                                                $event.target
+                                                                  .value
+                                                              )
                                                             }
-                                                            _vm.$set(
-                                                              row,
-                                                              "addressCity",
-                                                              $event.target
-                                                                .value
-                                                            )
                                                           }
-                                                        }
-                                                      })
-                                                    ]
-                                                  )
-                                                ]),
-                                                _vm._v(" "),
-                                                _c("td", [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "form-group mb-0"
-                                                    },
-                                                    [
-                                                      _c("input", {
-                                                        directives: [
-                                                          {
-                                                            name: "model",
-                                                            rawName: "v-model",
-                                                            value:
-                                                              row.addressDistprov,
-                                                            expression:
-                                                              "row.addressDistprov"
-                                                          }
-                                                        ],
-                                                        staticClass:
-                                                          "form-control form-control-sm",
-                                                        attrs: {
-                                                          rows: "1",
-                                                          disabled: ""
-                                                        },
-                                                        domProps: {
-                                                          value:
-                                                            row.addressDistprov
-                                                        },
-                                                        on: {
-                                                          input: function(
-                                                            $event
-                                                          ) {
-                                                            if (
-                                                              $event.target
-                                                                .composing
-                                                            ) {
-                                                              return
-                                                            }
-                                                            _vm.$set(
-                                                              row,
-                                                              "addressDistprov",
-                                                              $event.target
-                                                                .value
-                                                            )
-                                                          }
-                                                        }
-                                                      })
-                                                    ]
-                                                  )
-                                                ]),
-                                                _vm._v(" "),
-                                                _c("td", [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "form-group mb-0"
-                                                    },
-                                                    [
-                                                      _c("input", {
-                                                        directives: [
-                                                          {
-                                                            name: "model",
-                                                            rawName: "v-model",
-                                                            value:
-                                                              row.addressState,
-                                                            expression:
-                                                              "row.addressState"
-                                                          }
-                                                        ],
-                                                        staticClass:
-                                                          "form-control form-control-sm",
-                                                        attrs: {
-                                                          rows: "1",
-                                                          disabled: ""
-                                                        },
-                                                        domProps: {
-                                                          value:
-                                                            row.addressState
-                                                        },
-                                                        on: {
-                                                          input: function(
-                                                            $event
-                                                          ) {
-                                                            if (
-                                                              $event.target
-                                                                .composing
-                                                            ) {
-                                                              return
-                                                            }
-                                                            _vm.$set(
-                                                              row,
-                                                              "addressState",
-                                                              $event.target
-                                                                .value
-                                                            )
-                                                          }
-                                                        }
-                                                      })
-                                                    ]
-                                                  )
-                                                ]),
-                                                _vm._v(" "),
-                                                _c("td", [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "form-group mb-0"
-                                                    },
-                                                    [
-                                                      _c("input", {
-                                                        directives: [
-                                                          {
-                                                            name: "model",
-                                                            rawName: "v-model",
-                                                            value:
-                                                              row.addressPinzip,
-                                                            expression:
-                                                              "row.addressPinzip"
-                                                          }
-                                                        ],
-                                                        staticClass:
-                                                          "form-control form-control-sm",
-                                                        attrs: {
-                                                          type: "number",
-                                                          disabled: ""
-                                                        },
-                                                        domProps: {
-                                                          value:
-                                                            row.addressPinzip
-                                                        },
-                                                        on: {
-                                                          input: function(
-                                                            $event
-                                                          ) {
-                                                            if (
-                                                              $event.target
-                                                                .composing
-                                                            ) {
-                                                              return
-                                                            }
-                                                            _vm.$set(
-                                                              row,
-                                                              "addressPinzip",
-                                                              $event.target
-                                                                .value
-                                                            )
-                                                          }
-                                                        }
-                                                      })
-                                                    ]
-                                                  )
-                                                ]),
+                                                        })
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
                                                 _vm._v(" "),
                                                 _c(
                                                   "td",
@@ -64692,72 +64423,33 @@ var render = function() {
                         ])
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                        _c("label", [_vm._v("Address Line 1")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.insForm.insAddressAddln1,
-                                expression: "insForm.insAddressAddln1"
-                              }
-                            ],
-                            staticClass: "form-control form-control-sm",
-                            attrs: { type: "text" },
-                            domProps: { value: _vm.insForm.insAddressAddln1 },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.insForm,
-                                  "insAddressAddln1",
-                                  $event.target.value
-                                )
-                              }
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.insForm.insType,
+                            expression: "insForm.insType"
+                          }
+                        ],
+                        attrs: { type: "hidden" },
+                        domProps: { value: _vm.insForm.insType },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
                             }
-                          })
-                        ])
-                      ]),
+                            _vm.$set(
+                              _vm.insForm,
+                              "insType",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                        _c("label", [_vm._v("Address Line 2")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.insForm.insAddressAddln2,
-                                expression: "insForm.insAddressAddln2"
-                              }
-                            ],
-                            staticClass: "form-control form-control-sm",
-                            attrs: { type: "text" },
-                            domProps: { value: _vm.insForm.insAddressAddln2 },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.insForm,
-                                  "insAddressAddln2",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                        _c("label", [_vm._v("City")]),
+                        _c("label", [_vm._v("City/Town")]),
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group" }, [
                           _c("input", {
@@ -64780,38 +64472,6 @@ var render = function() {
                                 _vm.$set(
                                   _vm.insForm,
                                   "insAddressCity",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                        _c("label", [_vm._v("District")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.insForm.insAddressDistprov,
-                                expression: "insForm.insAddressDistprov"
-                              }
-                            ],
-                            staticClass: "form-control form-control-sm",
-                            attrs: { type: "text" },
-                            domProps: { value: _vm.insForm.insAddressDistprov },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.insForm,
-                                  "insAddressDistprov",
                                   $event.target.value
                                 )
                               }
@@ -65043,38 +64703,6 @@ var render = function() {
                             ]
                           )
                         ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                        _vm._m(8),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.insForm.insAddressPinzip,
-                                expression: "insForm.insAddressPinzip"
-                              }
-                            ],
-                            staticClass: "form-control form-control-sm",
-                            attrs: { type: "number" },
-                            domProps: { value: _vm.insForm.insAddressPinzip },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.insForm,
-                                  "insAddressPinzip",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          })
-                        ])
                       ])
                     ])
                   ]),
@@ -65089,7 +64717,7 @@ var render = function() {
                       },
                       [_c("strong", [_vm._v("Submit")])]
                     ),
-                    _vm._m(9)
+                    _vm._m(8)
                   ])
                 ])
               ])
@@ -65107,8 +64735,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "font-md" }, [
       _c("tr", { staticClass: "color-mg font-sm" }, [
-        _c("th", [_vm._v("Course ")]),
-        _vm._v(" "),
         _c("th", [
           _vm._v("Institute "),
           _c(
@@ -65120,21 +64746,13 @@ var staticRenderFns = [
                 "data-target": "#others-add-institute"
               }
             },
-            [_vm._v("+ Add")]
+            [_vm._v("+ Add New Institute")]
           )
         ]),
         _vm._v(" "),
-        _c("th", [_vm._v("Address Line-1")]),
+        _c("th", { staticClass: "w-20x" }, [_vm._v("City/Town")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Address Line-2")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("City")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("District")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("State")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Pin/ZIP Code")]),
+        _c("th", { staticClass: "w-20x" }, [_vm._v("State")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center w-5x" }, [
           _c("strong", [_vm._v("Action")])
@@ -65228,7 +64846,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header py-1" }, [
       _c("h6", { staticClass: "modal-title color-mg font-md" }, [
-        _c("strong", [_vm._v("Add Institute")])
+        _c("strong", [_vm._v("Add New Institute")])
       ]),
       _c(
         "button",
@@ -65250,15 +64868,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", [
       _vm._v("State "),
-      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("PIN/ZIP Code "),
       _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
     ])
   },

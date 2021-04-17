@@ -40,6 +40,20 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <div class="col-xl-2">
+                                                                <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
+                                                                    <select class="form-control form-control-sm" v-model="courseNameValueId2" :disabled="inputDisabled" @click="clearRow">
+                                                                        <option value="" disabled>-- select --</option>
+                                                                        <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group mb-0" v-if="form.scholarshipType=='Nursing'">
+                                                                    <select class="form-control form-control-sm" :disabled="inputDisabled">
+                                                                        <option value="" disabled>-- select --</option>
+                                                                        <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
                                                             <div class="col-md-2 col-xl-1 offset-md-3 offset-xl-0 align-self-center">
                                                                 <button class="btn btn-block btn-sm font-xs btn-mg add-anex-i-row" type="button" @click="addNewData">
                                                                     <i class="fa fa-plus"></i><strong>&nbsp;Add row</strong>
@@ -50,33 +64,22 @@
                                                             <table class="table table-sm mb-2">
                                                                 <thead class="font-md">
                                                                     <tr class="color-mg font-sm">
-                                                                        <th>Course </th>
-                                                                        <th>Institute <a data-toggle="modal" href="#" data-target="#others-add-institute">+ Add</a></th>
-                                                                        <th>Address Line-1</th>
-                                                                        <th>Address Line-2</th>
-                                                                        <th>City</th>
-                                                                        <th>District</th>
-                                                                        <th>State</th>
-                                                                        <th>Pin/ZIP Code</th>
+                                                                        <!-- <th>Course </th> -->
+                                                                        <th>Institute <a data-toggle="modal" href="#" data-target="#others-add-institute">+ Add New Institute</a></th>
+                                                                        <!-- <th>Address Line-1</th>
+                                                                        <th>Address Line-2</th> -->
+                                                                        <th class="w-20x">City/Town</th>
+                                                                        <!-- <th>District</th> -->
+                                                                        <th class="w-20x">State</th>
+                                                                        <!-- <th>Pin/ZIP Code</th> -->
                                                                         <th class="text-center w-5x"><strong>Action</strong></th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody class="h-25x">
                                                                     <tr v-for="(row, index) in rows" :key="index">
-                                                                        <td>
-                                                                            <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
-                                                                                <select class="form-control form-control-sm" v-model="row.courseNameValueId" :disabled="inputDisabled">
-                                                                                    <option value="" disabled>-- select --</option>
-                                                                                    <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
-                                                                                </select>
-                                                                            </div>
-                                                                            <div class="form-group mb-0" v-if="form.scholarshipType=='Nursing'">
-                                                                                <select class="form-control form-control-sm" v-model="row.courseNameValueId" :disabled="inputDisabled">
-                                                                                    <option value="" disabled>-- select --</option>
-                                                                                    <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </td>
+                                                                        <!-- <td>
+                                                                            
+                                                                        </td> -->
                                                                         <td>
                                                                             <input type="hidden" v-model="row.id" :disabled="globalDisable"/>
                                                                             <input type="hidden" v-model="row.courseLevelValueId" :disabled="globalDisable" />
@@ -87,7 +90,7 @@
                                                                             </div>
                                                                         </td>
                                                                         
-                                                                        <td>
+                                                                        <!-- <td>
                                                                             <div class="form-group mb-0">
                                                                                 <input class="form-control form-control-sm" rows="1"  v-model="row.addressAddln1" disabled  />
                                                                             </div>
@@ -96,27 +99,27 @@
                                                                             <div class="form-group mb-0">
                                                                                 <input class="form-control form-control-sm" rows="1"  v-model="row.addressAddln2" disabled  />
                                                                             </div>
-                                                                        </td>
-                                                                        <td>
+                                                                        </td> -->
+                                                                        <td class="w-20x">
                                                                             <div class="form-group mb-0">
                                                                                 <input class="form-control form-control-sm" rows="1"  v-model="row.addressCity" disabled  />
                                                                             </div>
                                                                         </td>
-                                                                        <td>
+                                                                        <!-- <td>
                                                                             <div class="form-group mb-0">
                                                                                 <input class="form-control form-control-sm" rows="1"  v-model="row.addressDistprov" disabled  />
                                                                             </div>
-                                                                        </td>
-                                                                        <td>
+                                                                        </td> -->
+                                                                        <td class="w-20x">
                                                                             <div class="form-group mb-0">
                                                                                <input class="form-control form-control-sm" rows="1"  v-model="row.addressState" disabled  />
                                                                             </div>
                                                                         </td>
-                                                                        <td>
+                                                                        <!-- <td>
                                                                             <div class="form-group mb-0">
                                                                                 <input class="form-control form-control-sm" type="number"  v-model="row.addressPinzip" disabled  />
                                                                             </div>
-                                                                        </td>
+                                                                        </td> -->
                                                                         <td class="text-center w-5x pt-2">
                                                                             <a href="#" @click="deleteRow(index)"><i class="fa fa-trash color-mg font-l"></i></a>
                                                                         </td>
@@ -210,7 +213,7 @@
                         <form>
                             <div class="modal-content">
                                 <div class="modal-header py-1">
-                                    <h6 class="modal-title color-mg font-md"><strong>Add Institute</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    <h6 class="modal-title color-mg font-md"><strong>Add New Institute</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                 </div>
                                 <div class="modal-body cs-modal-body">
                                     <div class="form-row">
@@ -220,7 +223,8 @@
                                                 <input class="form-control form-control-sm" type="text" v-model="insForm.insName" required>
                                             </div>
                                         </div>
-                                        <div class="col-xl-6 mb-2">
+                                        <input type="hidden" v-model="insForm.insType" />
+                                        <!-- <div class="col-xl-6 mb-2">
                                             <label>Address Line 1</label>
                                             <div class="form-group">
                                                 <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln1">
@@ -231,20 +235,19 @@
                                             <div class="form-group">
                                                 <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln2" >
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="col-xl-6 mb-2">
-                                            <label>City</label>
+                                            <label>City/Town</label>
                                             <div class="form-group">
                                                 <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressCity" required>
                                             </div>
                                         </div>
-                                        <div class="col-xl-6 mb-2">
+                                        <!-- <div class="col-xl-6 mb-2">
                                             <label>District</label>
                                             <div class="form-group">
                                                 <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressDistprov" >
                                             </div>
-                                        </div>
-                                        
+                                        </div> -->
                                         <div class="col-xl-6 mb-2">
                                             <label>State&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                             <div class="form-group"> 
@@ -289,12 +292,12 @@
                                                 </select>
                                             </div>
                                         </div>
-                                            <div class="col-xl-6 mb-2">
+                                        <!-- <div class="col-xl-6 mb-2">
                                                 <label>PIN/ZIP Code&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                             <div class="form-group">
                                                 <input class="form-control form-control-sm" type="number" v-model="insForm.insAddressPinzip" >
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveInstitute"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
@@ -322,7 +325,8 @@ export default{
             },
            
             courseLevelValueId2: '',
-          
+            courseNameValueId2: '',
+
             domainForm: {
                 domainName : 'CourseName',
                 dValue : '',
@@ -331,6 +335,7 @@ export default{
             insId: '',
             insForm: {
                 
+                insType:'',
                 insName:'',
                 insAddressAddln1:'',
                 insAddressAddln2:'',
@@ -363,7 +368,7 @@ export default{
             [
               {  
                 insId : '',
-                courseLevelValueId : '',
+                courseLevelValueId: '',
                 courseNameValueId: '',
                 addressAddln1 : '',
                 addressAddln2 :'',
@@ -379,12 +384,11 @@ export default{
         
         addNewData()
         {
-            let data = this.courseLevelValueId2;
             this.rows.push({
                 id: '',
                 insId : '',
-                courseLevelValueId : data,
-                courseNameValueId : '',
+                courseLevelValueId: this.courseLevelValueId2,
+                courseNameValueId: this.courseNameValueId2,
                 addressAddln1 : '',
                 addressAddln2 :'',
                 addressCity : '',
@@ -469,6 +473,9 @@ export default{
             .then(response => {
                 if (response.data['success']) {
                     this.rows = response.data['data'];
+                    this.courseLevelValueId2 = response.data['data'][0].courseLevelValueId;
+                    this.courseNameValueId2  = response.data['data'][0].courseNameValueId;
+                    this.getHHDLSData2(this.courseLevelValueId2);
                     this.update = true;
                 } else {
                     console.log(response.data['msg'])
@@ -494,6 +501,7 @@ export default{
                     this.form.financialYear = response.data['data'][0][0].financialYear;  
                     this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
+                    this.insForm.insType = response.data['data'][0][0].scholarshipType;
                     this.readDomainValues(this.form.scholarshipType);
                     this.readInsValue(this.form.scholarshipType);
                     if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
@@ -528,7 +536,7 @@ export default{
                     .then(response => {
                         this.universityCourseLevel= response.data;
                     });
-            }else 
+            }else if(type == 'Nursing')
             {
                 axios.get('/api/domain/course-name/nursing')
                     .then(response => {
@@ -585,7 +593,7 @@ export default{
             axios.post('/api/institute/add',this.insForm)
             .then(response => {
                 if (response.data['success']) {
-                    this.readInsValue();
+                    this.readInsValue(this.form.scholarshipType);
                     
                     this.$fire({
                         position: 'top',
@@ -643,13 +651,26 @@ export default{
                 }
             }).catch(error => this.errorMsg(error.response.status))
         },
-        getHHDLSData(event,index)
+        getHHDLSData(event)
         {
+            // clearRow();
             let id = event.target.value;
             axios.get('/api/domain/course-name/hhdls/'+id)
                 .then(response => {
                     this.universityCourseName = response.data;
                 });  
+        },
+        getHHDLSData2(id)
+        {
+            
+            axios.get('/api/domain/course-name/hhdls/'+id)
+                .then(response => {
+                    this.universityCourseName = response.data;
+                });  
+        },
+        clearRow()
+        {
+        //    this.rows = [];
         }
     },
     created(){

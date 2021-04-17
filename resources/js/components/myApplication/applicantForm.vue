@@ -1779,7 +1779,7 @@ export default {
                   
                 }
                     this.applicantDisablitySelfShow = this.form.applicantLeprosyAffectedSelf;
-
+                    this.form.applicantDisablitySelf = false;
                 
                
             },
@@ -1792,7 +1792,7 @@ export default {
                    
                 }
                     this.applicantDisablityFatherShow = this.form.applicantLeprosyAffectedFather;
-
+                    this.form.applicantDisablityFather = false;
                 
             },
 
@@ -1804,7 +1804,7 @@ export default {
                   
                 }
                     this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedMother;
-                
+                    this.form.applicantDisablityMother = false;
 
             },
             getHHDLSData(event)

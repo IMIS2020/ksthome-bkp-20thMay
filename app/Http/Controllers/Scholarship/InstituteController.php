@@ -16,7 +16,7 @@ class InstituteController extends Controller
     public function getInstitute($type)
     {
         $getDomainId = DomainValues::where('value',$type)->first();
-        $getIns = Institute::where('scholarshipTypeValueId',$getDomainId->id)->with('get_address')->orderBy('id','DESC')->get()->toJson();
+        $getIns = Institute::where('scholarshipTypeValueId',$getDomainId->id)->with('get_address')->orderBy('instituteName','ASC')->get()->toJson();
         return $getIns;
     }
 
@@ -49,12 +49,12 @@ class InstituteController extends Controller
         try 
         {
             $instituteAddress = new Address;
-            $instituteAddress->addressAddln1    = $request->insAddressAddln1;
-            $instituteAddress->addressAddln2    = $request->insAddressAddln2;
+            // $instituteAddress->addressAddln1    = $request->insAddressAddln1;
+            // $instituteAddress->addressAddln2    = $request->insAddressAddln2;
             $instituteAddress->addressCity      = $request->insAddressCity;
             $instituteAddress->addressState     = $request->insAddressState;
-            $instituteAddress->addressDistprov  = $request->insAddressDistprov;
-            $instituteAddress->addressPinzip    = $request->insAddressPinzip;
+            // $instituteAddress->addressDistprov  = $request->insAddressDistprov;
+            // $instituteAddress->addressPinzip    = $request->insAddressPinzip;
             $instituteAddress->addressCountry   = 'India';
             $instituteAddress->save();
 

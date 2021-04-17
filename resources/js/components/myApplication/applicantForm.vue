@@ -133,7 +133,7 @@
                                                                 </div>
 
                                                                 <div class="col-xl-3 align-self-center">
-                                                                    <label>Who is affected by Leprosy in the family:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                    <label>Who is affected by Leprosy in the family&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedMother"  @click="check3($event)" id="formCheck-4" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-1">Mother</label></div>
                                                                         <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantLeprosyAffectedFather" @click="check2($event)" id="formCheck-2" :disabled="globalDisable"><label class="form-check-label font-md" for="formCheck-2">Father</label></div>
@@ -142,7 +142,7 @@
                                                                 </div>
 
                                                                  <div class="col-xl-5 align-self-center">
-                                                                    <label>Who has disability due to Leprosy in the family (Certificate required):&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                    <label>Who has disability due to Leprosy in the family (Certificate required)&nbsp;</label>
                                                                     <div class="form-group">
                                                                         <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablityMother" id="formCheck-4" :disabled="applicantDisablityMotherShow"><label class="form-check-label font-md" for="formCheck-1">Mother</label></div>
                                                                         <div class="form-check form-check-inline"><input class="form-check-input" type="checkbox" v-model="form.applicantDisablityFather" id="formCheck-2" :disabled="applicantDisablityFatherShow"><label class="form-check-label font-md" for="formCheck-2">Father</label></div>
@@ -281,7 +281,7 @@
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="form-row">
-                                                                <div class="col-xl-12 mb-2"><label>Details of educational qualification: Matriculation/Higher Secondary/ Graduation: <br></label>
+                                                                <div class="col-xl-12 mb-2"><span style="color:#000;" class="font-sm">Details of educational qualification: Matriculation/Higher Secondary/ Graduation: <br></span>
                                                                     <div class="table-responsive font-md">
                                                                         <table class="table table-sm mb-0">
                                                                             <thead class="font-sm color-mg">
@@ -726,12 +726,11 @@
 
                                                                 <span class="text-danger font-sm mt-2">&nbsp; (If 'YES' Annexure-I will be disabled.&nbsp;If 'NO' fill up Annexure-I)</span>
                                                                 <div class="col-xl-12 mb-2">
-                                                                    <label class="col-form-label">Details of the course you have been selected for :&nbsp;<br></label>
+                                                                    <span style="color:#000;" class="font-sm">Details of the course you have been selected for :&nbsp;<br></span>
                                                                 </div>
                                                                 <div class="col-xl-3">
                                                                     
                                                                     <label>Name of the Level&nbsp;</label>
-                                                                    
                                                                      <div class="form-group mb-0">
                                                                         <select class="form-control form-control-sm" v-model="form.courseLevelValueId" :disabled="inputDisabled" @click="getHHDLSData($event)">
                                                                             <option value="" disabled>-- select --</option>
@@ -994,7 +993,7 @@
                                                         <div class="card-body">
                                                             <div class="form-row">
                                                                 <div class="col-xl-12 mb-2">
-                                                                    <label>Kindly Mention The Name Of Your Sibling's Who Has Got Scholarship In The Past.<br>(If No, Leave It Blank).<br></label>
+                                                                    <span style="color:#000;" class="font-sm">Kindly mention the details of your siblings who have received S-ILF Scholarships in the past.<br>(If no, leave it blank).<br></span>
                                                                     <div class="table-responsive font-md">
                                                                         <table class="table table-sm mb-0">
                                                                             <thead class="color-mg">

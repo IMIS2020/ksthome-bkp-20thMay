@@ -185,7 +185,7 @@ class DocMasterSeed extends Seeder
         DB::table('docMaster')->insert(
             [
                 'docShortName' => 'DOC018',
-                'docDesc' => 'Pr',
+                'docDesc' => 'Proof of Residence',
                 'docType' => 'Uploaded',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),

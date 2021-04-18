@@ -8,23 +8,28 @@
        <br>
         <div class="container mt-4 text-center">
             <p class="text-uppercase text-center text-black font-xl font-weight-bold">
-                    <span style="text-decoration: underline;">to whom it may concern</span></p>
-                <p class="lead mb-0 text-left text-black font-l font-weight-bold">I<strong>&nbsp;</strong><span>
-                <strong>{{this.Nform.applicantColonyLeaderName}}</strong></span><strong>
-                <em>&nbsp;</em></strong>hereby certify that the applicant&nbsp;<span>
-                <strong>{{form.fullName}}</strong></span>&nbsp;has been residing in the colony ,&nbsp;
-                <span><strong>{{form.addressAddln1}}</strong></span> , and
-                <span v-if="form.applicantLeprosyAffectedFather == true"><strong>{{form.applicantFatherName}} ,</strong></span> 
-                    <!-- <span v-if="form.applicantLeprosyAffectedSelf == true && form.applicantLeprosyAffectedFather == true && form.applicantLeprosyAffectedMother == true">&amp;&nbsp;</span> -->
-                    <!-- <span v-else>,</span> -->
-                <span v-if="form.applicantLeprosyAffectedMother == true"><strong> {{form.applicantMotherName}}</strong></span>
-                <span v-if="form.applicantLeprosyAffectedSelf == true"><strong>and {{form.fullName}}</strong></span>
-                    , from the family
-                    <span v-if="countLeprosy > 1">are</span>
-                    <span v-if="countLeprosy == 1">is</span> 
-                    affected by leprosy.&nbsp;
-                <br><br>I certify that, to best of my knowledge, the information provided by the candidate is true. 
-                <br> I recommended the applicant for&nbsp;<span><strong>{{form.scholarshipType}} Scholarship Programme</strong></span>.
+                <span style="text-decoration: underline;">to whom it may concern</span></p>
+            <p class="lead mb-0 text-left text-black font-m font-weight-bold">I<strong>&nbsp;</strong><span>
+            <strong>{{this.Nform.applicantColonyLeaderName}}</strong></span><strong>
+            <em>&nbsp;</em></strong>hereby certify that the applicant&nbsp;<span>
+            <strong>{{form.fullName}}</strong></span>&nbsp;has been residing in the colony ,&nbsp;
+            <span><strong>{{form.addressAddln1}}</strong></span>.<br><span v-if="form.applicantLeprosyAffectedFather == true"><strong> {{form.applicantFatherName}}</strong>
+            <span v-if="countLeprosy == 2">and</span>
+            <span v-if="countLeprosy == 3">,</span>
+            <span v-if="countLeprosy == 1"></span>
+            </span>
+            <span v-if="form.applicantLeprosyAffectedMother == true"><strong>{{form.applicantMotherName}}</strong></span>
+            <!-- <span v-if="countLeprosy == 2"></span>
+            <span v-if="countLeprosy == 3">,</span> -->
+            <!-- <span v-if="countLeprosy == 1">and</span> -->
+            <span v-if="form.applicantLeprosyAffectedSelf == true"><strong> and {{form.fullName}}</strong></span>
+                    from the family
+                <span v-if="countLeprosy > 1">are</span>
+                <span v-if="countLeprosy == 1">is</span> 
+                affected by leprosy.&nbsp;</p>
+                <br>
+            <!-- <br><br>I certify that, to best of my knowledge, the information provided by the candidate is true.  -->
+                <p class="lead mb-0 text-left text-black font-l font-weight-bold"> I recommend the applicant for&nbsp;<span><strong>{{form.scholarshipType}} Scholarship Programme</strong></span>.
             <br><br><br><br>Signature of Colony Leader: __________________________________, Date: ____________________</p>
         <div>
          <button class="btn btn-lg btn-mg mt-4 d-print-none" onclick = "window.print();">

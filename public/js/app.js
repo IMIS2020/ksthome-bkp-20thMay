@@ -5204,6 +5204,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5311,6 +5316,11 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
 //
 //
 //
@@ -66816,7 +66826,7 @@ var render = function() {
       _c(
         "p",
         {
-          staticClass: "lead mb-0 text-left text-black font-l font-weight-bold"
+          staticClass: "lead mb-0 text-left text-black font-m font-weight-bold"
         },
         [
           _vm._v("I"),
@@ -66827,42 +66837,52 @@ var render = function() {
           _vm._m(1),
           _vm._v("hereby certify that the applicant "),
           _c("span", [_c("strong", [_vm._v(_vm._s(_vm.form.fullName))])]),
-          _vm._v(" has been residing in the colony , \n             "),
+          _vm._v(" has been residing in the colony , \n         "),
           _c("span", [_c("strong", [_vm._v(_vm._s(_vm.form.addressAddln1))])]),
-          _vm._v(" , and\n             "),
+          _vm._v("."),
+          _c("br"),
           _vm.form.applicantLeprosyAffectedFather == true
             ? _c("span", [
                 _c("strong", [
-                  _vm._v(_vm._s(_vm.form.applicantFatherName) + " ,")
-                ])
+                  _vm._v(" " + _vm._s(_vm.form.applicantFatherName))
+                ]),
+                _vm._v(" "),
+                _vm.countLeprosy == 2 ? _c("span", [_vm._v("and")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.countLeprosy == 3 ? _c("span", [_vm._v(",")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.countLeprosy == 1 ? _c("span") : _vm._e()
               ])
             : _vm._e(),
           _vm._v(" "),
           _vm.form.applicantLeprosyAffectedMother == true
             ? _c("span", [
-                _c("strong", [
-                  _vm._v(" " + _vm._s(_vm.form.applicantMotherName))
-                ])
+                _c("strong", [_vm._v(_vm._s(_vm.form.applicantMotherName))])
               ])
             : _vm._e(),
           _vm._v(" "),
           _vm.form.applicantLeprosyAffectedSelf == true
             ? _c("span", [
-                _c("strong", [_vm._v("and " + _vm._s(_vm.form.fullName))])
+                _c("strong", [_vm._v(" and " + _vm._s(_vm.form.fullName))])
               ])
             : _vm._e(),
-          _vm._v("\n                 , from the family\n                 "),
+          _vm._v("\n                 from the family\n             "),
           _vm.countLeprosy > 1 ? _c("span", [_vm._v("are")]) : _vm._e(),
           _vm._v(" "),
           _vm.countLeprosy == 1 ? _c("span", [_vm._v("is")]) : _vm._e(),
-          _vm._v(" \n                 affected by leprosy. \n             "),
-          _c("br"),
-          _c("br"),
-          _vm._v(
-            "I certify that, to best of my knowledge, the information provided by the candidate is true. \n             "
-          ),
-          _c("br"),
-          _vm._v(" I recommended the applicant for "),
+          _vm._v(" \n             affected by leprosy. ")
+        ]
+      ),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "p",
+        {
+          staticClass: "lead mb-0 text-left text-black font-l font-weight-bold"
+        },
+        [
+          _vm._v(" I recommend the applicant for "),
           _c("span", [
             _c("strong", [
               _vm._v(
@@ -67533,10 +67553,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c("h6", { staticClass: "mb-0 color-mg" }, [
+        _c("strong", [_vm._v("Upload latest certificates and proofs.")]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v("Note: 1  - png, jpeg, jpg or pdf files - Max 1 MB each"),
+        _c("br"),
         _vm._v(
-          "Upload latest certificates and proofs - (PDF,png,jpeg or jpg files - Max 1 MB each)"
-        ),
-        _c("br")
+          "\n                                                                                                  2  - Aadhaar card / voter id / driving lisence/ ration card\n                                                                                                    are valid for proof of address.\n                                                                                                    \n                                                        "
+        )
       ])
     ])
   },

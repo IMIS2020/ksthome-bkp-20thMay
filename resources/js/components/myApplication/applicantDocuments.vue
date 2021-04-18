@@ -29,7 +29,12 @@
                                                 <div class="col-xl-12">
                                                     <div class="card mt-2 det-sec">
                                                         <div class="card-header">
-                                                            <h6 class="mb-0 color-mg">Upload latest certificates and proofs - (PDF,png,jpeg or jpg files - Max 1 MB each)<br></h6>
+                                                            <h6 class="mb-0 color-mg"><strong>Upload latest certificates and proofs.</strong>
+                                                                                        <br>Note: 1  - png, jpeg, jpg or pdf files - Max 1 MB each<br>
+                                                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2  - Aadhaar card / voter id / driving lisence/ ration card
+                                                                                                        are valid for proof of address.
+                                                                                                        
+                                                            </h6>
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="form-row">

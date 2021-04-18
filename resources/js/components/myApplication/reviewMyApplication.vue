@@ -5,7 +5,7 @@
             <form @submit.prevent="saveForm">
                 <div class="form-row">
                     <div class="col-xl-12 text-center mb-3">
-                       <h5 class="text-capitalize text-center color-mg"><strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.applicationId == '' ? '' : '( APP NO: '+form.applicationId+')'}}</strong></h5>
+                       <h5 class="text-capitalize text-center color-mg"><strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.appIdShow == '' ? '' : '( APP NO: '+form.appIdShow+')'}}</strong></h5>
                     </div>
                     <div class="col-xl-12">
                         <div class="mb-3">
@@ -41,7 +41,7 @@
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td><strong>My {{form.scholarshipType}} application </strong>({{form.applicationId}})<strong>,&nbsp; for {{form.financialYear}}</strong></td>
+                                                                        <td><strong>My {{form.scholarshipType}} application </strong>({{form.appIdShow}})<strong>,&nbsp; for {{form.financialYear}}</strong></td>
                                                                         <td class="text-center" v-if="form.applicationId == '' "><span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span></td>
                                                                         <td class="text-center" v-else><router-link class="act-link" :to="'/print-view-application/'+form.applicationId" ><i class="fa fa-eye"></i></router-link></td>
                                                                         <!-- <td class="text-center" v-if="form.applicationId == '' "><span class="act-link"  style="color:#808080;"><i class="fa fa-eye"></i></span></td>
@@ -401,6 +401,7 @@ export default{
                 addressAddln1:'',
                 fullName: '',
                 appStatus: '',
+                appIdShow: '',
             },
 
         // getdata:{
@@ -470,6 +471,7 @@ export default{
                     this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
                     this.form.fullName = response.data['data'][0][0].applicantNameF+' '+ (response.data['data'][0][0].applicantNameM == null ? ' ' : response.data['data'][0][0].applicantNameM )+' '+response.data['data'][0][0].applicantNameL
                     this.form.appStatus = response.data['data'][0][0].appStatus;
+                    this.form.appIdShow = response.data['data'][0][0].appIdShow;
                     // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
                     // {
                     //     this.getData.genderType = "son";

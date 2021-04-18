@@ -7,7 +7,7 @@
                     <div class="col-sm-12 col-md-12 col-xl-12 text-center mt-3 pr-1">
                         <h3><strong>DOCUMENTS ATTACHED</strong></h3>
                         <h6 class="text-uppercase text-center"><strong>Applicant Name. : {{form.fullName}}</strong></h6>
-                        <h6 class="text-uppercase"><strong>Application No. : {{form.applicationId}}, (submitted online)</strong></h6>
+                        <h6 class="text-uppercase"><strong>Application No. : {{form.appIdShow}}, (submitted online)</strong></h6>
                         
                     </div>
                     <div class="col-xl-12 mb-2">
@@ -411,6 +411,8 @@ export default{
                 fullName: '',
 
                 lastdateSubmit: '',
+
+                appIdShow: '',
             },
             getFiles: {
                 admissionLetter:'#',
@@ -470,6 +472,7 @@ export default{
                         this.form.applicantDisablitySelf =  response.data['data'][0][0].applicantDisablitySelf;
                         this.form.applicantDisablityFather = response.data['data'][0][0].applicantDisablityFather;
                         this.form.applicantDisablityMother = response.data['data'][0][0].applicantDisablityMother;
+                        this.form.appIdShow = response.data['data'][0][0].appIdShow;
                         if(this.form.hasAdmissionLetter == 'YES') {
                             // this.inputDisabled = false; 
                             this.form.insCourse=response.data['data'][0][0].get_course_domain_values.value,

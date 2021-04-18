@@ -21,6 +21,10 @@ class DomainValues extends Migration
             $table->string('valueDescription')->nullable();
             $table->timestamps();
         });
+
+        Schema::table('domainValues', function (Blueprint $table) {
+            $table->unique(["nameId", "value"], 'domain_name_value_index');
+        });
     }
 
     /**
@@ -31,5 +35,8 @@ class DomainValues extends Migration
     public function down()
     {
         Schema::dropIfExists('domainValues');
+        Schema::table('domainValues', function (Blueprint $table) {
+            $table->dropUnique('domain_name_value_index');
+          });
     }
 }

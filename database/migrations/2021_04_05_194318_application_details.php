@@ -59,6 +59,10 @@ class ApplicationDetails extends Migration
             $table->date('dateLastSubmitted')->nullable();
             $table->timestamps();
         });
+
+        Schema::table('applicantionDetails', function (Blueprint $table) {
+            $table->unique(["scholarshipTypeValueId", "userId","sessionId"], 'application_index');
+        });
     }
 
     /**
@@ -69,5 +73,8 @@ class ApplicationDetails extends Migration
     public function down()
     {
         Schema::dropIfExists('applicantionDetails');
+        Schema::table('applicantionDetails', function (Blueprint $table) {
+            $table->dropUnique('application_index');
+          });
     }
 }

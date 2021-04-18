@@ -293,6 +293,7 @@
                                                                                     <th>Year of Passing&nbsp;<span class="text-danger">*</span></th>
                                                                                     <th>Percentage(%)&nbsp;<span class="text-danger">*</span></th>
                                                                                     <th>Division&nbsp;<span class="text-danger">*</span></th>
+                                                                                    <th>Action</th>
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
@@ -435,6 +436,11 @@
                                                                                             </select>
                                                                                         </div>
                                                                                     </td>
+                                                                                    <td class="text-center">
+                                                                                        <span class="act-link" style="color:#808080;">
+                                                                                            <i class="fa fa-trash"></i>
+                                                                                        </span>
+                                                                                    </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td>
@@ -558,6 +564,11 @@
                                                                                                 <option value="N/A">N/A</option>
                                                                                             </select>
                                                                                         </div>
+                                                                                    </td>
+                                                                                    <td class="text-center">
+                                                                                        <span class="act-link" style="color:#808080;">
+                                                                                            <i class="fa fa-trash"></i>
+                                                                                        </span>
                                                                                     </td>
                                                                                 </tr>
 
@@ -683,6 +694,15 @@
                                                                                                 <option value="N/A">N/A</option>
                                                                                             </select>
                                                                                         </div>
+                                                                                    </td>
+                                                                                    <td class="text-center">
+                                                                                        <a v-if="globalDisable == false" class="act-link" @click="deleteFile()">
+                                                                                                <i class="fa fa-trash"></i>
+                                                                                        </a>
+                                                                                         <a v-else class="act-link" style="color:#808080;">
+                                                                                            <i class="fa fa-trash"></i>
+                                                                                        </a>
+
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -1385,6 +1405,7 @@ export default {
                         this.form.applicantColonyleaderName = response.data['data'][0][0].applicantColonyLeaderName;
                         this.insForm.insType = response.data['data'][0][0].scholarshipType;
                         this.form.appIdShow = response.data['data'][0][0].appIdShow;
+                        this.chcekUpDisable();
                         if(this.form.appStatus == 'Submit')
                         {
                             this.inputDisabled = true;
@@ -1818,6 +1839,23 @@ export default {
                     });   
 
             },
+            deleteFile()
+            {
+                this.form.education3ExaminationLevel='',
+                this.form.education3ExaminationPassed= '',
+                this.form.education3University= '',
+                this.form.education3MainSubjects= '',
+                this.form.education3YearOfPassing= '',
+                this.form.education3Percentage='',
+                this.form.education3Division= '';
+            },
+            chcekUpDisable()
+            {
+                this.applicantDisablityFatherShow = this.form.applicantLeprosyAffectedFather;
+                this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedFather;
+                this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedFather;
+            }
+            
 
 
          },
@@ -1827,14 +1865,12 @@ export default {
          },
          created()
          {
-          //
-          
+
             this.readApplicationForm();
             this.checkNewScholarshipType();
             this.readInitialDomainValues();
-        //    this.readDomainValues();
-            // this.readInsValue();
-
+           
+       
          }
 }
  </script>

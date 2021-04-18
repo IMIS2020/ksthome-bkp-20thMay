@@ -7,7 +7,7 @@ use App\ModelScholarship\ApplicationDetails;
 
 class ApplicationSession extends Model
 {
-    protected $table = 'ApplicationSession';
+    protected $table = 'applicationSession';
     public $primarykey = 'id';
     public $timestamp = true;
 

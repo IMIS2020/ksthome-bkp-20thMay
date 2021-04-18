@@ -47,6 +47,12 @@ class ApplicationController extends Controller
             return 'HHD'.str_pad($lastId+1, 5, "0", STR_PAD_LEFT);
         }
      }
+
+     private function newSession()
+     {
+        $getSession = ApplicationSession::where('sessionName','2021-22')->first()->id;
+        return $getSession;
+     }
      # Add Scholarship Application
      public function addScholarshipApplication(int $userId, Request $request)
      {
@@ -155,6 +161,10 @@ class ApplicationController extends Controller
              $applicationDetails->scholarshipType                  = $request->scholarshipType;
              $getDomainValuesApp = DomainValues::where('value',$request->scholarshipType)->first();
              $applicationDetails->scholarshipTypeValueId           = $getDomainValuesApp->id;
+             $applicationDetails->sessionId 	                   = $this->newSession();
+
+             if($request->scholarshipType == 'Nursing')
+               $grad = false;
 
             //  if ($request->hasAdmissionLetter === 'YES') {
             //     $instituteAddress = new Address;
@@ -419,6 +429,10 @@ class ApplicationController extends Controller
                 $applicationDetails->courseNameValueId   = null;
                 $applicationDetails->recognizedByINC  = null;
              }
+
+             if($request->scholarshipType == 'Nursing')
+               $grad = false;
+            
              $applicationDetails->update();
  
              $applicationAddress = Address::where('id', $applicationDetails->applicantAddressId)->first();
@@ -463,7 +477,13 @@ class ApplicationController extends Controller
 
              //for 13
              if($request->scholarshipType == 'HHDLS'){
-                if($request->education3University != null)
+                if( $request->education3University != null &&
+                    $request->education3ExaminationPassed != null &&
+                    $request->education3MainSubjects != null &&
+                    $request->education3YearOfPassing != null &&
+                    $request->education3Percentage != null &&
+                    $request->education3Percentage != null &&
+                    $request->education3Division!= null )
                 {
                 // $getDomainValuesExam13 = DomainValues::where('value',$request->education3ExaminationLevel)->first();
                     $applicationEducationDetails13 = ApplicationEducationDetails::where('applicationId',  $applicationDetails->id)->where('examLevelValueId', 3)->first();
@@ -499,6 +519,11 @@ class ApplicationController extends Controller
 
                     }
                 }else{
+                    $applicationEducationDetails13 = ApplicationEducationDetails::where('applicationId',  $applicationDetails->id)->where('examLevelValueId', 3)->first();
+                    if($applicationEducationDetails13)
+                    {
+                        $applicationEducationDetails13->delete();
+                    }
                     $grad = false;
                 }
              }

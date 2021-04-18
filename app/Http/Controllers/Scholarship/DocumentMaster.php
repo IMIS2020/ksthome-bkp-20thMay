@@ -235,8 +235,13 @@ class DocumentMaster extends Controller
                         $check->delete();
                     }
                 }
-            }
 
+                $addDocs->docMasterId   = $data['id'];
+                $addDocs->applicationId = $applictionId;
+                $addDocs->docFileDesc   = $data['docDesc'];
+                $addDocs->reviewStatus  = $data['processStepId'];
+                $addDocs->save();
+            }
         }
 
         //$motherL,$fatherL,$selfL,$annexure,$applictionId

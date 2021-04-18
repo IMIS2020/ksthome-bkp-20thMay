@@ -227,8 +227,8 @@ export default{
         {
             let file = this.$refs[index][0].files[0];
             console.log(index);
-            if(file.type == 'image/jpeg'|| file.type =='image/jpg'|| file.type =='image/png' || file.type=='file/pdf')
-            { 
+            // if(file.type == 'image/jpeg'|| file.type =='image/jpg'|| file.type =='image/png' || file.type=='file')
+            // { 
                 if(index == 1)
                 {
                     if(file.type !='image/jpeg')
@@ -265,15 +265,15 @@ export default{
                     }
                     this.docRows[index].fileName = fileName;
                 }
-            }else{
-                this.$fire({
-                        position: 'top',
-                        icon: 'success',
-                        title: "pdf,png,jpeg or jpg files only",
-                        showConfirmButton: false,
-                        timer: 4000
-                })
-            }
+            // }else{
+            //     this.$fire({
+            //             position: 'top',
+            //             icon: 'success',
+            //             title: "pdf,png,jpeg or jpg files only",
+            //             showConfirmButton: false,
+            //             timer: 4000
+            //     })
+            // }
         },
 
        deleteFile(applicationDocId)

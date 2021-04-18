@@ -33,6 +33,7 @@
                                                             <div class="col-xl-2">
                                                                 <div class="form-group mb-0 align-self-center">
                                                                     <div class="form-group mb-0">
+                                                                        <br>
                                                                         <select class="form-control form-control-sm" v-model="courseLevelValueId2" :disabled="inputDisabled" @click="getHHDLSData($event)">
                                                                             <option value="" disabled>-- select --</option>
                                                                             <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id" selected>{{ucl.description}}</option>
@@ -41,6 +42,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-xl-2">
+                                                                <a data-toggle="modal" href="#"  data-target="#others-course-name" @click="addName('CourseName')"> + Add New Value</a>
                                                                 <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
                                                                     <select class="form-control form-control-sm" v-model="courseNameValueId2" :disabled="inputDisabled" @click="clearRow">
                                                                         <option value="" disabled>-- select --</option>
@@ -55,6 +57,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-2 col-xl-1 offset-md-3 offset-xl-0 align-self-center">
+                                                                <br>
                                                                 <button class="btn btn-block btn-sm font-xs btn-mg add-anex-i-row" type="button" @click="addNewData">
                                                                     <i class="fa fa-plus"></i><strong>&nbsp;Add row</strong>
                                                                  </button>
@@ -83,6 +86,7 @@
                                                                         <td>
                                                                             <input type="hidden" v-model="row.id" :disabled="globalDisable"/>
                                                                             <input type="hidden" v-model="row.courseLevelValueId" :disabled="globalDisable" />
+                                                                            <input type="hidden" v-model="row.courseNameValueId" :disabled="globalDisable" />
                                                                             <div class="form-group mb-0">
                                                                                 <select class="form-control form-control-sm" @change="onChange($event,index)" v-model="row.insId" :disabled="globalDisable">
                                                                                     <option v-for="(i,index) in insData" :key="index" :value="i.id">{{i.instituteName}} - {{i.get_address.addressCity}}, {{i.get_address.addressState}}</option>
@@ -152,7 +156,7 @@
             </form>
             
             <!-- Star Course Level modal -->
-            <div role="dialog" tabindex="-1" class="modal fade" id="others-course-level">
+            <!-- <div role="dialog" tabindex="-1" class="modal fade" id="others-course-level">
                 <div class="modal-dialog modal-sm" role="document">
                     <div class="modal-content">
                         <div class="modal-header py-1">
@@ -176,11 +180,11 @@
                         <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- End course level modal -->
 
             <!-- Star Course name modal -->
-            <div role="dialog" tabindex="-1" class="modal fade" id="others-course-name">
+           <div role="dialog" tabindex="-1" class="modal fade" id="others-course-name">
                 <div class="modal-dialog modal-sm" role="document">
                     <div class="modal-content">
                         <div class="modal-header py-1">
@@ -188,20 +192,26 @@
                         </div>
                         <div class="modal-body cs-modal-body">
                             <div class="form-row">
-                                <div class="col-xl-12 mb-2">
-                                    <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" />
-                                    <div class="form-group mb-0"><label class="mb-0">Course Name</label>
-                                        <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue"/>
-                                    </div>
+                                    <div class="col-xl-12 mb-2">
+                                <div class="form-group mb-0">
+                                    <label class="mb-0">Course Level</label>
+                                    <input type="hidden" v-model="domainForm.domainName" />
+                                    
+                                    <select class="form-control form-control-sm" v-model="domainForm.domainLevel2" :disabled="inputDisabled">
+                                        <option value="" disabled>-- select --</option>
+                                        <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id" selected>{{ucl.description}}</option>
+                                    </select>
                                 </div>
+                                    </div>
                                 <div class="col-xl-12 mb-2">
-                                    <div class="form-group mb-0"><label class="mb-0">Course Name Desc</label>
-                                        <input type="text" class="form-control form-control-sm" v-model="domainForm.dDesc" />
+                                    <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" :disabled="globalDisable"/>
+                                    <div class="form-group mb-0"><label class="mb-0">Course Name</label>
+                                        <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable"/>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
+                        <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                     </div>
                 </div>
             </div>
@@ -421,6 +431,7 @@ export default{
                         }
                     })
                     .catch(error => this.errorMsg(error.response.status))
+               
             }
         },
         errorMsg (status) {
@@ -655,7 +666,7 @@ export default{
         },
         getHHDLSData(event)
         {
-            // clearRow();
+            this.clearRow();
             let id = event.target.value;
             axios.get('/api/domain/course-name/hhdls/'+id)
                 .then(response => {
@@ -672,7 +683,12 @@ export default{
         },
         clearRow()
         {
-        //    this.rows = [];
+            let l =this.rows.length;
+            for(let i=0;i<l;i++)
+            {
+                this.rows[i].courseLevelValueId = this.courseLevelValueId2;
+                this.rows[i].courseNameValueId = this.courseNameValueId2;
+            }
         }
     },
     created(){

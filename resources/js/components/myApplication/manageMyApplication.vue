@@ -63,7 +63,7 @@
                                           <td class="w-10x" ><em>{{row.financialYear}}</em></td>
                                           <td class="text-break"><em>{{row.scholarshipType}}</em></td>
                                           <td class="text-break"><em>N/A</em></td>
-                                          <td><em>{{row.schApplicationId}}</em></td>
+                                          <td><em>{{row.appIdShow}}</em></td>
                                           <td class="text-nowrap"><em>N/A</em></td>
                                           <td class="text-center">
                                               <em>

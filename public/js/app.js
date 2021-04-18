@@ -4404,7 +4404,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         applicantNameL: '',
         applicantFatherName: '',
         applicantMotherName: '',
-        addressAddln1: ''
+        addressAddln1: '',
+        appIdShow: ''
       },
       getData: {
         genderType: ''
@@ -4558,6 +4559,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this3.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     _this3.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
                     _this3.insForm.insType = response.data['data'][0][0].scholarshipType;
+                    _this3.form.appIdShow = response.data['data'][0][0].appIdShow;
 
                     _this3.readDomainValues(_this3.form.scholarshipType);
 
@@ -4857,7 +4859,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         applicantFatherName: '',
         applicantMotherName: '',
         addressAddln1: '',
-        fullName: ''
+        fullName: '',
+        appIdShow: ''
       },
       Nform: {
         applicantColonyLeaderName: ''
@@ -4998,6 +5001,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this3.form.applicantLeprosyAffectedSelf = response.data['data'][0][0].applicantLeprosyAffectedSelf;
                     _this3.form.applicantLeprosyAffectedFather = response.data['data'][0][0].applicantLeprosyAffectedFather;
                     _this3.form.applicantLeprosyAffectedMother = response.data['data'][0][0].applicantLeprosyAffectedMother;
+                    _this3.form.appIdShow = response.data['data'][0][0].appIdShow;
 
                     _this3.check(); // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
                     // {
@@ -5396,7 +5400,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         applicantNameL: '',
         applicantFatherName: '',
         applicantMotherName: '',
-        addressAddln1: ''
+        addressAddln1: '',
+        appIdShow: ''
       },
       errors: []
     };
@@ -5444,7 +5449,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this2.form.applicantMotherName = response.data['data'][0][0].applicantMotherName;
                     _this2.form.financialYear = response.data['data'][0][0].financialYear;
                     _this2.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
-                    _this2.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1; // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
+                    _this2.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
+                    _this2.form.appIdShow = response.data['data'][0][0].appIdShow; // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
                     // {
                     //     this.getData.genderType = "son";
                     // }else{
@@ -6835,7 +6841,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         miscYear3: '',
         miscRelationship1: '',
         miscRelationship2: '',
-        miscRelationship3: ''
+        miscRelationship3: '',
+        appIdShow: ''
       },
       getdata: {},
       errors: '',
@@ -6962,6 +6969,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this2.form.appStatus = response.data['data'][0][0].appStatus;
                     _this2.form.applicantColonyleaderName = response.data['data'][0][0].applicantColonyLeaderName;
                     _this2.insForm.insType = response.data['data'][0][0].scholarshipType;
+                    _this2.form.appIdShow = response.data['data'][0][0].appIdShow;
 
                     if (_this2.form.appStatus == 'Submit') {
                       _this2.inputDisabled = true;
@@ -63988,9 +63996,9 @@ var render = function() {
                         _vm._s(_vm.form.financialYear) +
                         " " +
                         _vm._s(
-                          _vm.form.applicationId == ""
+                          _vm.form.appIdShow == ""
                             ? ""
-                            : "( APP NO: " + _vm.form.applicationId + ")"
+                            : "( APP NO: " + _vm.form.appIdShow + ")"
                         )
                     )
                   ])
@@ -65842,9 +65850,9 @@ var render = function() {
                         _vm._s(_vm.form.financialYear) +
                         " " +
                         _vm._s(
-                          _vm.form.applicationId == ""
+                          _vm.form.appIdShow == ""
                             ? ""
-                            : "( APP NO: " + _vm.form.applicationId + ")"
+                            : "( APP NO: " + _vm.form.appIdShow + ")"
                         )
                     )
                   ])
@@ -66673,9 +66681,9 @@ var render = function() {
                         _vm._s(_vm.form.financialYear) +
                         " " +
                         _vm._s(
-                          _vm.form.applicationId == ""
+                          _vm.form.appIdShow == ""
                             ? ""
-                            : "( APP NO: " + _vm.form.applicationId + ")"
+                            : "( APP NO: " + _vm.form.appIdShow + ")"
                         )
                     )
                   ])
@@ -67321,11 +67329,9 @@ var render = function() {
                         _vm._s(_vm.form.financialYear) +
                         " " +
                         _vm._s(
-                          _vm.form.applicationId == ""
+                          _vm.form.appIdShow == ""
                             ? ""
-                            : "( APP NO: " +
-                                _vm.form.applicationId.split("*").join("/") +
-                                ")"
+                            : "( APP NO: " + _vm.form.appIdShow + ")"
                         )
                     )
                   ])
@@ -72810,8 +72816,7 @@ var render = function() {
                                                                     "form-control form-control-sm",
                                                                   attrs: {
                                                                     disabled:
-                                                                      _vm.globalDisable,
-                                                                    required: ""
+                                                                      _vm.globalDisable
                                                                   },
                                                                   on: {
                                                                     change: function(
@@ -73263,8 +73268,7 @@ var render = function() {
                                                                     "form-control form-control-sm",
                                                                   attrs: {
                                                                     disabled:
-                                                                      _vm.globalDisable,
-                                                                    required: ""
+                                                                      _vm.globalDisable
                                                                   },
                                                                   on: {
                                                                     change: function(
@@ -73716,8 +73720,7 @@ var render = function() {
                                                                   placeholder:
                                                                     "Type separated by comma",
                                                                   disabled:
-                                                                    _vm.globalDisable,
-                                                                  required: ""
+                                                                    _vm.globalDisable
                                                                 },
                                                                 domProps: {
                                                                   value:
@@ -73777,8 +73780,7 @@ var render = function() {
                                                                     "form-control form-control-sm",
                                                                   attrs: {
                                                                     disabled:
-                                                                      _vm.globalDisable,
-                                                                    required: ""
+                                                                      _vm.globalDisable
                                                                   },
                                                                   on: {
                                                                     change: function(
@@ -74083,8 +74085,7 @@ var render = function() {
                                                                     "form-control form-control-sm",
                                                                   attrs: {
                                                                     disabled:
-                                                                      _vm.globalDisable,
-                                                                    required: ""
+                                                                      _vm.globalDisable
                                                                   },
                                                                   on: {
                                                                     change: function(
@@ -78568,7 +78569,7 @@ var render = function() {
                             _vm._m(3, true),
                             _vm._v(" "),
                             _c("td", [
-                              _c("em", [_vm._v(_vm._s(row.schApplicationId))])
+                              _c("em", [_vm._v(_vm._s(row.appIdShow))])
                             ]),
                             _vm._v(" "),
                             _vm._m(4, true),

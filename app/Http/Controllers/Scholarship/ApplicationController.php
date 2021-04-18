@@ -31,16 +31,17 @@ class ApplicationController extends Controller
     # Generate New Application Id
      private function newApplicationId($type)
      {
-        if($type == 'Nurshing')
+        if($type == 'Nursing')
         {
             $lastId = ApplicationDetails::where('scholarshipType' , $type)->orderBy('id', 'DESC')->first();
             if(empty($lastId)) { $lastId = 0; }
             else { $lastId = intval(explode('NUR',$lastId->schApplicationId)[1]); }
             return 'NUR'.str_pad($lastId+1, 5, "0", STR_PAD_LEFT);
-        }else if($type == 'HHDLS')
+        }
+        if($type == 'HHDLS')
         {
             $lastId = ApplicationDetails::where('scholarshipType' , $type)->orderBy('id', 'DESC')->first();
-            $lastId = ApplicationDetails::orderBy('id', 'DESC')->first();
+            // $lastId = ApplicationDetails::orderBy('id', 'DESC')->first();
             if(empty($lastId)) { $lastId = 0; }
             else { $lastId = intval(explode('HHD',$lastId->schApplicationId)[1]); }
             return 'HHD'.str_pad($lastId+1, 5, "0", STR_PAD_LEFT);
@@ -49,6 +50,7 @@ class ApplicationController extends Controller
      # Add Scholarship Application
      public function addScholarshipApplication(int $userId, Request $request)
      {
+         $grad = true;
          $request->validate([  
              'applicantNameF'                    => [],                
              'applicantNameM'                    => [],
@@ -69,10 +71,10 @@ class ApplicationController extends Controller
              'addressDistprov'                   => [],
              'addressState'                      => ['required'],
              'addressPinzip'                     => ['required','digits:6'],
-             'applicantContactNoSelf'            => ['required','digits:10'],
-             'applicantContactNoGuardian'        => ['required','digits:10'],
+             'applicantContactNoSelf'            => ['required'],
+             'applicantContactNoGuardian'        => ['required'],
              'applicantEmailId'                  => ['required'],
-             'applicantContactNoColonyLeader'    => ['required','digits:10'],
+             'applicantContactNoColonyLeader'    => ['required'],
              'applicantColonyleaderName'         => [],
  
             //  'examinationLevel10'                => ['required'],
@@ -171,9 +173,24 @@ class ApplicationController extends Controller
             //     $instituteDetails->save();
             // }
 
-             $newApplicationId = $this->newApplicationId($getDomainValuesApp->id);
+             $newApplicationId = $this->newApplicationId($request->scholarshipType);
+             if($request->scholarshipType == 'HHDLS')
+             {
+                $lastId = intval(explode('HHD',$newApplicationId)[1]);
+                $getSch = DomainValues::where('value',$request->scholarshipType)->first()->id;
+                $appSch = ApplicationScheduleTable::where('sessionId',1)->where('scholarshipTypeValueId',$getSch)->first();
+                $newApplicationIdx = $appSch->applicationNoPrefixFormat.str_pad($lastId, 5, "0", STR_PAD_LEFT);;
+             }else if($request->scholarshipType == 'Nursing')
+             {
+                $lastId= intval(explode('NUR',$newApplicationId)[1]);
+                $getSch = DomainValues::where('value',$request->scholarshipType)->first()->id;
+                $appSch = ApplicationScheduleTable::where('sessionId',1)->where('scholarshipTypeValueId',$getSch)->first();
+                $newApplicationIdx = $appSch->applicationNoPrefixFormat.str_pad($lastId, 5, "0", STR_PAD_LEFT);;
+             }
+             
 
              $applicationDetails->schApplicationId     = $newApplicationId;
+             $applicationDetails->appIdShow            = $newApplicationIdx;
              $applicationDetails->hasAdmissionLetter   = $request->hasAdmissionLetter;
              $applicationDetails->financialYear        = date('Y').'-'.(intval(date('y'))+1);
              $applicationDetails->userId               = $userId;
@@ -226,21 +243,26 @@ class ApplicationController extends Controller
              $applicationEducationDetails12->save();
 
              if($request->scholarshipType == 'HHDLS'){
-                $applicationEducationDetails13 = new ApplicationEducationDetails; // Graduate only for hddlls
-                // $getDomainValuesExam13 = DomainValues::where('value',$request->education3ExaminationLevel)->first();
-                $applicationEducationDetails13->examLevelValueId       = 3;
-                $applicationEducationDetails13->examBoardValueId       = $request->education3University;
-                $applicationEducationDetails13->examPassedValueId      = $request->education3ExaminationPassed;
-               //  $applicationEducationDetails->examLevelValue            = $request->mainSubjects10;
-               //  $applicationEducationDetails->examBoardValue           = $request->yearOfPassing10;
-               //  $applicationEducationDetails->examPassedValue              = $request->percentage10;
-                $applicationEducationDetails13->mainSubjects           = $request->education3MainSubjects;
-                $applicationEducationDetails13->yearOfPassing          = $request->education3YearOfPassing;
-                $applicationEducationDetails13->percentage             = $request->education3Percentage;
-                $applicationEducationDetails13->percentageKeySub       = $request->education3Percentage;
-                $applicationEducationDetails13->division               = $request->education3Division;
-                $applicationEducationDetails13->applicationId          = $applicationDetails->id;
-                $applicationEducationDetails13->save();
+                if($request->education3University != null)
+                {
+                    $applicationEducationDetails13 = new ApplicationEducationDetails; // Graduate only for hddlls
+                    // $getDomainValuesExam13 = DomainValues::where('value',$request->education3ExaminationLevel)->first();
+                    $applicationEducationDetails13->examLevelValueId       = 3;
+                    $applicationEducationDetails13->examBoardValueId       = $request->education3University;
+                    $applicationEducationDetails13->examPassedValueId      = $request->education3ExaminationPassed;
+                //  $applicationEducationDetails->examLevelValue            = $request->mainSubjects10;
+                //  $applicationEducationDetails->examBoardValue           = $request->yearOfPassing10;
+                //  $applicationEducationDetails->examPassedValue              = $request->percentage10;
+                    $applicationEducationDetails13->mainSubjects           = $request->education3MainSubjects;
+                    $applicationEducationDetails13->yearOfPassing          = $request->education3YearOfPassing;
+                    $applicationEducationDetails13->percentage             = $request->education3Percentage;
+                    $applicationEducationDetails13->percentageKeySub       = $request->education3Percentage;
+                    $applicationEducationDetails13->division               = $request->education3Division;
+                    $applicationEducationDetails13->applicationId          = $applicationDetails->id;
+                    $applicationEducationDetails13->save();
+                }else{
+                     $grad = false;
+                }
              }
 
              if (!empty($request->miscName1) && !empty($request->miscCourse1) && !empty($request->miscYear1)) {
@@ -281,6 +303,7 @@ class ApplicationController extends Controller
                                             $request->applicantDisablityMother,
                                             $request->applicantDisablityFather,
                                             $request->applicantDisablitySelf,
+                                            $grad,
                                             $applicationDetails->id);
 
              DB::commit();
@@ -295,6 +318,7 @@ class ApplicationController extends Controller
      # Edit Scholarship Application
      public function editScholarshipApplication(string $applicationId, Request $request)
      {
+        $grad = true;
          DB::beginTransaction();
          try {
             //  $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();
@@ -439,19 +463,44 @@ class ApplicationController extends Controller
 
              //for 13
              if($request->scholarshipType == 'HHDLS'){
-               // $getDomainValuesExam13 = DomainValues::where('value',$request->education3ExaminationLevel)->first();
-                $applicationEducationDetails13 = ApplicationEducationDetails::where('applicationId',  $applicationDetails->id)->where('examLevelValueId', 3)->first();
-                $applicationEducationDetails13->examBoardValueId       = $request->education3University;
-                $applicationEducationDetails13->examPassedValueId      = $request->education3ExaminationPassed;
-               //  $applicationEducationDetails->examLevelValue            = $request->mainSubjects10;
-               //  $applicationEducationDetails->examBoardValue           = $request->yearOfPassing10;
-               //  $applicationEducationDetails->examPassedValue              = $request->percentage10;
-                $applicationEducationDetails13->mainSubjects           = $request->education3MainSubjects;
-                $applicationEducationDetails13->yearOfPassing          = $request->education3YearOfPassing;
-                $applicationEducationDetails13->percentage             = $request->education3Percentage;
-                $applicationEducationDetails13->percentageKeySub       = $request->education3Percentage;
-                $applicationEducationDetails13->division               = $request->education3Division;
-                $applicationEducationDetails13->update();
+                if($request->education3University != null)
+                {
+                // $getDomainValuesExam13 = DomainValues::where('value',$request->education3ExaminationLevel)->first();
+                    $applicationEducationDetails13 = ApplicationEducationDetails::where('applicationId',  $applicationDetails->id)->where('examLevelValueId', 3)->first();
+                    if($applicationEducationDetails13)
+                    {
+                        $applicationEducationDetails13->examBoardValueId       = $request->education3University;
+                        $applicationEducationDetails13->examPassedValueId      = $request->education3ExaminationPassed;
+                    //  $applicationEducationDetails->examLevelValue            = $request->mainSubjects10;
+                    //  $applicationEducationDetails->examBoardValue           = $request->yearOfPassing10;
+                    //  $applicationEducationDetails->examPassedValue              = $request->percentage10;
+                        $applicationEducationDetails13->mainSubjects           = $request->education3MainSubjects;
+                        $applicationEducationDetails13->yearOfPassing          = $request->education3YearOfPassing;
+                        $applicationEducationDetails13->percentage             = $request->education3Percentage;
+                        $applicationEducationDetails13->percentageKeySub       = $request->education3Percentage;
+                        $applicationEducationDetails13->division               = $request->education3Division;
+                        $applicationEducationDetails13->update();
+                    }else{
+                        $applicationEducationDetails131 = new ApplicationEducationDetails; // Graduate only for hddlls
+                        // $getDomainValuesExam13 = DomainValues::where('value',$request->education3ExaminationLevel)->first();
+                        $applicationEducationDetails131->examLevelValueId       = 3;
+                        $applicationEducationDetails131->examBoardValueId       = $request->education3University;
+                        $applicationEducationDetails131->examPassedValueId      = $request->education3ExaminationPassed;
+                    //  $applicationEducationDetails->examLevelValue            = $request->mainSubjects10;
+                    //  $applicationEducationDetails->examBoardValue           = $request->yearOfPassing10;
+                    //  $applicationEducationDetails->examPassedValue              = $request->percentage10;
+                        $applicationEducationDetails131->mainSubjects           = $request->education3MainSubjects;
+                        $applicationEducationDetails131->yearOfPassing          = $request->education3YearOfPassing;
+                        $applicationEducationDetails131->percentage             = $request->education3Percentage;
+                        $applicationEducationDetails131->percentageKeySub       = $request->education3Percentage;
+                        $applicationEducationDetails131->division               = $request->education3Division;
+                        $applicationEducationDetails131->applicationId          = $applicationDetails->id;
+                        $applicationEducationDetails131->save();
+
+                    }
+                }else{
+                    $grad = false;
+                }
              }
              //end of education
  
@@ -510,6 +559,7 @@ class ApplicationController extends Controller
                                             $request->applicantDisablityMother,
                                             $request->applicantDisablityFather,
                                             $request->applicantDisablitySelf,
+                                            $grad,
                                             $applicationDetails->id);
              DB::commit();
              return array('success' => true, 'msg'=>[]);

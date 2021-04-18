@@ -15,7 +15,7 @@ use App\ModelScholarship\ApplicationDetails;
 
 class DocumentMaster extends Controller
 {
-    public function createDocMasterData($motherL,$fatherL,$selfL,$hasAdmission,$motherD,$fatherD,$selfD,$applictionId)
+    public function createDocMasterData($motherL,$fatherL,$selfL,$hasAdmission,$motherD,$fatherD,$selfD,$grad,$applictionId)
     {
 
         $getData = DocMaster::where('docType','Uploaded')->where('requiredFor',3)->get();
@@ -209,7 +209,32 @@ class DocumentMaster extends Controller
                         $check->delete();
                     }
                 }
-                
+
+                if($grad == true)
+                {
+                    $getDataObj = DocMaster::where('docShortName','DOC011')->first();
+                    $check = ApplicationDocs::where('docMasterId',$getDataObj->id)->where('applicationId',$applictionId)->first();
+                    if($check == null)
+                    {
+                        $addDocs->docMasterId   = $data['id'];
+                        $addDocs->applicationId = $applictionId;
+                        $addDocs->docFileDesc   = $data['docDesc'];
+                        $addDocs->reviewStatus  = $data['processStepId'];
+                        $addDocs->save();
+                    }
+                }else if($grad == false)
+                {
+                    $getDataObj = DocMaster::where('docShortName','DOC011')->first();
+                    $check = ApplicationDocs::where('docMasterId',$getDataObj->id)->where('applicationId',$applictionId)->first();
+                    if($check)
+                    {
+                        if (!empty($check->docFileName)) {
+                            unlink(storage_path('app/public/uploads/schloarshipRecord/').$check->docFileName);
+                        }
+                        $check->delete();
+                        $check->delete();
+                    }
+                }
             }
 
         }

@@ -16,6 +16,7 @@ class ApplicationDetails extends Migration
         Schema::create('applicantionDetails', function (Blueprint $table) {
             $table->id();
             $table->string('schApplicationId');
+            $table->string('appIdShow')->nullable();
             $table->string('applicationType');
             $table->unsignedBigInteger('scholarshipTypeValueId'); // FK domainValues
             $table->string('scholarshipType');

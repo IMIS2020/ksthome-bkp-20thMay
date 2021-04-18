@@ -5,7 +5,7 @@
             <form @submit.prevent="saveForm">
                 <div class="form-row">
                     <div class="col-xl-12 text-center mb-3">
-                         <h5 class="text-capitalize text-center color-mg"><strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.applicationId == '' ? '' : '( APP NO: '+form.applicationId+')'}}</strong></h5>
+                         <h5 class="text-capitalize text-center color-mg"><strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.appIdShow == '' ? '' : '( APP NO: '+form.appIdShow+')'}}</strong></h5>
                     </div>
                     <div class="col-xl-12">
                         <div class="mb-3">
@@ -103,6 +103,7 @@ export default{
                     applicantMotherName:'',
                     addressAddln1:'',
                     fullName:'',
+                    appIdShow:'',
                 },
                 Nform:{
                     applicantColonyLeaderName:'',
@@ -221,6 +222,7 @@ export default{
                      this.form.applicantLeprosyAffectedSelf=response.data['data'][0][0].applicantLeprosyAffectedSelf;
                         this.form.applicantLeprosyAffectedFather=response.data['data'][0][0].applicantLeprosyAffectedFather;
                         this.form.applicantLeprosyAffectedMother=response.data['data'][0][0].applicantLeprosyAffectedMother;
+                        this.form.appIdShow = response.data['data'][0][0].appIdShow;
                         this.check();
                     // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
                     // {

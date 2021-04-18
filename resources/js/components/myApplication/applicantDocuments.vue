@@ -5,7 +5,7 @@
                 <div class="form-row">
                     <div class="col-xl-12 text-center mb-3" >
                          <h5 class="text-capitalize text-center color-mg" >
-                             <strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.applicationId == '' ? '' : '( APP NO: '+form.applicationId+')'}}</strong>
+                             <strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.appIdShow == '' ? '' : '( APP NO: '+form.appIdShow+')'}}</strong>
                         </h5>
                     </div>
                     <div class="col-xl-12">
@@ -141,6 +141,7 @@ export default{
                 applicantFatherName:'',
                 applicantMotherName:'',
                 addressAddln1:'',
+                appIdShow:'',
             },
             errors:[]
         }
@@ -185,6 +186,7 @@ export default{
                     this.form.financialYear = response.data['data'][0][0].financialYear;  
                     this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
+                    this.form.appIdShow = response.data['data'][0][0].appIdShow;
                     // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
                     // {
                     //     this.getData.genderType = "son";

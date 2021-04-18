@@ -4,7 +4,7 @@
             <form @submit.prevent="saveForm">
                 <div class="form-row">
                     <div class="col-xl-12 text-center mb-3">
-                        <h5 class="text-capitalize text-center color-mg"><strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.applicationId == '' ? '' : '( APP NO: '+form.applicationId+')'}}</strong></h5>
+                        <h5 class="text-capitalize text-center color-mg"><strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.appIdShow == '' ? '' : '( APP NO: '+form.appIdShow+')'}}</strong></h5>
                     </div>
                     <div class="col-xl-12">
                         <div class="mb-3">
@@ -357,6 +357,7 @@ export default{
                 applicantFatherName:'',
                 applicantMotherName:'',
                 addressAddln1:'',
+                appIdShow:'',
             },
 
             getData :{
@@ -502,6 +503,7 @@ export default{
                     this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
                     this.insForm.insType = response.data['data'][0][0].scholarshipType;
+                    this.form.appIdShow = response.data['data'][0][0].appIdShow;
                     this.readDomainValues(this.form.scholarshipType);
                     this.readInsValue(this.form.scholarshipType);
                     if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")

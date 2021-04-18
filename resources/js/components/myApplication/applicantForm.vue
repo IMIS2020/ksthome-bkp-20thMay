@@ -4,7 +4,7 @@
             <form @submit.prevent="saveForm">
                 <div class="form-row">
                     <div class="col-xl-12 text-center mb-3">
-                        <h5 class="text-capitalize text-center color-mg"><strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.applicationId == '' ? '' : '( APP NO: '+form.applicationId.split('*').join('/')+')'}}</strong></h5>
+                        <h5 class="text-capitalize text-center color-mg"><strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.appIdShow == '' ? '' : '( APP NO: '+form.appIdShow+')'}}</strong></h5>
                     </div>
                     <div class="col-xl-12">
                         <div class="mb-3">
@@ -574,7 +574,7 @@
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.education3ExaminationPassed" :disabled="globalDisable" required>
+                                                                                            <select class="form-control form-control-sm" v-model="form.education3ExaminationPassed" :disabled="globalDisable" >
                                                                                                 <option value="" disabled>-- select --</option>
                                                                                                 <option v-for="(epv,index) in examinationPassedValues13" :key="index" :value="epv.id">{{epv.value}}</option>
                                                                                                 <!-- <option value="Madhyamik">Madhyamik</option>
@@ -611,7 +611,7 @@
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.education3University" :disabled="globalDisable" required>
+                                                                                            <select class="form-control form-control-sm" v-model="form.education3University" :disabled="globalDisable" >
                                                                                                 <option value="" disabled>-- select --</option>
                                                                                                 <option v-for="(ubv,index) in universityBoardCouncilValues13" :key="index" :value="ubv.id">{{ubv.value}}</option>
                                                                                                 <!-- <option value="WBBSE">WBBSE</option>
@@ -648,12 +648,12 @@
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
-                                                                                            <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.education3MainSubjects" :disabled="globalDisable" required></textarea>
+                                                                                            <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.education3MainSubjects" :disabled="globalDisable" ></textarea>
                                                                                         </div>
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.education3YearOfPassing" :disabled="globalDisable" required>
+                                                                                            <select class="form-control form-control-sm" v-model="form.education3YearOfPassing" :disabled="globalDisable" >
                                                                                                 <option value="" disabled>-- select --</option>
                                                                                                 <option value="2021">2021</option>
                                                                                                 <option value="2020">2020</option>
@@ -675,7 +675,7 @@
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.education3Division" :disabled="globalDisable" required>
+                                                                                            <select class="form-control form-control-sm" v-model="form.education3Division" :disabled="globalDisable" >
                                                                                                 <option value="" disabled>-- select --</option>
                                                                                                 <option value="1st">1st</option>
                                                                                                 <option value="2nd">2nd</option>
@@ -1266,6 +1266,8 @@ export default {
                 miscRelationship1:'',
                 miscRelationship2:'',
                 miscRelationship3:'',
+
+                appIdShow: '',
             },
             getdata: {},
             errors :'',
@@ -1382,6 +1384,7 @@ export default {
                         this.form.appStatus = response.data['data'][0][0].appStatus;
                         this.form.applicantColonyleaderName = response.data['data'][0][0].applicantColonyLeaderName;
                         this.insForm.insType = response.data['data'][0][0].scholarshipType;
+                        this.form.appIdShow = response.data['data'][0][0].appIdShow;
                         if(this.form.appStatus == 'Submit')
                         {
                             this.inputDisabled = true;
@@ -1814,7 +1817,8 @@ export default {
                         this.universityCourseName = response.data;
                     });   
 
-            }
+            },
+
 
          },
          computed:{

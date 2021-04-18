@@ -154,16 +154,27 @@
                             <div class="col-sm-7 col-md-6 col-lg-2 col-xl-7 mt-2">
                                 <p class="mb-0 font-xl">{{form.applicantDOB.split('-').reverse().join('/')}}</p>
                             </div>
+                            <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 offset-xl-0 mt-2">
+                                <p class="mb-0 font-xl"><strong>8a. Affected by leprosy</strong></p>
+                            </div>
+                            <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
+                                <p class="mb-0 font-xl"><strong>:</strong><br></p>
+                            </div>
+                            <div class="col-sm-7 col-md-6 col-lg-2 col-xl-7 mt-2">
+                                <span class="mb-0 font-xl" v-if="form.applicantLeprosyAffectedSelf   == true">Self,</span>
+                                <span class="mb-0 font-xl" v-if="form.applicantLeprosyAffectedFather == true">Father,</span>
+                                <span class="mb-0 font-xl" v-if="form.applicantLeprosyAffectedMother == true">Mother</span>
+                            </div>
                             <div class="col-sm-5 col-md-5 col-lg-4 col-xl-4 mt-2">
-                                <p class="mb-0 font-xl"><strong>8. Affected by leprosy</strong></p>
+                                <p class="mb-0 font-xl"><strong>8b. Disability due to leprosy</strong></p>
                             </div>
                             <div class="col-sm-5 col-md-1 col-lg-6 col-xl-1 mt-2">
                                 <p class="mb-0 font-xl"><strong>:</strong><br></p>
                             </div>
                             <div class="col-sm-2 col-md-6 col-lg-2 col-xl-2 mt-2">
-                                <span class="mb-0 font-xl" v-if="form.applicantLeprosyAffectedSelf   == true">Self,</span>
-                                <span class="mb-0 font-xl" v-if="form.applicantLeprosyAffectedFather == true">Father,</span>
-                                <span class="mb-0 font-xl" v-if="form.applicantLeprosyAffectedMother == true">Mother</span>
+                                <span class="mb-0 font-xl" v-if="form.applicantDisablitySelf   == true">Self,</span>
+                                <span class="mb-0 font-xl" v-if="form.applicantDisablityFather == true">Father,</span>
+                                <span class="mb-0 font-xl" v-if="form.applicantDisablityMother == true">Mother</span>
                             </div>
                             <div class="col-sm-4 col-md-5 col-lg-4 col-xl-3 offset-xl-0 mt-2">
                                 <p class="mb-0 font-xl"><strong>9. BPL card holder</strong></p>
@@ -267,7 +278,7 @@
                     <div class="col-xl-12 mt-1">
                         <p class="font-md">&nbsp;I {{form.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under "{{form.scholarshipType}} Scholarship" could be withdrawn.</p>
                          <p class="color-mg text-center">This is an electronically generated document and does not require a signature</p>
-                         <p class="color-mg text-center" v-if="form.lastdateSubmit != null">Date Submitted : {{form.lastdateSubmit.split('T')[0].split('-').reverse().join('/')}}</p>
+                         <p class="color-mg text-center" v-if="form.lastdateSubmit != null">Date Submitted : {{form.lastdateSubmit}}</p>
                     </div>
                 </div>
             </div>
@@ -456,6 +467,9 @@ export default{
                         this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                         this.form.fullName = response.data['data'][0][0].applicantNameF+' '+ (response.data['data'][0][0].applicantNameM == null ? ' ' : response.data['data'][0][0].applicantNameM )+' '+response.data['data'][0][0].applicantNameL;
                         this.form.lastdateSubmit = response.data['data'][0][0].dateLastSubmitted;
+                        this.form.applicantDisablitySelf =  response.data['data'][0][0].applicantDisablitySelf;
+                        this.form.applicantDisablityFather = response.data['data'][0][0].applicantDisablityFather;
+                        this.form.applicantDisablityMother = response.data['data'][0][0].applicantDisablityMother;
                         if(this.form.hasAdmissionLetter == 'YES') {
                             // this.inputDisabled = false; 
                             this.form.insCourse=response.data['data'][0][0].get_course_domain_values.value,

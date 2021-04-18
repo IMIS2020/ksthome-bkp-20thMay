@@ -4,12 +4,12 @@
             <form @submit.prevent="saveForm">
                 <div class="form-row">
                     <div class="col-xl-12 text-center mb-3">
-                        <h5 class="text-capitalize text-center color-mg"><strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.applicationId == '' ? '' : '( APP NO: '+form.applicationId+')'}}</strong></h5>
+                        <h5 class="text-capitalize text-center color-mg"><strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.applicationId == '' ? '' : '( APP NO: '+form.applicationId.split('*').join('/')+')'}}</strong></h5>
                     </div>
                     <div class="col-xl-12">
                         <div class="mb-3">
                             <ul class="nav nav-tabs font-sm" role="tablist">
-                                <li class="nav-item" role="presentation"><router-link class="nav-link active" role="tab" data-toggle="tab" :to="'/application-form'"><strong>Applicant Details</strong></router-link></li>
+                                <li class="nav-item" role="presentation"><router-link class="nav-link active" role="tab" data-toggle="tab" :to="'/application-form/'+form.scholarshipType"><strong>Applicant Details</strong></router-link></li>
                                 <li class="nav-item" role="presentation" v-if="form.hasAdmissionLetter === 'NO' && form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/annexure-1/'+form.applicationId"><strong>Annexure-I</strong></router-link></li>
                                 <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-I</strong></router-link></li>
                                 <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/annexure-2/'+form.applicationId"><strong>Annexure-II</strong></router-link></li>
@@ -812,20 +812,20 @@
                                                                                                     <input class="form-control form-control-sm" type="text" v-model="insForm.insName" :disabled="globalDisable" required>
                                                                                                 </div>
                                                                                             </div>
-                                                                                            <div class="col-xl-6 mb-2">
+                                                                                            <!-- <div class="col-xl-6 mb-2">
                                                                                                 <label>Address Line 1</label>
                                                                                                 <div class="form-group">
                                                                                                     <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln1" :disabled="globalDisable">
                                                                                                 </div>
-                                                                                            </div>
-                                                                                            <div class="col-xl-6 mb-2">
+                                                                                            </div> -->
+                                                                                            <!-- <div class="col-xl-6 mb-2">
                                                                                                 <label>Address Line 2</label>
                                                                                                 <div class="form-group">
                                                                                                     <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln2" :disabled="globalDisable">
                                                                                                 </div>
-                                                                                            </div>
+                                                                                            </div> -->
                                                                                             <div class="col-xl-6 mb-2">
-                                                                                                <label>City *</label>
+                                                                                                <label>City/Town</label>
                                                                                                 <div class="form-group">
                                                                                                     <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressCity" :disabled="globalDisable" required>
                                                                                                 </div>
@@ -881,12 +881,12 @@
                                                                                                     </select>
                                                                                                 </div>
                                                                                             </div>
-                                                                                                <div class="col-xl-6 mb-2">
+                                                                                                <!-- <div class="col-xl-6 mb-2">
                                                                                                     <label>PIN/ZIP Code&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                                                 <div class="form-group">
                                                                                                     <input class="form-control form-control-sm" type="number" v-model="insForm.insAddressPinzip" :disabled="globalDisable">
                                                                                                 </div>
-                                                                                            </div>
+                                                                                            </div> -->
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveInstitute"><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
@@ -896,20 +896,20 @@
                                                                     </div>
                                                                     <!-- End of Institute modal -->
                                                                 </div>
-                                                                <div class="col-xl-4">
+                                                                <!-- <div class="col-xl-4">
                                                                     <label>Address Line 1&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.insAddressAddln1"  disabled >
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-xl-4">
+                                                                </div> -->
+                                                                <!-- <div class="col-xl-4">
                                                                     <label>Address Line 2</label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.insAddressAddln2" disabled>
                                                                     </div>
-                                                                </div>
+                                                                </div> -->
                                                                 <div class="col-xl-2">
-                                                                    <label>City</label>
+                                                                    <label>City/Town</label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.insAddressCity" disabled>
                                                                     </div>
@@ -965,12 +965,12 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                                    <div class="col-xl-3">
+                                                                    <!-- <div class="col-xl-3">
                                                                     <label>PIN/ZIP Code&nbsp;<span class="text-danger"></span></label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.insAddressPinzip" disabled>
                                                                     </div>
-                                                                </div>
+                                                                </div> -->
                                                                 <div class="col-xl-4" v-if="form.scholarshipType=='Nursing'"><label>Whether recognized by Indian Nursing Council&nbsp;<span class="text-danger"><strong>*</strong></span><br></label>
                                                                     <div class="form-group">
                                                                         <select class="form-control form-control-sm" v-model="form.recognizedByINC" :disabled="inputDisabled" required>

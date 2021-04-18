@@ -105,11 +105,11 @@
                                                                                 <input class="form-control form-control-sm" rows="1"  v-model="row.addressCity" disabled  />
                                                                             </div>
                                                                         </td>
-                                                                        <!-- <td>
+                                                                        <td>
                                                                             <div class="form-group mb-0">
                                                                                 <input class="form-control form-control-sm" rows="1"  v-model="row.addressDistprov" disabled  />
                                                                             </div>
-                                                                        </td> -->
+                                                                        </td>
                                                                         <td class="w-20x">
                                                                             <div class="form-group mb-0">
                                                                                <input class="form-control form-control-sm" rows="1"  v-model="row.addressState" disabled  />
@@ -242,12 +242,12 @@
                                                 <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressCity" required>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-xl-6 mb-2">
+                                        <div class="col-xl-6 mb-2">
                                             <label>District</label>
                                             <div class="form-group">
                                                 <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressDistprov" >
                                             </div>
-                                        </div> -->
+                                        </div>
                                         <div class="col-xl-6 mb-2">
                                             <label>State&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                             <div class="form-group"> 

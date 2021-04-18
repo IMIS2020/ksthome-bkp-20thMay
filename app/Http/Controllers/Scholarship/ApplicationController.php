@@ -17,6 +17,7 @@ use App\ModelScholarship\ApplicationScheduleTable;
 use App\ModelScholarship\AnnexureI;
 use App\ModelScholarship\ApplicationDocs;
 use App\ModelScholarship\DocMaster;
+use App\ModelScholarship\ApplicationSession;
 use App\Http\Controllers\Scholarship\DocumentMaster;
 use User;
 use Carbon\Carbon;
@@ -28,12 +29,22 @@ use Carbon\Carbon;
 class ApplicationController extends Controller
 {
     # Generate New Application Id
-     private function newApplicationId()
+     private function newApplicationId($type)
      {
-        $lastId = ApplicationDetails::orderBy('id', 'DESC')->first();
-        if(empty($lastId)) { $lastId = 0; }
-        else { $lastId = intval(explode('APP',$lastId->schApplicationId)[1]); }
-        return 'APP'.str_pad($lastId+1, 5, "0", STR_PAD_LEFT);
+        if($type == 'Nurshing')
+        {
+            $lastId = ApplicationDetails::where('scholarshipType' , $type)->orderBy('id', 'DESC')->first();
+            if(empty($lastId)) { $lastId = 0; }
+            else { $lastId = intval(explode('NUR',$lastId->schApplicationId)[1]); }
+            return 'NUR'.str_pad($lastId+1, 5, "0", STR_PAD_LEFT);
+        }else if($type == 'HHDLS')
+        {
+            $lastId = ApplicationDetails::where('scholarshipType' , $type)->orderBy('id', 'DESC')->first();
+            $lastId = ApplicationDetails::orderBy('id', 'DESC')->first();
+            if(empty($lastId)) { $lastId = 0; }
+            else { $lastId = intval(explode('HHD',$lastId->schApplicationId)[1]); }
+            return 'HHD'.str_pad($lastId+1, 5, "0", STR_PAD_LEFT);
+        }
      }
      # Add Scholarship Application
      public function addScholarshipApplication(int $userId, Request $request)
@@ -160,7 +171,7 @@ class ApplicationController extends Controller
             //     $instituteDetails->save();
             // }
 
-             $newApplicationId = $this->newApplicationId();
+             $newApplicationId = $this->newApplicationId($getDomainValuesApp->id);
 
              $applicationDetails->schApplicationId     = $newApplicationId;
              $applicationDetails->hasAdmissionLetter   = $request->hasAdmissionLetter;

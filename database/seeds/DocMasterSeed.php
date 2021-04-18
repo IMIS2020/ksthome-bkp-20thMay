@@ -135,7 +135,7 @@ class DocMasterSeed extends Seeder
         DB::table('docMaster')->insert(
             [
                 'docShortName' => 'DOC013',
-                'docDesc' => 'Self attested Diability Certificate of Mother',
+                'docDesc' => 'Self attested Disability Certificate of Mother',
                 'docType' => 'Uploaded',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -155,7 +155,7 @@ class DocMasterSeed extends Seeder
         DB::table('docMaster')->insert(
             [
                 'docShortName' => 'DOC015',
-                'docDesc' => 'Self attested Diability Certificate of Father',
+                'docDesc' => 'Self attested Disability Certificate of Father',
                 'docType' => 'Uploaded',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -175,7 +175,7 @@ class DocMasterSeed extends Seeder
         DB::table('docMaster')->insert(
             [
                 'docShortName' => 'DOC017',
-                'docDesc' => 'Self attested Diability Certificate of Self',
+                'docDesc' => 'Self attested Disability Certificate of Self',
                 'docType' => 'Uploaded',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),

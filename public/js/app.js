@@ -5556,52 +5556,52 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this4 = this;
 
       var file = this.$refs[index][0].files[0];
-      console.log(index); // if(file.type == 'image/jpeg'|| file.type =='image/jpg'|| file.type =='image/png' || file.type=='file')
-      // { 
+      console.log(index);
 
-      if (index == 1) {
-        if (file.type != 'image/jpeg') {
+      if (file.type == 'image/jpeg' || file.type == 'image/jpg' || file.type == 'image/png' || file.type == 'file') {
+        if (index == 1) {
+          if (file.type != 'image/jpeg') {
+            this.$fire({
+              position: 'top',
+              icon: 'success',
+              title: "Passport size photograph must be image type",
+              showConfirmButton: false,
+              timer: 4000
+            });
+          }
+        }
+
+        if (file.size > 1024 * 1024) {
+          //this.$refs[index][0].files[0] ='';
+          // e.preventDefault();
           this.$fire({
             position: 'top',
             icon: 'success',
-            title: "Passport size photograph must be image type",
+            title: "Document is Too Large - Max 1 MB each",
             showConfirmButton: false,
             timer: 4000
           });
-        }
-      }
+          return;
+        } else {
+          var fileName = file.name;
+          var fileReader = new FileReader();
+          fileReader.readAsDataURL(file);
 
-      if (file.size > 1024 * 1024) {
-        //this.$refs[index][0].files[0] ='';
-        // e.preventDefault();
+          fileReader.onload = function (e) {
+            _this4.docRows[index].docFileNameFile = e.target.result;
+          };
+
+          this.docRows[index].fileName = fileName;
+        }
+      } else {
         this.$fire({
           position: 'top',
           icon: 'success',
-          title: "Document is Too Large - Max 1 MB each",
+          title: "png,jpeg or jpg files only",
           showConfirmButton: false,
           timer: 4000
         });
-        return;
-      } else {
-        var fileName = file.name;
-        var fileReader = new FileReader();
-        fileReader.readAsDataURL(file);
-
-        fileReader.onload = function (e) {
-          _this4.docRows[index].docFileNameFile = e.target.result;
-        };
-
-        this.docRows[index].fileName = fileName;
-      } // }else{
-      //     this.$fire({
-      //             position: 'top',
-      //             icon: 'success',
-      //             title: "pdf,png,jpeg or jpg files only",
-      //             showConfirmButton: false,
-      //             timer: 4000
-      //     })
-      // }
-
+      }
     },
     deleteFile: function deleteFile(applicationDocId) {
       var _this5 = this;

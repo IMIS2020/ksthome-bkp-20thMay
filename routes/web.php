@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('/review-submit/{applicationId}',   'SystemController@reviewMyApplication');
     Route::get('/view-application/{applicationId}',       'SystemController@viewMyApplication');
     Route::get('/print-view-application/{applicationId}', 'SystemController@printView');
-
+    Route::get('/print-view-annexure1/{applicationId}', 'SystemController@printAnnexure1');
     Route::get('/manage-my-application','SystemController@manageMyApplication');
 
   /*** END OF UI ROUTES ***/ 

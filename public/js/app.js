@@ -4858,7 +4858,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -7596,6 +7595,321 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/myApplication/printAnnexure1.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/myApplication/printAnnexure1.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      userId: document.querySelector("meta[name='userId']").getAttribute('content'),
+      // update: false,
+      globalDisable: false,
+      universityCourseLevel: {},
+      universityCourseName: {},
+      insData: {},
+      insDataDetails: {
+        address1: ''
+      },
+      courseLevelValueId2: '',
+      courseNameValueId2: '',
+      domainForm: {
+        domainName: 'CourseName',
+        dValue: '',
+        dDesc: ''
+      },
+      insId: '',
+      insForm: {
+        insType: '',
+        insName: '',
+        insAddressAddln1: '',
+        insAddressAddln2: '',
+        insAddressCity: '',
+        insAddressDistprov: '',
+        insAddressState: '',
+        insAddressPinzip: ''
+      },
+      form: {
+        // courseLevel:'',
+        hasAdmissionLetter: '',
+        applicationId: '',
+        scholarshipType: '',
+        financialYear: '',
+        applicantNameF: '',
+        applicantNameM: '',
+        applicantNameL: '',
+        applicantFatherName: '',
+        applicantMotherName: '',
+        addressAddln1: '',
+        appIdShow: ''
+      },
+      getData: {
+        genderType: ''
+      },
+      errors: [],
+      rows: [{
+        insId: '',
+        courseLevelValueId: '',
+        courseNameValueId: '',
+        addressAddln1: '',
+        addressAddln2: '',
+        addressCity: '',
+        addressDistprov: '',
+        addressState: '',
+        addressPinzip: ''
+      }]
+    };
+  },
+  methods: {
+    errorMsg: function errorMsg(status) {
+      switch (status) {
+        case 422:
+          {
+            this.$fire({
+              position: 'top',
+              icon: 'error',
+              title: "Something went wrong! 1",
+              showConfirmButton: false,
+              timer: 3000
+            });
+            break;
+          }
+
+        case 405:
+          {
+            this.$fire({
+              position: 'top',
+              icon: 'error',
+              title: "Something went wrong! 2",
+              showConfirmButton: false,
+              timer: 3000
+            });
+            break;
+          }
+
+        case 500:
+          {
+            this.$fire({
+              position: 'top',
+              icon: 'error',
+              title: "Something went wrong! 3",
+              showConfirmButton: false,
+              timer: 3000
+            });
+            break;
+          }
+
+        default:
+          {
+            this.$fire({
+              position: 'top',
+              icon: 'error',
+              title: "Something went wrong! 4",
+              showConfirmButton: false,
+              timer: 3000
+            });
+            break;
+          }
+      }
+    },
+    getannexurei: function getannexurei() {
+      var _this = this;
+
+      var applicationId = window.location.pathname.split('/').reverse()[0];
+      axios.get("/api/get-annexure1/".concat(applicationId)).then(function (response) {
+        if (response.data['success']) {
+          _this.rows = response.data['data'];
+
+          if (_this.form.scholarshipType == "Nursing") {
+            _this.courseLevelValueId2 = "Bachelor";
+            _this.courseNameValueId2 = "Bsc. Nursing";
+          } else {
+            _this.courseLevelValueId2 = response.data['data'][0].courseLevelValueId;
+            _this.courseNameValueId2 = response.data['data'][0].courseNameValueId;
+          }
+
+          _this.getHHDLSData2(_this.courseLevelValueId2);
+
+          _this.update = true;
+        } else {
+          console.log(response.data['msg']);
+          _this.update = false;
+        }
+      });
+    },
+    readApplicationForm: function readApplicationForm() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var applicationId;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                applicationId = window.location.pathname.split('/').reverse()[0];
+                axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
+                  if (response.data['success']) {
+                    _this2.form.applicationId = response.data['data'][0][0].schApplicationId;
+                    _this2.form.scholarshipType = response.data['data'][0][0].scholarshipType;
+                    _this2.form.applicantNameF = response.data['data'][0][0].applicantNameF;
+                    _this2.form.applicantNameM = response.data['data'][0][0].applicantNameM;
+                    _this2.form.applicantNameL = response.data['data'][0][0].applicantNameL;
+                    _this2.form.applicantFatherName = response.data['data'][0][0].applicantFatherName;
+                    _this2.form.applicantMotherName = response.data['data'][0][0].applicantMotherName;
+                    _this2.form.financialYear = response.data['data'][0][0].financialYear;
+                    _this2.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
+                    _this2.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
+                    _this2.insForm.insType = response.data['data'][0][0].scholarshipType;
+                    _this2.form.appIdShow = response.data['data'][0][0].appIdShow;
+
+                    _this2.readDomainValues(_this2.form.scholarshipType);
+
+                    _this2.readInsValue(_this2.form.scholarshipType);
+
+                    if (_this2.form.applicantGender = response.data['data'][0][0].applicantGender == "Male") {
+                      _this2.getData.genderType = "son";
+                    } else {
+                      _this2.getData.genderType = "daughter";
+                    }
+
+                    ;
+                    _this2.form.appStatus = response.data['data'][0][0].appStatus;
+
+                    if (_this2.form.appStatus == 'Submit') {
+                      _this2.globalDisable = true;
+                    }
+
+                    ;
+                  } else {
+                    console.log(response.data['msg']);
+                  }
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    readDomainValues: function readDomainValues(type) {
+      var _this3 = this;
+
+      if (type == 'HHDLS') {
+        // axios.get('/api/domain/course-name/hhdls')
+        //     .then(response => {
+        //         this.universityCourseName = response.data;
+        //     });   
+        axios.get('/api/domain/course-level/hhdls').then(function (response) {
+          _this3.universityCourseLevel = response.data;
+        });
+      } else if (type == 'Nursing') {
+        axios.get('/api/domain/course-name/nursing').then(function (response) {
+          _this3.universityCourseName = response.data;
+        });
+        axios.get('/api/domain/course-level/nursing').then(function (response) {
+          _this3.universityCourseLevel = response.data;
+        });
+      }
+    },
+    readInsValue: function readInsValue(type) {
+      var _this4 = this;
+
+      axios.get('/api/institute/get-data/' + type).then(function (response) {
+        _this4.insData = response.data;
+      });
+    },
+    getData: function getData(insId, index) {
+      var _this5 = this;
+
+      console.lof(insId);
+      axios.get('/api/institute/get-details/' + insId).then(function (response) {
+        if (response.data['success']) {
+          _this5.rows[index].addressAddln1 = response.data['data'][0].get_address.addressAddln1;
+          _this5.rows[index].addressAddln2 = response.data['data'][0].get_address.addressAddln2;
+          _this5.rows[index].addressCity = response.data['data'][0].get_address.addressCity;
+          _this5.rows[index].addressDistprov = response.data['data'][0].get_address.addressDistprov;
+          _this5.rows[index].addressState = response.data['data'][0].get_address.addressState;
+          _this5.rows[index].addressPinzip = response.data['data'][0].get_address.addressPinzip;
+        } else {
+          console.log(response.data['msg']);
+        }
+      })["catch"](function (error) {
+        return _this5.errorMsg(error.response.status);
+      });
+    },
+    getHHDLSData2: function getHHDLSData2(id) {
+      var _this6 = this;
+
+      axios.get('/api/domain/course-name/hhdls/' + id).then(function (response) {
+        _this6.universityCourseName = response.data;
+      });
+    }
+  },
+  created: function created() {
+    // this.readInsValue();
+    this.readDomainValues();
+    this.readApplicationForm();
+    this.getannexurei();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/myApplication/printView.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/myApplication/printView.vue?vue&type=script&lang=js& ***!
@@ -8230,6 +8544,13 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -66116,7 +66437,7 @@ var render = function() {
                                       "p",
                                       {
                                         staticClass:
-                                          "lead mb-0 text-left text-black font-l font-weight-bold"
+                                          "lead mb-0 text-left text-black font-m font-weight-bold"
                                       },
                                       [
                                         _vm._v("I"),
@@ -66141,7 +66462,7 @@ var render = function() {
                                           ])
                                         ]),
                                         _vm._v(
-                                          " has been residing in the colony , \r\n                                                                "
+                                          " has been residing in the colony , \r\n                                                               "
                                         ),
                                         _c("span", [
                                           _c("strong", [
@@ -66150,9 +66471,8 @@ var render = function() {
                                             )
                                           ])
                                         ]),
-                                        _vm._v(
-                                          ". \r\n                                                                "
-                                        ),
+                                        _vm._v("."),
+                                        _c("br"),
                                         _vm.form
                                           .applicantLeprosyAffectedFather ==
                                         true
@@ -66195,20 +66515,13 @@ var render = function() {
                                             ])
                                           : _vm._e(),
                                         _vm._v(" "),
-                                        _vm.countLeprosy == 2
-                                          ? _c("span")
-                                          : _vm._e(),
-                                        _vm._v(" "),
-                                        _vm.countLeprosy == 3
-                                          ? _c("span", [_vm._v(",")])
-                                          : _vm._e(),
-                                        _vm._v(" "),
                                         _vm.form.applicantLeprosyAffectedSelf ==
                                         true
                                           ? _c("span", [
                                               _c("strong", [
                                                 _vm._v(
-                                                  _vm._s(_vm.form.fullName)
+                                                  " and " +
+                                                    _vm._s(_vm.form.fullName)
                                                 )
                                               ])
                                             ])
@@ -66224,10 +66537,20 @@ var render = function() {
                                           ? _c("span", [_vm._v("is")])
                                           : _vm._e(),
                                         _vm._v(
-                                          " \r\n                                                                    affected by leprosy. \r\n                                                                "
-                                        ),
-                                        _vm._v(" "),
-                                        _c("br"),
+                                          " \r\n                                                                    affected by leprosy. "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "lead mb-0 text-left text-black font-l font-weight-bold"
+                                      },
+                                      [
                                         _vm._v(
                                           " I recommend the applicant for "
                                         ),
@@ -78825,6 +79148,182 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/myApplication/printAnnexure1.vue?vue&type=template&id=546b1cb4&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/myApplication/printAnnexure1.vue?vue&type=template&id=546b1cb4& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "page-main" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-xl-12 mt-3" }, [
+          _c("p", { staticClass: "font-md", staticStyle: { color: "#000" } }, [
+            _c("strong", [
+              _vm._v(
+                "I " +
+                  _vm._s(_vm.form.applicantNameF) +
+                  " " +
+                  _vm._s(_vm.form.applicantNameM) +
+                  " " +
+                  _vm._s(_vm.form.applicantNameL) +
+                  ", " +
+                  _vm._s(_vm.getData.genderType) +
+                  " of " +
+                  _vm._s(_vm.form.applicantFatherName) +
+                  "  residing in " +
+                  _vm._s(_vm.form.addressAddln1) +
+                  ", want to pursue " +
+                  _vm._s(_vm.courseLevelValueId2) +
+                  "'s digree in " +
+                  _vm._s(_vm.courseNameValueId2) +
+                  " In academic year " +
+                  _vm._s(_vm.form.financialYear) +
+                  ". I will be taking the following Entrance Examination for admission into " +
+                  _vm._s(_vm.courseLevelValueId2) +
+                  "'s in " +
+                  _vm._s(_vm.courseNameValueId2) +
+                  "."
+              )
+            ]),
+            _c("br")
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-xl-12" }, [
+          _c(
+            "div",
+            { staticClass: "table-responsive table-bordered rev-tbl" },
+            [
+              _c(
+                "table",
+                { staticClass: "table table-bordered table-sm mb-0" },
+                [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.rows, function(row, index) {
+                      return _c("tr", { key: index, staticClass: "fw-600" }, [
+                        _c("td", [
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(index + 1) +
+                                ". " +
+                                _vm._s(row.get_institute.instituteName)
+                            )
+                          ]),
+                          _c("br")
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(row.addressCity) +
+                                ", " +
+                                _vm._s(row.addressDistprov) +
+                                ", " +
+                                _vm._s(row.addressState)
+                            )
+                          ]),
+                          _c("br")
+                        ])
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(3)
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-xl-2 mt-3 pr-1" }, [
+      _c(
+        "p",
+        {
+          staticClass: "text-white mb-2 font-xl",
+          staticStyle: { background: "#000000" }
+        },
+        [_vm._v(" Annexure I"), _c("br")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-xl-12" }, [
+      _c("h5", [
+        _c("strong", { staticStyle: { color: "#000" } }, [
+          _vm._v("Institutes Selected: ")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Institute Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Address")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "col-xl-4 offset-xl-4 d-print-none text-center" },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-sm btn-mg mt-5",
+              attrs: { role: "button", onclick: "window.print()" }
+            },
+            [_vm._v("Print/Download Application Form")]
+          )
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/myApplication/printView.vue?vue&type=template&id=581bcaac&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/myApplication/printView.vue?vue&type=template&id=581bcaac& ***!
@@ -80329,7 +80828,78 @@ var render = function() {
                                                   ],
                                                   1
                                                 )
-                                          ])
+                                          ]),
+                                          _vm._v(" "),
+                                          _vm.form.hasAdmissionLetter == "NO"
+                                            ? _c("tr", [
+                                                _c("td", [
+                                                  _c("strong", [
+                                                    _vm._v(
+                                                      "My " +
+                                                        _vm._s(
+                                                          _vm.form
+                                                            .scholarshipType
+                                                        ) +
+                                                        " application Annexure1 "
+                                                    )
+                                                  ]),
+                                                  _vm._v(
+                                                    "(" +
+                                                      _vm._s(
+                                                        _vm.form.appIdShow
+                                                      ) +
+                                                      ")"
+                                                  ),
+                                                  _c("strong", [
+                                                    _vm._v(
+                                                      ",  for " +
+                                                        _vm._s(
+                                                          _vm.form.financialYear
+                                                        )
+                                                    )
+                                                  ])
+                                                ]),
+                                                _vm._v(" "),
+                                                _vm.form.applicationId == ""
+                                                  ? _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "text-center"
+                                                      },
+                                                      [_vm._m(3)]
+                                                    )
+                                                  : _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "text-center"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "router-link",
+                                                          {
+                                                            staticClass:
+                                                              "act-link",
+                                                            attrs: {
+                                                              to:
+                                                                "/print-view-annexure1/" +
+                                                                _vm.form
+                                                                  .applicationId
+                                                            }
+                                                          },
+                                                          [
+                                                            _c("i", {
+                                                              staticClass:
+                                                                "fa fa-eye"
+                                                            })
+                                                          ]
+                                                        )
+                                                      ],
+                                                      1
+                                                    )
+                                              ])
+                                            : _vm._e()
                                         ])
                                       ]
                                     )
@@ -80341,7 +80911,7 @@ var render = function() {
                           _vm._v(" "),
                           _c("div", { staticClass: "col-xl-12 mb-2" }, [
                             _c("div", { staticClass: "card mt-2 det-sec" }, [
-                              _vm._m(3),
+                              _vm._m(4),
                               _vm._v(" "),
                               _c("div", { staticClass: "card-body" }, [
                                 _c(
@@ -80358,7 +80928,7 @@ var render = function() {
                                           "table table-bordered table-sm mb-0"
                                       },
                                       [
-                                        _vm._m(4),
+                                        _vm._m(5),
                                         _vm._v(" "),
                                         _c(
                                           "tbody",
@@ -80440,7 +81010,7 @@ var render = function() {
                                                     {
                                                       staticClass: "text-center"
                                                     },
-                                                    [_vm._m(5, true)]
+                                                    [_vm._m(6, true)]
                                                   )
                                             ])
                                           }),
@@ -80456,7 +81026,7 @@ var render = function() {
                           _vm._v(" "),
                           _c("div", { staticClass: "col-xl-12 mb-2" }, [
                             _c("div", { staticClass: "card mt-2 det-sec" }, [
-                              _vm._m(6),
+                              _vm._m(7),
                               _vm._v(" "),
                               _c("div", { staticClass: "card-body" }, [
                                 _c("p", { staticClass: "t-c-text" }, [
@@ -80605,6 +81175,16 @@ var staticRenderFns = [
         _c("th", { staticClass: "text-center" }, [_vm._v("View / Download")])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      { staticClass: "act-link", staticStyle: { color: "#808080" } },
+      [_c("i", { staticClass: "fa fa-eye" })]
+    )
   },
   function() {
     var _vm = this
@@ -98363,6 +98943,10 @@ function newFunction() {
     el: '#printView',
     router: new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"](_routes__WEBPACK_IMPORTED_MODULE_2__["default"])
   });
+  var app24 = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+    el: '#printAnnexure1',
+    router: new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"](_routes__WEBPACK_IMPORTED_MODULE_2__["default"])
+  });
   var app12 = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     el: '#adminDashboard',
     router: new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"](_routes__WEBPACK_IMPORTED_MODULE_2__["default"])
@@ -99837,6 +100421,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/myApplication/printAnnexure1.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/myApplication/printAnnexure1.vue ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _printAnnexure1_vue_vue_type_template_id_546b1cb4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./printAnnexure1.vue?vue&type=template&id=546b1cb4& */ "./resources/js/components/myApplication/printAnnexure1.vue?vue&type=template&id=546b1cb4&");
+/* harmony import */ var _printAnnexure1_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./printAnnexure1.vue?vue&type=script&lang=js& */ "./resources/js/components/myApplication/printAnnexure1.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _printAnnexure1_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _printAnnexure1_vue_vue_type_template_id_546b1cb4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _printAnnexure1_vue_vue_type_template_id_546b1cb4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/myApplication/printAnnexure1.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/myApplication/printAnnexure1.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/myApplication/printAnnexure1.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_printAnnexure1_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./printAnnexure1.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/myApplication/printAnnexure1.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_printAnnexure1_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/myApplication/printAnnexure1.vue?vue&type=template&id=546b1cb4&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/myApplication/printAnnexure1.vue?vue&type=template&id=546b1cb4& ***!
+  \*************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_printAnnexure1_vue_vue_type_template_id_546b1cb4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./printAnnexure1.vue?vue&type=template&id=546b1cb4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/myApplication/printAnnexure1.vue?vue&type=template&id=546b1cb4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_printAnnexure1_vue_vue_type_template_id_546b1cb4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_printAnnexure1_vue_vue_type_template_id_546b1cb4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/myApplication/printView.vue":
 /*!*************************************************************!*\
   !*** ./resources/js/components/myApplication/printView.vue ***!
@@ -100065,18 +100718,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_myApplication_reviewMyApplication__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/myApplication/reviewMyApplication */ "./resources/js/components/myApplication/reviewMyApplication.vue");
 /* harmony import */ var _components_myApplication_viewMyApplication__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/myApplication/viewMyApplication */ "./resources/js/components/myApplication/viewMyApplication.vue");
 /* harmony import */ var _components_myApplication_printView__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/myApplication/printView */ "./resources/js/components/myApplication/printView.vue");
-/* harmony import */ var _components_admin_adminDashboard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/admin/adminDashboard */ "./resources/js/components/admin/adminDashboard.vue");
-/* harmony import */ var _components_admin_manageApplication_applicationDetails__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/admin/manageApplication/applicationDetails */ "./resources/js/components/admin/manageApplication/applicationDetails.vue");
-/* harmony import */ var _components_admin_manageApplication_reviewApplication_applicantForm__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/admin/manageApplication/reviewApplication/applicantForm */ "./resources/js/components/admin/manageApplication/reviewApplication/applicantForm.vue");
-/* harmony import */ var _components_admin_manageApplication_reviewApplication_annexure1__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/admin/manageApplication/reviewApplication/annexure1 */ "./resources/js/components/admin/manageApplication/reviewApplication/annexure1.vue");
-/* harmony import */ var _components_admin_manageApplication_reviewApplication_annexure2__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/admin/manageApplication/reviewApplication/annexure2 */ "./resources/js/components/admin/manageApplication/reviewApplication/annexure2.vue");
-/* harmony import */ var _components_admin_manageApplication_reviewApplication_applicantDocuments__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/admin/manageApplication/reviewApplication/applicantDocuments */ "./resources/js/components/admin/manageApplication/reviewApplication/applicantDocuments.vue");
-/* harmony import */ var _components_admin_manageApplication_reviewApplication_review__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/admin/manageApplication/reviewApplication/review */ "./resources/js/components/admin/manageApplication/reviewApplication/review.vue");
-/* harmony import */ var _components_admin_domains_addDomains__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/admin/domains/addDomains */ "./resources/js/components/admin/domains/addDomains.vue");
-/* harmony import */ var _components_admin_domains_manageDomains__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/admin/domains/manageDomains */ "./resources/js/components/admin/domains/manageDomains.vue");
-/* harmony import */ var _components_admin_applicationSchedule_addSchedule__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/admin/applicationSchedule/addSchedule */ "./resources/js/components/admin/applicationSchedule/addSchedule.vue");
-/* harmony import */ var _components_admin_applicationSchedule_manageSchedule__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/admin/applicationSchedule/manageSchedule */ "./resources/js/components/admin/applicationSchedule/manageSchedule.vue");
-/* harmony import */ var _components_admin_applicationSchedule_extendLastDate__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/admin/applicationSchedule/extendLastDate */ "./resources/js/components/admin/applicationSchedule/extendLastDate.vue");
+/* harmony import */ var _components_myApplication_printAnnexure1__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/myApplication/printAnnexure1 */ "./resources/js/components/myApplication/printAnnexure1.vue");
+/* harmony import */ var _components_admin_adminDashboard__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/admin/adminDashboard */ "./resources/js/components/admin/adminDashboard.vue");
+/* harmony import */ var _components_admin_manageApplication_applicationDetails__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/admin/manageApplication/applicationDetails */ "./resources/js/components/admin/manageApplication/applicationDetails.vue");
+/* harmony import */ var _components_admin_manageApplication_reviewApplication_applicantForm__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/admin/manageApplication/reviewApplication/applicantForm */ "./resources/js/components/admin/manageApplication/reviewApplication/applicantForm.vue");
+/* harmony import */ var _components_admin_manageApplication_reviewApplication_annexure1__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/admin/manageApplication/reviewApplication/annexure1 */ "./resources/js/components/admin/manageApplication/reviewApplication/annexure1.vue");
+/* harmony import */ var _components_admin_manageApplication_reviewApplication_annexure2__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/admin/manageApplication/reviewApplication/annexure2 */ "./resources/js/components/admin/manageApplication/reviewApplication/annexure2.vue");
+/* harmony import */ var _components_admin_manageApplication_reviewApplication_applicantDocuments__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/admin/manageApplication/reviewApplication/applicantDocuments */ "./resources/js/components/admin/manageApplication/reviewApplication/applicantDocuments.vue");
+/* harmony import */ var _components_admin_manageApplication_reviewApplication_review__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/admin/manageApplication/reviewApplication/review */ "./resources/js/components/admin/manageApplication/reviewApplication/review.vue");
+/* harmony import */ var _components_admin_domains_addDomains__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/admin/domains/addDomains */ "./resources/js/components/admin/domains/addDomains.vue");
+/* harmony import */ var _components_admin_domains_manageDomains__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/admin/domains/manageDomains */ "./resources/js/components/admin/domains/manageDomains.vue");
+/* harmony import */ var _components_admin_applicationSchedule_addSchedule__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/admin/applicationSchedule/addSchedule */ "./resources/js/components/admin/applicationSchedule/addSchedule.vue");
+/* harmony import */ var _components_admin_applicationSchedule_manageSchedule__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/admin/applicationSchedule/manageSchedule */ "./resources/js/components/admin/applicationSchedule/manageSchedule.vue");
+/* harmony import */ var _components_admin_applicationSchedule_extendLastDate__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/admin/applicationSchedule/extendLastDate */ "./resources/js/components/admin/applicationSchedule/extendLastDate.vue");
 // Dashboard and manage scholarship
 
  // Form - Application form and upload documents
@@ -100084,6 +100738,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
  //Nursing scholarship
+
 
 
 
@@ -100195,6 +100850,10 @@ __webpack_require__.r(__webpack_exports__);
     path: '/print-view-application/:applicationId',
     component: _components_myApplication_printView__WEBPACK_IMPORTED_MODULE_11__["default"],
     name: "print-view-application"
+  }, {
+    path: '/print-view-annexure1/:applicationId',
+    component: _components_myApplication_printAnnexure1__WEBPACK_IMPORTED_MODULE_12__["default"],
+    name: "print-view-annexure1"
   },
   /*****
    * UI call ends for application
@@ -100331,7 +100990,7 @@ __webpack_require__.r(__webpack_exports__);
    */
   {
     path: '/admin',
-    component: _components_admin_adminDashboard__WEBPACK_IMPORTED_MODULE_12__["default"],
+    component: _components_admin_adminDashboard__WEBPACK_IMPORTED_MODULE_13__["default"],
     name: "admin-dashboard"
   },
   /***
@@ -100343,7 +101002,7 @@ __webpack_require__.r(__webpack_exports__);
    */
   {
     path: '/admin/manage-application-details',
-    component: _components_admin_manageApplication_applicationDetails__WEBPACK_IMPORTED_MODULE_13__["default"],
+    component: _components_admin_manageApplication_applicationDetails__WEBPACK_IMPORTED_MODULE_14__["default"],
     name: "manage-application"
   },
   /***
@@ -100356,23 +101015,23 @@ __webpack_require__.r(__webpack_exports__);
    */
   {
     path: '/admin/review-application-form',
-    component: _components_admin_manageApplication_reviewApplication_applicantForm__WEBPACK_IMPORTED_MODULE_14__["default"],
+    component: _components_admin_manageApplication_reviewApplication_applicantForm__WEBPACK_IMPORTED_MODULE_15__["default"],
     name: "review-application-form"
   }, {
     path: '/admin/review-annexure-1',
-    component: _components_admin_manageApplication_reviewApplication_annexure1__WEBPACK_IMPORTED_MODULE_15__["default"],
+    component: _components_admin_manageApplication_reviewApplication_annexure1__WEBPACK_IMPORTED_MODULE_16__["default"],
     name: "review-annexure-1"
   }, {
     path: '/admin/review-annexure-2',
-    component: _components_admin_manageApplication_reviewApplication_annexure2__WEBPACK_IMPORTED_MODULE_16__["default"],
+    component: _components_admin_manageApplication_reviewApplication_annexure2__WEBPACK_IMPORTED_MODULE_17__["default"],
     name: "review-annexure-2"
   }, {
     path: '/admin/review-applicant-documents',
-    component: _components_admin_manageApplication_reviewApplication_applicantDocuments__WEBPACK_IMPORTED_MODULE_17__["default"],
+    component: _components_admin_manageApplication_reviewApplication_applicantDocuments__WEBPACK_IMPORTED_MODULE_18__["default"],
     name: "review-applicant-documents"
   }, {
     path: '/admin/review',
-    component: _components_admin_manageApplication_reviewApplication_review__WEBPACK_IMPORTED_MODULE_18__["default"],
+    component: _components_admin_manageApplication_reviewApplication_review__WEBPACK_IMPORTED_MODULE_19__["default"],
     name: "review"
   },
   /***
@@ -100386,11 +101045,11 @@ __webpack_require__.r(__webpack_exports__);
    */
   {
     path: '/admin/add-domains',
-    component: _components_admin_domains_addDomains__WEBPACK_IMPORTED_MODULE_19__["default"],
+    component: _components_admin_domains_addDomains__WEBPACK_IMPORTED_MODULE_20__["default"],
     name: "add-domains"
   }, {
     path: '/admin/manage-domains',
-    component: _components_admin_domains_manageDomains__WEBPACK_IMPORTED_MODULE_20__["default"],
+    component: _components_admin_domains_manageDomains__WEBPACK_IMPORTED_MODULE_21__["default"],
     name: "manage-domains"
   },
   /***
@@ -100404,15 +101063,15 @@ __webpack_require__.r(__webpack_exports__);
    */
   {
     path: '/admin/add-application-schedule',
-    component: _components_admin_applicationSchedule_addSchedule__WEBPACK_IMPORTED_MODULE_21__["default"],
+    component: _components_admin_applicationSchedule_addSchedule__WEBPACK_IMPORTED_MODULE_22__["default"],
     name: "add-schedule"
   }, {
     path: '/admin/manage-application-schedule',
-    component: _components_admin_applicationSchedule_manageSchedule__WEBPACK_IMPORTED_MODULE_22__["default"],
+    component: _components_admin_applicationSchedule_manageSchedule__WEBPACK_IMPORTED_MODULE_23__["default"],
     name: "manage-schedule"
   }, {
     path: '/admin/extend-last-date',
-    component: _components_admin_applicationSchedule_extendLastDate__WEBPACK_IMPORTED_MODULE_23__["default"],
+    component: _components_admin_applicationSchedule_extendLastDate__WEBPACK_IMPORTED_MODULE_24__["default"],
     name: "extend-last-date"
   },
   /***

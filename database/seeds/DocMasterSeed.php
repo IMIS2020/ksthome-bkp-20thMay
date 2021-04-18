@@ -94,6 +94,16 @@ class DocMasterSeed extends Seeder
             ]);
         DB::table('docMaster')->insert(
             [
+                'docShortName' => 'DOC018',
+                'docDesc' => 'Self attested Proof of Address',
+                'docType' => 'Uploaded',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'processStepId' => 1,
+                'requiredFor' => '3',
+        ]);
+        DB::table('docMaster')->insert(
+            [
                 'docShortName' => 'DOC009',
                 'docDesc' => 'Self attested marksheet for 10th',
                 'docType' => 'Uploaded',
@@ -183,15 +193,6 @@ class DocMasterSeed extends Seeder
                 'requiredFor' => '3',
             ]);
 
-            DB::table('docMaster')->insert(
-                [
-                    'docShortName' => 'DOC018',
-                    'docDesc' => 'Self attested Proof of Address',
-                    'docType' => 'Uploaded',
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now(),
-                    'processStepId' => 1,
-                    'requiredFor' => '3',
-            ]);
+            
     }
 }

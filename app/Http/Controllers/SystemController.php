@@ -108,6 +108,10 @@ class SystemController extends Controller
       return view('myApplication.manageMyApplication');
     }
 
+    public function printAnnexure1()
+    {
+      return view('myApplication.printAnnexure1');
+    }
     //Application Form
     
 

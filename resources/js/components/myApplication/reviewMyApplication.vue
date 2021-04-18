@@ -47,6 +47,13 @@
                                                                         <!-- <td class="text-center" v-if="form.applicationId == '' "><span class="act-link"  style="color:#808080;"><i class="fa fa-eye"></i></span></td>
                                                                         <td class="text-center" v-else><router-link class="act-link" to="/print-view-nursing"><i class="fa fa-eye"></i></router-link></td> -->
                                                                     </tr>
+                                                                     <tr v-if="form.hasAdmissionLetter == 'NO'">
+                                                                        <td><strong>My {{form.scholarshipType}} application Annexure1 </strong>({{form.appIdShow}})<strong>,&nbsp; for {{form.financialYear}}</strong></td>
+                                                                        <td class="text-center" v-if="form.applicationId == '' "><span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span></td>
+                                                                        <td class="text-center" v-else><router-link class="act-link" :to="'/print-view-annexure1/'+form.applicationId" ><i class="fa fa-eye"></i></router-link></td>
+                                                                        <!-- <td class="text-center" v-if="form.applicationId == '' "><span class="act-link"  style="color:#808080;"><i class="fa fa-eye"></i></span></td>
+                                                                        <td class="text-center" v-else><router-link class="act-link" to="/print-view-nursing"><i class="fa fa-eye"></i></router-link></td> -->
+                                                                    </tr>
                                                                 </tbody>
                                                             </table>
                                                         </div>

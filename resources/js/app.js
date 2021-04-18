@@ -72,6 +72,11 @@ function newFunction(){
     el: '#printView',
     router: new VueRouter(routes)
   });
+
+  const app24 = new Vue({
+    el: '#printAnnexure1',
+    router: new VueRouter(routes)
+  });
  
 
   const app12 = new Vue({

@@ -15,6 +15,7 @@ import annexure2BlankForm        from './components/myApplication/annexure2Blank
 import ReviewMyApplication       from './components/myApplication/reviewMyApplication';
 import ViewMyApplication         from './components/myApplication/viewMyApplication';
 import PrintView                 from './components/myApplication/printView';
+import PrintAnnexure1            from './components/myApplication/printAnnexure1';
 
 import AdminDashboard            from './components/admin/adminDashboard';
 import ApplicationDetails        from './components/admin/manageApplication/applicationDetails';
@@ -137,6 +138,11 @@ export default{
                     path: '/print-view-application/:applicationId',
                     component:PrintView,
                     name: "print-view-application"
+                },
+                {
+                    path: '/print-view-annexure1/:applicationId',
+                    component:PrintAnnexure1,
+                    name: "print-view-annexure1"
                 },
                 /*****
                  * UI call ends for application

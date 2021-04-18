@@ -236,11 +236,11 @@ class DocumentMaster extends Controller
                     }
                 }
 
-                $addDocs->docMasterId   = $data['id'];
-                $addDocs->applicationId = $applictionId;
-                $addDocs->docFileDesc   = $data['docDesc'];
-                $addDocs->reviewStatus  = $data['processStepId'];
-                $addDocs->save();
+                // $addDocs->docMasterId   = $data['id'];
+                // $addDocs->applicationId = $applictionId;
+                // $addDocs->docFileDesc   = $data['docDesc'];
+                // $addDocs->reviewStatus  = $data['processStepId'];
+                // $addDocs->save();
             }
         }
 

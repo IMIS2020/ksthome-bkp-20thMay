@@ -125,6 +125,9 @@
     <div id="viewMyApplication">
       @yield('viewMyApplication')
     </div>
+    <div id="printAnnexure1">
+      @yield('printAnnexure1')
+    </div>
     <!-- Application End -->
 
     <!-- HHDLSS Start -->

@@ -5558,13 +5558,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var file = this.$refs[index][0].files[0];
       console.log(index);
 
-      if (file.type == 'image/jpeg' || file.type == 'image/jpg' || file.type == 'image/png' || file.type == 'file') {
-        if (index == 1) {
-          if (file.type != 'image/jpeg') {
+      if (file.type == 'image/jpeg' || file.type == 'image/jpg' || file.type == 'image/png' || file.type == 'application/pdf') {
+        if (index === 1) {
+          if (file.type == 'image/jpg') {
             this.$fire({
               position: 'top',
               icon: 'success',
-              title: "Passport size photograph must be image type",
+              title: "Passport size photograph must be jpg image type",
               showConfirmButton: false,
               timer: 4000
             });

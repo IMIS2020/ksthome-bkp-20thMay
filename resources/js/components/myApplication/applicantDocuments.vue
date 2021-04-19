@@ -232,16 +232,17 @@ export default{
         {
             let file = this.$refs[index][0].files[0];
             console.log(index);
-            if(file.type == 'image/jpeg'|| file.type =='image/jpg'|| file.type =='image/png' || file.type=='file')
+            
+            if(file.type == 'image/jpeg'|| file.type =='image/jpg'|| file.type =='image/png' || file.type=='application/pdf')
             { 
-                if(index == 1)
+                if(index === 1)
                 {
-                    if(file.type !='image/jpeg')
+                    if(file.type == 'image/jpg')
                     {
                         this.$fire({
                             position: 'top',
                             icon: 'success',
-                           title: "Passport size photograph must be image type",
+                           title: "Passport size photograph must be jpg image type",
                             showConfirmButton: false,
                             timer: 4000
                         })
@@ -274,7 +275,7 @@ export default{
                 this.$fire({
                         position: 'top',
                         icon: 'success',
-                        title: "png,jpeg or jpg files only",
+                        title: "pdf,png,jpeg or jpg files only",
                         showConfirmButton: false,
                         timer: 4000
                 })

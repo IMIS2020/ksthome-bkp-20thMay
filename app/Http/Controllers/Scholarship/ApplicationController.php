@@ -715,6 +715,10 @@ class ApplicationController extends Controller
      # Save Scholarship Documents
      public function saveDocuments(string $applicationId,Request $request)
      {
+        $request->validate([  
+            'docFileNameFile.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
         $this->createFolder();       
         $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
         $prevJ = ApplicationDocs::where('applicationId', $getApplicationId)->get();

@@ -1393,6 +1393,19 @@ export default {
                 
                 axios.get(`/api/get-application-form-data/${applicationId}`)
                 .then(response => {
+                    if(response.data['return'])
+                    {
+                        this.$router.push({ 
+                            path:`/manage-my-application`,
+                        });
+                        this.$fire({
+                            position: 'top',
+                            icon: 'Error',
+                            title: "New application no allowed as You already have an application for this schloarship type",
+                            showConfirmButton: false,
+                            timer: 3500
+                        })
+                    }
                     if (response.data['success']) {
                         this.form.applicationId=response.data['data'][0][0].schApplicationId;
                         this.form.scholarshipType=response.data['data'][0][0].scholarshipType;

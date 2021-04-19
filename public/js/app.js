@@ -7035,6 +7035,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 applicationId = window.location.pathname.split('/').reverse()[0];
                 axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
+                  if (response.data['return']) {
+                    _this2.$router.push({
+                      path: "/manage-my-application"
+                    });
+
+                    _this2.$fire({
+                      position: 'top',
+                      icon: 'Error',
+                      title: "New application no allowed as You already have an application for this schloarship type",
+                      showConfirmButton: false,
+                      timer: 3500
+                    });
+                  }
+
                   if (response.data['success']) {
                     _this2.form.applicationId = response.data['data'][0][0].schApplicationId;
                     _this2.form.scholarshipType = response.data['data'][0][0].scholarshipType;
@@ -79089,7 +79103,11 @@ var render = function() {
                                         "router-link",
                                         {
                                           staticClass: "dropdown-item",
-                                          attrs: { to: "/print-view-nursing" }
+                                          attrs: {
+                                            to:
+                                              "/print-view-application/" +
+                                              row.schApplicationId
+                                          }
                                         },
                                         [
                                           _c("strong", [
@@ -100863,14 +100881,15 @@ __webpack_require__.r(__webpack_exports__);
     component: _components_myApplication_manageMyApplication__WEBPACK_IMPORTED_MODULE_0__["default"],
     name: "manage-my-application"
   }, {
-    path: '/application-form/Nursing',
+    path: '/application-form/:applicationType',
     component: _components_myApplication_applicantForm__WEBPACK_IMPORTED_MODULE_2__["default"],
     name: "application-form-nursing"
-  }, {
-    path: '/application-form/HHDLS',
-    component: _components_myApplication_applicantForm__WEBPACK_IMPORTED_MODULE_2__["default"],
-    name: "application-form-hddlss"
-  }, {
+  }, // {
+  //     path: '/application-form/HHDLS',
+  //     component: ApplicantForm,
+  //     name: "application-form-hddlss"
+  // },
+  {
     path: '/application-form/:applicationId',
     component: _components_myApplication_applicantForm__WEBPACK_IMPORTED_MODULE_2__["default"],
     name: "application-form"

@@ -20,6 +20,7 @@ use App\ModelScholarship\DocMaster;
 use App\ModelScholarship\ApplicationSession;
 use App\Http\Controllers\Scholarship\DocumentMaster;
 use User;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 // use App\ModelScholarship\AnnexureI;
 // use App\ModelScholarship\ApplicantDocuments;
@@ -598,6 +599,29 @@ class ApplicationController extends Controller
      # Get Scholarship Application
      public function getScholarshipApplication(string $applicationId)
      {
+         switch($applicationId)
+         {
+            case 'HHDLS' :
+                $count1 = ApplicationDetails::where('userId' , Auth::user()->id)->where('scholarshipType','HHDLS')->where('sessionId',1)->count();
+                if($count1 == 1)
+                {
+                    return array('return' => true, 'msg'=>[$count1]);
+                }else{
+                    return array('return' => false, 'msg'=>[$count1]);
+                }
+            break;
+            case 'Nursing' :
+                $count2 = ApplicationDetails::where('userId' , Auth::user()->id)->where('scholarshipType','Nursing')->where('sessionId',1)->count();
+                if($count2 == 1)
+                {
+                    return array('return' => true, 'msg'=>[$count2]);
+                }else{
+                    return array('return' => false, 'msg'=>[$count2]);
+                }
+            break;
+           
+         }
+
         $getApplicationId   = ApplicationDetails::where('schApplicationId', $applicationId)->first();
         $applicationDetails = ApplicationDetails::where('schApplicationId', $applicationId)->with('get_address',
                                                                                                     'get_applicationScheduleTable',

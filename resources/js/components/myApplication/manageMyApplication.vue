@@ -76,7 +76,7 @@
                                                   <div class="dropdown-menu dropdown-menu-left shadow dropdown-menu-right animated--fade-in">
                                                       <router-link class="dropdown-item" :to="'/application-form/'+row.schApplicationId"  v-if="row.appStatus == 'Saved'"><strong>Edit Application</strong></router-link>
                                                       <router-link class="dropdown-item" :to="'/application-form/'+row.schApplicationId" v-if="row.appStatus == 'Submit'"><strong>View Application</strong></router-link>
-                                                      <router-link class="dropdown-item" to="/print-view-nursing"><strong>Download Application</strong></router-link>
+                                                      <router-link class="dropdown-item" :to="'/print-view-application/'+row.schApplicationId"><strong>Download Application</strong></router-link>
                                                     </div>
                                               </div>
                                           </td>

@@ -85,15 +85,15 @@ export default{
                     name: "manage-my-application"
                 },
                 {
-                    path: '/application-form/Nursing',
+                    path: '/application-form/:applicationType',
                     component: ApplicantForm,
                     name: "application-form-nursing"
                 },
-                {
-                    path: '/application-form/HHDLS',
-                    component: ApplicantForm,
-                    name: "application-form-hddlss"
-                },
+                // {
+                //     path: '/application-form/HHDLS',
+                //     component: ApplicantForm,
+                //     name: "application-form-hddlss"
+                // },
                 {
                     path: '/application-form/:applicationId',
                     component: ApplicantForm,

@@ -5,6 +5,9 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use App\ModelScholarship\NursingScholarshipApplication;
 use App\ModelScholarship\HhdlScholarshipApplication;
+use App\ModelScholarship\ApplicationDetails;
+use App\ModelScholarship\ApplicationSession;
+
 class SystemController extends Controller
 {
     /**
@@ -51,9 +54,32 @@ class SystemController extends Controller
     /*****
      * call baldes under folder applicant
      */
-    public function applicantForm()
+    public function applicantForm($applicationType)
     {
-      return view('myApplication.applicantForm');
+      switch($applicationType)
+         {
+            case 'HHDLS' :
+                $count1 = ApplicationDetails::where('userId' , Auth::user()->id)->where('scholarshipType','HHDLS')->where('sessionId',1)->count();
+                if($count1 == 1)
+                {
+                  return  redirect('/manage-my-application');
+                }else{
+                  return view('myApplication.applicantForm');
+                }
+            break;
+            case 'Nursing' :
+                $count2 = ApplicationDetails::where('userId' , Auth::user()->id)->where('scholarshipType','Nursing')->where('sessionId',1)->count();
+                if($count2 == 1)
+                {
+                  return  redirect('/manage-my-application');
+                }else{
+                  return view('myApplication.applicantForm');  
+                }
+            break;
+            default:
+              return view('myApplication.applicantForm');
+         }
+        return view('myApplication.applicantForm');
     }
     public function applicantDocuments()
     {

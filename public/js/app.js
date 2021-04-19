@@ -6945,63 +6945,83 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       if (this.form.applicationId == '') {
-        axios.post('/api/add-application-form/' + this.userId, this.form).then(function (response) {
-          if (response.data['success']) {
-            var applicationId = response.data['data'];
-            console.log(applicationId);
+        if (this.form.applicantLeprosyAffectedFather == true || this.form.applicantLeprosyAffectedMother == true || this.form.applicantLeprosyAffectedSelf == true) {
+          axios.post('/api/add-application-form/' + this.userId, this.form).then(function (response) {
+            if (response.data['success']) {
+              var applicationId = response.data['data'];
+              console.log(applicationId);
 
-            _this.$router.push({
-              path: "/application-form/".concat(applicationId)
-            }); // if(this.form.hasAdmissionLetter != 'YES') {
-            //     this.form.instituteId='';
-            //     this.dataIns('');
-            //     this.form.courseNameValueId = '';
-            //     this.form.recognizedByINC='';
-            // }
+              _this.$router.push({
+                path: "/application-form/".concat(applicationId)
+              }); // if(this.form.hasAdmissionLetter != 'YES') {
+              //     this.form.instituteId='';
+              //     this.dataIns('');
+              //     this.form.courseNameValueId = '';
+              //     this.form.recognizedByINC='';
+              // }
 
 
-            _this.$fire({
-              position: 'top',
-              icon: 'success',
-              title: "Application Saved",
-              showConfirmButton: false,
-              timer: 3000
-            });
+              _this.$fire({
+                position: 'top',
+                icon: 'success',
+                title: "Application Saved",
+                showConfirmButton: false,
+                timer: 3000
+              });
 
-            _this.readApplicationForm();
-          } else {
-            console.log(response.data['msg']);
-          }
-        })["catch"](function (error) {
-          return _this.errorMsg(error.response.status);
-        });
-      } else {
-        axios.post('/api/edit-application-form/' + this.form.applicationId, this.form).then(function (response) {
-          _this.readApplicationForm();
-
-          if (response.data['success']) {
-            _this.$fire({
-              position: 'top',
-              icon: 'success',
-              title: "Application Updated",
-              showConfirmButton: false,
-              timer: 3000
-            });
-
-            if (_this.form.hasAdmissionLetter != 'YES') {
-              _this.form.instituteId = '';
-
-              _this.dataIns('');
-
-              _this.form.courseNameValueId = '';
-              _this.form.recognizedByINC = '';
+              _this.readApplicationForm();
+            } else {
+              console.log(response.data['msg']);
             }
-          } else {
-            console.log(response.data['msg']);
-          }
-        })["catch"](function (error) {
-          return _this.errorMsg(error.response.status);
-        });
+          })["catch"](function (error) {
+            return _this.errorMsg(error.response.status);
+          });
+        } else {
+          this.$fire({
+            position: 'top',
+            icon: 'error',
+            title: "At leat one family member should be leprocy affected",
+            showConfirmButton: false,
+            timer: 3500
+          });
+        }
+      } else {
+        if (this.form.applicantLeprosyAffectedFather == true || this.form.applicantLeprosyAffectedMother == true || this.form.applicantLeprosyAffectedSelf == true) {
+          axios.post('/api/edit-application-form/' + this.form.applicationId, this.form).then(function (response) {
+            _this.readApplicationForm();
+
+            if (response.data['success']) {
+              _this.$fire({
+                position: 'top',
+                icon: 'success',
+                title: "Application Updated",
+                showConfirmButton: false,
+                timer: 3000
+              });
+
+              if (_this.form.hasAdmissionLetter != 'YES') {
+                _this.form.instituteId = '';
+
+                _this.dataIns('');
+
+                _this.form.courseNameValueId = '';
+                _this.form.recognizedByINC = '';
+              }
+            } else {
+              console.log(response.data['msg']);
+            }
+          })["catch"](function (error) {
+            return _this.errorMsg(error.response.status);
+          });
+        } else {
+          this.$fire({
+            position: 'top',
+            icon: 'error',
+            title: "At leat one family member should be leprocy affected",
+            showConfirmButton: false,
+            timer: 3500
+          });
+        }
       }
     },
     readApplicationForm: function readApplicationForm() {
@@ -69351,7 +69371,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-2" }, [
-                                      _c("label", [_vm._v("City")]),
+                                      _c("label", [_vm._v("City/Town")]),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -69367,7 +69387,8 @@ var render = function() {
                                             "form-control form-control-sm",
                                           attrs: {
                                             type: "text",
-                                            disabled: _vm.globalDisable
+                                            disabled: _vm.globalDisable,
+                                            required: ""
                                           },
                                           domProps: {
                                             value: _vm.form.addressCity

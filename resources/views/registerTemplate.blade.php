@@ -25,12 +25,13 @@
              font-style:bold;margin-left:30px;">Dear Applicant,
             </h5>
               <p style="margin-left:30px; font-size:20px;
-              ">Thank you for registering on the S-ILF Scholarship portal.
+              ">Thank you for registering on the S-ILF Scholarship portal.<br>
+              Kindly use the following 6 Digit OTP (One Time Password) to verify your identity in the registration screen.
               </p>
 
-              <p style=" margin-left:30px; font-size:20px;
-             ">Kindly use the following 6 Digit OTP (One Time Password) to verify your identity in the registration screen.
-              </p>
+              <!-- <p style=" margin-left:30px; font-size:20px;
+             ">
+              </p> -->
             
              <h2 style="color:#702e2e; margin-left:30px; font-size:20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" >OTP : {{$code}}</h2>
 
@@ -38,12 +39,18 @@
              ">Once you have verified your identity correctly with the OTP, your account will be created and you can login with your email and password.
               </p>
 
-              <p style=" margin-left:30px; font-size:20px;
-              ">For any clarification kindly contact us using the contact details provided in the website.
+              <p style=" margin-left:30px; font-size:20px; color:red
+              ">
+              This is an automated no-reply mail. Please do not reply to this message as this mail id is unattended, and cannot help with questions or requests.<br>
+              <span style="color: #000">For any clarifications kindly use the 'Contact us' mentioned in the S-ILF Scholarships website .</span>
               </p>
 
+              <!-- <p style=" margin-left:30px; font-size:20px;
+              ">
+              </p> -->
+
              <h5 style=" font-size:20px;
-             font-style:bold;margin-left:10px;">Thank you, <br>
+             font-style:bold;margin-left:30px;">Thank you, <br>
              Team S-ILF</h5>
           </div>
          </div>

@@ -176,9 +176,9 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-2">
-                                                                    <label>City</label>
+                                                                    <label>City/Town</label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="form.addressCity" :disabled="globalDisable">
+                                                                        <input class="form-control form-control-sm" type="text" v-model="form.addressCity" :disabled="globalDisable" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-3">
@@ -1313,56 +1313,78 @@ export default {
          {
             if (this.form.applicationId == '') 
             {
-                axios.post('/api/add-application-form/'+this.userId,this.form)
-                .then(response => {
-                    if (response.data['success']) {
-                        let applicationId = response.data['data'];
-                        console.log(applicationId);
-                        this.$router.push({ 
-                            path:`/application-form/${applicationId}`,
-                        });
-                        
-                        // if(this.form.hasAdmissionLetter != 'YES') {
-                        //     this.form.instituteId='';
-                        //     this.dataIns('');
-                        //     this.form.courseNameValueId = '';
-                        //     this.form.recognizedByINC='';
-                        // }
+                if(this.form.applicantLeprosyAffectedFather == true || this.form.applicantLeprosyAffectedMother == true || this.form.applicantLeprosyAffectedSelf == true)
+                {
+                    axios.post('/api/add-application-form/'+this.userId,this.form)
+                    .then(response => {
+                        if (response.data['success']) {
+                            let applicationId = response.data['data'];
+                            console.log(applicationId);
+                            this.$router.push({ 
+                                path:`/application-form/${applicationId}`,
+                            });
+                            
+                            // if(this.form.hasAdmissionLetter != 'YES') {
+                            //     this.form.instituteId='';
+                            //     this.dataIns('');
+                            //     this.form.courseNameValueId = '';
+                            //     this.form.recognizedByINC='';
+                            // }
 
-                        this.$fire({
-                            position: 'top',
-                            icon: 'success',
-                            title: "Application Saved",
-                            showConfirmButton: false,
-                            timer: 3000
-                        })
-                        this.readApplicationForm();
-                    } else {
-                        console.log(response.data['msg'])
-                    }
-                }).catch(error => this.errorMsg(error.response.status))
-            } else { 
-                axios.post('/api/edit-application-form/'+this.form.applicationId,this.form)
-                .then(response => {
-                    this.readApplicationForm();
-                    if (response.data['success']) {
-                        this.$fire({
-                            position: 'top',
-                            icon: 'success',
-                            title: "Application Updated",
-                            showConfirmButton: false,
-                            timer: 3000
-                        })
-                        if(this.form.hasAdmissionLetter != 'YES') {
-                            this.form.instituteId='';
-                            this.dataIns('');
-                            this.form.courseNameValueId = '';
-                            this.form.recognizedByINC='';
+                            this.$fire({
+                                position: 'top',
+                                icon: 'success',
+                                title: "Application Saved",
+                                showConfirmButton: false,
+                                timer: 3000
+                            })
+                            this.readApplicationForm();
+                        } else {
+                            console.log(response.data['msg'])
                         }
-                    } else {
-                        console.log(response.data['msg'])
-                    }
-                }).catch(error => this.errorMsg(error.response.status))
+                    }).catch(error => this.errorMsg(error.response.status))
+                }else{
+                    this.$fire({
+                        position: 'top',
+                        icon: 'error',
+                        title: "At leat one family member should be leprocy affected",
+                        showConfirmButton: false,
+                        timer: 3500
+                    })
+                }
+            } else { 
+                if(this.form.applicantLeprosyAffectedFather == true || this.form.applicantLeprosyAffectedMother == true || this.form.applicantLeprosyAffectedSelf == true)
+                {
+                    axios.post('/api/edit-application-form/'+this.form.applicationId,this.form)
+                    .then(response => {
+                        this.readApplicationForm();
+                        if (response.data['success']) {
+                            this.$fire({
+                                position: 'top',
+                                icon: 'success',
+                                title: "Application Updated",
+                                showConfirmButton: false,
+                                timer: 3000
+                            })
+                            if(this.form.hasAdmissionLetter != 'YES') {
+                                this.form.instituteId='';
+                                this.dataIns('');
+                                this.form.courseNameValueId = '';
+                                this.form.recognizedByINC='';
+                            }
+                        } else {
+                            console.log(response.data['msg'])
+                        }
+                    }).catch(error => this.errorMsg(error.response.status))
+                }else{
+                    this.$fire({
+                        position: 'top',
+                        icon: 'error',
+                        title: "At leat one family member should be leprocy affected",
+                        showConfirmButton: false,
+                        timer: 3500
+                    })
+                }
               }
             },
             async readApplicationForm() 

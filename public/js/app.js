@@ -5597,7 +5597,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.$fire({
           position: 'top',
           icon: 'success',
-          title: "png,jpeg or jpg files only",
+          title: "pdf,png,jpeg or jpg files only",
           showConfirmButton: false,
           timer: 4000
         });
@@ -79036,22 +79036,24 @@ var render = function() {
                                           )
                                         : _vm._e(),
                                       _vm._v(" "),
-                                      _c(
-                                        "router-link",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: {
-                                            to:
-                                              "/application-form/" +
-                                              row.schApplicationId
-                                          }
-                                        },
-                                        [
-                                          _c("strong", [
-                                            _vm._v("View Application")
-                                          ])
-                                        ]
-                                      ),
+                                      row.appStatus == "Submit"
+                                        ? _c(
+                                            "router-link",
+                                            {
+                                              staticClass: "dropdown-item",
+                                              attrs: {
+                                                to:
+                                                  "/application-form/" +
+                                                  row.schApplicationId
+                                              }
+                                            },
+                                            [
+                                              _c("strong", [
+                                                _vm._v("View Application")
+                                              ])
+                                            ]
+                                          )
+                                        : _vm._e(),
                                       _vm._v(" "),
                                       _c(
                                         "router-link",

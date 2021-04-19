@@ -84,6 +84,10 @@
    @yield('welcome')
   </div>
 
+  <div class="mt-4">
+   @yield('maintainceMode')
+  </div>
+
   <div>
    @yield('content')
   </div>

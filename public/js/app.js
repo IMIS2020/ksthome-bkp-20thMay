@@ -7049,7 +7049,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this2.insForm.insType = response.data['data'][0][0].scholarshipType;
                     _this2.form.appIdShow = response.data['data'][0][0].appIdShow;
 
-                    _this2.chcekUpDisable();
+                    _this2.readInsValue(_this2.form.scholarshipType);
+
+                    _this2.readDomainValues(_this2.form.scholarshipType); // this.chcekUpDisable();
+
 
                     if (_this2.form.appStatus == 'Submit') {
                       _this2.inputDisabled = true;
@@ -7096,11 +7099,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                       _this2.form.education3ExaminationPassed = response.data['data'][1][2].get_exam_passed_domain_values.id, _this2.form.education3University = response.data['data'][1][2].get_exam_board_domain_values.id, _this2.form.education3MainSubjects = response.data['data'][1][2].mainSubjects, _this2.form.education3YearOfPassing = response.data['data'][1][2].yearOfPassing, _this2.form.education3Percentage = response.data['data'][1][2].percentage, _this2.form.education3Division = response.data['data'][1][2].division;
                     }
 
-                    ;
-
-                    _this2.readDomainValues(_this2.form.scholarshipType);
-
-                    _this2.readInsValue(_this2.form.scholarshipType);
+                    ; //  this.readInsValue(this.form.scholarshipType);
+                    //  this.readDomainValues(this.form.scholarshipType);
 
                     _this2.form.miscName1 = response.data['data'][2][0].name;
                     _this2.form.miscCourse1 = response.data['data'][2][0].course;
@@ -7435,6 +7435,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     this.readApplicationForm();
     this.checkNewScholarshipType();
     this.readInitialDomainValues();
+    this.chcekUpDisable();
   }
 });
 

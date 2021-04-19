@@ -1405,7 +1405,9 @@ export default {
                         this.form.applicantColonyleaderName = response.data['data'][0][0].applicantColonyLeaderName;
                         this.insForm.insType = response.data['data'][0][0].scholarshipType;
                         this.form.appIdShow = response.data['data'][0][0].appIdShow;
-                        this.chcekUpDisable();
+                        this.readInsValue(this.form.scholarshipType);
+                        this.readDomainValues(this.form.scholarshipType);
+                        // this.chcekUpDisable();
                         if(this.form.appStatus == 'Submit')
                         {
                             this.inputDisabled = true;
@@ -1465,9 +1467,9 @@ export default {
                                 this.form.education3Percentage= response.data['data'][1][2].percentage,
                                 this.form.education3Division= response.data['data'][1][2].division;
                         };
-
-                         this.readDomainValues(this.form.scholarshipType);
-                         this. readInsValue(this.form.scholarshipType);
+                        //  this.readInsValue(this.form.scholarshipType);
+                        //  this.readDomainValues(this.form.scholarshipType);
+                         
 
                         this.form.miscName1= response.data['data'][2][0].name;
                         this.form.miscCourse1= response.data['data'][2][0].course;
@@ -1562,7 +1564,7 @@ export default {
                 }
                 this.insForm.insType = this.form.scholarshipType;
                 this.readDomainValues(this.form.scholarshipType);
-                this. readInsValue(this.form.scholarshipType);
+                this.readInsValue(this.form.scholarshipType);
             },
             readInitialDomainValues()
             {
@@ -1869,7 +1871,7 @@ export default {
             this.readApplicationForm();
             this.checkNewScholarshipType();
             this.readInitialDomainValues();
-           
+            this.chcekUpDisable();
        
          }
 }

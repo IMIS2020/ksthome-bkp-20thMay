@@ -36,6 +36,13 @@
           <li class="nav-item">
           <a class="nav-link" href="{{url('/manage-my-application') }}"><strong>My Applications</strong></a>
           </li>&nbsp;&nbsp;&nbsp;
+          <li class="nav-item dropdown align-self-center">
+            <a class="nav-link text-white" aria-expanded="false" data-toggle="dropdown" href="#">Contact Us
+            <div class="dropdown-menu font-md">
+              <a class="dropdown-item color-mg" ><strong>9990503759 <br> 9891572290</strong></a>
+              <a class="dropdown-item color-mg" ><strong>scholarships@silf.in</strong></a>
+            </div>
+          </li>
             @else
           <!-- <li class="nav-item"><a class="nav-link" href="/"><strong>Login</strong></a></li> -->
             @if (Route::has('register'))

@@ -7073,6 +7073,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                       // this.form.insAddressDistprov=response.data['data'][0][0].get_institute.addressDistprov,
                       // this.form.insAddressState=response.data['data'][0][0].get_institute.addressState,
                       // this.form.insAddressPinzip=response.data['data'][0][0].get_institute.addressPinzip,
+                      _this2.getHHDLSData2(_this2.form.courseLevelValueId);
                       _this2.form.recognizedByINC = response.data['data'][0][0].recognizedByINC;
                     } else {
                       _this2.inputDisabled = true;
@@ -7419,6 +7420,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var id = event.target.value;
       axios.get('/api/domain/course-name/hhdls/' + id).then(function (response) {
         _this10.universityCourseName = response.data;
+      });
+    },
+    getHHDLSData2: function getHHDLSData2(id) {
+      var _this11 = this;
+
+      axios.get('/api/domain/course-name/hhdls/' + id).then(function (response) {
+        _this11.universityCourseName = response.data;
       });
     },
     deleteFile: function deleteFile() {

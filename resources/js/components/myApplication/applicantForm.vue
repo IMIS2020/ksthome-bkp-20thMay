@@ -1407,6 +1407,7 @@ export default {
                         this.form.appIdShow = response.data['data'][0][0].appIdShow;
                         this.readInsValue(this.form.scholarshipType);
                         this.readDomainValues(this.form.scholarshipType);
+                      
                         // this.chcekUpDisable();
                         if(this.form.appStatus == 'Submit')
                         {
@@ -1430,6 +1431,7 @@ export default {
                             // this.form.insAddressDistprov=response.data['data'][0][0].get_institute.addressDistprov,
                             // this.form.insAddressState=response.data['data'][0][0].get_institute.addressState,
                             // this.form.insAddressPinzip=response.data['data'][0][0].get_institute.addressPinzip,
+                            this.getHHDLSData2(this.form.courseLevelValueId);
                             this.form.recognizedByINC=response.data['data'][0][0].recognizedByINC;
                         } else {
                             this.inputDisabled = true;
@@ -1840,6 +1842,14 @@ export default {
                         this.universityCourseName = response.data;
                     });   
 
+            },
+            getHHDLSData2(id)
+            {
+                
+                axios.get('/api/domain/course-name/hhdls/'+id)
+                    .then(response => {
+                        this.universityCourseName = response.data;
+                    });  
             },
             deleteFile()
             {

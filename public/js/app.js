@@ -64734,7 +64734,7 @@ var render = function() {
                                             "div",
                                             { staticClass: "form-group mb-0" },
                                             [
-                                              _c("br"),
+                                              _vm._m(0),
                                               _vm._v(" "),
                                               _c(
                                                 "select",
@@ -64828,9 +64828,11 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-2" }, [
+                                      _vm._m(1),
                                       _c(
                                         "a",
                                         {
+                                          staticClass: "font-sm",
                                           attrs: {
                                             "data-toggle": "modal",
                                             href: "#",
@@ -64842,7 +64844,7 @@ var render = function() {
                                             }
                                           }
                                         },
-                                        [_vm._v(" + Add New Value")]
+                                        [_c("strong", [_vm._v(" +Add New")])]
                                       ),
                                       _vm._v(" "),
                                       _vm.form.scholarshipType == "HHDLS"
@@ -64987,7 +64989,7 @@ var render = function() {
                                       "div",
                                       {
                                         staticClass:
-                                          "col-md-2 col-xl-1 offset-md-3 offset-xl-0 align-self-center"
+                                          "col-md-2 col-xl-1 offset-md-3 offset-xl-6"
                                       },
                                       [
                                         _c("br"),
@@ -65022,7 +65024,7 @@ var render = function() {
                                         "table",
                                         { staticClass: "table table-sm mb-2" },
                                         [
-                                          _vm._m(0),
+                                          _vm._m(2),
                                           _vm._v(" "),
                                           _c(
                                             "tbody",
@@ -65303,57 +65305,62 @@ var render = function() {
                                                   ]
                                                 ),
                                                 _vm._v(" "),
-                                                _c("td", [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "form-group mb-0"
-                                                    },
-                                                    [
-                                                      _c("input", {
-                                                        directives: [
-                                                          {
-                                                            name: "model",
-                                                            rawName: "v-model",
-                                                            value:
-                                                              row.addressDistprov,
-                                                            expression:
-                                                              "row.addressDistprov"
-                                                          }
-                                                        ],
+                                                _c(
+                                                  "td",
+                                                  { staticClass: "w-20x" },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
                                                         staticClass:
-                                                          "form-control form-control-sm",
-                                                        attrs: {
-                                                          rows: "1",
-                                                          disabled: ""
-                                                        },
-                                                        domProps: {
-                                                          value:
-                                                            row.addressDistprov
-                                                        },
-                                                        on: {
-                                                          input: function(
-                                                            $event
-                                                          ) {
-                                                            if (
-                                                              $event.target
-                                                                .composing
-                                                            ) {
-                                                              return
+                                                          "form-group mb-0"
+                                                      },
+                                                      [
+                                                        _c("input", {
+                                                          directives: [
+                                                            {
+                                                              name: "model",
+                                                              rawName:
+                                                                "v-model",
+                                                              value:
+                                                                row.addressDistprov,
+                                                              expression:
+                                                                "row.addressDistprov"
                                                             }
-                                                            _vm.$set(
-                                                              row,
-                                                              "addressDistprov",
-                                                              $event.target
-                                                                .value
-                                                            )
+                                                          ],
+                                                          staticClass:
+                                                            "form-control form-control-sm",
+                                                          attrs: {
+                                                            rows: "1",
+                                                            disabled: ""
+                                                          },
+                                                          domProps: {
+                                                            value:
+                                                              row.addressDistprov
+                                                          },
+                                                          on: {
+                                                            input: function(
+                                                              $event
+                                                            ) {
+                                                              if (
+                                                                $event.target
+                                                                  .composing
+                                                              ) {
+                                                                return
+                                                              }
+                                                              _vm.$set(
+                                                                row,
+                                                                "addressDistprov",
+                                                                $event.target
+                                                                  .value
+                                                              )
+                                                            }
                                                           }
-                                                        }
-                                                      })
-                                                    ]
-                                                  )
-                                                ]),
+                                                        })
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
                                                 _vm._v(" "),
                                                 _c(
                                                   "td",
@@ -65464,7 +65471,7 @@ var render = function() {
             _vm._v(" "),
             _vm.globalDisable == false
               ? _c("div", { staticClass: "col-xl-2 offset-xl-4 my-2" }, [
-                  _vm._m(1)
+                  _vm._m(3)
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -65518,7 +65525,7 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(2),
+                _vm._m(4),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body cs-modal-body" }, [
                   _c("div", { staticClass: "form-row" }, [
@@ -65685,7 +65692,7 @@ var render = function() {
                     },
                     [_c("strong", [_vm._v("Add")])]
                   ),
-                  _vm._m(3)
+                  _vm._m(5)
                 ])
               ])
             ]
@@ -65709,12 +65716,12 @@ var render = function() {
             [
               _c("form", [
                 _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(4),
+                  _vm._m(6),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body cs-modal-body" }, [
                     _c("div", { staticClass: "form-row" }, [
                       _c("div", { staticClass: "col-xl-12 mb-2" }, [
-                        _c("label", [_vm._v("Institute Name")]),
+                        _vm._m(7),
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group" }, [
                           _c("input", {
@@ -65771,7 +65778,7 @@ var render = function() {
                       }),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                        _c("label", [_vm._v("City/Town")]),
+                        _vm._m(8),
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group" }, [
                           _c("input", {
@@ -65835,7 +65842,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                        _vm._m(5),
+                        _vm._m(9),
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group" }, [
                           _c(
@@ -66071,7 +66078,7 @@ var render = function() {
                       },
                       [_c("strong", [_vm._v("Submit")])]
                     ),
-                    _vm._m(6)
+                    _vm._m(10)
                   ])
                 ])
               ])
@@ -66087,10 +66094,48 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "mb-0", staticStyle: { color: "#702E2E" } },
+      [
+        _c("strong", [
+          _vm._v("Course Level"),
+          _c("span", { staticClass: "text-danger" }, [
+            _c("strong", [_vm._v("*")])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "mb-0", staticStyle: { color: "#702E2E" } },
+      [
+        _c("strong", [
+          _vm._v("Course Name"),
+          _c("span", { staticClass: "text-danger" }, [
+            _c("strong", [_vm._v("*")])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "font-md" }, [
       _c("tr", { staticClass: "color-mg font-sm" }, [
         _c("th", [
-          _vm._v("Institute "),
+          _vm._v("Institute"),
+          _c("span", { staticClass: "text-danger" }, [
+            _c("strong", [_vm._v("*")])
+          ]),
+          _vm._v(" "),
           _c(
             "a",
             {
@@ -66105,6 +66150,8 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "w-20x" }, [_vm._v("City/Town")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "w-20x" }, [_vm._v("District")]),
         _vm._v(" "),
         _c("th", { staticClass: "w-20x" }, [_vm._v("State")]),
         _vm._v(" "),
@@ -66179,6 +66226,24 @@ var staticRenderFns = [
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Institute Name "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("City/Town "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
     ])
   },
   function() {
@@ -69385,7 +69450,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-2" }, [
-                                      _c("label", [_vm._v("City/Town")]),
+                                      _vm._m(10),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -69462,7 +69527,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(10),
+                                      _vm._m(11),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c(
@@ -69799,7 +69864,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(11),
+                                      _vm._m(12),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -69838,7 +69903,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(12),
+                                      _vm._m(13),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -69880,7 +69945,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(13),
+                                      _vm._m(14),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -69924,7 +69989,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(14),
+                                      _vm._m(15),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -69964,7 +70029,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(15),
+                                      _vm._m(16),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -70006,7 +70071,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(16),
+                                      _vm._m(17),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -70055,7 +70120,7 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "col-xl-12" }, [
                               _c("div", { staticClass: "card mt-2 det-sec" }, [
-                                _vm._m(17),
+                                _vm._m(18),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "card-body" }, [
                                   _c("div", { staticClass: "form-row" }, [
@@ -70063,7 +70128,7 @@ var render = function() {
                                       "div",
                                       { staticClass: "col-xl-12 mb-2" },
                                       [
-                                        _vm._m(18),
+                                        _vm._m(19),
                                         _vm._v(" "),
                                         _c(
                                           "div",
@@ -70087,7 +70152,7 @@ var render = function() {
                                                   },
                                                   [
                                                     _c("tr", [
-                                                      _vm._m(19),
+                                                      _vm._m(20),
                                                       _vm._v(" "),
                                                       _c("th", [
                                                         _vm._v(
@@ -70175,13 +70240,13 @@ var render = function() {
                                                         ])
                                                       ]),
                                                       _vm._v(" "),
-                                                      _vm._m(20),
-                                                      _vm._v(" "),
                                                       _vm._m(21),
                                                       _vm._v(" "),
                                                       _vm._m(22),
                                                       _vm._v(" "),
                                                       _vm._m(23),
+                                                      _vm._v(" "),
+                                                      _vm._m(24),
                                                       _vm._v(" "),
                                                       _c("th", [
                                                         _vm._v("Action")
@@ -70401,7 +70466,7 @@ var render = function() {
                                                                     "modal-content"
                                                                 },
                                                                 [
-                                                                  _vm._m(24),
+                                                                  _vm._m(25),
                                                                   _vm._v(" "),
                                                                   _c(
                                                                     "div",
@@ -70744,7 +70809,7 @@ var render = function() {
                                                                           )
                                                                         ]
                                                                       ),
-                                                                      _vm._m(25)
+                                                                      _vm._m(26)
                                                                     ]
                                                                   )
                                                                 ]
@@ -70901,7 +70966,7 @@ var render = function() {
                                                                     "modal-content"
                                                                 },
                                                                 [
-                                                                  _vm._m(26),
+                                                                  _vm._m(27),
                                                                   _vm._v(" "),
                                                                   _c(
                                                                     "div",
@@ -70967,7 +71032,9 @@ var render = function() {
                                                                                         "form-control form-control-sm",
                                                                                       attrs: {
                                                                                         disabled:
-                                                                                          _vm.globalDisable
+                                                                                          _vm.globalDisable,
+                                                                                        required:
+                                                                                          ""
                                                                                       },
                                                                                       on: {
                                                                                         change: function(
@@ -71173,7 +71240,9 @@ var render = function() {
                                                                                         type:
                                                                                           "text",
                                                                                         disabled:
-                                                                                          _vm.globalDisable
+                                                                                          _vm.globalDisable,
+                                                                                        required:
+                                                                                          ""
                                                                                       },
                                                                                       domProps: {
                                                                                         value:
@@ -71244,7 +71313,7 @@ var render = function() {
                                                                           )
                                                                         ]
                                                                       ),
-                                                                      _vm._m(27)
+                                                                      _vm._m(28)
                                                                     ]
                                                                   )
                                                                 ]
@@ -71703,7 +71772,7 @@ var render = function() {
                                                       )
                                                     ]),
                                                     _vm._v(" "),
-                                                    _vm._m(28)
+                                                    _vm._m(29)
                                                   ]),
                                                   _vm._v(" "),
                                                   _c("tr", [
@@ -71916,7 +71985,7 @@ var render = function() {
                                                                     "modal-content"
                                                                 },
                                                                 [
-                                                                  _vm._m(29),
+                                                                  _vm._m(30),
                                                                   _vm._v(" "),
                                                                   _c(
                                                                     "div",
@@ -72200,7 +72269,7 @@ var render = function() {
                                                                           )
                                                                         ]
                                                                       ),
-                                                                      _vm._m(30)
+                                                                      _vm._m(31)
                                                                     ]
                                                                   )
                                                                 ]
@@ -72357,7 +72426,7 @@ var render = function() {
                                                                     "modal-content"
                                                                 },
                                                                 [
-                                                                  _vm._m(31),
+                                                                  _vm._m(32),
                                                                   _vm._v(" "),
                                                                   _c(
                                                                     "div",
@@ -72641,7 +72710,7 @@ var render = function() {
                                                                           )
                                                                         ]
                                                                       ),
-                                                                      _vm._m(32)
+                                                                      _vm._m(33)
                                                                     ]
                                                                   )
                                                                 ]
@@ -73100,7 +73169,7 @@ var render = function() {
                                                       )
                                                     ]),
                                                     _vm._v(" "),
-                                                    _vm._m(33)
+                                                    _vm._m(34)
                                                   ]),
                                                   _vm._v(" "),
                                                   _vm.form.scholarshipType ==
@@ -73322,7 +73391,7 @@ var render = function() {
                                                                     },
                                                                     [
                                                                       _vm._m(
-                                                                        34
+                                                                        35
                                                                       ),
                                                                       _vm._v(
                                                                         " "
@@ -73612,7 +73681,7 @@ var render = function() {
                                                                             ]
                                                                           ),
                                                                           _vm._m(
-                                                                            35
+                                                                            36
                                                                           )
                                                                         ]
                                                                       )
@@ -73774,7 +73843,7 @@ var render = function() {
                                                                     },
                                                                     [
                                                                       _vm._m(
-                                                                        36
+                                                                        37
                                                                       ),
                                                                       _vm._v(
                                                                         " "
@@ -74064,7 +74133,7 @@ var render = function() {
                                                                             ]
                                                                           ),
                                                                           _vm._m(
-                                                                            37
+                                                                            38
                                                                           )
                                                                         ]
                                                                       )
@@ -74669,11 +74738,11 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "col-xl-12" }, [
                               _c("div", { staticClass: "card mt-2 det-sec" }, [
-                                _vm._m(38),
+                                _vm._m(39),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "card-body" }, [
                                   _c("div", { staticClass: "form-row" }, [
-                                    _vm._m(39),
+                                    _vm._m(40),
                                     _vm._v(" "),
                                     _c(
                                       "div",
@@ -74781,7 +74850,7 @@ var render = function() {
                                       ]
                                     ),
                                     _vm._v(" "),
-                                    _vm._m(40),
+                                    _vm._m(41),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
                                       _c("label", [
@@ -74883,7 +74952,7 @@ var render = function() {
                                     _c("div", { staticClass: "col-xl-3" }, [
                                       _c("label", [
                                         _vm._v("Name of the course "),
-                                        _vm._m(41),
+                                        _vm._m(42),
                                         _vm.inputDisabled == false
                                           ? _c(
                                               "a",
@@ -75108,7 +75177,7 @@ var render = function() {
                                                   staticClass: "modal-content"
                                                 },
                                                 [
-                                                  _vm._m(42),
+                                                  _vm._m(43),
                                                   _vm._v(" "),
                                                   _c(
                                                     "div",
@@ -75480,7 +75549,7 @@ var render = function() {
                                                           ])
                                                         ]
                                                       ),
-                                                      _vm._m(43)
+                                                      _vm._m(44)
                                                     ]
                                                   )
                                                 ]
@@ -75634,7 +75703,7 @@ var render = function() {
                                                     staticClass: "modal-content"
                                                   },
                                                   [
-                                                    _vm._m(44),
+                                                    _vm._m(45),
                                                     _vm._v(" "),
                                                     _c(
                                                       "div",
@@ -75657,11 +75726,7 @@ var render = function() {
                                                                   "col-xl-12 mb-2"
                                                               },
                                                               [
-                                                                _c("label", [
-                                                                  _vm._v(
-                                                                    "Institute Name"
-                                                                  )
-                                                                ]),
+                                                                _vm._m(46),
                                                                 _vm._v(" "),
                                                                 _c("input", {
                                                                   directives: [
@@ -75787,11 +75852,7 @@ var render = function() {
                                                                   "col-xl-6 mb-2"
                                                               },
                                                               [
-                                                                _c("label", [
-                                                                  _vm._v(
-                                                                    "City/Town"
-                                                                  )
-                                                                ]),
+                                                                _vm._m(47),
                                                                 _vm._v(" "),
                                                                 _c(
                                                                   "div",
@@ -75945,7 +76006,7 @@ var render = function() {
                                                                   "col-xl-6 mb-2"
                                                               },
                                                               [
-                                                                _vm._m(45),
+                                                                _vm._m(48),
                                                                 _vm._v(" "),
                                                                 _c(
                                                                   "div",
@@ -76684,7 +76745,7 @@ var render = function() {
                                                             ])
                                                           ]
                                                         ),
-                                                        _vm._m(46)
+                                                        _vm._m(49)
                                                       ]
                                                     )
                                                   ]
@@ -76697,7 +76758,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-2" }, [
-                                      _c("label", [_vm._v("City/Town")]),
+                                      _vm._m(50),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -76769,7 +76830,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(47),
+                                      _vm._m(51),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c(
@@ -77105,7 +77166,7 @@ var render = function() {
                                     _vm._v(" "),
                                     _vm.form.scholarshipType == "Nursing"
                                       ? _c("div", { staticClass: "col-xl-4" }, [
-                                          _vm._m(48),
+                                          _vm._m(52),
                                           _vm._v(" "),
                                           _c(
                                             "div",
@@ -77203,7 +77264,7 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "col-xl-12" }, [
                               _c("div", { staticClass: "card mt-2 det-sec" }, [
-                                _vm._m(49),
+                                _vm._m(53),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "card-body" }, [
                                   _c("div", { staticClass: "form-row" }, [
@@ -77211,7 +77272,7 @@ var render = function() {
                                       "div",
                                       { staticClass: "col-xl-12 mb-2" },
                                       [
-                                        _vm._m(50),
+                                        _vm._m(54),
                                         _vm._v(" "),
                                         _c(
                                           "div",
@@ -77227,7 +77288,7 @@ var render = function() {
                                                   "table table-sm mb-0"
                                               },
                                               [
-                                                _vm._m(51),
+                                                _vm._m(55),
                                                 _vm._v(" "),
                                                 _c("tbody", [
                                                   _c("tr", [
@@ -78118,7 +78179,7 @@ var render = function() {
             _vm._v(" "),
             _vm.globalDisable == false
               ? _c("div", { staticClass: "col-xl-2 offset-xl-4 my-2" }, [
-                  _vm._m(52)
+                  _vm._m(56)
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -78245,6 +78306,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", [
       _vm._v("House No and Colony Name / Address Line 1 "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("City/Town "),
       _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
     ])
   },
@@ -78718,6 +78788,24 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", [
+      _vm._v("Institute Name "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("City/Town "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
       _vm._v("State "),
       _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
     ])
@@ -78734,6 +78822,15 @@ var staticRenderFns = [
       },
       [_c("strong", [_vm._v("Close")])]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("City/Town "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
   },
   function() {
     var _vm = this

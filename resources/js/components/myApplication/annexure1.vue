@@ -33,7 +33,7 @@
                                                             <div class="col-xl-2">
                                                                 <div class="form-group mb-0 align-self-center">
                                                                     <div class="form-group mb-0">
-                                                                        <br>
+                                                                        <label  style="color:#702E2E" class="mb-0"><strong>Course Level<span class="text-danger"><strong>*</strong></span></strong></label>
                                                                         <select class="form-control form-control-sm" v-model="courseLevelValueId2" :disabled="inputDisabled" @click="getHHDLSData($event)">
                                                                             <option value="" disabled>-- select --</option>
                                                                             <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id" selected>{{ucl.description}}</option>
@@ -42,7 +42,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-xl-2">
-                                                                <a data-toggle="modal" href="#"  data-target="#others-course-name" @click="addName('CourseName')"> + Add New Value</a>
+                                                                <label  style="color:#702E2E" class="mb-0"><strong>Course Name<span class="text-danger"><strong>*</strong></span></strong></label><a data-toggle="modal" href="#" class="font-sm"  data-target="#others-course-name" @click="addName('CourseName')"><strong> +Add New</strong></a>
                                                                 <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
                                                                     <select class="form-control form-control-sm" v-model="courseNameValueId2" :disabled="inputDisabled" @click="clearRow">
                                                                         <option value="" disabled>-- select --</option>
@@ -56,7 +56,7 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-2 col-xl-1 offset-md-3 offset-xl-0 align-self-center">
+                                                            <div class="col-md-2 col-xl-1 offset-md-3 offset-xl-6">
                                                                 <br>
                                                                 <button class="btn btn-block btn-sm font-xs btn-mg add-anex-i-row" type="button" @click="addNewData">
                                                                     <i class="fa fa-plus"></i><strong>&nbsp;Add row</strong>
@@ -68,11 +68,11 @@
                                                                 <thead class="font-md">
                                                                     <tr class="color-mg font-sm">
                                                                         <!-- <th>Course </th> -->
-                                                                        <th>Institute <a data-toggle="modal" href="#" data-target="#others-add-institute">+ Add New Institute</a></th>
+                                                                        <th>Institute<span class="text-danger"><strong>*</strong></span> <a data-toggle="modal" href="#" data-target="#others-add-institute">+ Add New Institute</a></th>
                                                                         <!-- <th>Address Line-1</th>
                                                                         <th>Address Line-2</th> -->
                                                                         <th class="w-20x">City/Town</th>
-                                                                        <!-- <th>District</th> -->
+                                                                        <th class="w-20x">District</th>
                                                                         <th class="w-20x">State</th>
                                                                         <!-- <th>Pin/ZIP Code</th> -->
                                                                         <th class="text-center w-5x"><strong>Action</strong></th>
@@ -109,7 +109,7 @@
                                                                                 <input class="form-control form-control-sm" rows="1"  v-model="row.addressCity" disabled  />
                                                                             </div>
                                                                         </td>
-                                                                        <td>
+                                                                        <td class="w-20x">
                                                                             <div class="form-group mb-0">
                                                                                 <input class="form-control form-control-sm" rows="1"  v-model="row.addressDistprov" disabled  />
                                                                             </div>
@@ -228,7 +228,7 @@
                                 <div class="modal-body cs-modal-body">
                                     <div class="form-row">
                                         <div class="col-xl-12 mb-2">
-                                            <label>Institute Name</label>
+                                            <label>Institute Name&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                             <div class="form-group">
                                                 <input class="form-control form-control-sm" type="text" v-model="insForm.insName" required>
                                             </div>
@@ -247,7 +247,7 @@
                                             </div>
                                         </div> -->
                                         <div class="col-xl-6 mb-2">
-                                            <label>City/Town</label>
+                                            <label>City/Town&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                             <div class="form-group">
                                                 <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressCity" required>
                                             </div>

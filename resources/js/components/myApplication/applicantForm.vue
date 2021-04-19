@@ -176,7 +176,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-2">
-                                                                    <label>City/Town</label>
+                                                                    <label>City/Town&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.addressCity" :disabled="globalDisable" required>
                                                                     </div>
@@ -374,7 +374,7 @@
                                                                                                         <div class="form-row">
                                                                                                             <div class="col-xl-12 mb-2">
                                                                                                                 <div class="form-group mb-0"><label class="mb-0">Examination Level</label>
-                                                                                                                    <select class="form-control form-control-sm" v-model="domainForm.domianLevel" :disabled="globalDisable">
+                                                                                                                    <select class="form-control form-control-sm" v-model="domainForm.domianLevel" :disabled="globalDisable" required>
                                                                                                                         <option value="" disabled>-- select --</option>
                                                                                                                         <option v-for="(elv,index) in universityBoardCouncilValues" :key="index" :value="elv[0].id">{{elv[0].description}}</option>
                                                                                                                     </select>
@@ -383,7 +383,7 @@
                                                                                                             <div class="col-xl-12 mb-2">
                                                                                                                 <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" :disabled="globalDisable"/>
                                                                                                                 <div class="form-group mb-0"><label class="mb-0">Examination Board</label>
-                                                                                                                    <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable"/>
+                                                                                                                    <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable" required/>
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                             <!-- <div class="col-xl-12 mb-2">
@@ -826,7 +826,7 @@
                                                                                     <div class="modal-body cs-modal-body">
                                                                                         <div class="form-row">
                                                                                             <div class="col-xl-12 mb-2">
-                                                                                                <label>Institute Name</label>
+                                                                                                <label>Institute Name&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                                                  <input type="hidden" v-model="insForm.insType" :disabled="globalDisable" required>
                                                                                                 <div class="form-group">
                                                                                                     <input class="form-control form-control-sm" type="text" v-model="insForm.insName" :disabled="globalDisable" required>
@@ -845,7 +845,7 @@
                                                                                                 </div>
                                                                                             </div> -->
                                                                                             <div class="col-xl-6 mb-2">
-                                                                                                <label>City/Town</label>
+                                                                                                <label>City/Town&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                                                 <div class="form-group">
                                                                                                     <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressCity" :disabled="globalDisable" required>
                                                                                                 </div>
@@ -929,7 +929,7 @@
                                                                     </div>
                                                                 </div> -->
                                                                 <div class="col-xl-2">
-                                                                    <label>City/Town</label>
+                                                                    <label>City/Town&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.insAddressCity" disabled>
                                                                     </div>

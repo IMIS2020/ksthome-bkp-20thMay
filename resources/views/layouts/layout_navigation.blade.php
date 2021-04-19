@@ -27,7 +27,7 @@
 <body>
   
 <nav class="navbar navbar-dark navbar-expand-md shadow-lg imis-nav">
-  <div class="container-fluid"><a class="navbar-brand text-white"  href="/">S-ILF Scholarships</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+  <div class="container-fluid"><img class="img-thumbnail mr-2" style="margin-left : -35px" src="{{ asset('assets/img/logo.jpg') }}" /><a class="navbar-brand text-white"  style="font-size: 35px" href="/">S-ILF Scholarships</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navcol-1">
       <ul class="navbar-nav ml-auto font-md">
           @if (Route::has('login'))
@@ -37,7 +37,7 @@
           <a class="nav-link" href="{{url('/manage-my-application') }}"><strong>My Applications</strong></a>
           </li>&nbsp;&nbsp;&nbsp;
           <li class="nav-item dropdown align-self-center">
-            <a class="nav-link text-white" aria-expanded="false" data-toggle="dropdown" href="#">Contact Us
+            <a class="nav-link text-white" aria-expanded="false" data-toggle="dropdown" href="#"><strong>Contact Us</strong>
             <div class="dropdown-menu font-md">
               <a class="dropdown-item color-mg" ><strong>9990503759 <br> 9891572290</strong></a>
               <a class="dropdown-item color-mg" ><strong>scholarships@silf.in</strong></a>

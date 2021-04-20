@@ -6794,6 +6794,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -7147,19 +7158,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this2.form.miscName3 = response.data['data'][2][2].name;
                     _this2.form.miscCourse3 = response.data['data'][2][2].course;
                     _this2.form.miscYear3 = response.data['data'][2][2].year;
+                    _this2.form.miscRelationship1 = response.data['data'][2][0].relationship;
+                    _this2.form.miscRelationship2 = response.data['data'][2][1].relationship;
+                    _this2.form.miscRelationship3 = response.data['data'][2][2].relationship;
                   } else {
                     console.log(response.data['msg']);
                   }
-                }); // axios.get(`/api/get-application-form-data/${applicationId}`)
-                // .then(response => {
-                //     if (response.data['success']) {
-                //     } 
-                //     else {
-                //         console.log(response.data['msg'])
-                //     }
-                // })
+                });
+                axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
+                  if (response.data['success']) {
+                    if (response.data['data'][2][0]) {
+                      _this2.form.miscName1 = response.data['data'][2][0].name;
+                      _this2.form.miscCourse1 = response.data['data'][2][0].course;
+                      _this2.form.miscYear1 = response.data['data'][2][0].year;
+                      _this2.form.miscName2 = response.data['data'][2][1].name;
+                      _this2.form.miscCourse2 = response.data['data'][2][1].course;
+                      _this2.form.miscYear2 = response.data['data'][2][1].year;
+                      _this2.form.miscName3 = response.data['data'][2][2].name;
+                      _this2.form.miscCourse3 = response.data['data'][2][2].course;
+                      _this2.form.miscYear3 = response.data['data'][2][2].year;
+                    }
+                  } else {
+                    console.log(response.data['msg']);
+                  }
+                });
 
-              case 2:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -69451,7 +69475,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-2" }, [
-                                      _c("label", [_vm._v("City/Town")]),
+                                      _vm._m(10),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -69528,7 +69552,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(10),
+                                      _vm._m(11),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c(
@@ -69865,7 +69889,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(11),
+                                      _vm._m(12),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -69904,7 +69928,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(12),
+                                      _vm._m(13),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -69946,7 +69970,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(13),
+                                      _vm._m(14),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -69990,7 +70014,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(14),
+                                      _vm._m(15),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -70030,7 +70054,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(15),
+                                      _vm._m(16),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -70049,7 +70073,8 @@ var render = function() {
                                             "form-control form-control-sm",
                                           attrs: {
                                             type: "text",
-                                            disabled: _vm.globalDisable
+                                            disabled: _vm.globalDisable,
+                                            required: ""
                                           },
                                           domProps: {
                                             value:
@@ -70072,7 +70097,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(16),
+                                      _vm._m(17),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -70121,7 +70146,7 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "col-xl-12" }, [
                               _c("div", { staticClass: "card mt-2 det-sec" }, [
-                                _vm._m(17),
+                                _vm._m(18),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "card-body" }, [
                                   _c("div", { staticClass: "form-row" }, [
@@ -70129,7 +70154,7 @@ var render = function() {
                                       "div",
                                       { staticClass: "col-xl-12 mb-2" },
                                       [
-                                        _vm._m(18),
+                                        _vm._m(19),
                                         _vm._v(" "),
                                         _c(
                                           "div",
@@ -70153,7 +70178,7 @@ var render = function() {
                                                   },
                                                   [
                                                     _c("tr", [
-                                                      _vm._m(19),
+                                                      _vm._m(20),
                                                       _vm._v(" "),
                                                       _c("th", [
                                                         _vm._v(
@@ -70241,13 +70266,13 @@ var render = function() {
                                                         ])
                                                       ]),
                                                       _vm._v(" "),
-                                                      _vm._m(20),
-                                                      _vm._v(" "),
                                                       _vm._m(21),
                                                       _vm._v(" "),
                                                       _vm._m(22),
                                                       _vm._v(" "),
                                                       _vm._m(23),
+                                                      _vm._v(" "),
+                                                      _vm._m(24),
                                                       _vm._v(" "),
                                                       _c("th", [
                                                         _vm._v("Action")
@@ -70435,389 +70460,6 @@ var render = function() {
                                                             2
                                                           )
                                                         ]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "modal fade",
-                                                          attrs: {
-                                                            role: "dialog",
-                                                            tabindex: "-1",
-                                                            id:
-                                                              "others-exam-passed1"
-                                                          }
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "modal-dialog modal-sm",
-                                                              attrs: {
-                                                                role: "document"
-                                                              }
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "div",
-                                                                {
-                                                                  staticClass:
-                                                                    "modal-content"
-                                                                },
-                                                                [
-                                                                  _vm._m(24),
-                                                                  _vm._v(" "),
-                                                                  _c(
-                                                                    "div",
-                                                                    {
-                                                                      staticClass:
-                                                                        "modal-body cs-modal-body"
-                                                                    },
-                                                                    [
-                                                                      _c(
-                                                                        "div",
-                                                                        {
-                                                                          staticClass:
-                                                                            "form-row"
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            {
-                                                                              staticClass:
-                                                                                "col-xl-12 mb-2"
-                                                                            },
-                                                                            [
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "form-group mb-0"
-                                                                                },
-                                                                                [
-                                                                                  _c(
-                                                                                    "label",
-                                                                                    {
-                                                                                      staticClass:
-                                                                                        "mb-0"
-                                                                                    },
-                                                                                    [
-                                                                                      _vm._v(
-                                                                                        "Examination Level"
-                                                                                      )
-                                                                                    ]
-                                                                                  ),
-                                                                                  _vm._v(
-                                                                                    " "
-                                                                                  ),
-                                                                                  _c(
-                                                                                    "select",
-                                                                                    {
-                                                                                      directives: [
-                                                                                        {
-                                                                                          name:
-                                                                                            "model",
-                                                                                          rawName:
-                                                                                            "v-model",
-                                                                                          value:
-                                                                                            _vm
-                                                                                              .domainForm
-                                                                                              .domianLevel,
-                                                                                          expression:
-                                                                                            "domainForm.domianLevel"
-                                                                                        }
-                                                                                      ],
-                                                                                      staticClass:
-                                                                                        "form-control form-control-sm",
-                                                                                      attrs: {
-                                                                                        disabled:
-                                                                                          _vm.globalDisable
-                                                                                      },
-                                                                                      on: {
-                                                                                        change: function(
-                                                                                          $event
-                                                                                        ) {
-                                                                                          var $$selectedVal = Array.prototype.filter
-                                                                                            .call(
-                                                                                              $event
-                                                                                                .target
-                                                                                                .options,
-                                                                                              function(
-                                                                                                o
-                                                                                              ) {
-                                                                                                return o.selected
-                                                                                              }
-                                                                                            )
-                                                                                            .map(
-                                                                                              function(
-                                                                                                o
-                                                                                              ) {
-                                                                                                var val =
-                                                                                                  "_value" in
-                                                                                                  o
-                                                                                                    ? o._value
-                                                                                                    : o.value
-                                                                                                return val
-                                                                                              }
-                                                                                            )
-                                                                                          _vm.$set(
-                                                                                            _vm.domainForm,
-                                                                                            "domianLevel",
-                                                                                            $event
-                                                                                              .target
-                                                                                              .multiple
-                                                                                              ? $$selectedVal
-                                                                                              : $$selectedVal[0]
-                                                                                          )
-                                                                                        }
-                                                                                      }
-                                                                                    },
-                                                                                    [
-                                                                                      _c(
-                                                                                        "option",
-                                                                                        {
-                                                                                          attrs: {
-                                                                                            value:
-                                                                                              "",
-                                                                                            disabled:
-                                                                                              ""
-                                                                                          }
-                                                                                        },
-                                                                                        [
-                                                                                          _vm._v(
-                                                                                            "-- select --"
-                                                                                          )
-                                                                                        ]
-                                                                                      ),
-                                                                                      _vm._v(
-                                                                                        " "
-                                                                                      ),
-                                                                                      _vm._l(
-                                                                                        _vm.getExaminationLevel,
-                                                                                        function(
-                                                                                          elv,
-                                                                                          index
-                                                                                        ) {
-                                                                                          return _c(
-                                                                                            "option",
-                                                                                            {
-                                                                                              key: index,
-                                                                                              domProps: {
-                                                                                                value:
-                                                                                                  elv[0]
-                                                                                                    .id
-                                                                                              }
-                                                                                            },
-                                                                                            [
-                                                                                              _vm._v(
-                                                                                                _vm._s(
-                                                                                                  elv[0]
-                                                                                                    .description
-                                                                                                )
-                                                                                              )
-                                                                                            ]
-                                                                                          )
-                                                                                        }
-                                                                                      )
-                                                                                    ],
-                                                                                    2
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          ),
-                                                                          _vm._v(
-                                                                            " "
-                                                                          ),
-                                                                          _c(
-                                                                            "div",
-                                                                            {
-                                                                              staticClass:
-                                                                                "col-xl-12 mb-2"
-                                                                            },
-                                                                            [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  directives: [
-                                                                                    {
-                                                                                      name:
-                                                                                        "model",
-                                                                                      rawName:
-                                                                                        "v-model",
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .domainForm
-                                                                                          .domainName,
-                                                                                      expression:
-                                                                                        "domainForm.domainName"
-                                                                                    }
-                                                                                  ],
-                                                                                  staticClass:
-                                                                                    "form-control form-control-sm",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "hidden",
-                                                                                    disabled:
-                                                                                      _vm.globalDisable
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm
-                                                                                        .domainForm
-                                                                                        .domainName
-                                                                                  },
-                                                                                  on: {
-                                                                                    input: function(
-                                                                                      $event
-                                                                                    ) {
-                                                                                      if (
-                                                                                        $event
-                                                                                          .target
-                                                                                          .composing
-                                                                                      ) {
-                                                                                        return
-                                                                                      }
-                                                                                      _vm.$set(
-                                                                                        _vm.domainForm,
-                                                                                        "domainName",
-                                                                                        $event
-                                                                                          .target
-                                                                                          .value
-                                                                                      )
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "form-group mb-0"
-                                                                                },
-                                                                                [
-                                                                                  _c(
-                                                                                    "label",
-                                                                                    {
-                                                                                      staticClass:
-                                                                                        "mb-0"
-                                                                                    },
-                                                                                    [
-                                                                                      _vm._v(
-                                                                                        "Examination Passed"
-                                                                                      )
-                                                                                    ]
-                                                                                  ),
-                                                                                  _vm._v(
-                                                                                    " "
-                                                                                  ),
-                                                                                  _c(
-                                                                                    "input",
-                                                                                    {
-                                                                                      directives: [
-                                                                                        {
-                                                                                          name:
-                                                                                            "model",
-                                                                                          rawName:
-                                                                                            "v-model",
-                                                                                          value:
-                                                                                            _vm
-                                                                                              .domainForm
-                                                                                              .dValue,
-                                                                                          expression:
-                                                                                            "domainForm.dValue"
-                                                                                        }
-                                                                                      ],
-                                                                                      staticClass:
-                                                                                        "form-control form-control-sm",
-                                                                                      attrs: {
-                                                                                        type:
-                                                                                          "text",
-                                                                                        disabled:
-                                                                                          _vm.globalDisable
-                                                                                      },
-                                                                                      domProps: {
-                                                                                        value:
-                                                                                          _vm
-                                                                                            .domainForm
-                                                                                            .dValue
-                                                                                      },
-                                                                                      on: {
-                                                                                        input: function(
-                                                                                          $event
-                                                                                        ) {
-                                                                                          if (
-                                                                                            $event
-                                                                                              .target
-                                                                                              .composing
-                                                                                          ) {
-                                                                                            return
-                                                                                          }
-                                                                                          _vm.$set(
-                                                                                            _vm.domainForm,
-                                                                                            "dValue",
-                                                                                            $event
-                                                                                              .target
-                                                                                              .value
-                                                                                          )
-                                                                                        }
-                                                                                      }
-                                                                                    }
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]
-                                                                  ),
-                                                                  _vm._v(" "),
-                                                                  _c(
-                                                                    "div",
-                                                                    {
-                                                                      staticClass:
-                                                                        "modal-footer py-1"
-                                                                    },
-                                                                    [
-                                                                      _c(
-                                                                        "button",
-                                                                        {
-                                                                          staticClass:
-                                                                            "btn btn-sm btn-mg",
-                                                                          attrs: {
-                                                                            type:
-                                                                              "button"
-                                                                          },
-                                                                          on: {
-                                                                            click:
-                                                                              _vm.saveDomainValues
-                                                                          }
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "strong",
-                                                                            [
-                                                                              _vm._v(
-                                                                                "Add"
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      ),
-                                                                      _vm._m(25)
-                                                                    ]
-                                                                  )
-                                                                ]
-                                                              )
-                                                            ]
-                                                          )
-                                                        ]
                                                       )
                                                     ]),
                                                     _vm._v(" "),
@@ -70933,389 +70575,6 @@ var render = function() {
                                                               )
                                                             ],
                                                             2
-                                                          )
-                                                        ]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "modal fade",
-                                                          attrs: {
-                                                            role: "dialog",
-                                                            tabindex: "-1",
-                                                            id:
-                                                              "others-exam-board1"
-                                                          }
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "modal-dialog modal-sm",
-                                                              attrs: {
-                                                                role: "document"
-                                                              }
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "div",
-                                                                {
-                                                                  staticClass:
-                                                                    "modal-content"
-                                                                },
-                                                                [
-                                                                  _vm._m(26),
-                                                                  _vm._v(" "),
-                                                                  _c(
-                                                                    "div",
-                                                                    {
-                                                                      staticClass:
-                                                                        "modal-body cs-modal-body"
-                                                                    },
-                                                                    [
-                                                                      _c(
-                                                                        "div",
-                                                                        {
-                                                                          staticClass:
-                                                                            "form-row"
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "div",
-                                                                            {
-                                                                              staticClass:
-                                                                                "col-xl-12 mb-2"
-                                                                            },
-                                                                            [
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "form-group mb-0"
-                                                                                },
-                                                                                [
-                                                                                  _c(
-                                                                                    "label",
-                                                                                    {
-                                                                                      staticClass:
-                                                                                        "mb-0"
-                                                                                    },
-                                                                                    [
-                                                                                      _vm._v(
-                                                                                        "Examination Level"
-                                                                                      )
-                                                                                    ]
-                                                                                  ),
-                                                                                  _vm._v(
-                                                                                    " "
-                                                                                  ),
-                                                                                  _c(
-                                                                                    "select",
-                                                                                    {
-                                                                                      directives: [
-                                                                                        {
-                                                                                          name:
-                                                                                            "model",
-                                                                                          rawName:
-                                                                                            "v-model",
-                                                                                          value:
-                                                                                            _vm
-                                                                                              .domainForm
-                                                                                              .domianLevel,
-                                                                                          expression:
-                                                                                            "domainForm.domianLevel"
-                                                                                        }
-                                                                                      ],
-                                                                                      staticClass:
-                                                                                        "form-control form-control-sm",
-                                                                                      attrs: {
-                                                                                        disabled:
-                                                                                          _vm.globalDisable
-                                                                                      },
-                                                                                      on: {
-                                                                                        change: function(
-                                                                                          $event
-                                                                                        ) {
-                                                                                          var $$selectedVal = Array.prototype.filter
-                                                                                            .call(
-                                                                                              $event
-                                                                                                .target
-                                                                                                .options,
-                                                                                              function(
-                                                                                                o
-                                                                                              ) {
-                                                                                                return o.selected
-                                                                                              }
-                                                                                            )
-                                                                                            .map(
-                                                                                              function(
-                                                                                                o
-                                                                                              ) {
-                                                                                                var val =
-                                                                                                  "_value" in
-                                                                                                  o
-                                                                                                    ? o._value
-                                                                                                    : o.value
-                                                                                                return val
-                                                                                              }
-                                                                                            )
-                                                                                          _vm.$set(
-                                                                                            _vm.domainForm,
-                                                                                            "domianLevel",
-                                                                                            $event
-                                                                                              .target
-                                                                                              .multiple
-                                                                                              ? $$selectedVal
-                                                                                              : $$selectedVal[0]
-                                                                                          )
-                                                                                        }
-                                                                                      }
-                                                                                    },
-                                                                                    [
-                                                                                      _c(
-                                                                                        "option",
-                                                                                        {
-                                                                                          attrs: {
-                                                                                            value:
-                                                                                              "",
-                                                                                            disabled:
-                                                                                              ""
-                                                                                          }
-                                                                                        },
-                                                                                        [
-                                                                                          _vm._v(
-                                                                                            "-- select --"
-                                                                                          )
-                                                                                        ]
-                                                                                      ),
-                                                                                      _vm._v(
-                                                                                        " "
-                                                                                      ),
-                                                                                      _vm._l(
-                                                                                        _vm.universityBoardCouncilValues,
-                                                                                        function(
-                                                                                          elv,
-                                                                                          index
-                                                                                        ) {
-                                                                                          return _c(
-                                                                                            "option",
-                                                                                            {
-                                                                                              key: index,
-                                                                                              domProps: {
-                                                                                                value:
-                                                                                                  elv[0]
-                                                                                                    .id
-                                                                                              }
-                                                                                            },
-                                                                                            [
-                                                                                              _vm._v(
-                                                                                                _vm._s(
-                                                                                                  elv[0]
-                                                                                                    .description
-                                                                                                )
-                                                                                              )
-                                                                                            ]
-                                                                                          )
-                                                                                        }
-                                                                                      )
-                                                                                    ],
-                                                                                    2
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          ),
-                                                                          _vm._v(
-                                                                            " "
-                                                                          ),
-                                                                          _c(
-                                                                            "div",
-                                                                            {
-                                                                              staticClass:
-                                                                                "col-xl-12 mb-2"
-                                                                            },
-                                                                            [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  directives: [
-                                                                                    {
-                                                                                      name:
-                                                                                        "model",
-                                                                                      rawName:
-                                                                                        "v-model",
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .domainForm
-                                                                                          .domainName,
-                                                                                      expression:
-                                                                                        "domainForm.domainName"
-                                                                                    }
-                                                                                  ],
-                                                                                  staticClass:
-                                                                                    "form-control form-control-sm",
-                                                                                  attrs: {
-                                                                                    type:
-                                                                                      "hidden",
-                                                                                    disabled:
-                                                                                      _vm.globalDisable
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm
-                                                                                        .domainForm
-                                                                                        .domainName
-                                                                                  },
-                                                                                  on: {
-                                                                                    input: function(
-                                                                                      $event
-                                                                                    ) {
-                                                                                      if (
-                                                                                        $event
-                                                                                          .target
-                                                                                          .composing
-                                                                                      ) {
-                                                                                        return
-                                                                                      }
-                                                                                      _vm.$set(
-                                                                                        _vm.domainForm,
-                                                                                        "domainName",
-                                                                                        $event
-                                                                                          .target
-                                                                                          .value
-                                                                                      )
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "div",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "form-group mb-0"
-                                                                                },
-                                                                                [
-                                                                                  _c(
-                                                                                    "label",
-                                                                                    {
-                                                                                      staticClass:
-                                                                                        "mb-0"
-                                                                                    },
-                                                                                    [
-                                                                                      _vm._v(
-                                                                                        "Examination Board"
-                                                                                      )
-                                                                                    ]
-                                                                                  ),
-                                                                                  _vm._v(
-                                                                                    " "
-                                                                                  ),
-                                                                                  _c(
-                                                                                    "input",
-                                                                                    {
-                                                                                      directives: [
-                                                                                        {
-                                                                                          name:
-                                                                                            "model",
-                                                                                          rawName:
-                                                                                            "v-model",
-                                                                                          value:
-                                                                                            _vm
-                                                                                              .domainForm
-                                                                                              .dValue,
-                                                                                          expression:
-                                                                                            "domainForm.dValue"
-                                                                                        }
-                                                                                      ],
-                                                                                      staticClass:
-                                                                                        "form-control form-control-sm",
-                                                                                      attrs: {
-                                                                                        type:
-                                                                                          "text",
-                                                                                        disabled:
-                                                                                          _vm.globalDisable
-                                                                                      },
-                                                                                      domProps: {
-                                                                                        value:
-                                                                                          _vm
-                                                                                            .domainForm
-                                                                                            .dValue
-                                                                                      },
-                                                                                      on: {
-                                                                                        input: function(
-                                                                                          $event
-                                                                                        ) {
-                                                                                          if (
-                                                                                            $event
-                                                                                              .target
-                                                                                              .composing
-                                                                                          ) {
-                                                                                            return
-                                                                                          }
-                                                                                          _vm.$set(
-                                                                                            _vm.domainForm,
-                                                                                            "dValue",
-                                                                                            $event
-                                                                                              .target
-                                                                                              .value
-                                                                                          )
-                                                                                        }
-                                                                                      }
-                                                                                    }
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    ]
-                                                                  ),
-                                                                  _vm._v(" "),
-                                                                  _c(
-                                                                    "div",
-                                                                    {
-                                                                      staticClass:
-                                                                        "modal-footer py-1"
-                                                                    },
-                                                                    [
-                                                                      _c(
-                                                                        "button",
-                                                                        {
-                                                                          staticClass:
-                                                                            "btn btn-sm btn-mg",
-                                                                          attrs: {
-                                                                            type:
-                                                                              "button"
-                                                                          },
-                                                                          on: {
-                                                                            click:
-                                                                              _vm.saveDomainValues
-                                                                          }
-                                                                        },
-                                                                        [
-                                                                          _c(
-                                                                            "strong",
-                                                                            [
-                                                                              _vm._v(
-                                                                                "Add"
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        ]
-                                                                      ),
-                                                                      _vm._m(27)
-                                                                    ]
-                                                                  )
-                                                                ]
-                                                              )
-                                                            ]
                                                           )
                                                         ]
                                                       )
@@ -71769,7 +71028,7 @@ var render = function() {
                                                       )
                                                     ]),
                                                     _vm._v(" "),
-                                                    _vm._m(28)
+                                                    _vm._m(25)
                                                   ]),
                                                   _vm._v(" "),
                                                   _c("tr", [
@@ -71982,7 +71241,7 @@ var render = function() {
                                                                     "modal-content"
                                                                 },
                                                                 [
-                                                                  _vm._m(29),
+                                                                  _vm._m(26),
                                                                   _vm._v(" "),
                                                                   _c(
                                                                     "div",
@@ -72266,7 +71525,7 @@ var render = function() {
                                                                           )
                                                                         ]
                                                                       ),
-                                                                      _vm._m(30)
+                                                                      _vm._m(27)
                                                                     ]
                                                                   )
                                                                 ]
@@ -72423,7 +71682,7 @@ var render = function() {
                                                                     "modal-content"
                                                                 },
                                                                 [
-                                                                  _vm._m(31),
+                                                                  _vm._m(28),
                                                                   _vm._v(" "),
                                                                   _c(
                                                                     "div",
@@ -72707,7 +71966,7 @@ var render = function() {
                                                                           )
                                                                         ]
                                                                       ),
-                                                                      _vm._m(32)
+                                                                      _vm._m(29)
                                                                     ]
                                                                   )
                                                                 ]
@@ -73166,7 +72425,7 @@ var render = function() {
                                                       )
                                                     ]),
                                                     _vm._v(" "),
-                                                    _vm._m(33)
+                                                    _vm._m(30)
                                                   ]),
                                                   _vm._v(" "),
                                                   _vm.form.scholarshipType ==
@@ -73388,7 +72647,7 @@ var render = function() {
                                                                     },
                                                                     [
                                                                       _vm._m(
-                                                                        34
+                                                                        31
                                                                       ),
                                                                       _vm._v(
                                                                         " "
@@ -73678,7 +72937,7 @@ var render = function() {
                                                                             ]
                                                                           ),
                                                                           _vm._m(
-                                                                            35
+                                                                            32
                                                                           )
                                                                         ]
                                                                       )
@@ -73840,7 +73099,7 @@ var render = function() {
                                                                     },
                                                                     [
                                                                       _vm._m(
-                                                                        36
+                                                                        33
                                                                       ),
                                                                       _vm._v(
                                                                         " "
@@ -74130,7 +73389,7 @@ var render = function() {
                                                                             ]
                                                                           ),
                                                                           _vm._m(
-                                                                            37
+                                                                            34
                                                                           )
                                                                         ]
                                                                       )
@@ -74735,11 +73994,11 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "col-xl-12" }, [
                               _c("div", { staticClass: "card mt-2 det-sec" }, [
-                                _vm._m(38),
+                                _vm._m(35),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "card-body" }, [
                                   _c("div", { staticClass: "form-row" }, [
-                                    _vm._m(39),
+                                    _vm._m(36),
                                     _vm._v(" "),
                                     _c(
                                       "div",
@@ -74847,10 +74106,10 @@ var render = function() {
                                       ]
                                     ),
                                     _vm._v(" "),
-                                    _vm._m(40),
+                                    _vm._m(37),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(41),
+                                      _vm._m(38),
                                       _vm._v(" "),
                                       _c(
                                         "div",
@@ -74948,7 +74207,7 @@ var render = function() {
                                     _c("div", { staticClass: "col-xl-3" }, [
                                       _c("label", [
                                         _vm._v("Name of the course "),
-                                        _vm._m(42),
+                                        _vm._m(39),
                                         _vm.inputDisabled == false
                                           ? _c(
                                               "a",
@@ -74994,7 +74253,8 @@ var render = function() {
                                                   staticClass:
                                                     "form-control form-control-sm",
                                                   attrs: {
-                                                    disabled: _vm.inputDisabled
+                                                    disabled: _vm.inputDisabled,
+                                                    required: ""
                                                   },
                                                   on: {
                                                     change: function($event) {
@@ -75147,420 +74407,13 @@ var render = function() {
                                               )
                                             ]
                                           )
-                                        : _vm._e(),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "modal fade",
-                                          attrs: {
-                                            role: "dialog",
-                                            tabindex: "-1",
-                                            id: "others-course-name"
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "modal-dialog modal-sm",
-                                              attrs: { role: "document" }
-                                            },
-                                            [
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass: "modal-content"
-                                                },
-                                                [
-                                                  _vm._m(43),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "modal-body cs-modal-body"
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "form-row"
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "col-xl-12 mb-2"
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "div",
-                                                                {
-                                                                  staticClass:
-                                                                    "form-group mb-0"
-                                                                },
-                                                                [
-                                                                  _c(
-                                                                    "label",
-                                                                    {
-                                                                      staticClass:
-                                                                        "mb-0"
-                                                                    },
-                                                                    [
-                                                                      _vm._v(
-                                                                        "Course Level"
-                                                                      )
-                                                                    ]
-                                                                  ),
-                                                                  _vm._v(" "),
-                                                                  _c("input", {
-                                                                    directives: [
-                                                                      {
-                                                                        name:
-                                                                          "model",
-                                                                        rawName:
-                                                                          "v-model",
-                                                                        value:
-                                                                          _vm
-                                                                            .domainForm
-                                                                            .domainName,
-                                                                        expression:
-                                                                          "domainForm.domainName"
-                                                                      }
-                                                                    ],
-                                                                    attrs: {
-                                                                      type:
-                                                                        "hidden"
-                                                                    },
-                                                                    domProps: {
-                                                                      value:
-                                                                        _vm
-                                                                          .domainForm
-                                                                          .domainName
-                                                                    },
-                                                                    on: {
-                                                                      input: function(
-                                                                        $event
-                                                                      ) {
-                                                                        if (
-                                                                          $event
-                                                                            .target
-                                                                            .composing
-                                                                        ) {
-                                                                          return
-                                                                        }
-                                                                        _vm.$set(
-                                                                          _vm.domainForm,
-                                                                          "domainName",
-                                                                          $event
-                                                                            .target
-                                                                            .value
-                                                                        )
-                                                                      }
-                                                                    }
-                                                                  }),
-                                                                  _vm._v(" "),
-                                                                  _c(
-                                                                    "select",
-                                                                    {
-                                                                      directives: [
-                                                                        {
-                                                                          name:
-                                                                            "model",
-                                                                          rawName:
-                                                                            "v-model",
-                                                                          value:
-                                                                            _vm
-                                                                              .domainForm
-                                                                              .domainLevel2,
-                                                                          expression:
-                                                                            "domainForm.domainLevel2"
-                                                                        }
-                                                                      ],
-                                                                      staticClass:
-                                                                        "form-control form-control-sm",
-                                                                      attrs: {
-                                                                        disabled:
-                                                                          _vm.inputDisabled
-                                                                      },
-                                                                      on: {
-                                                                        change: function(
-                                                                          $event
-                                                                        ) {
-                                                                          var $$selectedVal = Array.prototype.filter
-                                                                            .call(
-                                                                              $event
-                                                                                .target
-                                                                                .options,
-                                                                              function(
-                                                                                o
-                                                                              ) {
-                                                                                return o.selected
-                                                                              }
-                                                                            )
-                                                                            .map(
-                                                                              function(
-                                                                                o
-                                                                              ) {
-                                                                                var val =
-                                                                                  "_value" in
-                                                                                  o
-                                                                                    ? o._value
-                                                                                    : o.value
-                                                                                return val
-                                                                              }
-                                                                            )
-                                                                          _vm.$set(
-                                                                            _vm.domainForm,
-                                                                            "domainLevel2",
-                                                                            $event
-                                                                              .target
-                                                                              .multiple
-                                                                              ? $$selectedVal
-                                                                              : $$selectedVal[0]
-                                                                          )
-                                                                        }
-                                                                      }
-                                                                    },
-                                                                    [
-                                                                      _c(
-                                                                        "option",
-                                                                        {
-                                                                          attrs: {
-                                                                            value:
-                                                                              "",
-                                                                            disabled:
-                                                                              ""
-                                                                          }
-                                                                        },
-                                                                        [
-                                                                          _vm._v(
-                                                                            "-- select --"
-                                                                          )
-                                                                        ]
-                                                                      ),
-                                                                      _vm._v(
-                                                                        " "
-                                                                      ),
-                                                                      _vm._l(
-                                                                        _vm.universityCourseLevel,
-                                                                        function(
-                                                                          ucl,
-                                                                          index
-                                                                        ) {
-                                                                          return _c(
-                                                                            "option",
-                                                                            {
-                                                                              key: index,
-                                                                              attrs: {
-                                                                                selected:
-                                                                                  ""
-                                                                              },
-                                                                              domProps: {
-                                                                                value:
-                                                                                  ucl.id
-                                                                              }
-                                                                            },
-                                                                            [
-                                                                              _vm._v(
-                                                                                _vm._s(
-                                                                                  ucl.description
-                                                                                )
-                                                                              )
-                                                                            ]
-                                                                          )
-                                                                        }
-                                                                      )
-                                                                    ],
-                                                                    2
-                                                                  )
-                                                                ]
-                                                              )
-                                                            ]
-                                                          ),
-                                                          _vm._v(" "),
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "col-xl-12 mb-2"
-                                                            },
-                                                            [
-                                                              _c("input", {
-                                                                directives: [
-                                                                  {
-                                                                    name:
-                                                                      "model",
-                                                                    rawName:
-                                                                      "v-model",
-                                                                    value:
-                                                                      _vm
-                                                                        .domainForm
-                                                                        .domainName,
-                                                                    expression:
-                                                                      "domainForm.domainName"
-                                                                  }
-                                                                ],
-                                                                staticClass:
-                                                                  "form-control form-control-sm",
-                                                                attrs: {
-                                                                  type:
-                                                                    "hidden",
-                                                                  disabled:
-                                                                    _vm.globalDisable
-                                                                },
-                                                                domProps: {
-                                                                  value:
-                                                                    _vm
-                                                                      .domainForm
-                                                                      .domainName
-                                                                },
-                                                                on: {
-                                                                  input: function(
-                                                                    $event
-                                                                  ) {
-                                                                    if (
-                                                                      $event
-                                                                        .target
-                                                                        .composing
-                                                                    ) {
-                                                                      return
-                                                                    }
-                                                                    _vm.$set(
-                                                                      _vm.domainForm,
-                                                                      "domainName",
-                                                                      $event
-                                                                        .target
-                                                                        .value
-                                                                    )
-                                                                  }
-                                                                }
-                                                              }),
-                                                              _vm._v(" "),
-                                                              _c(
-                                                                "div",
-                                                                {
-                                                                  staticClass:
-                                                                    "form-group mb-0"
-                                                                },
-                                                                [
-                                                                  _c(
-                                                                    "label",
-                                                                    {
-                                                                      staticClass:
-                                                                        "mb-0"
-                                                                    },
-                                                                    [
-                                                                      _vm._v(
-                                                                        "Course Name"
-                                                                      )
-                                                                    ]
-                                                                  ),
-                                                                  _vm._v(" "),
-                                                                  _c("input", {
-                                                                    directives: [
-                                                                      {
-                                                                        name:
-                                                                          "model",
-                                                                        rawName:
-                                                                          "v-model",
-                                                                        value:
-                                                                          _vm
-                                                                            .domainForm
-                                                                            .dValue,
-                                                                        expression:
-                                                                          "domainForm.dValue"
-                                                                      }
-                                                                    ],
-                                                                    staticClass:
-                                                                      "form-control form-control-sm",
-                                                                    attrs: {
-                                                                      type:
-                                                                        "text",
-                                                                      disabled:
-                                                                        _vm.globalDisable
-                                                                    },
-                                                                    domProps: {
-                                                                      value:
-                                                                        _vm
-                                                                          .domainForm
-                                                                          .dValue
-                                                                    },
-                                                                    on: {
-                                                                      input: function(
-                                                                        $event
-                                                                      ) {
-                                                                        if (
-                                                                          $event
-                                                                            .target
-                                                                            .composing
-                                                                        ) {
-                                                                          return
-                                                                        }
-                                                                        _vm.$set(
-                                                                          _vm.domainForm,
-                                                                          "dValue",
-                                                                          $event
-                                                                            .target
-                                                                            .value
-                                                                        )
-                                                                      }
-                                                                    }
-                                                                  })
-                                                                ]
-                                                              )
-                                                            ]
-                                                          )
-                                                        ]
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "modal-footer py-1"
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "button",
-                                                        {
-                                                          staticClass:
-                                                            "btn btn-sm btn-mg",
-                                                          attrs: {
-                                                            type: "button"
-                                                          },
-                                                          on: {
-                                                            click:
-                                                              _vm.saveDomainValues
-                                                          }
-                                                        },
-                                                        [
-                                                          _c("strong", [
-                                                            _vm._v("Add")
-                                                          ])
-                                                        ]
-                                                      ),
-                                                      _vm._m(44)
-                                                    ]
-                                                  )
-                                                ]
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
+                                        : _vm._e()
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-6" }, [
                                       _c("label", [
                                         _vm._v("Name of the institute "),
-                                        _vm._m(45),
+                                        _vm._m(40),
                                         _vm._v(" "),
                                         _vm.inputDisabled == false
                                           ? _c(
@@ -75751,7 +74604,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(46),
+                                      _vm._m(41),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c(
@@ -76087,7 +74940,7 @@ var render = function() {
                                     _vm._v(" "),
                                     _vm.form.scholarshipType == "Nursing"
                                       ? _c("div", { staticClass: "col-xl-4" }, [
-                                          _vm._m(47),
+                                          _vm._m(42),
                                           _vm._v(" "),
                                           _c(
                                             "div",
@@ -76185,7 +75038,7 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "col-xl-12" }, [
                               _c("div", { staticClass: "card mt-2 det-sec" }, [
-                                _vm._m(48),
+                                _vm._m(43),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "card-body" }, [
                                   _c("div", { staticClass: "form-row" }, [
@@ -76193,7 +75046,7 @@ var render = function() {
                                       "div",
                                       { staticClass: "col-xl-12 mb-2" },
                                       [
-                                        _vm._m(49),
+                                        _vm._m(44),
                                         _vm._v(" "),
                                         _c(
                                           "div",
@@ -76209,7 +75062,7 @@ var render = function() {
                                                   "table table-sm mb-0"
                                               },
                                               [
-                                                _vm._m(50),
+                                                _vm._m(45),
                                                 _vm._v(" "),
                                                 _c("tbody", [
                                                   _c("tr", [
@@ -77100,7 +75953,7 @@ var render = function() {
             _vm._v(" "),
             _vm.globalDisable == false
               ? _c("div", { staticClass: "col-xl-2 offset-xl-4 my-2" }, [
-                  _vm._m(51)
+                  _vm._m(46)
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -77143,6 +75996,363 @@ var render = function() {
         "div",
         {
           staticClass: "modal fade",
+          attrs: { role: "dialog", tabindex: "-1", id: "others-exam-passed1" }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "modal-dialog modal-sm",
+              attrs: { role: "document" }
+            },
+            [
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.saveDomainValues($event)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _vm._m(47),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-body cs-modal-body" }, [
+                      _c("div", { staticClass: "form-row" }, [
+                        _c("div", { staticClass: "col-xl-12 mb-2" }, [
+                          _c("div", { staticClass: "form-group mb-0" }, [
+                            _c("label", { staticClass: "mb-0" }, [
+                              _vm._v("Examination Level")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.domainForm.domianLevel,
+                                    expression: "domainForm.domianLevel"
+                                  }
+                                ],
+                                staticClass: "form-control form-control-sm",
+                                attrs: { disabled: _vm.globalDisable },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.domainForm,
+                                      "domianLevel",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  { attrs: { value: "", disabled: "" } },
+                                  [_vm._v("-- select --")]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(_vm.getExaminationLevel, function(
+                                  elv,
+                                  index
+                                ) {
+                                  return _c(
+                                    "option",
+                                    {
+                                      key: index,
+                                      domProps: { value: elv[0].id }
+                                    },
+                                    [_vm._v(_vm._s(elv[0].description))]
+                                  )
+                                })
+                              ],
+                              2
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-xl-12 mb-2" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.domainForm.domainName,
+                                expression: "domainForm.domainName"
+                              }
+                            ],
+                            staticClass: "form-control form-control-sm",
+                            attrs: {
+                              type: "hidden",
+                              disabled: _vm.globalDisable
+                            },
+                            domProps: { value: _vm.domainForm.domainName },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.domainForm,
+                                  "domainName",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group mb-0" }, [
+                            _c("label", { staticClass: "mb-0" }, [
+                              _vm._v("Examination Passed")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.domainForm.dValue,
+                                  expression: "domainForm.dValue"
+                                }
+                              ],
+                              staticClass: "form-control form-control-sm",
+                              attrs: {
+                                type: "text",
+                                disabled: _vm.globalDisable
+                              },
+                              domProps: { value: _vm.domainForm.dValue },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.domainForm,
+                                    "dValue",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(48)
+                  ])
+                ]
+              )
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: { role: "dialog", tabindex: "-1", id: "others-exam-board1" }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "modal-dialog modal-sm",
+              attrs: { role: "document" }
+            },
+            [
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.saveDomainValues($event)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _vm._m(49),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-body cs-modal-body" }, [
+                      _c("div", { staticClass: "form-row" }, [
+                        _c("div", { staticClass: "col-xl-12 mb-2" }, [
+                          _c("div", { staticClass: "form-group mb-0" }, [
+                            _c("label", { staticClass: "mb-0" }, [
+                              _vm._v("Examination Level")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.domainForm.domianLevel,
+                                    expression: "domainForm.domianLevel"
+                                  }
+                                ],
+                                staticClass: "form-control form-control-sm",
+                                attrs: { disabled: _vm.globalDisable },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.domainForm,
+                                      "domianLevel",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  { attrs: { value: "", disabled: "" } },
+                                  [_vm._v("-- select --")]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(
+                                  _vm.universityBoardCouncilValues,
+                                  function(elv, index) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: index,
+                                        domProps: { value: elv[0].id }
+                                      },
+                                      [_vm._v(_vm._s(elv[0].description))]
+                                    )
+                                  }
+                                )
+                              ],
+                              2
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-xl-12 mb-2" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.domainForm.domainName,
+                                expression: "domainForm.domainName"
+                              }
+                            ],
+                            staticClass: "form-control form-control-sm",
+                            attrs: {
+                              type: "hidden",
+                              disabled: _vm.globalDisable
+                            },
+                            domProps: { value: _vm.domainForm.domainName },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.domainForm,
+                                  "domainName",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group mb-0" }, [
+                            _c("label", { staticClass: "mb-0" }, [
+                              _vm._v("Examination Board")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.domainForm.dValue,
+                                  expression: "domainForm.dValue"
+                                }
+                              ],
+                              staticClass: "form-control form-control-sm",
+                              attrs: {
+                                type: "text",
+                                disabled: _vm.globalDisable
+                              },
+                              domProps: { value: _vm.domainForm.dValue },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.domainForm,
+                                    "dValue",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-footer py-1" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-sm btn-mg",
+                          attrs: { type: "button" },
+                          on: { click: _vm.saveDomainValues }
+                        },
+                        [_c("strong", [_vm._v("Add")])]
+                      ),
+                      _vm._m(50)
+                    ])
+                  ])
+                ]
+              )
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
           attrs: { role: "dialog", tabindex: "-1", id: "others-add-institute" }
         },
         [
@@ -77165,12 +76375,12 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(52),
+                    _vm._m(51),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body cs-modal-body" }, [
                       _c("div", { staticClass: "form-row" }, [
                         _c("div", { staticClass: "col-xl-12 mb-2" }, [
-                          _vm._m(53),
+                          _vm._m(52),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -77235,7 +76445,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                          _vm._m(54),
+                          _vm._m(53),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
                             _c("input", {
@@ -77308,7 +76518,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                          _vm._m(55),
+                          _vm._m(54),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
                             _c(
@@ -77555,7 +76765,206 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(56)
+                    _vm._m(55)
+                  ])
+                ]
+              )
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: { role: "dialog", tabindex: "-1", id: "others-course-name" }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "modal-dialog modal-sm",
+              attrs: { role: "document" }
+            },
+            [
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.saveDomainValues($event)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _vm._m(56),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-body cs-modal-body" }, [
+                      _c("div", { staticClass: "form-row" }, [
+                        _c("div", { staticClass: "col-xl-12 mb-2" }, [
+                          _c("div", { staticClass: "form-group mb-0" }, [
+                            _c("label", { staticClass: "mb-0" }, [
+                              _vm._v("Course Level")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.domainForm.domainName,
+                                  expression: "domainForm.domainName"
+                                }
+                              ],
+                              attrs: { type: "hidden" },
+                              domProps: { value: _vm.domainForm.domainName },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.domainForm,
+                                    "domainName",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.domainForm.domainLevel2,
+                                    expression: "domainForm.domainLevel2"
+                                  }
+                                ],
+                                staticClass: "form-control form-control-sm",
+                                attrs: { disabled: _vm.inputDisabled },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.domainForm,
+                                      "domainLevel2",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  { attrs: { value: "", disabled: "" } },
+                                  [_vm._v("-- select --")]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(_vm.universityCourseLevel, function(
+                                  ucl,
+                                  index
+                                ) {
+                                  return _c(
+                                    "option",
+                                    {
+                                      key: index,
+                                      attrs: { selected: "" },
+                                      domProps: { value: ucl.id }
+                                    },
+                                    [_vm._v(_vm._s(ucl.description))]
+                                  )
+                                })
+                              ],
+                              2
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-xl-12 mb-2" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.domainForm.domainName,
+                                expression: "domainForm.domainName"
+                              }
+                            ],
+                            staticClass: "form-control form-control-sm",
+                            attrs: {
+                              type: "hidden",
+                              disabled: _vm.globalDisable
+                            },
+                            domProps: { value: _vm.domainForm.domainName },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.domainForm,
+                                  "domainName",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group mb-0" }, [
+                            _c("label", { staticClass: "mb-0" }, [
+                              _vm._v("Course Name")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.domainForm.dValue,
+                                  expression: "domainForm.dValue"
+                                }
+                              ],
+                              staticClass: "form-control form-control-sm",
+                              attrs: {
+                                type: "text",
+                                disabled: _vm.globalDisable
+                              },
+                              domProps: { value: _vm.domainForm.dValue },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.domainForm,
+                                    "dValue",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(57)
                   ])
                 ]
               )
@@ -77652,6 +77061,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", [
       _vm._v("House No and Colony Name / Address Line 1 "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("City/Town "),
       _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
     ])
   },
@@ -77785,76 +77203,6 @@ var staticRenderFns = [
       _vm._v("Division "),
       _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header py-1" }, [
-      _c("h6", { staticClass: "modal-title color-mg font-md" }, [
-        _c("strong", [_vm._v("Add Other Examination Passed")])
-      ]),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-sm btn-cancel",
-        attrs: { type: "button", "data-dismiss": "modal" }
-      },
-      [_c("strong", [_vm._v("Close")])]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header py-1" }, [
-      _c("h6", { staticClass: "modal-title color-mg font-md" }, [
-        _c("strong", [_vm._v("Add Other Examination Board")])
-      ]),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-sm btn-cancel",
-        attrs: { type: "button", "data-dismiss": "modal" }
-      },
-      [_c("strong", [_vm._v("Close")])]
-    )
   },
   function() {
     var _vm = this
@@ -78076,41 +77424,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header py-1" }, [
-      _c("h6", { staticClass: "modal-title color-mg font-md" }, [
-        _c("strong", [_vm._v("Add Other Course Name")])
-      ]),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-sm btn-cancel",
-        attrs: { type: "button", "data-dismiss": "modal" }
-      },
-      [_c("strong", [_vm._v("Close")])]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("span", { staticClass: "text-danger" }, [
       _c("strong", [_vm._v("*")])
     ])
@@ -78193,6 +77506,83 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header py-1" }, [
       _c("h6", { staticClass: "modal-title color-mg font-md" }, [
+        _c("strong", [_vm._v("Add Other Examination Passed")])
+      ]),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer py-1" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-sm btn-mg", attrs: { type: "submit" } },
+        [_c("strong", [_vm._v("Add")])]
+      ),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-sm btn-cancel",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_c("strong", [_vm._v("Close")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header py-1" }, [
+      _c("h6", { staticClass: "modal-title color-mg font-md" }, [
+        _c("strong", [_vm._v("Add Other Examination Board")])
+      ]),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-sm btn-cancel",
+        attrs: { type: "button", "data-dismiss": "modal" }
+      },
+      [_c("strong", [_vm._v("Close")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header py-1" }, [
+      _c("h6", { staticClass: "modal-title color-mg font-md" }, [
         _c("strong", [_vm._v("Add Institute")])
       ]),
       _c(
@@ -78234,6 +77624,48 @@ var staticRenderFns = [
     return _c("label", [
       _vm._v("State "),
       _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer py-1" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-sm btn-mg", attrs: { type: "submit" } },
+        [_c("strong", [_vm._v("Add")])]
+      ),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-sm btn-cancel",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_c("strong", [_vm._v("Close")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header py-1" }, [
+      _c("h6", { staticClass: "modal-title color-mg font-md" }, [
+        _c("strong", [_vm._v("Add Other Course Name")])
+      ]),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
     ])
   },
   function() {

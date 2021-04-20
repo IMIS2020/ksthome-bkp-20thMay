@@ -37,7 +37,7 @@ class ApplicationController extends Controller
             $lastId = ApplicationDetails::where('scholarshipType' , $type)->orderBy('id', 'DESC')->first();
             if(empty($lastId)) { $lastId = 0; }
             else { $lastId = intval(explode('NUR',$lastId->schApplicationId)[1]); }
-            return 'NUR'.str_pad($lastId+1, 5, "0", STR_PAD_LEFT);
+            return 'NUR'.str_pad($lastId+1, 8, "0", STR_PAD_LEFT);
         }
         if($type == 'HHDLS')
         {
@@ -45,7 +45,7 @@ class ApplicationController extends Controller
             // $lastId = ApplicationDetails::orderBy('id', 'DESC')->first();
             if(empty($lastId)) { $lastId = 0; }
             else { $lastId = intval(explode('HHD',$lastId->schApplicationId)[1]); }
-            return 'HHD'.str_pad($lastId+1, 5, "0", STR_PAD_LEFT);
+            return 'HHD'.str_pad($lastId+1, 8, "0", STR_PAD_LEFT);
         }
      }
 
@@ -810,6 +810,7 @@ class ApplicationController extends Controller
 
         $this->createFolder();       
         $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
+        $getSchAppId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->schApplicationId;
         $prevJ = ApplicationDocs::where('applicationId', $getApplicationId)->get();
         $prev = [];
         $old = [];
@@ -819,13 +820,13 @@ class ApplicationController extends Controller
 
         DB::beginTransaction();
         try {
-
+            $index = 0;
             foreach ($request->json()->all() as $saveDoc) {
                 if (!isset($saveDoc['id'])) {
                     $addDoc = new ApplicationDocs;
                     
                     if (isset($saveDoc['docFileNameFile'])) {
-                        $fileName = $this->uploadFile(storage_path('app/public/uploads/schloarshipRecord/'), $saveDoc['docFileNameFile'],$saveDoc['fileName']);
+                        $fileName = $this->uploadFile(storage_path('app/public/uploads/schloarshipRecord/'), $saveDoc['docFileNameFile'],$saveDoc['fileName'],$getSchAppId,$index);
                     } else {
                         $fileName = '';
                     }
@@ -844,13 +845,14 @@ class ApplicationController extends Controller
                             unlink(storage_path('app/public/uploads/schloarshipRecord/').$editDoc->docFileName);
                         }
 
-                        $fileName = $this->uploadFile(storage_path('app/public/uploads/schloarshipRecord/'), $saveDoc['docFileNameFile'],$saveDoc['fileName']);
+                        $fileName = $this->uploadFile(storage_path('app/public/uploads/schloarshipRecord/'), $saveDoc['docFileNameFile'],$saveDoc['fileName'],$getSchAppId,$index);
                         $editDoc->docFilePath               = 'app/public/uploads/schloarshipRecord/';
                         $editDoc->docFileName  = $fileName;
                         $editDoc->uploadStatus  = 'YES';
                     }
                     $editDoc->update();
                 }
+                $index++;
             }
 
             // Delete
@@ -898,16 +900,16 @@ class ApplicationController extends Controller
     }
 
      # File Uploader
-    public function uploadFile(string $path, $base64file, string $filename='')
+    public function uploadFile(string $path, $base64file, string $filename='',$applicationId,$index)
     {   
         $File =  explode(',', $base64file);
         $file = base64_decode($File[1]);
         $extention = explode(';',explode('/',$File[0])[1])[0];
 
         if ($filename !== '') {
-            $fileName = time().'-'.$filename;
+            $fileName = $index.'-'.$applicationId.'-'.$filename;
         } else {
-            $fileName = time().'.'.$extention;
+            $fileName = $index.'-'.$applicationId.'.'.$extention;
         }
         
         $path = $path.$fileName;

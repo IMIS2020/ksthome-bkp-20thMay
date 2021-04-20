@@ -1882,9 +1882,9 @@ export default {
             },
             chcekUpDisable()
             {
-                this.applicantDisablityFatherShow = this.form.applicantLeprosyAffectedFather;
-                this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedMother;
-                this.applicantDisablitySelfShow = this.form.applicantLeprosyAffectedSelf;
+                this.applicantDisablityFatherShow = !this.form.applicantLeprosyAffectedFather;
+                this.applicantDisablityMotherShow = !this.form.applicantLeprosyAffectedMother;
+                this.applicantDisablitySelfShow = !this.form.applicantLeprosyAffectedSelf;
             }
             
          },

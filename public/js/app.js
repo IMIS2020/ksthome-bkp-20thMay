@@ -7483,9 +7483,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form.education3ExaminationLevel = '', this.form.education3ExaminationPassed = '', this.form.education3University = '', this.form.education3MainSubjects = '', this.form.education3YearOfPassing = '', this.form.education3Percentage = '', this.form.education3Division = '';
     },
     chcekUpDisable: function chcekUpDisable() {
-      this.applicantDisablityFatherShow = this.form.applicantLeprosyAffectedFather;
-      this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedMother;
-      this.applicantDisablitySelfShow = this.form.applicantLeprosyAffectedSelf;
+      this.applicantDisablityFatherShow = !this.form.applicantLeprosyAffectedFather;
+      this.applicantDisablityMotherShow = !this.form.applicantLeprosyAffectedMother;
+      this.applicantDisablitySelfShow = !this.form.applicantLeprosyAffectedSelf;
     }
   },
   computed: {},

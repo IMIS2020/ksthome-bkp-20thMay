@@ -896,7 +896,7 @@
                                                                                             <select class="form-control form-control-sm" v-model="form.mRelationship3" :disabled="globalDisable" >
                                                                                                 <option value="" disabled>--Select--</option>
                                                                                                 <option value="Brother">Brother</option>
-                                                                                                <option value="Sister">SisterSister</option>
+                                                                                                <option value="Sister">Sister</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </td>
@@ -1441,6 +1441,7 @@ export default {
                         this.form.appIdShow = response.data['data'][0][0].appIdShow;
                         this.readInsValue(this.form.scholarshipType);
                         this.readDomainValues(this.form.scholarshipType);
+                        this.chcekUpDisable();
                       
                         // this.chcekUpDisable();
                         if(this.form.appStatus == 'Submit')
@@ -1882,8 +1883,8 @@ export default {
             chcekUpDisable()
             {
                 this.applicantDisablityFatherShow = this.form.applicantLeprosyAffectedFather;
-                this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedFather;
-                this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedFather;
+                this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedMother;
+                this.applicantDisablitySelfShow = this.form.applicantLeprosyAffectedSelf;
             }
             
          },
@@ -1896,7 +1897,7 @@ export default {
             this.readApplicationForm();
             this.checkNewScholarshipType();
             this.readInitialDomainValues();
-            this.chcekUpDisable();
+            // this.chcekUpDisable();
        
          }
 }

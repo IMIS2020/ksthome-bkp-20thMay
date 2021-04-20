@@ -7097,7 +7097,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                     _this2.readInsValue(_this2.form.scholarshipType);
 
-                    _this2.readDomainValues(_this2.form.scholarshipType); // this.chcekUpDisable();
+                    _this2.readDomainValues(_this2.form.scholarshipType);
+
+                    _this2.chcekUpDisable(); // this.chcekUpDisable();
 
 
                     if (_this2.form.appStatus == 'Submit') {
@@ -7482,16 +7484,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     chcekUpDisable: function chcekUpDisable() {
       this.applicantDisablityFatherShow = this.form.applicantLeprosyAffectedFather;
-      this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedFather;
-      this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedFather;
+      this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedMother;
+      this.applicantDisablitySelfShow = this.form.applicantLeprosyAffectedSelf;
     }
   },
   computed: {},
   created: function created() {
     this.readApplicationForm();
     this.checkNewScholarshipType();
-    this.readInitialDomainValues();
-    this.chcekUpDisable();
+    this.readInitialDomainValues(); // this.chcekUpDisable();
   }
 });
 
@@ -75798,7 +75799,7 @@ var render = function() {
                                                                 },
                                                                 [
                                                                   _vm._v(
-                                                                    "SisterSister"
+                                                                    "Sister"
                                                                   )
                                                                 ]
                                                               )

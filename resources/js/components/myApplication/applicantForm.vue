@@ -833,7 +833,7 @@
 
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.miscRelationship1" :disabled="globalDisable" >
+                                                                                            <select class="form-control form-control-sm" v-model="form.mRelationship1" :disabled="globalDisable" >
                                                                                                 <option value="" disabled>--Select--</option>
                                                                                                 <option value="Brother">Brother</option>
                                                                                                 <option value="Sister">Sister</option>
@@ -863,7 +863,7 @@
 
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.miscRelationship2" :disabled="globalDisable" >
+                                                                                            <select class="form-control form-control-sm" v-model="form.mRelationship2" :disabled="globalDisable" >
                                                                                                 <option value="" disabled>--Select--</option>
                                                                                                 <option value="Brother">Brother</option>
                                                                                                 <option value="Sister">Sister</option>
@@ -893,10 +893,10 @@
 
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
-                                                                                            <select class="form-control form-control-sm" v-model="form.miscRelationship3" :disabled="globalDisable" >
+                                                                                            <select class="form-control form-control-sm" v-model="form.mRelationship3" :disabled="globalDisable" >
                                                                                                 <option value="" disabled>--Select--</option>
                                                                                                 <option value="Brother">Brother</option>
-                                                                                                <option value="Sister">Sister</option>
+                                                                                                <option value="Sister">SisterSister</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </td>
@@ -1285,9 +1285,9 @@ export default {
                 miscName3:'',
                 miscCourse3:'',
                 miscYear3:'',
-                miscRelationship1:'',
-                miscRelationship2:'',
-                miscRelationship3:'',
+                mRelationship1:"",
+                mRelationship2:"",
+                mRelationship3:"",
                 appIdShow: '',
             },
             getdata: {},
@@ -1504,19 +1504,9 @@ export default {
                         //  this.readInsValue(this.form.scholarshipType);
                         //  this.readDomainValues(this.form.scholarshipType);
                          
-                        this.form.miscName1= response.data['data'][2][0].name;
-                        this.form.miscCourse1= response.data['data'][2][0].course;
-                        this.form.miscYear1= response.data['data'][2][0].year;
-                        this.form.miscName2= response.data['data'][2][1].name;
-                        this.form.miscCourse2= response.data['data'][2][1].course;
-                        this.form.miscYear2= response.data['data'][2][1].year;
-                        this.form.miscName3= response.data['data'][2][2].name;
-                        this.form.miscCourse3= response.data['data'][2][2].course;
-                        this.form.miscYear3= response.data['data'][2][2].year;
-                        this.form.miscRelationship1 = response.data['data'][2][0].relationship;
-                        this.form.miscRelationship2 = response.data['data'][2][1].relationship;
-                        this.form.miscRelationship3 = response.data['data'][2][2].relationship;
                         
+
+                        // console.log(response.data['data'][2][0].relationship);
                     } 
                     else {
                         console.log(response.data['msg'])
@@ -1525,18 +1515,25 @@ export default {
                 axios.get(`/api/get-application-form-data/${applicationId}`)
                 .then(response => {
                     if (response.data['success']) {
-                        if(response.data['data'][2][0])
-                        {
-                            this.form.miscName1= response.data['data'][2][0].name;
-                            this.form.miscCourse1= response.data['data'][2][0].course;
-                            this.form.miscYear1= response.data['data'][2][0].year;
-                            this.form.miscName2= response.data['data'][2][1].name;
-                            this.form.miscCourse2= response.data['data'][2][1].course;
-                            this.form.miscYear2= response.data['data'][2][1].year;
-                            this.form.miscName3= response.data['data'][2][2].name;
-                            this.form.miscCourse3= response.data['data'][2][2].course;
-                            this.form.miscYear3= response.data['data'][2][2].year;
-                        }
+                        
+                        this.form.miscName1= response.data['data'][2][0].name;
+                        this.form.mRelationship1 = response.data['data'][2][0].relationship; 
+                        this.form.miscCourse1= response.data['data'][2][0].course;
+                        this.form.miscYear1= response.data['data'][2][0].year;
+                        
+
+                        this.form.miscName2= response.data['data'][2][1].name;
+                        this.form.mRelationship2 = response.data['data'][2][1].relationship;
+                        this.form.miscCourse2= response.data['data'][2][1].course;
+                        this.form.miscYear2= response.data['data'][2][1].year;
+                        
+
+                        this.form.miscName3= response.data['data'][2][2].name;
+                        this.form.mRelationship3 = response.data['data'][2][2].relationship;
+                        this.form.miscCourse3= response.data['data'][2][2].course;
+                        this.form.miscYear3= response.data['data'][2][2].year;
+                        
+                       
                     } 
                     else {
                         console.log(response.data['msg'])

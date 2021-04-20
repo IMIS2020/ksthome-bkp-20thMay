@@ -37,7 +37,7 @@ class ApplicationController extends Controller
             $lastId = ApplicationDetails::where('scholarshipType' , $type)->orderBy('id', 'DESC')->first();
             if(empty($lastId)) { $lastId = 0; }
             else { $lastId = intval(explode('NUR',$lastId->schApplicationId)[1]); }
-            return 'NUR'.str_pad($lastId+1, 8, "0", STR_PAD_LEFT);
+            return 'NUR'.str_pad($lastId+1, 6, "0", STR_PAD_LEFT);
         }
         if($type == 'HHDLS')
         {
@@ -45,7 +45,7 @@ class ApplicationController extends Controller
             // $lastId = ApplicationDetails::orderBy('id', 'DESC')->first();
             if(empty($lastId)) { $lastId = 0; }
             else { $lastId = intval(explode('HHD',$lastId->schApplicationId)[1]); }
-            return 'HHD'.str_pad($lastId+1, 8, "0", STR_PAD_LEFT);
+            return 'HHD'.str_pad($lastId+1, 6, "0", STR_PAD_LEFT);
         }
      }
 
@@ -118,9 +118,9 @@ class ApplicationController extends Controller
              'miscName3'                         => [],
              'miscCourse3'                       => [],
              'miscYear3'                         => [],
-             'miscRelationship1'                 => [],
-             'miscRelationship2'                 => [],
-             'miscRelationship3'                 => [],
+             'mRelationship1'                    => [],
+             'mRelationship2'                    => [],
+             'mRelationship3'                    => [],
          ]);
          
          DB::beginTransaction();
@@ -190,13 +190,13 @@ class ApplicationController extends Controller
                 $lastId = intval(explode('HHD',$newApplicationId)[1]);
                 $getSch = DomainValues::where('value',$request->scholarshipType)->first()->id;
                 $appSch = ApplicationScheduleTable::where('sessionId',1)->where('scholarshipTypeValueId',$getSch)->first();
-                $newApplicationIdx = $appSch->applicationNoPrefixFormat.str_pad($lastId, 5, "0", STR_PAD_LEFT);;
+                $newApplicationIdx = $appSch->applicationNoPrefixFormat.str_pad($lastId, 6, "0", STR_PAD_LEFT);;
              }else if($request->scholarshipType == 'Nursing')
              {
                 $lastId= intval(explode('NUR',$newApplicationId)[1]);
                 $getSch = DomainValues::where('value',$request->scholarshipType)->first()->id;
                 $appSch = ApplicationScheduleTable::where('sessionId',1)->where('scholarshipTypeValueId',$getSch)->first();
-                $newApplicationIdx = $appSch->applicationNoPrefixFormat.str_pad($lastId, 5, "0", STR_PAD_LEFT);;
+                $newApplicationIdx = $appSch->applicationNoPrefixFormat.str_pad($lastId, 6, "0", STR_PAD_LEFT);;
              }
              
 
@@ -279,7 +279,7 @@ class ApplicationController extends Controller
              if (!empty($request->miscName1) && !empty($request->miscCourse1) && !empty($request->miscYear1)) {
                  $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
                  $applicantMiscellaneousDetails->name            = $request->miscName1;
-                 $applicantMiscellaneousDetails->relationship    = $request->miscRelationship1;
+                 $applicantMiscellaneousDetails->relationship    = $request->mRelationship1;
                  $applicantMiscellaneousDetails->course          = $request->miscCourse1;
                  $applicantMiscellaneousDetails->year            = $request->miscYear1;
                  $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
@@ -289,7 +289,7 @@ class ApplicationController extends Controller
              if (!empty($request->miscName2) && !empty($request->miscCourse2) && !empty($request->miscYear2)) {
                  $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
                  $applicantMiscellaneousDetails->name            = $request->miscName2;
-                 $applicantMiscellaneousDetails->relationship    = $request->miscRelationship2;
+                 $applicantMiscellaneousDetails->relationship    = $request->mRelationship2;
                  $applicantMiscellaneousDetails->course          = $request->miscCourse2;
                  $applicantMiscellaneousDetails->year            = $request->miscYear2;
                  $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
@@ -299,7 +299,7 @@ class ApplicationController extends Controller
              if (!empty($request->miscName3) && !empty($request->miscCourse3) && !empty($request->miscYear3)) {
                  $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
                  $applicantMiscellaneousDetails->name            = $request->miscName3;
-                 $applicantMiscellaneousDetails->relationship    = $request->miscRelationship3;
+                 $applicantMiscellaneousDetails->relationship    = $request->mRelationship3;
                  $applicantMiscellaneousDetails->course          = $request->miscCourse3;
                  $applicantMiscellaneousDetails->year            = $request->miscYear3;
                  $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
@@ -390,9 +390,9 @@ class ApplicationController extends Controller
             'miscName3'                         => [],
             'miscCourse3'                       => [],
             'miscYear3'                         => [],
-            'miscRelationship1'                 => [],
-            'miscRelationship2'                 => [],
-            'miscRelationship3'                 => [],
+            'mRelationship1'                    => [],
+            'mRelationship2'                    => [],
+            'mRelationship3'                    => [],
         ]);
         
          DB::beginTransaction();
@@ -615,7 +615,7 @@ class ApplicationController extends Controller
              if (!empty($request->miscName1) && !empty($request->miscCourse1) && !empty($request->miscYear1)) {
                  $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
                  $applicantMiscellaneousDetails->name            = $request->miscName1;
-                 $applicantMiscellaneousDetails->relationship    = $request->miscRelationship1;
+                 $applicantMiscellaneousDetails->relationship    = $request->mRelationship1;
                  $applicantMiscellaneousDetails->course          = $request->miscCourse1;
                  $applicantMiscellaneousDetails->year            = $request->miscYear1;
                  $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
@@ -625,7 +625,7 @@ class ApplicationController extends Controller
              if (!empty($request->miscName2) && !empty($request->miscCourse2) && !empty($request->miscYear2)) {
                  $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
                  $applicantMiscellaneousDetails->name            = $request->miscName2;
-                 $applicantMiscellaneousDetails->relationship    = $request->miscRelationship2;
+                 $applicantMiscellaneousDetails->relationship    = $request->mRelationship2;
                  $applicantMiscellaneousDetails->course          = $request->miscCourse2;
                  $applicantMiscellaneousDetails->year            = $request->miscYear2;
                  $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
@@ -635,7 +635,7 @@ class ApplicationController extends Controller
              if (!empty($request->miscName3) && !empty($request->miscCourse3) && !empty($request->miscYear3)) {
                  $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
                  $applicantMiscellaneousDetails->name            = $request->miscName3;
-                 $applicantMiscellaneousDetails->relationship    = $request->miscRelationship3;
+                 $applicantMiscellaneousDetails->relationship    = $request->mRelationship3;
                  $applicantMiscellaneousDetails->course          = $request->miscCourse3;
                  $applicantMiscellaneousDetails->year            = $request->miscYear3;
                  $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
@@ -808,7 +808,11 @@ class ApplicationController extends Controller
             'docFileNameFile.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        $this->createFolder();       
+        $getAppType = ApplicationDetails::where('schApplicationId', $applicationId)->first()->scholarshipType;
+        $this->createFolder();   
+        $userId= Auth::user()->id;
+        $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
+
         $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
         $getSchAppId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->schApplicationId;
         $prevJ = ApplicationDocs::where('applicationId', $getApplicationId)->get();
@@ -826,12 +830,12 @@ class ApplicationController extends Controller
                     $addDoc = new ApplicationDocs;
                     
                     if (isset($saveDoc['docFileNameFile'])) {
-                        $fileName = $this->uploadFile(storage_path('app/public/uploads/schloarshipRecord/'), $saveDoc['docFileNameFile'],$saveDoc['fileName'],$getSchAppId,$index);
+                        $fileName = $this->uploadFile(storage_path('app/public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/'), $saveDoc['docFileNameFile'],$saveDoc['fileName'],$getSchAppId,$index);
                     } else {
                         $fileName = '';
                     }
                     $addDoc->docFileName               = $fileName;
-                    $addDoc->docFilePath               = 'app/public/uploads/schloarshipRecord/';
+                    $addDoc->docFilePath               = 'app/public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/';
                     $addDoc->docMasterId               = $saveDoc['idDoc'];
                     $addDoc->applicationId             = $getApplicationId;
                     $addDoc->uploadStatus              = 'YES';
@@ -842,11 +846,11 @@ class ApplicationController extends Controller
 
                     if (isset($saveDoc['docFileNameFile'])) {
                         if (!empty($editDoc->docFileName)) {
-                            unlink(storage_path('app/public/uploads/schloarshipRecord/').$editDoc->docFileName);
+                            unlink(storage_path('app/public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$editDoc->docFileName);
                         }
 
-                        $fileName = $this->uploadFile(storage_path('app/public/uploads/schloarshipRecord/'), $saveDoc['docFileNameFile'],$saveDoc['fileName'],$getSchAppId,$index);
-                        $editDoc->docFilePath               = 'app/public/uploads/schloarshipRecord/';
+                        $fileName = $this->uploadFile(storage_path('app/public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/'), $saveDoc['docFileNameFile'],$saveDoc['fileName'],$getSchAppId,$index);
+                        $editDoc->docFilePath               = 'app/public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/';
                         $editDoc->docFileName  = $fileName;
                         $editDoc->uploadStatus  = 'YES';
                     }
@@ -867,7 +871,7 @@ class ApplicationController extends Controller
             foreach ($deletable as $del) {
                 $delete = ApplicationDocs::where('id',$del['id'])->first();
                 if (!empty($delete->docFileName)) {
-                    unlink(storage_path('app/public/uploads/schloarshipRecord/').$delete->docFileName);
+                    unlink(storage_path('app/public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$delete->docFileName);
                 }
                 $delete->delete();
             }
@@ -885,6 +889,10 @@ class ApplicationController extends Controller
     # get Scholarship Documents
     public function getDocuments(string $applicationId)
     {
+        $userId= Auth::user()->id;
+        $getAppType = ApplicationDetails::where('userId', $userId)->first()->scholarshipType;
+        $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
+
         $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
         $getData = ApplicationDocs::where('applicationId', $getApplicationId)->with('get_docMaster')->orderBy('docMasterId','ASC')->get();
 
@@ -892,7 +900,7 @@ class ApplicationController extends Controller
 
         foreach ($getData as $key => $value) {
             $fileName = $value['docFileName'];
-            $url = Storage::url('uploads/schloarshipRecord/'.$fileName);
+            $url = Storage::url('uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/'.$fileName);
             $getData[$key]['fileURL'] = $url;
         }
 
@@ -921,16 +929,23 @@ class ApplicationController extends Controller
     #create DIR
     public function createFolder()
     {
-        if(!Storage::exists('public/uploads/schloarshipRecord/')){
-            Storage::makeDirectory('public/uploads/schloarshipRecord/');
+        $userId= Auth::user()->id;
+        $getAppType = ApplicationDetails::where('userId', $userId)->first()->scholarshipType;
+        $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
+        if(!Storage::exists('public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/')){
+            Storage::makeDirectory('public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/');
         }
     }
 
     public function deleteDoc(string $applicationDocId)
     {
+        $userId= Auth::user()->id;
+        $getAppType = ApplicationDetails::where('userId', $userId)->first()->scholarshipType;
+        $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
+
         $delDocFile =ApplicationDocs::where('id', $applicationDocId)->first();
         if (!empty($delDocFile->docFileName)) {
-            unlink(storage_path('app/public/uploads/schloarshipRecord/').$delDocFile->docFileName);
+            unlink(storage_path('app/public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$delDocFile->docFileName);
         }
         $delDocFile->docFilePath   = null;
         $delDocFile->docFileName   = null;

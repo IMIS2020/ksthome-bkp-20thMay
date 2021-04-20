@@ -15,7 +15,7 @@ class ApplicationSchduleSeed extends Seeder
         DB::table('applicationScheduleTable')->insert(
             [
                 'sessionId' => 1,
-                'scholarshipTypeValueId' => 18,
+                'scholarshipTypeValueId' => 19,
                 'startDate'=> '01-04-2021',
                 'lastDate'=>  '31-05-2021',
                 'applicationNoPrefixFormat'=> 'NURSG/21-22/',
@@ -29,7 +29,7 @@ class ApplicationSchduleSeed extends Seeder
             DB::table('applicationScheduleTable')->insert(
                 [
                     'sessionId' => 1,
-                    'scholarshipTypeValueId' => 19,
+                    'scholarshipTypeValueId' => 20,
                     'startDate'=> '01-04-2021',
                     'lastDate'=>  '31-05-2021',
                     'applicationNoPrefixFormat'=> 'HHDLS/21-22/',

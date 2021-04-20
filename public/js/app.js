@@ -6929,9 +6929,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         miscName3: '',
         miscCourse3: '',
         miscYear3: '',
-        miscRelationship1: '',
-        miscRelationship2: '',
-        miscRelationship3: '',
+        mRelationship1: "",
+        mRelationship2: "",
+        mRelationship3: "",
         appIdShow: ''
       },
       getdata: {},
@@ -7148,36 +7148,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                     ; //  this.readInsValue(this.form.scholarshipType);
                     //  this.readDomainValues(this.form.scholarshipType);
-
-                    _this2.form.miscName1 = response.data['data'][2][0].name;
-                    _this2.form.miscCourse1 = response.data['data'][2][0].course;
-                    _this2.form.miscYear1 = response.data['data'][2][0].year;
-                    _this2.form.miscName2 = response.data['data'][2][1].name;
-                    _this2.form.miscCourse2 = response.data['data'][2][1].course;
-                    _this2.form.miscYear2 = response.data['data'][2][1].year;
-                    _this2.form.miscName3 = response.data['data'][2][2].name;
-                    _this2.form.miscCourse3 = response.data['data'][2][2].course;
-                    _this2.form.miscYear3 = response.data['data'][2][2].year;
-                    _this2.form.miscRelationship1 = response.data['data'][2][0].relationship;
-                    _this2.form.miscRelationship2 = response.data['data'][2][1].relationship;
-                    _this2.form.miscRelationship3 = response.data['data'][2][2].relationship;
+                    // console.log(response.data['data'][2][0].relationship);
                   } else {
                     console.log(response.data['msg']);
                   }
                 });
                 axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
                   if (response.data['success']) {
-                    if (response.data['data'][2][0]) {
-                      _this2.form.miscName1 = response.data['data'][2][0].name;
-                      _this2.form.miscCourse1 = response.data['data'][2][0].course;
-                      _this2.form.miscYear1 = response.data['data'][2][0].year;
-                      _this2.form.miscName2 = response.data['data'][2][1].name;
-                      _this2.form.miscCourse2 = response.data['data'][2][1].course;
-                      _this2.form.miscYear2 = response.data['data'][2][1].year;
-                      _this2.form.miscName3 = response.data['data'][2][2].name;
-                      _this2.form.miscCourse3 = response.data['data'][2][2].course;
-                      _this2.form.miscYear3 = response.data['data'][2][2].year;
-                    }
+                    _this2.form.miscName1 = response.data['data'][2][0].name;
+                    _this2.form.mRelationship1 = response.data['data'][2][0].relationship;
+                    _this2.form.miscCourse1 = response.data['data'][2][0].course;
+                    _this2.form.miscYear1 = response.data['data'][2][0].year;
+                    _this2.form.miscName2 = response.data['data'][2][1].name;
+                    _this2.form.mRelationship2 = response.data['data'][2][1].relationship;
+                    _this2.form.miscCourse2 = response.data['data'][2][1].course;
+                    _this2.form.miscYear2 = response.data['data'][2][1].year;
+                    _this2.form.miscName3 = response.data['data'][2][2].name;
+                    _this2.form.mRelationship3 = response.data['data'][2][2].relationship;
+                    _this2.form.miscCourse3 = response.data['data'][2][2].course;
+                    _this2.form.miscYear3 = response.data['data'][2][2].year;
                   } else {
                     console.log(response.data['msg']);
                   }
@@ -75140,9 +75129,9 @@ var render = function() {
                                                                     "v-model",
                                                                   value:
                                                                     _vm.form
-                                                                      .miscRelationship1,
+                                                                      .mRelationship1,
                                                                   expression:
-                                                                    "form.miscRelationship1"
+                                                                    "form.mRelationship1"
                                                                 }
                                                               ],
                                                               staticClass:
@@ -75180,7 +75169,7 @@ var render = function() {
                                                                     )
                                                                   _vm.$set(
                                                                     _vm.form,
-                                                                    "miscRelationship1",
+                                                                    "mRelationship1",
                                                                     $event
                                                                       .target
                                                                       .multiple
@@ -75429,9 +75418,9 @@ var render = function() {
                                                                     "v-model",
                                                                   value:
                                                                     _vm.form
-                                                                      .miscRelationship2,
+                                                                      .mRelationship2,
                                                                   expression:
-                                                                    "form.miscRelationship2"
+                                                                    "form.mRelationship2"
                                                                 }
                                                               ],
                                                               staticClass:
@@ -75469,7 +75458,7 @@ var render = function() {
                                                                     )
                                                                   _vm.$set(
                                                                     _vm.form,
-                                                                    "miscRelationship2",
+                                                                    "mRelationship2",
                                                                     $event
                                                                       .target
                                                                       .multiple
@@ -75718,9 +75707,9 @@ var render = function() {
                                                                     "v-model",
                                                                   value:
                                                                     _vm.form
-                                                                      .miscRelationship3,
+                                                                      .mRelationship3,
                                                                   expression:
-                                                                    "form.miscRelationship3"
+                                                                    "form.mRelationship3"
                                                                 }
                                                               ],
                                                               staticClass:
@@ -75758,7 +75747,7 @@ var render = function() {
                                                                     )
                                                                   _vm.$set(
                                                                     _vm.form,
-                                                                    "miscRelationship3",
+                                                                    "mRelationship3",
                                                                     $event
                                                                       .target
                                                                       .multiple
@@ -75809,7 +75798,7 @@ var render = function() {
                                                                 },
                                                                 [
                                                                   _vm._v(
-                                                                    "Sister"
+                                                                    "SisterSister"
                                                                   )
                                                                 ]
                                                               )

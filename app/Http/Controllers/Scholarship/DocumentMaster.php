@@ -12,6 +12,7 @@ use App\ModelScholarship\ApplicationDocs;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\ModelScholarship\ApplicationDetails;
+use Illuminate\Support\Facades\Auth;
 
 class DocumentMaster extends Controller
 {
@@ -309,11 +310,15 @@ class DocumentMaster extends Controller
 
     public function getApplicantDoc($shcName,$applicationId)
     {
+        $userId= Auth::user()->id;
+        $getAppType = ApplicationDetails::where('userId', $userId)->first()->scholarshipType;
+        $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
+
         $docDataObj = DocMaster::where('docShortName',$shcName)->first();
         $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
         $checkFg = ApplicationDocs::where('docMasterId',$docDataObj->id)->where('applicationId',$getApplicationId)->first();
 
-        $url = Storage::url('uploads/schloarshipRecord/'.$checkFg->docFileName);
+        $url = Storage::url('uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/'.$checkFg->docFileName);
 
         return $url;
 

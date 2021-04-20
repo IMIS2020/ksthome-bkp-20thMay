@@ -330,6 +330,71 @@ class ApplicationController extends Controller
      public function editScholarshipApplication(string $applicationId, Request $request)
      {
         $grad = true;
+        $request->validate([  
+            'applicantNameF'                    => [],                
+            'applicantNameM'                    => [],
+            'applicantNameL'                    => [],
+            'applicantFatherName'               => [],
+            'applicantMotherName'               => [],
+            'applicantDOB'                      => ['required'],
+            'applicantGender'                   => ['required'],
+            'applicantLeprosyAffectedSelf'      => [],
+            'applicantLeprosyAffectedFather'    => [],
+            'applicantLeprosyAffectedMother'    => [],
+            'applicantHasBPLCard'               => ['required'],
+            'applicantDomicileState'            => ['required'],
+            
+            'addressAddln1'                     => ['required'],
+            'addressAddln2'                     => [],
+            'addressCity'                       => [],
+            'addressDistprov'                   => [],
+            'addressState'                      => ['required'],
+            'addressPinzip'                     => ['required','digits:6'],
+            'applicantContactNoSelf'            => ['required'],
+            'applicantContactNoGuardian'        => ['required'],
+            'applicantEmailId'                  => ['required'],
+            'applicantContactNoColonyLeader'    => ['required'],
+            'applicantColonyleaderName'         => [],
+
+           //  'examinationLevel10'                => ['required'],
+           //  'universityBoardCouncil10'          => ['required'],
+           //  'mainSubjects10'                    => ['required'],
+           //  'yearOfPassing10'                   => ['required','digits:4'],
+           //  'percentage10'                      => ['required'],
+           //  'division10'                        => ['required'],
+            
+           //  'examinationLevel12'                => ['required'],
+           //  'universityBoardCouncil12'          => ['required'],
+           //  'mainSubjects12'                    => ['required'],
+           //  'yearOfPassing12'                   => ['required','digits:4'],
+           //  'percentage12'                      => ['required'],
+           //  'division12'                        => ['required'],
+            
+
+            'hasAdmissionLetter'                => ['required'],
+            'insCourse'                         => [],
+            'insName'                           => [],
+            'insAddressAddln1'                  => [],
+            'insAddressAddln2'                  => [],
+            'insAddressCity'                    => [],
+            'insAddressDistprov'                => [],
+            'insAddressState'                   => [],
+            'insAddressPinzip'                  => [],
+            'recognizedByINC'                   => [],
+            'miscName1'                         => [],
+            'miscCourse1'                       => [],
+            'miscYear1'                         => [],
+            'miscName2'                         => [],
+            'miscCourse2'                       => [],
+            'miscYear2'                         => [],
+            'miscName3'                         => [],
+            'miscCourse3'                       => [],
+            'miscYear3'                         => [],
+            'miscRelationship1'                 => [],
+            'miscRelationship2'                 => [],
+            'miscRelationship3'                 => [],
+        ]);
+        
          DB::beginTransaction();
          try {
             //  $nursingScholarshipApplication = NursingScholarshipApplication::where('applicationId', $applicationId)->first();

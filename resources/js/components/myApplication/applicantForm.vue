@@ -1,7 +1,7 @@
 <template>
 <section class="page-main">
         <div class="container">
-            <form>
+            <form @submit.prevent="saveForm">
                 <div class="form-row">
                     <div class="col-xl-12 text-center mb-3">
                         <h5 class="text-capitalize text-center color-mg"><strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.appIdShow == '' ? '' : '( APP NO: '+form.appIdShow+')'}}</strong></h5>
@@ -176,7 +176,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-2">
-                                                                    <label>City/Town&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                    <label>City/Town</label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.addressCity" :disabled="globalDisable" required>
                                                                     </div>
@@ -374,7 +374,7 @@
                                                                                                         <div class="form-row">
                                                                                                             <div class="col-xl-12 mb-2">
                                                                                                                 <div class="form-group mb-0"><label class="mb-0">Examination Level</label>
-                                                                                                                    <select class="form-control form-control-sm" v-model="domainForm.domianLevel" :disabled="globalDisable" required>
+                                                                                                                    <select class="form-control form-control-sm" v-model="domainForm.domianLevel" :disabled="globalDisable">
                                                                                                                         <option value="" disabled>-- select --</option>
                                                                                                                         <option v-for="(elv,index) in universityBoardCouncilValues" :key="index" :value="elv[0].id">{{elv[0].description}}</option>
                                                                                                                     </select>
@@ -383,7 +383,7 @@
                                                                                                             <div class="col-xl-12 mb-2">
                                                                                                                 <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" :disabled="globalDisable"/>
                                                                                                                 <div class="form-group mb-0"><label class="mb-0">Examination Board</label>
-                                                                                                                    <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable" required/>
+                                                                                                                    <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable"/>
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                             <!-- <div class="col-xl-12 mb-2">
@@ -750,9 +750,9 @@
                                                                 </div>
                                                                 <div class="col-xl-3">
                                                                     
-                                                                    <label>Name of the Level&nbsp;</label>
+                                                                    <label>Name of the Level&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                      <div class="form-group mb-0">
-                                                                        <select class="form-control form-control-sm" v-model="form.courseLevelValueId" :disabled="inputDisabled" @click="getHHDLSData($event)">
+                                                                        <select class="form-control form-control-sm" v-model="form.courseLevelValueId" :disabled="inputDisabled" @click="getHHDLSData($event)" required>
                                                                             <option value="" disabled>-- select --</option>
                                                                             <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id" selected>{{ucl.description}}</option>
                                                                         </select>
@@ -767,7 +767,7 @@
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group mb-0" v-if="form.scholarshipType=='Nursing'">
-                                                                        <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled">
+                                                                        <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled" required>
                                                                             <option value="" disabled>-- select --</option>
                                                                             <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
                                                                         </select>
@@ -807,114 +807,15 @@
                                                                     <!-- End course name modal -->
                                                                 </div>
                                                                 <div class="col-xl-6">
-                                                                    <label>Name of the institute <a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-add-institute" > + Add New Value</a> </label>
+                                                                    <label>Name of the institute&nbsp;<span class="text-danger"><strong>*</strong></span> <a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-add-institute" > + Add New Value</a> </label>
                                                                     <div class="form-group mb-0">
-                                                                        <select class="form-control form-control-sm" @change="onChangeIns($event)" v-model="form.instituteId" :disabled="inputDisabled">
+                                                                        <select class="form-control form-control-sm" @change="onChangeIns($event)" v-model="form.instituteId" :disabled="inputDisabled" required>
                                                                             <option v-for="(i,index) in insData" :key="index" :value="i.id">{{i.instituteName}} - {{i.get_address.addressCity}}, {{i.get_address.addressState}}</option>
                                                                             <!-- <option  data-toggle="modal" data-target="#others-add-institute" >Others</option> -->
                                                                             <option value="" disabled>-- select --</option>
                                                                         </select>
                                                                     </div>
-                                                                    <!--Institute Details modal -->
-                                                                    <div role="dialog" tabindex="-1" class="modal fade" id="others-add-institute">
-                                                                        <div class="modal-dialog modal-lg" role="document">
-                                                                            <form>
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header py-1">
-                                                                                        <h6 class="modal-title color-mg font-md"><strong>Add Institute</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                                                                    </div>
-                                                                                    <div class="modal-body cs-modal-body">
-                                                                                        <div class="form-row">
-                                                                                            <div class="col-xl-12 mb-2">
-                                                                                                <label>Institute Name&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                 <input type="hidden" v-model="insForm.insType" :disabled="globalDisable" required>
-                                                                                                <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insName" :disabled="globalDisable" required>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <!-- <div class="col-xl-6 mb-2">
-                                                                                                <label>Address Line 1</label>
-                                                                                                <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln1" :disabled="globalDisable">
-                                                                                                </div>
-                                                                                            </div> -->
-                                                                                            <!-- <div class="col-xl-6 mb-2">
-                                                                                                <label>Address Line 2</label>
-                                                                                                <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln2" :disabled="globalDisable">
-                                                                                                </div>
-                                                                                            </div> -->
-                                                                                            <div class="col-xl-6 mb-2">
-                                                                                                <label>City/Town&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressCity" :disabled="globalDisable" required>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-xl-6 mb-2">
-                                                                                                <label>District</label>
-                                                                                                <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressDistprov" :disabled="globalDisable">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            
-                                                                                            <div class="col-xl-6 mb-2">
-                                                                                                <label>State&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                <div class="form-group"> 
-                                                                                                    <select class="form-control form-control-sm" v-model="insForm.insAddressState" :disabled="globalDisable" required>
-                                                                                                        <option value="" disabled>--Select--</option>
-                                                                                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                                                                                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                                                                                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                                                                                        <option value="Assam">Assam</option>
-                                                                                                        <option value="Bihar">Bihar</option>
-                                                                                                        <option value="Chandigarh">Chandigarh</option>
-                                                                                                        <option value="Chhattisgarh">Chhattisgarh</option>
-                                                                                                        <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                                                                                                        <option value="Daman and Diu">Daman and Diu</option>
-                                                                                                        <option value="Delhi">Delhi</option>
-                                                                                                        <option value="Lakshadweep">Lakshadweep</option>
-                                                                                                        <option value="Puducherry">Puducherry</option>
-                                                                                                        <option value="Goa">Goa</option>
-                                                                                                        <option value="Gujarat">Gujarat</option>
-                                                                                                        <option value="Haryana">Haryana</option>
-                                                                                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                                                                                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                                                                                        <option value="Jharkhand">Jharkhand</option>
-                                                                                                        <option value="Karnataka">Karnataka</option>
-                                                                                                        <option value="Kerala">Kerala</option>
-                                                                                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                                                                                        <option value="Maharashtra">Maharashtra</option>
-                                                                                                        <option value="Manipur">Manipur</option>
-                                                                                                        <option value="Meghalaya">Meghalaya</option>
-                                                                                                        <option value="Mizoram">Mizoram</option>
-                                                                                                        <option value="Nagaland">Nagaland</option>
-                                                                                                        <option value="Odisha">Odisha</option>
-                                                                                                        <option value="Punjab">Punjab</option>
-                                                                                                        <option value="Rajasthan">Rajasthan</option>
-                                                                                                        <option value="Sikkim">Sikkim</option>
-                                                                                                        <option value="Tamil Nadu">Tamil Nadu</option>
-                                                                                                        <option value="Telangana">Telangana</option>
-                                                                                                        <option value="Tripura">Tripura</option>
-                                                                                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                                                                                        <option value="Uttarakhand">Uttarakhand</option>
-                                                                                                        <option value="West Bengal">West Bengal</option>
-                                                                                                    </select>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                                <!-- <div class="col-xl-6 mb-2">
-                                                                                                    <label>PIN/ZIP Code&nbsp;<span class="text-danger"><strong>*</strong></span></label>
-                                                                                                <div class="form-group">
-                                                                                                    <input class="form-control form-control-sm" type="number" v-model="insForm.insAddressPinzip" :disabled="globalDisable">
-                                                                                                </div>
-                                                                                            </div> -->
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveInstitute"><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
-                                                                                </div>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!-- End of Institute modal -->
+                                                                   
                                                                 </div>
                                                                 <!-- <div class="col-xl-4">
                                                                     <label>Address Line 1&nbsp;<span class="text-danger"><strong>*</strong></span></label>
@@ -929,7 +830,7 @@
                                                                     </div>
                                                                 </div> -->
                                                                 <div class="col-xl-2">
-                                                                    <label>City/Town&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                    <label>City/Town</label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.insAddressCity" disabled>
                                                                     </div>
@@ -1130,7 +1031,7 @@
                         </div>
                     </div>
                     <div class="col-xl-2 offset-xl-4 my-2" v-if="globalDisable == false">
-                        <button class="btn btn-block btn-sm btn-mg" type="submit" @click="saveForm">
+                        <button class="btn btn-block btn-sm btn-mg" type="submit">
                             <strong>Save</strong>
                         </button>
                     </div>
@@ -1142,6 +1043,106 @@
                     </div>
                 </div>
            </form>
+            <!--Institute Details modal -->
+            <div role="dialog" tabindex="-1" class="modal fade" id="others-add-institute">
+                <div class="modal-dialog modal-lg" role="document">
+                    <form @submit.prevent="saveInstitute">
+                        <div class="modal-content">
+                            <div class="modal-header py-1">
+                                <h6 class="modal-title color-mg font-md"><strong>Add Institute</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body cs-modal-body">
+                                <div class="form-row">
+                                    <div class="col-xl-12 mb-2">
+                                        <label>Institute Name&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                            <input type="hidden" v-model="insForm.insType" :disabled="globalDisable" required>
+                                        <div class="form-group">
+                                            <input class="form-control form-control-sm" type="text" v-model="insForm.insName" :disabled="globalDisable" required>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-xl-6 mb-2">
+                                        <label>Address Line 1</label>
+                                        <div class="form-group">
+                                            <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln1" :disabled="globalDisable">
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="col-xl-6 mb-2">
+                                        <label>Address Line 2</label>
+                                        <div class="form-group">
+                                            <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressAddln2" :disabled="globalDisable">
+                                        </div>
+                                    </div> -->
+                                    <div class="col-xl-6 mb-2">
+                                        <label>City/Town&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                        <div class="form-group">
+                                            <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressCity" :disabled="globalDisable" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 mb-2">
+                                        <label>District</label>
+                                        <div class="form-group">
+                                            <input class="form-control form-control-sm" type="text" v-model="insForm.insAddressDistprov" :disabled="globalDisable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-xl-6 mb-2">
+                                        <label>State&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                        <div class="form-group"> 
+                                            <select class="form-control form-control-sm" v-model="insForm.insAddressState" :disabled="globalDisable" required>
+                                                <option value="" disabled>--Select--</option>
+                                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                <option value="Assam">Assam</option>
+                                                <option value="Bihar">Bihar</option>
+                                                <option value="Chandigarh">Chandigarh</option>
+                                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                                <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                                <option value="Daman and Diu">Daman and Diu</option>
+                                                <option value="Delhi">Delhi</option>
+                                                <option value="Lakshadweep">Lakshadweep</option>
+                                                <option value="Puducherry">Puducherry</option>
+                                                <option value="Goa">Goa</option>
+                                                <option value="Gujarat">Gujarat</option>
+                                                <option value="Haryana">Haryana</option>
+                                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                <option value="Jharkhand">Jharkhand</option>
+                                                <option value="Karnataka">Karnataka</option>
+                                                <option value="Kerala">Kerala</option>
+                                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                <option value="Maharashtra">Maharashtra</option>
+                                                <option value="Manipur">Manipur</option>
+                                                <option value="Meghalaya">Meghalaya</option>
+                                                <option value="Mizoram">Mizoram</option>
+                                                <option value="Nagaland">Nagaland</option>
+                                                <option value="Odisha">Odisha</option>
+                                                <option value="Punjab">Punjab</option>
+                                                <option value="Rajasthan">Rajasthan</option>
+                                                <option value="Sikkim">Sikkim</option>
+                                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                                <option value="Telangana">Telangana</option>
+                                                <option value="Tripura">Tripura</option>
+                                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                <option value="Uttarakhand">Uttarakhand</option>
+                                                <option value="West Bengal">West Bengal</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                        <!-- <div class="col-xl-6 mb-2">
+                                            <label>PIN/ZIP Code&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                        <div class="form-group">
+                                            <input class="form-control form-control-sm" type="number" v-model="insForm.insAddressPinzip" :disabled="globalDisable">
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="submit" ><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- End of Institute modal -->
         </div>
 </section>
 </template>
@@ -1154,26 +1155,21 @@ export default {
             globalDisable: false,
             csrf:   document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             userId: document.querySelector("meta[name='userId']").getAttribute('content'),
-
             applicantDisablitySelfShow : true,
             applicantDisablityMotherShow: true,
             applicantDisablityFatherShow: true,
-
             getExaminationLevel: {},
             getExaminationLevel10 : '',
             getExaminationLevel12 : '',
             getExaminationLevel13 : '',
-
             examinationPassedValues: {},
             examinationPassedValues10:{},
             examinationPassedValues12:{},
             examinationPassedValues13:{},
-
             universityBoardCouncilValues:{},
             universityBoardCouncilValues10:{},
             universityBoardCouncilValues12:{},
             universityBoardCouncilValues13:{},
-
             universityCourseLevel: {},
             universityCourseName: {},
             domainForm: {
@@ -1221,7 +1217,6 @@ export default {
                 education1YearOfPassing: '',
                 education1Percentage: '',
                 education1Division: '',
-
                 //education level 12
                 education2ExaminationLevel:'',
                 education2ExaminationPassed: '',
@@ -1230,7 +1225,6 @@ export default {
                 education2YearOfPassing: '',
                 education2Percentage: '',
                 education2Division: '',
-
                 //education level graduate for HHDLS only (13)
                 education3ExaminationLevel:'',
                 education3ExaminationPassed: '',
@@ -1241,7 +1235,6 @@ export default {
                 education3Division: '',
                 
                 //end Education
-
                 //additional qualification
                 additional1ExaminationLevel:'10',
                 additional1ExaminationPassed: '',
@@ -1250,7 +1243,6 @@ export default {
                 additional1YearOfPassing: '',
                 additional1Percentage: '',
                 additional1Division: '',
-
                 additional2ExaminationLevel:'12',
                 additional2ExaminationPassed: '',
                 additional2University: '',
@@ -1258,7 +1250,6 @@ export default {
                 additional2YearOfPassing: '',
                 additional2Percentage: '',
                 additional2Division: '',
-
                 //end of qualification
                 
                 hasAdmissionLetter:'YES',
@@ -1286,13 +1277,11 @@ export default {
                 miscRelationship1:'',
                 miscRelationship2:'',
                 miscRelationship3:'',
-
                 appIdShow: '',
             },
             getdata: {},
             errors :'',
             error:[],
-
             //institute
             insData:{},
             insId: '',
@@ -1330,7 +1319,6 @@ export default {
                             //     this.form.courseNameValueId = '';
                             //     this.form.recognizedByINC='';
                             // }
-
                             this.$fire({
                                 position: 'top',
                                 icon: 'success',
@@ -1347,7 +1335,7 @@ export default {
                     this.$fire({
                         position: 'top',
                         icon: 'error',
-                        title: "At leat one family member should be leprocy affected",
+                        title: "At least one family member should be leprosy affected",
                         showConfirmButton: false,
                         timer: 3500
                     })
@@ -1380,7 +1368,7 @@ export default {
                     this.$fire({
                         position: 'top',
                         icon: 'error',
-                        title: "At leat one family member should be leprocy affected",
+                        title: "At least one family member should be leprosy affected",
                         showConfirmButton: false,
                         timer: 3500
                     })
@@ -1482,7 +1470,6 @@ export default {
                                 this.form.education1Percentage= response.data['data'][1][0].percentage,
                                 this.form.education1Division= response.data['data'][1][0].division;
                         };
-
                         //education level 12
                         if(response.data['data'][1][1].get_exam_level_domain_values.id == 2){
                                // this.form.education2ExaminationLevel='12',
@@ -1493,7 +1480,6 @@ export default {
                                 this.form.education2Percentage= response.data['data'][1][1].percentage,
                                 this.form.education2Division= response.data['data'][1][1].division;
                         };
-
                         //education level graduate for HHDLS only (13)
                         if(response.data['data'][1][2].get_exam_level_domain_values.id == 3){
                                // this.form.education3ExaminationLevel='13',
@@ -1507,7 +1493,6 @@ export default {
                         //  this.readInsValue(this.form.scholarshipType);
                         //  this.readDomainValues(this.form.scholarshipType);
                          
-
                         this.form.miscName1= response.data['data'][2][0].name;
                         this.form.miscCourse1= response.data['data'][2][0].course;
                         this.form.miscYear1= response.data['data'][2][0].year;
@@ -1517,9 +1502,7 @@ export default {
                         this.form.miscName3= response.data['data'][2][2].name;
                         this.form.miscCourse3= response.data['data'][2][2].course;
                         this.form.miscYear3= response.data['data'][2][2].year;
-
                         
-
                     } 
                     else {
                         console.log(response.data['msg'])
@@ -1528,9 +1511,7 @@ export default {
                 // axios.get(`/api/get-application-form-data/${applicationId}`)
                 // .then(response => {
                 //     if (response.data['success']) {
-
                      
-
                 //     } 
                 //     else {
                 //         console.log(response.data['msg'])
@@ -1544,7 +1525,7 @@ export default {
                         this.$fire({
                             position: 'top',
                             icon: 'error',
-                            title: "All required fields must be enter",
+                            title: "All required fields must be entered",
                             showConfirmButton: false,
                             timer: 3000
                         })
@@ -1561,13 +1542,13 @@ export default {
                         break;
                     }
                     case 500:{
-                        this.$fire({
-                            position: 'top',
-                            icon: 'error',
-                            title: "Duplicate value already exists",
-                            showConfirmButton: false,
-                            timer: 3000
-                        })
+                        // this.$fire({
+                        //     position: 'top',
+                        //     icon: 'error',
+                        //     title: "Duplicate value already exists",
+                        //     showConfirmButton: false,
+                        //     timer: 3000
+                        // })
                         break;
                     }
                     default: {
@@ -1605,7 +1586,6 @@ export default {
             },
             readInitialDomainValues()
             {
-
                 axios.get('/api/domain/examinationLevel')
                     .then(response => {
                         this.getExaminationLevel= response.data;
@@ -1628,7 +1608,6 @@ export default {
                     });
                 
                  //Examination Passed
-
                 axios.get('/api/domain/examinationPassed10')
                     .then(response => {
                         this.examinationPassedValues10= response.data;
@@ -1641,9 +1620,7 @@ export default {
                     .then(response => {
                         this.examinationPassedValues13= response.data;
                     });
-
                  //Board and council
-
                 axios.get('/api/domain/universityBoardCouncil')
                     .then(response => {
                         this.universityBoardCouncilValues= response.data;
@@ -1660,23 +1637,17 @@ export default {
                     .then(response => {
                         this.universityBoardCouncilValues13= response.data;
                     });
-
                 //Course Level
                 // console.log(this.form.scholarshipType)
                 // if(this.form.scholarshipType == 'HHDLS')
                 // {
                 //     console.log("test")
                     
-
                     
                 // }else 
                 // {
                    
                 // };
-
-
-
-
             },
             readDomainValues(type)
             {
@@ -1701,7 +1672,6 @@ export default {
                         .then(response => {
                             this.universityCourseLevel= response.data;
                         });
-
                 }
              
                
@@ -1748,9 +1718,7 @@ export default {
             {
                 this.domainForm.domainName = data;
             },
-
             //institute
-
             readInsValue(type)
             {
                 axios.get('/api/institute/get-data/'+type)
@@ -1758,7 +1726,6 @@ export default {
                         this.insData = response.data;
                     });
             },
-
             saveInstitute()
             {
                 axios.post('/api/institute/add',this.insForm)
@@ -1779,7 +1746,6 @@ export default {
                     }
                 }).catch(error => this.errorMsg(error.response.status))
             },
-
             onChangeIns(event)
             {
                 this.insId = event.target.value;
@@ -1801,7 +1767,6 @@ export default {
                     
                 }
             },
-
             dataIns(id)
             {
                 
@@ -1845,7 +1810,6 @@ export default {
                 
                
             },
-
             check2(event)
             {
                 if(event.target.value == 'on')
@@ -1857,7 +1821,6 @@ export default {
                     this.form.applicantDisablityFather = false;
                 
             },
-
             check3(event)
             {
                 if(event.target.value == 'on')
@@ -1867,7 +1830,6 @@ export default {
                 }
                     this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedMother;
                     this.form.applicantDisablityMother = false;
-
             },
             getHHDLSData(event)
             {
@@ -1876,7 +1838,6 @@ export default {
                     .then(response => {
                         this.universityCourseName = response.data;
                     });   
-
             },
             getHHDLSData2(id)
             {
@@ -1903,8 +1864,6 @@ export default {
                 this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedFather;
             }
             
-
-
          },
          computed:{
              
@@ -1912,7 +1871,6 @@ export default {
          },
          created()
          {
-
             this.readApplicationForm();
             this.checkNewScholarshipType();
             this.readInitialDomainValues();
@@ -1921,3 +1879,19 @@ export default {
          }
 }
  </script>
+
+    © 2021 GitHub, Inc.
+    Terms
+    Privacy
+    Security
+    Status
+    Docs
+
+    Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+
+Loading complete

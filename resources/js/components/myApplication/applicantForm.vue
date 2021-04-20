@@ -1,7 +1,7 @@
 <template>
 <section class="page-main">
         <div class="container">
-            <form @submit.prevent="saveForm">
+            <form>
                 <div class="form-row">
                     <div class="col-xl-12 text-center mb-3">
                         <h5 class="text-capitalize text-center color-mg"><strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.appIdShow == '' ? '' : '( APP NO: '+form.appIdShow+')'}}</strong></h5>
@@ -1130,7 +1130,7 @@
                         </div>
                     </div>
                     <div class="col-xl-2 offset-xl-4 my-2" v-if="globalDisable == false">
-                        <button class="btn btn-block btn-sm btn-mg" type="submit">
+                        <button class="btn btn-block btn-sm btn-mg" type="submit" @click="saveForm">
                             <strong>Save</strong>
                         </button>
                     </div>

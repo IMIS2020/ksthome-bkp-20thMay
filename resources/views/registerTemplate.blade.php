@@ -42,7 +42,7 @@
               <p style=" margin-left:30px; font-size:20px; color:red
               ">
               This is an automated no-reply mail. Please do not reply to this message as this mail id is unattended, and cannot help with questions or requests.<br>
-              <span style="color: #000">For any clarifications kindly use the 'Contact us' mentioned in the S-ILF Scholarships website .</span>
+              <span style="color: #000">For any clarifications kindly call us at 9990503759/9891572290 or email us at  scholarships@silf.in .</span>
               </p>
 
               <!-- <p style=" margin-left:30px; font-size:20px;

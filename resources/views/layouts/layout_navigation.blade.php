@@ -27,7 +27,7 @@
 <body>
   
 <nav class="navbar navbar-dark navbar-expand-md shadow-lg imis-nav">
-  <div class="container-fluid"><img class="img-thumbnail mr-2" style="margin-left : -35px" src="{{ asset('assets/img/logo.jpg') }}" /><a class="navbar-brand text-white"  style="font-size: 35px" href="/">S-ILF Scholarships</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+  <div class="container-fluid"><img class="img-thumbnail mr-4" style="margin-left : -35px" src="{{ asset('assets/img/logo3.png') }}" /><a class="navbar-brand text-white"  style="font-size: 35px" href="/">S-ILF Scholarships</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navcol-1">
       <ul class="navbar-nav ml-auto font-md">
           @if (Route::has('login'))

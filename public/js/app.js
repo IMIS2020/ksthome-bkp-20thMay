@@ -79034,7 +79034,7 @@ var render = function() {
                             _vm._s(
                               _vm.form.miscYear1 == ""
                                 ? "N/A"
-                                : _vm.form.miscYear3
+                                : _vm.form.miscYear1
                             )
                           )
                         ])
@@ -79076,55 +79076,53 @@ var render = function() {
                             _vm._s(
                               _vm.form.miscYear2 == ""
                                 ? "N/A"
-                                : _vm.form.miscYear3
+                                : _vm.form.miscYear2
                             )
                           )
                         ])
                       ]),
                       _vm._v(" "),
-                      _vm.form.scholarshipType == "HHDLS"
-                        ? _c("tr", { staticClass: "fw-600" }, [
-                            _c("td", [
-                              _vm._v(
-                                _vm._s(
-                                  _vm.form.miscName3 == ""
-                                    ? "N/A"
-                                    : _vm.form.miscName3
-                                )
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _vm._v(
-                                _vm._s(
-                                  _vm.form.mRelationship3 == ""
-                                    ? "N/A"
-                                    : _vm.form.mRelationship3
-                                )
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _vm._v(
-                                _vm._s(
-                                  _vm.form.miscCourse3 == ""
-                                    ? "N/A"
-                                    : _vm.form.miscCourse3
-                                )
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _vm._v(
-                                _vm._s(
-                                  _vm.form.miscYear3 == ""
-                                    ? "N/A"
-                                    : _vm.form.miscYear3
-                                )
-                              )
-                            ])
-                          ])
-                        : _vm._e()
+                      _c("tr", { staticClass: "fw-600" }, [
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.form.miscName3 == ""
+                                ? "N/A"
+                                : _vm.form.miscName3
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.form.mRelationship3 == ""
+                                ? "N/A"
+                                : _vm.form.mRelationship3
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.form.miscCourse3 == ""
+                                ? "N/A"
+                                : _vm.form.miscCourse3
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.form.miscYear3 == ""
+                                ? "N/A"
+                                : _vm.form.miscYear3
+                            )
+                          )
+                        ])
+                      ])
                     ])
                   ]
                 )
@@ -79153,7 +79151,15 @@ var render = function() {
             _vm._v(" "),
             _vm.form.lastdateSubmit != null
               ? _c("p", { staticClass: "color-mg text-center" }, [
-                  _vm._v("Date Submitted : " + _vm._s(_vm.form.lastdateSubmit))
+                  _vm._v(
+                    "Date Submitted : " +
+                      _vm._s(
+                        _vm.form.lastdateSubmit
+                          .split("-")
+                          .reverse()
+                          .join("/")
+                      )
+                  )
                 ])
               : _vm._e()
           ])

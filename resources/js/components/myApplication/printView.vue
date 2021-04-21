@@ -293,15 +293,15 @@
                                         <td>{{form.miscName1 == '' ? ' N/A' : form.miscName1}}</td>
                                         <td>{{form.mRelationship1 == '' ? 'N/A' : form.mRelationship1}}</td>
                                         <td>{{form.miscCourse1 == '' ? 'N/A' : form.miscCourse1}}</td>
-                                        <td>{{form.miscYear1 == '' ? 'N/A' : form.miscYear3}}</td>
+                                        <td>{{form.miscYear1 == '' ? 'N/A' : form.miscYear1}}</td>
                                     </tr>
                                     <tr class="fw-600">
                                         <td>{{form.miscName2 == '' ? 'N/A' : form.miscName2}}</td>
                                         <td>{{form.mRelationship2 == '' ? 'N/A' : form.mRelationship2}}</td>
                                         <td>{{form.miscCourse2 == '' ? 'N/A' : form.miscCourse2}}</td>
-                                        <td>{{form.miscYear2 == '' ? 'N/A' : form.miscYear3}}</td>
+                                        <td>{{form.miscYear2 == '' ? 'N/A' : form.miscYear2}}</td>
                                     </tr>
-                                     <tr class="fw-600" v-if="form.scholarshipType == 'HHDLS'">
+                                     <tr class="fw-600">
                                         <td>{{form.miscName3 == '' ? 'N/A' : form.miscName3}}</td>
                                         <td>{{form.mRelationship3 == '' ? 'N/A' : form.mRelationship3}}</td>
                                         <td>{{form.miscCourse3 == '' ? 'N/A' : form.miscCourse3}}</td>
@@ -318,7 +318,7 @@
                     <div class="col-xl-12 mt-1">
                         <p class="font-md">&nbsp;I {{form.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under "{{form.scholarshipType}} Scholarship" could be withdrawn.</p>
                          <p class="color-mg text-center">This is an electronically generated document and does not require a signature</p>
-                         <p class="color-mg text-center" v-if="form.lastdateSubmit != null">Date Submitted : {{form.lastdateSubmit}}</p>
+                         <p class="color-mg text-center" v-if="form.lastdateSubmit != null">Date Submitted : {{form.lastdateSubmit.split('-').reverse().join('/')}}</p>
                     </div>
                 </div>
             </div>

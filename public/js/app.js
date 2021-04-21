@@ -7846,7 +7846,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             _this.courseNameValueId2 = "Bsc. Nursing";
           } else {
             _this.courseLevelValueId2 = response.data['data'][1].get_course_level_value.description;
-            _this.courseNameValueId2 = response.data['data'][0].get_course_level_name.value;
+            _this.courseNameValueId2 = response.data['data'][1].get_course_level_name.value;
           }
 
           _this.getHHDLSData2(_this.courseLevelValueId2);

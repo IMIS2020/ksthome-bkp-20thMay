@@ -170,7 +170,7 @@ export default{
                     }else
                     {
                         this.courseLevelValueId2 = response.data['data'][1].get_course_level_value.description;
-                        this.courseNameValueId2  = response.data['data'][0].get_course_level_name.value;
+                        this.courseNameValueId2  = response.data['data'][1].get_course_level_name.value;
                     }
                     this.getHHDLSData2(this.courseLevelValueId2);
                     this.update = true;

@@ -7845,8 +7845,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             _this.courseLevelValueId2 = "Bachelor";
             _this.courseNameValueId2 = "Bsc. Nursing";
           } else {
-            _this.courseLevelValueId2 = response.data['data'][0].courseLevelValueId;
-            _this.courseNameValueId2 = response.data['data'][0].courseNameValueId;
+            _this.courseLevelValueId2 = response.data['data'][1].get_course_level_value.description;
+            _this.courseNameValueId2 = response.data['data'][0].get_course_level_name.value;
           }
 
           _this.getHHDLSData2(_this.courseLevelValueId2);
@@ -7914,63 +7914,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    readDomainValues: function readDomainValues(type) {
+    readInsValue: function readInsValue(type) {
       var _this3 = this;
 
-      if (type == 'HHDLS') {
-        // axios.get('/api/domain/course-name/hhdls')
-        //     .then(response => {
-        //         this.universityCourseName = response.data;
-        //     });   
-        axios.get('/api/domain/course-level/hhdls').then(function (response) {
-          _this3.universityCourseLevel = response.data;
-        });
-      } else if (type == 'Nursing') {
-        axios.get('/api/domain/course-name/nursing').then(function (response) {
-          _this3.universityCourseName = response.data;
-        });
-        axios.get('/api/domain/course-level/nursing').then(function (response) {
-          _this3.universityCourseLevel = response.data;
-        });
-      }
-    },
-    readInsValue: function readInsValue(type) {
-      var _this4 = this;
-
       axios.get('/api/institute/get-data/' + type).then(function (response) {
-        _this4.insData = response.data;
+        _this3.insData = response.data;
       });
     },
     getData: function getData(insId, index) {
-      var _this5 = this;
+      var _this4 = this;
 
       console.lof(insId);
       axios.get('/api/institute/get-details/' + insId).then(function (response) {
         if (response.data['success']) {
-          _this5.rows[index].addressAddln1 = response.data['data'][0].get_address.addressAddln1;
-          _this5.rows[index].addressAddln2 = response.data['data'][0].get_address.addressAddln2;
-          _this5.rows[index].addressCity = response.data['data'][0].get_address.addressCity;
-          _this5.rows[index].addressDistprov = response.data['data'][0].get_address.addressDistprov;
-          _this5.rows[index].addressState = response.data['data'][0].get_address.addressState;
-          _this5.rows[index].addressPinzip = response.data['data'][0].get_address.addressPinzip;
+          _this4.rows[index].addressAddln1 = response.data['data'][0].get_address.addressAddln1;
+          _this4.rows[index].addressAddln2 = response.data['data'][0].get_address.addressAddln2;
+          _this4.rows[index].addressCity = response.data['data'][0].get_address.addressCity;
+          _this4.rows[index].addressDistprov = response.data['data'][0].get_address.addressDistprov;
+          _this4.rows[index].addressState = response.data['data'][0].get_address.addressState;
+          _this4.rows[index].addressPinzip = response.data['data'][0].get_address.addressPinzip;
         } else {
           console.log(response.data['msg']);
         }
       })["catch"](function (error) {
-        return _this5.errorMsg(error.response.status);
+        return _this4.errorMsg(error.response.status);
       });
     },
     getHHDLSData2: function getHHDLSData2(id) {
-      var _this6 = this;
+      var _this5 = this;
 
       axios.get('/api/domain/course-name/hhdls/' + id).then(function (response) {
-        _this6.universityCourseName = response.data;
+        _this5.universityCourseName = response.data;
       });
     }
   },
   created: function created() {
     // this.readInsValue();
-    this.readDomainValues();
+    // this.readDomainValues();
     this.readApplicationForm();
     this.getannexurei();
   }
@@ -68136,9 +68116,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _c("label", [
-                                        _vm._v("Father's full name:")
-                                      ]),
+                                      _vm._m(3),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -68156,7 +68134,8 @@ var render = function() {
                                             "form-control form-control-sm",
                                           attrs: {
                                             type: "text",
-                                            disabled: _vm.globalDisable
+                                            disabled: _vm.globalDisable,
+                                            required: ""
                                           },
                                           domProps: {
                                             value: _vm.form.applicantFatherName
@@ -68178,9 +68157,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _c("label", [
-                                        _vm._v("Mother's full name:")
-                                      ]),
+                                      _vm._m(4),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -68198,7 +68175,8 @@ var render = function() {
                                             "form-control form-control-sm",
                                           attrs: {
                                             type: "text",
-                                            disabled: _vm.globalDisable
+                                            disabled: _vm.globalDisable,
+                                            required: ""
                                           },
                                           domProps: {
                                             value: _vm.form.applicantMotherName
@@ -68220,7 +68198,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-2" }, [
-                                      _vm._m(3),
+                                      _vm._m(5),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -68259,7 +68237,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-2" }, [
-                                      _vm._m(4),
+                                      _vm._m(6),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c(
@@ -68335,7 +68313,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-2" }, [
-                                      _vm._m(5),
+                                      _vm._m(7),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c(
@@ -68412,7 +68390,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-5" }, [
-                                      _vm._m(6),
+                                      _vm._m(8),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c(
@@ -68758,7 +68736,7 @@ var render = function() {
                                           "col-xl-3 align-self-center"
                                       },
                                       [
-                                        _vm._m(7),
+                                        _vm._m(9),
                                         _vm._v(" "),
                                         _c(
                                           "div",
@@ -69383,12 +69361,12 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "col-xl-12" }, [
                               _c("div", { staticClass: "card mt-2 det-sec" }, [
-                                _vm._m(8),
+                                _vm._m(10),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "card-body" }, [
                                   _c("div", { staticClass: "form-row" }, [
                                     _c("div", { staticClass: "col-xl-5" }, [
-                                      _vm._m(9),
+                                      _vm._m(11),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -69465,7 +69443,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-2" }, [
-                                      _vm._m(10),
+                                      _vm._m(12),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -69542,7 +69520,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(11),
+                                      _vm._m(13),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c(
@@ -69879,7 +69857,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(12),
+                                      _vm._m(14),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -69918,7 +69896,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(13),
+                                      _vm._m(15),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -69960,7 +69938,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(14),
+                                      _vm._m(16),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -70004,7 +69982,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(15),
+                                      _vm._m(17),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -70044,7 +70022,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(16),
+                                      _vm._m(18),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -70087,7 +70065,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(17),
+                                      _vm._m(19),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -70136,7 +70114,7 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "col-xl-12" }, [
                               _c("div", { staticClass: "card mt-2 det-sec" }, [
-                                _vm._m(18),
+                                _vm._m(20),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "card-body" }, [
                                   _c("div", { staticClass: "form-row" }, [
@@ -70144,7 +70122,7 @@ var render = function() {
                                       "div",
                                       { staticClass: "col-xl-12 mb-2" },
                                       [
-                                        _vm._m(19),
+                                        _vm._m(21),
                                         _vm._v(" "),
                                         _c(
                                           "div",
@@ -70168,7 +70146,7 @@ var render = function() {
                                                   },
                                                   [
                                                     _c("tr", [
-                                                      _vm._m(20),
+                                                      _vm._m(22),
                                                       _vm._v(" "),
                                                       _c("th", [
                                                         _vm._v(
@@ -70256,13 +70234,13 @@ var render = function() {
                                                         ])
                                                       ]),
                                                       _vm._v(" "),
-                                                      _vm._m(21),
-                                                      _vm._v(" "),
-                                                      _vm._m(22),
-                                                      _vm._v(" "),
                                                       _vm._m(23),
                                                       _vm._v(" "),
                                                       _vm._m(24),
+                                                      _vm._v(" "),
+                                                      _vm._m(25),
+                                                      _vm._v(" "),
+                                                      _vm._m(26),
                                                       _vm._v(" "),
                                                       _c("th", [
                                                         _vm._v("Action")
@@ -71018,7 +70996,7 @@ var render = function() {
                                                       )
                                                     ]),
                                                     _vm._v(" "),
-                                                    _vm._m(25)
+                                                    _vm._m(27)
                                                   ]),
                                                   _vm._v(" "),
                                                   _c("tr", [
@@ -71231,7 +71209,7 @@ var render = function() {
                                                                     "modal-content"
                                                                 },
                                                                 [
-                                                                  _vm._m(26),
+                                                                  _vm._m(28),
                                                                   _vm._v(" "),
                                                                   _c(
                                                                     "div",
@@ -71515,7 +71493,7 @@ var render = function() {
                                                                           )
                                                                         ]
                                                                       ),
-                                                                      _vm._m(27)
+                                                                      _vm._m(29)
                                                                     ]
                                                                   )
                                                                 ]
@@ -71672,7 +71650,7 @@ var render = function() {
                                                                     "modal-content"
                                                                 },
                                                                 [
-                                                                  _vm._m(28),
+                                                                  _vm._m(30),
                                                                   _vm._v(" "),
                                                                   _c(
                                                                     "div",
@@ -71956,7 +71934,7 @@ var render = function() {
                                                                           )
                                                                         ]
                                                                       ),
-                                                                      _vm._m(29)
+                                                                      _vm._m(31)
                                                                     ]
                                                                   )
                                                                 ]
@@ -72415,7 +72393,7 @@ var render = function() {
                                                       )
                                                     ]),
                                                     _vm._v(" "),
-                                                    _vm._m(30)
+                                                    _vm._m(32)
                                                   ]),
                                                   _vm._v(" "),
                                                   _vm.form.scholarshipType ==
@@ -72637,7 +72615,7 @@ var render = function() {
                                                                     },
                                                                     [
                                                                       _vm._m(
-                                                                        31
+                                                                        33
                                                                       ),
                                                                       _vm._v(
                                                                         " "
@@ -72927,7 +72905,7 @@ var render = function() {
                                                                             ]
                                                                           ),
                                                                           _vm._m(
-                                                                            32
+                                                                            34
                                                                           )
                                                                         ]
                                                                       )
@@ -73089,7 +73067,7 @@ var render = function() {
                                                                     },
                                                                     [
                                                                       _vm._m(
-                                                                        33
+                                                                        35
                                                                       ),
                                                                       _vm._v(
                                                                         " "
@@ -73379,7 +73357,7 @@ var render = function() {
                                                                             ]
                                                                           ),
                                                                           _vm._m(
-                                                                            34
+                                                                            36
                                                                           )
                                                                         ]
                                                                       )
@@ -73984,11 +73962,11 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "col-xl-12" }, [
                               _c("div", { staticClass: "card mt-2 det-sec" }, [
-                                _vm._m(35),
+                                _vm._m(37),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "card-body" }, [
                                   _c("div", { staticClass: "form-row" }, [
-                                    _vm._m(36),
+                                    _vm._m(38),
                                     _vm._v(" "),
                                     _c(
                                       "div",
@@ -74096,10 +74074,10 @@ var render = function() {
                                       ]
                                     ),
                                     _vm._v(" "),
-                                    _vm._m(37),
+                                    _vm._m(39),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(38),
+                                      _vm._m(40),
                                       _vm._v(" "),
                                       _c(
                                         "div",
@@ -74197,7 +74175,7 @@ var render = function() {
                                     _c("div", { staticClass: "col-xl-3" }, [
                                       _c("label", [
                                         _vm._v("Name of the course "),
-                                        _vm._m(39),
+                                        _vm._m(41),
                                         _vm.inputDisabled == false
                                           ? _c(
                                               "a",
@@ -74403,7 +74381,7 @@ var render = function() {
                                     _c("div", { staticClass: "col-xl-6" }, [
                                       _c("label", [
                                         _vm._v("Name of the institute "),
-                                        _vm._m(40),
+                                        _vm._m(42),
                                         _vm._v(" "),
                                         _vm.inputDisabled == false
                                           ? _c(
@@ -74594,7 +74572,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(41),
+                                      _vm._m(43),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c(
@@ -74930,7 +74908,7 @@ var render = function() {
                                     _vm._v(" "),
                                     _vm.form.scholarshipType == "Nursing"
                                       ? _c("div", { staticClass: "col-xl-4" }, [
-                                          _vm._m(42),
+                                          _vm._m(44),
                                           _vm._v(" "),
                                           _c(
                                             "div",
@@ -75028,7 +75006,7 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "col-xl-12" }, [
                               _c("div", { staticClass: "card mt-2 det-sec" }, [
-                                _vm._m(43),
+                                _vm._m(45),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "card-body" }, [
                                   _c("div", { staticClass: "form-row" }, [
@@ -75036,7 +75014,7 @@ var render = function() {
                                       "div",
                                       { staticClass: "col-xl-12 mb-2" },
                                       [
-                                        _vm._m(44),
+                                        _vm._m(46),
                                         _vm._v(" "),
                                         _c(
                                           "div",
@@ -75052,7 +75030,7 @@ var render = function() {
                                                   "table table-sm mb-0"
                                               },
                                               [
-                                                _vm._m(45),
+                                                _vm._m(47),
                                                 _vm._v(" "),
                                                 _c("tbody", [
                                                   _c("tr", [
@@ -75943,7 +75921,7 @@ var render = function() {
             _vm._v(" "),
             _vm.globalDisable == false
               ? _c("div", { staticClass: "col-xl-2 offset-xl-4 my-2" }, [
-                  _vm._m(46)
+                  _vm._m(48)
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -76008,7 +75986,7 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(47),
+                    _vm._m(49),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body cs-modal-body" }, [
                       _c("div", { staticClass: "form-row" }, [
@@ -76146,7 +76124,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(48)
+                    _vm._m(50)
                   ])
                 ]
               )
@@ -76181,7 +76159,7 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(49),
+                    _vm._m(51),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body cs-modal-body" }, [
                       _c("div", { staticClass: "form-row" }, [
@@ -76329,7 +76307,7 @@ var render = function() {
                         },
                         [_c("strong", [_vm._v("Add")])]
                       ),
-                      _vm._m(50)
+                      _vm._m(52)
                     ])
                   ])
                 ]
@@ -76365,12 +76343,12 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(51),
+                    _vm._m(53),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body cs-modal-body" }, [
                       _c("div", { staticClass: "form-row" }, [
                         _c("div", { staticClass: "col-xl-12 mb-2" }, [
-                          _vm._m(52),
+                          _vm._m(54),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -76435,7 +76413,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                          _vm._m(53),
+                          _vm._m(55),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
                             _c("input", {
@@ -76508,7 +76486,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                          _vm._m(54),
+                          _vm._m(56),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
                             _c(
@@ -76755,7 +76733,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(55)
+                    _vm._m(57)
                   ])
                 ]
               )
@@ -76790,7 +76768,7 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(56),
+                    _vm._m(58),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body cs-modal-body" }, [
                       _c("div", { staticClass: "form-row" }, [
@@ -76954,7 +76932,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(57)
+                    _vm._m(59)
                   ])
                 ]
               )
@@ -76989,6 +76967,24 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", [
       _vm._v("Applicant's Last name: "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Father's full name: "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Mother's full name: "),
       _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
     ])
   },
@@ -78131,7 +78127,7 @@ var render = function() {
                   _vm._s(_vm.form.addressAddln1) +
                   ", want to pursue " +
                   _vm._s(_vm.courseLevelValueId2) +
-                  "'s digree in " +
+                  "'s degree in " +
                   _vm._s(_vm.courseNameValueId2) +
                   " In academic year " +
                   _vm._s(_vm.form.financialYear) +
@@ -78178,9 +78174,9 @@ var render = function() {
                           _c("strong", [
                             _vm._v(
                               _vm._s(row.addressCity) +
-                                ", " +
+                                " " +
                                 _vm._s(row.addressDistprov) +
-                                ", " +
+                                " " +
                                 _vm._s(row.addressState)
                             )
                           ]),

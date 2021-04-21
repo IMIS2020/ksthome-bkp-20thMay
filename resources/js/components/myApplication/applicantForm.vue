@@ -50,15 +50,15 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-3">
-                                                                    <label>Father's full name:</label>
+                                                                    <label>Father's full name:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="form.applicantFatherName" :disabled="globalDisable">
+                                                                        <input class="form-control form-control-sm" type="text" v-model="form.applicantFatherName" :disabled="globalDisable" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-3">
-                                                                    <label>Mother's full name:</label>
+                                                                    <label>Mother's full name:&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="text" v-model="form.applicantMotherName" :disabled="globalDisable">
+                                                                        <input class="form-control form-control-sm" type="text" v-model="form.applicantMotherName" :disabled="globalDisable" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-2">

@@ -20,7 +20,7 @@ class AnnexureI extends Model
 
     public function get_courseLevelValue()
     {
-        return $this->belongsTo(DomainValues::class,'courseLevelValueId');
+        return $this->belongsTo(DomainName::class,'courseLevelValueId');
     }
 
     public function get_courseLevelName()

@@ -790,7 +790,7 @@ class ApplicationController extends Controller
      public function getAnnexure1(string $applicationId)
      {
         $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first();
-        $getData = AnnexureI::with('get_institute','get_courseLevelName')->where('applicationId',$getApplicationId->id)->get();
+        $getData = AnnexureI::with('get_institute','get_courseLevelName','get_courseLevelValue')->where('applicationId',$getApplicationId->id)->get();
         $data = json_decode(json_encode($getData));
         if($data)
         {

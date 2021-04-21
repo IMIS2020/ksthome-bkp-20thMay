@@ -18,6 +18,9 @@ class DocumentMaster extends Controller
 {
     public function createDocMasterData($motherL,$fatherL,$selfL,$hasAdmission,$motherD,$fatherD,$selfD,$grad,$applictionId)
     {
+        $userId= Auth::user()->id;
+        $getAppType = ApplicationDetails::where('id', $applictionId)->first()->scholarshipType;
+        $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
 
         $getData = DocMaster::where('docType','Uploaded')->where('requiredFor',3)->get();
 
@@ -48,7 +51,7 @@ class DocumentMaster extends Controller
                     if($check)
                     {
                         if (!empty($check->docFileName)) {
-                            unlink(storage_path('app/public/uploads/schloarshipRecord/').$check->docFileName);
+                            unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$check->docFileName);
                         }
                         $check->delete();
                     }
@@ -74,7 +77,7 @@ class DocumentMaster extends Controller
                     if($check)
                     {
                         if (!empty($check->docFileName)) {
-                            unlink(storage_path('app/public/uploads/schloarshipRecord/').$check->docFileName);
+                            unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$check->docFileName);
                         }
                         $check->delete();
                         $check->delete();
@@ -100,7 +103,7 @@ class DocumentMaster extends Controller
                     if($check)
                     {
                         if (!empty($check->docFileName)) {
-                            unlink(storage_path('app/public/uploads/schloarshipRecord/').$check->docFileName);
+                            unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$check->docFileName);
                         }
                         $check->delete();
                         $check->delete();
@@ -126,7 +129,7 @@ class DocumentMaster extends Controller
                     if($check)
                     {
                         if (!empty($check->docFileName)) {
-                            unlink(storage_path('app/public/uploads/schloarshipRecord/').$check->docFileName);
+                            unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$check->docFileName);
                         }
                         $check->delete();
                         $check->delete();
@@ -152,7 +155,7 @@ class DocumentMaster extends Controller
                     if($check)
                     {
                         if (!empty($check->docFileName)) {
-                            unlink(storage_path('app/public/uploads/schloarshipRecord/').$check->docFileName);
+                            unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$check->docFileName);
                         }
                         $check->delete();
                     }
@@ -178,7 +181,7 @@ class DocumentMaster extends Controller
                     if($check)
                     {
                         if (!empty($check->docFileName)) {
-                            unlink(storage_path('app/public/uploads/schloarshipRecord/').$check->docFileName);
+                            unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$check->docFileName);
                         }
                         $check->delete();
                         $check->delete();
@@ -204,7 +207,7 @@ class DocumentMaster extends Controller
                     if($check)
                     {
                         if (!empty($check->docFileName)) {
-                            unlink(storage_path('app/public/uploads/schloarshipRecord/').$check->docFileName);
+                            unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$check->docFileName);
                         }
                         $check->delete();
                         $check->delete();
@@ -230,7 +233,7 @@ class DocumentMaster extends Controller
                     if($check)
                     {
                         if (!empty($check->docFileName)) {
-                            unlink(storage_path('app/public/uploads/schloarshipRecord/').$check->docFileName);
+                            unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$check->docFileName);
                         }
                         $check->delete();
                         $check->delete();
@@ -311,7 +314,7 @@ class DocumentMaster extends Controller
     public function getApplicantDoc($shcName,$applicationId)
     {
         $userId= Auth::user()->id;
-        $getAppType = ApplicationDetails::where('userId', $userId)->first()->scholarshipType;
+        $getAppType = ApplicationDetails::where('schApplicationId', $applicationId)->first()->scholarshipType;
         $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
 
         $docDataObj = DocMaster::where('docShortName',$shcName)->first();

@@ -284,7 +284,7 @@ export default{
 
        deleteFile(applicationDocId)
        {
-           axios.get(`/api/del-documents/${applicationDocId}`)
+           axios.get(`/api/del-documents/${applicationDocId}/${this.form.scholarshipType}`)
             .then(response => {
                    if (response.data==1){
                     this.readApplicationForm();

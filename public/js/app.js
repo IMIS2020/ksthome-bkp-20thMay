@@ -5610,7 +5610,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     deleteFile: function deleteFile(applicationDocId) {
       var _this5 = this;
 
-      axios.get("/api/del-documents/".concat(applicationDocId)).then(function (response) {
+      axios.get("/api/del-documents/".concat(applicationDocId, "/").concat(this.form.scholarshipType)).then(function (response) {
         if (response.data == 1) {
           _this5.readApplicationForm();
 
@@ -100201,7 +100201,7 @@ __webpack_require__.r(__webpack_exports__);
   }, {
     path: '/api/get-documents/:applicatioId'
   }, {
-    path: '/api/del-documents/:applicationDocId'
+    path: '/api/del-documents/:applicationDocId/:applicationType'
   }, {
     path: '/api/get-application-file/:shcName/:applicationId'
   },

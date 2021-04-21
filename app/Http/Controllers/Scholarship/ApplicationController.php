@@ -890,7 +890,7 @@ class ApplicationController extends Controller
     public function getDocuments(string $applicationId)
     {
         $userId= Auth::user()->id;
-        $getAppType = ApplicationDetails::where('userId', $userId)->first()->scholarshipType;
+        $getAppType = ApplicationDetails::where('schApplicationId', $applicationId)->first()->scholarshipType;
         $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
 
         $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
@@ -937,10 +937,9 @@ class ApplicationController extends Controller
         }
     }
 
-    public function deleteDoc(string $applicationDocId)
+    public function deleteDoc(string $applicationDocId,string $getAppType)
     {
         $userId= Auth::user()->id;
-        $getAppType = ApplicationDetails::where('userId', $userId)->first()->scholarshipType;
         $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
 
         $delDocFile =ApplicationDocs::where('id', $applicationDocId)->first();

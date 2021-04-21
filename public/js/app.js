@@ -8267,6 +8267,46 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -8374,6 +8414,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         miscName3: '',
         miscCourse3: '',
         miscYear3: '',
+        mRelationship1: '',
+        mRelationship2: '',
+        mRelationship3: '',
         fullName: '',
         lastdateSubmit: '',
         appIdShow: ''
@@ -8478,12 +8521,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
                   if (response.data['success']) {
                     _this.form.miscName1 = response.data['data'][2][0].name;
+                    _this.form.mRelationship1 = response.data['data'][2][0].relationship;
                     _this.form.miscCourse1 = response.data['data'][2][0].course;
                     _this.form.miscYear1 = response.data['data'][2][0].year;
                     _this.form.miscName2 = response.data['data'][2][1].name;
+                    _this.form.mRelationship2 = response.data['data'][2][1].relationship;
                     _this.form.miscCourse2 = response.data['data'][2][1].course;
                     _this.form.miscYear2 = response.data['data'][2][1].year;
                     _this.form.miscName3 = response.data['data'][2][2].name;
+                    _this.form.mRelationship3 = response.data['data'][2][2].relationship;
                     _this.form.miscCourse3 = response.data['data'][2][2].course;
                     _this.form.miscYear3 = response.data['data'][2][2].year;
                   } else {
@@ -78637,7 +78683,7 @@ var render = function() {
             { staticClass: "col-sm-3 col-md-2 col-lg-3 col-xl-2 text-center" },
             [
               _c("img", {
-                staticClass: "img-thumbnail img-fluid applicant-img",
+                staticClass: "img-thumbnail applicant-img",
                 staticStyle: { border: "2px solid black" },
                 attrs: {
                   src:
@@ -78756,7 +78802,11 @@ var render = function() {
                             _vm._v(" "),
                             _c("td", [
                               _vm._v(
-                                _vm._s(_vm.form.education3Percentage) + "%"
+                                _vm._s(
+                                  _vm.form.education3Percentage == ""
+                                    ? ""
+                                    : _vm.form.education3Percentage + "%"
+                                )
                               )
                             ]),
                             _vm._v(" "),
@@ -78833,7 +78883,7 @@ var render = function() {
                               _vm._s(_vm.form.insAddressState) +
                               "\n                                                           " +
                               _vm._s(_vm.form.insAddressPinzip) +
-                              " "
+                              "\n                                       "
                           )
                         ])
                       ]),
@@ -78871,6 +78921,157 @@ var render = function() {
           _vm._v(" "),
           _vm._m(37),
           _vm._v(" "),
+          _c("div", { staticClass: "col-xl-12" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "table-responsive table-bordered rev-tbl font-md ofc-only"
+              },
+              [
+                _c(
+                  "table",
+                  { staticClass: "table table-bordered table-sm mb-0" },
+                  [
+                    _vm._m(38),
+                    _vm._v(" "),
+                    _c("tbody", [
+                      _c("tr", { staticClass: "fw-600" }, [
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.form.miscName1 == ""
+                                ? " N/A"
+                                : _vm.form.miscName1
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.form.mRelationship1 == ""
+                                ? "N/A"
+                                : _vm.form.mRelationship1
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.form.miscCourse1 == ""
+                                ? "N/A"
+                                : _vm.form.miscCourse1
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.form.miscYear1 == ""
+                                ? "N/A"
+                                : _vm.form.miscYear3
+                            )
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tr", { staticClass: "fw-600" }, [
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.form.miscName2 == ""
+                                ? "N/A"
+                                : _vm.form.miscName2
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.form.mRelationship2 == ""
+                                ? "N/A"
+                                : _vm.form.mRelationship2
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.form.miscCourse2 == ""
+                                ? "N/A"
+                                : _vm.form.miscCourse2
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.form.miscYear2 == ""
+                                ? "N/A"
+                                : _vm.form.miscYear3
+                            )
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm.form.scholarshipType == "HHDLS"
+                        ? _c("tr", { staticClass: "fw-600" }, [
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.form.miscName3 == ""
+                                    ? "N/A"
+                                    : _vm.form.miscName3
+                                )
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.form.mRelationship3 == ""
+                                    ? "N/A"
+                                    : _vm.form.mRelationship3
+                                )
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.form.miscCourse3 == ""
+                                    ? "N/A"
+                                    : _vm.form.miscCourse3
+                                )
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.form.miscYear3 == ""
+                                    ? "N/A"
+                                    : _vm.form.miscYear3
+                                )
+                              )
+                            ])
+                          ])
+                        : _vm._e()
+                    ])
+                  ]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(39),
+          _vm._v(" "),
           _c("div", { staticClass: "col-xl-12 mt-1" }, [
             _c("p", { staticClass: "font-md" }, [
               _vm._v(
@@ -78897,7 +79098,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(38)
+      _vm._m(40)
     ])
   ])
 }
@@ -79384,6 +79585,37 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("td", [_c("strong", [_vm._v("Address of the institute")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-xl-12 mt-4" }, [
+      _c("p", { staticClass: "mb-2 font-xl" }, [
+        _c("strong", [
+          _vm._v(
+            "12. Kindly mention the details of your siblings who have received S-ILF Scholarships in the past."
+          )
+        ]),
+        _c("br")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_c("strong", [_vm._v("Name")])]),
+        _vm._v(" "),
+        _c("th", [_c("strong", [_vm._v("Relationship")])]),
+        _vm._v(" "),
+        _c("th", [_c("strong", [_vm._v("Course")])]),
+        _vm._v(" "),
+        _c("th", [_c("strong", [_vm._v("Selection year")])])
+      ])
+    ])
   },
   function() {
     var _vm = this

@@ -830,12 +830,12 @@ class ApplicationController extends Controller
                     $addDoc = new ApplicationDocs;
                     
                     if (isset($saveDoc['docFileNameFile'])) {
-                        $fileName = $this->uploadFile(storage_path('app/public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/'), $saveDoc['docFileNameFile'],$saveDoc['fileName'],$getSchAppId,$index);
+                        $fileName = $this->uploadFile(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/'), $saveDoc['docFileNameFile'],$saveDoc['fileName'],$getSchAppId,$index);
                     } else {
                         $fileName = '';
                     }
                     $addDoc->docFileName               = $fileName;
-                    $addDoc->docFilePath               = 'app/public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/';
+                    $addDoc->docFilePath               = 'app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/';
                     $addDoc->docMasterId               = $saveDoc['idDoc'];
                     $addDoc->applicationId             = $getApplicationId;
                     $addDoc->uploadStatus              = 'YES';
@@ -846,11 +846,11 @@ class ApplicationController extends Controller
 
                     if (isset($saveDoc['docFileNameFile'])) {
                         if (!empty($editDoc->docFileName)) {
-                            unlink(storage_path('app/public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$editDoc->docFileName);
+                            unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$editDoc->docFileName);
                         }
 
-                        $fileName = $this->uploadFile(storage_path('app/public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/'), $saveDoc['docFileNameFile'],$saveDoc['fileName'],$getSchAppId,$index);
-                        $editDoc->docFilePath               = 'app/public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/';
+                        $fileName = $this->uploadFile(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/'), $saveDoc['docFileNameFile'],$saveDoc['fileName'],$getSchAppId,$index);
+                        $editDoc->docFilePath               = 'app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/';
                         $editDoc->docFileName  = $fileName;
                         $editDoc->uploadStatus  = 'YES';
                     }
@@ -871,7 +871,7 @@ class ApplicationController extends Controller
             foreach ($deletable as $del) {
                 $delete = ApplicationDocs::where('id',$del['id'])->first();
                 if (!empty($delete->docFileName)) {
-                    unlink(storage_path('app/public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$delete->docFileName);
+                    unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$delete->docFileName);
                 }
                 $delete->delete();
             }
@@ -900,7 +900,7 @@ class ApplicationController extends Controller
 
         foreach ($getData as $key => $value) {
             $fileName = $value['docFileName'];
-            $url = Storage::url('uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/'.$fileName);
+            $url = Storage::url('uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/'.$fileName);
             $getData[$key]['fileURL'] = $url;
         }
 
@@ -932,8 +932,8 @@ class ApplicationController extends Controller
         $userId= Auth::user()->id;
         $getAppType = ApplicationDetails::where('userId', $userId)->first()->scholarshipType;
         $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
-        if(!Storage::exists('public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/')){
-            Storage::makeDirectory('public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/');
+        if(!Storage::exists('public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/')){
+            Storage::makeDirectory('public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/');
         }
     }
 
@@ -945,7 +945,7 @@ class ApplicationController extends Controller
 
         $delDocFile =ApplicationDocs::where('id', $applicationDocId)->first();
         if (!empty($delDocFile->docFileName)) {
-            unlink(storage_path('app/public/uploads/schloarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$delDocFile->docFileName);
+            unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$delDocFile->docFileName);
         }
         $delDocFile->docFilePath   = null;
         $delDocFile->docFileName   = null;

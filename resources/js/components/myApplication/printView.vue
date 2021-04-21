@@ -188,7 +188,7 @@
                         </div>
                     </div>
                       <div class="col-sm-3 col-md-2 col-lg-3 col-xl-2 text-center">
-                        <img class="img-thumbnail img-fluid applicant-img" :src="(form.userPhoto == '#')?'https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg':form.userPhoto" width="180" height="230" style="border: 2px solid black;">
+                        <img class="img-thumbnail applicant-img" :src="(form.userPhoto == '#')?'https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg':form.userPhoto" width="180" height="230" style="border: 2px solid black;">
                     </div>
                     <div class="col-xl-12 mt-4">
                         <p class="mb-2 font-xl"><strong>10. Details of Educational Qualification:&nbsp;</strong>Matriculation / Higher Secondary<br></p>
@@ -233,7 +233,7 @@
                                         <td>{{form.education3University}}</td>
                                         <td>{{form.education3MainSubjects}}</td>
                                         <td>{{form.education3YearOfPassing}}</td>
-                                        <td>{{form.education3Percentage}}%</td>
+                                        <td>{{form.education3Percentage == '' ? '' : form.education3Percentage+'%'}}</td>
                                         <td>{{form.education3Division}}</td>
                                     </tr>
                                 </tbody>
@@ -262,7 +262,8 @@
                                                             {{form.insAddressCity}}
                                                             {{form.insAddressDistprov}}
                                                             {{form.insAddressState}}
-                                                            {{form.insAddressPinzip}} </td>
+                                                            {{form.insAddressPinzip}}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td v-if="form.scholarshipType == 'Nursing'"><strong>Whether recognized by Indian Nursing Council</strong></td>
@@ -272,6 +273,45 @@
                             </table>
                         </div>
                     </div>
+
+                    <div class="col-xl-12 mt-4">
+                        <p class="mb-2 font-xl"><strong>12. Kindly mention the details of your siblings who have received S-ILF Scholarships in the past.</strong><br></p>
+                    </div>
+                     <div class="col-xl-12">
+                        <div class="table-responsive table-bordered rev-tbl font-md ofc-only">
+                            <table class="table table-bordered table-sm mb-0">
+                                <thead>
+                                    <tr>
+                                        <th><strong>Name</strong></th>
+                                        <th><strong>Relationship</strong></th>
+                                        <th><strong>Course</strong></th>
+                                        <th><strong>Selection year</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="fw-600">
+                                        <td>{{form.miscName1 == '' ? ' N/A' : form.miscName1}}</td>
+                                        <td>{{form.mRelationship1 == '' ? 'N/A' : form.mRelationship1}}</td>
+                                        <td>{{form.miscCourse1 == '' ? 'N/A' : form.miscCourse1}}</td>
+                                        <td>{{form.miscYear1 == '' ? 'N/A' : form.miscYear3}}</td>
+                                    </tr>
+                                    <tr class="fw-600">
+                                        <td>{{form.miscName2 == '' ? 'N/A' : form.miscName2}}</td>
+                                        <td>{{form.mRelationship2 == '' ? 'N/A' : form.mRelationship2}}</td>
+                                        <td>{{form.miscCourse2 == '' ? 'N/A' : form.miscCourse2}}</td>
+                                        <td>{{form.miscYear2 == '' ? 'N/A' : form.miscYear3}}</td>
+                                    </tr>
+                                     <tr class="fw-600" v-if="form.scholarshipType == 'HHDLS'">
+                                        <td>{{form.miscName3 == '' ? 'N/A' : form.miscName3}}</td>
+                                        <td>{{form.mRelationship3 == '' ? 'N/A' : form.mRelationship3}}</td>
+                                        <td>{{form.miscCourse3 == '' ? 'N/A' : form.miscCourse3}}</td>
+                                        <td>{{form.miscYear3 == '' ? 'N/A' : form.miscYear3}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                     <div class="col-sm-4 col-xl-3 mt-3 pr-1">
                         <p class="text-white mb-2 font-xl txt-blk-bg">&nbsp;Self Declaration</p>
                     </div>
@@ -407,6 +447,9 @@ export default{
                 miscName3:'',
                 miscCourse3:'',
                 miscYear3:'',
+                mRelationship1:'',
+                mRelationship2:'',
+                mRelationship3:'',
 
                 fullName: '',
 
@@ -529,14 +572,21 @@ export default{
                 axios.get(`/api/get-application-form-data/${applicationId}`)
                 .then(response => {
                     if (response.data['success']) {
-
+                        
                         this.form.miscName1= response.data['data'][2][0].name;
+                        this.form.mRelationship1 = response.data['data'][2][0].relationship; 
                         this.form.miscCourse1= response.data['data'][2][0].course;
                         this.form.miscYear1= response.data['data'][2][0].year;
+                        
+
                         this.form.miscName2= response.data['data'][2][1].name;
+                        this.form.mRelationship2 = response.data['data'][2][1].relationship;
                         this.form.miscCourse2= response.data['data'][2][1].course;
                         this.form.miscYear2= response.data['data'][2][1].year;
+                        
+
                         this.form.miscName3= response.data['data'][2][2].name;
+                        this.form.mRelationship3 = response.data['data'][2][2].relationship;
                         this.form.miscCourse3= response.data['data'][2][2].course;
                         this.form.miscYear3= response.data['data'][2][2].year;
 

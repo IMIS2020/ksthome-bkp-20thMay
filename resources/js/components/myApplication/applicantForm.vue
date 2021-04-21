@@ -821,6 +821,7 @@
                                                                                     <th>Relationship</th>
                                                                                     <th>Course</th>
                                                                                     <th>Selection year</th>
+                                                                                    <th>Action</th>
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
@@ -853,6 +854,12 @@
                                                                                         <input class="form-control form-control-sm" type="text" v-model="form.miscYear1" :disabled="globalDisable">
                                                                                         </div>
                                                                                     </td>
+
+                                                                                    <td class="text-center">
+                                                                                        <a v-if="globalDisable == false" class="act-link" @click="deleteMis(1)">
+                                                                                            <i class="fa fa-trash"></i>
+                                                                                        </a>
+                                                                                    </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td>
@@ -883,6 +890,12 @@
                                                                                         <input class="form-control form-control-sm" type="text" v-model="form.miscYear2" :disabled="globalDisable">
                                                                                         </div>
                                                                                     </td>
+
+                                                                                    <td class="text-center">
+                                                                                        <a v-if="globalDisable == false" class="act-link" @click="deleteMis(2)">
+                                                                                            <i class="fa fa-trash"></i>
+                                                                                        </a>
+                                                                                    </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td>
@@ -911,6 +924,12 @@
                                                                                         <div class="form-group mb-0">
                                                                                         <input class="form-control form-control-sm" type="text" v-model="form.miscYear3" :disabled="globalDisable">
                                                                                         </div>
+                                                                                    </td>
+
+                                                                                    <td class="text-center">
+                                                                                        <a v-if="globalDisable == false" class="act-link" @click="deleteMis(3)">
+                                                                                            <i class="fa fa-trash"></i>
+                                                                                        </a>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -1893,7 +1912,36 @@ export default {
                 this.applicantDisablityFatherShow = !this.form.applicantLeprosyAffectedFather;
                 this.applicantDisablityMotherShow = !this.form.applicantLeprosyAffectedMother;
                 this.applicantDisablitySelfShow = !this.form.applicantLeprosyAffectedSelf;
+            },
+            deleteMis(index)
+            {
+                switch(index)
+                {
+                    case 1:
+                        this.form.miscName1='';
+                        this.form.miscCourse1='';
+                        this.form.miscYear1='';
+                        this.form.mRelationship1="";
+                    break;
+
+                    case 2:
+                        this.form.miscName2='';
+                        this.form.miscCourse2='';
+                        this.form.miscYear2='';
+                        this.form.mRelationship2="";
+                    break;
+
+                    case 3:
+                        this.form.miscName3='';
+                        this.form.miscCourse3='';
+                        this.form.miscYear3='';
+                        this.form.mRelationship3="";
+                    break;
+                }
+                
             }
+
+
             
          },
          computed:{

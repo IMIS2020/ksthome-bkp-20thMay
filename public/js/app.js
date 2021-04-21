@@ -6809,6 +6809,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -7496,6 +7515,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.applicantDisablityFatherShow = !this.form.applicantLeprosyAffectedFather;
       this.applicantDisablityMotherShow = !this.form.applicantLeprosyAffectedMother;
       this.applicantDisablitySelfShow = !this.form.applicantLeprosyAffectedSelf;
+    },
+    deleteMis: function deleteMis(index) {
+      switch (index) {
+        case 1:
+          this.form.miscName1 = '';
+          this.form.miscCourse1 = '';
+          this.form.miscYear1 = '';
+          this.form.mRelationship1 = "";
+          break;
+
+        case 2:
+          this.form.miscName2 = '';
+          this.form.miscCourse2 = '';
+          this.form.miscYear2 = '';
+          this.form.mRelationship2 = "";
+          break;
+
+        case 3:
+          this.form.miscName3 = '';
+          this.form.miscCourse3 = '';
+          this.form.miscYear3 = '';
+          this.form.mRelationship3 = "";
+          break;
+      }
     }
   },
   computed: {},
@@ -75375,7 +75418,42 @@ var render = function() {
                                                           })
                                                         ]
                                                       )
-                                                    ])
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "text-center"
+                                                      },
+                                                      [
+                                                        _vm.globalDisable ==
+                                                        false
+                                                          ? _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "act-link",
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.deleteMis(
+                                                                      1
+                                                                    )
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("i", {
+                                                                  staticClass:
+                                                                    "fa fa-trash"
+                                                                })
+                                                              ]
+                                                            )
+                                                          : _vm._e()
+                                                      ]
+                                                    )
                                                   ]),
                                                   _vm._v(" "),
                                                   _c("tr", [
@@ -75664,7 +75742,42 @@ var render = function() {
                                                           })
                                                         ]
                                                       )
-                                                    ])
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "text-center"
+                                                      },
+                                                      [
+                                                        _vm.globalDisable ==
+                                                        false
+                                                          ? _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "act-link",
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.deleteMis(
+                                                                      2
+                                                                    )
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("i", {
+                                                                  staticClass:
+                                                                    "fa fa-trash"
+                                                                })
+                                                              ]
+                                                            )
+                                                          : _vm._e()
+                                                      ]
+                                                    )
                                                   ]),
                                                   _vm._v(" "),
                                                   _c("tr", [
@@ -75953,7 +76066,42 @@ var render = function() {
                                                           })
                                                         ]
                                                       )
-                                                    ])
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "text-center"
+                                                      },
+                                                      [
+                                                        _vm.globalDisable ==
+                                                        false
+                                                          ? _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "act-link",
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.deleteMis(
+                                                                      3
+                                                                    )
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("i", {
+                                                                  staticClass:
+                                                                    "fa fa-trash"
+                                                                })
+                                                              ]
+                                                            )
+                                                          : _vm._e()
+                                                      ]
+                                                    )
                                                   ])
                                                 ])
                                               ]
@@ -77519,7 +77667,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Course")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Selection year")])
+        _c("th", [_vm._v("Selection year")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Action")])
       ])
     ])
   },

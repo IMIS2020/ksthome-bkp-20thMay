@@ -707,7 +707,7 @@
                                                                 <div class="col-xl-6">
                                                                     <label>Name of the institute&nbsp;<span class="text-danger"><strong>*</strong></span> <a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-add-institute" > + Add New Value</a> </label>
                                                                     <div class="form-group mb-0">
-                                                                        <select class="form-control form-control-sm" @change="onChangeIns($event)" v-model="form.instituteId" :disabled="inputDisabled" required>
+                                                                        <select class="form-control form-control-sm" required @change="onChangeIns($event)" v-model="form.instituteId" :disabled="inputDisabled">
                                                                             <option v-for="(i,index) in insData" :key="index" :value="i.id">{{i.instituteName}} - {{i.get_address.addressCity}}, {{i.get_address.addressState}}</option>
                                                                             <!-- <option  data-toggle="modal" data-target="#others-add-institute" >Others</option> -->
                                                                             <option value="" disabled>-- select --</option>
@@ -953,17 +953,17 @@
                             <div class="modal-body cs-modal-body">
                                 <div class="form-row">
                                     <div class="col-xl-12 mb-2">
-                                        <div class="form-group mb-0"><label class="mb-0">Examination Level</label>
-                                            <select class="form-control form-control-sm" v-model="domainForm.domianLevel" :disabled="globalDisable">
+                                        <div class="form-group mb-0"><label class="mb-0">Examination Level&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                            <select class="form-control form-control-sm" v-model="domainForm.domianLevel" :disabled="globalDisable" required>
                                                 <option value="" disabled>-- select --</option>
                                                 <option v-for="(elv,index) in getExaminationLevel" :key="index" :value="elv[0].id">{{elv[0].description}}</option>
                                             </select>
                                         </div>
                                     </div>    
                                     <div class="col-xl-12 mb-2">
-                                        <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" :disabled="globalDisable"/>
-                                        <div class="form-group mb-0"><label class="mb-0">Examination Passed</label>
-                                            <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable"/>
+                                        <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" :disabled="globalDisable" required/>
+                                        <div class="form-group mb-0"><label class="mb-0">Examination Passed&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                            <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable" required/>
                                         </div>
                                     </div>
                                     <!-- <div class="col-xl-12 mb-2">
@@ -991,17 +991,17 @@
                             <div class="modal-body cs-modal-body">
                                 <div class="form-row">
                                     <div class="col-xl-12 mb-2">
-                                        <div class="form-group mb-0"><label class="mb-0">Examination Level</label>
-                                            <select class="form-control form-control-sm" v-model="domainForm.domianLevel" :disabled="globalDisable">
+                                        <div class="form-group mb-0"><label class="mb-0">Examination Level&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                            <select class="form-control form-control-sm" v-model="domainForm.domianLevel" :disabled="globalDisable" required>
                                                 <option value="" disabled>-- select --</option>
                                                 <option v-for="(elv,index) in universityBoardCouncilValues" :key="index" :value="elv[0].id">{{elv[0].description}}</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-xl-12 mb-2">
-                                        <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" :disabled="globalDisable"/>
-                                        <div class="form-group mb-0"><label class="mb-0">Examination Board</label>
-                                            <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable"/>
+                                        <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" :disabled="globalDisable" required/>
+                                        <div class="form-group mb-0"><label class="mb-0">Examination Board&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                            <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable" required/>
                                         </div>
                                     </div>
                                     <!-- <div class="col-xl-12 mb-2">
@@ -1011,7 +1011,7 @@
                                     </div> -->
                                 </div>
                             </div>
-                            <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues" ><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
+                            <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="submit" ><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                         </div>
                     </form>
                 </div>
@@ -1131,10 +1131,10 @@
                                 <div class="form-row">
                                         <div class="col-xl-12 mb-2">
                                     <div class="form-group mb-0">
-                                        <label class="mb-0">Course Level</label>
+                                        <label class="mb-0">Course Level&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                         <input type="hidden" v-model="domainForm.domainName" />
                                         
-                                        <select class="form-control form-control-sm" v-model="domainForm.domainLevel2" :disabled="inputDisabled">
+                                        <select class="form-control form-control-sm" v-model="domainForm.domainLevel2" :disabled="inputDisabled" required>
                                             <option value="" disabled>-- select --</option>
                                             <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id" selected>{{ucl.description}}</option>
                                         </select>
@@ -1142,8 +1142,8 @@
                                         </div>
                                     <div class="col-xl-12 mb-2">
                                         <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" :disabled="globalDisable"/>
-                                        <div class="form-group mb-0"><label class="mb-0">Course Name</label>
-                                            <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable"/>
+                                        <div class="form-group mb-0"><label class="mb-0">Course Name&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                            <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable" required/>
                                         </div>
                                     </div>
                                 </div>
@@ -1568,7 +1568,7 @@ export default {
                         // this.$fire({
                         //     position: 'top',
                         //     icon: 'error',
-                        //     title: "Duplicate value already exists",
+                        //     title: msg,
                         //     showConfirmButton: false,
                         //     timer: 3000
                         // })
@@ -1702,40 +1702,48 @@ export default {
             saveDomainValues()
             {
                 axios.post('/api/domain/add',this.domainForm)
-                .then(response => {
-                    if (response.data['success']) {
-                        this.readInitialDomainValues();
-                        let showMsg = '';
-                        if(this.domainForm.domainName == 'ExamPassed')
-                        {
-                            showMsg = 'Examination Passed'
-                        }else if(this.domainForm.domainName == 'UnivBoard')
-                        {
-                            showMsg = 'University/Board'
-                        }else if(this.domainForm.domainName == 'CourseLevel')
-                        {
-                            showMsg = 'Course Level'
-                        }else if(this.domainForm.domainName == 'CourseName')
-                        {
-                            showMsg = 'Course Name'
+                    .then(response => {
+                        if (response.data['success']) {
+                            this.readInitialDomainValues();
+                            let showMsg = '';
+                            if(this.domainForm.domainName == 'ExamPassed')
+                            {
+                                showMsg = 'Examination Passed'
+                            }else if(this.domainForm.domainName == 'UnivBoard')
+                            {
+                                showMsg = 'University/Board'
+                            }else if(this.domainForm.domainName == 'CourseLevel')
+                            {
+                                showMsg = 'Course Level'
+                            }else if(this.domainForm.domainName == 'CourseName')
+                            {
+                                showMsg = 'Course Name'
+                            }
+                            // this.domainForm.domainName = '';
+                            this.domainForm.dValue = '';
+                            this.domainForm.dDesc = '';
+                            // this.domainForm.domainLevel = null;
+                            // this.domainForm.domainLevel2 = null;
+                            this.$fire({
+                                position: 'top',
+                                icon: 'success',
+                                title: "Added new "+showMsg,
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                            
+                        } else {
+                            // let msg = response.data['msg'];
+                            // console.log(response.data['msg'])
+                             this.$fire({
+                                position: 'top',
+                                icon: 'error',
+                                title: "Value exsists could not add",
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
                         }
-                        // this.domainForm.domainName = '';
-                        this.domainForm.dValue = '';
-                        this.domainForm.dDesc = '';
-                        // this.domainForm.domainLevel = null;
-                        // this.domainForm.domainLevel2 = null;
-                        this.$fire({
-                            position: 'top',
-                            icon: 'success',
-                            title: "Added new "+showMsg,
-                            showConfirmButton: false,
-                            timer: 3000
-                        });
-                        
-                    } else {
-                        console.log(response.data['msg'])
-                    }
-                }).catch(error => this.errorMsg(error.response.status))
+                })
             },
             addName(data)
             {

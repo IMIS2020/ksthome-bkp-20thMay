@@ -596,9 +596,15 @@ export default{
                         });
                     
                 } else {
-                    console.log(response.data['msg'])
+                    this.$fire({
+                        position: 'top',
+                        icon: 'error',
+                        title: "Value exsists could not add",
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
                 }
-            }).catch(error => this.errorMsg(error.response.status))
+            })
         },
 
         saveInstitute()

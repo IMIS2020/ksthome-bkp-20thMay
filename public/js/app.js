@@ -4652,10 +4652,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             timer: 3000
           });
         } else {
-          console.log(response.data['msg']);
+          _this6.$fire({
+            position: 'top',
+            icon: 'error',
+            title: "Value exsists could not add",
+            showConfirmButton: false,
+            timer: 3000
+          });
         }
-      })["catch"](function (error) {
-        return _this6.errorMsg(error.response.status);
       });
     },
     saveInstitute: function saveInstitute() {
@@ -7213,7 +7217,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             // this.$fire({
             //     position: 'top',
             //     icon: 'error',
-            //     title: "Duplicate value already exists",
+            //     title: msg,
             //     showConfirmButton: false,
             //     timer: 3000
             // })
@@ -7350,10 +7354,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             timer: 3000
           });
         } else {
-          console.log(response.data['msg']);
+          // let msg = response.data['msg'];
+          // console.log(response.data['msg'])
+          _this5.$fire({
+            position: 'top',
+            icon: 'error',
+            title: "Value exsists could not add",
+            showConfirmButton: false,
+            timer: 3000
+          });
         }
-      })["catch"](function (error) {
-        return _this5.errorMsg(error.response.status);
       });
     },
     addName: function addName(data) {
@@ -74463,8 +74473,8 @@ var render = function() {
                                               staticClass:
                                                 "form-control form-control-sm",
                                               attrs: {
-                                                disabled: _vm.inputDisabled,
-                                                required: ""
+                                                required: "",
+                                                disabled: _vm.inputDisabled
                                               },
                                               on: {
                                                 change: [
@@ -76038,9 +76048,7 @@ var render = function() {
                       _c("div", { staticClass: "form-row" }, [
                         _c("div", { staticClass: "col-xl-12 mb-2" }, [
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _c("label", { staticClass: "mb-0" }, [
-                              _vm._v("Examination Level")
-                            ]),
+                            _vm._m(50),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -76054,7 +76062,10 @@ var render = function() {
                                   }
                                 ],
                                 staticClass: "form-control form-control-sm",
-                                attrs: { disabled: _vm.globalDisable },
+                                attrs: {
+                                  disabled: _vm.globalDisable,
+                                  required: ""
+                                },
                                 on: {
                                   change: function($event) {
                                     var $$selectedVal = Array.prototype.filter
@@ -76115,7 +76126,8 @@ var render = function() {
                             staticClass: "form-control form-control-sm",
                             attrs: {
                               type: "hidden",
-                              disabled: _vm.globalDisable
+                              disabled: _vm.globalDisable,
+                              required: ""
                             },
                             domProps: { value: _vm.domainForm.domainName },
                             on: {
@@ -76133,9 +76145,7 @@ var render = function() {
                           }),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _c("label", { staticClass: "mb-0" }, [
-                              _vm._v("Examination Passed")
-                            ]),
+                            _vm._m(51),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -76149,7 +76159,8 @@ var render = function() {
                               staticClass: "form-control form-control-sm",
                               attrs: {
                                 type: "text",
-                                disabled: _vm.globalDisable
+                                disabled: _vm.globalDisable,
+                                required: ""
                               },
                               domProps: { value: _vm.domainForm.dValue },
                               on: {
@@ -76170,7 +76181,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(50)
+                    _vm._m(52)
                   ])
                 ]
               )
@@ -76205,15 +76216,13 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(51),
+                    _vm._m(53),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body cs-modal-body" }, [
                       _c("div", { staticClass: "form-row" }, [
                         _c("div", { staticClass: "col-xl-12 mb-2" }, [
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _c("label", { staticClass: "mb-0" }, [
-                              _vm._v("Examination Level")
-                            ]),
+                            _vm._m(54),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -76227,7 +76236,10 @@ var render = function() {
                                   }
                                 ],
                                 staticClass: "form-control form-control-sm",
-                                attrs: { disabled: _vm.globalDisable },
+                                attrs: {
+                                  disabled: _vm.globalDisable,
+                                  required: ""
+                                },
                                 on: {
                                   change: function($event) {
                                     var $$selectedVal = Array.prototype.filter
@@ -76288,7 +76300,8 @@ var render = function() {
                             staticClass: "form-control form-control-sm",
                             attrs: {
                               type: "hidden",
-                              disabled: _vm.globalDisable
+                              disabled: _vm.globalDisable,
+                              required: ""
                             },
                             domProps: { value: _vm.domainForm.domainName },
                             on: {
@@ -76306,9 +76319,7 @@ var render = function() {
                           }),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _c("label", { staticClass: "mb-0" }, [
-                              _vm._v("Examination Board")
-                            ]),
+                            _vm._m(55),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -76322,7 +76333,8 @@ var render = function() {
                               staticClass: "form-control form-control-sm",
                               attrs: {
                                 type: "text",
-                                disabled: _vm.globalDisable
+                                disabled: _vm.globalDisable,
+                                required: ""
                               },
                               domProps: { value: _vm.domainForm.dValue },
                               on: {
@@ -76343,18 +76355,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "modal-footer py-1" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-sm btn-mg",
-                          attrs: { type: "button" },
-                          on: { click: _vm.saveDomainValues }
-                        },
-                        [_c("strong", [_vm._v("Add")])]
-                      ),
-                      _vm._m(52)
-                    ])
+                    _vm._m(56)
                   ])
                 ]
               )
@@ -76389,12 +76390,12 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(53),
+                    _vm._m(57),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body cs-modal-body" }, [
                       _c("div", { staticClass: "form-row" }, [
                         _c("div", { staticClass: "col-xl-12 mb-2" }, [
-                          _vm._m(54),
+                          _vm._m(58),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -76459,7 +76460,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                          _vm._m(55),
+                          _vm._m(59),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
                             _c("input", {
@@ -76532,7 +76533,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                          _vm._m(56),
+                          _vm._m(60),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
                             _c(
@@ -76779,7 +76780,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(57)
+                    _vm._m(61)
                   ])
                 ]
               )
@@ -76814,15 +76815,13 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(58),
+                    _vm._m(62),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body cs-modal-body" }, [
                       _c("div", { staticClass: "form-row" }, [
                         _c("div", { staticClass: "col-xl-12 mb-2" }, [
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _c("label", { staticClass: "mb-0" }, [
-                              _vm._v("Course Level")
-                            ]),
+                            _vm._m(63),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -76861,7 +76860,10 @@ var render = function() {
                                   }
                                 ],
                                 staticClass: "form-control form-control-sm",
-                                attrs: { disabled: _vm.inputDisabled },
+                                attrs: {
+                                  disabled: _vm.inputDisabled,
+                                  required: ""
+                                },
                                 on: {
                                   change: function($event) {
                                     var $$selectedVal = Array.prototype.filter
@@ -76941,9 +76943,7 @@ var render = function() {
                           }),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _c("label", { staticClass: "mb-0" }, [
-                              _vm._v("Course Name")
-                            ]),
+                            _vm._m(64),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -76957,7 +76957,8 @@ var render = function() {
                               staticClass: "form-control form-control-sm",
                               attrs: {
                                 type: "text",
-                                disabled: _vm.globalDisable
+                                disabled: _vm.globalDisable,
+                                required: ""
                               },
                               domProps: { value: _vm.domainForm.dValue },
                               on: {
@@ -76978,7 +76979,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(59)
+                    _vm._m(65)
                   ])
                 ]
               )
@@ -77558,6 +77559,24 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "mb-0" }, [
+      _vm._v("Examination Level "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "mb-0" }, [
+      _vm._v("Examination Passed "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-footer py-1" }, [
       _c(
         "button",
@@ -77600,14 +77619,39 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-sm btn-cancel",
-        attrs: { type: "button", "data-dismiss": "modal" }
-      },
-      [_c("strong", [_vm._v("Close")])]
-    )
+    return _c("label", { staticClass: "mb-0" }, [
+      _vm._v("Examination Level "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "mb-0" }, [
+      _vm._v("Examination Board "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer py-1" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-sm btn-mg", attrs: { type: "submit" } },
+        [_c("strong", [_vm._v("Add")])]
+      ),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-sm btn-cancel",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_c("strong", [_vm._v("Close")])]
+      )
+    ])
   },
   function() {
     var _vm = this
@@ -77698,6 +77742,24 @@ var staticRenderFns = [
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "mb-0" }, [
+      _vm._v("Course Level "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "mb-0" }, [
+      _vm._v("Course Name "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
     ])
   },
   function() {

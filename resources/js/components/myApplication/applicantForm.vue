@@ -681,7 +681,7 @@
                                                                     <span style="color:#000;" class="font-sm">Details of the course you have been selected for :&nbsp;<br></span>
                                                                 </div>
                                                                 <div class="col-xl-3">
-                                                                    <label>Name of the Level&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                    <label>Degree/Cerificate&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                      <div class="form-group mb-0">
                                                                         <select class="form-control form-control-sm" v-model="form.courseLevelValueId" :disabled="inputDisabled" @click="getHHDLSData($event)" required>
                                                                             <option value="" disabled>-- select --</option>
@@ -690,7 +690,7 @@
                                                                      </div>
                                                                 </div>
                                                                 <div class="col-xl-3">
-                                                                    <label>Name of the course&nbsp;<span class="text-danger"><strong>*</strong></span><a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-course-name" @click="addName('CourseName')"> + Add New Value</a></label>
+                                                                    <label>Course Name&nbsp;<span class="text-danger"><strong>*</strong></span><a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-course-name" @click="addName('CourseName')"> + Add New Value</a></label>
                                                                     <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
                                                                         <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled" required>
                                                                             <option value="" disabled>-- select --</option>
@@ -1957,6 +1957,6 @@ export default {
        
          }
 
-         
+
 }
  </script>

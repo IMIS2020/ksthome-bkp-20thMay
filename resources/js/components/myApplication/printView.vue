@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-xl-12 text-center mb-1">
                         <h6 class="text-uppercase"><strong>{{form.scholarshipType}} scholarship PROGRAMME - {{form.financialYear}}</strong></h6>
-                        <h6 class="text-uppercase"><strong>Application No. : {{form.applicationId}} (submitted online)</strong></h6>
+                        <h6 class="text-uppercase"><strong>Application No. : {{form.appIdShow}} (submitted online)</strong></h6>
                     </div>
                     <div class="col-md-8 col-xl-10 offset-md-2 offset-xl-1 text-center mb-1">
                         <hr class="cs-hr">

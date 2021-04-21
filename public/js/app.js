@@ -4373,6 +4373,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -64923,23 +64925,32 @@ var render = function() {
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-2" }, [
                                       _vm._m(1),
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "font-sm",
-                                          attrs: {
-                                            "data-toggle": "modal",
-                                            href: "#",
-                                            "data-target": "#others-course-name"
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.addName("CourseName")
-                                            }
-                                          }
-                                        },
-                                        [_c("strong", [_vm._v(" +Add New")])]
-                                      ),
+                                      _vm.form.scholarshipType == "HHDLS"
+                                        ? _c(
+                                            "a",
+                                            {
+                                              staticClass: "font-sm",
+                                              attrs: {
+                                                "data-toggle": "modal",
+                                                href: "#",
+                                                "data-target":
+                                                  "#others-course-name"
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.addName(
+                                                    "CourseName"
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c("strong", [
+                                                _vm._v(" +Add New")
+                                              ])
+                                            ]
+                                          )
+                                        : _vm._e(),
                                       _vm._v(" "),
                                       _vm.form.scholarshipType == "HHDLS"
                                         ? _c(
@@ -65618,177 +65629,189 @@ var render = function() {
               attrs: { role: "document" }
             },
             [
-              _c("div", { staticClass: "modal-content" }, [
-                _vm._m(4),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-body cs-modal-body" }, [
-                  _c("div", { staticClass: "form-row" }, [
-                    _c("div", { staticClass: "col-xl-12 mb-2" }, [
-                      _c("div", { staticClass: "form-group mb-0" }, [
-                        _c("label", { staticClass: "mb-0" }, [
-                          _vm._v("Course Level")
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.saveDomainValues($event)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-body cs-modal-body" }, [
+                      _c("div", { staticClass: "form-row" }, [
+                        _c("div", { staticClass: "col-xl-12 mb-2" }, [
+                          _c("div", { staticClass: "form-group mb-0" }, [
+                            _vm._m(5),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.domainForm.domainName,
+                                  expression: "domainForm.domainName"
+                                }
+                              ],
+                              attrs: { type: "hidden" },
+                              domProps: { value: _vm.domainForm.domainName },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.domainForm,
+                                    "domainName",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.domainForm.domainLevel2,
+                                    expression: "domainForm.domainLevel2"
+                                  }
+                                ],
+                                staticClass: "form-control form-control-sm",
+                                attrs: {
+                                  disabled: _vm.inputDisabled,
+                                  required: ""
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.domainForm,
+                                      "domainLevel2",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  { attrs: { value: "", disabled: "" } },
+                                  [_vm._v("-- select --")]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(_vm.universityCourseLevel, function(
+                                  ucl,
+                                  index
+                                ) {
+                                  return _c(
+                                    "option",
+                                    {
+                                      key: index,
+                                      attrs: { selected: "" },
+                                      domProps: { value: ucl.id }
+                                    },
+                                    [_vm._v(_vm._s(ucl.description))]
+                                  )
+                                })
+                              ],
+                              2
+                            )
+                          ])
                         ]),
                         _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.domainForm.domainName,
-                              expression: "domainForm.domainName"
-                            }
-                          ],
-                          attrs: { type: "hidden" },
-                          domProps: { value: _vm.domainForm.domainName },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.domainForm,
-                                "domainName",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "select",
-                          {
+                        _c("div", { staticClass: "col-xl-12 mb-2" }, [
+                          _c("input", {
                             directives: [
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.domainForm.domainLevel2,
-                                expression: "domainForm.domainLevel2"
+                                value: _vm.domainForm.domainName,
+                                expression: "domainForm.domainName"
                               }
                             ],
                             staticClass: "form-control form-control-sm",
-                            attrs: { disabled: _vm.inputDisabled },
+                            attrs: {
+                              type: "hidden",
+                              disabled: _vm.globalDisable,
+                              required: ""
+                            },
+                            domProps: { value: _vm.domainForm.domainName },
                             on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
                                 _vm.$set(
                                   _vm.domainForm,
-                                  "domainLevel2",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
+                                  "domainName",
+                                  $event.target.value
                                 )
                               }
                             }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", disabled: "" } },
-                              [_vm._v("-- select --")]
-                            ),
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group mb-0" }, [
+                            _c("label", { staticClass: "mb-0" }, [
+                              _vm._v("Course Name")
+                            ]),
                             _vm._v(" "),
-                            _vm._l(_vm.universityCourseLevel, function(
-                              ucl,
-                              index
-                            ) {
-                              return _c(
-                                "option",
+                            _c("input", {
+                              directives: [
                                 {
-                                  key: index,
-                                  attrs: { selected: "" },
-                                  domProps: { value: ucl.id }
-                                },
-                                [_vm._v(_vm._s(ucl.description))]
-                              )
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.domainForm.dValue,
+                                  expression: "domainForm.dValue"
+                                }
+                              ],
+                              staticClass: "form-control form-control-sm",
+                              attrs: {
+                                type: "text",
+                                disabled: _vm.globalDisable,
+                                required: ""
+                              },
+                              domProps: { value: _vm.domainForm.dValue },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.domainForm,
+                                    "dValue",
+                                    $event.target.value
+                                  )
+                                }
+                              }
                             })
-                          ],
-                          2
-                        )
+                          ])
+                        ])
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-xl-12 mb-2" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.domainForm.domainName,
-                            expression: "domainForm.domainName"
-                          }
-                        ],
-                        staticClass: "form-control form-control-sm",
-                        attrs: { type: "hidden", disabled: _vm.globalDisable },
-                        domProps: { value: _vm.domainForm.domainName },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.domainForm,
-                              "domainName",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group mb-0" }, [
-                        _c("label", { staticClass: "mb-0" }, [
-                          _vm._v("Course Name")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.domainForm.dValue,
-                              expression: "domainForm.dValue"
-                            }
-                          ],
-                          staticClass: "form-control form-control-sm",
-                          attrs: { type: "text", disabled: _vm.globalDisable },
-                          domProps: { value: _vm.domainForm.dValue },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.domainForm,
-                                "dValue",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        })
-                      ])
-                    ])
+                    _vm._m(6)
                   ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-footer py-1" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-sm btn-mg",
-                      attrs: { type: "button" },
-                      on: { click: _vm.saveDomainValues }
-                    },
-                    [_c("strong", [_vm._v("Add")])]
-                  ),
-                  _vm._m(5)
-                ])
-              ])
+                ]
+              )
             ]
           )
         ]
@@ -65808,374 +65831,394 @@ var render = function() {
               attrs: { role: "document" }
             },
             [
-              _c("form", [
-                _c("div", { staticClass: "modal-content" }, [
-                  _vm._m(6),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "modal-body cs-modal-body" }, [
-                    _c("div", { staticClass: "form-row" }, [
-                      _c("div", { staticClass: "col-xl-12 mb-2" }, [
-                        _vm._m(7),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.insForm.insName,
-                                expression: "insForm.insName"
-                              }
-                            ],
-                            staticClass: "form-control form-control-sm",
-                            attrs: { type: "text", required: "" },
-                            domProps: { value: _vm.insForm.insName },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.insForm,
-                                  "insName",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.insForm.insType,
-                            expression: "insForm.insType"
-                          }
-                        ],
-                        attrs: { type: "hidden" },
-                        domProps: { value: _vm.insForm.insType },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.insForm,
-                              "insType",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                        _vm._m(8),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.insForm.insAddressCity,
-                                expression: "insForm.insAddressCity"
-                              }
-                            ],
-                            staticClass: "form-control form-control-sm",
-                            attrs: { type: "text", required: "" },
-                            domProps: { value: _vm.insForm.insAddressCity },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.insForm,
-                                  "insAddressCity",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                        _c("label", [_vm._v("District")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.insForm.insAddressDistprov,
-                                expression: "insForm.insAddressDistprov"
-                              }
-                            ],
-                            staticClass: "form-control form-control-sm",
-                            attrs: { type: "text" },
-                            domProps: { value: _vm.insForm.insAddressDistprov },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.insForm,
-                                  "insAddressDistprov",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                        _vm._m(9),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "select",
-                            {
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.saveInstitute($event)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _vm._m(7),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-body cs-modal-body" }, [
+                      _c("div", { staticClass: "form-row" }, [
+                        _c("div", { staticClass: "col-xl-12 mb-2" }, [
+                          _vm._m(8),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("input", {
                               directives: [
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.insForm.insAddressState,
-                                  expression: "insForm.insAddressState"
+                                  value: _vm.insForm.insName,
+                                  expression: "insForm.insName"
                                 }
                               ],
                               staticClass: "form-control form-control-sm",
-                              attrs: { required: "" },
+                              attrs: { type: "text", required: "" },
+                              domProps: { value: _vm.insForm.insName },
                               on: {
-                                change: function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
                                   _vm.$set(
                                     _vm.insForm,
-                                    "insAddressState",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
+                                    "insName",
+                                    $event.target.value
                                   )
                                 }
                               }
-                            },
-                            [
-                              _c(
-                                "option",
-                                { attrs: { value: "", disabled: "" } },
-                                [_vm._v("--Select--")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "option",
-                                { attrs: { value: "Andhra Pradesh" } },
-                                [_vm._v("Andhra Pradesh")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "option",
-                                {
-                                  attrs: {
-                                    value: "Andaman and Nicobar Islands"
-                                  }
-                                },
-                                [_vm._v("Andaman and Nicobar Islands")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "option",
-                                { attrs: { value: "Arunachal Pradesh" } },
-                                [_vm._v("Arunachal Pradesh")]
-                              ),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Assam" } }, [
-                                _vm._v("Assam")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Bihar" } }, [
-                                _vm._v("Bihar")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Chandigarh" } }, [
-                                _vm._v("Chandigarh")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "option",
-                                { attrs: { value: "Chhattisgarh" } },
-                                [_vm._v("Chhattisgarh")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "option",
-                                { attrs: { value: "Dadar and Nagar Haveli" } },
-                                [_vm._v("Dadar and Nagar Haveli")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "option",
-                                { attrs: { value: "Daman and Diu" } },
-                                [_vm._v("Daman and Diu")]
-                              ),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Delhi" } }, [
-                                _vm._v("Delhi")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "option",
-                                { attrs: { value: "Lakshadweep" } },
-                                [_vm._v("Lakshadweep")]
-                              ),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Puducherry" } }, [
-                                _vm._v("Puducherry")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Goa" } }, [
-                                _vm._v("Goa")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Gujarat" } }, [
-                                _vm._v("Gujarat")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Haryana" } }, [
-                                _vm._v("Haryana")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "option",
-                                { attrs: { value: "Himachal Pradesh" } },
-                                [_vm._v("Himachal Pradesh")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "option",
-                                { attrs: { value: "Jammu and Kashmir" } },
-                                [_vm._v("Jammu and Kashmir")]
-                              ),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Jharkhand" } }, [
-                                _vm._v("Jharkhand")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Karnataka" } }, [
-                                _vm._v("Karnataka")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Kerala" } }, [
-                                _vm._v("Kerala")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "option",
-                                { attrs: { value: "Madhya Pradesh" } },
-                                [_vm._v("Madhya Pradesh")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "option",
-                                { attrs: { value: "Maharashtra" } },
-                                [_vm._v("Maharashtra")]
-                              ),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Manipur" } }, [
-                                _vm._v("Manipur")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Meghalaya" } }, [
-                                _vm._v("Meghalaya")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Mizoram" } }, [
-                                _vm._v("Mizoram")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Nagaland" } }, [
-                                _vm._v("Nagaland")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Odisha" } }, [
-                                _vm._v("Odisha")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Punjab" } }, [
-                                _vm._v("Punjab")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Rajasthan" } }, [
-                                _vm._v("Rajasthan")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Sikkim" } }, [
-                                _vm._v("Sikkim")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Tamil Nadu" } }, [
-                                _vm._v("Tamil Nadu")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Telangana" } }, [
-                                _vm._v("Telangana")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Tripura" } }, [
-                                _vm._v("Tripura")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "option",
-                                { attrs: { value: "Uttar Pradesh" } },
-                                [_vm._v("Uttar Pradesh")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "option",
-                                { attrs: { value: "Uttarakhand" } },
-                                [_vm._v("Uttarakhand")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "option",
-                                { attrs: { value: "West Bengal" } },
-                                [_vm._v("West Bengal")]
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.insForm.insType,
+                              expression: "insForm.insType"
+                            }
+                          ],
+                          attrs: { type: "hidden" },
+                          domProps: { value: _vm.insForm.insType },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.insForm,
+                                "insType",
+                                $event.target.value
                               )
-                            ]
-                          )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-xl-6 mb-2" }, [
+                          _vm._m(9),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.insForm.insAddressCity,
+                                  expression: "insForm.insAddressCity"
+                                }
+                              ],
+                              staticClass: "form-control form-control-sm",
+                              attrs: { type: "text", required: "" },
+                              domProps: { value: _vm.insForm.insAddressCity },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.insForm,
+                                    "insAddressCity",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-xl-6 mb-2" }, [
+                          _c("label", [_vm._v("District")]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.insForm.insAddressDistprov,
+                                  expression: "insForm.insAddressDistprov"
+                                }
+                              ],
+                              staticClass: "form-control form-control-sm",
+                              attrs: { type: "text" },
+                              domProps: {
+                                value: _vm.insForm.insAddressDistprov
+                              },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.insForm,
+                                    "insAddressDistprov",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-xl-6 mb-2" }, [
+                          _vm._m(10),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.insForm.insAddressState,
+                                    expression: "insForm.insAddressState"
+                                  }
+                                ],
+                                staticClass: "form-control form-control-sm",
+                                attrs: { required: "" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.insForm,
+                                      "insAddressState",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  { attrs: { value: "", disabled: "" } },
+                                  [_vm._v("--Select--")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Andhra Pradesh" } },
+                                  [_vm._v("Andhra Pradesh")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  {
+                                    attrs: {
+                                      value: "Andaman and Nicobar Islands"
+                                    }
+                                  },
+                                  [_vm._v("Andaman and Nicobar Islands")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Arunachal Pradesh" } },
+                                  [_vm._v("Arunachal Pradesh")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Assam" } }, [
+                                  _vm._v("Assam")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Bihar" } }, [
+                                  _vm._v("Bihar")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Chandigarh" } },
+                                  [_vm._v("Chandigarh")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Chhattisgarh" } },
+                                  [_vm._v("Chhattisgarh")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  {
+                                    attrs: { value: "Dadar and Nagar Haveli" }
+                                  },
+                                  [_vm._v("Dadar and Nagar Haveli")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Daman and Diu" } },
+                                  [_vm._v("Daman and Diu")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Delhi" } }, [
+                                  _vm._v("Delhi")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Lakshadweep" } },
+                                  [_vm._v("Lakshadweep")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Puducherry" } },
+                                  [_vm._v("Puducherry")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Goa" } }, [
+                                  _vm._v("Goa")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Gujarat" } }, [
+                                  _vm._v("Gujarat")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Haryana" } }, [
+                                  _vm._v("Haryana")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Himachal Pradesh" } },
+                                  [_vm._v("Himachal Pradesh")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Jammu and Kashmir" } },
+                                  [_vm._v("Jammu and Kashmir")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Jharkhand" } },
+                                  [_vm._v("Jharkhand")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Karnataka" } },
+                                  [_vm._v("Karnataka")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Kerala" } }, [
+                                  _vm._v("Kerala")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Madhya Pradesh" } },
+                                  [_vm._v("Madhya Pradesh")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Maharashtra" } },
+                                  [_vm._v("Maharashtra")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Manipur" } }, [
+                                  _vm._v("Manipur")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Meghalaya" } },
+                                  [_vm._v("Meghalaya")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Mizoram" } }, [
+                                  _vm._v("Mizoram")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Nagaland" } }, [
+                                  _vm._v("Nagaland")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Odisha" } }, [
+                                  _vm._v("Odisha")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Punjab" } }, [
+                                  _vm._v("Punjab")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Rajasthan" } },
+                                  [_vm._v("Rajasthan")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Sikkim" } }, [
+                                  _vm._v("Sikkim")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Tamil Nadu" } },
+                                  [_vm._v("Tamil Nadu")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Telangana" } },
+                                  [_vm._v("Telangana")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Tripura" } }, [
+                                  _vm._v("Tripura")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Uttar Pradesh" } },
+                                  [_vm._v("Uttar Pradesh")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Uttarakhand" } },
+                                  [_vm._v("Uttarakhand")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "West Bengal" } },
+                                  [_vm._v("West Bengal")]
+                                )
+                              ]
+                            )
+                          ])
                         ])
                       ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "modal-footer py-1" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-sm btn-mg",
-                        attrs: { type: "button" },
-                        on: { click: _vm.saveInstitute }
-                      },
-                      [_c("strong", [_vm._v("Submit")])]
-                    ),
-                    _vm._m(10)
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(11)
                   ])
-                ])
-              ])
+                ]
+              )
             ]
           )
         ]
@@ -66193,7 +66236,7 @@ var staticRenderFns = [
       { staticClass: "mb-0", staticStyle: { color: "#702E2E" } },
       [
         _c("strong", [
-          _vm._v("Course Level"),
+          _vm._v("Degree/Cerificate"),
           _c("span", { staticClass: "text-danger" }, [
             _c("strong", [_vm._v("*")])
           ])
@@ -66291,14 +66334,30 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-sm btn-cancel",
-        attrs: { type: "button", "data-dismiss": "modal" }
-      },
-      [_c("strong", [_vm._v("Close")])]
-    )
+    return _c("label", { staticClass: "mb-0" }, [
+      _vm._v("Degree/Cerificate"),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer py-1" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-sm btn-mg", attrs: { type: "submit" } },
+        [_c("strong", [_vm._v("Add")])]
+      ),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-sm btn-cancel",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_c("strong", [_vm._v("Close")])]
+      )
+    ])
   },
   function() {
     var _vm = this
@@ -66353,14 +66412,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-sm btn-cancel",
-        attrs: { type: "button", "data-dismiss": "modal" }
-      },
-      [_c("strong", [_vm._v("Close")])]
-    )
+    return _c("div", { staticClass: "modal-footer py-1" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-sm btn-mg", attrs: { type: "submit" } },
+        [_c("strong", [_vm._v("Submit")])]
+      ),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-sm btn-cancel",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_c("strong", [_vm._v("Close")])]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -74273,7 +74339,7 @@ var render = function() {
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
                                       _c("label", [
-                                        _vm._v("Name of the course "),
+                                        _vm._v("Course Name "),
                                         _vm._m(41),
                                         _vm.inputDisabled == false
                                           ? _c(
@@ -77589,7 +77655,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", [
-      _vm._v("Name of the Level "),
+      _vm._v("Degree/Cerificate "),
       _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
     ])
   },
@@ -78624,7 +78690,7 @@ var render = function() {
               _c("strong", [
                 _vm._v(
                   "Application No. : " +
-                    _vm._s(_vm.form.applicationId) +
+                    _vm._s(_vm.form.appIdShow) +
                     " (submitted online)"
                 )
               ])

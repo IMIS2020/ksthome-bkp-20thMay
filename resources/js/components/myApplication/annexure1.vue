@@ -33,7 +33,7 @@
                                                             <div class="col-xl-2">
                                                                 <div class="form-group mb-0 align-self-center">
                                                                     <div class="form-group mb-0">
-                                                                        <label  style="color:#702E2E" class="mb-0"><strong>Course Level<span class="text-danger"><strong>*</strong></span></strong></label>
+                                                                        <label  style="color:#702E2E" class="mb-0"><strong>Degree/Cerificate<span class="text-danger"><strong>*</strong></span></strong></label>
                                                                         <select class="form-control form-control-sm" v-model="courseLevelValueId2" :disabled="inputDisabled" @click="getHHDLSData($event)">
                                                                             <option value="" disabled>-- select --</option>
                                                                             <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id" selected>{{ucl.description}}</option>
@@ -42,7 +42,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-xl-2">
-                                                                <label  style="color:#702E2E" class="mb-0"><strong>Course Name<span class="text-danger"><strong>*</strong></span></strong></label><a data-toggle="modal" href="#" class="font-sm"  data-target="#others-course-name" @click="addName('CourseName')"><strong> +Add New</strong></a>
+                                                                <label  style="color:#702E2E" class="mb-0"><strong>Course Name<span class="text-danger"><strong>*</strong></span></strong></label><a data-toggle="modal" href="#" class="font-sm"  data-target="#others-course-name" v-if="form.scholarshipType=='HHDLS'" @click="addName('CourseName')"><strong> +Add New</strong></a>
                                                                 <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
                                                                     <select class="form-control form-control-sm" v-model="courseNameValueId2" :disabled="inputDisabled" @click="clearRow">
                                                                         <option value="" disabled>-- select --</option>
@@ -186,6 +186,7 @@
             <!-- Star Course name modal -->
            <div role="dialog" tabindex="-1" class="modal fade" id="others-course-name">
                 <div class="modal-dialog modal-sm" role="document">
+                    <form @submit.prevent="saveDomainValues">
                     <div class="modal-content">
                         <div class="modal-header py-1">
                             <h6 class="modal-title color-mg font-md"><strong>Add Other Course Name</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
@@ -194,25 +195,26 @@
                             <div class="form-row">
                                     <div class="col-xl-12 mb-2">
                                 <div class="form-group mb-0">
-                                    <label class="mb-0">Course Level</label>
+                                    <label class="mb-0">Degree/Cerificate<span class="text-danger"><strong>*</strong></span></label>
                                     <input type="hidden" v-model="domainForm.domainName" />
                                     
-                                    <select class="form-control form-control-sm" v-model="domainForm.domainLevel2" :disabled="inputDisabled">
+                                    <select class="form-control form-control-sm" v-model="domainForm.domainLevel2" :disabled="inputDisabled" required>
                                         <option value="" disabled>-- select --</option>
                                         <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id" selected>{{ucl.description}}</option>
                                     </select>
                                 </div>
                                     </div>
                                 <div class="col-xl-12 mb-2">
-                                    <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" :disabled="globalDisable"/>
+                                    <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" :disabled="globalDisable" required/>
                                     <div class="form-group mb-0"><label class="mb-0">Course Name</label>
-                                        <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable"/>
+                                        <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable" required/>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
+                        <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="submit" ><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                     </div>
+                    </form>
                 </div>
             </div>
             <!-- End course name modal -->
@@ -220,7 +222,7 @@
             <!--Institute Details modal -->
                 <div role="dialog" tabindex="-1" class="modal fade" id="others-add-institute">
                     <div class="modal-dialog modal-lg" role="document">
-                        <form>
+                        <form @submit.prevent="saveInstitute">
                             <div class="modal-content">
                                 <div class="modal-header py-1">
                                     <h6 class="modal-title color-mg font-md"><strong>Add New Institute</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
@@ -310,7 +312,7 @@
                                         </div> -->
                                     </div>
                                 </div>
-                                <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveInstitute"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
+                                <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="submit" ><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                             </div>
                         </form>
                     </div>

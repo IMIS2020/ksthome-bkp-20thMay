@@ -91,6 +91,13 @@
       @yield('dashboard')
     </div>
 
+    <!-- Contact us -->
+    
+    <div>
+      @yield('contactUs')
+    </div>
+ 
+    <!-- End contact-us -->
     <!-- Applicant -->
     <div id="applicantForm">
       @yield('applicantForm')

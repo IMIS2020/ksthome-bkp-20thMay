@@ -78994,12 +78994,6 @@ var render = function() {
                     _c("tbody", [
                       _c("tr", { staticClass: "fw-600" }, [
                         _c("td", [
-                          _vm._v(
-                            _vm._s(_vm.form.education1ExaminationLevel) + "th"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
                           _vm._v(_vm._s(_vm.form.education1ExaminationPassed))
                         ]),
                         _vm._v(" "),
@@ -79023,12 +79017,6 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("tr", { staticClass: "fw-600" }, [
-                        _c("td", [
-                          _vm._v(
-                            _vm._s(_vm.form.education2ExaminationLevel) + "th"
-                          )
-                        ]),
-                        _vm._v(" "),
                         _c("td", [
                           _vm._v(_vm._s(_vm.form.education2ExaminationPassed))
                         ]),
@@ -79054,12 +79042,6 @@ var render = function() {
                       _vm._v(" "),
                       _vm.form.scholarshipType == "HHDLS"
                         ? _c("tr", { staticClass: "fw-600" }, [
-                            _c("td", [
-                              _vm._v(
-                                _vm._s(_vm.form.education3ExaminationLevel)
-                              )
-                            ]),
-                            _vm._v(" "),
                             _c("td", [
                               _vm._v(
                                 _vm._s(_vm.form.education3ExaminationPassed)
@@ -79824,8 +79806,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_c("strong", [_vm._v("Examination Level")])]),
-        _vm._v(" "),
         _c("th", [_c("strong", [_vm._v("Examination Passed")])]),
         _vm._v(" "),
         _c("th", [_c("strong", [_vm._v("University/ Board/ Council")])]),
@@ -79905,7 +79885,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-4 col-xl-3 mt-3 pr-1" }, [
+    return _c("div", { staticClass: "col-sm-4 col-xl-3 mt-1" }, [
       _c("p", { staticClass: "text-white mb-2 font-xl txt-blk-bg" }, [
         _vm._v(" Self Declaration")
       ])

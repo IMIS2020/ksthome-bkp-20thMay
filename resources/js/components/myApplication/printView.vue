@@ -198,7 +198,7 @@
                             <table class="table table-bordered table-sm mb-0">
                                 <thead>
                                     <tr>
-                                        <th><strong>Examination Level</strong></th>
+                                        <!-- <th><strong>Examination Level</strong></th> -->
                                         <th><strong>Examination Passed</strong></th>
                                         <th><strong>University/ Board/ Council</strong></th>
                                         <th><strong>Main Subjects</strong></th>
@@ -209,7 +209,7 @@
                                 </thead>
                                 <tbody>
                                     <tr class="fw-600">
-                                        <td>{{form.education1ExaminationLevel}}th</td>
+                                        <!-- <td>{{form.education1ExaminationLevel}}th</td> -->
                                         <td>{{form.education1ExaminationPassed}}</td>
                                         <td>{{form.education1University}}</td>
                                         <td>{{form.education1MainSubjects}}</td>
@@ -219,7 +219,7 @@
                                        
                                     </tr>
                                     <tr class="fw-600">
-                                       <td>{{form.education2ExaminationLevel}}th</td>
+                                       <!-- <td>{{form.education2ExaminationLevel}}th</td> -->
                                         <td>{{form.education2ExaminationPassed}}</td>
                                         <td>{{form.education2University}}</td>
                                         <td>{{form.education2MainSubjects}}</td>
@@ -228,7 +228,7 @@
                                         <td>{{form.education2Division}}</td>
                                     </tr>
                                      <tr class="fw-600" v-if="form.scholarshipType == 'HHDLS'">
-                                       <td>{{form.education3ExaminationLevel}}</td>
+                                       <!-- <td>{{form.education3ExaminationLevel}}</td> -->
                                         <td>{{form.education3ExaminationPassed}}</td>
                                         <td>{{form.education3University}}</td>
                                         <td>{{form.education3MainSubjects}}</td>
@@ -312,7 +312,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-4 col-xl-3 mt-3 pr-1">
+                    <div class="col-sm-4 col-xl-3 mt-1">
                         <p class="text-white mb-2 font-xl txt-blk-bg">&nbsp;Self Declaration</p>
                     </div>
                     <div class="col-xl-12 mt-1">

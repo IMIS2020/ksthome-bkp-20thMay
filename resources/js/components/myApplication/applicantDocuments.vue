@@ -1,5 +1,14 @@
 <template>
     <section class="page-main">
+        <div class="vld-parent">
+            <loading :active.sync="isLoading" 
+            :can-cancel="true" 
+            :on-cancel="onCancel"
+            :is-full-page="fullPage"></loading>
+            
+            <!-- <label><input type="checkbox" v-model="fullPage">Full page?</label>
+            <button @click.prevent="doAjax">fetch Data</button> -->
+        </div>
         <div class="container">
             <form @submit.prevent="saveForm">
                 <div class="form-row">
@@ -119,6 +128,13 @@
 </template>
 
 <script>
+import Vue from 'vue';
+    // Import component
+    import Loading from 'vue-loading-overlay';
+    // Import stylesheet
+    import 'vue-loading-overlay/dist/vue-loading.css';
+    // Init plugin
+    Vue.use(Loading);
 export default{
     data(){
         return {
@@ -132,6 +148,8 @@ export default{
                     docFileName: '',
                 }
             ],
+
+            fullPage: false,
            
             form:
             {
@@ -156,7 +174,15 @@ export default{
         saveForm(){
             axios.post('/api/add-documents/'+this.form.applicationId,this.docRows)
                 .then(response => {
+                    let loader = this.$loading.show({
+                        // Optional parameters
+                        container: this.fullPage ? null : this.$refs.formContainer,
+                        canCancel: false,
+                        onCancel: this.onCancel,
+                    });
+                   
                 if (response.data['success']){
+                     loader.hide()
                     this.readApplicationForm();
                     this.$fire({
                         position: 'top',

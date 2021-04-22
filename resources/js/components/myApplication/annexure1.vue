@@ -25,7 +25,7 @@
                                         <div lang="" class="ub-reg-form">
                                             <div class="form-row">
                                                 <div class="col-xl-12 align-self-center mb-2">
-                                                    <p class="float-left color-mg font-md mb-1">I {{form.applicantNameF}} {{form.applicantNameM}} {{form.applicantNameL}} {{getData.genderType}} of {{form.applicantFatherName}} , {{form.applicantMotherName}} residing in {{form.addressAddln1}}, want to pursue higher studies in academic Year {{form.financialYear}}. I will be taking the following Entrance Examination for admission into:&nbsp;<br></p>
+                                                    <p class="float-left color-mg font-md mb-1">I {{form.applicantNameF}} {{form.applicantNameM}} {{form.applicantNameL}} {{getData.genderType}} of {{form.applicantFatherName}}  residing in {{form.addressAddln1}}, want to pursue higher studies in academic Year {{form.financialYear}}. I will be taking the following Entrance Examination for admission into:&nbsp;<br></p>
                                                 </div>
                                                 <div class="col-xl-12">
                                                     <div class="com-bg-1">
@@ -50,7 +50,7 @@
                                                                     </select>
                                                                 </div>
                                                                 <div class="form-group mb-0" v-if="form.scholarshipType=='Nursing'">
-                                                                    <select class="form-control form-control-sm" :disabled="inputDisabled">
+                                                                    <select class="form-control form-control-sm" v-model="courseNameValueId2" :disabled="inputDisabled" @click="clearRow">
                                                                         <option value="" disabled>-- select --</option>
                                                                         <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
                                                                     </select>
@@ -369,6 +369,7 @@ export default{
                 applicantFatherName:'',
                 applicantMotherName:'',
                 addressAddln1:'',
+                applicantGender:'',
                 appIdShow:'',
             },
 

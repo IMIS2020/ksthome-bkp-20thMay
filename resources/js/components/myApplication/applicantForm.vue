@@ -163,7 +163,7 @@
                                                         <div class="card-body">
                                                             <div class="form-row">
                                                                 <div class="col-xl-5">
-                                                                    <label>House No and Colony Name / Address Line 1&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                    <label>House No and Colony Name&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" v-model="form.addressAddln1" :disabled="globalDisable"  required>
                                                                     </div>
@@ -1465,14 +1465,14 @@ export default {
                         this.chcekUpDisable();
                       
                         // this.chcekUpDisable();
-                        if(this.form.appStatus == 'Submit')
-                        {
-                            this.inputDisabled = true;
-                            this.globalDisable = true;
-                            this.applicantDisablitySelfShow = true;
-                            this.applicantDisablityMotherShow = true;
-                            this.applicantDisablityFatherShow = true;
-                        };
+                        // if(this.form.appStatus == 'Submit')
+                        // {
+                        //     this.inputDisabled = true;
+                        //     this.globalDisable = true;
+                        //     this.applicantDisablitySelfShow = true;
+                        //     this.applicantDisablityMotherShow = true;
+                        //     this.applicantDisablityFatherShow = true;
+                        // };
                         
                         if(this.form.hasAdmissionLetter == 'YES') {
                             this.inputDisabled = false; 
@@ -1532,6 +1532,25 @@ export default {
                         
 
                         // console.log(response.data['data'][2][0].relationship);
+                    } 
+                    else {
+                        console.log(response.data['msg'])
+                    }
+                })
+                axios.get(`/api/get-application-form-data/${applicationId}`)
+                .then(response => {
+                    if (response.data['success']) {
+
+                        if(this.form.appStatus == 'Submit')
+                        {
+                            this.inputDisabled = true;
+                            this.globalDisable = true;
+                            this.applicantDisablitySelfShow = true;
+                            this.applicantDisablityMotherShow = true;
+                            this.applicantDisablityFatherShow = true;
+                        };
+                        
+                       
                     } 
                     else {
                         console.log(response.data['msg'])

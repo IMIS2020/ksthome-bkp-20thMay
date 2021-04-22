@@ -4417,6 +4417,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         applicantFatherName: '',
         applicantMotherName: '',
         addressAddln1: '',
+        applicantGender: '',
         appIdShow: ''
       },
       getData: {
@@ -7127,17 +7128,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this2.readDomainValues(_this2.form.scholarshipType);
 
                     _this2.chcekUpDisable(); // this.chcekUpDisable();
+                    // if(this.form.appStatus == 'Submit')
+                    // {
+                    //     this.inputDisabled = true;
+                    //     this.globalDisable = true;
+                    //     this.applicantDisablitySelfShow = true;
+                    //     this.applicantDisablityMotherShow = true;
+                    //     this.applicantDisablityFatherShow = true;
+                    // };
 
-
-                    if (_this2.form.appStatus == 'Submit') {
-                      _this2.inputDisabled = true;
-                      _this2.globalDisable = true;
-                      _this2.applicantDisablitySelfShow = true;
-                      _this2.applicantDisablityMotherShow = true;
-                      _this2.applicantDisablityFatherShow = true;
-                    }
-
-                    ;
 
                     if (_this2.form.hasAdmissionLetter == 'YES') {
                       _this2.inputDisabled = false; // this.form.insCourse=response.data['data'][0][0].get_institute.,
@@ -7187,6 +7186,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
                 axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
                   if (response.data['success']) {
+                    if (_this2.form.appStatus == 'Submit') {
+                      _this2.inputDisabled = true;
+                      _this2.globalDisable = true;
+                      _this2.applicantDisablitySelfShow = true;
+                      _this2.applicantDisablityMotherShow = true;
+                      _this2.applicantDisablityFatherShow = true;
+                    }
+
+                    ;
+                  } else {
+                    console.log(response.data['msg']);
+                  }
+                });
+                axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
+                  if (response.data['success']) {
                     _this2.form.miscName1 = response.data['data'][2][0].name;
                     _this2.form.mRelationship1 = response.data['data'][2][0].relationship;
                     _this2.form.miscCourse1 = response.data['data'][2][0].course;
@@ -7204,7 +7218,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   }
                 });
 
-              case 3:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -7822,6 +7836,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         applicantFatherName: '',
         applicantMotherName: '',
         addressAddln1: '',
+        applicantGender: '',
         appIdShow: ''
       },
       getData: {
@@ -7902,11 +7917,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           _this.rows = response.data['data'];
 
           if (_this.form.scholarshipType == "Nursing") {
-            _this.courseLevelValueId2 = "Bachelor";
-            _this.courseNameValueId2 = "Bsc. Nursing";
+            _this.courseLevelValueId2 = response.data['data'][0].get_course_level_value.description;
+            _this.courseNameValueId2 = response.data['data'][0].get_course_level_name.value;
           } else {
-            _this.courseLevelValueId2 = response.data['data'][1].get_course_level_value.description;
-            _this.courseNameValueId2 = response.data['data'][1].get_course_level_name.value;
+            _this.courseLevelValueId2 = response.data['data'][0].get_course_level_value.description;
+            _this.courseNameValueId2 = response.data['data'][0].get_course_level_name.value;
           }
 
           _this.getHHDLSData2(_this.courseLevelValueId2);
@@ -7943,10 +7958,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this2.insForm.insType = response.data['data'][0][0].scholarshipType;
                     _this2.form.appIdShow = response.data['data'][0][0].appIdShow;
 
-                    _this2.readDomainValues(_this2.form.scholarshipType);
-
-                    _this2.readInsValue(_this2.form.scholarshipType);
-
                     if (_this2.form.applicantGender = response.data['data'][0][0].applicantGender == "Male") {
                       _this2.getData.genderType = "son";
                     } else {
@@ -7961,6 +7972,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     }
 
                     ;
+
+                    _this2.readDomainValues(_this2.form.scholarshipType);
+
+                    _this2.readInsValue(_this2.form.scholarshipType);
                   } else {
                     console.log(response.data['msg']);
                   }
@@ -64806,9 +64821,7 @@ var render = function() {
                                           _vm._s(_vm.getData.genderType) +
                                           " of " +
                                           _vm._s(_vm.form.applicantFatherName) +
-                                          " , " +
-                                          _vm._s(_vm.form.applicantMotherName) +
-                                          " residing in " +
+                                          "  residing in " +
                                           _vm._s(_vm.form.addressAddln1) +
                                           ", want to pursue higher studies in academic Year " +
                                           _vm._s(_vm.form.financialYear) +
@@ -65050,10 +65063,43 @@ var render = function() {
                                               _c(
                                                 "select",
                                                 {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.courseNameValueId2,
+                                                      expression:
+                                                        "courseNameValueId2"
+                                                    }
+                                                  ],
                                                   staticClass:
                                                     "form-control form-control-sm",
                                                   attrs: {
                                                     disabled: _vm.inputDisabled
+                                                  },
+                                                  on: {
+                                                    click: _vm.clearRow,
+                                                    change: function($event) {
+                                                      var $$selectedVal = Array.prototype.filter
+                                                        .call(
+                                                          $event.target.options,
+                                                          function(o) {
+                                                            return o.selected
+                                                          }
+                                                        )
+                                                        .map(function(o) {
+                                                          var val =
+                                                            "_value" in o
+                                                              ? o._value
+                                                              : o.value
+                                                          return val
+                                                        })
+                                                      _vm.courseNameValueId2 = $event
+                                                        .target.multiple
+                                                        ? $$selectedVal
+                                                        : $$selectedVal[0]
+                                                    }
                                                   }
                                                 },
                                                 [
@@ -77025,7 +77071,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", [
-      _vm._v("House No and Colony Name / Address Line 1 "),
+      _vm._v("House No and Colony Name "),
       _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
     ])
   },
@@ -78173,17 +78219,13 @@ var render = function() {
                   _vm._s(_vm.getData.genderType) +
                   " of " +
                   _vm._s(_vm.form.applicantFatherName) +
-                  "  residing in " +
+                  ",  residing in " +
                   _vm._s(_vm.form.addressAddln1) +
-                  ", want to pursue " +
-                  _vm._s(_vm.courseLevelValueId2) +
-                  "'s degree in " +
+                  ", want to pursue course in " +
                   _vm._s(_vm.courseNameValueId2) +
                   " In academic year " +
                   _vm._s(_vm.form.financialYear) +
-                  ". I will be taking the following Entrance Examination for admission into " +
-                  _vm._s(_vm.courseLevelValueId2) +
-                  "'s in " +
+                  ". I will be taking the following Entrance Examination for admission into  " +
                   _vm._s(_vm.courseNameValueId2) +
                   "."
               )

@@ -6,7 +6,7 @@
                     <p class="text-white mb-2 font-xl" style="background: #000000;">&nbsp;Annexure I<br></p>
                 </div>
                 <div class="col-xl-12 mt-3">
-                    <p class="font-md" style="color : #000"><strong>I&nbsp;{{form.applicantNameF}} {{form.applicantNameM}} {{form.applicantNameL}}, {{getData.genderType}}&nbsp;of {{form.applicantFatherName}}&nbsp; residing in&nbsp;{{form.addressAddln1}}, want to pursue {{courseLevelValueId2}}'s degree in {{courseNameValueId2}} In academic year&nbsp;{{form.financialYear}}. I will be taking the following Entrance Examination for admission into {{courseLevelValueId2}}'s in {{courseNameValueId2}}.</strong><br></p>
+                    <p class="font-md" style="color : #000"><strong>I&nbsp;{{form.applicantNameF}} {{form.applicantNameM}} {{form.applicantNameL}}, {{getData.genderType}}&nbsp;of {{form.applicantFatherName}},&nbsp; residing in&nbsp;{{form.addressAddln1}}, want to pursue course in {{courseNameValueId2}} In academic year&nbsp;{{form.financialYear}}. I will be taking the following Entrance Examination for admission into  {{courseNameValueId2}}.</strong><br></p>
                 </div>
                 <div class="col-xl-12">
                     <h5><strong style="color : #000">Institutes Selected:&nbsp;</strong></h5>
@@ -85,6 +85,7 @@ export default{
                 applicantFatherName:'',
                 applicantMotherName:'',
                 addressAddln1:'',
+                applicantGender:'',
                 appIdShow:'',
             },
 
@@ -165,12 +166,12 @@ export default{
                     this.rows = response.data['data'];
                     if(this.form.scholarshipType == "Nursing")
                     {
-                        this.courseLevelValueId2 = "Bachelor"
-                        this.courseNameValueId2  = "Bsc. Nursing"
+                        this.courseLevelValueId2 = response.data['data'][0].get_course_level_value.description;
+                        this.courseNameValueId2  = response.data['data'][0].get_course_level_name.value;
                     }else
                     {
-                        this.courseLevelValueId2 = response.data['data'][1].get_course_level_value.description;
-                        this.courseNameValueId2  = response.data['data'][1].get_course_level_name.value;
+                        this.courseLevelValueId2 = response.data['data'][0].get_course_level_value.description;
+                        this.courseNameValueId2  = response.data['data'][0].get_course_level_name.value;
                     }
                     this.getHHDLSData2(this.courseLevelValueId2);
                     this.update = true;
@@ -200,8 +201,7 @@ export default{
                     this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
                     this.insForm.insType = response.data['data'][0][0].scholarshipType;
                     this.form.appIdShow = response.data['data'][0][0].appIdShow;
-                    this.readDomainValues(this.form.scholarshipType);
-                    this.readInsValue(this.form.scholarshipType);
+                    
                     if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
                     {
                         this.getData.genderType = "son";
@@ -213,6 +213,8 @@ export default{
                     {
                         this.globalDisable = true;
                     };
+                    this.readDomainValues(this.form.scholarshipType);
+                    this.readInsValue(this.form.scholarshipType);
                 } 
                 else {
                     console.log(response.data['msg'])

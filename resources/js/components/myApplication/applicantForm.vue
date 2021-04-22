@@ -690,7 +690,8 @@
                                                                      </div>
                                                                 </div>
                                                                 <div class="col-xl-3">
-                                                                    <label>Course Name&nbsp;<span class="text-danger"><strong>*</strong></span><a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-course-name" @click="addName('CourseName')"> + Add New Value</a></label>
+                                                                    <label v-if="form.scholarshipType=='HHDLS'">Course Name&nbsp;<span class="text-danger"><strong>*</strong></span><a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-course-name" @click="addName('CourseName')"> + Add New Value</a></label>
+                                                                    <label v-if="form.scholarshipType=='Nursing'">Course Name&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
                                                                         <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled" required>
                                                                             <option value="" disabled>-- select --</option>
@@ -743,7 +744,8 @@
                                                                 <div class="col-xl-3">
                                                                     <label>State&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
-                                                                        <select class="form-control form-control-sm" v-model="form.insAddressState" disabled>
+                                                                        <input class="form-control form-control-sm" type="text" v-model="form.insAddressState" disabled>
+                                                                        <!-- <select class="form-control form-control-sm" v-model="form.insAddressState" disabled>
                                                                             <option value="" disabled>--Select--</option>
                                                                             <option value="Andhra Pradesh">Andhra Pradesh</option>
                                                                             <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -781,7 +783,7 @@
                                                                             <option value="Uttar Pradesh">Uttar Pradesh</option>
                                                                             <option value="Uttarakhand">Uttarakhand</option>
                                                                             <option value="West Bengal">West Bengal</option>
-                                                                        </select>
+                                                                        </select> -->
                                                                     </div>
                                                                 </div>
                                                                     <!-- <div class="col-xl-3">
@@ -1512,15 +1514,18 @@ export default {
                                 this.form.education2Division= response.data['data'][1][1].division;
                         };
                         //education level graduate for HHDLS only (13)
-                        if(response.data['data'][1][2].get_exam_level_domain_values.id == 3){
-                               // this.form.education3ExaminationLevel='13',
-                                this.form.education3ExaminationPassed= response.data['data'][1][2].get_exam_passed_domain_values.id,
-                                this.form.education3University= response.data['data'][1][2].get_exam_board_domain_values.id,
-                                this.form.education3MainSubjects= response.data['data'][1][2].mainSubjects,
-                                this.form.education3YearOfPassing= response.data['data'][1][2].yearOfPassing,
-                                this.form.education3Percentage= response.data['data'][1][2].percentage,
-                                this.form.education3Division= response.data['data'][1][2].division;
-                        };
+                        if(this.form.scholarshipType == 'HHDLS')
+                        {
+                            if(response.data['data'][1][2].get_exam_level_domain_values.id == 3){
+                                // this.form.education3ExaminationLevel='13',
+                                    this.form.education3ExaminationPassed= response.data['data'][1][2].get_exam_passed_domain_values.id,
+                                    this.form.education3University= response.data['data'][1][2].get_exam_board_domain_values.id,
+                                    this.form.education3MainSubjects= response.data['data'][1][2].mainSubjects,
+                                    this.form.education3YearOfPassing= response.data['data'][1][2].yearOfPassing,
+                                    this.form.education3Percentage= response.data['data'][1][2].percentage,
+                                    this.form.education3Division= response.data['data'][1][2].division;
+                            };
+                        }
                         //  this.readInsValue(this.form.scholarshipType);
                         //  this.readDomainValues(this.form.scholarshipType);
                          

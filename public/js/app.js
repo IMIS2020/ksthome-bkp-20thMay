@@ -6830,6 +6830,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -7168,14 +7170,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                     ; //education level graduate for HHDLS only (13)
 
-                    if (response.data['data'][1][2].get_exam_level_domain_values.id == 3) {
-                      // this.form.education3ExaminationLevel='13',
-                      _this2.form.education3ExaminationPassed = response.data['data'][1][2].get_exam_passed_domain_values.id, _this2.form.education3University = response.data['data'][1][2].get_exam_board_domain_values.id, _this2.form.education3MainSubjects = response.data['data'][1][2].mainSubjects, _this2.form.education3YearOfPassing = response.data['data'][1][2].yearOfPassing, _this2.form.education3Percentage = response.data['data'][1][2].percentage, _this2.form.education3Division = response.data['data'][1][2].division;
-                    }
+                    if (_this2.form.scholarshipType == 'HHDLS') {
+                      if (response.data['data'][1][2].get_exam_level_domain_values.id == 3) {
+                        // this.form.education3ExaminationLevel='13',
+                        _this2.form.education3ExaminationPassed = response.data['data'][1][2].get_exam_passed_domain_values.id, _this2.form.education3University = response.data['data'][1][2].get_exam_board_domain_values.id, _this2.form.education3MainSubjects = response.data['data'][1][2].mainSubjects, _this2.form.education3YearOfPassing = response.data['data'][1][2].yearOfPassing, _this2.form.education3Percentage = response.data['data'][1][2].percentage, _this2.form.education3Division = response.data['data'][1][2].division;
+                      }
 
-                    ; //  this.readInsValue(this.form.scholarshipType);
+                      ;
+                    } //  this.readInsValue(this.form.scholarshipType);
                     //  this.readDomainValues(this.form.scholarshipType);
                     // console.log(response.data['data'][2][0].relationship);
+
                   } else {
                     console.log(response.data['msg']);
                   }
@@ -74342,31 +74347,40 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _c("label", [
-                                        _vm._v("Course Name "),
-                                        _vm._m(41),
-                                        _vm.inputDisabled == false
-                                          ? _c(
-                                              "a",
-                                              {
-                                                attrs: {
-                                                  "data-toggle": "modal",
-                                                  href: "#",
-                                                  "data-target":
-                                                    "#others-course-name"
-                                                },
-                                                on: {
-                                                  click: function($event) {
-                                                    return _vm.addName(
-                                                      "CourseName"
-                                                    )
-                                                  }
-                                                }
-                                              },
-                                              [_vm._v(" + Add New Value")]
-                                            )
-                                          : _vm._e()
-                                      ]),
+                                      _vm.form.scholarshipType == "HHDLS"
+                                        ? _c("label", [
+                                            _vm._v("Course Name "),
+                                            _vm._m(41),
+                                            _vm.inputDisabled == false
+                                              ? _c(
+                                                  "a",
+                                                  {
+                                                    attrs: {
+                                                      "data-toggle": "modal",
+                                                      href: "#",
+                                                      "data-target":
+                                                        "#others-course-name"
+                                                    },
+                                                    on: {
+                                                      click: function($event) {
+                                                        return _vm.addName(
+                                                          "CourseName"
+                                                        )
+                                                      }
+                                                    }
+                                                  },
+                                                  [_vm._v(" + Add New Value")]
+                                                )
+                                              : _vm._e()
+                                          ])
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _vm.form.scholarshipType == "Nursing"
+                                        ? _c("label", [
+                                            _vm._v("Course Name "),
+                                            _vm._m(42)
+                                          ])
+                                        : _vm._e(),
                                       _vm._v(" "),
                                       _vm.form.scholarshipType == "HHDLS"
                                         ? _c(
@@ -74550,7 +74564,7 @@ var render = function() {
                                     _c("div", { staticClass: "col-xl-6" }, [
                                       _c("label", [
                                         _vm._v("Name of the institute "),
-                                        _vm._m(42),
+                                        _vm._m(43),
                                         _vm._v(" "),
                                         _vm.inputDisabled == false
                                           ? _c(
@@ -74741,343 +74755,43 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(43),
+                                      _vm._m(44),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
-                                        _c(
-                                          "select",
-                                          {
-                                            directives: [
-                                              {
-                                                name: "model",
-                                                rawName: "v-model",
-                                                value: _vm.form.insAddressState,
-                                                expression:
-                                                  "form.insAddressState"
-                                              }
-                                            ],
-                                            staticClass:
-                                              "form-control form-control-sm",
-                                            attrs: { disabled: "" },
-                                            on: {
-                                              change: function($event) {
-                                                var $$selectedVal = Array.prototype.filter
-                                                  .call(
-                                                    $event.target.options,
-                                                    function(o) {
-                                                      return o.selected
-                                                    }
-                                                  )
-                                                  .map(function(o) {
-                                                    var val =
-                                                      "_value" in o
-                                                        ? o._value
-                                                        : o.value
-                                                    return val
-                                                  })
-                                                _vm.$set(
-                                                  _vm.form,
-                                                  "insAddressState",
-                                                  $event.target.multiple
-                                                    ? $$selectedVal
-                                                    : $$selectedVal[0]
-                                                )
-                                              }
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.insAddressState,
+                                              expression: "form.insAddressState"
                                             }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: { type: "text", disabled: "" },
+                                          domProps: {
+                                            value: _vm.form.insAddressState
                                           },
-                                          [
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "",
-                                                  disabled: ""
-                                                }
-                                              },
-                                              [_vm._v("--Select--")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "Andhra Pradesh"
-                                                }
-                                              },
-                                              [_vm._v("Andhra Pradesh")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value:
-                                                    "Andaman and Nicobar Islands"
-                                                }
-                                              },
-                                              [
-                                                _vm._v(
-                                                  "Andaman and Nicobar Islands"
-                                                )
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "Arunachal Pradesh"
-                                                }
-                                              },
-                                              [_vm._v("Arunachal Pradesh")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Assam" } },
-                                              [_vm._v("Assam")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Bihar" } },
-                                              [_vm._v("Bihar")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: { value: "Chandigarh" }
-                                              },
-                                              [_vm._v("Chandigarh")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: { value: "Chhattisgarh" }
-                                              },
-                                              [_vm._v("Chhattisgarh")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value:
-                                                    "Dadar and Nagar Haveli"
-                                                }
-                                              },
-                                              [_vm._v("Dadar and Nagar Haveli")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "Daman and Diu"
-                                                }
-                                              },
-                                              [_vm._v("Daman and Diu")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Delhi" } },
-                                              [_vm._v("Delhi")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: { value: "Lakshadweep" }
-                                              },
-                                              [_vm._v("Lakshadweep")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: { value: "Puducherry" }
-                                              },
-                                              [_vm._v("Puducherry")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Goa" } },
-                                              [_vm._v("Goa")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Gujarat" } },
-                                              [_vm._v("Gujarat")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Haryana" } },
-                                              [_vm._v("Haryana")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "Himachal Pradesh"
-                                                }
-                                              },
-                                              [_vm._v("Himachal Pradesh")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "Jammu and Kashmir"
-                                                }
-                                              },
-                                              [_vm._v("Jammu and Kashmir")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Jharkhand" } },
-                                              [_vm._v("Jharkhand")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Karnataka" } },
-                                              [_vm._v("Karnataka")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Kerala" } },
-                                              [_vm._v("Kerala")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "Madhya Pradesh"
-                                                }
-                                              },
-                                              [_vm._v("Madhya Pradesh")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: { value: "Maharashtra" }
-                                              },
-                                              [_vm._v("Maharashtra")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Manipur" } },
-                                              [_vm._v("Manipur")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Meghalaya" } },
-                                              [_vm._v("Meghalaya")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Mizoram" } },
-                                              [_vm._v("Mizoram")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Nagaland" } },
-                                              [_vm._v("Nagaland")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Odisha" } },
-                                              [_vm._v("Odisha")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Punjab" } },
-                                              [_vm._v("Punjab")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Rajasthan" } },
-                                              [_vm._v("Rajasthan")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Sikkim" } },
-                                              [_vm._v("Sikkim")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: { value: "Tamil Nadu" }
-                                              },
-                                              [_vm._v("Tamil Nadu")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Telangana" } },
-                                              [_vm._v("Telangana")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "Tripura" } },
-                                              [_vm._v("Tripura")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "Uttar Pradesh"
-                                                }
-                                              },
-                                              [_vm._v("Uttar Pradesh")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: { value: "Uttarakhand" }
-                                              },
-                                              [_vm._v("Uttarakhand")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: { value: "West Bengal" }
-                                              },
-                                              [_vm._v("West Bengal")]
-                                            )
-                                          ]
-                                        )
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "insAddressState",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
                                       ])
                                     ]),
                                     _vm._v(" "),
                                     _vm.form.scholarshipType == "Nursing"
                                       ? _c("div", { staticClass: "col-xl-4" }, [
-                                          _vm._m(44),
+                                          _vm._m(45),
                                           _vm._v(" "),
                                           _c(
                                             "div",
@@ -75175,7 +74889,7 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "col-xl-12" }, [
                               _c("div", { staticClass: "card mt-2 det-sec" }, [
-                                _vm._m(45),
+                                _vm._m(46),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "card-body" }, [
                                   _c("div", { staticClass: "form-row" }, [
@@ -75183,7 +74897,7 @@ var render = function() {
                                       "div",
                                       { staticClass: "col-xl-12 mb-2" },
                                       [
-                                        _vm._m(46),
+                                        _vm._m(47),
                                         _vm._v(" "),
                                         _c(
                                           "div",
@@ -75199,7 +74913,7 @@ var render = function() {
                                                   "table table-sm mb-0"
                                               },
                                               [
-                                                _vm._m(47),
+                                                _vm._m(48),
                                                 _vm._v(" "),
                                                 _c("tbody", [
                                                   _c("tr", [
@@ -76195,7 +75909,7 @@ var render = function() {
             _vm._v(" "),
             _vm.globalDisable == false
               ? _c("div", { staticClass: "col-xl-2 offset-xl-4 my-2" }, [
-                  _vm._m(48)
+                  _vm._m(49)
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -76260,13 +75974,13 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(49),
+                    _vm._m(50),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body cs-modal-body" }, [
                       _c("div", { staticClass: "form-row" }, [
                         _c("div", { staticClass: "col-xl-12 mb-2" }, [
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _vm._m(50),
+                            _vm._m(51),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -76363,7 +76077,7 @@ var render = function() {
                           }),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _vm._m(51),
+                            _vm._m(52),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -76399,7 +76113,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(52)
+                    _vm._m(53)
                   ])
                 ]
               )
@@ -76434,13 +76148,13 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(53),
+                    _vm._m(54),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body cs-modal-body" }, [
                       _c("div", { staticClass: "form-row" }, [
                         _c("div", { staticClass: "col-xl-12 mb-2" }, [
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _vm._m(54),
+                            _vm._m(55),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -76537,7 +76251,7 @@ var render = function() {
                           }),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _vm._m(55),
+                            _vm._m(56),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -76573,7 +76287,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(56)
+                    _vm._m(57)
                   ])
                 ]
               )
@@ -76608,12 +76322,12 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(57),
+                    _vm._m(58),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body cs-modal-body" }, [
                       _c("div", { staticClass: "form-row" }, [
                         _c("div", { staticClass: "col-xl-12 mb-2" }, [
-                          _vm._m(58),
+                          _vm._m(59),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -76678,7 +76392,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                          _vm._m(59),
+                          _vm._m(60),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
                             _c("input", {
@@ -76751,7 +76465,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                          _vm._m(60),
+                          _vm._m(61),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
                             _c(
@@ -76998,7 +76712,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(61)
+                    _vm._m(62)
                   ])
                 ]
               )
@@ -77033,13 +76747,13 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(62),
+                    _vm._m(63),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body cs-modal-body" }, [
                       _c("div", { staticClass: "form-row" }, [
                         _c("div", { staticClass: "col-xl-12 mb-2" }, [
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _vm._m(63),
+                            _vm._m(64),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -77161,7 +76875,7 @@ var render = function() {
                           }),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _vm._m(64),
+                            _vm._m(65),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -77197,7 +76911,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(65)
+                    _vm._m(66)
                   ])
                 ]
               )
@@ -77661,6 +77375,14 @@ var staticRenderFns = [
     return _c("label", [
       _vm._v("Degree/Cerificate "),
       _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "text-danger" }, [
+      _c("strong", [_vm._v("*")])
     ])
   },
   function() {

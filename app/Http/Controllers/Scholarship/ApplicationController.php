@@ -957,7 +957,7 @@ class ApplicationController extends Controller
 
         foreach ($getData as $key => $value) {
             $fileName = $value['docFileName'];
-            $url = Storage::url('uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/');
+            $url = Storage::url('uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/'.$fileName);
             $getData[$key]['fileURL'] = $url;
         }
 

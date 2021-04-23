@@ -852,7 +852,7 @@ class ApplicationController extends Controller
                 return array('success' => false, 'msg'=>[$e]);
             }
         }else{
-            return array('success' => false, 'msg'=>["No thing to update"]);
+            return array('noData' => true, 'msg'=>["NO Data"]);
         }
 
     }

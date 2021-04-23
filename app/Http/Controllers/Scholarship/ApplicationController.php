@@ -804,10 +804,6 @@ class ApplicationController extends Controller
      # Save Scholarship Documents
      public function saveDocuments(string $applicationId,Request $request)
      {
-        $request->validate([  
-            'docFileNameFile.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-        ]);
-
         $getAppType = ApplicationDetails::where('schApplicationId', $applicationId)->first()->scholarshipType;
         $this->createFolder();   
         $userId= Auth::user()->id;
@@ -815,76 +811,135 @@ class ApplicationController extends Controller
 
         $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
         $getSchAppId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->schApplicationId;
-        $prevJ = ApplicationDocs::where('applicationId', $getApplicationId)->get();
-        $prev = [];
-        $old = [];
-        foreach ($prevJ as $key => $d) {
-            $prev[$key] = $d;
-        }
+        if(isset($request->docFileNameFile))
+        {
+            DB::beginTransaction();
+            try {
 
-        DB::beginTransaction();
-        try {
-            $index = 0;
-            foreach ($request->json()->all() as $saveDoc) {
-                if (!isset($saveDoc['id'])) {
-                    $addDoc = new ApplicationDocs;
-                    
-                    if (isset($saveDoc['docFileNameFile'])) {
-                        $fileName = $this->uploadFile(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/'), $saveDoc['docFileNameFile'],$saveDoc['fileName'],$getSchAppId,$index);
-                    } else {
-                        $fileName = '';
-                    }
-                    $addDoc->docFileName               = $fileName;
-                    $addDoc->docFilePath               = 'app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/';
-                    $addDoc->docMasterId               = $saveDoc['idDoc'];
-                    $addDoc->applicationId             = $getApplicationId;
-                    $addDoc->uploadStatus              = 'YES';
-                    $addDoc->save();
-                } else {
-                    array_push($old,$saveDoc);
-                    $editDoc = ApplicationDocs::where('id',$saveDoc['id'])->first();
+                $editDoc = ApplicationDocs::where('id',$request->id)->first();
+                $docIndex = ApplicationDocs::where('id',$request->id)->first()->docMasterId;
+    
 
-                    if (isset($saveDoc['docFileNameFile'])) {
-                        if (!empty($editDoc->docFileName)) {
+                if (isset($request->docFileNameFile)) {
+                    if (!empty($editDoc->docFileName)) {
+                        try{
                             unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$editDoc->docFileName);
+                        }catch(\Exception $e) 
+                        {
+                            
+                            $editDoc1 = ApplicationDocs::where('id',$request->id)->first();
+                            $fileName = $this->uploadFile(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/'), $request->docFileNameFile,$request->fileName,$getSchAppId,$docIndex);
+                            $editDoc1->docFilePath  = 'app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/';
+                            $editDoc1->docFileName  = $fileName;
+                            $editDoc1->uploadStatus = 'YES';
+                            $editDoc1->update();
+                            return array('success' => true, 'msg'=>["Need to update"]);
                         }
-
-                        $fileName = $this->uploadFile(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/'), $saveDoc['docFileNameFile'],$saveDoc['fileName'],$getSchAppId,$index);
-                        $editDoc->docFilePath               = 'app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/';
-                        $editDoc->docFileName  = $fileName;
-                        $editDoc->uploadStatus  = 'YES';
                     }
-                    $editDoc->update();
-                }
-                $index++;
-            }
 
-            // Delete
-            $deletable = array_filter($prev, function ($p) use ($old) {
-                foreach($old as $o) {
-                    if ($o['id'] == $p['id']) { return 0; }
+                    $fileName = $this->uploadFile(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/'), $request->docFileNameFile,$request->fileName,$getSchAppId,$docIndex);
+                    $editDoc->docFilePath               = 'app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/';
+                    $editDoc->docFileName  = $fileName;
+                    $editDoc->uploadStatus  = 'YES';
                 }
-                
+                $editDoc->update();
                 DB::commit();
                 return array('success' => true, 'msg'=>[]);
-            });
-            foreach ($deletable as $del) {
-                $delete = ApplicationDocs::where('id',$del['id'])->first();
-                if (!empty($delete->docFileName)) {
-                    unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$delete->docFileName);
-                }
-                $delete->delete();
             }
+            catch(Exception $e) 
+            {
+                DB::rollBack();
+                return array('success' => false, 'msg'=>[$e]);
+            }
+        }else{
+            return array('success' => false, 'msg'=>["No thing to update"]);
+        }
 
-            DB::commit();
-            return array('success' => true, 'msg'=>[]);
-        }
-        catch(Exception $e) 
-        {
-            DB::rollBack();
-            return array('success' => false, 'msg'=>[$e]);
-        }
-     }
+    }
+
+    //  public function saveDocuments(string $applicationId,Request $request)
+    //  {
+    //     $request->validate([  
+    //         'docFileNameFile.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+    //     ]);
+
+    //     $getAppType = ApplicationDetails::where('schApplicationId', $applicationId)->first()->scholarshipType;
+    //     $this->createFolder();   
+    //     $userId= Auth::user()->id;
+    //     $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
+
+    //     $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
+    //     $getSchAppId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->schApplicationId;
+    //     $prevJ = ApplicationDocs::where('applicationId', $getApplicationId)->get();
+    //     $prev = [];
+    //     $old = [];
+    //     foreach ($prevJ as $key => $d) {
+    //         $prev[$key] = $d;
+    //     }
+
+    //     DB::beginTransaction();
+    //     try {
+    //         $index = 0;
+    //         foreach ($request->json()->all() as $saveDoc) {
+    //             if (!isset($saveDoc['id'])) {
+    //                 $addDoc = new ApplicationDocs;
+                    
+    //                 if (isset($saveDoc['docFileNameFile'])) {
+    //                     $fileName = $this->uploadFile(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/'), $saveDoc['docFileNameFile'],$saveDoc['fileName'],$getSchAppId,$index);
+    //                 } else {
+    //                     $fileName = '';
+    //                 }
+    //                 $addDoc->docFileName               = $fileName;
+    //                 $addDoc->docFilePath               = 'app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/';
+    //                 $addDoc->docMasterId               = $saveDoc['idDoc'];
+    //                 $addDoc->applicationId             = $getApplicationId;
+    //                 $addDoc->uploadStatus              = 'YES';
+    //                 $addDoc->save();
+    //             } else {
+    //                 array_push($old,$saveDoc);
+    //                 $editDoc = ApplicationDocs::where('id',$saveDoc['id'])->first();
+
+    //                 if (isset($saveDoc['docFileNameFile'])) {
+    //                     if (!empty($editDoc->docFileName)) {
+    //                         unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$editDoc->docFileName);
+    //                     }
+
+    //                     $fileName = $this->uploadFile(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/'), $saveDoc['docFileNameFile'],$saveDoc['fileName'],$getSchAppId,$index);
+    //                     $editDoc->docFilePath               = 'app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/';
+    //                     $editDoc->docFileName  = $fileName;
+    //                     $editDoc->uploadStatus  = 'YES';
+    //                 }
+    //                 $editDoc->update();
+    //             }
+    //             $index++;
+    //         }
+
+    //         // Delete
+    //         $deletable = array_filter($prev, function ($p) use ($old) {
+    //             foreach($old as $o) {
+    //                 if ($o['id'] == $p['id']) { return 0; }
+    //             }
+                
+    //             DB::commit();
+    //             return array('success' => true, 'msg'=>[]);
+    //         });
+    //         foreach ($deletable as $del) {
+    //             $delete = ApplicationDocs::where('id',$del['id'])->first();
+    //             if (!empty($delete->docFileName)) {
+    //                 unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$delete->docFileName);
+    //             }
+    //             $delete->delete();
+    //         }
+
+    //         DB::commit();
+    //         return array('success' => true, 'msg'=>[]);
+    //     }
+    //     catch(Exception $e) 
+    //     {
+    //         DB::rollBack();
+    //         return array('success' => false, 'msg'=>[$e]);
+    //     }
+    //  }
 
     # get Scholarship Documents
     public function getDocuments(string $applicationId)

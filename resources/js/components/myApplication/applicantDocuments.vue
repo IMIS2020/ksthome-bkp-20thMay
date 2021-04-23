@@ -48,6 +48,7 @@
                                                                                     <th>Document Name</th>
                                                                                     <th>Uploaded</th>
                                                                                     <th class="text-center w-7x">Action</th>
+                                                                                    
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
@@ -76,6 +77,11 @@
                                                                                                 <i class="fa fa-trash"></i>
                                                                                             </a>
                                                                                         </span>
+                                                                                        <span v-if="globalDisable == false">
+                                                                                            <a  href="#"  class="act-link" @click.prevent="saveFile(form.applicationId,index)">
+                                                                                                <i class="fas fa-save"></i>
+                                                                                            </a>
+                                                                                        </span>
                                                                                     </td>
                                                                                     <td class="text-center" v-else>
                                                                                         <span class="act-link"  style="color:#808080;">
@@ -83,6 +89,11 @@
                                                                                         </span>
                                                                                         <span class="act-link" style="color:#808080;">
                                                                                             <i class="fa fa-trash"></i>
+                                                                                        </span>
+                                                                                        <span class="act-link" style="color:#808080;">
+                                                                                          <a  href="#"  class="act-link" @click.prevent="saveFile(form.applicationId,index)">
+                                                                                                <i class="fas fa-save"></i>
+                                                                                            </a>
                                                                                         </span>
                                                                                     </td>
                                                                                 </tr>
@@ -101,17 +112,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 offset-xl-4 my-2" v-if="globalDisable == false">
+                    <!-- <div class="col-xl-2 offset-xl-4 my-2" v-if="globalDisable == false">
                         <button class="btn btn-block btn-sm btn-mg" type="submit">
                             <strong>Save</strong>
                         </button>
-                    </div>
-                    <div class="col-xl-2 offset-xl-0 my-2" v-if="globalDisable == false">
+                    </div> -->
+                    <!-- <div class="col-xl-2 offset-xl-0 my-2" v-if="globalDisable == false">
                         <router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-my-application"><strong>Cancel</strong></router-link>
-                    </div>
-                    <div class="col-xl-2 offset-xl-5 my-2" v-else>
+                    </div> -->
+                    <!-- <div class="col-xl-2 offset-xl-5 my-2" v-else>
                         <router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-my-application"><strong>Cancel</strong></router-link>
-                    </div>
+                    </div> -->
                 </div>
              </form>
         </div>
@@ -171,6 +182,38 @@ export default{
                 }
             })
             .catch(error => this.errorMsg(error.response.status))
+        },
+
+        saveFile(applicationId,index)
+        {
+             axios.post('/api/add-documents/'+applicationId,this.docRows[index])
+                .then(response => {
+                if (response.data['success']){
+                    this.readApplicationForm();
+                    this.$fire({
+                        position: 'top',
+                        icon: 'success',
+                        title: "Documents Uploaded Successfully",
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                    
+                } else {
+                        if (response.data['success'] == false){
+                            this.readApplicationForm();
+                            this.$fire({
+                                position: 'top',
+                                icon: 'success',
+                                title: "Nothing to Update",
+                                showConfirmButton: false,
+                                timer: 3000
+                        })
+                    }
+                }
+            })
+            .catch(error => this.errorMsg(error.response.status))
+            // console.log(applicationId);
+            // console.log();
         },
 
 

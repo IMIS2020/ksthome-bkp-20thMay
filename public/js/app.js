@@ -5443,6 +5443,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5493,8 +5504,40 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return _this.errorMsg(error.response.status);
       });
     },
-    readApplicationForm: function readApplicationForm() {
+    saveFile: function saveFile(applicationId, index) {
       var _this2 = this;
+
+      axios.post('/api/add-documents/' + applicationId, this.docRows[index]).then(function (response) {
+        if (response.data['success']) {
+          _this2.readApplicationForm();
+
+          _this2.$fire({
+            position: 'top',
+            icon: 'success',
+            title: "Documents Uploaded Successfully",
+            showConfirmButton: false,
+            timer: 3000
+          });
+        } else {
+          if (response.data['success'] == false) {
+            _this2.readApplicationForm();
+
+            _this2.$fire({
+              position: 'top',
+              icon: 'success',
+              title: "Nothing to Update",
+              showConfirmButton: false,
+              timer: 3000
+            });
+          }
+        }
+      })["catch"](function (error) {
+        return _this2.errorMsg(error.response.status);
+      }); // console.log(applicationId);
+      // console.log();
+    },
+    readApplicationForm: function readApplicationForm() {
+      var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var applicationId;
@@ -5505,27 +5548,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 applicationId = window.location.pathname.split('/').reverse()[0];
                 axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
                   if (response.data['success']) {
-                    _this2.form.applicationId = response.data['data'][0][0].schApplicationId;
-                    _this2.form.scholarshipType = response.data['data'][0][0].scholarshipType;
-                    _this2.form.applicantNameF = response.data['data'][0][0].applicantNameF;
-                    _this2.form.applicantNameM = response.data['data'][0][0].applicantNameM;
-                    _this2.form.applicantNameL = response.data['data'][0][0].applicantNameL;
-                    _this2.form.applicantFatherName = response.data['data'][0][0].applicantFatherName;
-                    _this2.form.applicantMotherName = response.data['data'][0][0].applicantMotherName;
-                    _this2.form.financialYear = response.data['data'][0][0].financialYear;
-                    _this2.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
-                    _this2.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
-                    _this2.form.appIdShow = response.data['data'][0][0].appIdShow; // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
+                    _this3.form.applicationId = response.data['data'][0][0].schApplicationId;
+                    _this3.form.scholarshipType = response.data['data'][0][0].scholarshipType;
+                    _this3.form.applicantNameF = response.data['data'][0][0].applicantNameF;
+                    _this3.form.applicantNameM = response.data['data'][0][0].applicantNameM;
+                    _this3.form.applicantNameL = response.data['data'][0][0].applicantNameL;
+                    _this3.form.applicantFatherName = response.data['data'][0][0].applicantFatherName;
+                    _this3.form.applicantMotherName = response.data['data'][0][0].applicantMotherName;
+                    _this3.form.financialYear = response.data['data'][0][0].financialYear;
+                    _this3.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
+                    _this3.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
+                    _this3.form.appIdShow = response.data['data'][0][0].appIdShow; // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
                     // {
                     //     this.getData.genderType = "son";
                     // }else{
                     //     this.getData.genderType = "daughter";
                     // }
 
-                    _this2.form.appStatus = response.data['data'][0][0].appStatus;
+                    _this3.form.appStatus = response.data['data'][0][0].appStatus;
 
-                    if (_this2.form.appStatus == 'Submit') {
-                      _this2.globalDisable = true;
+                    if (_this3.form.appStatus == 'Submit') {
+                      _this3.globalDisable = true;
                     }
 
                     ;
@@ -5534,7 +5577,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   }
                 });
 
-                _this2.getMasterDoc();
+                _this3.getMasterDoc();
 
               case 3:
               case "end":
@@ -5545,11 +5588,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     getMasterDoc: function getMasterDoc() {
-      var _this3 = this;
+      var _this4 = this;
 
       var applicationId = window.location.pathname.split('/').reverse()[0];
       axios.get('/api/get-documents/' + applicationId).then(function (response) {
-        _this3.docRows = response.data; // if(response.data.length != 0)
+        _this4.docRows = response.data; // if(response.data.length != 0)
         // this.docRows = response.data
         // this.docRows=this.docRows.map((row)=>{
         //     let fname = row.docFileName.split('-');
@@ -5560,7 +5603,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       });
     },
     selectFile: function selectFile(index) {
-      var _this4 = this;
+      var _this5 = this;
 
       var file = this.$refs[index][0].files[0];
       console.log(index);
@@ -5595,7 +5638,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           fileReader.readAsDataURL(file);
 
           fileReader.onload = function (e) {
-            _this4.docRows[index].docFileNameFile = e.target.result;
+            _this5.docRows[index].docFileNameFile = e.target.result;
           };
 
           this.docRows[index].fileName = fileName;
@@ -5611,13 +5654,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     deleteFile: function deleteFile(applicationDocId) {
-      var _this5 = this;
+      var _this6 = this;
 
       axios.get("/api/del-documents/".concat(applicationDocId, "/").concat(this.form.scholarshipType)).then(function (response) {
         if (response.data == 1) {
-          _this5.readApplicationForm();
+          _this6.readApplicationForm();
 
-          _this5.$fire({
+          _this6.$fire({
             position: 'top',
             icon: 'success',
             title: "Document Deleted Successfully",
@@ -67784,6 +67827,45 @@ var render = function() {
                                                                       ]
                                                                     )
                                                                   ])
+                                                                : _vm._e(),
+                                                              _vm._v(" "),
+                                                              _vm.globalDisable ==
+                                                              false
+                                                                ? _c("span", [
+                                                                    _c(
+                                                                      "a",
+                                                                      {
+                                                                        staticClass:
+                                                                          "act-link",
+                                                                        attrs: {
+                                                                          href:
+                                                                            "#"
+                                                                        },
+                                                                        on: {
+                                                                          click: function(
+                                                                            $event
+                                                                          ) {
+                                                                            $event.preventDefault()
+                                                                            return _vm.saveFile(
+                                                                              _vm
+                                                                                .form
+                                                                                .applicationId,
+                                                                              index
+                                                                            )
+                                                                          }
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _c(
+                                                                          "i",
+                                                                          {
+                                                                            staticClass:
+                                                                              "fas fa-save"
+                                                                          }
+                                                                        )
+                                                                      ]
+                                                                    )
+                                                                  ])
                                                                 : _vm._e()
                                                             ]
                                                           )
@@ -67796,7 +67878,51 @@ var render = function() {
                                                             [
                                                               _vm._m(2, true),
                                                               _vm._v(" "),
-                                                              _vm._m(3, true)
+                                                              _vm._m(3, true),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "span",
+                                                                {
+                                                                  staticClass:
+                                                                    "act-link",
+                                                                  staticStyle: {
+                                                                    color:
+                                                                      "#808080"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "a",
+                                                                    {
+                                                                      staticClass:
+                                                                        "act-link",
+                                                                      attrs: {
+                                                                        href:
+                                                                          "#"
+                                                                      },
+                                                                      on: {
+                                                                        click: function(
+                                                                          $event
+                                                                        ) {
+                                                                          $event.preventDefault()
+                                                                          return _vm.saveFile(
+                                                                            _vm
+                                                                              .form
+                                                                              .applicationId,
+                                                                            index
+                                                                          )
+                                                                        }
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _c("i", {
+                                                                        staticClass:
+                                                                          "fas fa-save"
+                                                                      })
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
                                                             ]
                                                           )
                                                     ]
@@ -67820,45 +67946,7 @@ var render = function() {
                   )
                 ])
               ])
-            ]),
-            _vm._v(" "),
-            _vm.globalDisable == false
-              ? _c("div", { staticClass: "col-xl-2 offset-xl-4 my-2" }, [
-                  _vm._m(4)
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.globalDisable == false
-              ? _c(
-                  "div",
-                  { staticClass: "col-xl-2 offset-xl-0 my-2" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "btn btn-danger btn-block btn-sm",
-                        attrs: { type: "button", to: "/manage-my-application" }
-                      },
-                      [_c("strong", [_vm._v("Cancel")])]
-                    )
-                  ],
-                  1
-                )
-              : _c(
-                  "div",
-                  { staticClass: "col-xl-2 offset-xl-5 my-2" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "btn btn-danger btn-block btn-sm",
-                        attrs: { type: "button", to: "/manage-my-application" }
-                      },
-                      [_c("strong", [_vm._v("Cancel")])]
-                    )
-                  ],
-                  1
-                )
+            ])
           ])
         ]
       )
@@ -67919,16 +68007,6 @@ var staticRenderFns = [
       "span",
       { staticClass: "act-link", staticStyle: { color: "#808080" } },
       [_c("i", { staticClass: "fa fa-trash" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      { staticClass: "btn btn-block btn-sm btn-mg", attrs: { type: "submit" } },
-      [_c("strong", [_vm._v("Save")])]
     )
   }
 ]

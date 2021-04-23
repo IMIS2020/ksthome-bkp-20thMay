@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\contactUsMail;
+use App\Jobs\SendContactUsMsgJob;
 use Auth;
 
 class ContactUsController extends Controller
@@ -40,7 +41,8 @@ class ContactUsController extends Controller
          if ($data)
           {
             $email = $request->email;
-            Mail::to('birth.user1@gmail.com')->cc($email)->send(new contactUsMail($data));
+            // Mail::to('birth.user1@gmail.com')->cc($email)->send(new contactUsMail($data));
+            SendContactUsMsgJob::dispatch($email,$data); 
             return redirect('/contact-us')->with('message', 'Thank you for contacting with us !');
           }
         } 

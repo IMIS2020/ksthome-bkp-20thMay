@@ -18,9 +18,10 @@ class SendContactUsMsgJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct($email,$data)
     {
-        $this->details = $details;
+        $this->email = $email;
+        $this->data = $data;
     }
 
     /**
@@ -30,7 +31,8 @@ class SendContactUsMsgJob implements ShouldQueue
      */
     public function handle()
     {
-        $email = new contactUsMail();
-        Mail::to($this->details['email'])->send($email);
+        // $email = new contactUsMail();
+        Mail::to('birth.user1@gmail.com')->cc($this->email)->send(new contactUsMail($data));
+        // Mail::to($this->details['email'])->send($email);
     }
 }

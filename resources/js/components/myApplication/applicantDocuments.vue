@@ -43,11 +43,13 @@
                                                                         <table class="table table-sm mb-0">
                                                                             <thead class="color-mg">
                                                                                 <tr class="color-mg">
-                                                                                    <th colspan="2">Required Document</th>
+                                                                                    <th colspan="2" class="w-10x">Required Document</th>
                                                                                     <th>Choose file</th>
                                                                                     <th>Document Name</th>
                                                                                     <th>Uploaded</th>
-                                                                                    <th class="text-center w-7x">Action</th>
+                                                                                    <th class="text-center w-5x">View</th>
+                                                                                    <th class="text-center w-5x">Del.</th>
+                                                                                    <th class="text-center w-5x">Save</th>
                                                                                     
                                                                                 </tr>
                                                                             </thead>
@@ -66,32 +68,34 @@
                                                                                     </td>
                                                                                     <td>{{row.docFileName == null? '' : row.docFileName.split('-').reverse().shift()}}</td>
                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{row.uploadStatus}}</span></td>
-                                                                                    <td class="text-center w-7x"  v-if="row.uploadStatus == 'YES'"> 
-                                                                                        <span>
+                                                                                    <td class="text-center w-7x"  > 
+                                                                                        <span v-if="row.uploadStatus == 'YES'">
                                                                                             <router-link target="_blank"  class="act-link"  :to="''+row.fileURL">
                                                                                                 <i class="fa fa-eye"></i>
                                                                                             </router-link>
                                                                                         </span>
-                                                                                        <span v-if="globalDisable == false">
+                                                                                        <span class="act-link"  style="color:#808080;" v-else>
+                                                                                            <i class="fa fa-eye"></i>
+                                                                                        </span>
+                                                                                    </td>
+                                                                                    <td class="text-center w-7x"> 
+                                                                                        <span  v-if="row.uploadStatus == 'YES'">
                                                                                             <a  href="#"  class="act-link" @click.prevent="deleteFile(row.id)">
                                                                                                 <i class="fa fa-trash"></i>
                                                                                             </a>
                                                                                         </span>
-                                                                                        <span v-if="globalDisable == false">
-                                                                                            <a  href="#"  class="act-link" @click.prevent="saveFile(form.applicationId,index)">
-                                                                                                <i class="fas fa-save"></i>
-                                                                                            </a>
-                                                                                        </span>
-                                                                                    </td>
-                                                                                    <td class="text-center" v-else>
-                                                                                        <span class="act-link"  style="color:#808080;">
-                                                                                            <i class="fa fa-eye"></i>
-                                                                                        </span>
-                                                                                        <span class="act-link" style="color:#808080;">
+                                                                                        <span class="act-link" style="color:#808080;" v-else>
                                                                                             <i class="fa fa-trash"></i>
                                                                                         </span>
-                                                                                        <span class="act-link" style="color:#808080;">
-                                                                                          <a  href="#"  class="act-link" @click.prevent="saveFile(form.applicationId,index)">
+                                                                                    </td>
+                                                                                    <td class="text-center w-7x">
+                                                                                        <!-- <span v-if="globalDisable == false">
+                                                                                            <span class="act-link" style="color:#808080;">
+                                                                                                <i class="fas fa-save"></i>
+                                                                                            </span>
+                                                                                        </span> -->
+                                                                                        <span class="act-link" style="color:#808080;" v-if="globalDisable == false">
+                                                                                           <a  href="#"  class="act-link" @click.prevent="saveFile(form.applicationId,index)">
                                                                                                 <i class="fas fa-save"></i>
                                                                                             </a>
                                                                                         </span>
@@ -199,12 +203,12 @@ export default{
                     })
                     
                 } else {
-                        if (response.data['success'] == false){
+                        if (response.data['noData']){
                             this.readApplicationForm();
                             this.$fire({
                                 position: 'top',
                                 icon: 'success',
-                                title: "Nothing to Update",
+                                title: "Please choose a file before update !",
                                 showConfirmButton: false,
                                 timer: 3000
                         })
@@ -214,6 +218,7 @@ export default{
             .catch(error => this.errorMsg(error.response.status))
             // console.log(applicationId);
             // console.log();
+            // this.$refs[index][0].files[0] = null;
         },
 
 

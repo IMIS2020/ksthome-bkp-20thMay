@@ -29,6 +29,16 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('/dashboard','SystemController@dashboard');
     Route::post('/update-profile-photo','Scholarship\UserProfileController@store');
 
+    /***
+    *Contact-Us
+    */ 
+     Route::get('/contact-us','ContactUsController@viewContactUs');
+     Route::post('/send','ContactUsController@send');
+     
+    /***
+    *End Contact Us
+    */
+
     /***********
     * UI Routes to call applicant components from applicant
     * folder
@@ -203,9 +213,23 @@ Route::prefix('admin')->group(function() {
    */
   
     Route::group(['prefix' => 'admin-api'], function() { 
+
+      /***
+      *Domain API Call
+      */
+        Route::post('/add-domains', 'Admin\Domains\DomainsController@addNewDomains');
+        Route::get('/manage-domains/get-details', 'Admin\Domains\DomainsController@getDomains');
+      /***
+      * Domain API Call end
+      */
  
-      Route::get('/get-application-details','Admin\ApplicationDetails\AdminApplicationDetails@getData');
-      
+       /***
+       *Manage-application API Call
+      */
+        Route::get('/get-application-details','Admin\ApplicationDetails\AdminApplicationDetails@getData');
+       /***
+       *Manage-application API Call End
+      */
     });
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
   });

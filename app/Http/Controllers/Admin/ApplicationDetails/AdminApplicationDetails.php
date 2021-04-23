@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\ApplicationDetails;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\ModelScholarship\ApplicationDetails;
+use App\ModelGeneral\Address;
 
 class AdminApplicationDetails extends Controller
 {
@@ -14,4 +15,6 @@ class AdminApplicationDetails extends Controller
         $getAllDataApplication = ApplicationDetails::all();
         return $getAllDataApplication;
     }
+
+    
 }

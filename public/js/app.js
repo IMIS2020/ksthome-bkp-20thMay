@@ -4363,6 +4363,398 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      userId: document.querySelector("meta[name='userId']").getAttribute('content'),
+      // update: false,
+      globalDisable: false,
+      universityCourseLevel: {},
+      universityCourseName: {},
+      insData: {},
+      insDataDetails: {
+        address1: ''
+      },
+      courseLevelValueId2: '',
+      courseNameValueId2: '',
+      domainForm: {
+        domainName: 'CourseName',
+        dValue: '',
+        dDesc: ''
+      },
+      insId: '',
+      insForm: {
+        insType: '',
+        insName: '',
+        insAddressAddln1: '',
+        insAddressAddln2: '',
+        insAddressCity: '',
+        insAddressDistprov: '',
+        insAddressState: '',
+        insAddressPinzip: ''
+      },
+      form: {
+        // courseLevel:'',
+        hasAdmissionLetter: '',
+        applicationId: '',
+        scholarshipType: '',
+        financialYear: '',
+        applicantNameF: '',
+        applicantNameM: '',
+        applicantNameL: '',
+        applicantFatherName: '',
+        applicantMotherName: '',
+        addressAddln1: ''
+      },
+      getData: {
+        genderType: ''
+      },
+      errors: [],
+      rows: [{
+        insId: '',
+        courseLevelValueId: '',
+        courseNameValueId: '',
+        addressAddln1: '',
+        addressAddln2: '',
+        addressCity: '',
+        addressDistprov: '',
+        addressState: '',
+        addressPinzip: ''
+      }]
+    };
+  },
+  methods: {
+    addNewData: function addNewData() {
+      this.rows.push({
+        id: '',
+        insId: '',
+        courseLevelValueId: this.courseLevelValueId2,
+        courseNameValueId: this.courseNameValueId2,
+        addressAddln1: '',
+        addressAddln2: '',
+        addressCity: '',
+        addressDistprov: '',
+        addressState: '',
+        addressPinzip: ''
+      });
+    },
+    deleteRow: function deleteRow(index) {
+      this.rows.splice(index, 1);
+    },
+    saveForm: function saveForm() {
+      var _this = this;
+
+      console.log(this.update);
+
+      if (this.form.hasAdmissionLetter === 'NO') {
+        // this.rows.courseLevelValueId = this.cLform.courseLevelValueId,
+        axios.post('/api/add-annexure1/' + this.form.applicationId, this.rows).then(function (response) {
+          if (response.data['success']) {
+            _this.$fire({
+              position: 'top',
+              icon: 'success',
+              title: "Annexure-I Saved",
+              showConfirmButton: false,
+              timer: 3000
+            });
+          } else {
+            console.log(response.data['msg']);
+          }
+        })["catch"](function (error) {
+          return _this.errorMsg(error.response.status);
+        });
+      }
+    },
+    errorMsg: function errorMsg(status) {
+      switch (status) {
+        case 422:
+          {
+            this.$fire({
+              position: 'top',
+              icon: 'error',
+              title: "Something went wrong! 1",
+              showConfirmButton: false,
+              timer: 3000
+            });
+            break;
+          }
+
+        case 405:
+          {
+            this.$fire({
+              position: 'top',
+              icon: 'error',
+              title: "Something went wrong! 2",
+              showConfirmButton: false,
+              timer: 3000
+            });
+            break;
+          }
+
+        case 500:
+          {
+            this.$fire({
+              position: 'top',
+              icon: 'error',
+              title: "Something went wrong! 3",
+              showConfirmButton: false,
+              timer: 3000
+            });
+            break;
+          }
+
+        default:
+          {
+            this.$fire({
+              position: 'top',
+              icon: 'error',
+              title: "Something went wrong! 4",
+              showConfirmButton: false,
+              timer: 3000
+            });
+            break;
+          }
+      }
+    },
+    getannexurei: function getannexurei() {
+      var _this2 = this;
+
+      var applicationId = window.location.pathname.split('/').reverse()[0];
+      axios.get("/api/get-annexure1/".concat(applicationId)).then(function (response) {
+        if (response.data['success']) {
+          _this2.rows = response.data['data'];
+          _this2.courseLevelValueId2 = response.data['data'][0].courseLevelValueId;
+          _this2.courseNameValueId2 = response.data['data'][0].courseNameValueId;
+
+          _this2.getHHDLSData2(_this2.courseLevelValueId2);
+
+          _this2.update = true;
+        } else {
+          console.log(response.data['msg']);
+          _this2.update = false;
+        }
+      });
+    },
+    readApplicationForm: function readApplicationForm() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var applicationId;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                applicationId = window.location.pathname.split('/').reverse()[0];
+                axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
+                  if (response.data['success']) {
+                    _this3.form.applicationId = response.data['data'][0][0].schApplicationId;
+                    _this3.form.scholarshipType = response.data['data'][0][0].scholarshipType;
+                    _this3.form.applicantNameF = response.data['data'][0][0].applicantNameF;
+                    _this3.form.applicantNameM = response.data['data'][0][0].applicantNameM;
+                    _this3.form.applicantNameL = response.data['data'][0][0].applicantNameL;
+                    _this3.form.applicantFatherName = response.data['data'][0][0].applicantFatherName;
+                    _this3.form.applicantMotherName = response.data['data'][0][0].applicantMotherName;
+                    _this3.form.financialYear = response.data['data'][0][0].financialYear;
+                    _this3.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
+                    _this3.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
+                    _this3.insForm.insType = response.data['data'][0][0].scholarshipType;
+
+                    _this3.readDomainValues(_this3.form.scholarshipType);
+
+                    _this3.readInsValue(_this3.form.scholarshipType);
+
+                    if (_this3.form.applicantGender = response.data['data'][0][0].applicantGender == "Male") {
+                      _this3.getData.genderType = "son";
+                    } else {
+                      _this3.getData.genderType = "daughter";
+                    }
+
+                    ;
+                    _this3.form.appStatus = response.data['data'][0][0].appStatus;
+
+                    if (_this3.form.appStatus == 'Submit') {
+                      _this3.globalDisable = true;
+                    }
+
+                    ;
+                  } else {
+                    console.log(response.data['msg']);
+                  }
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    readDomainValues: function readDomainValues(type) {
+      var _this4 = this;
+
+      if (type == 'HHDLS') {
+        // axios.get('/api/domain/course-name/hhdls')
+        //     .then(response => {
+        //         this.universityCourseName = response.data;
+        //     });   
+        axios.get('/api/domain/course-level/hhdls').then(function (response) {
+          _this4.universityCourseLevel = response.data;
+        });
+      } else if (type == 'Nursing') {
+        axios.get('/api/domain/course-name/nursing').then(function (response) {
+          _this4.universityCourseName = response.data;
+        });
+        axios.get('/api/domain/course-level/nursing').then(function (response) {
+          _this4.universityCourseLevel = response.data;
+        });
+      }
+    },
+    readInsValue: function readInsValue(type) {
+      var _this5 = this;
+
+      axios.get('/api/institute/get-data/' + type).then(function (response) {
+        _this5.insData = response.data;
+      });
+    },
+    saveDomainValues: function saveDomainValues() {
+      var _this6 = this;
+
+      axios.post('/api/domain/add', this.domainForm).then(function (response) {
+        if (response.data['success']) {
+          _this6.readDomainValues();
+
+          var showMsg = '';
+
+          if (_this6.domainForm.domainName == 'CourseLevel') {
+            showMsg = 'Course Level';
+          } else if (_this6.domainForm.domainName == 'CourseName') {
+            showMsg = 'Course Name';
+          }
+
+          _this6.$fire({
+            position: 'top',
+            icon: 'success',
+            title: "Added new " + showMsg,
+            showConfirmButton: false,
+            timer: 3000
+          });
+        } else {
+          console.log(response.data['msg']);
+        }
+      })["catch"](function (error) {
+        return _this6.errorMsg(error.response.status);
+      });
+    },
+    saveInstitute: function saveInstitute() {
+      var _this7 = this;
+
+      axios.post('/api/institute/add', this.insForm).then(function (response) {
+        if (response.data['success']) {
+          _this7.readInsValue(_this7.form.scholarshipType);
+
+          _this7.$fire({
+            position: 'top',
+            icon: 'success',
+            title: "Added new Institute",
+            showConfirmButton: false,
+            timer: 3000
+          });
+        } else {
+          console.log(response.data['msg']);
+        }
+      })["catch"](function (error) {
+        return _this7.errorMsg(error.response.status);
+      });
+    },
+    addName: function addName(data) {
+      this.domainForm.domainName = data; //  this.rows.courseLevelValueId = data;
+    },
+    getData: function getData(insId, index) {
+      var _this8 = this;
+
+      console.lof(insId);
+      axios.get('/api/institute/get-details/' + insId).then(function (response) {
+        if (response.data['success']) {
+          _this8.rows[index].addressAddln1 = response.data['data'][0].get_address.addressAddln1;
+          _this8.rows[index].addressAddln2 = response.data['data'][0].get_address.addressAddln2;
+          _this8.rows[index].addressCity = response.data['data'][0].get_address.addressCity;
+          _this8.rows[index].addressDistprov = response.data['data'][0].get_address.addressDistprov;
+          _this8.rows[index].addressState = response.data['data'][0].get_address.addressState;
+          _this8.rows[index].addressPinzip = response.data['data'][0].get_address.addressPinzip;
+        } else {
+          console.log(response.data['msg']);
+        }
+      })["catch"](function (error) {
+        return _this8.errorMsg(error.response.status);
+      });
+    },
+    onChange: function onChange(event, index) {
+      var _this9 = this;
+
+      this.insId = event.target.value;
+      console.log(this.insId);
+      axios.get('/api/institute/get-details/' + this.insId).then(function (response) {
+        if (response.data['success']) {
+          _this9.rows[index].addressAddln1 = response.data['data'][0].get_address.addressAddln1;
+          _this9.rows[index].addressAddln2 = response.data['data'][0].get_address.addressAddln2;
+          _this9.rows[index].addressCity = response.data['data'][0].get_address.addressCity;
+          _this9.rows[index].addressDistprov = response.data['data'][0].get_address.addressDistprov;
+          _this9.rows[index].addressState = response.data['data'][0].get_address.addressState;
+          _this9.rows[index].addressPinzip = response.data['data'][0].get_address.addressPinzip;
+        } else {
+          console.log(response.data['msg']);
+        }
+      })["catch"](function (error) {
+        return _this9.errorMsg(error.response.status);
+      });
+    },
+    getHHDLSData: function getHHDLSData(event) {
+      var _this10 = this;
+
+      // clearRow();
+      var id = event.target.value;
+      axios.get('/api/domain/course-name/hhdls/' + id).then(function (response) {
+        _this10.universityCourseName = response.data;
+      });
+    },
+    getHHDLSData2: function getHHDLSData2(id) {
+      var _this11 = this;
+
+      axios.get('/api/domain/course-name/hhdls/' + id).then(function (response) {
+        _this11.universityCourseName = response.data;
+      });
+    },
+    clearRow: function clearRow() {//    this.rows = [];
+    }
+  },
+  created: function created() {
+    // this.readInsValue();
+    this.readDomainValues();
+    this.readApplicationForm();
+    this.getannexurei();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/myApplication/annexure2.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/myApplication/annexure2.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -4848,6 +5240,229 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      userId: document.querySelector("meta[name='userId']").getAttribute('content'),
+      fullName: {},
+      globalDisable: false,
+      countLeprosy: 0,
+      form: {
+        // courseLevel:'',
+        applicantLeprosyAffectedSelf: false,
+        applicantLeprosyAffectedFather: false,
+        applicantLeprosyAffectedMother: false,
+        hasAdmissionLetter: '',
+        applicationId: '',
+        scholarshipType: '',
+        financialYear: '',
+        applicantNameF: '',
+        applicantNameM: '',
+        applicantNameL: '',
+        applicantFatherName: '',
+        applicantMotherName: '',
+        addressAddln1: '',
+        fullName: ''
+      },
+      Nform: {
+        applicantColonyLeaderName: ''
+      },
+      getdata: {
+        applicantNameF: '',
+        applicantNameM: '',
+        applicantNameL: '',
+        applicantFatherName: '',
+        applicantMotherName: '',
+        addressAddln1: '',
+        hasAdmissionLetter: '',
+        applicationId: '',
+        financialYear: ''
+      },
+      errors: []
+    };
+  },
+  methods: {
+    saveForm: function saveForm() {
+      var _this = this;
+
+      axios.post('/api/save-annexure2/' + this.form.applicationId, this.Nform).then(function (response) {
+        if (response.data['success']) {
+          _this.$fire({
+            position: 'top',
+            icon: 'success',
+            title: "Annexure-II Saved",
+            showConfirmButton: false,
+            timer: 3000
+          });
+        } else {
+          console.log(response.data['msg']);
+        }
+      })["catch"](function (error) {
+        return _this.errorMsg(error.response.status);
+      });
+    },
+    errorMsg: function errorMsg(status) {
+      switch (status) {
+        case 422:
+          {
+            this.$fire({
+              position: 'top',
+              icon: 'error',
+              title: "Something went wrong !",
+              showConfirmButton: false,
+              timer: 3000
+            });
+            break;
+          }
+
+        case 405:
+          {
+            this.$fire({
+              position: 'top',
+              icon: 'error',
+              title: "Something went wrong!",
+              showConfirmButton: false,
+              timer: 3000
+            });
+            break;
+          }
+
+        case 500:
+          {
+            this.$fire({
+              position: 'top',
+              icon: 'error',
+              title: "Something went wrong!",
+              showConfirmButton: false,
+              timer: 3000
+            });
+            break;
+          }
+
+        default:
+          {
+            this.$fire({
+              position: 'top',
+              icon: 'error',
+              title: "Something went wrong!",
+              showConfirmButton: false,
+              timer: 3000
+            });
+            break;
+          }
+      }
+    },
+    readAnnexureII: function readAnnexureII() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                axios.get("/api/application-form/".concat(_this2.userId)).then(function (response) {
+                  if (response.data['success']) {
+                    _this2.form = response.data['data'];
+                  } else {
+                    console.log(response.data['msg']);
+                  }
+                });
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    readApplicationForm: function readApplicationForm() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var applicationId;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                applicationId = window.location.pathname.split('/').reverse()[0];
+                axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
+                  if (response.data['success']) {
+                    _this3.form.applicationId = response.data['data'][0][0].schApplicationId;
+                    _this3.form.scholarshipType = response.data['data'][0][0].scholarshipType;
+                    _this3.form.applicantNameF = response.data['data'][0][0].applicantNameF;
+                    _this3.form.fullName = response.data['data'][0][0].applicantNameF + ' ' + (response.data['data'][0][0].applicantNameM == null ? ' ' : response.data['data'][0][0].applicantNameM) + ' ' + response.data['data'][0][0].applicantNameL;
+                    _this3.form.applicantNameM = response.data['data'][0][0].applicantNameM;
+                    _this3.form.applicantNameL = response.data['data'][0][0].applicantNameL;
+                    _this3.form.applicantFatherName = response.data['data'][0][0].applicantFatherName;
+                    _this3.form.applicantMotherName = response.data['data'][0][0].applicantMotherName;
+                    _this3.form.financialYear = response.data['data'][0][0].financialYear;
+                    _this3.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
+                    _this3.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
+                    _this3.Nform.applicantColonyLeaderName = response.data['data'][0][0].applicantColonyLeaderName;
+                    _this3.form.applicantLeprosyAffectedSelf = response.data['data'][0][0].applicantLeprosyAffectedSelf;
+                    _this3.form.applicantLeprosyAffectedFather = response.data['data'][0][0].applicantLeprosyAffectedFather;
+                    _this3.form.applicantLeprosyAffectedMother = response.data['data'][0][0].applicantLeprosyAffectedMother;
+
+                    _this3.check(); // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
+                    // {
+                    //     this.getData.genderType = "son";
+                    // }else{
+                    //     this.getData.genderType = "daughter";
+                    // };
+
+
+                    _this3.form.appStatus = response.data['data'][0][0].appStatus;
+
+                    if (_this3.form.appStatus == 'Submit') {
+                      _this3.globalDisable = true;
+                    }
+
+                    ;
+                  } else {
+                    console.log(response.data['msg']);
+                  }
+                });
+
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    check: function check() {
+      if (this.form.applicantLeprosyAffectedSelf == true) {
+        this.countLeprosy = this.countLeprosy + 1;
+      }
+
+      if (this.form.applicantLeprosyAffectedFather == true) {
+        this.countLeprosy = this.countLeprosy + 1;
+      }
+
+      if (this.form.applicantLeprosyAffectedMother == true) {
+        this.countLeprosy = this.countLeprosy + 1;
+      }
+    }
+  },
+  created: function created() {
+    this.readApplicationForm();
+    this.readAnnexureII();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/myApplication/annexure2BlankForm.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/myApplication/annexure2BlankForm.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -5120,6 +5735,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      applicationId: ''
+    };
+  },
+  methods: {
+    getId: function getId() {
+      this.applicationId = window.location.pathname.split('/').reverse()[0];
+      console.log(this.applicationId);
+    }
+  },
+  created: function created() {
+    this.getId();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/myApplication/annexure2PrintForm.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/myApplication/annexure2PrintForm.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -5194,6 +5845,113 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: {
+        // courseLevel:'',
+        hasAdmissionLetter: '',
+        applicationId: '',
+        scholarshipType: '',
+        financialYear: '',
+        applicantNameF: '',
+        applicantNameM: '',
+        applicantNameL: '',
+        applicantFatherName: '',
+        applicantMotherName: '',
+        addressAddln1: '',
+        fullName: '',
+        applicantLeprosyAffectedSelf: false,
+        applicantLeprosyAffectedFather: false,
+        applicantLeprosyAffectedMother: false
+      },
+      Nform: {
+        applicantColonyLeaderName: ''
+      },
+      countLeprosy: 0
+    };
+  },
+  methods: {
+    readApplicationForm: function readApplicationForm() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var applicationId;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                applicationId = window.location.pathname.split('/').reverse()[0];
+                axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
+                  if (response.data['success']) {
+                    _this.form.applicationId = response.data['data'][0][0].schApplicationId;
+                    _this.form.scholarshipType = response.data['data'][0][0].scholarshipType;
+                    _this.form.applicantNameF = response.data['data'][0][0].applicantNameF;
+                    _this.form.fullName = response.data['data'][0][0].applicantNameF + ' ' + (response.data['data'][0][0].applicantNameM == null ? ' ' : response.data['data'][0][0].applicantNameM) + ' ' + response.data['data'][0][0].applicantNameL;
+                    _this.form.applicantNameM = response.data['data'][0][0].applicantNameM;
+                    _this.form.applicantNameL = response.data['data'][0][0].applicantNameL;
+                    _this.form.applicantFatherName = response.data['data'][0][0].applicantFatherName;
+                    _this.form.applicantMotherName = response.data['data'][0][0].applicantMotherName;
+                    _this.form.financialYear = response.data['data'][0][0].financialYear;
+                    _this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
+                    _this.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
+                    _this.Nform.applicantColonyLeaderName = response.data['data'][0][0].applicantColonyLeaderName;
+                    _this.form.applicantLeprosyAffectedSelf = response.data['data'][0][0].applicantLeprosyAffectedSelf;
+                    _this.form.applicantLeprosyAffectedFather = response.data['data'][0][0].applicantLeprosyAffectedFather;
+                    _this.form.applicantLeprosyAffectedMother = response.data['data'][0][0].applicantLeprosyAffectedMother;
+
+                    _this.check();
+                  } else {
+                    console.log(response.data['msg']);
+                  }
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    check: function check() {
+      if (this.form.applicantLeprosyAffectedSelf == true) {
+        this.countLeprosy = this.countLeprosy + 1;
+      }
+
+      if (this.form.applicantLeprosyAffectedFather == true) {
+        this.countLeprosy = this.countLeprosy + 1;
+      }
+
+      if (this.form.applicantLeprosyAffectedMother == true) {
+        this.countLeprosy = this.countLeprosy + 1;
+      }
+    }
+  },
+  created: function created() {
+    this.readApplicationForm();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/myApplication/applicantDocuments.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/myApplication/applicantDocuments.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -5416,6 +6174,213 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      userId: document.querySelector("meta[name='userId']").getAttribute('content'),
+      // docRows1:{},
+      // update: false,
+      globalDisable: false,
+      docRows: [{
+        id: '',
+        docFileName: ''
+      }],
+      form: {
+        // courseLevel:'',
+        hasAdmissionLetter: '',
+        applicationId: '',
+        scholarshipType: '',
+        financialYear: '',
+        applicantNameF: '',
+        applicantNameM: '',
+        applicantNameL: '',
+        applicantFatherName: '',
+        applicantMotherName: '',
+        addressAddln1: ''
+      },
+      errors: []
+    };
+  },
+  methods: {
+    saveForm: function saveForm() {
+      var _this = this;
+
+      axios.post('/api/add-documents/' + this.form.applicationId, this.docRows).then(function (response) {
+        if (response.data['success']) {
+          _this.readApplicationForm();
+
+          _this.$fire({
+            position: 'top',
+            icon: 'success',
+            title: "Documents Uploaded Successfully",
+            showConfirmButton: false,
+            timer: 3000
+          });
+        } else {
+          console.log(response.data['msg']);
+        }
+      })["catch"](function (error) {
+        return _this.errorMsg(error.response.status);
+      });
+    },
+    readApplicationForm: function readApplicationForm() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var applicationId;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                applicationId = window.location.pathname.split('/').reverse()[0];
+                axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
+                  if (response.data['success']) {
+                    _this2.form.applicationId = response.data['data'][0][0].schApplicationId;
+                    _this2.form.scholarshipType = response.data['data'][0][0].scholarshipType;
+                    _this2.form.applicantNameF = response.data['data'][0][0].applicantNameF;
+                    _this2.form.applicantNameM = response.data['data'][0][0].applicantNameM;
+                    _this2.form.applicantNameL = response.data['data'][0][0].applicantNameL;
+                    _this2.form.applicantFatherName = response.data['data'][0][0].applicantFatherName;
+                    _this2.form.applicantMotherName = response.data['data'][0][0].applicantMotherName;
+                    _this2.form.financialYear = response.data['data'][0][0].financialYear;
+                    _this2.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
+                    _this2.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1; // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
+                    // {
+                    //     this.getData.genderType = "son";
+                    // }else{
+                    //     this.getData.genderType = "daughter";
+                    // }
+
+                    _this2.form.appStatus = response.data['data'][0][0].appStatus;
+
+                    if (_this2.form.appStatus == 'Submit') {
+                      _this2.globalDisable = true;
+                    }
+
+                    ;
+                  } else {
+                    console.log(response.data['msg']);
+                  }
+                });
+
+                _this2.getMasterDoc();
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    getMasterDoc: function getMasterDoc() {
+      var _this3 = this;
+
+      var applicationId = window.location.pathname.split('/').reverse()[0];
+      axios.get('/api/get-documents/' + applicationId).then(function (response) {
+        _this3.docRows = response.data; // if(response.data.length != 0)
+        // this.docRows = response.data
+        // this.docRows=this.docRows.map((row)=>{
+        //     let fname = row.docFileName.split('-');
+        //     fname.shift()
+        //     row._docFileName= fname.join('-');
+        //     return row
+        // })
+      });
+    },
+    selectFile: function selectFile(index) {
+      var _this4 = this;
+
+      var file = this.$refs[index][0].files[0];
+      console.log(index);
+
+      if (file.type == 'image/jpeg' || file.type == 'image/jpg' || file.type == 'image/png' || file.type == 'file/pdf') {
+        if (index == 1) {
+          if (file.type != 'image/jpeg') {
+            this.$fire({
+              position: 'top',
+              icon: 'success',
+              title: "Passport size photograph must be image type",
+              showConfirmButton: false,
+              timer: 4000
+            });
+          }
+        }
+
+        if (file.size > 1024 * 1024) {
+          //this.$refs[index][0].files[0] ='';
+          // e.preventDefault();
+          this.$fire({
+            position: 'top',
+            icon: 'success',
+            title: "Document is Too Large - Max 1 MB each",
+            showConfirmButton: false,
+            timer: 4000
+          });
+          return;
+        } else {
+          var fileName = file.name;
+          var fileReader = new FileReader();
+          fileReader.readAsDataURL(file);
+
+          fileReader.onload = function (e) {
+            _this4.docRows[index].docFileNameFile = e.target.result;
+          };
+
+          this.docRows[index].fileName = fileName;
+        }
+      } else {
+        this.$fire({
+          position: 'top',
+          icon: 'success',
+          title: "pdf,png,jpeg or jpg files only",
+          showConfirmButton: false,
+          timer: 4000
+        });
+      }
+    },
+    deleteFile: function deleteFile(applicationDocId) {
+      var _this5 = this;
+
+      axios.get("/api/del-documents/".concat(applicationDocId)).then(function (response) {
+        if (response.data == 1) {
+          _this5.readApplicationForm();
+
+          _this5.$fire({
+            position: 'top',
+            icon: 'success',
+            title: "Document Deleted Successfully",
+            showConfirmButton: false,
+            timer: 3000
+          });
+        }
+      });
+    }
+  },
+  created: function created() {
+    this.readApplicationForm();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/myApplication/applicantForm.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/myApplication/applicantForm.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -57525,6 +58490,273 @@ var staticRenderFns = [
         )
       ])
     ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass:
+          "navbar-brand d-flex justify-content-center align-items-center sidebar-brand",
+        attrs: { href: "#" }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "sidebar-brand-icon rotate-n-15 text-white" },
+          [_c("i", { staticClass: "fas fa-building" })]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "sidebar-brand-text mx-3" }, [
+          _c("span", [_vm._v("S-ILF ")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("div", { staticClass: "nav-item dropdown shadow-lg nav-dropdown" }, [
+        _c(
+          "a",
+          {
+            staticClass: "dropdown-toggle nav-link",
+            attrs: {
+              "aria-expanded": "false",
+              "data-toggle": "dropdown",
+              href: "#"
+            }
+          },
+          [
+            _c("i", { staticClass: "fas fa-money-bill-wave" }),
+            _c("span", [_vm._v("Dropdown Menu")])
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown-menu dr-cs" }, [
+          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+            _c("i", { staticClass: "fas fa-money-bill-wave" }),
+            _vm._v(" Dropdown Menu")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "navbar-brand text-uppercase text-white",
+        attrs: { href: "#" }
+      },
+      [_c("strong", [_vm._v("S-ILF scholarships")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-link d-md-none rounded-circle mr-3",
+        attrs: { id: "sidebarToggleTop", type: "button" }
+      },
+      [_c("i", { staticClass: "fas fa-bars" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item dropdown d-sm-none no-arrow" }, [
+      _c(
+        "a",
+        {
+          staticClass: "dropdown-toggle nav-link",
+          attrs: {
+            "aria-expanded": "false",
+            "data-toggle": "dropdown",
+            href: "#"
+          }
+        },
+        [_c("i", { staticClass: "fas fa-search" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "dropdown-menu dropdown-menu-right p-3 animated--grow-in",
+          attrs: { "aria-labelledby": "searchDropdown" }
+        },
+        [
+          _c(
+            "form",
+            { staticClass: "form-inline mr-auto navbar-search w-100" },
+            [
+              _c("div", { staticClass: "input-group" }, [
+                _c("input", {
+                  staticClass: "bg-light form-control border-0 small",
+                  attrs: { type: "text", placeholder: "Search for ..." }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group-append" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary py-0",
+                      attrs: { type: "button" }
+                    },
+                    [_c("i", { staticClass: "fas fa-search" })]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item dropdown no-arrow mx-1" }, [
+      _c("div", { staticClass: "nav-item dropdown no-arrow dr-not" }, [
+        _c(
+          "a",
+          {
+            staticClass: "dropdown-toggle nav-link",
+            attrs: {
+              "aria-expanded": "false",
+              "data-toggle": "dropdown",
+              href: "#"
+            }
+          },
+          [
+            _c("span", { staticClass: "badge badge-danger badge-counter" }, [
+              _vm._v("3+")
+            ]),
+            _c("i", { staticClass: "fas fa-bell fa-fw" })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "dropdown-menu dropdown-list dropdown-menu-right animated--grow-in"
+          },
+          [
+            _c("h6", { staticClass: "dropdown-header" }, [
+              _vm._v("notifications center")
+            ]),
+            _c(
+              "a",
+              {
+                staticClass: "d-flex align-items-center dropdown-item",
+                attrs: { href: "#" }
+              },
+              [
+                _c("div", { staticClass: "mr-3" }, [
+                  _c("div", { staticClass: "icon-circle gold-bg" }, [
+                    _c("i", { staticClass: "fas fa-file-alt text-white" })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("span", { staticClass: "small" }, [
+                    _vm._v("December 12, 2019")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c("strong", [
+                      _c("em", [
+                        _vm._v("A new monthly report is ready to download!")
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            ),
+            _c(
+              "a",
+              {
+                staticClass: "d-flex align-items-center dropdown-item",
+                attrs: { href: "#" }
+              },
+              [
+                _c("div", { staticClass: "mr-3" }, [
+                  _c("div", { staticClass: "icon-circle gold-bg" }, [
+                    _c("i", { staticClass: "fas fa-file-alt text-white" })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("span", { staticClass: "small" }, [
+                    _vm._v("December 12, 2019")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c("strong", [
+                      _c("em", [
+                        _vm._v("A new monthly report is ready to download!")
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            ),
+            _c(
+              "a",
+              {
+                staticClass: "d-flex align-items-center dropdown-item",
+                attrs: { href: "#" }
+              },
+              [
+                _c("div", { staticClass: "mr-3" }, [
+                  _c("div", { staticClass: "icon-circle gold-bg" }, [
+                    _c("i", { staticClass: "fas fa-file-alt text-white" })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("span", { staticClass: "small" }, [
+                    _vm._v("December 12, 2019")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c("strong", [
+                      _c("em", [
+                        _vm._v("A new monthly report is ready to download!")
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            ),
+            _c(
+              "a",
+              {
+                staticClass: "text-center dropdown-item small text-gray-500",
+                attrs: { href: "#" }
+              },
+              [_vm._v("Show All Alerts")]
+            )
+          ]
+        )
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -72911,7 +74143,7 @@ var render = function() {
                                                                     },
                                                                     [
                                                                       _vm._m(
-                                                                        33
+                                                                        32
                                                                       ),
                                                                       _vm._v(
                                                                         " "
@@ -73201,7 +74433,7 @@ var render = function() {
                                                                             ]
                                                                           ),
                                                                           _vm._m(
-                                                                            34
+                                                                            33
                                                                           )
                                                                         ]
                                                                       )
@@ -73363,7 +74595,7 @@ var render = function() {
                                                                     },
                                                                     [
                                                                       _vm._m(
-                                                                        35
+                                                                        34
                                                                       ),
                                                                       _vm._v(
                                                                         " "
@@ -73653,7 +74885,7 @@ var render = function() {
                                                                             ]
                                                                           ),
                                                                           _vm._m(
-                                                                            36
+                                                                            35
                                                                           )
                                                                         ]
                                                                       )
@@ -100397,8 +101629,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! H:\I-MIS-PROTAL\I-MIS-APP-FINAL-04-03-2021\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! H:\I-MIS-PROTAL\I-MIS-APP-FINAL-04-03-2021\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! H:\I-MIS-PORTAL\I-MIS-APP-FINAL-04-03-2021\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! H:\I-MIS-PORTAL\I-MIS-APP-FINAL-04-03-2021\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

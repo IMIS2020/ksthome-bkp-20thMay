@@ -39,10 +39,8 @@
              ">Once you have verified your identity correctly with the OTP, your account will be created and you can login with your email and password.
               </p>
 
-              <p style=" margin-left:30px; font-size:20px; color:red
-              ">
-              This is an automated no-reply mail. Please do not reply to this message as this mail id is unattended, and cannot help with questions or requests.<br>
-              <span style="color: #000">For any clarifications kindly call us at 9990503759/9891572290 or email us at  scholarships@silf.in .</span>
+              <p style=" margin-left:30px; font-size:20px;">
+              For any clarification kindly contact us using the details provided in the website.
               </p>
 
               <!-- <p style=" margin-left:30px; font-size:20px;

@@ -32,7 +32,8 @@
                                                             <h6 class="mb-0 color-mg"><strong>Upload latest certificates and proofs.</strong>
                                                                                         <br>Note: 1  - png, jpeg, jpg or pdf files - Max 1 MB each<br>
                                                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2  - Aadhaar card / voter id / driving lisence/ ration card
-                                                                                                        are valid for proof of address.
+                                                                                                        are valid for proof of address.<br>
+                                                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3  - Upload document - Choose a file and then click <i class="fas fa-save"></i> ( to save ), before choosing the next file.
                                                                                                         
                                                             </h6>
                                                         </div>
@@ -205,7 +206,7 @@ export default{
                             this.$fire({
                                 position: 'top',
                                 icon: 'success',
-                                title: "Please choose a file before update!",
+                                title: "Nothing to Update!",
                                 showConfirmButton: false,
                                 timer: 3000
                         })

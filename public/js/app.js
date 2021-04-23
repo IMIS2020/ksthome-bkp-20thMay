@@ -5458,6 +5458,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5529,7 +5530,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             _this2.$fire({
               position: 'top',
               icon: 'success',
-              title: "Please choose a file before update!",
+              title: "Nothing to Update!",
               showConfirmButton: false,
               timer: 3000
             });
@@ -67971,7 +67972,15 @@ var staticRenderFns = [
         _vm._v("Note: 1  - png, jpeg, jpg or pdf files - Max 1 MB each"),
         _c("br"),
         _vm._v(
-          "\n                                                                                                  2  - Aadhaar card / voter id / driving lisence/ ration card\n                                                                                                    are valid for proof of address.\n                                                                                                    \n                                                        "
+          "\n                                                                                                  2  - Aadhaar card / voter id / driving lisence/ ration card\n                                                                                                    are valid for proof of address."
+        ),
+        _c("br"),
+        _vm._v(
+          "\n                                                                                                  3  - Upload document - Choose a file and then click "
+        ),
+        _c("i", { staticClass: "fas fa-save" }),
+        _vm._v(
+          " ( to save ), before choosing the next file.\n                                                                                                    \n                                                        "
         )
       ])
     ])

@@ -314,6 +314,7 @@ class DocumentMaster extends Controller
     public function getApplicantDoc($shcName,$applicationId)
     {
         $userId= Auth::user()->id;
+        $getSession = ApplicationSession::where('id',1)->first()->sessionName;
         $getAppType = ApplicationDetails::where('schApplicationId', $applicationId)->first()->scholarshipType;
         $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
 
@@ -321,7 +322,7 @@ class DocumentMaster extends Controller
         $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
         $checkFg = ApplicationDocs::where('docMasterId',$docDataObj->id)->where('applicationId',$getApplicationId)->first();
 
-        $url = Storage::url('uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/'.$checkFg->docFileName);
+        $url = Storage::url('uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/'.$checkFg->docFileName);
 
         return $url;
 

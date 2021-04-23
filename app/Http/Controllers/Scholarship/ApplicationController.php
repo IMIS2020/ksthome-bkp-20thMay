@@ -805,6 +805,7 @@ class ApplicationController extends Controller
      public function saveDocuments(string $applicationId,Request $request)
      {
         $getAppType = ApplicationDetails::where('schApplicationId', $applicationId)->first()->scholarshipType;
+        $getSession = ApplicationSession::where('id',1)->first()->sessionName;
         $this->createFolder();   
         $userId= Auth::user()->id;
         $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
@@ -823,13 +824,13 @@ class ApplicationController extends Controller
                 if (isset($request->docFileNameFile)) {
                     if (!empty($editDoc->docFileName)) {
                         try{
-                            unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$editDoc->docFileName);
+                            unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/').$editDoc->docFileName);
                         }catch(\Exception $e) 
                         {
                             
                             $editDoc1 = ApplicationDocs::where('id',$request->id)->first();
-                            $fileName = $this->uploadFile(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/'), $request->docFileNameFile,$request->fileName,$getSchAppId,$docIndex);
-                            $editDoc1->docFilePath  = 'app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/';
+                            $fileName = $this->uploadFile(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/'), $request->docFileNameFile,$request->fileName,$getSchAppId,$docIndex,$userFolderName);
+                            $editDoc1->docFilePath  = 'app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/';
                             $editDoc1->docFileName  = $fileName;
                             $editDoc1->uploadStatus = 'YES';
                             $editDoc1->update();
@@ -837,8 +838,8 @@ class ApplicationController extends Controller
                         }
                     }
 
-                    $fileName = $this->uploadFile(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/'), $request->docFileNameFile,$request->fileName,$getSchAppId,$docIndex);
-                    $editDoc->docFilePath               = 'app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/';
+                    $fileName = $this->uploadFile(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/'), $request->docFileNameFile,$request->fileName,$getSchAppId,$docIndex,$userFolderName);
+                    $editDoc->docFilePath               = 'app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/';
                     $editDoc->docFileName  = $fileName;
                     $editDoc->uploadStatus  = 'YES';
                 }
@@ -945,6 +946,7 @@ class ApplicationController extends Controller
     public function getDocuments(string $applicationId)
     {
         $userId= Auth::user()->id;
+        $getSession = ApplicationSession::where('id',1)->first()->sessionName;
         $getAppType = ApplicationDetails::where('schApplicationId', $applicationId)->first()->scholarshipType;
         $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
 
@@ -955,7 +957,7 @@ class ApplicationController extends Controller
 
         foreach ($getData as $key => $value) {
             $fileName = $value['docFileName'];
-            $url = Storage::url('uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/'.$fileName);
+            $url = Storage::url('uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/');
             $getData[$key]['fileURL'] = $url;
         }
 
@@ -963,16 +965,18 @@ class ApplicationController extends Controller
     }
 
      # File Uploader
-    public function uploadFile(string $path, $base64file, string $filename='',$applicationId,$index)
+    public function uploadFile(string $path, $base64file, string $filename='',$applicationId,$index,$userFolderName)
     {   
+        $getSession = ApplicationSession::where('id',1)->first()->sessionName;
+        $docId = DocMaster::where('id',$index)->first()->docShortName;
         $File =  explode(',', $base64file);
         $file = base64_decode($File[1]);
         $extention = explode(';',explode('/',$File[0])[1])[0];
 
         if ($filename !== '') {
-            $fileName = $index.'-'.$applicationId.'-'.$filename;
+            $fileName = $userFolderName.'-'.$getSession.'-'.$applicationId.'-'.$docId.'-'.$filename;
         } else {
-            $fileName = $index.'-'.$applicationId.'.'.$extention;
+            $fileName = $userFolderName.'-'.$getSession.'-'.$applicationId.'-'.$docId.$extention;
         }
         
         $path = $path.$fileName;
@@ -985,10 +989,11 @@ class ApplicationController extends Controller
     public function createFolder()
     {
         $userId= Auth::user()->id;
+        $getSession = ApplicationSession::where('id',1)->first()->sessionName;
         $getAppType = ApplicationDetails::where('userId', $userId)->first()->scholarshipType;
         $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
-        if(!Storage::exists('public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/')){
-            Storage::makeDirectory('public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/');
+        if(!Storage::exists('public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/')){
+            Storage::makeDirectory('public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/');
         }
     }
 
@@ -996,10 +1001,11 @@ class ApplicationController extends Controller
     {
         $userId= Auth::user()->id;
         $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
+        $getSession = ApplicationSession::where('id',1)->first()->sessionName;
 
         $delDocFile =ApplicationDocs::where('id', $applicationDocId)->first();
         if (!empty($delDocFile->docFileName)) {
-            unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getAppType.'/').$delDocFile->docFileName);
+            unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/').$delDocFile->docFileName);
         }
         $delDocFile->docFilePath   = null;
         $delDocFile->docFileName   = null;

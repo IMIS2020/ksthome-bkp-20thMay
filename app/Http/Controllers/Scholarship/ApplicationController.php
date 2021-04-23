@@ -806,7 +806,7 @@ class ApplicationController extends Controller
      {
         $getAppType = ApplicationDetails::where('schApplicationId', $applicationId)->first()->scholarshipType;
         $getSession = ApplicationSession::where('id',1)->first()->sessionName;
-        $this->createFolder();   
+        $this->createFolder($getAppType);   
         $userId= Auth::user()->id;
         $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
 
@@ -859,7 +859,7 @@ class ApplicationController extends Controller
                 DB::commit();
                 return array('success' => true, 'msg'=>[]);
             }
-            catch(\Exception $e) 
+            catch(Exception $e) 
             {
                 DB::rollBack();
                 return array('error' => true, 'msg'=>[$e]);
@@ -998,11 +998,10 @@ class ApplicationController extends Controller
     }
 
     #create DIR
-    public function createFolder()
+    public function createFolder($getAppType)
     {
         $userId= Auth::user()->id;
         $getSession = ApplicationSession::where('id',1)->first()->sessionName;
-        $getAppType = ApplicationDetails::where('userId', $userId)->first()->scholarshipType;
         $userFolderName= 'USR'.str_pad($userId, 6, "0", STR_PAD_LEFT);
         if(!Storage::exists('public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/')){
             Storage::makeDirectory('public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/');

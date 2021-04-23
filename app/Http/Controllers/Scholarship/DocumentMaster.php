@@ -321,8 +321,14 @@ class DocumentMaster extends Controller
         $docDataObj = DocMaster::where('docShortName',$shcName)->first();
         $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
         $checkFg = ApplicationDocs::where('docMasterId',$docDataObj->id)->where('applicationId',$getApplicationId)->first();
+        
+        if($checkFg->docFileName){
+            $url = Storage::url('uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/'.$checkFg->docFileName);
+        }else{
+            $url = "";
+        }
 
-        $url = Storage::url('uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/'.$checkFg->docFileName);
+        
 
         return $url;
 

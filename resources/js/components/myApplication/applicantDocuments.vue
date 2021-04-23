@@ -62,14 +62,13 @@
 
                                                                                     <td>
                                                                                         <!-- <input type="hidden" v-model="row.idDoc"/> -->
-                                                                                        <input  type="hidden" v-model="row.get_doc_master.docShortName" :disabled="globalDisable"/>
                                                                                         <input  type="hidden" v-model="row.id" :disabled="globalDisable"/>
-                                                                                        <div class="form-group" v-if="row.get_doc_master.docShortName 	== 'DOC007'">
-                                                                                            <input class="form-control-file font-sm" type="file" :ref="index" multiple v-on:change="selectFile(index)" accept="image/x-png,image/gif,image/jpeg" :disabled="globalDisable">
-                                                                                        </div>
-                                                                                        <div class="form-group" v-else>
+                                                                                        <div class="form-group">
                                                                                             <input class="form-control-file font-sm" type="file" :ref="index" multiple v-on:change="selectFile(index)" :disabled="globalDisable">
                                                                                         </div>
+                                                                                        <!-- <div class="form-group" v-else>
+                                                                                            <input class="form-control-file font-sm" type="file" :ref="index" multiple v-on:change="selectFile(index)" :disabled="globalDisable">
+                                                                                        </div> -->
                                                                                     </td>
                                                                                     <td>{{row.docFileName == null? '' : row.docFileName.split('-').reverse().shift()}}</td>
                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{row.uploadStatus}}</span></td>

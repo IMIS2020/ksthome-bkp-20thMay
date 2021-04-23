@@ -62,8 +62,12 @@
 
                                                                                     <td>
                                                                                         <!-- <input type="hidden" v-model="row.idDoc"/> -->
+                                                                                        <input  type="hidden" v-model="row.get_doc_master.docShortName" :disabled="globalDisable"/>
                                                                                         <input  type="hidden" v-model="row.id" :disabled="globalDisable"/>
-                                                                                        <div class="form-group">
+                                                                                        <div class="form-group" v-if="row.get_doc_master.docShortName 	== 'DOC007'">
+                                                                                            <input class="form-control-file font-sm" type="file" :ref="index" multiple v-on:change="selectFile(index)" accept="image/x-png,image/gif,image/jpeg" :disabled="globalDisable">
+                                                                                        </div>
+                                                                                        <div class="form-group" v-else>
                                                                                             <input class="form-control-file font-sm" type="file" :ref="index" multiple v-on:change="selectFile(index)" :disabled="globalDisable">
                                                                                         </div>
                                                                                     </td>
@@ -209,8 +213,25 @@ export default{
                                 title: "Nothing to Update!",
                                 showConfirmButton: false,
                                 timer: 3000
-                        })
-                    }
+                        })}
+                        if (response.data['imageOnly']){
+                            this.readApplicationForm();
+                            this.$fire({
+                                position: 'top',
+                                icon: 'success',
+                                title: "Add only image type file",
+                                showConfirmButton: false,
+                                timer: 3000
+                        })}
+                        if (response.data['error']){
+                            this.readApplicationForm();
+                            this.$fire({
+                                position: 'top',
+                                icon: 'success',
+                                title: response.data['msg'],
+                                showConfirmButton: false,
+                                timer: 3000
+                        })}
                 }
             })
             .catch(error => this.errorMsg(error.response.status))

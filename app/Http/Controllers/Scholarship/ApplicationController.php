@@ -812,8 +812,16 @@ class ApplicationController extends Controller
 
         $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
         $getSchAppId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->schApplicationId;
+      
         if(isset($request->docFileNameFile))
         {
+            if($request->get_doc_master['docShortName'] == 'DOC007')
+            {
+                $extention = explode(';',explode('/',$request->docFileNameFile)[1])[0];
+                if ($extention == 'pdf') {
+                    return array('imageOnly' => true, 'msg'=>["Image only"]);
+                }
+            }
             DB::beginTransaction();
             try {
 
@@ -822,20 +830,24 @@ class ApplicationController extends Controller
     
 
                 if (isset($request->docFileNameFile)) {
-                    if (!empty($editDoc->docFileName)) {
-                        try{
-                            unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/').$editDoc->docFileName);
-                        }catch(\Exception $e) 
-                        {
-                            
-                            $editDoc1 = ApplicationDocs::where('id',$request->id)->first();
-                            $fileName = $this->uploadFile(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/'), $request->docFileNameFile,$request->fileName,$getSchAppId,$docIndex,$userFolderName);
-                            $editDoc1->docFilePath  = 'app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/';
-                            $editDoc1->docFileName  = $fileName;
-                            $editDoc1->uploadStatus = 'YES';
-                            $editDoc1->update();
-                            return array('success' => true, 'msg'=>["Need to update"]);
+                    try
+                    {
+                        if (!empty($editDoc->docFileName)) {
+                            if(!unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/'.$editDoc->docFileName)))
+                            {
+                                
+                                $editDoc1 = ApplicationDocs::where('id',$request->id)->first();
+                                $fileName = $this->uploadFile(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/'), $request->docFileNameFile,$request->fileName,$getSchAppId,$docIndex,$userFolderName);
+                                $editDoc1->docFilePath  = 'app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/';
+                                $editDoc1->docFileName  = $fileName;
+                                $editDoc1->uploadStatus = 'YES';
+                                $editDoc1->update();
+                                return array('success' => true, 'msg'=>["Need to update"]);
+                            }
                         }
+                    }catch(\Exception $e) 
+                    {
+                      
                     }
 
                     $fileName = $this->uploadFile(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/'), $request->docFileNameFile,$request->fileName,$getSchAppId,$docIndex,$userFolderName);
@@ -847,10 +859,10 @@ class ApplicationController extends Controller
                 DB::commit();
                 return array('success' => true, 'msg'=>[]);
             }
-            catch(Exception $e) 
+            catch(\Exception $e) 
             {
                 DB::rollBack();
-                return array('success' => false, 'msg'=>[$e]);
+                return array('error' => true, 'msg'=>[$e]);
             }
         }else{
             return array('noData' => true, 'msg'=>["NO Data"]);
@@ -1005,7 +1017,25 @@ class ApplicationController extends Controller
 
         $delDocFile =ApplicationDocs::where('id', $applicationDocId)->first();
         if (!empty($delDocFile->docFileName)) {
-            unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/').$delDocFile->docFileName);
+            try
+            {
+                if(!unlink(storage_path('app/public/uploads/scholarshipRecord/'.$userFolderName.'/'.$getSession.'/'.$getAppType.'/'.$delDocFile->docFileName)))
+                {
+                    $delDocFile->docFilePath   = null;
+                    $delDocFile->docFileName   = null;
+                    $delDocFile->uploadStatus  = 'NO';
+                    if($delDocFile->update())
+                    {
+                        return 1;
+                    }else{
+                        return 0;
+                    }
+                }
+            }
+            catch(\Exception $e) 
+            {
+              
+            }
         }
         $delDocFile->docFilePath   = null;
         $delDocFile->docFileName   = null;

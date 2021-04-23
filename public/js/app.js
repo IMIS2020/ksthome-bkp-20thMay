@@ -5459,6 +5459,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5531,6 +5535,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               position: 'top',
               icon: 'success',
               title: "Nothing to Update!",
+              showConfirmButton: false,
+              timer: 3000
+            });
+          }
+
+          if (response.data['imageOnly']) {
+            _this2.readApplicationForm();
+
+            _this2.$fire({
+              position: 'top',
+              icon: 'success',
+              title: "Add only image type file",
               showConfirmButton: false,
               timer: 3000
             });
@@ -6887,7 +6903,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       inputDisabled: false,
       globalDisable: false,
-      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+      // csrf:   document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       userId: document.querySelector("meta[name='userId']").getAttribute('content'),
       applicantDisablitySelfShow: true,
       applicantDisablityMotherShow: true,
@@ -6913,6 +6929,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         dDesc: ''
       },
       form: {
+        csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
         applicationId: '',
         scholarshipType: '',
         applicantNameF: document.querySelector("meta[name='firstname']").getAttribute('content'),
@@ -67661,6 +67678,50 @@ var render = function() {
                                                               name: "model",
                                                               rawName:
                                                                 "v-model",
+                                                              value:
+                                                                row
+                                                                  .get_doc_master
+                                                                  .docShortName,
+                                                              expression:
+                                                                "row.get_doc_master.docShortName"
+                                                            }
+                                                          ],
+                                                          attrs: {
+                                                            type: "hidden",
+                                                            disabled:
+                                                              _vm.globalDisable
+                                                          },
+                                                          domProps: {
+                                                            value:
+                                                              row.get_doc_master
+                                                                .docShortName
+                                                          },
+                                                          on: {
+                                                            input: function(
+                                                              $event
+                                                            ) {
+                                                              if (
+                                                                $event.target
+                                                                  .composing
+                                                              ) {
+                                                                return
+                                                              }
+                                                              _vm.$set(
+                                                                row.get_doc_master,
+                                                                "docShortName",
+                                                                $event.target
+                                                                  .value
+                                                              )
+                                                            }
+                                                          }
+                                                        }),
+                                                        _vm._v(" "),
+                                                        _c("input", {
+                                                          directives: [
+                                                            {
+                                                              name: "model",
+                                                              rawName:
+                                                                "v-model",
                                                               value: row.id,
                                                               expression:
                                                                 "row.id"
@@ -67694,36 +67755,75 @@ var render = function() {
                                                           }
                                                         }),
                                                         _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "form-group"
-                                                          },
-                                                          [
-                                                            _c("input", {
-                                                              ref: index,
-                                                              refInFor: true,
-                                                              staticClass:
-                                                                "form-control-file font-sm",
-                                                              attrs: {
-                                                                type: "file",
-                                                                multiple: "",
-                                                                disabled:
-                                                                  _vm.globalDisable
+                                                        row.get_doc_master
+                                                          .docShortName ==
+                                                        "DOC007"
+                                                          ? _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "form-group"
                                                               },
-                                                              on: {
-                                                                change: function(
-                                                                  $event
-                                                                ) {
-                                                                  return _vm.selectFile(
-                                                                    index
-                                                                  )
-                                                                }
-                                                              }
-                                                            })
-                                                          ]
-                                                        )
+                                                              [
+                                                                _c("input", {
+                                                                  ref: index,
+                                                                  refInFor: true,
+                                                                  staticClass:
+                                                                    "form-control-file font-sm",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "file",
+                                                                    multiple:
+                                                                      "",
+                                                                    accept:
+                                                                      "image/x-png,image/gif,image/jpeg",
+                                                                    disabled:
+                                                                      _vm.globalDisable
+                                                                  },
+                                                                  on: {
+                                                                    change: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.selectFile(
+                                                                        index
+                                                                      )
+                                                                    }
+                                                                  }
+                                                                })
+                                                              ]
+                                                            )
+                                                          : _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "form-group"
+                                                              },
+                                                              [
+                                                                _c("input", {
+                                                                  ref: index,
+                                                                  refInFor: true,
+                                                                  staticClass:
+                                                                    "form-control-file font-sm",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "file",
+                                                                    multiple:
+                                                                      "",
+                                                                    disabled:
+                                                                      _vm.globalDisable
+                                                                  },
+                                                                  on: {
+                                                                    change: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.selectFile(
+                                                                        index
+                                                                      )
+                                                                    }
+                                                                  }
+                                                                })
+                                                              ]
+                                                            )
                                                       ]),
                                                       _vm._v(" "),
                                                       _c("td", [

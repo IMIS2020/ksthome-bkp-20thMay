@@ -1185,7 +1185,7 @@ export default {
         return {
             inputDisabled: false,
             globalDisable: false,
-            csrf:   document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            // csrf:   document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             userId: document.querySelector("meta[name='userId']").getAttribute('content'),
             applicantDisablitySelfShow : true,
             applicantDisablityMotherShow: true,
@@ -1211,6 +1211,7 @@ export default {
                 dDesc : '',
             },
             form: {
+                csrf:   document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                 applicationId:'',
                 scholarshipType: '',
                 applicantNameF:document.querySelector("meta[name='firstname']").getAttribute('content'),

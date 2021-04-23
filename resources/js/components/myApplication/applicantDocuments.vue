@@ -205,7 +205,7 @@ export default{
                             this.$fire({
                                 position: 'top',
                                 icon: 'success',
-                                title: "Please choose a file before update !",
+                                title: "Please choose a file before update!",
                                 showConfirmButton: false,
                                 timer: 3000
                         })

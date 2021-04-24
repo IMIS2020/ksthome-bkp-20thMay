@@ -44,10 +44,10 @@
                                                                 <span v-if="countLeprosy == 1"></span>
                                                                 </span>
                                                                 <span v-if="form.applicantLeprosyAffectedMother == true"><strong>{{form.applicantMotherName}}</strong></span>
-                                                                <!-- <span v-if="countLeprosy == 2"></span>
-                                                                <span v-if="countLeprosy == 3">,</span> -->
+                                                                <!-- <span v-if="countLeprosy == 2"></span>-->
+                                                                <span v-if="countLeprosy == 3">and</span>
                                                                 <!-- <span v-if="countLeprosy == 1">and</span> -->
-                                                                <span v-if="form.applicantLeprosyAffectedSelf == true"><strong> and {{form.fullName}}</strong></span>
+                                                                <span v-if="form.applicantLeprosyAffectedSelf == true"><strong>{{form.fullName}}</strong></span>
                                                                      from the family
                                                                     <span v-if="countLeprosy > 1">are</span>
                                                                     <span v-if="countLeprosy == 1">is</span> 

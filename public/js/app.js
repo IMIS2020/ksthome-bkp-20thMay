@@ -70899,7 +70899,7 @@ var render = function() {
                                                                 "Type separated by comma",
                                                               disabled:
                                                                 _vm.globalDisable,
-                                                              maxlength: "60",
+                                                              maxlength: "70",
                                                               required: ""
                                                             },
                                                             domProps: {
@@ -71649,7 +71649,7 @@ var render = function() {
                                                                 "Type separated by comma",
                                                               disabled:
                                                                 _vm.globalDisable,
-                                                              maxlength: "60",
+                                                              maxlength: "70",
                                                               required: ""
                                                             },
                                                             domProps: {
@@ -72410,7 +72410,7 @@ var render = function() {
                                                                   disabled:
                                                                     _vm.globalDisable,
                                                                   maxlength:
-                                                                    "60"
+                                                                    "70"
                                                                 },
                                                                 domProps: {
                                                                   value:

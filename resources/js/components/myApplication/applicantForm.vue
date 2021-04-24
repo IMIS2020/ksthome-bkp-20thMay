@@ -336,7 +336,7 @@
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
-                                                                                            <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.education1MainSubjects" :disabled="globalDisable"  maxlength="60" required></textarea>
+                                                                                            <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.education1MainSubjects" :disabled="globalDisable"  maxlength="70" required></textarea>
                                                                                         </div>
                                                                                     </td>
                                                                                     <td>
@@ -465,7 +465,7 @@
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
-                                                                                            <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.education2MainSubjects" :disabled="globalDisable"  maxlength="60" required></textarea>
+                                                                                            <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.education2MainSubjects" :disabled="globalDisable"  maxlength="70" required></textarea>
                                                                                         </div>
                                                                                     </td>
                                                                                     <td>
@@ -595,7 +595,7 @@
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
-                                                                                            <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.education3MainSubjects" :disabled="globalDisable"  maxlength="60" ></textarea>
+                                                                                            <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.education3MainSubjects" :disabled="globalDisable"  maxlength="70" ></textarea>
                                                                                         </div>
                                                                                     </td>
                                                                                     <td>

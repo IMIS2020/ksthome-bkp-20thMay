@@ -131,6 +131,13 @@ class DomainNameSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
+            DB::table('domainName')->insert(    
+                [
+                    'name' => 'MsgContactUsCategory',
+                    'description' => 'MsgContactUsCategory',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ]);
     
         // DB::table('domainName')->insert(    
         //     [

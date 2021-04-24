@@ -206,7 +206,6 @@ class DomainValuesSeeder extends Seeder
             ]);
             
        
-
         // DB::table('domainValues')->insert(
         //     [
         //         'value' => '10',
@@ -317,6 +316,57 @@ class DomainValuesSeeder extends Seeder
         //         'updated_at' => Carbon::now(),
         //     ]);
         
-            
+        DB::table('domainValues')->insert(
+            [
+                'value' => 'Eligibility criteria',
+                'valueDescription' => 'Eligibility criteria',
+                'nameId' => 18,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+
+        DB::table('domainValues')->insert(
+            [
+                'value' => 'Documentation related queries',
+                'valueDescription' => 'Documentation related queries',
+                'nameId' => 18,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+
+        DB::table('domainValues')->insert(
+            [
+                'value' => 'Nursing related queries',
+                'valueDescription' => 'Nursing related queries',
+                'nameId' => 18,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+
+        DB::table('domainValues')->insert(
+            [
+                'value' => 'HHDLSS related queries',
+                'valueDescription' => 'HHDLSS related queries',
+                'nameId' => 18,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        
+        DB::table('domainValues')->insert(
+            [
+                'value' => 'General queries',
+                'valueDescription' => 'General queries',
+                'nameId' => 18,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        DB::table('domainValues')->insert(
+            [
+                'value' => 'Others',
+                'valueDescription' => 'Others',
+                'nameId' => 18,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
     }
 }

@@ -20,7 +20,7 @@ class ContactUs extends Migration
             $table->string('msgSubject');
             $table->string('msgBody');
             $table->string('msgCurrentSession')->nullable();
-            $table->datetime('msgSendDateTime')->nullable();
+            $table->datetime('msgSendDateTime')->nullable();           
             $table->unsignedBigInteger('userId');// FK user-id
             $table->unsignedBigInteger('applicationId')->nullable();// FK application id
             $table->timestamps();

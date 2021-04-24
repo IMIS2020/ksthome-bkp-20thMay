@@ -5458,6 +5458,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5529,7 +5533,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             _this2.$fire({
               position: 'top',
               icon: 'success',
-              title: "Please choose a file before update !",
+              title: "Nothing to Update!",
+              showConfirmButton: false,
+              timer: 3000
+            });
+          }
+
+          if (response.data['imageOnly']) {
+            _this2.readApplicationForm();
+
+            _this2.$fire({
+              position: 'top',
+              icon: 'success',
+              title: "Add only image type file",
+              showConfirmButton: false,
+              timer: 3000
+            });
+          }
+
+          if (response.data['error']) {
+            _this2.readApplicationForm();
+
+            _this2.$fire({
+              position: 'top',
+              icon: 'success',
+              title: response.data['msg'],
               showConfirmButton: false,
               timer: 3000
             });
@@ -6886,7 +6914,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       inputDisabled: false,
       globalDisable: false,
-      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+      // csrf:   document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       userId: document.querySelector("meta[name='userId']").getAttribute('content'),
       applicantDisablitySelfShow: true,
       applicantDisablityMotherShow: true,
@@ -6912,6 +6940,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         dDesc: ''
       },
       form: {
+        csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
         applicationId: '',
         scholarshipType: '',
         applicantNameF: document.querySelector("meta[name='firstname']").getAttribute('content'),
@@ -67971,7 +68000,15 @@ var staticRenderFns = [
         _vm._v("Note: 1  - png, jpeg, jpg or pdf files - Max 1 MB each"),
         _c("br"),
         _vm._v(
-          "\n                                                                                                  2  - Aadhaar card / voter id / driving lisence/ ration card\n                                                                                                    are valid for proof of address.\n                                                                                                    \n                                                        "
+          "\n                                                                                                  2  - Aadhaar card / voter id / driving lisence/ ration card\n                                                                                                    are valid for proof of address."
+        ),
+        _c("br"),
+        _vm._v(
+          "\n                                                                                                  3  - Upload document - Choose a file and then click "
+        ),
+        _c("i", { staticClass: "fas fa-save" }),
+        _vm._v(
+          " ( to save ), before choosing the next file.\n                                                                                                    \n                                                        "
         )
       ])
     ])

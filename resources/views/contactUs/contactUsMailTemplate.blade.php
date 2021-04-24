@@ -16,7 +16,7 @@
    
    <br>
    <h2>
-   <b>Topic:</b> {{$data['msgCategory']}} <br>
+   <b>Subject:</b> {{$data['msgSubject']}} <br>
    </h3>
    <br>
    <h2>

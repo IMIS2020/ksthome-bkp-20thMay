@@ -19,36 +19,38 @@
                   <div class="login-box">
                       <form method="POST" action="{{url('/send')}}">
                       @csrf
+                      <input type="hidden" name="firstname" value= "{{ Auth::user()->firstname }}">
+                      <input type="hidden" name="lastname"  value= "{{ Auth::user()->lastname }}">
                           <div class="form-row">
                               <div class="col-xl-4 mb-3">
                                   <div class="form-group">
-                                     <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ Auth::user()->firstname }} {{ Auth::user()->middlename}} {{ Auth::user()->lastname }}"  >
-                                       @if($errors->has('name'))
+                                     <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ Auth::user()->firstname }} {{ Auth::user()->middlename}} {{ Auth::user()->lastname }}" disabled >
+                                       <!-- @if($errors->has('name'))
                                        <span class="invalid-feedback">
                                           <strong>{{ $errors->first('name') }}</strong>
                                        </span>
-                                    @endif
+                                    @endif -->
                                  </div>
                               </div>
                               <div class="col-xl-4 mb-3">
                                   <div class="form-group">
-                                     <input type="email" name = "email" class="form-control @error('email') is-invalid @enderror" value="{{Auth::user()->email}}" >
-                                       @if($errors->has('email'))
+                                     <input type="email" name = "email" class="form-control @error('email') is-invalid @enderror" value="{{Auth::user()->email}}" disabled >
+                                       <!-- @if($errors->has('email'))
                                           <span class="invalid-feedback">
                                              <strong>{{ $errors->first('email') }}</strong>
                                           </span>
-                                       @endif
+                                       @endif -->
                                  </div>
                               </div>
  
                               <div class="col-xl-4 mb-3">
                                   <div class="form-group">
-                                     <input type="text" class="form-control @error('contactNumber') is-invalid @enderror" name="contactNumber" placeholder="Contact number" value="{{Auth::user()->contactno}}" >
-                                     @if($errors->has('contactNumber'))
+                                     <input type="text" class="form-control @error('contactNumber') is-invalid @enderror" name="contactNumber" placeholder="Contact number" value="{{Auth::user()->contactno}}" disabled>
+                                     <!-- @if($errors->has('contactNumber'))
                                           <span class="invalid-feedback">
                                              <strong>{{$errors->first('contactNumber')}}</strong>
                                           </span>
-                                       @endif
+                                       @endif -->
                                     </div>
                               </div>
 
@@ -69,11 +71,27 @@
                                  @endif
                                </div>
                               </div> -->
+                              <div class="col-xl-6 mb-3">
+                              <!-- <label>Application Type</label> -->
                               
-                              <div class="col-xl-4 mb-3">
+                                 <div class="form-group">
+                                    <select class="form-control @error('scholarshipType') is-invalid @enderror" name="scholarshipType" >
+                                       <option  value="" selected="" disabled>-- Application Type --</option>
+                                       <option @if (old('scholarshipType') == 'Nursing Scholarship') selected="selected" @endif value="Nursing">Nursing Scholarship</option>
+                                       <option @if (old('scholarshipType') == 'HHDLSS  Scholarship') selected="selected" @endif value="HHDLS">HHDLSS  Scholarship</option>
+                                  </select>
+                                @if ($errors->has('scholarshipType'))
+                                    <span class="invalid-feedback">
+                                       <strong>{{ $errors->first('scholarshipType') }}</strong>
+                                    </span>
+                                 @endif
+                                </div>
+                                </div>
+
+                              <div class="col-xl-6 mb-3">
                                  <div class="form-group">
                                     <select class="form-control @error('msgCategory') is-invalid @enderror" name="msgCategory" >
-                                    <option  value="" selected="" disabled>-- Select One --</option>
+                                    <option  value="" selected="" disabled>--Message regarding--</option>
                                     <option @if (old('msgCategory') == 'Eligibility criteria') selected="selected" @endif value="Eligibility criteria">Eligibility criteria</option>
                                     <option @if (old('msgCategory') == 'Documentation related queries') selected="selected" @endif value="Documentation related queries">Documentation related queries </option>
                                     <option @if (old('msgCategory') == 'Nursing related queries') selected="selected" @endif value="Nursing related queries">Nursing related queries</option>
@@ -86,9 +104,10 @@
                                        <strong>{{ $errors->first('msgCategory') }}</strong>
                                     </span>
                                  @endif
-                                   </div>
                                 </div>
-                              <div class="col-xl-8 mb-3">
+                                </div>
+
+                              <div class="col-xl-12 mb-3">
                                   <div class="form-group">
                                      <input type="text" name="msgSubject" class="form-control @error('msgSubject') is-invalid @enderror" placeholder="Subject" value="{{old('msgSubject')}}" >
                                      @if($errors->has('msgSubject'))

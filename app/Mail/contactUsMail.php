@@ -27,6 +27,6 @@ class contactUsMail extends Mailable
      */
      public function build()
      {
-         return $this->from('laravelframework.07@gmail.com')->subject($this->data['msgSubject'])->view('contactUs.contactUsMailTemplate')->with('data', $this->data);
+         return $this->from('laravelframework.07@gmail.com')->subject('From: '.$this->data['name'].' '.'Topic: '.$this->data['msgCategory'])->view('contactUs.contactUsMailTemplate')->with('data', $this->data);
      }
 }

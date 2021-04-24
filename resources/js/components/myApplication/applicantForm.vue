@@ -695,13 +695,13 @@
                                                                     <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
                                                                         <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled" required>
                                                                             <option value="" disabled>-- select --</option>
-                                                                            <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
+                                                                            <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id" selected>{{ucn.value}}</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group mb-0" v-if="form.scholarshipType=='Nursing'">
                                                                         <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled" required>
                                                                             <option value="" disabled>-- select --</option>
-                                                                            <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
+                                                                            <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id" selected>{{ucn.value}}</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -709,7 +709,7 @@
                                                                     <label>Name of the institute&nbsp;<span class="text-danger"><strong>*</strong></span> <a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-add-institute" > + Add New Value</a> </label>
                                                                     <div class="form-group mb-0">
                                                                         <select class="form-control form-control-sm" required @change="onChangeIns($event)" v-model="form.instituteId" :disabled="inputDisabled">
-                                                                            <option v-for="(i,index) in insData" :key="index" :value="i.id">{{i.instituteName}} - {{i.get_address.addressCity}}, {{i.get_address.addressState}}</option>
+                                                                            <option v-for="(i,index) in insData" :key="index" :value="i.id" selected>{{i.instituteName}} - {{i.get_address.addressCity}}, {{i.get_address.addressState}}</option>
                                                                             <!-- <option  data-toggle="modal" data-target="#others-add-institute" >Others</option> -->
                                                                             <option value="" disabled>-- select --</option>
                                                                         </select>

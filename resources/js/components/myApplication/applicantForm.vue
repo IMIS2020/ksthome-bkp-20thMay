@@ -400,7 +400,7 @@
                                                                                                 <!-- <option  data-toggle="modal" data-target="#others-exam-passed2" @click="addName('ExamPassed')">Others</option> -->
                                                                                             </select>
                                                                                         </div>
-                                                                                        <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-passed2">
+                                                                                        <!-- <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-passed2">
                                                                                             <div class="modal-dialog modal-sm" role="document">
                                                                                                 <div class="modal-content">
                                                                                                     <div class="modal-header py-1">
@@ -424,7 +424,7 @@
                                                                                                     <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                                                                                                 </div>
                                                                                             </div>
-                                                                                        </div>
+                                                                                        </div> -->
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
@@ -437,7 +437,7 @@
                                                                                                 <!-- <option  data-toggle="modal" data-target="#others-exam-board2"  @click="addName('UnivBoard')">Others</option> -->
                                                                                             </select>
                                                                                         </div>
-                                                                                        <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-board2">
+                                                                                        <!-- <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-board2">
                                                                                             <div class="modal-dialog modal-sm" role="document">
                                                                                                 <div class="modal-content">
                                                                                                     <div class="modal-header py-1">
@@ -461,7 +461,7 @@
                                                                                                     <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                                                                                                 </div>
                                                                                             </div>
-                                                                                        </div>
+                                                                                        </div> -->
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
@@ -530,7 +530,7 @@
                                                                                                 <!-- <option  data-toggle="modal" data-target="#others-exam-passed3" @click="addName('ExamPassed')">Others</option> -->
                                                                                             </select>
                                                                                         </div>
-                                                                                        <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-passed3">
+                                                                                        <!-- <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-passed3">
                                                                                             <div class="modal-dialog modal-sm" role="document">
                                                                                                 <div class="modal-content">
                                                                                                     <div class="modal-header py-1">
@@ -554,7 +554,7 @@
                                                                                                     <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                                                                                                 </div>
                                                                                             </div>
-                                                                                        </div>
+                                                                                        </div> -->
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
@@ -567,7 +567,7 @@
                                                                                                 <!-- <option  data-toggle="modal" data-target="#others-exam-board3" @click="addName('UnivBoard')">Others</option> -->
                                                                                             </select>
                                                                                         </div>
-                                                                                        <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-board3">
+                                                                                        <!-- <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-board3">
                                                                                             <div class="modal-dialog modal-sm" role="document">
                                                                                                 <div class="modal-content">
                                                                                                     <div class="modal-header py-1">
@@ -591,7 +591,7 @@
                                                                                                     <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                                                                                                 </div>
                                                                                             </div>
-                                                                                        </div>
+                                                                                        </div> -->
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
@@ -1155,7 +1155,7 @@
                                         <label class="mb-0">Course Level&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                         <input type="hidden" v-model="domainForm.domainName" />
                                         
-                                        <select class="form-control form-control-sm" v-model="domainForm.domainLevel2" :disabled="inputDisabled" required>
+                                        <select class="form-control form-control-sm" v-model="domainForm.domianLevel" :disabled="inputDisabled" required>
                                             <option value="" disabled>-- select --</option>
                                             <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id" selected>{{ucl.description}}</option>
                                         </select>
@@ -1205,7 +1205,7 @@ export default {
             universityCourseLevel: {},
             universityCourseName: {},
             domainForm: {
-                // domianLevel : '',
+                domianLevel : '',
                 domainName : '',
                 dValue : '',
                 dDesc : '',
@@ -1766,8 +1766,8 @@ export default {
                             // this.domainForm.domainName = '';
                             this.domainForm.dValue = '';
                             this.domainForm.dDesc = '';
-                            // this.domainForm.domainLevel = null;
-                            // this.domainForm.domainLevel2 = null;
+                            this.domainForm.domainLevel = null;
+                            this.domainForm.domainLevel2 = null;
                             this.$fire({
                                 position: 'top',
                                 icon: 'success',

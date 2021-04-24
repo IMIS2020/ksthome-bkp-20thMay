@@ -32,7 +32,8 @@
                                                             <h6 class="mb-0 color-mg"><strong>Upload latest certificates and proofs.</strong>
                                                                                         <br>Note: 1  - png, jpeg, jpg or pdf files - Max 1 MB each<br>
                                                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2  - Aadhaar card / voter id / driving lisence/ ration card
-                                                                                                        are valid for proof of address.
+                                                                                                        are valid for proof of address.<br>
+                                                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3  - Upload document - Choose a file and then click <i class="fas fa-save"></i> ( to save ), before choosing the next file.
                                                                                                         
                                                             </h6>
                                                         </div>
@@ -43,11 +44,13 @@
                                                                         <table class="table table-sm mb-0">
                                                                             <thead class="color-mg">
                                                                                 <tr class="color-mg">
-                                                                                    <th colspan="2">Required Document</th>
+                                                                                    <th colspan="2" class="w-10x">Required Document</th>
                                                                                     <th>Choose file</th>
                                                                                     <th>Document Name</th>
                                                                                     <th>Uploaded</th>
-                                                                                    <th class="text-center w-7x">Action</th>
+                                                                                    <th class="text-center w-5x">View</th>
+                                                                                    <th class="text-center w-5x">Del.</th>
+                                                                                    <th class="text-center w-5x">Save</th>
                                                                                     
                                                                                 </tr>
                                                                             </thead>
@@ -63,35 +66,40 @@
                                                                                         <div class="form-group">
                                                                                             <input class="form-control-file font-sm" type="file" :ref="index" multiple v-on:change="selectFile(index)" :disabled="globalDisable">
                                                                                         </div>
+                                                                                        <!-- <div class="form-group" v-else>
+                                                                                            <input class="form-control-file font-sm" type="file" :ref="index" multiple v-on:change="selectFile(index)" :disabled="globalDisable">
+                                                                                        </div> -->
                                                                                     </td>
                                                                                     <td>{{row.docFileName == null? '' : row.docFileName.split('-').reverse().shift()}}</td>
                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{row.uploadStatus}}</span></td>
-                                                                                    <td class="text-center w-7x"  v-if="row.uploadStatus == 'YES'"> 
-                                                                                        <span>
+                                                                                    <td class="text-center w-7x"  > 
+                                                                                        <span v-if="row.uploadStatus == 'YES'">
                                                                                             <router-link target="_blank"  class="act-link"  :to="''+row.fileURL">
                                                                                                 <i class="fa fa-eye"></i>
                                                                                             </router-link>
                                                                                         </span>
-                                                                                        <span v-if="globalDisable == false">
+                                                                                        <span class="act-link"  style="color:#808080;" v-else>
+                                                                                            <i class="fa fa-eye"></i>
+                                                                                        </span>
+                                                                                    </td>
+                                                                                    <td class="text-center w-7x"> 
+                                                                                        <span  v-if="row.uploadStatus == 'YES'">
                                                                                             <a  href="#"  class="act-link" @click.prevent="deleteFile(row.id)">
                                                                                                 <i class="fa fa-trash"></i>
                                                                                             </a>
                                                                                         </span>
-                                                                                        <span v-if="globalDisable == false">
-                                                                                            <a  href="#"  class="act-link" @click.prevent="saveFile(form.applicationId,index)">
-                                                                                                <i class="fas fa-save"></i>
-                                                                                            </a>
-                                                                                        </span>
-                                                                                    </td>
-                                                                                    <td class="text-center" v-else>
-                                                                                        <span class="act-link"  style="color:#808080;">
-                                                                                            <i class="fa fa-eye"></i>
-                                                                                        </span>
-                                                                                        <span class="act-link" style="color:#808080;">
+                                                                                        <span class="act-link" style="color:#808080;" v-else>
                                                                                             <i class="fa fa-trash"></i>
                                                                                         </span>
-                                                                                        <span class="act-link" style="color:#808080;">
-                                                                                          <a  href="#"  class="act-link" @click.prevent="saveFile(form.applicationId,index)">
+                                                                                    </td>
+                                                                                    <td class="text-center w-7x">
+                                                                                        <!-- <span v-if="globalDisable == false">
+                                                                                            <span class="act-link" style="color:#808080;">
+                                                                                                <i class="fas fa-save"></i>
+                                                                                            </span>
+                                                                                        </span> -->
+                                                                                        <span class="act-link" style="color:#808080;" v-if="globalDisable == false">
+                                                                                           <a  href="#"  class="act-link" @click.prevent="saveFile(form.applicationId,index)">
                                                                                                 <i class="fas fa-save"></i>
                                                                                             </a>
                                                                                         </span>
@@ -143,7 +151,6 @@ export default{
                     docFileName: '',
                 }
             ],
-
             form:
             {
                 // courseLevel:'',
@@ -163,7 +170,6 @@ export default{
         }
     },
     methods:{
-
         saveForm(){
             axios.post('/api/add-documents/'+this.form.applicationId,this.docRows)
                 .then(response => {
@@ -183,7 +189,6 @@ export default{
             })
             .catch(error => this.errorMsg(error.response.status))
         },
-
         saveFile(applicationId,index)
         {
              axios.post('/api/add-documents/'+applicationId,this.docRows[index])
@@ -199,24 +204,40 @@ export default{
                     })
                     
                 } else {
-                        if (response.data['success'] == false){
+                        if (response.data['noData']){
                             this.readApplicationForm();
                             this.$fire({
                                 position: 'top',
                                 icon: 'success',
-                                title: "Nothing to Update",
+                                title: "Nothing to Update!",
                                 showConfirmButton: false,
                                 timer: 3000
-                        })
-                    }
+                        })}
+                        if (response.data['imageOnly']){
+                            this.readApplicationForm();
+                            this.$fire({
+                                position: 'top',
+                                icon: 'success',
+                                title: "Add only image type file",
+                                showConfirmButton: false,
+                                timer: 3000
+                        })}
+                        if (response.data['error']){
+                            this.readApplicationForm();
+                            this.$fire({
+                                position: 'top',
+                                icon: 'success',
+                                title: response.data['msg'],
+                                showConfirmButton: false,
+                                timer: 3000
+                        })}
                 }
             })
             .catch(error => this.errorMsg(error.response.status))
             // console.log(applicationId);
             // console.log();
+            // this.$refs[index][0].files[0] = null;
         },
-
-
         async readApplicationForm() 
         {
             let applicationId = window.location.pathname.split('/').reverse()[0];
@@ -270,7 +291,6 @@ export default{
                     // })
                 })
         },
-
         selectFile(index)
         {
             let file = this.$refs[index][0].files[0];
@@ -324,7 +344,6 @@ export default{
                 })
             }
         },
-
        deleteFile(applicationDocId)
        {
            axios.get(`/api/del-documents/${applicationDocId}/${this.form.scholarshipType}`)

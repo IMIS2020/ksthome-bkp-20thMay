@@ -336,7 +336,7 @@
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
-                                                                                            <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.education1MainSubjects" :disabled="globalDisable"  maxlength="60" required></textarea>
+                                                                                            <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.education1MainSubjects" :disabled="globalDisable"  maxlength="70" required></textarea>
                                                                                         </div>
                                                                                     </td>
                                                                                     <td>
@@ -400,7 +400,7 @@
                                                                                                 <!-- <option  data-toggle="modal" data-target="#others-exam-passed2" @click="addName('ExamPassed')">Others</option> -->
                                                                                             </select>
                                                                                         </div>
-                                                                                        <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-passed2">
+                                                                                        <!-- <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-passed2">
                                                                                             <div class="modal-dialog modal-sm" role="document">
                                                                                                 <div class="modal-content">
                                                                                                     <div class="modal-header py-1">
@@ -424,7 +424,7 @@
                                                                                                     <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                                                                                                 </div>
                                                                                             </div>
-                                                                                        </div>
+                                                                                        </div> -->
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
@@ -437,7 +437,7 @@
                                                                                                 <!-- <option  data-toggle="modal" data-target="#others-exam-board2"  @click="addName('UnivBoard')">Others</option> -->
                                                                                             </select>
                                                                                         </div>
-                                                                                        <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-board2">
+                                                                                        <!-- <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-board2">
                                                                                             <div class="modal-dialog modal-sm" role="document">
                                                                                                 <div class="modal-content">
                                                                                                     <div class="modal-header py-1">
@@ -461,11 +461,11 @@
                                                                                                     <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                                                                                                 </div>
                                                                                             </div>
-                                                                                        </div>
+                                                                                        </div> -->
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
-                                                                                            <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.education2MainSubjects" :disabled="globalDisable"  maxlength="60" required></textarea>
+                                                                                            <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.education2MainSubjects" :disabled="globalDisable"  maxlength="70" required></textarea>
                                                                                         </div>
                                                                                     </td>
                                                                                     <td>
@@ -530,7 +530,7 @@
                                                                                                 <!-- <option  data-toggle="modal" data-target="#others-exam-passed3" @click="addName('ExamPassed')">Others</option> -->
                                                                                             </select>
                                                                                         </div>
-                                                                                        <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-passed3">
+                                                                                        <!-- <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-passed3">
                                                                                             <div class="modal-dialog modal-sm" role="document">
                                                                                                 <div class="modal-content">
                                                                                                     <div class="modal-header py-1">
@@ -554,7 +554,7 @@
                                                                                                     <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                                                                                                 </div>
                                                                                             </div>
-                                                                                        </div>
+                                                                                        </div> -->
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
@@ -567,7 +567,7 @@
                                                                                                 <!-- <option  data-toggle="modal" data-target="#others-exam-board3" @click="addName('UnivBoard')">Others</option> -->
                                                                                             </select>
                                                                                         </div>
-                                                                                        <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-board3">
+                                                                                        <!-- <div role="dialog" tabindex="-1" class="modal fade" id="others-exam-board3">
                                                                                             <div class="modal-dialog modal-sm" role="document">
                                                                                                 <div class="modal-content">
                                                                                                     <div class="modal-header py-1">
@@ -591,11 +591,11 @@
                                                                                                     <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button" @click="saveDomainValues"><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                                                                                                 </div>
                                                                                             </div>
-                                                                                        </div>
+                                                                                        </div> -->
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="form-group mb-0">
-                                                                                            <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.education3MainSubjects" :disabled="globalDisable"  maxlength="60" ></textarea>
+                                                                                            <textarea class="form-control form-control-sm" placeholder="Type separated by comma" v-model="form.education3MainSubjects" :disabled="globalDisable"  maxlength="70" ></textarea>
                                                                                         </div>
                                                                                     </td>
                                                                                     <td>
@@ -695,13 +695,13 @@
                                                                     <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
                                                                         <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled" required>
                                                                             <option value="" disabled>-- select --</option>
-                                                                            <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
+                                                                            <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id" selected>{{ucn.value}}</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group mb-0" v-if="form.scholarshipType=='Nursing'">
                                                                         <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled" required>
                                                                             <option value="" disabled>-- select --</option>
-                                                                            <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
+                                                                            <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id" selected>{{ucn.value}}</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -709,7 +709,7 @@
                                                                     <label>Name of the institute&nbsp;<span class="text-danger"><strong>*</strong></span> <a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-add-institute" > + Add New Value</a> </label>
                                                                     <div class="form-group mb-0">
                                                                         <select class="form-control form-control-sm" required @change="onChangeIns($event)" v-model="form.instituteId" :disabled="inputDisabled">
-                                                                            <option v-for="(i,index) in insData" :key="index" :value="i.id">{{i.instituteName}} - {{i.get_address.addressCity}}, {{i.get_address.addressState}}</option>
+                                                                            <option v-for="(i,index) in insData" :key="index" :value="i.id" selected>{{i.instituteName}} - {{i.get_address.addressCity}}, {{i.get_address.addressState}}</option>
                                                                             <!-- <option  data-toggle="modal" data-target="#others-add-institute" >Others</option> -->
                                                                             <option value="" disabled>-- select --</option>
                                                                         </select>
@@ -1155,7 +1155,7 @@
                                         <label class="mb-0">Course Level&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                         <input type="hidden" v-model="domainForm.domainName" />
                                         
-                                        <select class="form-control form-control-sm" v-model="domainForm.domainLevel2" :disabled="inputDisabled" required>
+                                        <select class="form-control form-control-sm" v-model="domainForm.domianLevel" :disabled="inputDisabled" required>
                                             <option value="" disabled>-- select --</option>
                                             <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id" selected>{{ucl.description}}</option>
                                         </select>
@@ -1185,7 +1185,7 @@ export default {
         return {
             inputDisabled: false,
             globalDisable: false,
-            csrf:   document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            // csrf:   document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             userId: document.querySelector("meta[name='userId']").getAttribute('content'),
             applicantDisablitySelfShow : true,
             applicantDisablityMotherShow: true,
@@ -1205,12 +1205,13 @@ export default {
             universityCourseLevel: {},
             universityCourseName: {},
             domainForm: {
-                // domianLevel : '',
+                domianLevel : '',
                 domainName : '',
                 dValue : '',
                 dDesc : '',
             },
             form: {
+                csrf:   document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                 applicationId:'',
                 scholarshipType: '',
                 applicantNameF:document.querySelector("meta[name='firstname']").getAttribute('content'),
@@ -1765,8 +1766,8 @@ export default {
                             // this.domainForm.domainName = '';
                             this.domainForm.dValue = '';
                             this.domainForm.dDesc = '';
-                            // this.domainForm.domainLevel = null;
-                            // this.domainForm.domainLevel2 = null;
+                            this.domainForm.domainLevel = null;
+                            this.domainForm.domainLevel2 = null;
                             this.$fire({
                                 position: 'top',
                                 icon: 'success',

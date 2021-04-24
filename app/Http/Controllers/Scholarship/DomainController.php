@@ -206,7 +206,7 @@ class DomainController extends Controller
                     $domainValues = new DomainValues;
                     $domainValues->value            = $request->dValue;
                     $domainValues->valueDescription = $request->dDesc;
-                    $domainValues->nameId           = $request->domainLevel2;
+                    $domainValues->nameId           = $request->domianLevel;
                     $getDomainNameId = DomainName::where('name','CourseName')->first();
                     $domainValues->domainTypeId           = $getDomainNameId->id;
                     $domainValues->save();

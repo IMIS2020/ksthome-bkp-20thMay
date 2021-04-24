@@ -430,11 +430,21 @@ export default{
                                 timer: 3000
                             })
                         } else {
-                            console.log(response.data['msg'])
+                            switch(response.data['msg'][0].errorInfo[0])
+                            {
+                                case '23502' :
+                                    this.$fire({
+                                        position: 'top',
+                                        icon: 'error',
+                                        title: "Minimum one university should be entered",
+                                        showConfirmButton: false,
+                                        timer: 3000
+                                    })
+                                break;
+
+                            }
                         }
                     })
-                    .catch(error => this.errorMsg(error.response.status))
-               
             }
         },
         errorMsg (status) {

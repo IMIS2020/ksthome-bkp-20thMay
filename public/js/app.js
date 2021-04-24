@@ -4472,10 +4472,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               timer: 3000
             });
           } else {
-            console.log(response.data['msg']);
+            switch (response.data['msg'][0].errorInfo[0]) {
+              case '23502':
+                _this.$fire({
+                  position: 'top',
+                  icon: 'error',
+                  title: "Minimum one university should be entered",
+                  showConfirmButton: false,
+                  timer: 3000
+                });
+
+                break;
+            }
           }
-        })["catch"](function (error) {
-          return _this.errorMsg(error.response.status);
         });
       }
     },
@@ -4780,6 +4789,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
 //
 //
 //
@@ -5173,6 +5183,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
 //
 //
 //
@@ -66922,13 +66934,24 @@ var render = function() {
                                             ])
                                           : _vm._e(),
                                         _vm._v(" "),
+                                        _vm.countLeprosy == 3
+                                          ? _c("span", [_vm._v("and")])
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.form
+                                          .applicantLeprosyAffectedMother ==
+                                          true &&
+                                        _vm.form.applicantLeprosyAffectedSelf ==
+                                          true
+                                          ? _c("span", [_vm._v("and")])
+                                          : _vm._e(),
+                                        _vm._v(" "),
                                         _vm.form.applicantLeprosyAffectedSelf ==
                                         true
                                           ? _c("span", [
                                               _c("strong", [
                                                 _vm._v(
-                                                  " and " +
-                                                    _vm._s(_vm.form.fullName)
+                                                  _vm._s(_vm.form.fullName)
                                                 )
                                               ])
                                             ])
@@ -67258,10 +67281,15 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
+          _vm.countLeprosy == 3 ? _c("span", [_vm._v("and")]) : _vm._e(),
+          _vm._v(" "),
+          _vm.form.applicantLeprosyAffectedMother == true &&
           _vm.form.applicantLeprosyAffectedSelf == true
-            ? _c("span", [
-                _c("strong", [_vm._v(" and " + _vm._s(_vm.form.fullName))])
-              ])
+            ? _c("span", [_vm._v("and")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.form.applicantLeprosyAffectedSelf == true
+            ? _c("span", [_c("strong", [_vm._v(_vm._s(_vm.form.fullName))])])
             : _vm._e(),
           _vm._v("\n                 from the family\n             "),
           _vm.countLeprosy > 1 ? _c("span", [_vm._v("are")]) : _vm._e(),

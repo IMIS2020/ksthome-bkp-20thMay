@@ -217,7 +217,7 @@ export default{
                             this.$fire({
                                 position: 'top',
                                 icon: 'success',
-                                title: "Nothing to Update!",
+                                title: "Kindly choose file and then save !",
                                 showConfirmButton: false,
                                 timer: 3000
                         })}
@@ -226,7 +226,7 @@ export default{
                             this.$fire({
                                 position: 'top',
                                 icon: 'success',
-                                title: "Add only image type file",
+                                title: "Add only image type file !",
                                 showConfirmButton: false,
                                 timer: 3000
                         })}

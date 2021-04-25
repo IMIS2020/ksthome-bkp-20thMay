@@ -59,17 +59,17 @@
                                   </thead>
                                   <tbody class="h-41x">
                                       <tr class="font-md text-black" v-for="(row,index) in getdata" :key="index">
-                                          <td class="w-5x"><em>{{index+1}}</em></td>
-                                          <td class="w-10x" ><em>{{row.financialYear}}</em></td>
-                                          <td class="text-break"><em>{{row.scholarshipType}}</em></td>
-                                          <td class="text-break"><em>N/A</em></td>
-                                          <td><em>{{row.appIdShow}}</em></td>
-                                          <td class="text-nowrap"><em>N/A</em></td>
+                                          <td class="w-5x">{{index+1}}</td>
+                                          <td class="w-10x" >{{row.financialYear}}</td>
+                                          <td class="text-break">{{row.scholarshipType}}</td>
+                                          <td class="text-break">N/A</td>
+                                          <td>{{row.appIdShow}}</td>
+                                          <td class="text-nowrap">N/A</td>
                                           <td class="text-center">
-                                              <em>
-                                                  <span class="badge badge-danger" v-if="row.appStatus == 'Submit'">Submitted</span>
+                                              
+                                                  <span class="badge badge-warning" v-if="row.appStatus == 'Submit'">Submitted</span>
                                                   <span class="badge badge-success" v-else>{{row.appStatus}}</span>
-                                              </em>
+                                              
                                           </td>
                                           <td class="text-center w-5x">
                                               <div class="dropdown no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>

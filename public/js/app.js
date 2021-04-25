@@ -5556,7 +5556,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             _this2.$fire({
               position: 'top',
               icon: 'success',
-              title: "Nothing to Update!",
+              title: "Kindly choose file and then save !",
               showConfirmButton: false,
               timer: 3000
             });
@@ -5568,7 +5568,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             _this2.$fire({
               position: 'top',
               icon: 'success',
-              title: "Add only image type file",
+              title: "Add only image type file !",
               showConfirmButton: false,
               timer: 3000
             });
@@ -76821,39 +76821,39 @@ var render = function() {
                           { key: index, staticClass: "font-md text-black" },
                           [
                             _c("td", { staticClass: "w-5x" }, [
-                              _c("em", [_vm._v(_vm._s(index + 1))])
+                              _vm._v(_vm._s(index + 1))
                             ]),
                             _vm._v(" "),
                             _c("td", { staticClass: "w-10x" }, [
-                              _c("em", [_vm._v(_vm._s(row.financialYear))])
+                              _vm._v(_vm._s(row.financialYear))
                             ]),
                             _vm._v(" "),
                             _c("td", { staticClass: "text-break" }, [
-                              _c("em", [_vm._v(_vm._s(row.scholarshipType))])
+                              _vm._v(_vm._s(row.scholarshipType))
                             ]),
                             _vm._v(" "),
-                            _vm._m(3, true),
-                            _vm._v(" "),
-                            _c("td", [
-                              _c("em", [_vm._v(_vm._s(row.appIdShow))])
+                            _c("td", { staticClass: "text-break" }, [
+                              _vm._v("N/A")
                             ]),
                             _vm._v(" "),
-                            _vm._m(4, true),
+                            _c("td", [_vm._v(_vm._s(row.appIdShow))]),
+                            _vm._v(" "),
+                            _c("td", { staticClass: "text-nowrap" }, [
+                              _vm._v("N/A")
+                            ]),
                             _vm._v(" "),
                             _c("td", { staticClass: "text-center" }, [
-                              _c("em", [
-                                row.appStatus == "Submit"
-                                  ? _c(
-                                      "span",
-                                      { staticClass: "badge badge-danger" },
-                                      [_vm._v("Submitted")]
-                                    )
-                                  : _c(
-                                      "span",
-                                      { staticClass: "badge badge-success" },
-                                      [_vm._v(_vm._s(row.appStatus))]
-                                    )
-                              ])
+                              row.appStatus == "Submit"
+                                ? _c(
+                                    "span",
+                                    { staticClass: "badge badge-warning" },
+                                    [_vm._v("Submitted")]
+                                  )
+                                : _c(
+                                    "span",
+                                    { staticClass: "badge badge-success" },
+                                    [_vm._v(_vm._s(row.appStatus))]
+                                  )
                             ]),
                             _vm._v(" "),
                             _c("td", { staticClass: "text-center w-5x" }, [
@@ -76861,7 +76861,7 @@ var render = function() {
                                 "div",
                                 { staticClass: "dropdown no-arrow dr-all" },
                                 [
-                                  _vm._m(5, true),
+                                  _vm._m(3, true),
                                   _vm._v(" "),
                                   _c(
                                     "div",
@@ -76993,18 +76993,6 @@ var staticRenderFns = [
         _c("th", { staticClass: "text-center w-5x" }, [_vm._v("Action")])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "text-break" }, [_c("em", [_vm._v("N/A")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "text-nowrap" }, [_c("em", [_vm._v("N/A")])])
   },
   function() {
     var _vm = this

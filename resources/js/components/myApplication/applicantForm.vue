@@ -829,6 +829,7 @@
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td>
+                                                                                        <input type="hidden" v-model="form.ms1" />
                                                                                         <div class="form-group mb-0">
                                                                                         <input class="form-control form-control-sm" type="text" v-model="form.miscName1" :disabled="globalDisable">
                                                                                         </div>
@@ -869,6 +870,7 @@
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td>
+                                                                                        <input type="hidden" v-model="form.ms2" />
                                                                                         <div class="form-group mb-0">
                                                                                         <input class="form-control form-control-sm" type="text" v-model="form.miscName2" :disabled="globalDisable">
                                                                                         </div>
@@ -910,6 +912,7 @@
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td>
+                                                                                        <input type="hidden" v-model="form.ms3" />
                                                                                         <div class="form-group mb-0">
                                                                                         <input class="form-control form-control-sm" type="text" v-model="form.miscName3" :disabled="globalDisable">
                                                                                         </div>
@@ -1324,6 +1327,9 @@ export default {
                 mRelationship1:"",
                 mRelationship2:"",
                 mRelationship3:"",
+                ms1: "",
+                ms2: "",
+                ms3: "",
                 appIdShow: '',
             },
             getdata: {},
@@ -1549,7 +1555,24 @@ export default {
                         // console.log(response.data['data'][2][0].relationship);
                     } 
                     else {
-                        console.log(response.data['msg'])
+                       if(response.data['timeout'])
+                       {
+                            this.inputDisabled = true;
+                            this.globalDisable = true;
+                            this.applicantDisablitySelfShow = true;
+                            this.applicantDisablityMotherShow = true;
+                            this.applicantDisablityFatherShow = true;
+                            this.$router.push({ 
+                                path:`/manage-my-application`,
+                            });
+                            this.$fire({
+                                position: 'top',
+                                icon: 'Error',
+                                title: ''+response.data['msg'],
+                                showConfirmButton: false,
+                                timer: 3500
+                            })
+                       }
                     }
                 })
                 axios.get(`/api/get-application-form-data/${applicationId}`)
@@ -1579,18 +1602,20 @@ export default {
                         this.form.mRelationship1 = response.data['data'][2][0].relationship; 
                         this.form.miscCourse1= response.data['data'][2][0].course;
                         this.form.miscYear1= response.data['data'][2][0].year;
-                        
+                        this.form.ms1 = response.data['data'][2][0].id;
 
                         this.form.miscName2= response.data['data'][2][1].name;
                         this.form.mRelationship2 = response.data['data'][2][1].relationship;
                         this.form.miscCourse2= response.data['data'][2][1].course;
                         this.form.miscYear2= response.data['data'][2][1].year;
+                        this.form.ms2 = response.data['data'][2][1].id;
                         
 
                         this.form.miscName3= response.data['data'][2][2].name;
                         this.form.mRelationship3 = response.data['data'][2][2].relationship;
                         this.form.miscCourse3= response.data['data'][2][2].course;
                         this.form.miscYear3= response.data['data'][2][2].year;
+                        this.form.ms3 = response.data['data'][2][2].id;
                         
                        
                     } 

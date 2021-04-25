@@ -2,6 +2,11 @@
 @section('welcome')
 <section class="mt-4">
     <div class="container-fluid">
+        @if(Session::has('msgLastdate'))
+            <div class="alert alert-danger">{{Session::get('msgLastdate')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+        @endif
         <div class="row">
             <div class="col-xl-8 offset-xl-2 text-center">
                 <h2 class="text-break color-mg"><strong>Welcome to Application for S-ILF Scholarships</strong></h2>
@@ -10,8 +15,6 @@
             <div class="col-xl-10 offset-xl-1 text-center mb-4">
                 <hr class="cs-hr" />
             </div>
-
-
             @if (!Auth::check())
             <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 offset-lg-0 offset-xl-0 mb-2 pr-1">
                 <div class="home-tabs">

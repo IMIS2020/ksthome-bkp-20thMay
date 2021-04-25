@@ -7,6 +7,8 @@ use App\ModelScholarship\NursingScholarshipApplication;
 use App\ModelScholarship\HhdlScholarshipApplication;
 use App\ModelScholarship\ApplicationDetails;
 use App\ModelScholarship\ApplicationSession;
+use App\ModelScholarship\DomainValues;
+use App\ModelScholarship\ApplicationScheduleTable;
 
 class SystemController extends Controller
 {
@@ -59,22 +61,43 @@ class SystemController extends Controller
       switch($applicationType)
          {
             case 'HHDLS' :
-                $count1 = ApplicationDetails::where('userId' , Auth::user()->id)->where('scholarshipType','HHDLS')->where('sessionId',1)->count();
-                if($count1 == 1)
-                {
-                  return  redirect('/manage-my-application');
-                }else{
-                  return view('myApplication.applicantForm');
-                }
+              $getDomainValuesApp = DomainValues::where('value','HHDLS')->first()->id;
+              $getApplicationSch = ApplicationScheduleTable::where('sessionId',1)
+                  ->where('scholarshipTypeValueId',$getDomainValuesApp)
+                  ->whereDate('startDate', '<=', date("Y-m-d"))
+                  ->whereDate('lastDate', '>=', date("Y-m-d"))
+                  ->first();
+              if(!$getApplicationSch)
+              {
+                return  redirect()->back()->with('msgLastdate','Cannot apply - last date for application is over');
+              }
+              $count1 = ApplicationDetails::where('userId' , Auth::user()->id)->where('scholarshipType','HHDLS')->where('sessionId',1)->count();
+              if($count1 == 1)
+              {
+                return  redirect('/manage-my-application');
+              }else{
+                return view('myApplication.applicantForm');
+              }
             break;
             case 'Nursing' :
-                $count2 = ApplicationDetails::where('userId' , Auth::user()->id)->where('scholarshipType','Nursing')->where('sessionId',1)->count();
-                if($count2 == 1)
-                {
-                  return  redirect('/manage-my-application');
-                }else{
-                  return view('myApplication.applicantForm');  
-                }
+              $getDomainValuesApp = DomainValues::where('value','Nursing')->first()->id;
+              $getApplicationSch = ApplicationScheduleTable::where('sessionId',1)
+                      ->where('scholarshipTypeValueId',$getDomainValuesApp)
+                      ->whereDate('startDate', '<=', date("Y-m-d"))
+                      ->whereDate('lastDate', '>=', date("Y-m-d"))
+                      ->first();
+              // $getLastDate = ApplicationScheduleTable::where('sessionId',1)->where('scholarshipTypeValueId',$getDomainValuesApp)->first();
+              if(!$getApplicationSch)
+              {
+                return  redirect()->back()->with('msgLastdate','Cannot apply - last date for application is over'); 
+              }
+              $count2 = ApplicationDetails::where('userId' , Auth::user()->id)->where('scholarshipType','Nursing')->where('sessionId',1)->count();
+              if($count2 == 1)
+              {
+                return  redirect('/manage-my-application');
+              }else{
+                return view('myApplication.applicantForm');  
+              }
             break;
             default:
               return view('myApplication.applicantForm');

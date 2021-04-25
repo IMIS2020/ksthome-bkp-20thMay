@@ -62,7 +62,7 @@
                                           <td class="w-5x">{{index+1}}</td>
                                           <td class="w-10x" >{{row.financialYear}}</td>
                                           <td class="text-break">{{row.scholarshipType}}</td>
-                                          <td class="text-break">{{row.appSpecificLastDt == null ? " " : row.appSpecificLastDt.split("-").reverse().join("/")}}</td>
+                                          <td class="text-break">{{row.appSpecificLastDt == null ? " " : row.appSpecificLastDt.split("-").join("/")}}</td>
                                           <td>{{row.appIdShow}}</td>
                                           <td class="text-nowrap">{{row.dateLastSubmitted== null ? " " : row.dateLastSubmitted.split("-").reverse().join("/")}}</td>
                                           <td class="text-center">

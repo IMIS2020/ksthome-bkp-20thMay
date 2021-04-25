@@ -163,7 +163,8 @@ class ApplicationController extends Controller
              $getDomainValuesApp = DomainValues::where('value',$request->scholarshipType)->first();
              $applicationDetails->scholarshipTypeValueId           = $getDomainValuesApp->id;
              $applicationDetails->sessionId 	                   = $this->newSession();
-
+             $getLastDate = ApplicationScheduleTable::where('sessionId',1)->where('scholarshipTypeValueId',$getDomainValuesApp->id)->first()->lastDate;
+             $applicationDetails->appSpecificLastDt   = $getLastDate;
              if($request->scholarshipType == 'Nursing')
                $grad = false;
 

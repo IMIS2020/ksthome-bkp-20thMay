@@ -64,8 +64,8 @@ class SystemController extends Controller
               $getDomainValuesApp = DomainValues::where('value','HHDLS')->first()->id;
               $getApplicationSch = ApplicationScheduleTable::where('sessionId',1)
                   ->where('scholarshipTypeValueId',$getDomainValuesApp)
-                  ->whereDate('startDate', '<=', date("Y-m-d"))
-                  ->whereDate('lastDate', '>=', date("Y-m-d"))
+                  ->whereDate('startDate', '<=', date("d-m-Y"))
+                  ->whereDate('lastDate', '>=', date("d-m-Y"))
                   ->first();
               if(!$getApplicationSch)
               {

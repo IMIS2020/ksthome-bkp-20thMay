@@ -5477,6 +5477,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -67925,62 +67933,75 @@ var render = function() {
                                                         ]
                                                       ),
                                                       _vm._v(" "),
-                                                      _c(
-                                                        "td",
-                                                        {
-                                                          staticClass:
-                                                            "text-center w-7x"
-                                                        },
-                                                        [
-                                                          row.uploadStatus ==
-                                                          "YES"
-                                                            ? _c("span", [
-                                                                _c(
-                                                                  "a",
-                                                                  {
-                                                                    staticClass:
-                                                                      "act-link",
-                                                                    attrs: {
-                                                                      href: "#"
-                                                                    },
-                                                                    on: {
-                                                                      click: function(
-                                                                        $event
-                                                                      ) {
-                                                                        $event.preventDefault()
-                                                                        return _vm.deleteFile(
-                                                                          row.id
+                                                      _vm.globalDisable == false
+                                                        ? _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "text-center w-7x"
+                                                            },
+                                                            [
+                                                              row.uploadStatus ==
+                                                              "YES"
+                                                                ? _c("span", [
+                                                                    _c(
+                                                                      "a",
+                                                                      {
+                                                                        staticClass:
+                                                                          "act-link",
+                                                                        attrs: {
+                                                                          href:
+                                                                            "#"
+                                                                        },
+                                                                        on: {
+                                                                          click: function(
+                                                                            $event
+                                                                          ) {
+                                                                            $event.preventDefault()
+                                                                            return _vm.deleteFile(
+                                                                              row.id
+                                                                            )
+                                                                          }
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _c(
+                                                                          "i",
+                                                                          {
+                                                                            staticClass:
+                                                                              "fa fa-trash"
+                                                                          }
                                                                         )
-                                                                      }
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _c("i", {
+                                                                      ]
+                                                                    )
+                                                                  ])
+                                                                : _c(
+                                                                    "span",
+                                                                    {
                                                                       staticClass:
-                                                                        "fa fa-trash"
-                                                                    })
-                                                                  ]
-                                                                )
-                                                              ])
-                                                            : _c(
-                                                                "span",
-                                                                {
-                                                                  staticClass:
-                                                                    "act-link",
-                                                                  staticStyle: {
-                                                                    color:
-                                                                      "#808080"
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _c("i", {
-                                                                    staticClass:
-                                                                      "fa fa-trash"
-                                                                  })
-                                                                ]
-                                                              )
-                                                        ]
-                                                      ),
+                                                                        "act-link",
+                                                                      staticStyle: {
+                                                                        color:
+                                                                          "#808080"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _c("i", {
+                                                                        staticClass:
+                                                                          "fa fa-trash"
+                                                                      })
+                                                                    ]
+                                                                  )
+                                                            ]
+                                                          )
+                                                        : _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "text-center w-7x"
+                                                            },
+                                                            [_vm._m(2, true)]
+                                                          ),
                                                       _vm._v(" "),
                                                       _c(
                                                         "td",
@@ -68034,7 +68055,23 @@ var render = function() {
                                                                   )
                                                                 ]
                                                               )
-                                                            : _vm._e()
+                                                            : _c(
+                                                                "span",
+                                                                {
+                                                                  staticClass:
+                                                                    "act-link",
+                                                                  staticStyle: {
+                                                                    color:
+                                                                      "#808080"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c("i", {
+                                                                    staticClass:
+                                                                      "fas fa-save"
+                                                                  })
+                                                                ]
+                                                              )
                                                         ]
                                                       )
                                                     ]
@@ -68114,6 +68151,16 @@ var staticRenderFns = [
         _c("th", { staticClass: "text-center w-5x" }, [_vm._v("Save")])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      { staticClass: "act-link", staticStyle: { color: "#808080" } },
+      [_c("i", { staticClass: "fa fa-trash" })]
+    )
   }
 ]
 render._withStripped = true

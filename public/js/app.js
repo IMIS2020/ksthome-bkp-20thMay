@@ -7972,95 +7972,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
-    errorMsg: function errorMsg(status) {
-      switch (status) {
-        case 422:
-          {
-            this.$fire({
-              position: 'top',
-              icon: 'error',
-              title: "Something went wrong! 1",
-              showConfirmButton: false,
-              timer: 3000
-            });
-            break;
-          }
-
-        case 405:
-          {
-            this.$fire({
-              position: 'top',
-              icon: 'error',
-              title: "Something went wrong! 2",
-              showConfirmButton: false,
-              timer: 3000
-            });
-            break;
-          }
-
-        case 500:
-          {
-            this.$fire({
-              position: 'top',
-              icon: 'error',
-              title: "Something went wrong! 3",
-              showConfirmButton: false,
-              timer: 3000
-            });
-            break;
-          }
-
-        default:
-          {
-            this.$fire({
-              position: 'top',
-              icon: 'error',
-              title: "Something went wrong! 4",
-              showConfirmButton: false,
-              timer: 3000
-            });
-            break;
-          }
-      }
-    },
-    getannexurei: function getannexurei() {
-      var _this = this;
-
-      var applicationId = window.location.pathname.split('/').reverse()[0];
-      axios.get("/api/get-annexure1/".concat(applicationId)).then(function (response) {
-        if (response.data['success']) {
-          _this.rows = response.data['data'];
-
-          if (_this.form.scholarshipType == "Nursing") {
-            _this.courseLevelValueId2 = response.data['data'][0].get_course_level_value.description;
-            _this.courseNameValueId2 = response.data['data'][0].get_course_level_name.value;
-          } else {
-            _this.courseLevelValueId2 = response.data['data'][0].get_course_level_value.description;
-            _this.courseNameValueId2 = response.data['data'][0].get_course_level_name.value;
-          }
-
-          _this.getHHDLSData2(_this.courseLevelValueId2);
-
-          _this.update = true;
-        } else {
-          _this.$router.push({
-            path: '/annexure-1/' + _this.form.applicationId
-          });
-
-          _this.$fire({
-            position: 'top',
-            icon: 'error',
-            title: "Cannot view - Please fill up Annexure 1",
-            showConfirmButton: false,
-            timer: 3000
-          });
-
-          _this.update = false;
-        }
-      });
-    },
     readApplicationForm: function readApplicationForm() {
-      var _this2 = this;
+      var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var applicationId;
@@ -8071,37 +7984,37 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 applicationId = window.location.pathname.split('/').reverse()[0];
                 axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
                   if (response.data['success']) {
-                    _this2.form.applicationId = response.data['data'][0][0].schApplicationId;
-                    _this2.form.scholarshipType = response.data['data'][0][0].scholarshipType;
-                    _this2.form.applicantNameF = response.data['data'][0][0].applicantNameF;
-                    _this2.form.applicantNameM = response.data['data'][0][0].applicantNameM;
-                    _this2.form.applicantNameL = response.data['data'][0][0].applicantNameL;
-                    _this2.form.applicantFatherName = response.data['data'][0][0].applicantFatherName;
-                    _this2.form.applicantMotherName = response.data['data'][0][0].applicantMotherName;
-                    _this2.form.financialYear = response.data['data'][0][0].financialYear;
-                    _this2.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
-                    _this2.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
-                    _this2.insForm.insType = response.data['data'][0][0].scholarshipType;
-                    _this2.form.appIdShow = response.data['data'][0][0].appIdShow;
+                    _this.form.applicationId = response.data['data'][0][0].schApplicationId;
+                    _this.form.scholarshipType = response.data['data'][0][0].scholarshipType;
+                    _this.form.applicantNameF = response.data['data'][0][0].applicantNameF;
+                    _this.form.applicantNameM = response.data['data'][0][0].applicantNameM;
+                    _this.form.applicantNameL = response.data['data'][0][0].applicantNameL;
+                    _this.form.applicantFatherName = response.data['data'][0][0].applicantFatherName;
+                    _this.form.applicantMotherName = response.data['data'][0][0].applicantMotherName;
+                    _this.form.financialYear = response.data['data'][0][0].financialYear;
+                    _this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
+                    _this.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
+                    _this.insForm.insType = response.data['data'][0][0].scholarshipType;
+                    _this.form.appIdShow = response.data['data'][0][0].appIdShow;
 
-                    if (_this2.form.applicantGender = response.data['data'][0][0].applicantGender == "Male") {
-                      _this2.getData.genderType = "son";
+                    if (_this.form.applicantGender = response.data['data'][0][0].applicantGender == "Male") {
+                      _this.getData.genderType = "son";
                     } else {
-                      _this2.getData.genderType = "daughter";
+                      _this.getData.genderType = "daughter";
                     }
 
                     ;
-                    _this2.form.appStatus = response.data['data'][0][0].appStatus;
+                    _this.form.appStatus = response.data['data'][0][0].appStatus;
 
-                    if (_this2.form.appStatus == 'Submit') {
-                      _this2.globalDisable = true;
+                    if (_this.form.appStatus == 'Submit') {
+                      _this.globalDisable = true;
                     }
 
                     ;
 
-                    _this2.readDomainValues(_this2.form.scholarshipType);
+                    _this.readDomainValues(_this.form.scholarshipType);
 
-                    _this2.readInsValue(_this2.form.scholarshipType);
+                    _this.readInsValue(_this.form.scholarshipType);
                   } else {
                     console.log(response.data['msg']);
                   }
@@ -8115,6 +8028,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
+    getannexurei: function getannexurei() {
+      var _this2 = this;
+
+      var applicationId = window.location.pathname.split('/').reverse()[0];
+      axios.get("/api/get-annexure1/".concat(applicationId)).then(function (response) {
+        if (response.data['success']) {
+          _this2.rows = response.data['data'];
+
+          if (_this2.form.scholarshipType == "Nursing") {
+            _this2.courseLevelValueId2 = response.data['data'][0].get_course_level_value.description;
+            _this2.courseNameValueId2 = response.data['data'][0].get_course_level_name.value;
+          } else {
+            _this2.courseLevelValueId2 = response.data['data'][0].get_course_level_value.description;
+            _this2.courseNameValueId2 = response.data['data'][0].get_course_level_name.value;
+          }
+
+          _this2.getHHDLSData2(_this2.courseLevelValueId2);
+
+          _this2.update = true;
+        } else {
+          _this2.$router.push({
+            path: '/annexure-1/' + _this2.form.applicationId
+          });
+
+          _this2.$fire({
+            position: 'top',
+            icon: 'error',
+            title: "Cannot view - Please fill up Annexure 1",
+            showConfirmButton: false,
+            timer: 3000
+          });
+
+          _this2.update = false;
+        }
+      });
+    },
     readInsValue: function readInsValue(type) {
       var _this3 = this;
 
@@ -8122,30 +8071,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         _this3.insData = response.data;
       });
     },
-    getData: function getData(insId, index) {
+    // getDataMethod(insId,index)
+    // {
+    //     console.lof(insId);
+    //     axios.get('/api/institute/get-details/'+insId)
+    //     .then(response => {
+    //         if (response.data['success']) {
+    //             this.rows[index].addressAddln1 = response.data['data'][0].get_address.addressAddln1;
+    //             this.rows[index].addressAddln2 = response.data['data'][0].get_address.addressAddln2;
+    //             this.rows[index].addressCity = response.data['data'][0].get_address.addressCity;
+    //             this.rows[index].addressDistprov = response.data['data'][0].get_address.addressDistprov;
+    //             this.rows[index].addressState = response.data['data'][0].get_address.addressState;
+    //             this.rows[index].addressPinzip = response.data['data'][0].get_address.addressPinzip;
+    //         } else {
+    //             console.log(response.data['msg'])
+    //         }
+    //     }).catch(error => this.errorMsg(error.response.status))
+    // },
+    getHHDLSData2: function getHHDLSData2(id) {
       var _this4 = this;
 
-      console.lof(insId);
-      axios.get('/api/institute/get-details/' + insId).then(function (response) {
-        if (response.data['success']) {
-          _this4.rows[index].addressAddln1 = response.data['data'][0].get_address.addressAddln1;
-          _this4.rows[index].addressAddln2 = response.data['data'][0].get_address.addressAddln2;
-          _this4.rows[index].addressCity = response.data['data'][0].get_address.addressCity;
-          _this4.rows[index].addressDistprov = response.data['data'][0].get_address.addressDistprov;
-          _this4.rows[index].addressState = response.data['data'][0].get_address.addressState;
-          _this4.rows[index].addressPinzip = response.data['data'][0].get_address.addressPinzip;
-        } else {
-          console.log(response.data['msg']);
-        }
-      })["catch"](function (error) {
-        return _this4.errorMsg(error.response.status);
-      });
-    },
-    getHHDLSData2: function getHHDLSData2(id) {
-      var _this5 = this;
-
       axios.get('/api/domain/course-name/hhdls/' + id).then(function (response) {
-        _this5.universityCourseName = response.data;
+        _this4.universityCourseName = response.data;
       });
     }
   },

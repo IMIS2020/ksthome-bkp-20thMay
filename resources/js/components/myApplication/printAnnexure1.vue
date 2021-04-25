@@ -112,85 +112,6 @@ export default{
     },
     methods: {
         
-      
-        errorMsg (status) {
-            switch (status) {
-                case 422:{
-                    this.$fire({
-                        position: 'top',
-                        icon: 'error',
-                        title: "Something went wrong! 1",
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
-                    break;
-                }
-                case 405:{
-                    this.$fire({
-                        position: 'top',
-                        icon: 'error',
-                        title: "Something went wrong! 2",
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
-                    break;
-                }
-                case 500:{
-                    this.$fire({
-                        position: 'top',
-                        icon: 'error',
-                        title: "Something went wrong! 3",
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
-                    break;
-                }
-                default: {
-                    this.$fire({
-                        position: 'top',
-                        icon: 'error',
-                        title: "Something went wrong! 4",
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
-                    break;
-                }
-            }
-        },
-
-        getannexurei() {
-            let applicationId = window.location.pathname.split('/').reverse()[0];
-            axios.get(`/api/get-annexure1/${applicationId}`)
-            .then(response => {
-                if (response.data['success']) {
-                    this.rows = response.data['data'];
-                    if(this.form.scholarshipType == "Nursing")
-                    {
-                        this.courseLevelValueId2 = response.data['data'][0].get_course_level_value.description;
-                        this.courseNameValueId2  = response.data['data'][0].get_course_level_name.value;
-                    }else
-                    {
-                        this.courseLevelValueId2 = response.data['data'][0].get_course_level_value.description;
-                        this.courseNameValueId2  = response.data['data'][0].get_course_level_name.value;
-                    }
-                    this.getHHDLSData2(this.courseLevelValueId2);
-                    this.update = true;
-                } else {
-                    this.$router.push({ 
-                        path:'/annexure-1/'+this.form.applicationId,
-                    });
-                    this.$fire({
-                        position: 'top',
-                        icon: 'error',
-                        title: "Cannot view - Please fill up Annexure 1",
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
-                    this.update = false;
-                }
-            })
-        },
-       
         async readApplicationForm() 
         {
             let applicationId = window.location.pathname.split('/').reverse()[0];
@@ -230,6 +151,39 @@ export default{
                 }
             })
         },
+
+         getannexurei() {
+            let applicationId = window.location.pathname.split('/').reverse()[0];
+            axios.get(`/api/get-annexure1/${applicationId}`)
+            .then(response => {
+                if (response.data['success']) {
+                    this.rows = response.data['data'];
+                    if(this.form.scholarshipType == "Nursing")
+                    {
+                        this.courseLevelValueId2 = response.data['data'][0].get_course_level_value.description;
+                        this.courseNameValueId2  = response.data['data'][0].get_course_level_name.value;
+                    }else
+                    {
+                        this.courseLevelValueId2 = response.data['data'][0].get_course_level_value.description;
+                        this.courseNameValueId2  = response.data['data'][0].get_course_level_name.value;
+                    }
+                    this.getHHDLSData2(this.courseLevelValueId2);
+                    this.update = true;
+                } else {
+                    this.$router.push({ 
+                        path:'/annexure-1/'+this.form.applicationId,
+                    });
+                    this.$fire({
+                        position: 'top',
+                        icon: 'error',
+                        title: "Cannot view - Please fill up Annexure 1",
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                    this.update = false;
+                }
+            })
+        },
     
         readInsValue(type)
         {
@@ -241,23 +195,23 @@ export default{
 
     
 
-        getData(insId,index)
-        {
-            console.lof(insId);
-            axios.get('/api/institute/get-details/'+insId)
-            .then(response => {
-                if (response.data['success']) {
-                    this.rows[index].addressAddln1 = response.data['data'][0].get_address.addressAddln1;
-                    this.rows[index].addressAddln2 = response.data['data'][0].get_address.addressAddln2;
-                    this.rows[index].addressCity = response.data['data'][0].get_address.addressCity;
-                    this.rows[index].addressDistprov = response.data['data'][0].get_address.addressDistprov;
-                    this.rows[index].addressState = response.data['data'][0].get_address.addressState;
-                    this.rows[index].addressPinzip = response.data['data'][0].get_address.addressPinzip;
-                } else {
-                    console.log(response.data['msg'])
-                }
-            }).catch(error => this.errorMsg(error.response.status))
-        },
+        // getDataMethod(insId,index)
+        // {
+        //     console.lof(insId);
+        //     axios.get('/api/institute/get-details/'+insId)
+        //     .then(response => {
+        //         if (response.data['success']) {
+        //             this.rows[index].addressAddln1 = response.data['data'][0].get_address.addressAddln1;
+        //             this.rows[index].addressAddln2 = response.data['data'][0].get_address.addressAddln2;
+        //             this.rows[index].addressCity = response.data['data'][0].get_address.addressCity;
+        //             this.rows[index].addressDistprov = response.data['data'][0].get_address.addressDistprov;
+        //             this.rows[index].addressState = response.data['data'][0].get_address.addressState;
+        //             this.rows[index].addressPinzip = response.data['data'][0].get_address.addressPinzip;
+        //         } else {
+        //             console.log(response.data['msg'])
+        //         }
+        //     }).catch(error => this.errorMsg(error.response.status))
+        // },
 
      
         getHHDLSData2(id)

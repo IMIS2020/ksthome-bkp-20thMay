@@ -861,7 +861,7 @@
                                                                                         <!-- <a v-if="globalDisable == false" class="act-link" @click="deleteMis(1)">
                                                                                             <i class="fa fa-trash"></i>
                                                                                         </a> -->
-                                                                                        <a v-if="globalDisable == false" href="#" @click="deleteMis(1)"><i class="fa fa-trash color-mg font-l"></i></a>
+                                                                                        <a v-if="globalDisable == false"  @click="deleteMis(1)"><i class="fa fa-trash color-mg font-l"></i></a>
                                                                                         <a class="act-link" style="color:#808080;" v-else>
                                                                                             <i class="fa fa-trash"></i>
                                                                                         </a>
@@ -902,7 +902,7 @@
                                                                                             <i class="fa fa-trash"></i>
                                                                                         </a> -->
 
-                                                                                         <a v-if="globalDisable == false" href="#" @click="deleteMis(2)"><i class="fa fa-trash color-mg font-l"></i></a>
+                                                                                         <a v-if="globalDisable == false"  @click="deleteMis(2)"><i class="fa fa-trash color-mg font-l"></i></a>
                                                                                         <a class="act-link" style="color:#808080;" v-else>
                                                                                             <i class="fa fa-trash"></i>
                                                                                         </a>
@@ -942,7 +942,7 @@
                                                                                             <i class="fa fa-trash"></i>
                                                                                         </a> -->
 
-                                                                                         <a v-if="globalDisable == false" href="#" @click="deleteMis(3)"><i class="fa fa-trash color-mg font-l"></i></a>
+                                                                                         <a v-if="globalDisable == false" @click="deleteMis(3)"><i class="fa fa-trash color-mg font-l"></i></a>
                                                                                         <a class="act-link" style="color:#808080;" v-else>
                                                                                             <i class="fa fa-trash"></i>
                                                                                         </a>

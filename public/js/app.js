@@ -4375,6 +4375,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5740,6 +5743,20 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -9333,7 +9350,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             timer: 3000
           });
         } else {
-          console.log(response.data['msg']);
+          if (response.data['document']) {
+            _this3.readApplicationForm();
+
+            _this3.$fire({
+              position: 'top',
+              icon: 'error',
+              title: " " + response.data['msg'],
+              showConfirmButton: false,
+              timer: 3000
+            });
+          }
         }
       });
     }
@@ -64956,7 +64983,7 @@ var render = function() {
                                                   staticClass:
                                                     "form-control form-control-sm",
                                                   attrs: {
-                                                    disabled: _vm.inputDisabled
+                                                    disabled: _vm.globalDisable
                                                   },
                                                   on: {
                                                     click: function($event) {
@@ -65081,7 +65108,7 @@ var render = function() {
                                                   staticClass:
                                                     "form-control form-control-sm",
                                                   attrs: {
-                                                    disabled: _vm.inputDisabled
+                                                    disabled: _vm.globalDisable
                                                   },
                                                   on: {
                                                     click: _vm.clearRow,
@@ -65245,7 +65272,10 @@ var render = function() {
                                           {
                                             staticClass:
                                               "btn btn-block btn-sm font-xs btn-mg add-anex-i-row",
-                                            attrs: { type: "button" },
+                                            attrs: {
+                                              type: "button",
+                                              disabled: _vm.globalDisable
+                                            },
                                             on: { click: _vm.addNewData }
                                           },
                                           [
@@ -65672,27 +65702,46 @@ var render = function() {
                                                       "text-center w-5x pt-2"
                                                   },
                                                   [
-                                                    _c(
-                                                      "a",
-                                                      {
-                                                        attrs: { href: "#" },
-                                                        on: {
-                                                          click: function(
-                                                            $event
-                                                          ) {
-                                                            return _vm.deleteRow(
-                                                              index
-                                                            )
-                                                          }
-                                                        }
-                                                      },
-                                                      [
-                                                        _c("i", {
-                                                          staticClass:
-                                                            "fa fa-trash color-mg font-l"
-                                                        })
-                                                      ]
-                                                    )
+                                                    _vm.globalDisable == false
+                                                      ? _c(
+                                                          "a",
+                                                          {
+                                                            attrs: {
+                                                              href: "#"
+                                                            },
+                                                            on: {
+                                                              click: function(
+                                                                $event
+                                                              ) {
+                                                                return _vm.deleteRow(
+                                                                  index
+                                                                )
+                                                              }
+                                                            }
+                                                          },
+                                                          [
+                                                            _c("i", {
+                                                              staticClass:
+                                                                "fa fa-trash color-mg font-l"
+                                                            })
+                                                          ]
+                                                        )
+                                                      : _c(
+                                                          "a",
+                                                          {
+                                                            staticClass:
+                                                              "act-link",
+                                                            staticStyle: {
+                                                              color: "#808080"
+                                                            }
+                                                          },
+                                                          [
+                                                            _c("i", {
+                                                              staticClass:
+                                                                "fa fa-trash"
+                                                            })
+                                                          ]
+                                                        )
                                                   ]
                                                 )
                                               ])
@@ -74090,8 +74139,9 @@ var render = function() {
                                                           ? _c(
                                                               "a",
                                                               {
-                                                                staticClass:
-                                                                  "act-link",
+                                                                attrs: {
+                                                                  href: "#"
+                                                                },
                                                                 on: {
                                                                   click: function(
                                                                     $event
@@ -74105,11 +74155,27 @@ var render = function() {
                                                               [
                                                                 _c("i", {
                                                                   staticClass:
+                                                                    "fa fa-trash color-mg font-l"
+                                                                })
+                                                              ]
+                                                            )
+                                                          : _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "act-link",
+                                                                staticStyle: {
+                                                                  color:
+                                                                    "#808080"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("i", {
+                                                                  staticClass:
                                                                     "fa fa-trash"
                                                                 })
                                                               ]
                                                             )
-                                                          : _vm._e()
                                                       ]
                                                     )
                                                   ]),
@@ -74414,8 +74480,9 @@ var render = function() {
                                                           ? _c(
                                                               "a",
                                                               {
-                                                                staticClass:
-                                                                  "act-link",
+                                                                attrs: {
+                                                                  href: "#"
+                                                                },
                                                                 on: {
                                                                   click: function(
                                                                     $event
@@ -74429,11 +74496,27 @@ var render = function() {
                                                               [
                                                                 _c("i", {
                                                                   staticClass:
+                                                                    "fa fa-trash color-mg font-l"
+                                                                })
+                                                              ]
+                                                            )
+                                                          : _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "act-link",
+                                                                staticStyle: {
+                                                                  color:
+                                                                    "#808080"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("i", {
+                                                                  staticClass:
                                                                     "fa fa-trash"
                                                                 })
                                                               ]
                                                             )
-                                                          : _vm._e()
                                                       ]
                                                     )
                                                   ]),
@@ -74738,8 +74821,9 @@ var render = function() {
                                                           ? _c(
                                                               "a",
                                                               {
-                                                                staticClass:
-                                                                  "act-link",
+                                                                attrs: {
+                                                                  href: "#"
+                                                                },
                                                                 on: {
                                                                   click: function(
                                                                     $event
@@ -74753,11 +74837,27 @@ var render = function() {
                                                               [
                                                                 _c("i", {
                                                                   staticClass:
+                                                                    "fa fa-trash color-mg font-l"
+                                                                })
+                                                              ]
+                                                            )
+                                                          : _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "act-link",
+                                                                staticStyle: {
+                                                                  color:
+                                                                    "#808080"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("i", {
+                                                                  staticClass:
                                                                     "fa fa-trash"
                                                                 })
                                                               ]
                                                             )
-                                                          : _vm._e()
                                                       ]
                                                     )
                                                   ])

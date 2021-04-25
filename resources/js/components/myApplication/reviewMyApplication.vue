@@ -530,10 +530,21 @@ export default{
                             timer: 3000
                         })
                     } else {
-                        console.log(response.data['msg'])
+                        if(response.data['document'])
+                        {
+                            this.readApplicationForm();
+                            this.$fire({
+                                position: 'top',
+                                icon: 'error',
+                                title: " "+response.data['msg'],
+                                showConfirmButton: false,
+                                timer: 3000
+                            })
+
+                        }
                     }
                 })
-       },
+        },
   },
 
   computed: {

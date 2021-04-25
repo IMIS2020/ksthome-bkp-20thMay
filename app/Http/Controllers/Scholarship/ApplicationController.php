@@ -1069,23 +1069,66 @@ class ApplicationController extends Controller
 
     public function submitApplication(Request $request, $applicationId)
     {
-        $editApplication = ApplicationDetails::where('schApplicationId', $applicationId)->first();
-        DB::beginTransaction();
-        try {
-                if($request->appStatus == 1){
-                    $editApplication->appStatus = 'Submit';
-                    $editApplication->dateLastSubmitted = Carbon::now();
-                    $editApplication->update();
-                }
-
-                DB::commit();
-                return array('success' => true, 'msg'=>[]);
-            }
-            catch(Exception $e) 
+        $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
+        $documentCount = ApplicationDocs::where('applicationId',$getApplicationId)->count();
+        $documentPresentCount = ApplicationDocs::where('applicationId',$getApplicationId)->where('uploadStatus','YES')->count();
+        $hasAdmissionLetter = ApplicationDetails::where('schApplicationId', $applicationId)->first()->hasAdmissionLetter;
+        $annex1Count = AnnexureI::where('applicationId',$getApplicationId)->count();
+        if($documentCount == $documentPresentCount)
+        {
+            if($hasAdmissionLetter == 'NO')
             {
-                DB::rollBack();
-                return array('success' => false, 'msg'=>[$e]);
+                if($annex1Count != 0)
+                {
+                    $editApplication = ApplicationDetails::where('schApplicationId', $applicationId)->first();
+                    DB::beginTransaction();
+                    try 
+                    {
+                        if($request->appStatus == 1)
+                        {
+                            $editApplication->appStatus = 'Submit';
+                            $editApplication->dateLastSubmitted = Carbon::now();
+                            $editApplication->update();
+                        }
+            
+                        DB::commit();
+                        return array('success' => true, 'msg'=>[]);
+                    }
+                    catch(Exception $e) 
+                    {
+                        DB::rollBack();
+                        return array('success' => false, 'msg'=>[$e]);
+                    }
+                }else{
+                    return array('document' => true, 'msg'=>["Cannot Submit -  Annexure I need to be filled up"]);
+                }
+            }else{
+
+                $editApplication = ApplicationDetails::where('schApplicationId', $applicationId)->first();
+                DB::beginTransaction();
+                try 
+                {
+                    if($request->appStatus == 1)
+                    {
+                        $editApplication->appStatus = 'Submit';
+                        $editApplication->dateLastSubmitted = Carbon::now();
+                        $editApplication->update();
+                    }
+        
+                    DB::commit();
+                    return array('success' => true, 'msg'=>[]);
+                }
+                catch(Exception $e) 
+                {
+                    DB::rollBack();
+                    return array('success' => false, 'msg'=>[$e]);
+                }
             }
+            
+        }else{
+            return array('document' => true, 'msg'=>["Cannot Submit -  All documents needed"]);
+        }
+       
     }
 
 

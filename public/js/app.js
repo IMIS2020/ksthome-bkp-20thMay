@@ -8048,6 +8048,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
           _this2.update = true;
         } else {
+          _this2.readApplicationForm();
+
           _this2.$router.push({
             path: '/annexure-1/' + _this2.form.applicationId
           });

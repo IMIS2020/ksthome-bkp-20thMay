@@ -767,7 +767,7 @@ class ApplicationController extends Controller
             $getEducationDetails = ApplicationEducationDetails::where('applicationId', $getApplicationId->id)->with('get_examLevelDomainValues',
                                                                                                                     'get_examBoardDomainValues',
                                                                                                                     'get_examPassedDomainValues')->get();
-            $getMiscellaneousDetails = ApplicationMiscellaneousDetails::where('applicationId',$getApplicationId->id)->get();
+            $getMiscellaneousDetails = ApplicationMiscellaneousDetails::where('applicationId',$getApplicationId->id)->orderBy('id',"ASC")->get();
             $data = json_decode(json_encode(array($applicationDetails,$getEducationDetails,$getMiscellaneousDetails)));
             if($data)
             {

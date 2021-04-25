@@ -76908,13 +76908,31 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("td", { staticClass: "text-break" }, [
-                              _vm._v("N/A")
+                              _vm._v(
+                                _vm._s(
+                                  row.appSpecificLastDt == null
+                                    ? " "
+                                    : row.appSpecificLastDt
+                                        .split("-")
+                                        .reverse()
+                                        .join("/")
+                                )
+                              )
                             ]),
                             _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(row.appIdShow))]),
                             _vm._v(" "),
                             _c("td", { staticClass: "text-nowrap" }, [
-                              _vm._v("N/A")
+                              _vm._v(
+                                _vm._s(
+                                  row.dateLastSubmitted == null
+                                    ? " "
+                                    : row.dateLastSubmitted
+                                        .split("-")
+                                        .reverse()
+                                        .join("/")
+                                )
+                              )
                             ]),
                             _vm._v(" "),
                             _c("td", { staticClass: "text-center" }, [

@@ -8043,7 +8043,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
           _this.update = true;
         } else {
-          console.log(response.data['msg']);
+          _this.$router.push({
+            path: '/annexure-1/' + _this.form.applicationId
+          });
+
+          _this.$fire({
+            position: 'top',
+            icon: 'error',
+            title: "Cannot view - Please fill up Annexure 1",
+            showConfirmButton: false,
+            timer: 3000
+          });
+
           _this.update = false;
         }
       });

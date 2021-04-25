@@ -176,7 +176,16 @@ export default{
                     this.getHHDLSData2(this.courseLevelValueId2);
                     this.update = true;
                 } else {
-                    console.log(response.data['msg'])
+                    this.$router.push({ 
+                        path:'/annexure-1/'+this.form.applicationId,
+                    });
+                    this.$fire({
+                        position: 'top',
+                        icon: 'error',
+                        title: "Cannot view - Please fill up Annexure 1",
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
                     this.update = false;
                 }
             })

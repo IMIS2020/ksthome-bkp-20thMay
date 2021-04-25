@@ -171,19 +171,19 @@ export default{
                     this.update = true;
                 } else {
                     let applicationId = window.location.pathname.split('/').reverse()[0];
-                    axios.get(`/api/get-application-form-data/${applicationId}`)
-                    .then(response => {
-                        if (response.data['success']) 
-                        {
-                            this.form.applicationId=response.data['data'][0][0].schApplicationId;
-                        } 
-                        else {
-                            console.log(response.data['msg'])
-                        }
-                    })
-                    // this.readApplicationForm();
+                    // axios.get(`/api/get-application-form-data/${applicationId}`)
+                    // .then(response => {
+                    //     if (response.data['success']) 
+                    //     {
+                    //         this.form.applicationId=response.data['data'][0][0].schApplicationId;
+                    //     } 
+                    //     else {
+                    //         console.log(response.data['msg'])
+                    //     }
+                    // })
+                    // // this.readApplicationForm();
                     this.$router.push({ 
-                        path:'/annexure-1/'+this.form.applicationId,
+                        path:'/annexure-1/'+applicationId,
                     });
                     this.$fire({
                         position: 'top',

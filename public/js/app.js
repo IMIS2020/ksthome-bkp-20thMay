@@ -8075,17 +8075,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
           _this2.update = true;
         } else {
-          var _applicationId = window.location.pathname.split('/').reverse()[0];
-          axios.get("/api/get-application-form-data/".concat(_applicationId)).then(function (response) {
-            if (response.data['success']) {
-              _this2.form.applicationId = response.data['data'][0][0].schApplicationId;
-            } else {
-              console.log(response.data['msg']);
-            }
-          }); // this.readApplicationForm();
+          var _applicationId = window.location.pathname.split('/').reverse()[0]; // axios.get(`/api/get-application-form-data/${applicationId}`)
+          // .then(response => {
+          //     if (response.data['success']) 
+          //     {
+          //         this.form.applicationId=response.data['data'][0][0].schApplicationId;
+          //     } 
+          //     else {
+          //         console.log(response.data['msg'])
+          //     }
+          // })
+          // // this.readApplicationForm();
 
           _this2.$router.push({
-            path: '/annexure-1/' + _this2.form.applicationId
+            path: '/annexure-1/' + _applicationId
           });
 
           _this2.$fire({

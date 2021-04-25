@@ -170,17 +170,28 @@ export default{
                     this.getHHDLSData2(this.courseLevelValueId2);
                     this.update = true;
                 } else {
+                    let applicationId = window.location.pathname.split('/').reverse()[0];
+                    axios.get(`/api/get-application-form-data/${applicationId}`)
+                    .then(response => {
+                        if (response.data['success']) 
+                        {
+                            this.form.applicationId=response.data['data'][0][0].schApplicationId;
+                        } 
+                        else {
+                            console.log(response.data['msg'])
+                        }
+                    })
                     // this.readApplicationForm();
-                    // this.$router.push({ 
-                    //     path:'/annexure-1/'+this.form.applicationId,
-                    // });
-                    // this.$fire({
-                    //     position: 'top',
-                    //     icon: 'error',
-                    //     title: "Cannot view - Please fill up Annexure 1",
-                    //     showConfirmButton: false,
-                    //     timer: 3000
-                    // })
+                    this.$router.push({ 
+                        path:'/annexure-1/'+this.form.applicationId,
+                    });
+                    this.$fire({
+                        position: 'top',
+                        icon: 'error',
+                        title: "Cannot view - Please fill up Annexure 1",
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
                     this.update = false;
                 }
             })

@@ -8075,17 +8075,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
           _this2.update = true;
         } else {
-          // this.readApplicationForm();
-          // this.$router.push({ 
-          //     path:'/annexure-1/'+this.form.applicationId,
-          // });
-          // this.$fire({
-          //     position: 'top',
-          //     icon: 'error',
-          //     title: "Cannot view - Please fill up Annexure 1",
-          //     showConfirmButton: false,
-          //     timer: 3000
-          // })
+          var _applicationId = window.location.pathname.split('/').reverse()[0];
+          axios.get("/api/get-application-form-data/".concat(_applicationId)).then(function (response) {
+            if (response.data['success']) {
+              _this2.form.applicationId = response.data['data'][0][0].schApplicationId;
+            } else {
+              console.log(response.data['msg']);
+            }
+          }); // this.readApplicationForm();
+
+          _this2.$router.push({
+            path: '/annexure-1/' + _this2.form.applicationId
+          });
+
+          _this2.$fire({
+            position: 'top',
+            icon: 'error',
+            title: "Cannot view - Please fill up Annexure 1",
+            showConfirmButton: false,
+            timer: 3000
+          });
+
           _this2.update = false;
         }
       });

@@ -233,9 +233,9 @@
                                                                     </div>
                                                                 </div>
                                                                     <div class="col-xl-3">
-                                                                        <label>PIN/ZIP Code&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                        <label>PIN/ZIP Code&nbsp;(6 digits)<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="number"  v-model="form.addressPinzip" :disabled="globalDisable" required>
+                                                                        <input class="form-control form-control-sm" type="number"  v-model="form.addressPinzip" :disabled="globalDisable" maxlength="6" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-3">

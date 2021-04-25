@@ -8075,20 +8075,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
           _this2.update = true;
         } else {
-          _this2.readApplicationForm();
-
-          _this2.$router.push({
-            path: '/annexure-1/' + _this2.form.applicationId
-          });
-
-          _this2.$fire({
-            position: 'top',
-            icon: 'error',
-            title: "Cannot view - Please fill up Annexure 1",
-            showConfirmButton: false,
-            timer: 3000
-          });
-
+          // this.readApplicationForm();
+          // this.$router.push({ 
+          //     path:'/annexure-1/'+this.form.applicationId,
+          // });
+          // this.$fire({
+          //     position: 'top',
+          //     icon: 'error',
+          //     title: "Cannot view - Please fill up Annexure 1",
+          //     showConfirmButton: false,
+          //     timer: 3000
+          // })
           _this2.update = false;
         }
       });
@@ -70308,6 +70305,7 @@ var render = function() {
                                           attrs: {
                                             type: "number",
                                             disabled: _vm.globalDisable,
+                                            maxlength: "6",
                                             required: ""
                                           },
                                           domProps: {
@@ -76159,7 +76157,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", [
-      _vm._v("PIN/ZIP Code "),
+      _vm._v("PIN/ZIP Code (6 digits)"),
       _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
     ])
   },

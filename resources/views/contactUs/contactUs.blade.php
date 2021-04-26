@@ -6,7 +6,8 @@
           <div class="row">
               <div class="col-xl-8 offset-xl-2 mb-2">
                   <h3 class="text-white">Contact Us</h3>
-                  <h6 class="text-white mb-3">Fill up this form, in case you&#39;re facing any problem submitting the application</h6>
+                  <h6 class="text-white mb-3">Fill up this form, in case you&#39;re facing any problem submitting the application.<br>or<br>
+                                              You may also call on the nos. 9990503759 or 9891572290 </h6>
                   <br>
                   @if(Session::has('message'))
                   <div class="alert alert-success">{{Session::get('message')}}

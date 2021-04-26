@@ -46,6 +46,7 @@
                                                                 <span v-if="form.applicantLeprosyAffectedMother == true"><strong>{{form.applicantMotherName}}</strong></span>
                                                                 <!-- <span v-if="countLeprosy == 2"></span>-->
                                                                 <span v-if="countLeprosy == 3">and</span>
+                                                                <span v-if="form.applicantLeprosyAffectedMother == true && form.applicantLeprosyAffectedSelf == true" >and</span>
                                                                 <!-- <span v-if="countLeprosy == 1">and</span> -->
                                                                 <span v-if="form.applicantLeprosyAffectedSelf == true"><strong>{{form.fullName}}</strong></span>
                                                                      from the family

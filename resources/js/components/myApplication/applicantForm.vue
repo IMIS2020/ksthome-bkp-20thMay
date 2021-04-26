@@ -233,9 +233,9 @@
                                                                     </div>
                                                                 </div>
                                                                     <div class="col-xl-3">
-                                                                        <label>PIN/ZIP Code&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                                                        <label>PIN/ZIP Code&nbsp;(6 digits)<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="number"  v-model="form.addressPinzip" :disabled="globalDisable" required>
+                                                                        <input class="form-control form-control-sm" type="number"  v-model="form.addressPinzip" :disabled="globalDisable" maxlength="6" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-3">
@@ -829,6 +829,7 @@
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td>
+                                                                                        <input type="hidden" v-model="form.ms1" />
                                                                                         <div class="form-group mb-0">
                                                                                         <input class="form-control form-control-sm" type="text" v-model="form.miscName1" :disabled="globalDisable">
                                                                                         </div>
@@ -858,13 +859,18 @@
                                                                                     </td>
 
                                                                                     <td class="text-center">
-                                                                                        <a v-if="globalDisable == false" class="act-link" @click="deleteMis(1)">
+                                                                                        <!-- <a v-if="globalDisable == false" class="act-link" @click="deleteMis(1)">
+                                                                                            <i class="fa fa-trash"></i>
+                                                                                        </a> -->
+                                                                                        <a v-if="globalDisable == false"  @click="deleteMis(1)"><i class="fa fa-trash color-mg font-l"></i></a>
+                                                                                        <a class="act-link" style="color:#808080;" v-else>
                                                                                             <i class="fa fa-trash"></i>
                                                                                         </a>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td>
+                                                                                        <input type="hidden" v-model="form.ms2" />
                                                                                         <div class="form-group mb-0">
                                                                                         <input class="form-control form-control-sm" type="text" v-model="form.miscName2" :disabled="globalDisable">
                                                                                         </div>
@@ -894,13 +900,19 @@
                                                                                     </td>
 
                                                                                     <td class="text-center">
-                                                                                        <a v-if="globalDisable == false" class="act-link" @click="deleteMis(2)">
+                                                                                        <!-- <a v-if="globalDisable == false" class="act-link" @click="deleteMis(2)">
+                                                                                            <i class="fa fa-trash"></i>
+                                                                                        </a> -->
+
+                                                                                         <a v-if="globalDisable == false"  @click="deleteMis(2)"><i class="fa fa-trash color-mg font-l"></i></a>
+                                                                                        <a class="act-link" style="color:#808080;" v-else>
                                                                                             <i class="fa fa-trash"></i>
                                                                                         </a>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td>
+                                                                                        <input type="hidden" v-model="form.ms3" />
                                                                                         <div class="form-group mb-0">
                                                                                         <input class="form-control form-control-sm" type="text" v-model="form.miscName3" :disabled="globalDisable">
                                                                                         </div>
@@ -929,7 +941,12 @@
                                                                                     </td>
 
                                                                                     <td class="text-center">
-                                                                                        <a v-if="globalDisable == false" class="act-link" @click="deleteMis(3)">
+                                                                                        <!-- <a v-if="globalDisable == false" class="act-link" @click="deleteMis(3)">
+                                                                                            <i class="fa fa-trash"></i>
+                                                                                        </a> -->
+
+                                                                                         <a v-if="globalDisable == false" @click="deleteMis(3)"><i class="fa fa-trash color-mg font-l"></i></a>
+                                                                                        <a class="act-link" style="color:#808080;" v-else>
                                                                                             <i class="fa fa-trash"></i>
                                                                                         </a>
                                                                                     </td>
@@ -1310,6 +1327,9 @@ export default {
                 mRelationship1:"",
                 mRelationship2:"",
                 mRelationship3:"",
+                ms1: "",
+                ms2: "",
+                ms3: "",
                 appIdShow: '',
             },
             getdata: {},
@@ -1535,7 +1555,24 @@ export default {
                         // console.log(response.data['data'][2][0].relationship);
                     } 
                     else {
-                        console.log(response.data['msg'])
+                       if(response.data['timeout'])
+                       {
+                            this.inputDisabled = true;
+                            this.globalDisable = true;
+                            this.applicantDisablitySelfShow = true;
+                            this.applicantDisablityMotherShow = true;
+                            this.applicantDisablityFatherShow = true;
+                            this.$router.push({ 
+                                path:`/manage-my-application`,
+                            });
+                            this.$fire({
+                                position: 'top',
+                                icon: 'Error',
+                                title: ''+response.data['msg'],
+                                showConfirmButton: false,
+                                timer: 3500
+                            })
+                       }
                     }
                 })
                 axios.get(`/api/get-application-form-data/${applicationId}`)
@@ -1565,18 +1602,20 @@ export default {
                         this.form.mRelationship1 = response.data['data'][2][0].relationship; 
                         this.form.miscCourse1= response.data['data'][2][0].course;
                         this.form.miscYear1= response.data['data'][2][0].year;
-                        
+                        this.form.ms1 = response.data['data'][2][0].id;
 
                         this.form.miscName2= response.data['data'][2][1].name;
                         this.form.mRelationship2 = response.data['data'][2][1].relationship;
                         this.form.miscCourse2= response.data['data'][2][1].course;
                         this.form.miscYear2= response.data['data'][2][1].year;
+                        this.form.ms2 = response.data['data'][2][1].id;
                         
 
                         this.form.miscName3= response.data['data'][2][2].name;
                         this.form.mRelationship3 = response.data['data'][2][2].relationship;
                         this.form.miscCourse3= response.data['data'][2][2].course;
                         this.form.miscYear3= response.data['data'][2][2].year;
+                        this.form.ms3 = response.data['data'][2][2].id;
                         
                        
                     } 

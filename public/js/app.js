@@ -4375,6 +4375,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4472,10 +4475,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               timer: 3000
             });
           } else {
-            console.log(response.data['msg']);
+            switch (response.data['msg'][0].errorInfo[0]) {
+              case '23502':
+                _this.$fire({
+                  position: 'top',
+                  icon: 'error',
+                  title: "Minimum one university should be entered",
+                  showConfirmButton: false,
+                  timer: 3000
+                });
+
+                break;
+            }
           }
-        })["catch"](function (error) {
-          return _this.errorMsg(error.response.status);
         });
       }
     },
@@ -4780,6 +4792,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
 //
 //
 //
@@ -5216,6 +5229,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5462,6 +5477,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5533,7 +5556,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             _this2.$fire({
               position: 'top',
               icon: 'success',
-              title: "Nothing to Update!",
+              title: "Kindly choose file and then save !",
               showConfirmButton: false,
               timer: 3000
             });
@@ -5545,7 +5568,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             _this2.$fire({
               position: 'top',
               icon: 'success',
-              title: "Add only image type file",
+              title: "Add only image type file !",
               showConfirmButton: false,
               timer: 3000
             });
@@ -6909,6 +6932,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -7037,6 +7077,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         mRelationship1: "",
         mRelationship2: "",
         mRelationship3: "",
+        ms1: "",
+        ms2: "",
+        ms3: "",
         appIdShow: ''
       },
       getdata: {},
@@ -7258,7 +7301,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     // console.log(response.data['data'][2][0].relationship);
 
                   } else {
-                    console.log(response.data['msg']);
+                    if (response.data['timeout']) {
+                      _this2.inputDisabled = true;
+                      _this2.globalDisable = true;
+                      _this2.applicantDisablitySelfShow = true;
+                      _this2.applicantDisablityMotherShow = true;
+                      _this2.applicantDisablityFatherShow = true;
+
+                      _this2.$router.push({
+                        path: "/manage-my-application"
+                      });
+
+                      _this2.$fire({
+                        position: 'top',
+                        icon: 'Error',
+                        title: '' + response.data['msg'],
+                        showConfirmButton: false,
+                        timer: 3500
+                      });
+                    }
                   }
                 });
                 axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
@@ -7282,14 +7343,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this2.form.mRelationship1 = response.data['data'][2][0].relationship;
                     _this2.form.miscCourse1 = response.data['data'][2][0].course;
                     _this2.form.miscYear1 = response.data['data'][2][0].year;
+                    _this2.form.ms1 = response.data['data'][2][0].id;
                     _this2.form.miscName2 = response.data['data'][2][1].name;
                     _this2.form.mRelationship2 = response.data['data'][2][1].relationship;
                     _this2.form.miscCourse2 = response.data['data'][2][1].course;
                     _this2.form.miscYear2 = response.data['data'][2][1].year;
+                    _this2.form.ms2 = response.data['data'][2][1].id;
                     _this2.form.miscName3 = response.data['data'][2][2].name;
                     _this2.form.mRelationship3 = response.data['data'][2][2].relationship;
                     _this2.form.miscCourse3 = response.data['data'][2][2].course;
                     _this2.form.miscYear3 = response.data['data'][2][2].year;
+                    _this2.form.ms3 = response.data['data'][2][2].id;
                   } else {
                     console.log(response.data['msg']);
                   }
@@ -7935,84 +7999,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
-    errorMsg: function errorMsg(status) {
-      switch (status) {
-        case 422:
-          {
-            this.$fire({
-              position: 'top',
-              icon: 'error',
-              title: "Something went wrong! 1",
-              showConfirmButton: false,
-              timer: 3000
-            });
-            break;
-          }
-
-        case 405:
-          {
-            this.$fire({
-              position: 'top',
-              icon: 'error',
-              title: "Something went wrong! 2",
-              showConfirmButton: false,
-              timer: 3000
-            });
-            break;
-          }
-
-        case 500:
-          {
-            this.$fire({
-              position: 'top',
-              icon: 'error',
-              title: "Something went wrong! 3",
-              showConfirmButton: false,
-              timer: 3000
-            });
-            break;
-          }
-
-        default:
-          {
-            this.$fire({
-              position: 'top',
-              icon: 'error',
-              title: "Something went wrong! 4",
-              showConfirmButton: false,
-              timer: 3000
-            });
-            break;
-          }
-      }
-    },
-    getannexurei: function getannexurei() {
-      var _this = this;
-
-      var applicationId = window.location.pathname.split('/').reverse()[0];
-      axios.get("/api/get-annexure1/".concat(applicationId)).then(function (response) {
-        if (response.data['success']) {
-          _this.rows = response.data['data'];
-
-          if (_this.form.scholarshipType == "Nursing") {
-            _this.courseLevelValueId2 = response.data['data'][0].get_course_level_value.description;
-            _this.courseNameValueId2 = response.data['data'][0].get_course_level_name.value;
-          } else {
-            _this.courseLevelValueId2 = response.data['data'][0].get_course_level_value.description;
-            _this.courseNameValueId2 = response.data['data'][0].get_course_level_name.value;
-          }
-
-          _this.getHHDLSData2(_this.courseLevelValueId2);
-
-          _this.update = true;
-        } else {
-          console.log(response.data['msg']);
-          _this.update = false;
-        }
-      });
-    },
     readApplicationForm: function readApplicationForm() {
-      var _this2 = this;
+      var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var applicationId;
@@ -8023,37 +8011,37 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 applicationId = window.location.pathname.split('/').reverse()[0];
                 axios.get("/api/get-application-form-data/".concat(applicationId)).then(function (response) {
                   if (response.data['success']) {
-                    _this2.form.applicationId = response.data['data'][0][0].schApplicationId;
-                    _this2.form.scholarshipType = response.data['data'][0][0].scholarshipType;
-                    _this2.form.applicantNameF = response.data['data'][0][0].applicantNameF;
-                    _this2.form.applicantNameM = response.data['data'][0][0].applicantNameM;
-                    _this2.form.applicantNameL = response.data['data'][0][0].applicantNameL;
-                    _this2.form.applicantFatherName = response.data['data'][0][0].applicantFatherName;
-                    _this2.form.applicantMotherName = response.data['data'][0][0].applicantMotherName;
-                    _this2.form.financialYear = response.data['data'][0][0].financialYear;
-                    _this2.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
-                    _this2.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
-                    _this2.insForm.insType = response.data['data'][0][0].scholarshipType;
-                    _this2.form.appIdShow = response.data['data'][0][0].appIdShow;
+                    _this.form.applicationId = response.data['data'][0][0].schApplicationId;
+                    _this.form.scholarshipType = response.data['data'][0][0].scholarshipType;
+                    _this.form.applicantNameF = response.data['data'][0][0].applicantNameF;
+                    _this.form.applicantNameM = response.data['data'][0][0].applicantNameM;
+                    _this.form.applicantNameL = response.data['data'][0][0].applicantNameL;
+                    _this.form.applicantFatherName = response.data['data'][0][0].applicantFatherName;
+                    _this.form.applicantMotherName = response.data['data'][0][0].applicantMotherName;
+                    _this.form.financialYear = response.data['data'][0][0].financialYear;
+                    _this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
+                    _this.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
+                    _this.insForm.insType = response.data['data'][0][0].scholarshipType;
+                    _this.form.appIdShow = response.data['data'][0][0].appIdShow;
 
-                    if (_this2.form.applicantGender = response.data['data'][0][0].applicantGender == "Male") {
-                      _this2.getData.genderType = "son";
+                    if (_this.form.applicantGender = response.data['data'][0][0].applicantGender == "Male") {
+                      _this.getData.genderType = "son";
                     } else {
-                      _this2.getData.genderType = "daughter";
+                      _this.getData.genderType = "daughter";
                     }
 
                     ;
-                    _this2.form.appStatus = response.data['data'][0][0].appStatus;
+                    _this.form.appStatus = response.data['data'][0][0].appStatus;
 
-                    if (_this2.form.appStatus == 'Submit') {
-                      _this2.globalDisable = true;
+                    if (_this.form.appStatus == 'Submit') {
+                      _this.globalDisable = true;
                     }
 
                     ;
 
-                    _this2.readDomainValues(_this2.form.scholarshipType);
+                    _this.readDomainValues(_this.form.scholarshipType);
 
-                    _this2.readInsValue(_this2.form.scholarshipType);
+                    _this.readInsValue(_this.form.scholarshipType);
                   } else {
                     console.log(response.data['msg']);
                   }
@@ -8067,6 +8055,54 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
+    getannexurei: function getannexurei() {
+      var _this2 = this;
+
+      var applicationId = window.location.pathname.split('/').reverse()[0];
+      axios.get("/api/get-annexure1/".concat(applicationId)).then(function (response) {
+        if (response.data['success']) {
+          _this2.rows = response.data['data'];
+
+          if (_this2.form.scholarshipType == "Nursing") {
+            _this2.courseLevelValueId2 = response.data['data'][0].get_course_level_value.description;
+            _this2.courseNameValueId2 = response.data['data'][0].get_course_level_name.value;
+          } else {
+            _this2.courseLevelValueId2 = response.data['data'][0].get_course_level_value.description;
+            _this2.courseNameValueId2 = response.data['data'][0].get_course_level_name.value;
+          }
+
+          _this2.getHHDLSData2(_this2.courseLevelValueId2);
+
+          _this2.update = true;
+        } else {
+          var _applicationId = window.location.pathname.split('/').reverse()[0]; // axios.get(`/api/get-application-form-data/${applicationId}`)
+          // .then(response => {
+          //     if (response.data['success']) 
+          //     {
+          //         this.form.applicationId=response.data['data'][0][0].schApplicationId;
+          //     } 
+          //     else {
+          //         console.log(response.data['msg'])
+          //     }
+          // })
+          // // this.readApplicationForm();
+
+          _this2.$router.push({
+            path: '/annexure-1/' + _applicationId
+          });
+
+          _this2.$fire({
+            position: 'top',
+            icon: 'error',
+            title: "Cannot view - Please fill up Annexure 1",
+            showConfirmButton: false,
+            timer: 3000
+          });
+
+          _this2.update = false;
+        }
+      });
+    },
     readInsValue: function readInsValue(type) {
       var _this3 = this;
 
@@ -8074,30 +8110,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         _this3.insData = response.data;
       });
     },
-    getData: function getData(insId, index) {
+    // getDataMethod(insId,index)
+    // {
+    //     console.lof(insId);
+    //     axios.get('/api/institute/get-details/'+insId)
+    //     .then(response => {
+    //         if (response.data['success']) {
+    //             this.rows[index].addressAddln1 = response.data['data'][0].get_address.addressAddln1;
+    //             this.rows[index].addressAddln2 = response.data['data'][0].get_address.addressAddln2;
+    //             this.rows[index].addressCity = response.data['data'][0].get_address.addressCity;
+    //             this.rows[index].addressDistprov = response.data['data'][0].get_address.addressDistprov;
+    //             this.rows[index].addressState = response.data['data'][0].get_address.addressState;
+    //             this.rows[index].addressPinzip = response.data['data'][0].get_address.addressPinzip;
+    //         } else {
+    //             console.log(response.data['msg'])
+    //         }
+    //     }).catch(error => this.errorMsg(error.response.status))
+    // },
+    getHHDLSData2: function getHHDLSData2(id) {
       var _this4 = this;
 
-      console.lof(insId);
-      axios.get('/api/institute/get-details/' + insId).then(function (response) {
-        if (response.data['success']) {
-          _this4.rows[index].addressAddln1 = response.data['data'][0].get_address.addressAddln1;
-          _this4.rows[index].addressAddln2 = response.data['data'][0].get_address.addressAddln2;
-          _this4.rows[index].addressCity = response.data['data'][0].get_address.addressCity;
-          _this4.rows[index].addressDistprov = response.data['data'][0].get_address.addressDistprov;
-          _this4.rows[index].addressState = response.data['data'][0].get_address.addressState;
-          _this4.rows[index].addressPinzip = response.data['data'][0].get_address.addressPinzip;
-        } else {
-          console.log(response.data['msg']);
-        }
-      })["catch"](function (error) {
-        return _this4.errorMsg(error.response.status);
-      });
-    },
-    getHHDLSData2: function getHHDLSData2(id) {
-      var _this5 = this;
-
       axios.get('/api/domain/course-name/hhdls/' + id).then(function (response) {
-        _this5.universityCourseName = response.data;
+        _this4.universityCourseName = response.data;
       });
     }
   },
@@ -9321,7 +9355,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             timer: 3000
           });
         } else {
-          console.log(response.data['msg']);
+          if (response.data['document']) {
+            _this3.readApplicationForm();
+
+            _this3.$fire({
+              position: 'top',
+              icon: 'error',
+              title: " " + response.data['msg'],
+              showConfirmButton: false,
+              timer: 3000
+            });
+          }
         }
       });
     }
@@ -64944,7 +64988,7 @@ var render = function() {
                                                   staticClass:
                                                     "form-control form-control-sm",
                                                   attrs: {
-                                                    disabled: _vm.inputDisabled
+                                                    disabled: _vm.globalDisable
                                                   },
                                                   on: {
                                                     click: function($event) {
@@ -65069,7 +65113,7 @@ var render = function() {
                                                   staticClass:
                                                     "form-control form-control-sm",
                                                   attrs: {
-                                                    disabled: _vm.inputDisabled
+                                                    disabled: _vm.globalDisable
                                                   },
                                                   on: {
                                                     click: _vm.clearRow,
@@ -65233,7 +65277,10 @@ var render = function() {
                                           {
                                             staticClass:
                                               "btn btn-block btn-sm font-xs btn-mg add-anex-i-row",
-                                            attrs: { type: "button" },
+                                            attrs: {
+                                              type: "button",
+                                              disabled: _vm.globalDisable
+                                            },
                                             on: { click: _vm.addNewData }
                                           },
                                           [
@@ -65660,27 +65707,46 @@ var render = function() {
                                                       "text-center w-5x pt-2"
                                                   },
                                                   [
-                                                    _c(
-                                                      "a",
-                                                      {
-                                                        attrs: { href: "#" },
-                                                        on: {
-                                                          click: function(
-                                                            $event
-                                                          ) {
-                                                            return _vm.deleteRow(
-                                                              index
-                                                            )
-                                                          }
-                                                        }
-                                                      },
-                                                      [
-                                                        _c("i", {
-                                                          staticClass:
-                                                            "fa fa-trash color-mg font-l"
-                                                        })
-                                                      ]
-                                                    )
+                                                    _vm.globalDisable == false
+                                                      ? _c(
+                                                          "a",
+                                                          {
+                                                            attrs: {
+                                                              href: "#"
+                                                            },
+                                                            on: {
+                                                              click: function(
+                                                                $event
+                                                              ) {
+                                                                return _vm.deleteRow(
+                                                                  index
+                                                                )
+                                                              }
+                                                            }
+                                                          },
+                                                          [
+                                                            _c("i", {
+                                                              staticClass:
+                                                                "fa fa-trash color-mg font-l"
+                                                            })
+                                                          ]
+                                                        )
+                                                      : _c(
+                                                          "a",
+                                                          {
+                                                            staticClass:
+                                                              "act-link",
+                                                            staticStyle: {
+                                                              color: "#808080"
+                                                            }
+                                                          },
+                                                          [
+                                                            _c("i", {
+                                                              staticClass:
+                                                                "fa fa-trash"
+                                                            })
+                                                          ]
+                                                        )
                                                   ]
                                                 )
                                               ])
@@ -66922,13 +66988,24 @@ var render = function() {
                                             ])
                                           : _vm._e(),
                                         _vm._v(" "),
+                                        _vm.countLeprosy == 3
+                                          ? _c("span", [_vm._v("and")])
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm.form
+                                          .applicantLeprosyAffectedMother ==
+                                          true &&
+                                        _vm.form.applicantLeprosyAffectedSelf ==
+                                          true
+                                          ? _c("span", [_vm._v("and")])
+                                          : _vm._e(),
+                                        _vm._v(" "),
                                         _vm.form.applicantLeprosyAffectedSelf ==
                                         true
                                           ? _c("span", [
                                               _c("strong", [
                                                 _vm._v(
-                                                  " and " +
-                                                    _vm._s(_vm.form.fullName)
+                                                  _vm._s(_vm.form.fullName)
                                                 )
                                               ])
                                             ])
@@ -67258,10 +67335,15 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
+          _vm.countLeprosy == 3 ? _c("span", [_vm._v("and")]) : _vm._e(),
+          _vm._v(" "),
+          _vm.form.applicantLeprosyAffectedMother == true &&
           _vm.form.applicantLeprosyAffectedSelf == true
-            ? _c("span", [
-                _c("strong", [_vm._v(" and " + _vm._s(_vm.form.fullName))])
-              ])
+            ? _c("span", [_vm._v("and")])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.form.applicantLeprosyAffectedSelf == true
+            ? _c("span", [_c("strong", [_vm._v(_vm._s(_vm.form.fullName))])])
             : _vm._e(),
           _vm._v("\n                 from the family\n             "),
           _vm.countLeprosy > 1 ? _c("span", [_vm._v("are")]) : _vm._e(),
@@ -67848,62 +67930,75 @@ var render = function() {
                                                         ]
                                                       ),
                                                       _vm._v(" "),
-                                                      _c(
-                                                        "td",
-                                                        {
-                                                          staticClass:
-                                                            "text-center w-7x"
-                                                        },
-                                                        [
-                                                          row.uploadStatus ==
-                                                          "YES"
-                                                            ? _c("span", [
-                                                                _c(
-                                                                  "a",
-                                                                  {
-                                                                    staticClass:
-                                                                      "act-link",
-                                                                    attrs: {
-                                                                      href: "#"
-                                                                    },
-                                                                    on: {
-                                                                      click: function(
-                                                                        $event
-                                                                      ) {
-                                                                        $event.preventDefault()
-                                                                        return _vm.deleteFile(
-                                                                          row.id
+                                                      _vm.globalDisable == false
+                                                        ? _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "text-center w-7x"
+                                                            },
+                                                            [
+                                                              row.uploadStatus ==
+                                                              "YES"
+                                                                ? _c("span", [
+                                                                    _c(
+                                                                      "a",
+                                                                      {
+                                                                        staticClass:
+                                                                          "act-link",
+                                                                        attrs: {
+                                                                          href:
+                                                                            "#"
+                                                                        },
+                                                                        on: {
+                                                                          click: function(
+                                                                            $event
+                                                                          ) {
+                                                                            $event.preventDefault()
+                                                                            return _vm.deleteFile(
+                                                                              row.id
+                                                                            )
+                                                                          }
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _c(
+                                                                          "i",
+                                                                          {
+                                                                            staticClass:
+                                                                              "fa fa-trash"
+                                                                          }
                                                                         )
-                                                                      }
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _c("i", {
+                                                                      ]
+                                                                    )
+                                                                  ])
+                                                                : _c(
+                                                                    "span",
+                                                                    {
                                                                       staticClass:
-                                                                        "fa fa-trash"
-                                                                    })
-                                                                  ]
-                                                                )
-                                                              ])
-                                                            : _c(
-                                                                "span",
-                                                                {
-                                                                  staticClass:
-                                                                    "act-link",
-                                                                  staticStyle: {
-                                                                    color:
-                                                                      "#808080"
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _c("i", {
-                                                                    staticClass:
-                                                                      "fa fa-trash"
-                                                                  })
-                                                                ]
-                                                              )
-                                                        ]
-                                                      ),
+                                                                        "act-link",
+                                                                      staticStyle: {
+                                                                        color:
+                                                                          "#808080"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _c("i", {
+                                                                        staticClass:
+                                                                          "fa fa-trash"
+                                                                      })
+                                                                    ]
+                                                                  )
+                                                            ]
+                                                          )
+                                                        : _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "text-center w-7x"
+                                                            },
+                                                            [_vm._m(2, true)]
+                                                          ),
                                                       _vm._v(" "),
                                                       _c(
                                                         "td",
@@ -67957,7 +68052,23 @@ var render = function() {
                                                                   )
                                                                 ]
                                                               )
-                                                            : _vm._e()
+                                                            : _c(
+                                                                "span",
+                                                                {
+                                                                  staticClass:
+                                                                    "act-link",
+                                                                  staticStyle: {
+                                                                    color:
+                                                                      "#808080"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c("i", {
+                                                                    staticClass:
+                                                                      "fas fa-save"
+                                                                  })
+                                                                ]
+                                                              )
                                                         ]
                                                       )
                                                     ]
@@ -68037,6 +68148,16 @@ var staticRenderFns = [
         _c("th", { staticClass: "text-center w-5x" }, [_vm._v("Save")])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      { staticClass: "act-link", staticStyle: { color: "#808080" } },
+      [_c("i", { staticClass: "fa fa-trash" })]
+    )
   }
 ]
 render._withStripped = true
@@ -70197,6 +70318,7 @@ var render = function() {
                                           attrs: {
                                             type: "number",
                                             disabled: _vm.globalDisable,
+                                            maxlength: "6",
                                             required: ""
                                           },
                                           domProps: {
@@ -73764,6 +73886,42 @@ var render = function() {
                                                 _c("tbody", [
                                                   _c("tr", [
                                                     _c("td", [
+                                                      _c("input", {
+                                                        directives: [
+                                                          {
+                                                            name: "model",
+                                                            rawName: "v-model",
+                                                            value: _vm.form.ms1,
+                                                            expression:
+                                                              "form.ms1"
+                                                          }
+                                                        ],
+                                                        attrs: {
+                                                          type: "hidden"
+                                                        },
+                                                        domProps: {
+                                                          value: _vm.form.ms1
+                                                        },
+                                                        on: {
+                                                          input: function(
+                                                            $event
+                                                          ) {
+                                                            if (
+                                                              $event.target
+                                                                .composing
+                                                            ) {
+                                                              return
+                                                            }
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "ms1",
+                                                              $event.target
+                                                                .value
+                                                            )
+                                                          }
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
                                                       _c(
                                                         "div",
                                                         {
@@ -74062,8 +74220,6 @@ var render = function() {
                                                           ? _c(
                                                               "a",
                                                               {
-                                                                staticClass:
-                                                                  "act-link",
                                                                 on: {
                                                                   click: function(
                                                                     $event
@@ -74077,17 +74233,69 @@ var render = function() {
                                                               [
                                                                 _c("i", {
                                                                   staticClass:
+                                                                    "fa fa-trash color-mg font-l"
+                                                                })
+                                                              ]
+                                                            )
+                                                          : _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "act-link",
+                                                                staticStyle: {
+                                                                  color:
+                                                                    "#808080"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("i", {
+                                                                  staticClass:
                                                                     "fa fa-trash"
                                                                 })
                                                               ]
                                                             )
-                                                          : _vm._e()
                                                       ]
                                                     )
                                                   ]),
                                                   _vm._v(" "),
                                                   _c("tr", [
                                                     _c("td", [
+                                                      _c("input", {
+                                                        directives: [
+                                                          {
+                                                            name: "model",
+                                                            rawName: "v-model",
+                                                            value: _vm.form.ms2,
+                                                            expression:
+                                                              "form.ms2"
+                                                          }
+                                                        ],
+                                                        attrs: {
+                                                          type: "hidden"
+                                                        },
+                                                        domProps: {
+                                                          value: _vm.form.ms2
+                                                        },
+                                                        on: {
+                                                          input: function(
+                                                            $event
+                                                          ) {
+                                                            if (
+                                                              $event.target
+                                                                .composing
+                                                            ) {
+                                                              return
+                                                            }
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "ms2",
+                                                              $event.target
+                                                                .value
+                                                            )
+                                                          }
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
                                                       _c(
                                                         "div",
                                                         {
@@ -74386,8 +74594,6 @@ var render = function() {
                                                           ? _c(
                                                               "a",
                                                               {
-                                                                staticClass:
-                                                                  "act-link",
                                                                 on: {
                                                                   click: function(
                                                                     $event
@@ -74401,17 +74607,69 @@ var render = function() {
                                                               [
                                                                 _c("i", {
                                                                   staticClass:
+                                                                    "fa fa-trash color-mg font-l"
+                                                                })
+                                                              ]
+                                                            )
+                                                          : _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "act-link",
+                                                                staticStyle: {
+                                                                  color:
+                                                                    "#808080"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("i", {
+                                                                  staticClass:
                                                                     "fa fa-trash"
                                                                 })
                                                               ]
                                                             )
-                                                          : _vm._e()
                                                       ]
                                                     )
                                                   ]),
                                                   _vm._v(" "),
                                                   _c("tr", [
                                                     _c("td", [
+                                                      _c("input", {
+                                                        directives: [
+                                                          {
+                                                            name: "model",
+                                                            rawName: "v-model",
+                                                            value: _vm.form.ms3,
+                                                            expression:
+                                                              "form.ms3"
+                                                          }
+                                                        ],
+                                                        attrs: {
+                                                          type: "hidden"
+                                                        },
+                                                        domProps: {
+                                                          value: _vm.form.ms3
+                                                        },
+                                                        on: {
+                                                          input: function(
+                                                            $event
+                                                          ) {
+                                                            if (
+                                                              $event.target
+                                                                .composing
+                                                            ) {
+                                                              return
+                                                            }
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "ms3",
+                                                              $event.target
+                                                                .value
+                                                            )
+                                                          }
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
                                                       _c(
                                                         "div",
                                                         {
@@ -74710,8 +74968,6 @@ var render = function() {
                                                           ? _c(
                                                               "a",
                                                               {
-                                                                staticClass:
-                                                                  "act-link",
                                                                 on: {
                                                                   click: function(
                                                                     $event
@@ -74725,11 +74981,27 @@ var render = function() {
                                                               [
                                                                 _c("i", {
                                                                   staticClass:
+                                                                    "fa fa-trash color-mg font-l"
+                                                                })
+                                                              ]
+                                                            )
+                                                          : _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "act-link",
+                                                                staticStyle: {
+                                                                  color:
+                                                                    "#808080"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("i", {
+                                                                  staticClass:
                                                                     "fa fa-trash"
                                                                 })
                                                               ]
                                                             )
-                                                          : _vm._e()
                                                       ]
                                                     )
                                                   ])
@@ -75898,7 +76170,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", [
-      _vm._v("PIN/ZIP Code "),
+      _vm._v("PIN/ZIP Code (6 digits)"),
       _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
     ])
   },
@@ -76635,39 +76907,54 @@ var render = function() {
                           { key: index, staticClass: "font-md text-black" },
                           [
                             _c("td", { staticClass: "w-5x" }, [
-                              _c("em", [_vm._v(_vm._s(index + 1))])
+                              _vm._v(_vm._s(index + 1))
                             ]),
                             _vm._v(" "),
                             _c("td", { staticClass: "w-10x" }, [
-                              _c("em", [_vm._v(_vm._s(row.financialYear))])
+                              _vm._v(_vm._s(row.financialYear))
                             ]),
                             _vm._v(" "),
                             _c("td", { staticClass: "text-break" }, [
-                              _c("em", [_vm._v(_vm._s(row.scholarshipType))])
+                              _vm._v(_vm._s(row.scholarshipType))
                             ]),
                             _vm._v(" "),
-                            _vm._m(3, true),
-                            _vm._v(" "),
-                            _c("td", [
-                              _c("em", [_vm._v(_vm._s(row.appIdShow))])
+                            _c("td", { staticClass: "text-break" }, [
+                              _vm._v(
+                                _vm._s(
+                                  row.appSpecificLastDt == null
+                                    ? " "
+                                    : row.appSpecificLastDt.split("-").join("/")
+                                )
+                              )
                             ]),
                             _vm._v(" "),
-                            _vm._m(4, true),
+                            _c("td", [_vm._v(_vm._s(row.appIdShow))]),
+                            _vm._v(" "),
+                            _c("td", { staticClass: "text-nowrap" }, [
+                              _vm._v(
+                                _vm._s(
+                                  row.dateLastSubmitted == null
+                                    ? " "
+                                    : row.dateLastSubmitted
+                                        .split("-")
+                                        .reverse()
+                                        .join("/")
+                                )
+                              )
+                            ]),
                             _vm._v(" "),
                             _c("td", { staticClass: "text-center" }, [
-                              _c("em", [
-                                row.appStatus == "Submit"
-                                  ? _c(
-                                      "span",
-                                      { staticClass: "badge badge-danger" },
-                                      [_vm._v("Submitted")]
-                                    )
-                                  : _c(
-                                      "span",
-                                      { staticClass: "badge badge-success" },
-                                      [_vm._v(_vm._s(row.appStatus))]
-                                    )
-                              ])
+                              row.appStatus == "Submit"
+                                ? _c(
+                                    "span",
+                                    { staticClass: "badge badge-warning" },
+                                    [_vm._v("Submitted")]
+                                  )
+                                : _c(
+                                    "span",
+                                    { staticClass: "badge badge-success" },
+                                    [_vm._v(_vm._s(row.appStatus))]
+                                  )
                             ]),
                             _vm._v(" "),
                             _c("td", { staticClass: "text-center w-5x" }, [
@@ -76675,7 +76962,7 @@ var render = function() {
                                 "div",
                                 { staticClass: "dropdown no-arrow dr-all" },
                                 [
-                                  _vm._m(5, true),
+                                  _vm._m(3, true),
                                   _vm._v(" "),
                                   _c(
                                     "div",
@@ -76807,18 +77094,6 @@ var staticRenderFns = [
         _c("th", { staticClass: "text-center w-5x" }, [_vm._v("Action")])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "text-break" }, [_c("em", [_vm._v("N/A")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "text-nowrap" }, [_c("em", [_vm._v("N/A")])])
   },
   function() {
     var _vm = this

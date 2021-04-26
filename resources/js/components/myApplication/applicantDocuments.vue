@@ -82,13 +82,18 @@
                                                                                             <i class="fa fa-eye"></i>
                                                                                         </span>
                                                                                     </td>
-                                                                                    <td class="text-center w-7x"> 
+                                                                                    <td class="text-center w-7x" v-if="globalDisable == false"> 
                                                                                         <span  v-if="row.uploadStatus == 'YES'">
-                                                                                            <a  href="#"  class="act-link" @click.prevent="deleteFile(row.id)">
+                                                                                            <a  href="#"   class="act-link" @click.prevent="deleteFile(row.id)">
                                                                                                 <i class="fa fa-trash"></i>
                                                                                             </a>
                                                                                         </span>
                                                                                         <span class="act-link" style="color:#808080;" v-else>
+                                                                                            <i class="fa fa-trash"></i>
+                                                                                        </span>
+                                                                                    </td>
+                                                                                    <td class="text-center w-7x" v-else> 
+                                                                                        <span class="act-link" style="color:#808080;">
                                                                                             <i class="fa fa-trash"></i>
                                                                                         </span>
                                                                                     </td>
@@ -102,6 +107,9 @@
                                                                                            <a  href="#"  class="act-link" @click.prevent="saveFile(form.applicationId,index)">
                                                                                                 <i class="fas fa-save"></i>
                                                                                             </a>
+                                                                                        </span>
+                                                                                         <span class="act-link" style="color:#808080;" v-else>
+                                                                                            <i class="fas fa-save"></i>
                                                                                         </span>
                                                                                     </td>
                                                                                 </tr>
@@ -209,7 +217,7 @@ export default{
                             this.$fire({
                                 position: 'top',
                                 icon: 'success',
-                                title: "Nothing to Update!",
+                                title: "Kindly choose file and then save !",
                                 showConfirmButton: false,
                                 timer: 3000
                         })}
@@ -218,7 +226,7 @@ export default{
                             this.$fire({
                                 position: 'top',
                                 icon: 'success',
-                                title: "Add only image type file",
+                                title: "Add only image type file !",
                                 showConfirmButton: false,
                                 timer: 3000
                         })}

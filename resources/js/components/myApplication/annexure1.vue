@@ -34,7 +34,7 @@
                                                                 <div class="form-group mb-0 align-self-center">
                                                                     <div class="form-group mb-0">
                                                                         <label  style="color:#702E2E" class="mb-0"><strong>Degree/Cerificate<span class="text-danger"><strong>*</strong></span></strong></label>
-                                                                        <select class="form-control form-control-sm" v-model="courseLevelValueId2" :disabled="inputDisabled" @click="getHHDLSData($event)">
+                                                                        <select class="form-control form-control-sm" v-model="courseLevelValueId2" :disabled="globalDisable" @click="getHHDLSData($event)" >
                                                                             <option value="" disabled>-- select --</option>
                                                                             <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id" selected>{{ucl.description}}</option>
                                                                         </select>
@@ -44,7 +44,7 @@
                                                             <div class="col-xl-2">
                                                                 <label  style="color:#702E2E" class="mb-0"><strong>Course Name<span class="text-danger"><strong>*</strong></span></strong></label><a data-toggle="modal" href="#" class="font-sm"  data-target="#others-course-name" v-if="form.scholarshipType=='HHDLS'" @click="addName('CourseName')"><strong> +Add New</strong></a>
                                                                 <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
-                                                                    <select class="form-control form-control-sm" v-model="courseNameValueId2" :disabled="inputDisabled" @click="clearRow">
+                                                                    <select class="form-control form-control-sm" v-model="courseNameValueId2" :disabled="globalDisable" @click="clearRow">
                                                                         <option value="" disabled>-- select --</option>
                                                                         <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
                                                                     </select>
@@ -58,7 +58,7 @@
                                                             </div>
                                                             <div class="col-md-2 col-xl-1 offset-md-3 offset-xl-6">
                                                                 <br>
-                                                                <button class="btn btn-block btn-sm font-xs btn-mg add-anex-i-row" type="button" @click="addNewData">
+                                                                <button class="btn btn-block btn-sm font-xs btn-mg add-anex-i-row" type="button" @click="addNewData" :disabled="globalDisable">
                                                                     <i class="fa fa-plus"></i><strong>&nbsp;Add row</strong>
                                                                  </button>
                                                             </div>
@@ -125,7 +125,10 @@
                                                                             </div>
                                                                         </td> -->
                                                                         <td class="text-center w-5x pt-2">
-                                                                            <a href="#" @click="deleteRow(index)"><i class="fa fa-trash color-mg font-l"></i></a>
+                                                                            <a v-if="globalDisable == false" href="#" @click="deleteRow(index)"><i class="fa fa-trash color-mg font-l"></i></a>
+                                                                            <a class="act-link" style="color:#808080;" v-else>
+                                                                                <i class="fa fa-trash"></i>
+                                                                            </a>
                                                                         </td>
                                                                      </tr>
                                                                 </tbody>
@@ -430,11 +433,21 @@ export default{
                                 timer: 3000
                             })
                         } else {
-                            console.log(response.data['msg'])
+                            switch(response.data['msg'][0].errorInfo[0])
+                            {
+                                case '23502' :
+                                    this.$fire({
+                                        position: 'top',
+                                        icon: 'error',
+                                        title: "Minimum one university should be entered",
+                                        showConfirmButton: false,
+                                        timer: 3000
+                                    })
+                                break;
+
+                            }
                         }
                     })
-                    .catch(error => this.errorMsg(error.response.status))
-               
             }
         },
         errorMsg (status) {

@@ -163,7 +163,8 @@ class ApplicationController extends Controller
              $getDomainValuesApp = DomainValues::where('value',$request->scholarshipType)->first();
              $applicationDetails->scholarshipTypeValueId           = $getDomainValuesApp->id;
              $applicationDetails->sessionId 	                   = $this->newSession();
-
+            //  $getLastDate = ApplicationScheduleTable::where('sessionId',1)->where('scholarshipTypeValueId',$getDomainValuesApp->id)->first()->lastDate;
+            //  $applicationDetails->appSpecificLastDt   = $getLastDate;
              if($request->scholarshipType == 'Nursing')
                $grad = false;
 
@@ -595,52 +596,96 @@ class ApplicationController extends Controller
              }
              //end of education
  
-             $allApplicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('applicationId', $applicationDetails->id)->orderBy('id','ASC')->get();
+            //  $allApplicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('applicationId', $applicationDetails->id)->orderBy('id','ASC')->get();
  
-             if (count($allApplicantMiscellaneousDetails)>0) {
-                 $applicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('id',$allApplicantMiscellaneousDetails[0]->id)->first();
-                 $applicantMiscellaneousDetails->delete();
-             } 
+            //  if (count($allApplicantMiscellaneousDetails)>0) {
+            //      $applicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('id',$allApplicantMiscellaneousDetails[0]->id)->first();
+            //      $applicantMiscellaneousDetails->delete();
+            //  } 
  
-             if (count($allApplicantMiscellaneousDetails)>1) {
-                 $applicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('id',$allApplicantMiscellaneousDetails[1]->id)->first();
-                 $applicantMiscellaneousDetails->delete();                
-             }
+            //  if (count($allApplicantMiscellaneousDetails)>1) {
+            //      $applicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('id',$allApplicantMiscellaneousDetails[1]->id)->first();
+            //      $applicantMiscellaneousDetails->delete();                
+            //  }
  
-             if (count($allApplicantMiscellaneousDetails)>2) {
-                 $applicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('id',$allApplicantMiscellaneousDetails[2]->id)->first();
-                 $applicantMiscellaneousDetails->delete();                
-             }
+            //  if (count($allApplicantMiscellaneousDetails)>2) {
+            //      $applicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('id',$allApplicantMiscellaneousDetails[2]->id)->first();
+            //      $applicantMiscellaneousDetails->delete();                
+            //  }
  
-             if (!empty($request->miscName1) && !empty($request->miscCourse1) && !empty($request->miscYear1)) {
-                 $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
-                 $applicantMiscellaneousDetails->name            = $request->miscName1;
-                 $applicantMiscellaneousDetails->relationship    = $request->mRelationship1;
-                 $applicantMiscellaneousDetails->course          = $request->miscCourse1;
-                 $applicantMiscellaneousDetails->year            = $request->miscYear1;
-                 $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
-                 $applicantMiscellaneousDetails->save();
-             }
+            if(!empty($request->ms1))
+            {
+                $applicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('id',$request->ms1)->first();
+                $applicantMiscellaneousDetails->name            = $request->miscName1;
+                $applicantMiscellaneousDetails->relationship    = $request->mRelationship1;
+                $applicantMiscellaneousDetails->course          = $request->miscCourse1;
+                $applicantMiscellaneousDetails->year            = $request->miscYear1;
+                $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
+                $applicantMiscellaneousDetails->update();
+            }else{
+                
+                if (!empty($request->miscName1) && !empty($request->miscCourse1) && !empty($request->miscYear1)) {
+                    $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
+                    $applicantMiscellaneousDetails->name            = $request->miscName1;
+                    $applicantMiscellaneousDetails->relationship    = $request->mRelationship1;
+                    $applicantMiscellaneousDetails->course          = $request->miscCourse1;
+                    $applicantMiscellaneousDetails->year            = $request->miscYear1;
+                    $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
+                    $applicantMiscellaneousDetails->save();
+
+                }
+            }
  
-             if (!empty($request->miscName2) && !empty($request->miscCourse2) && !empty($request->miscYear2)) {
-                 $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
-                 $applicantMiscellaneousDetails->name            = $request->miscName2;
-                 $applicantMiscellaneousDetails->relationship    = $request->mRelationship2;
-                 $applicantMiscellaneousDetails->course          = $request->miscCourse2;
-                 $applicantMiscellaneousDetails->year            = $request->miscYear2;
-                 $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
-                 $applicantMiscellaneousDetails->save();
-             }
+             
+            if(!empty($request->ms2))
+            {
+                $applicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('id',$request->ms2)->first();
+                $applicantMiscellaneousDetails->name            = $request->miscName2;
+                $applicantMiscellaneousDetails->relationship    = $request->mRelationship2;
+                $applicantMiscellaneousDetails->course          = $request->miscCourse2;
+                $applicantMiscellaneousDetails->year            = $request->miscYear2;
+                $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
+                $applicantMiscellaneousDetails->update();
+            }else{
+
+                if (!empty($request->miscName2) && !empty($request->miscCourse2) && !empty($request->miscYear2)) {
+
+                $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
+                $applicantMiscellaneousDetails->name            = $request->miscName2;
+                $applicantMiscellaneousDetails->relationship    = $request->mRelationship2;
+                $applicantMiscellaneousDetails->course          = $request->miscCourse2;
+                $applicantMiscellaneousDetails->year            = $request->miscYear2;
+                $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
+                $applicantMiscellaneousDetails->save();
+
+                }
+            }
  
-             if (!empty($request->miscName3) && !empty($request->miscCourse3) && !empty($request->miscYear3)) {
-                 $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
-                 $applicantMiscellaneousDetails->name            = $request->miscName3;
-                 $applicantMiscellaneousDetails->relationship    = $request->mRelationship3;
-                 $applicantMiscellaneousDetails->course          = $request->miscCourse3;
-                 $applicantMiscellaneousDetails->year            = $request->miscYear3;
-                 $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
-                 $applicantMiscellaneousDetails->save();
-             }
+           
+            if(!empty($request->ms3))
+            {
+                $applicantMiscellaneousDetails = ApplicationMiscellaneousDetails::where('id',$request->ms3)->first();
+                $applicantMiscellaneousDetails->name            = $request->miscName3;
+                $applicantMiscellaneousDetails->relationship    = $request->mRelationship3;
+                $applicantMiscellaneousDetails->course          = $request->miscCourse3;
+                $applicantMiscellaneousDetails->year            = $request->miscYear3;
+                $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
+                $applicantMiscellaneousDetails->update();
+
+            }else{
+
+                if (!empty($request->miscName3) && !empty($request->miscCourse3) && !empty($request->miscYear3)) 
+                {
+                    $applicantMiscellaneousDetails = new ApplicationMiscellaneousDetails;
+                    $applicantMiscellaneousDetails->name            = $request->miscName3;
+                    $applicantMiscellaneousDetails->relationship    = $request->mRelationship3;
+                    $applicantMiscellaneousDetails->course          = $request->miscCourse3;
+                    $applicantMiscellaneousDetails->year            = $request->miscYear3;
+                    $applicantMiscellaneousDetails->applicationId   = $applicationDetails->id;
+                    $applicantMiscellaneousDetails->save();
+                }
+            
+            }
 
              $createDoc = new DocumentMaster;
              $createDoc->createDocMasterData($request->applicantLeprosyAffectedMother,
@@ -664,9 +709,21 @@ class ApplicationController extends Controller
      # Get Scholarship Application
      public function getScholarshipApplication(string $applicationId)
      {
-         switch($applicationId)
-         {
+       
+        switch($applicationId)
+        {
             case 'HHDLS' :
+                // $getDomainValuesApp = DomainValues::where('value','HHDLS')->first()->id;
+                // $getApplicationSch = ApplicationScheduleTable::where('sessionId',1)
+                //         ->where('scholarshipTypeValueId',$getDomainValuesApp)
+                //         ->whereDate('startDate', '<=', Carbon::now())
+                //         ->whereDate('lastDate', '>=', Carbon::now())
+                //         ->first();
+                // // $getLastDate = ApplicationScheduleTable::where('sessionId',1)->where('scholarshipTypeValueId',$getDomainValuesApp)->first();
+                // if(!$getApplicationSch)
+                // {
+                //     return array('timeout' => true, 'msg'=>['Cannot apply - last date for application is over']); 
+                // }
                 $count1 = ApplicationDetails::where('userId' , Auth::user()->id)->where('scholarshipType','HHDLS')->where('sessionId',1)->count();
                 if($count1 == 1)
                 {
@@ -676,6 +733,17 @@ class ApplicationController extends Controller
                 }
             break;
             case 'Nursing' :
+                // $getDomainValuesApp = DomainValues::where('value','Nursing')->first()->id;
+                // $getApplicationSch = ApplicationScheduleTable::where('sessionId',1)
+                //         ->where('scholarshipTypeValueId',$getDomainValuesApp)
+                //         ->whereDate('startDate', '<=', Carbon::now())
+                //         ->whereDate('lastDate', '>=', Carbon::now())
+                //         ->first();
+                // // $getLastDate = ApplicationScheduleTable::where('sessionId',1)->where('scholarshipTypeValueId',$getDomainValuesApp)->first();
+                // if(!$getApplicationSch)
+                // {
+                //     return array('timeout' => true, 'msg'=>['Cannot apply - last date for application is over']); 
+                // }
                 $count2 = ApplicationDetails::where('userId' , Auth::user()->id)->where('scholarshipType','Nursing')->where('sessionId',1)->count();
                 if($count2 == 1)
                 {
@@ -684,8 +752,7 @@ class ApplicationController extends Controller
                     return array('return' => false, 'msg'=>[$count2]);
                 }
             break;
-           
-         }
+        }
 
         $getApplicationId   = ApplicationDetails::where('schApplicationId', $applicationId)->first();
         $applicationDetails = ApplicationDetails::where('schApplicationId', $applicationId)->with('get_address',
@@ -701,7 +768,7 @@ class ApplicationController extends Controller
             $getEducationDetails = ApplicationEducationDetails::where('applicationId', $getApplicationId->id)->with('get_examLevelDomainValues',
                                                                                                                     'get_examBoardDomainValues',
                                                                                                                     'get_examPassedDomainValues')->get();
-            $getMiscellaneousDetails = ApplicationMiscellaneousDetails::where('applicationId',$getApplicationId->id)->get();
+            $getMiscellaneousDetails = ApplicationMiscellaneousDetails::where('applicationId',$getApplicationId->id)->orderBy('id',"ASC")->get();
             $data = json_decode(json_encode(array($applicationDetails,$getEducationDetails,$getMiscellaneousDetails)));
             if($data)
             {
@@ -778,7 +845,7 @@ class ApplicationController extends Controller
                 DB::commit();
                 return array('success' => true, 'msg'=>[]);
             }
-            catch(Exception $e) 
+            catch(\Exception $e) 
             {
                 DB::rollBack();
                 return array('success' => false, 'msg'=>[$e]);
@@ -1069,23 +1136,66 @@ class ApplicationController extends Controller
 
     public function submitApplication(Request $request, $applicationId)
     {
-        $editApplication = ApplicationDetails::where('schApplicationId', $applicationId)->first();
-        DB::beginTransaction();
-        try {
-                if($request->appStatus == 1){
-                    $editApplication->appStatus = 'Submit';
-                    $editApplication->dateLastSubmitted = Carbon::now();
-                    $editApplication->update();
-                }
-
-                DB::commit();
-                return array('success' => true, 'msg'=>[]);
-            }
-            catch(Exception $e) 
+        $getApplicationId = ApplicationDetails::where('schApplicationId', $applicationId)->first()->id;
+        $documentCount = ApplicationDocs::where('applicationId',$getApplicationId)->count();
+        $documentPresentCount = ApplicationDocs::where('applicationId',$getApplicationId)->where('uploadStatus','YES')->count();
+        $hasAdmissionLetter = ApplicationDetails::where('schApplicationId', $applicationId)->first()->hasAdmissionLetter;
+        $annex1Count = AnnexureI::where('applicationId',$getApplicationId)->count();
+        if($documentCount == $documentPresentCount)
+        {
+            if($hasAdmissionLetter == 'NO')
             {
-                DB::rollBack();
-                return array('success' => false, 'msg'=>[$e]);
+                if($annex1Count != 0)
+                {
+                    $editApplication = ApplicationDetails::where('schApplicationId', $applicationId)->first();
+                    DB::beginTransaction();
+                    try 
+                    {
+                        if($request->appStatus == 1)
+                        {
+                            $editApplication->appStatus = 'Submit';
+                            $editApplication->dateLastSubmitted = Carbon::now();
+                            $editApplication->update();
+                        }
+            
+                        DB::commit();
+                        return array('success' => true, 'msg'=>[]);
+                    }
+                    catch(Exception $e) 
+                    {
+                        DB::rollBack();
+                        return array('success' => false, 'msg'=>[$e]);
+                    }
+                }else{
+                    return array('document' => true, 'msg'=>["Cannot Submit -  Annexure I need to be filled up"]);
+                }
+            }else{
+
+                $editApplication = ApplicationDetails::where('schApplicationId', $applicationId)->first();
+                DB::beginTransaction();
+                try 
+                {
+                    if($request->appStatus == 1)
+                    {
+                        $editApplication->appStatus = 'Submit';
+                        $editApplication->dateLastSubmitted = Carbon::now();
+                        $editApplication->update();
+                    }
+        
+                    DB::commit();
+                    return array('success' => true, 'msg'=>[]);
+                }
+                catch(Exception $e) 
+                {
+                    DB::rollBack();
+                    return array('success' => false, 'msg'=>[$e]);
+                }
             }
+            
+        }else{
+            return array('document' => true, 'msg'=>["Cannot Submit -  All documents needed"]);
+        }
+       
     }
 
 

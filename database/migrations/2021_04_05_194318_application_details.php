@@ -53,7 +53,7 @@ class ApplicationDetails extends Migration
             $table->string('recognizedByINC')->nullable();
             $table->string('financialYear');
             $table->string('appStatus')->default('Saved');
-            $table->string('appSpecificLastDt')->nullable();
+            $table->date('appSpecificLastDt')->nullable();
             $table->string('offlineAppMatch')->nullable();
             $table->string('offlineAppAnnMatch')->nullable();
             $table->date('dateLastSubmitted')->nullable();

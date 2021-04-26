@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\contactUsMail;
 use App\Jobs\SendContactUsMsgJob;
+use App\ContactUsModel;
+use Carbon\Carbon;
 use Auth;
 
 class ContactUsController extends Controller
@@ -27,6 +29,18 @@ class ContactUsController extends Controller
          'msgSubject'    =>  ['required'],
          'msgBody'       =>  ['required'],
       ]);
+
+      $msgTicketId = 'SS'.'-'.mt_rand(11111111,99999999);
+   
+      $msgStore = new ContactUsModel;
+      $msgStore->msgTicketId =  $msgTicketId;
+      $msgStore->msgCategory =  $request->msgCategory;
+      $msgStore->msgSubject  =  $request->msgSubject;
+      $msgStore->msgBody     =  $request->msgBody;
+      $msgStore->userId      =  Auth::user()->id;
+      $msgStore->msgSendDateTime =  Carbon::now();
+
+      $msgStore->save();
 
       $data = array(
             'name'              =>   $request->name,

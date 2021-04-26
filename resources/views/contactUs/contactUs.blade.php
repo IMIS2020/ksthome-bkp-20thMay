@@ -74,7 +74,7 @@
                               <div class="col-xl-4 mb-3">
                                  <div class="form-group">
                                     <select class="form-control @error('msgCategory') is-invalid @enderror" name="msgCategory" >
-                                    <option  value="" selected="" disabled>-- Select One --</option>
+                                    <option  value="" selected="" disabled>--Message regarding--</option>
                                     <option @if (old('msgCategory') == 'Eligibility criteria') selected="selected" @endif value="Eligibility criteria">Eligibility criteria</option>
                                     <option @if (old('msgCategory') == 'Documentation related queries') selected="selected" @endif value="Documentation related queries">Documentation related queries </option>
                                     <option @if (old('msgCategory') == 'Nursing related queries') selected="selected" @endif value="Nursing related queries">Nursing related queries</option>

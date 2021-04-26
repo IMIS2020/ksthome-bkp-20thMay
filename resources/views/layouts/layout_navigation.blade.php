@@ -36,9 +36,9 @@
           <li class="nav-item">
           <a class="nav-link" href="{{url('/manage-my-application') }}"><strong>My Applications</strong></a>
           </li>
-          <!-- <li class="nav-item">
+          <li class="nav-item">
              <a class="nav-link" href="{{url('/contact-us') }}"><strong>Contact Us</strong></a>
-          </li> -->
+          </li>
           <!-- <li class="nav-item">
             <a class="nav-link"  href="{{url('/contact-us') }}" ><strong>Contact Us</strong> 
              <div class="dropdown-menu font-md">
@@ -47,14 +47,14 @@
             </div>
           </li> -->
 
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
           <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            Contact Us
           </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item color-mg" ><strong>9990503759 <br> 9891572290</strong></a>
-          <a class="dropdown-item color-mg"  href="{{url('/contact-us') }}" ><strong>scholarships@silf.in</strong></a>
-         </li>
+          <a class="dropdown-item color-mg"  href="{{url('/contact-us') }}" ><strong>Send Message</strong></a>
+         </li> -->
 
             @else
           <!-- <li class="nav-item"><a class="nav-link" href="/"><strong>Login</strong></a></li> -->

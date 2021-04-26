@@ -16,8 +16,8 @@ class ApplicationSchduleSeed extends Seeder
             [
                 'sessionId' => 1,
                 'scholarshipTypeValueId' => 19,
-                'startDate'=> '01-04-2021',
-                'lastDate'=>  '31-05-2021',
+                'startDate'=> '2021-04-01',
+                'lastDate'=>  '2021-04-31',
                 'applicationNoPrefixFormat'=> 'NURSG/21-22/',
                 'contactPersonEmailId'=> 'AdminNURSING@gmail.com',
                 'contactPersonContactNo'=> '9999999999',
@@ -30,8 +30,8 @@ class ApplicationSchduleSeed extends Seeder
             [
                 'sessionId' => 1,
                 'scholarshipTypeValueId' => 20,
-                'startDate'=> '01-04-2021',
-                'lastDate'=>  '31-05-2021',
+                'startDate'=> '2021-04-01',
+                'lastDate'=>  '2021-04-25',
                 'applicationNoPrefixFormat'=> 'HHDLS/21-22/',
                 'contactPersonEmailId'=> 'AdminHHDLSS@gmail.com',
                 'contactPersonContactNo'=> '9999999999',

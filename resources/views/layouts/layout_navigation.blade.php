@@ -36,25 +36,28 @@
           <li class="nav-item">
           <a class="nav-link" href="{{url('/manage-my-application') }}"><strong>My Applications</strong></a>
           </li>
-          <li class="nav-item">
-             <a class="nav-link" href="{{url('/contact-us') }}"><strong>Contact Us</strong></a>
-          </li>
           <!-- <li class="nav-item">
-            <a class="nav-link"  href="{{url('/contact-us') }}" ><strong>Contact Us</strong> 
+             <a class="nav-link" href="{{url('/contact-us') }}"><strong>Contact Us</strong></a>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link"><strong>Contact Us</strong> 
              <div class="dropdown-menu font-md">
               <a class="dropdown-item color-mg" ><strong>9990503759 <br> 9891572290</strong></a>
               <a class="dropdown-item color-mg" ><strong>scholarships@silf.in</strong></a>
+              <a class="dropdown-item color-mg"  href="{{url('/contact-us') }}" ><strong>Send Mail</strong></a>
             </div>
           </li> -->
 
-          <!-- <li class="nav-item dropdown">
-          <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           Contact Us
-          </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item color-mg" ><strong>9990503759 <br> 9891572290</strong></a>
-          <a class="dropdown-item color-mg"  href="{{url('/contact-us') }}" ><strong>Send Message</strong></a>
-         </li> -->
+        <li class="nav-item dropdown">
+            <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Contact Us
+            </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item color-mg" ><strong>Phone : <br>9990503759 or <br>9891572290</strong></a>
+            <a class="dropdown-item color-mg" ><strong>email : <br>scholarships@silf.in</strong></a>
+            <a class="dropdown-item"  href="{{url('/contact-us') }}" ><strong><u>Send Mail</u></strong></a>
+          </div>
+        </li>
 
             @else
           <!-- <li class="nav-item"><a class="nav-link" href="/"><strong>Login</strong></a></li> -->

@@ -62,16 +62,16 @@ class SystemController extends Controller
       switch($applicationType)
          {
             case 'HHDLS' :
-              // $getDomainValuesApp = DomainValues::where('value','HHDLS')->first()->id;
-              // $getApplicationSch = ApplicationScheduleTable::where('sessionId',1)
-              //     ->where('scholarshipTypeValueId',$getDomainValuesApp)
-              //     ->whereDate('startDate', '<=', Carbon::now())
-              //     ->whereDate('lastDate', '>=', Carbon::now())
-              //     ->first();
-              // if(!$getApplicationSch)
-              // {
-              //   return  redirect()->back()->with('msgLastdate','Cannot apply - last date for application is over');
-              // }
+              $getDomainValuesApp = DomainValues::where('value','HHDLS')->first()->id;
+              $getApplicationSch = ApplicationScheduleTable::where('sessionId',1)
+                  ->where('scholarshipTypeValueId',$getDomainValuesApp)
+                  ->whereDate('startDate', '<=', Carbon::now())
+                  ->whereDate('lastDate', '>=', Carbon::now())
+                  ->first();
+              if(!$getApplicationSch)
+              {
+                return  redirect()->back()->with('msgLastdate','Cannot apply - last date for application is over');
+              }
               $count1 = ApplicationDetails::where('userId' , Auth::user()->id)->where('scholarshipType','HHDLS')->where('sessionId',1)->count();
               if($count1 == 1)
               {
@@ -81,17 +81,17 @@ class SystemController extends Controller
               }
             break;
             case 'Nursing' :
-              // $getDomainValuesApp = DomainValues::where('value','Nursing')->first()->id;
-              // $getApplicationSch = ApplicationScheduleTable::where('sessionId',1)
-              //         ->where('scholarshipTypeValueId',$getDomainValuesApp)
-              //         ->whereDate('startDate', '<=',Carbon::now())
-              //         ->whereDate('lastDate', '>=',Carbon::now())
-              //         ->first();
-              // $getLastDate = ApplicationScheduleTable::where('sessionId',1)->where('scholarshipTypeValueId',$getDomainValuesApp)->first();
-              // if(!$getApplicationSch)
-              // {
-              //   return  redirect()->back()->with('msgLastdate','Cannot apply - last date for application is over'); 
-              // }
+              $getDomainValuesApp = DomainValues::where('value','Nursing')->first()->id;
+              $getApplicationSch = ApplicationScheduleTable::where('sessionId',1)
+                      ->where('scholarshipTypeValueId',$getDomainValuesApp)
+                      ->whereDate('startDate', '<=',Carbon::now())
+                      ->whereDate('lastDate', '>=',Carbon::now())
+                      ->first();
+              $getLastDate = ApplicationScheduleTable::where('sessionId',1)->where('scholarshipTypeValueId',$getDomainValuesApp)->first();
+              if(!$getApplicationSch)
+              {
+                return  redirect()->back()->with('msgLastdate','Cannot apply - last date for application is over'); 
+              }
               $count2 = ApplicationDetails::where('userId' , Auth::user()->id)->where('scholarshipType','Nursing')->where('sessionId',1)->count();
               if($count2 == 1)
               {

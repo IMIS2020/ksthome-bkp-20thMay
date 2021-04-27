@@ -19,8 +19,8 @@ class ApplicationScheduleTable extends Migration
             // $table->string('applicationScheduleId')->nullable();
             // $table->string('financialYear')->nullable();
             $table->unsignedBigInteger('scholarshipTypeValueId')->nullable();
-            $table->string('startDate')->nullable();
-            $table->string('lastDate')->nullable();
+            $table->date('startDate')->nullable();
+            $table->date('lastDate')->nullable();
             $table->string('applicationNoPrefixFormat')->nullable();
             $table->string('contactPersonEmailId')->nullable();
             $table->string('contactPersonContactNo')->nullable();

@@ -8,8 +8,8 @@ use App\Jobs\SendContactUsMsgJob;
 use App\ContactUsModel;
 use App\ModelScholarship\DomainName;
 use App\ModelScholarship\DomainValues;
-use Auth;
 use Carbon\Carbon;
+use Auth;
 
 class ContactUsController extends Controller
 {

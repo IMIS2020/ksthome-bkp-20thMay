@@ -76923,7 +76923,10 @@ var render = function() {
                                 _vm._s(
                                   row.appSpecificLastDt == null
                                     ? " "
-                                    : row.appSpecificLastDt.split("-").join("/")
+                                    : row.appSpecificLastDt
+                                        .split("-")
+                                        .reverse()
+                                        .join("/")
                                 )
                               )
                             ]),

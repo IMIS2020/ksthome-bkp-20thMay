@@ -35,7 +35,7 @@
                                     </form>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown no-arrow mx-1">
+                            <!-- <li class="nav-item dropdown no-arrow mx-1">
                                 <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="badge badge-danger badge-counter">3+</span><i class="fas fa-bell fa-fw"></i></a>
                                     <div class="dropdown-menu dropdown-list dropdown-menu-right animated--grow-in">
                                         <h6 class="dropdown-header">notifications center</h6><a class="d-flex align-items-center dropdown-item" href="#">
@@ -102,7 +102,7 @@
                                     </div>
                                 </div>
                                 <div class="shadow dropdown-list dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown"></div>
-                            </li>
+                            </li> -->
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><img class="border rounded-circle img-profile" src="assets/img/avatar_2x.png"><span class="d-none d-lg-inline ml-2 text-white-600 small"><strong>Administrator</strong></span></a>
@@ -124,7 +124,7 @@
                             </div>
                             <div class="com-bg">
                                 <div>
-                                    <div class="form-group pull-right col-xl-12 mb-2 mt-2">
+                                    <!-- <div class="form-group pull-right col-xl-12 mb-2 mt-2">
                                         <div class="row">
                                             <div class="col-xl-12" style="padding: 0px 5px;">
                                                 <form>
@@ -188,7 +188,7 @@
                                                 </form>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="table-responsive text-break table results mb-0 donor-list tmd">
                                         <table class="table table-sm">
                                             <thead class="cs-tbl-hd">
@@ -202,17 +202,24 @@
                                                     <th class="text-center w-5x">Action</th>
                                                 </tr>
                                             </thead>
-                                            <tbody  class="h-35x font-sm">
-                                                <tr v-for="(eachData,i) in getAllData" :key="i">
+                                            <tbody style="color:#000;" class="h-35x font-sm">
+                                                <tr  v-for="(eachData,i) in getAllData" :key="i">
                                                     <td class="w-20x">Application No: {{eachData.schApplicationId}}<br>Session: {{eachData.financialYear}}<br>Type: {{eachData.scholarshipType}}</td>
-                                                    <td>{{eachData.applicantNameF}} {{(eachData.applicantNameM)?" "+eachData.applicantNameM:''}} {{eachData.applicantNameL}} ,<br>Gender: {{eachData.applicantGender}}, <br>Age: 25 Yrs. 6 mo 25 days</td>
-                                                    <td class="w-20x"><em>{{eachData.applicantContactNoSelf}},</em><br><em>{{eachData.applicantEmailId}}</em></td>
-                                                    <td>234 P.N.MUKHERJEE ROAD <br>KOLKATA WEST-BENGAL -700116<br></td>
-                                                    <td class="w-15x">Date: {{eachData.updated_at.split('T')[0].split('-').reverse().join('/')}},<br>Type: {{eachData.applicationType}}</td>
-                                                    <td class="text-center w-10x"><span>Submitted</span><br>{{eachData.created_at.split('T')[0].split('-').reverse().join('/')}}</td>
+                                                    <td>{{eachData.applicantNameF}} {{(eachData.applicantNameM)?" "+eachData.applicantNameM:''}} {{eachData.applicantNameL}} ,<br>Gender: {{eachData.applicantGender}}, <br>Age: <span v-if="calAge(eachData.applicantDOB) !== null">({{calAge(eachData.applicantDOB).years}} Years {{calAge(eachData.applicantDOB).months}} Months &amp; {{calAge(eachData.applicantDOB).days}} Days)</span></td>
+                                                    <td class="w-20x">{{eachData.applicantContactNoSelf}},<br>{{eachData.applicantEmailId}}</td>
+                                                    <td>{{eachData.get_address.addressAddln1}},{{(eachData.get_address.addressAddln2)?" "+eachData.get_address.addressAddln2:''}} ,City: {{(eachData.get_address.addressCity)?" "+eachData.get_address.addressCity:''}} <br>Dist : {{(eachData.get_address.addressDistprov)?" "+eachData.get_address.addressDistprov:''}}<br>{{eachData.get_address.addressState}} - {{eachData.get_address.addressPinzip}}</td>
+                                                    <td class="w-15x">Date: {{(eachData.dateLastSubmitted)?" "+eachData.dateLastSubmitted.split('T')[0].split('-').reverse().join('/'):''}}<br>Type: {{eachData.applicationType}}</td>
+                                                    <td class="text-center w-10x">
+                                                        <span class="badge badge-pill badge-warning font-sm mt-2" v-if ="eachData.appStatus == 'Saved' ">Saved</span> 
+                                                        <span class="badge badge-pill badge-success mt-2" v-if ="eachData.appStatus == 'Submitted' ">Submitted</span></td>
                                                     <td class="text-center w-5x">
-                                                        <div class="dropdown no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
-                                                            <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in"><a class="dropdown-item" href="#"><strong>Review Application</strong></a><a class="dropdown-item" href="#"><strong>View Application</strong></a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#view-application-comments"><strong>View Comments</strong></a></div>
+                                                        <div class="dropdown no-arrow dr-all">
+                                                            <a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
+                                                            <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in">
+                                                                <!-- <a class="dropdown-item" href="#"><strong>Review Application</strong></a> -->
+                                                                <a class="dropdown-item" href="#"><strong>View Application</strong></a>
+                                                                <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#view-application-comments"><strong>View Comments</strong></a> -->
+                                                            </div>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -436,7 +443,6 @@
 </body>
 </template>
 
-
 <script>
 export default {
     data(){
@@ -445,6 +451,23 @@ export default {
           }
     },
     methods:{
+
+        calAge:  function (dob) {
+            if (dob === null || dob === '') { return null; }
+            dob = new Date(dob);
+            const dobYear = dob.getYear();
+            const dobMonth = dob.getMonth();
+            const dobDate = dob.getDate();
+            const now = new Date();
+            const currentYear = now.getYear();  
+            const currentMonth = now.getMonth();  
+            const currentDate = now.getDate();
+            let yearAge = currentYear - dobYear; 
+            let monthAge = (currentMonth >= dobMonth)?(currentMonth - dobMonth):((yearAge--),(12 + currentMonth - dobMonth));
+            let dateAge = (currentDate >= dobDate)?(currentDate - dobDate):((monthAge--),(31 + currentDate - dobDate),(monthAge < 0)?((monthAge = 11),(yearAge--)):(''));
+            
+            return { years: yearAge, months: monthAge, days: dateAge };
+        },//end of calc age
 
         getData(){
              axios.get('/admin/admin-api/get-application-details')

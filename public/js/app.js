@@ -2074,6 +2074,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
@@ -3670,6 +3697,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3677,6 +3710,29 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    calAge: function calAge(dob) {
+      if (dob === null || dob === '') {
+        return null;
+      }
+
+      dob = new Date(dob);
+      var dobYear = dob.getYear();
+      var dobMonth = dob.getMonth();
+      var dobDate = dob.getDate();
+      var now = new Date();
+      var currentYear = now.getYear();
+      var currentMonth = now.getMonth();
+      var currentDate = now.getDate();
+      var yearAge = currentYear - dobYear;
+      var monthAge = currentMonth >= dobMonth ? currentMonth - dobMonth : (yearAge--, 12 + currentMonth - dobMonth);
+      var dateAge = currentDate >= dobDate ? currentDate - dobDate : (monthAge--, 31 + currentDate - dobDate, monthAge < 0 ? (monthAge = 11, yearAge--) : '');
+      return {
+        years: yearAge,
+        months: monthAge,
+        days: dateAge
+      };
+    },
+    //end of calc age
     getData: function getData() {
       var _this = this;
 
@@ -56387,10 +56443,6 @@ var render = function() {
                   _c("ul", { staticClass: "navbar-nav flex-nowrap ml-auto" }, [
                     _vm._m(4),
                     _vm._v(" "),
-                    _vm._m(5),
-                    _vm._v(" "),
-                    _vm._m(6),
-                    _vm._v(" "),
                     _c("div", {
                       staticClass: "d-none d-sm-block topbar-divider"
                     }),
@@ -56400,7 +56452,7 @@ var render = function() {
                         "div",
                         { staticClass: "nav-item dropdown no-arrow dr-not" },
                         [
-                          _vm._m(7),
+                          _vm._m(5),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -56409,9 +56461,9 @@ var render = function() {
                                 "dropdown-menu shadow dropdown-menu-right animated--grow-in"
                             },
                             [
+                              _vm._m(6),
+                              _vm._m(7),
                               _vm._m(8),
-                              _vm._m(9),
-                              _vm._m(10),
                               _vm._v(" "),
                               _c("div", { staticClass: "dropdown-divider" }),
                               _c(
@@ -56482,26 +56534,20 @@ var render = function() {
                               "col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-xl-0 mb-3 pr-1"
                           },
                           [
-                            _c(
-                              "router-link",
-                              { attrs: { to: "/admin/manage-domains" } },
-                              [
-                                _c("div", { staticClass: "home-icon" }, [
-                                  _c(
-                                    "h3",
-                                    {
-                                      staticClass: "text-break text-uppercase"
-                                    },
-                                    [
-                                      _c("strong", [_vm._v("manage ")]),
-                                      _c("br"),
-                                      _c("strong", [_vm._v("domains")]),
-                                      _c("br")
-                                    ]
-                                  )
-                                ])
-                              ]
-                            )
+                            _c("router-link", { attrs: { to: "#" } }, [
+                              _c("div", { staticClass: "home-icon" }, [
+                                _c(
+                                  "h3",
+                                  { staticClass: "text-break text-uppercase" },
+                                  [
+                                    _c("strong", [_vm._v("manage ")]),
+                                    _c("br"),
+                                    _c("strong", [_vm._v("domains")]),
+                                    _c("br")
+                                  ]
+                                )
+                              ])
+                            ])
                           ],
                           1
                         ),
@@ -56513,31 +56559,21 @@ var render = function() {
                               "col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-md-0 offset-lg-0 offset-xl-0 mb-3 px-1"
                           },
                           [
-                            _c(
-                              "router-link",
-                              {
-                                attrs: {
-                                  to: "/admin/manage-application-schedule"
-                                }
-                              },
-                              [
-                                _c("div", { staticClass: "home-icon px-3" }, [
-                                  _c(
-                                    "h3",
-                                    {
-                                      staticClass: "text-break text-uppercase"
-                                    },
-                                    [
-                                      _c("strong", [
-                                        _vm._v("manage application")
-                                      ]),
-                                      _c("br"),
-                                      _c("strong", [_vm._v("schedule")])
-                                    ]
-                                  )
-                                ])
-                              ]
-                            )
+                            _c("router-link", { attrs: { to: "#" } }, [
+                              _c("div", { staticClass: "home-icon px-3" }, [
+                                _c(
+                                  "h3",
+                                  { staticClass: "text-break text-uppercase" },
+                                  [
+                                    _c("strong", [
+                                      _vm._v("manage application")
+                                    ]),
+                                    _c("br"),
+                                    _c("strong", [_vm._v("schedule")])
+                                  ]
+                                )
+                              ])
+                            ])
                           ],
                           1
                         ),
@@ -56721,311 +56757,6 @@ var staticRenderFns = [
           )
         ]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item dropdown no-arrow mx-1" }, [
-      _c("div", { staticClass: "nav-item dropdown no-arrow dr-not" }, [
-        _c(
-          "a",
-          {
-            staticClass: "dropdown-toggle nav-link",
-            attrs: {
-              "aria-expanded": "false",
-              "data-toggle": "dropdown",
-              href: "#"
-            }
-          },
-          [
-            _c("span", { staticClass: "badge badge-danger badge-counter" }, [
-              _vm._v("3+")
-            ]),
-            _c("i", { staticClass: "fas fa-bell fa-fw" })
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "dropdown-menu dropdown-list dropdown-menu-right animated--grow-in"
-          },
-          [
-            _c("h6", { staticClass: "dropdown-header" }, [
-              _vm._v("notifications center")
-            ]),
-            _c(
-              "a",
-              {
-                staticClass: "d-flex align-items-center dropdown-item",
-                attrs: { href: "#" }
-              },
-              [
-                _c("div", { staticClass: "mr-3" }, [
-                  _c("div", { staticClass: "icon-circle gold-bg" }, [
-                    _c("i", { staticClass: "fas fa-file-alt text-white" })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("span", { staticClass: "small" }, [
-                    _vm._v("December 12, 2019")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _c("strong", [
-                      _c("em", [
-                        _vm._v("A new monthly report is ready to download!")
-                      ])
-                    ])
-                  ])
-                ])
-              ]
-            ),
-            _c(
-              "a",
-              {
-                staticClass: "d-flex align-items-center dropdown-item",
-                attrs: { href: "#" }
-              },
-              [
-                _c("div", { staticClass: "mr-3" }, [
-                  _c("div", { staticClass: "icon-circle gold-bg" }, [
-                    _c("i", { staticClass: "fas fa-file-alt text-white" })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("span", { staticClass: "small" }, [
-                    _vm._v("December 12, 2019")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _c("strong", [
-                      _c("em", [
-                        _vm._v("A new monthly report is ready to download!")
-                      ])
-                    ])
-                  ])
-                ])
-              ]
-            ),
-            _c(
-              "a",
-              {
-                staticClass: "d-flex align-items-center dropdown-item",
-                attrs: { href: "#" }
-              },
-              [
-                _c("div", { staticClass: "mr-3" }, [
-                  _c("div", { staticClass: "icon-circle gold-bg" }, [
-                    _c("i", { staticClass: "fas fa-file-alt text-white" })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("span", { staticClass: "small" }, [
-                    _vm._v("December 12, 2019")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _c("strong", [
-                      _c("em", [
-                        _vm._v("A new monthly report is ready to download!")
-                      ])
-                    ])
-                  ])
-                ])
-              ]
-            ),
-            _c(
-              "a",
-              {
-                staticClass: "text-center dropdown-item small text-gray-500",
-                attrs: { href: "#" }
-              },
-              [_vm._v("Show All Alerts")]
-            )
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item dropdown no-arrow mx-1" }, [
-      _c("div", { staticClass: "nav-item dropdown no-arrow dr-not" }, [
-        _c(
-          "a",
-          {
-            staticClass: "dropdown-toggle nav-link",
-            attrs: {
-              "aria-expanded": "false",
-              "data-toggle": "dropdown",
-              href: "#"
-            }
-          },
-          [
-            _c("i", { staticClass: "fas fa-envelope fa-fw" }),
-            _c("span", { staticClass: "badge badge-danger badge-counter" }, [
-              _vm._v("7")
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "dropdown-menu dropdown-list dropdown-menu-right animated--grow-in"
-          },
-          [
-            _c("h6", { staticClass: "dropdown-header" }, [
-              _vm._v("messages center")
-            ]),
-            _c(
-              "a",
-              {
-                staticClass: "d-flex align-items-center dropdown-item",
-                attrs: { href: "#" }
-              },
-              [
-                _c("div", { staticClass: "dropdown-list-image mr-3" }, [
-                  _c("img", {
-                    staticClass: "rounded-circle",
-                    attrs: { src: "assets/img/avatar_2x.png" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "bg-success status-indicator" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "font-weight-bold" }, [
-                  _c("div", { staticClass: "text-truncate" }, [
-                    _c("span", [
-                      _vm._v(
-                        "Hi there! I am wondering if you can help me with a problem I've been having."
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "small mb-0" }, [
-                    _vm._v("Emily Fowler - 58m")
-                  ])
-                ])
-              ]
-            ),
-            _c(
-              "a",
-              {
-                staticClass: "d-flex align-items-center dropdown-item",
-                attrs: { href: "#" }
-              },
-              [
-                _c("div", { staticClass: "dropdown-list-image mr-3" }, [
-                  _c("img", {
-                    staticClass: "rounded-circle",
-                    attrs: { src: "assets/img/avatar_2x.png" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "status-indicator" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "font-weight-bold" }, [
-                  _c("div", { staticClass: "text-truncate" }, [
-                    _c("span", [
-                      _vm._v("I have the photos that you ordered last month!")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "small mb-0" }, [
-                    _vm._v("Jae Chun - 1d")
-                  ])
-                ])
-              ]
-            ),
-            _c(
-              "a",
-              {
-                staticClass: "d-flex align-items-center dropdown-item",
-                attrs: { href: "#" }
-              },
-              [
-                _c("div", { staticClass: "dropdown-list-image mr-3" }, [
-                  _c("img", {
-                    staticClass: "rounded-circle",
-                    attrs: { src: "assets/img/avatar_2x.png" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "bg-warning status-indicator" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "font-weight-bold" }, [
-                  _c("div", { staticClass: "text-truncate" }, [
-                    _c("span", [
-                      _vm._v(
-                        "Last month's report looks great, I am very happy with the progress so far, keep up the good work!"
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "small mb-0" }, [
-                    _vm._v("Morgan Alvarez - 2d")
-                  ])
-                ])
-              ]
-            ),
-            _c(
-              "a",
-              {
-                staticClass: "d-flex align-items-center dropdown-item",
-                attrs: { href: "#" }
-              },
-              [
-                _c("div", { staticClass: "dropdown-list-image mr-3" }, [
-                  _c("img", {
-                    staticClass: "rounded-circle",
-                    attrs: { src: "assets/img/avatar_2x.png" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "bg-success status-indicator" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "font-weight-bold" }, [
-                  _c("div", { staticClass: "text-truncate" }, [
-                    _c("span", [
-                      _vm._v(
-                        "Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good..."
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "small mb-0" }, [
-                    _vm._v("Chicken the Dog · 2w")
-                  ])
-                ])
-              ]
-            ),
-            _c(
-              "a",
-              {
-                staticClass: "text-center dropdown-item small text-gray-500",
-                attrs: { href: "#" }
-              },
-              [_vm._v("Show All Alerts")]
-            )
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", {
-        staticClass: "shadow dropdown-list dropdown-menu dropdown-menu-right",
-        attrs: { "aria-labelledby": "alertsDropdown" }
-      })
     ])
   },
   function() {
@@ -62245,10 +61976,6 @@ var render = function() {
                   _c("ul", { staticClass: "navbar-nav flex-nowrap ml-auto" }, [
                     _vm._m(4),
                     _vm._v(" "),
-                    _vm._m(5),
-                    _vm._v(" "),
-                    _vm._m(6),
-                    _vm._v(" "),
                     _c("div", {
                       staticClass: "d-none d-sm-block topbar-divider"
                     }),
@@ -62258,7 +61985,7 @@ var render = function() {
                         "div",
                         { staticClass: "nav-item dropdown no-arrow dr-not" },
                         [
-                          _vm._m(7),
+                          _vm._m(5),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -62267,9 +61994,9 @@ var render = function() {
                                 "dropdown-menu shadow dropdown-menu-right animated--grow-in"
                             },
                             [
+                              _vm._m(6),
+                              _vm._m(7),
                               _vm._m(8),
-                              _vm._m(9),
-                              _vm._m(10),
                               _vm._v(" "),
                               _c("div", { staticClass: "dropdown-divider" }),
                               _c(
@@ -62308,12 +62035,10 @@ var render = function() {
                   "div",
                   { staticClass: "col-md-12 col-xl-12 offset-xl-0 px-0" },
                   [
-                    _vm._m(11),
+                    _vm._m(9),
                     _vm._v(" "),
                     _c("div", { staticClass: "com-bg" }, [
                       _c("div", [
-                        _vm._m(12),
-                        _vm._v(" "),
                         _c(
                           "div",
                           {
@@ -62322,11 +62047,14 @@ var render = function() {
                           },
                           [
                             _c("table", { staticClass: "table table-sm" }, [
-                              _vm._m(13),
+                              _vm._m(10),
                               _vm._v(" "),
                               _c(
                                 "tbody",
-                                { staticClass: "h-35x font-sm" },
+                                {
+                                  staticClass: "h-35x font-sm",
+                                  staticStyle: { color: "#000" }
+                                },
                                 _vm._l(_vm.getAllData, function(eachData, i) {
                                   return _c("tr", { key: i }, [
                                     _c("td", { staticClass: "w-20x" }, [
@@ -62366,38 +62094,103 @@ var render = function() {
                                           ", "
                                       ),
                                       _c("br"),
-                                      _vm._v("Age: 25 Yrs. 6 mo 25 days")
+                                      _vm._v("Age: "),
+                                      _vm.calAge(eachData.applicantDOB) !== null
+                                        ? _c("span", [
+                                            _vm._v(
+                                              "(" +
+                                                _vm._s(
+                                                  _vm.calAge(
+                                                    eachData.applicantDOB
+                                                  ).years
+                                                ) +
+                                                " Years " +
+                                                _vm._s(
+                                                  _vm.calAge(
+                                                    eachData.applicantDOB
+                                                  ).months
+                                                ) +
+                                                " Months & " +
+                                                _vm._s(
+                                                  _vm.calAge(
+                                                    eachData.applicantDOB
+                                                  ).days
+                                                ) +
+                                                " Days)"
+                                            )
+                                          ])
+                                        : _vm._e()
                                     ]),
                                     _vm._v(" "),
                                     _c("td", { staticClass: "w-20x" }, [
-                                      _c("em", [
-                                        _vm._v(
-                                          _vm._s(
-                                            eachData.applicantContactNoSelf
-                                          ) + ","
-                                        )
-                                      ]),
+                                      _vm._v(
+                                        _vm._s(
+                                          eachData.applicantContactNoSelf
+                                        ) + ","
+                                      ),
                                       _c("br"),
-                                      _c("em", [
-                                        _vm._v(
-                                          _vm._s(eachData.applicantEmailId)
-                                        )
-                                      ])
+                                      _vm._v(_vm._s(eachData.applicantEmailId))
                                     ]),
                                     _vm._v(" "),
-                                    _vm._m(14, true),
+                                    _c("td", [
+                                      _vm._v(
+                                        _vm._s(
+                                          eachData.get_address.addressAddln1
+                                        ) +
+                                          "," +
+                                          _vm._s(
+                                            eachData.get_address.addressAddln2
+                                              ? " " +
+                                                  eachData.get_address
+                                                    .addressAddln2
+                                              : ""
+                                          ) +
+                                          " ,City: " +
+                                          _vm._s(
+                                            eachData.get_address.addressCity
+                                              ? " " +
+                                                  eachData.get_address
+                                                    .addressCity
+                                              : ""
+                                          ) +
+                                          " "
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "Dist : " +
+                                          _vm._s(
+                                            eachData.get_address.addressDistprov
+                                              ? " " +
+                                                  eachData.get_address
+                                                    .addressDistprov
+                                              : ""
+                                          )
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        _vm._s(
+                                          eachData.get_address.addressState
+                                        ) +
+                                          " - " +
+                                          _vm._s(
+                                            eachData.get_address.addressPinzip
+                                          )
+                                      )
+                                    ]),
                                     _vm._v(" "),
                                     _c("td", { staticClass: "w-15x" }, [
                                       _vm._v(
                                         "Date: " +
                                           _vm._s(
-                                            eachData.updated_at
-                                              .split("T")[0]
-                                              .split("-")
-                                              .reverse()
-                                              .join("/")
-                                          ) +
-                                          ","
+                                            eachData.dateLastSubmitted
+                                              ? " " +
+                                                  eachData.dateLastSubmitted
+                                                    .split("T")[0]
+                                                    .split("-")
+                                                    .reverse()
+                                                    .join("/")
+                                              : ""
+                                          )
                                       ),
                                       _c("br"),
                                       _vm._v(
@@ -62410,21 +62203,31 @@ var render = function() {
                                       "td",
                                       { staticClass: "text-center w-10x" },
                                       [
-                                        _c("span", [_vm._v("Submitted")]),
-                                        _c("br"),
-                                        _vm._v(
-                                          _vm._s(
-                                            eachData.created_at
-                                              .split("T")[0]
-                                              .split("-")
-                                              .reverse()
-                                              .join("/")
-                                          )
-                                        )
+                                        eachData.appStatus == "Saved"
+                                          ? _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "badge badge-pill badge-warning font-sm mt-2"
+                                              },
+                                              [_vm._v("Saved")]
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        eachData.appStatus == "Submitted"
+                                          ? _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "badge badge-pill badge-success mt-2"
+                                              },
+                                              [_vm._v("Submitted")]
+                                            )
+                                          : _vm._e()
                                       ]
                                     ),
                                     _vm._v(" "),
-                                    _vm._m(15, true)
+                                    _vm._m(11, true)
                                   ])
                                 }),
                                 0
@@ -62434,7 +62237,7 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _vm._m(16)
+                      _vm._m(12)
                     ])
                   ]
                 )
@@ -62585,311 +62388,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item dropdown no-arrow mx-1" }, [
-      _c("div", { staticClass: "nav-item dropdown no-arrow dr-not" }, [
-        _c(
-          "a",
-          {
-            staticClass: "dropdown-toggle nav-link",
-            attrs: {
-              "aria-expanded": "false",
-              "data-toggle": "dropdown",
-              href: "#"
-            }
-          },
-          [
-            _c("span", { staticClass: "badge badge-danger badge-counter" }, [
-              _vm._v("3+")
-            ]),
-            _c("i", { staticClass: "fas fa-bell fa-fw" })
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "dropdown-menu dropdown-list dropdown-menu-right animated--grow-in"
-          },
-          [
-            _c("h6", { staticClass: "dropdown-header" }, [
-              _vm._v("notifications center")
-            ]),
-            _c(
-              "a",
-              {
-                staticClass: "d-flex align-items-center dropdown-item",
-                attrs: { href: "#" }
-              },
-              [
-                _c("div", { staticClass: "mr-3" }, [
-                  _c("div", { staticClass: "icon-circle gold-bg" }, [
-                    _c("i", { staticClass: "fas fa-file-alt text-white" })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("span", { staticClass: "small" }, [
-                    _vm._v("December 12, 2019")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _c("strong", [
-                      _c("em", [
-                        _vm._v("A new monthly report is ready to download!")
-                      ])
-                    ])
-                  ])
-                ])
-              ]
-            ),
-            _c(
-              "a",
-              {
-                staticClass: "d-flex align-items-center dropdown-item",
-                attrs: { href: "#" }
-              },
-              [
-                _c("div", { staticClass: "mr-3" }, [
-                  _c("div", { staticClass: "icon-circle gold-bg" }, [
-                    _c("i", { staticClass: "fas fa-file-alt text-white" })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("span", { staticClass: "small" }, [
-                    _vm._v("December 12, 2019")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _c("strong", [
-                      _c("em", [
-                        _vm._v("A new monthly report is ready to download!")
-                      ])
-                    ])
-                  ])
-                ])
-              ]
-            ),
-            _c(
-              "a",
-              {
-                staticClass: "d-flex align-items-center dropdown-item",
-                attrs: { href: "#" }
-              },
-              [
-                _c("div", { staticClass: "mr-3" }, [
-                  _c("div", { staticClass: "icon-circle gold-bg" }, [
-                    _c("i", { staticClass: "fas fa-file-alt text-white" })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("span", { staticClass: "small" }, [
-                    _vm._v("December 12, 2019")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _c("strong", [
-                      _c("em", [
-                        _vm._v("A new monthly report is ready to download!")
-                      ])
-                    ])
-                  ])
-                ])
-              ]
-            ),
-            _c(
-              "a",
-              {
-                staticClass: "text-center dropdown-item small text-gray-500",
-                attrs: { href: "#" }
-              },
-              [_vm._v("Show All Alerts")]
-            )
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item dropdown no-arrow mx-1" }, [
-      _c("div", { staticClass: "nav-item dropdown no-arrow dr-not" }, [
-        _c(
-          "a",
-          {
-            staticClass: "dropdown-toggle nav-link",
-            attrs: {
-              "aria-expanded": "false",
-              "data-toggle": "dropdown",
-              href: "#"
-            }
-          },
-          [
-            _c("i", { staticClass: "fas fa-envelope fa-fw" }),
-            _c("span", { staticClass: "badge badge-danger badge-counter" }, [
-              _vm._v("7")
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "dropdown-menu dropdown-list dropdown-menu-right animated--grow-in"
-          },
-          [
-            _c("h6", { staticClass: "dropdown-header" }, [
-              _vm._v("messages center")
-            ]),
-            _c(
-              "a",
-              {
-                staticClass: "d-flex align-items-center dropdown-item",
-                attrs: { href: "#" }
-              },
-              [
-                _c("div", { staticClass: "dropdown-list-image mr-3" }, [
-                  _c("img", {
-                    staticClass: "rounded-circle",
-                    attrs: { src: "assets/img/avatar_2x.png" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "bg-success status-indicator" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "font-weight-bold" }, [
-                  _c("div", { staticClass: "text-truncate" }, [
-                    _c("span", [
-                      _vm._v(
-                        "Hi there! I am wondering if you can help me with a problem I've been having."
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "small mb-0" }, [
-                    _vm._v("Emily Fowler - 58m")
-                  ])
-                ])
-              ]
-            ),
-            _c(
-              "a",
-              {
-                staticClass: "d-flex align-items-center dropdown-item",
-                attrs: { href: "#" }
-              },
-              [
-                _c("div", { staticClass: "dropdown-list-image mr-3" }, [
-                  _c("img", {
-                    staticClass: "rounded-circle",
-                    attrs: { src: "assets/img/avatar_2x.png" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "status-indicator" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "font-weight-bold" }, [
-                  _c("div", { staticClass: "text-truncate" }, [
-                    _c("span", [
-                      _vm._v("I have the photos that you ordered last month!")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "small mb-0" }, [
-                    _vm._v("Jae Chun - 1d")
-                  ])
-                ])
-              ]
-            ),
-            _c(
-              "a",
-              {
-                staticClass: "d-flex align-items-center dropdown-item",
-                attrs: { href: "#" }
-              },
-              [
-                _c("div", { staticClass: "dropdown-list-image mr-3" }, [
-                  _c("img", {
-                    staticClass: "rounded-circle",
-                    attrs: { src: "assets/img/avatar_2x.png" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "bg-warning status-indicator" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "font-weight-bold" }, [
-                  _c("div", { staticClass: "text-truncate" }, [
-                    _c("span", [
-                      _vm._v(
-                        "Last month's report looks great, I am very happy with the progress so far, keep up the good work!"
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "small mb-0" }, [
-                    _vm._v("Morgan Alvarez - 2d")
-                  ])
-                ])
-              ]
-            ),
-            _c(
-              "a",
-              {
-                staticClass: "d-flex align-items-center dropdown-item",
-                attrs: { href: "#" }
-              },
-              [
-                _c("div", { staticClass: "dropdown-list-image mr-3" }, [
-                  _c("img", {
-                    staticClass: "rounded-circle",
-                    attrs: { src: "assets/img/avatar_2x.png" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "bg-success status-indicator" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "font-weight-bold" }, [
-                  _c("div", { staticClass: "text-truncate" }, [
-                    _c("span", [
-                      _vm._v(
-                        "Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good..."
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "small mb-0" }, [
-                    _vm._v("Chicken the Dog · 2w")
-                  ])
-                ])
-              ]
-            ),
-            _c(
-              "a",
-              {
-                staticClass: "text-center dropdown-item small text-gray-500",
-                attrs: { href: "#" }
-              },
-              [_vm._v("Show All Alerts")]
-            )
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", {
-        staticClass: "shadow dropdown-list dropdown-menu dropdown-menu-right",
-        attrs: { "aria-labelledby": "alertsDropdown" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c(
       "a",
       {
@@ -62956,299 +62454,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "form-group pull-right col-xl-12 mb-2 mt-2" },
-      [
-        _c("div", { staticClass: "row" }, [
-          _c(
-            "div",
-            { staticClass: "col-xl-12", staticStyle: { padding: "0px 5px" } },
-            [
-              _c("form", [
-                _c("div", { staticClass: "form-group mb-0" }, [
-                  _c("div", { staticClass: "form-row" }, [
-                    _c("div", { staticClass: "col-xl-2" }, [
-                      _c(
-                        "select",
-                        {
-                          staticClass:
-                            "form-control form-control-sm mb-2 font-sm"
-                        },
-                        [
-                          _c("option", { attrs: { value: "" } }, [
-                            _vm._v("-- Session --")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("2020 - 2021")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("2021 - 2022")
-                          ])
-                        ]
-                      ),
-                      _c(
-                        "select",
-                        { staticClass: "form-control form-control-sm font-sm" },
-                        [
-                          _c("option", { attrs: { value: "" } }, [
-                            _vm._v("-- Contact No. --")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("9876543210")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("9632587410")
-                          ])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-xl-2" }, [
-                      _c(
-                        "select",
-                        {
-                          staticClass:
-                            "form-control form-control-sm mb-2 font-sm"
-                        },
-                        [
-                          _c("option", { attrs: { value: "" } }, [
-                            _vm._v("-- Scholarship Type --")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("2020 - 2021")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("2021 - 2022")
-                          ])
-                        ]
-                      ),
-                      _c(
-                        "select",
-                        { staticClass: "form-control form-control-sm font-sm" },
-                        [
-                          _c("option", { attrs: { value: "" } }, [
-                            _vm._v("-- Email ID --")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("user@email.com")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("user2@email.com")
-                          ])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-xl-2" }, [
-                      _c(
-                        "select",
-                        {
-                          staticClass:
-                            "form-control form-control-sm mb-2 font-sm"
-                        },
-                        [
-                          _c("option", { attrs: { value: "" } }, [
-                            _vm._v("-- First Name --")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("Amit")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("Sudhakar")
-                          ])
-                        ]
-                      ),
-                      _c(
-                        "select",
-                        { staticClass: "form-control form-control-sm font-sm" },
-                        [
-                          _c("option", { attrs: { value: "" } }, [
-                            _vm._v("-- State --")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("West Bengal")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("Uttar Pradesh")
-                          ])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-xl-2" }, [
-                      _c(
-                        "select",
-                        {
-                          staticClass:
-                            "form-control form-control-sm mb-2 font-sm"
-                        },
-                        [
-                          _c("option", { attrs: { value: "" } }, [
-                            _vm._v("-- Last Name --")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("Gupta")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("Mishra")
-                          ])
-                        ]
-                      ),
-                      _c(
-                        "select",
-                        { staticClass: "form-control form-control-sm font-sm" },
-                        [
-                          _c("option", { attrs: { value: "" } }, [
-                            _vm._v("-- District --")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("Hooghly")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("North 24 PGS")
-                          ])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-xl-1 align-self-center" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "btn btn-sm btn-mg font-sm",
-                          attrs: { role: "button", href: "#" }
-                        },
-                        [_c("i", { staticClass: "fa fa-search" })]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "col-xl-3 offset-xl-0 align-self-center pr-0"
-                      },
-                      [
-                        _c("input", {
-                          staticClass: "form-control form-control-sm",
-                          attrs: {
-                            type: "text",
-                            placeholder: "Search by typing here..."
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "col-xl-4 offset-xl-8 align-self-center and-col mt-2"
-                      },
-                      [
-                        _c("div", { staticClass: "form-row" }, [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "col-sm-4 col-xl-3 offset-xl-0 align-self-center"
-                            },
-                            [
-                              _c(
-                                "p",
-                                {
-                                  staticClass:
-                                    "text-right mb-0 mt-0 font-sm color-mg"
-                                },
-                                [_c("strong", [_vm._v("Add Offline")])]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "col-sm-4 col-xl-6 offset-xl-0 align-self-center"
-                            },
-                            [
-                              _c(
-                                "select",
-                                {
-                                  staticClass:
-                                    "form-control form-control-sm font-sm color-mg"
-                                },
-                                [
-                                  _c(
-                                    "option",
-                                    { attrs: { value: "12", selected: "" } },
-                                    [_vm._v("-- Select --")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("option", { attrs: { value: "13" } }, [
-                                    _vm._v("Nursing Scholarship")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("option", { attrs: { value: "14" } }, [
-                                    _vm._v("HHDL Scholarship")
-                                  ])
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "col-sm-4 col-xl-3 offset-xl-0 text-right align-self-center"
-                            },
-                            [
-                              _c(
-                                "p",
-                                { staticClass: "text-left mb-0 font-sm" },
-                                [
-                                  _c("strong", [_vm._v(" ")]),
-                                  _c("a", { attrs: { href: "#" } }, [
-                                    _c("strong", [_vm._v("Click here")])
-                                  ])
-                                ]
-                              )
-                            ]
-                          )
-                        ])
-                      ]
-                    )
-                  ])
-                ])
-              ])
-            ]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "cs-tbl-hd" }, [
       _c("tr", [
         _c("th", { staticClass: "w-20x" }, [_vm._v("Application Details")]),
@@ -63265,17 +62470,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "text-center w-5x" }, [_vm._v("Action")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _vm._v("234 P.N.MUKHERJEE ROAD "),
-      _c("br"),
-      _vm._v("KOLKATA WEST-BENGAL -700116"),
-      _c("br")
     ])
   },
   function() {
@@ -63306,23 +62500,8 @@ var staticRenderFns = [
           },
           [
             _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _c("strong", [_vm._v("Review Application")])
-            ]),
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
               _c("strong", [_vm._v("View Application")])
-            ]),
-            _c(
-              "a",
-              {
-                staticClass: "dropdown-item",
-                attrs: {
-                  href: "#",
-                  "data-toggle": "modal",
-                  "data-target": "#view-application-comments"
-                }
-              },
-              [_c("strong", [_vm._v("View Comments")])]
-            )
+            ])
           ]
         )
       ])
@@ -76950,12 +76129,12 @@ var render = function() {
                               row.appStatus == "Submit"
                                 ? _c(
                                     "span",
-                                    { staticClass: "badge badge-warning" },
+                                    { staticClass: "badge badge-success" },
                                     [_vm._v("Submitted")]
                                   )
                                 : _c(
                                     "span",
-                                    { staticClass: "badge badge-success" },
+                                    { staticClass: "badge badge-warning" },
                                     [_vm._v(_vm._s(row.appStatus))]
                                   )
                             ]),
@@ -99257,8 +98436,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! H:\I-MIS-PROTAL\I-MIS-APP-FINAL-04-03-2021\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! H:\I-MIS-PROTAL\I-MIS-APP-FINAL-04-03-2021\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! H:\I-MIS-PORTAL\I-MIS-APP-FINAL-04-03-2021\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! H:\I-MIS-PORTAL\I-MIS-APP-FINAL-04-03-2021\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -36,7 +36,7 @@
                                     </form>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown no-arrow mx-1">
+                            <!-- <li class="nav-item dropdown no-arrow mx-1">
                                 <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="badge badge-danger badge-counter">3+</span><i class="fas fa-bell fa-fw"></i></a>
                                     <div class="dropdown-menu dropdown-list dropdown-menu-right animated--grow-in">
                                         <h6 class="dropdown-header">notifications center</h6><a class="d-flex align-items-center dropdown-item" href="#">
@@ -63,8 +63,8 @@
                                         </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a>
                                     </div>
                                 </div>
-                            </li>
-                            <li class="nav-item dropdown no-arrow mx-1">
+                            </li> -->
+                            <!-- <li class="nav-item dropdown no-arrow mx-1">
                                 <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><i class="fas fa-envelope fa-fw"></i><span class="badge badge-danger badge-counter">7</span></a>
                                     <div class="dropdown-menu dropdown-list dropdown-menu-right animated--grow-in">
                                         <h6 class="dropdown-header">messages center</h6><a class="d-flex align-items-center dropdown-item" href="#">
@@ -103,7 +103,7 @@
                                     </div>
                                 </div>
                                 <div class="shadow dropdown-list dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown"></div>
-                            </li>
+                            </li> -->
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><img class="border rounded-circle img-profile" src="assets/img/avatar_2x.png"><span class="d-none d-lg-inline ml-2 text-white-600 small"><strong>Administrator</strong></span></a>
@@ -125,16 +125,43 @@
                             </div>
                             <div class="com-bg pt-4">
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-xl-0 mb-3 pr-1"><router-link to="/admin/manage-domains">
+                                    <!-- <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-xl-0 mb-3 pr-1">
+                                        <router-link to="/admin/manage-domains">
                                             <div class="home-icon">
                                                 <h3 class="text-break text-uppercase"><strong>manage </strong><br><strong>domains</strong><br></h3>
                                             </div>
-                                        </router-link></div>
-                                    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-md-0 offset-lg-0 offset-xl-0 mb-3 px-1"><router-link to="/admin/manage-application-schedule">
+                                        </router-link>
+                                     </div> -->
+                                       
+                                       <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-xl-0 mb-3 pr-1">
+                                        <router-link to="#">
+                                            <div class="home-icon">
+                                                <h3 class="text-break text-uppercase"><strong>manage </strong><br><strong>domains</strong><br></h3>
+                                            </div>
+                                        </router-link>
+                                     </div>
+
+
+
+
+                                    <!-- <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-md-0 offset-lg-0 offset-xl-0 mb-3 px-1">
+                                        <router-link to="/admin/manage-application-schedule">
                                             <div class="home-icon px-3">
                                                 <h3 class="text-break text-uppercase"><strong>manage&nbsp;application</strong><br><strong>schedule</strong></h3>
                                             </div>
-                                        </router-link></div>
+                                      </router-link>
+                                    </div> -->
+
+                                        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-md-0 offset-lg-0 offset-xl-0 mb-3 px-1">
+                                        <router-link to="#">
+                                            <div class="home-icon px-3">
+                                                <h3 class="text-break text-uppercase"><strong>manage&nbsp;application</strong><br><strong>schedule</strong></h3>
+                                            </div>
+                                      </router-link>
+                                    </div>
+
+
+
                                     <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-xl-0 mb-3 pl-1"><router-link to="/admin/manage-application-details">
                                             <div class="home-icon">
                                                 <h3 class="text-break text-uppercase"><strong>manage </strong><br><strong>application</strong><br></h3>

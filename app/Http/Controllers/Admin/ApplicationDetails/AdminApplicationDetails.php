@@ -12,9 +12,9 @@ class AdminApplicationDetails extends Controller
 
     public function getData()
     {
-        $getAllDataApplication = ApplicationDetails::all();
+        // $getAllDataApplication = ApplicationDetails::all();
+
+        $getAllDataApplication = ApplicationDetails::with('get_address')->orderBy('id', 'desc')->get()->toJson();
         return $getAllDataApplication;
     }
-
-    
 }

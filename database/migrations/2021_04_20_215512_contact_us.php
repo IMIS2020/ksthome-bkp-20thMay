@@ -24,7 +24,6 @@ class ContactUs extends Migration
             $table->datetime('msgSendDateTime')->nullable();           
             $table->unsignedBigInteger('userId');// FK user-id
             $table->unsignedBigInteger('applicationId')->nullable();// FK application id
-            $table->unsignedBigInteger('schTypeValueId')->nullable();
             $table->unsignedBigInteger('msgCategoryValueId')->nullable();
             $table->timestamps();
         });

@@ -55,6 +55,17 @@
                                     </div>
                               </div>
 
+                              
+Admissions Details
+Annexure-I
+Annexure-II
+Educational Qualifications
+Eligibility Criteria
+General Queries
+Personal Details
+Review Submit
+Upload Documenrs
+
                               <!-- <div class="col-xl-6 mb-3">
                               <div class="form-group">
                               <select class="form-control form-control-sm @error('topic') is-invalid @enderror" name="topic" >
@@ -93,7 +104,12 @@
                                  <div class="form-group">
                                     <select class="form-control @error('msgCategory') is-invalid @enderror" name="msgCategory" >
                                     <option  value="" selected="" disabled>--Message regarding--</option>
-                                    <option @if (old('msgCategory') == 'Eligibility criteria') selected="selected" @endif value="Eligibility criteria">Eligibility criteria</option>
+                                    <option @if (old('msgCategory') == 'Annexure-I') selected="selected" @endif value="Annexure-I">Annexure-I</option>
+                                    <option @if (old('msgCategory') == 'Annexure-II') selected="selected" @endif value="Annexure-II">Annexure-II</option>
+                                    <option @if (old('msgCategory') == 'Admissions Details') selected="selected" @endif value=">Admissions Details">Admissions Details</option>
+                                    <option @if (old('msgCategory') == 'Admissions Details') selected="selected" @endif value="Review Submit">Review Submit</option>
+                                    <option @if (old('msgCategory') == 'Review Submit') selected="selected" @endif value="Eligibility criteria">Eligibility criteria</option>
+                                    <option @if (old('msgCategory') == 'Upload Documenrs') selected="selected" @endif value="Upload Documenrs">Upload Documenrs</option>
                                     <option @if (old('msgCategory') == 'Documentation related queries') selected="selected" @endif value="Documentation related queries">Documentation related queries </option>
                                     <option @if (old('msgCategory') == 'Nursing related queries') selected="selected" @endif value="Nursing related queries">Nursing related queries</option>
                                     <option @if (old('msgCategory') == 'HHDLSS related queries') selected="selected" @endif value="HHDLSS related queries">HHDLSS  related queries</option>

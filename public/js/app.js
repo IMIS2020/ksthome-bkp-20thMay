@@ -62076,7 +62076,8 @@ var render = function() {
                                     _vm._v(" "),
                                     _c("td", [
                                       _vm._v(
-                                        _vm._s(eachData.applicantNameF) +
+                                        "Name : " +
+                                          _vm._s(eachData.applicantNameF) +
                                           " " +
                                           _vm._s(
                                             eachData.applicantNameM
@@ -62091,7 +62092,18 @@ var render = function() {
                                       _vm._v(
                                         "Gender: " +
                                           _vm._s(eachData.applicantGender) +
-                                          ", "
+                                          ","
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        " Date of Birth : " +
+                                          _vm._s(
+                                            eachData.applicantDOB
+                                              .split("-")
+                                              .reverse()
+                                              .join("/")
+                                          ) +
+                                          " "
                                       ),
                                       _c("br"),
                                       _vm._v("Age: "),
@@ -62122,14 +62134,26 @@ var render = function() {
                                         : _vm._e()
                                     ]),
                                     _vm._v(" "),
-                                    _c("td", { staticClass: "w-20x" }, [
+                                    _c("td", { staticClass: "w-25x" }, [
                                       _vm._v(
-                                        _vm._s(
-                                          eachData.applicantContactNoSelf
-                                        ) + ","
+                                        "Applicant phone No :" +
+                                          _vm._s(
+                                            eachData.applicantContactNoSelf
+                                          ) +
+                                          ", "
                                       ),
                                       _c("br"),
-                                      _vm._v(_vm._s(eachData.applicantEmailId))
+                                      _vm._v(
+                                        " Alternate no : " +
+                                          _vm._s(
+                                            eachData.applicantContactNoGuardian
+                                          )
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "Email : " +
+                                          _vm._s(eachData.applicantEmailId)
+                                      )
                                     ]),
                                     _vm._v(" "),
                                     _c("td", [
@@ -62460,7 +62484,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Applicant's Details")]),
         _vm._v(" "),
-        _c("th", { staticClass: "w-20x" }, [_vm._v("Contact Details")]),
+        _c("th", { staticClass: "w-25x" }, [_vm._v("Contact Details")]),
         _vm._v(" "),
         _c("th", [_vm._v("Applicant's Address")]),
         _vm._v(" "),

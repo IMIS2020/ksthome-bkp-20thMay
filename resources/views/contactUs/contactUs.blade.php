@@ -98,14 +98,13 @@
                                     <option @if (old('msgCategory') == 'Annexure-I') selected="selected" @endif value="Annexure-I">Annexure-I</option>
                                     <option @if (old('msgCategory') == 'Annexure-II') selected="selected" @endif value="Annexure-II">Annexure-II</option>
                                     <option @if (old('msgCategory') == 'Admissions Details') selected="selected" @endif value=">Admissions Details">Admissions Details</option>
-                                    <option @if (old('msgCategory') == 'Admissions Details') selected="selected" @endif value="Review Submit">Review Submit</option>
-                                    <option @if (old('msgCategory') == 'Review Submit') selected="selected" @endif value="Eligibility criteria">Eligibility criteria</option>
-                                    <option @if (old('msgCategory') == 'Upload Documenrs') selected="selected" @endif value="Upload Documenrs">Upload Documenrs</option>
                                     <option @if (old('msgCategory') == 'Documentation related queries') selected="selected" @endif value="Documentation related queries">Documentation related queries </option>
-                                    <option @if (old('msgCategory') == 'Nursing related queries') selected="selected" @endif value="Nursing related queries">Nursing related queries</option>
-                                    <option @if (old('msgCategory') == 'HHDLSS related queries') selected="selected" @endif value="HHDLSS related queries">HHDLSS  related queries</option>
+                                    <option @if (old('msgCategory') == 'Educational Qualifications') selected="selected" @endif value="Educational Qualifications">Educational Qualifications</option>
+                                    <option @if (old('msgCategory') == 'Eligibility criteria') selected="selected" @endif value="Eligibility criteria">Eligibility criteria</option>
                                     <option @if (old('msgCategory') == 'General queries') selected="selected" @endif value="General queries">General queries</option>
-                                    <option @if (old('msgCategory') == 'Others') selected="selected" @endif value="Others">Others</option>
+                                    <option @if (old('msgCategory') == 'Personal Details') selected="selected" @endif value="Personal Details">Personal Details</option>
+                                    <option @if (old('msgCategory') == 'Review Submi') selected="selected" @endif value="Review Submit">Review Submit</option>
+                                    <option @if (old('msgCategory') == 'Upload Documenrs') selected="selected" @endif value="Upload Documenrs">Upload Documenrs</option>
                                 </select>
                                 @if ($errors->has('msgCategory'))
                                     <span class="invalid-feedback">

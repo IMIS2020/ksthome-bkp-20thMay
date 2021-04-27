@@ -17,12 +17,15 @@ class ContactUs extends Migration
             $table->id();
             $table->string('msgTicketId')->nullable();
             $table->string('msgCategory')->nullable();
+            $table->string('schTypeValueId')->nullable();
             $table->string('msgSubject');
             $table->string('msgBody');
             $table->string('msgCurrentSession')->nullable();
             $table->datetime('msgSendDateTime')->nullable();           
             $table->unsignedBigInteger('userId');// FK user-id
             $table->unsignedBigInteger('applicationId')->nullable();// FK application id
+            $table->unsignedBigInteger('schTypeValueId')->nullable();
+            $table->unsignedBigInteger('msgCategoryValueId')->nullable();
             $table->timestamps();
         });
     }

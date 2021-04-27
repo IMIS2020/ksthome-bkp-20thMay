@@ -12,7 +12,7 @@
 </head>
 <body>
    <div class="container">
-   <h3>Message Ticket Number : {{$data['msgTicketId']}}</h3>
+   <!-- <h3>Message Ticket Number : {{$data['msgTicketId']}}</h3> -->
    
    <br>
    <h2>

@@ -56,15 +56,6 @@
                               </div>
 
                               
-Admissions Details
-Annexure-I
-Annexure-II
-Educational Qualifications
-Eligibility Criteria
-General Queries
-Personal Details
-Review Submit
-Upload Documenrs
 
                               <!-- <div class="col-xl-6 mb-3">
                               <div class="form-group">

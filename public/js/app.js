@@ -4691,6 +4691,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             showConfirmButton: false,
             timer: 3000
           });
+
+          _this7.insForm.insName = '';
+          _this7.insForm.insAddressCity = '';
+          _this7.insForm.insAddressDistprov = '';
+          _this7.insForm.insAddressState = '';
         } else {
           console.log(response.data['msg']);
         }
@@ -7573,6 +7578,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             showConfirmButton: false,
             timer: 3000
           });
+
+          _this7.insForm.insName = '';
+          _this7.insForm.insAddressCity = '';
+          _this7.insForm.insAddressDistprov = '';
+          _this7.insForm.insAddressState = '';
         } else {
           console.log(response.data['msg']);
         }
@@ -76950,12 +76960,12 @@ var render = function() {
                               row.appStatus == "Submit"
                                 ? _c(
                                     "span",
-                                    { staticClass: "badge badge-warning" },
+                                    { staticClass: "badge badge-success" },
                                     [_vm._v("Submitted")]
                                   )
                                 : _c(
                                     "span",
-                                    { staticClass: "badge badge-success" },
+                                    { staticClass: "badge badge-warning" },
                                     [_vm._v(_vm._s(row.appStatus))]
                                   )
                             ]),

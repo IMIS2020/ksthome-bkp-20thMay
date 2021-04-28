@@ -185,8 +185,8 @@ Route::prefix('admin')->group(function() {
     *Review application
     */
     Route::get('/review-application-form/{applicationId}', 'Admin\AdminSystemController@reviewApplicantForm');
-    Route::get('/review-annexure-1', 'Admin\AdminSystemController@reviewAnnexure1');
-    Route::get('/review-annexure-2', 'Admin\AdminSystemController@reviewAnnexure2');
+    Route::get('/review-annexure-1/{applicationId}', 'Admin\AdminSystemController@reviewAnnexure1');
+    Route::get('/review-annexure-2/{applicationId}', 'Admin\AdminSystemController@reviewAnnexure2');
     Route::get('/review-applicant-documents', 'Admin\AdminSystemController@reviewApplicantDocuments');
     Route::get('/review', 'Admin\AdminSystemController@review');
     /***
@@ -235,6 +235,7 @@ Route::prefix('admin')->group(function() {
       * Application data view
       */
        Route::get('/get-application-form-data/{applicationId}','Scholarship\ApplicationController@getScholarshipApplication');
+       Route::get('/get-annexure1/{applicationId}','Scholarship\ApplicationController@getAnnexure1');
       /***
       * End Application data view
       */

@@ -1,6 +1,5 @@
 <template>
-   <body id="page-top" class="grey-bg">
-       
+    <body id="page-top" class="grey-bg">
     <div id="wrapper" style="height: 100vh;">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-custom p-0">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand" href="#">
@@ -120,5 +119,5 @@
         </div>
     </div>
       <!-- END SIDE AND NAVBAR -->
-</body>
+    </body>
 </template>

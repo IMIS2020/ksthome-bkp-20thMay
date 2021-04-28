@@ -5432,15 +5432,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.inputDisabled = true;
       }
     },
-    checkNewScholarshipType: function checkNewScholarshipType() {
-      if (this.form.applicationId == '') {
-        this.form.scholarshipType = window.location.pathname.split('/').reverse()[0];
-      }
-
-      this.insForm.insType = this.form.scholarshipType;
-      this.readDomainValues(this.form.scholarshipType);
-      this.readInsValue(this.form.scholarshipType);
-    },
+    // checkNewScholarshipType()
+    // {
+    //     if(this.form.applicationId == ''){
+    //        this.form.scholarshipType =  window.location.pathname.split('/').reverse()[0];
+    //     }
+    //     this.insForm.insType = this.form.scholarshipType;
+    //     this.readDomainValues(this.form.scholarshipType);
+    //     this.readInsValue(this.form.scholarshipType);
+    // },
     readInitialDomainValues: function readInitialDomainValues() {
       var _this2 = this;
 
@@ -5652,8 +5652,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   computed: {},
   created: function created() {
-    this.readApplicationForm();
-    this.checkNewScholarshipType();
+    this.readApplicationForm(); // this.checkNewScholarshipType();
+
     this.readInitialDomainValues(); // this.chcekUpDisable();
   }
 });
@@ -6341,6 +6341,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6633,7 +6634,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           _this6.$fire({
             position: 'top',
             icon: 'error',
-            title: "Value exsists could not add",
+            title: "Value exists could not add",
             showConfirmButton: false,
             timer: 3000
           });
@@ -9522,7 +9523,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           _this5.$fire({
             position: 'top',
             icon: 'error',
-            title: "Value exsists could not add",
+            title: "Value exists could not add",
             showConfirmButton: false,
             timer: 3000
           });
@@ -76584,6 +76585,7 @@ var render = function() {
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-2" }, [
                                       _vm._m(1),
+                                      _vm._v(" "),
                                       _vm.form.scholarshipType == "HHDLS"
                                         ? _c(
                                             "a",
@@ -76605,7 +76607,7 @@ var render = function() {
                                             },
                                             [
                                               _c("strong", [
-                                                _vm._v(" +Add New")
+                                                _vm._v(" +Add New Course")
                                               ])
                                             ]
                                           )
@@ -77500,8 +77502,7 @@ var render = function() {
                               staticClass: "form-control form-control-sm",
                               attrs: {
                                 type: "text",
-                                disabled: _vm.globalDisable,
-                                required: ""
+                                disabled: _vm.globalDisable
                               },
                               domProps: { value: _vm.domainForm.dValue },
                               on: {
@@ -82152,7 +82153,7 @@ var render = function() {
                                                             },
                                                             [
                                                               _vm._v(
-                                                                " + Add New Value"
+                                                                " + Add New Exam"
                                                               )
                                                             ]
                                                           )
@@ -82195,7 +82196,7 @@ var render = function() {
                                                             },
                                                             [
                                                               _vm._v(
-                                                                " + Add New Value"
+                                                                " + Add New Board"
                                                               )
                                                             ]
                                                           )
@@ -84853,7 +84854,7 @@ var render = function() {
                                                       }
                                                     }
                                                   },
-                                                  [_vm._v(" + Add New Value")]
+                                                  [_vm._v(" + Add New Course")]
                                                 )
                                               : _vm._e()
                                           ])
@@ -85067,7 +85068,7 @@ var render = function() {
                                                     "#others-add-institute"
                                                 }
                                               },
-                                              [_vm._v(" + Add New Value")]
+                                              [_vm._v(" + Add New Institute")]
                                             )
                                           : _vm._e()
                                       ]),

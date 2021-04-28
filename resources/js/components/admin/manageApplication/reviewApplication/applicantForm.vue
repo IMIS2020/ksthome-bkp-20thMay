@@ -1680,15 +1680,15 @@ export default {
                 
                 }  
             },
-            checkNewScholarshipType()
-            {
-                if(this.form.applicationId == ''){
-                   this.form.scholarshipType =  window.location.pathname.split('/').reverse()[0];
-                }
-                this.insForm.insType = this.form.scholarshipType;
-                this.readDomainValues(this.form.scholarshipType);
-                this.readInsValue(this.form.scholarshipType);
-            },
+            // checkNewScholarshipType()
+            // {
+            //     if(this.form.applicationId == ''){
+            //        this.form.scholarshipType =  window.location.pathname.split('/').reverse()[0];
+            //     }
+            //     this.insForm.insType = this.form.scholarshipType;
+            //     this.readDomainValues(this.form.scholarshipType);
+            //     this.readInsValue(this.form.scholarshipType);
+            // },
             readInitialDomainValues()
             {
                 axios.get('/admin/admin-api/domain/examinationLevel')
@@ -1951,7 +1951,7 @@ export default {
          created()
          {
             this.readApplicationForm();
-            this.checkNewScholarshipType();
+            // this.checkNewScholarshipType();
             this.readInitialDomainValues();
             // this.chcekUpDisable();
          }

@@ -42,7 +42,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-xl-2">
-                                                                <label  style="color:#702E2E" class="mb-0"><strong>Course Name<span class="text-danger"><strong>*</strong></span></strong></label><a data-toggle="modal" href="#" class="font-sm"  data-target="#others-course-name" v-if="form.scholarshipType=='HHDLS'" @click="addName('CourseName')"><strong> +Add New</strong></a>
+                                                                <label  style="color:#702E2E" class="mb-0"><strong>Course Name<span class="text-danger"><strong>*</strong></span></strong></label>
+                                                                <a data-toggle="modal" href="#" class="font-sm"  data-target="#others-course-name" v-if="form.scholarshipType=='HHDLS'" @click="addName('CourseName')"><strong> +Add New Course</strong></a>
                                                                 <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
                                                                     <select class="form-control form-control-sm" v-model="courseNameValueId2" :disabled="globalDisable" @click="clearRow">
                                                                         <option value="" disabled>-- select --</option>
@@ -210,7 +211,7 @@
                                 <div class="col-xl-12 mb-2">
                                     <input type="hidden" class="form-control form-control-sm" v-model="domainForm.domainName" :disabled="globalDisable" required/>
                                     <div class="form-group mb-0"><label class="mb-0">Course Name</label>
-                                        <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable" required/>
+                                        <input type="text" class="form-control form-control-sm" v-model="domainForm.dValue" :disabled="globalDisable">
                                     </div>
                                 </div>
                             </div>
@@ -615,7 +616,7 @@ export default{
                     this.$fire({
                         position: 'top',
                         icon: 'error',
-                        title: "Value exsists could not add",
+                        title: "Value exists could not add",
                         showConfirmButton: false,
                         timer: 3000
                     });

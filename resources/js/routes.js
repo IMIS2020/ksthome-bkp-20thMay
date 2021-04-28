@@ -341,13 +341,13 @@ export default{
                 },
 
                 {
-                    path: '/admin/review-annexure-1',
+                    path: '/admin/review-annexure-1/:applicationId',
                     component:AdminAnnexure1,
                     name: "review-annexure-1"
                 },
 
                 {
-                    path: '/admin/review-annexure-2',
+                    path: '/admin/review-annexure-2/:applicationId',
                     component:AdminAnnexure2,
                     name: "review-annexure-2"
                 },
@@ -503,13 +503,13 @@ export default{
                  */
                   {
                     path:'/admin/admin-api/institute/get-data/:type',
-                },
-                {
+                  },
+                  {
                     path:'/admin/admin-api/institute/add',
-                },
-                {
+                  },
+                  {
                     path:'/admin/admin-api/institute/get-details/:insId',
-                },
+                  },
                  /****
                  * End API calls for admin Institute details
                  */

@@ -2,9 +2,21 @@
     <section class="page-main">
         <div class="container">
             <div class="row">
-                <div class="col-xl-2 mt-3 pr-1">
+                <!-- <div class="col-xl-2 mt-3 pr-1">
                     <p class="text-white mb-2 font-xl" style="background: #000000;">&nbsp;Annexure I<br></p>
-                </div>
+                </div> -->
+
+                <div class="col-xl-12 text-center mb-1" style="color:#000000">
+                        <h3 class="text-uppercase"><strong>Annexure - I</strong></h3>
+                    </div>
+                    <div class="col-xl-12 text-center mb-1" style="color:#000000">
+                        <h6 class="text-uppercase"><strong>{{form.scholarshipType}} scholarship PROGRAMME - {{form.financialYear}}</strong></h6>
+                        <h6 class="text-uppercase text-center"><strong>Applicant Name : {{form.fullName}}</strong></h6>
+                        <h6 class="text-uppercase"><strong>Application No : {{form.appIdShow}} (submitted online)</strong></h6>
+                    </div>
+                    <div class="col-md-10 col-xl-12 text-center mb-1">
+                        <hr class="cs-hr">
+                    </div>
                 <div class="col-xl-12 mt-3">
                     <p class="font-md" style="color : #000"><strong>I&nbsp;{{form.applicantNameF}} {{form.applicantNameM}} {{form.applicantNameL}}, {{getData.genderType}}&nbsp;of {{form.applicantFatherName}},&nbsp; residing in&nbsp;{{form.addressAddln1}}, want to pursue course in {{courseNameValueId2}} In academic year&nbsp;{{form.financialYear}}. I will be taking the following Entrance Examination for admission into  {{courseNameValueId2}}.</strong><br></p>
                 </div>
@@ -75,6 +87,7 @@ export default{
             form:
             {
                 // courseLevel:'',
+                fullname:'',
                 hasAdmissionLetter:'',
                 applicationId:'',
                 scholarshipType: '',
@@ -131,6 +144,7 @@ export default{
                     this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
                     this.insForm.insType = response.data['data'][0][0].scholarshipType;
                     this.form.appIdShow = response.data['data'][0][0].appIdShow;
+                    this.form.fullName = response.data['data'][0][0].applicantNameF+' '+ (response.data['data'][0][0].applicantNameM == null ? ' ' : response.data['data'][0][0].applicantNameM )+' '+response.data['data'][0][0].applicantNameL;   
                     
                     if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
                     {

@@ -67,8 +67,8 @@
                                           <td class="text-nowrap">{{row.dateLastSubmitted== null ? " " : row.dateLastSubmitted.split("-").reverse().join("/")}}</td>
                                           <td class="text-center">
                                               
-                                                  <span class="badge badge-success" v-if="row.appStatus == 'Submit'">Submitted</span>
-                                                  <span class="badge badge-warning" v-else>{{row.appStatus}}</span>
+                                                  <span class="badge badge-pill badge-success font-sm" v-if="row.appStatus == 'Submit'">Submitted</span>
+                                                  <span class="badge badge-pill badge-warning font-sm" v-else>{{row.appStatus}}</span>
                                               
                                           </td>
                                           <td class="text-center w-5x">

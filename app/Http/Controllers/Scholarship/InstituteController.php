@@ -16,7 +16,7 @@ class InstituteController extends Controller
     public function getInstitute($type)
     {
         $getDomainId = DomainValues::where('value',$type)->first();
-        $getIns = Institute::where('scholarshipTypeValueId',$getDomainId->id)->with('get_address')->orderBy('instituteName','ASC')->get()->sortBy('instituteName', SORT_NATURAL|SORT_FLAG_CASE)->toJson();
+        $getIns = Institute::where('scholarshipTypeValueId',$getDomainId->id)->with('get_address')->orderBy('instituteName','ASC')->get()->toJson();
         return $getIns;
     }
 
@@ -59,7 +59,7 @@ class InstituteController extends Controller
             $instituteAddress->save();
 
             $instituteDetails = new Institute;
-            $instituteDetails->instituteName = $request->insName;
+            $instituteDetails->instituteName = strtoupper($request->insName);
             $instituteDetails->instituteAddressId = $instituteAddress->id;
             $getDomainId = DomainValues::where('value',$request->insType)->first();
             $instituteDetails->scholarshipTypeValueId = $getDomainId->id;

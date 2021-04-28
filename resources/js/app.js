@@ -114,6 +114,16 @@ function newFunction(){
     el: '#adminReview',
     router: new VueRouter(routes)
   });
+
+  const app25 = new Vue({
+    el: '#adminPrintAnnexure1',
+    router: new VueRouter(routes)
+  });
+
+  const app26 = new Vue({
+    el: '#adminPrintView',
+    router: new VueRouter(routes)
+  });
   // End review Application
 
   // Domains start

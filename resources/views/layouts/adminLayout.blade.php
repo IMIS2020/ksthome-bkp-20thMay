@@ -72,6 +72,13 @@
     <div id="extendLastDate">
       @yield('extendLastDate')
     </div>
+
+    <div id="adminPrintView">
+      @yield('printView')
+    </div>
+    <div id="adminPrintAnnexure1">
+      @yield('printAnnexure1')
+    </div>
    <!-- End schedule -->
     
     <!-- <script src="{{asset('assets/js/jquery.min.js')}}"></script> -->

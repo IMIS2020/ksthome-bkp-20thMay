@@ -63,6 +63,16 @@ class AdminSystemController extends Controller
        return view('admin.manageApplication.reviewApplication.review');
     }
 
+    public function printView()
+    {
+      return view('admin.manageApplication.reviewApplication.printView');
+    }
+    
+    public function printAnnexure1()
+    {
+      return view('admin.manageApplication.reviewApplication.printAnnexure1');
+    }
+
     //Review application end
 
    //  Domains

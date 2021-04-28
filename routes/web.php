@@ -187,8 +187,10 @@ Route::prefix('admin')->group(function() {
     Route::get('/review-application-form/{applicationId}', 'Admin\AdminSystemController@reviewApplicantForm');
     Route::get('/review-annexure-1/{applicationId}', 'Admin\AdminSystemController@reviewAnnexure1');
     Route::get('/review-annexure-2/{applicationId}', 'Admin\AdminSystemController@reviewAnnexure2');
-    Route::get('/review-applicant-documents', 'Admin\AdminSystemController@reviewApplicantDocuments');
-    Route::get('/review', 'Admin\AdminSystemController@review');
+    Route::get('/review-applicant-documents/{applicationId}', 'Admin\AdminSystemController@reviewApplicantDocuments');
+    Route::get('/review/{applicationId}', 'Admin\AdminSystemController@review');
+    Route::get('/print-view-application/{applicationId}', 'Admin\AdminSystemController@printView');
+    Route::get('/print-view-annexure1/{applicationId}', 'Admin\AdminSystemController@printAnnexure1');
     /***
    *Review application
    */
@@ -287,6 +289,8 @@ Route::prefix('admin')->group(function() {
       * Doc Master Api call
       */
       Route::get('/doc-master','Scholarship\DocumentMaster@getDocMasterData');
+      Route::get('/get-documents/{applicationId}','Admin\ApplicationDetails\AdminApplicationDetails@getDocuments');
+      Route::get('/get-application-file/{shcName}/{applicationId}','Admin\ApplicationDetails\AdminApplicationDetails@getApplicantDoc');
       /***
       * End Doc Master Api call
       */

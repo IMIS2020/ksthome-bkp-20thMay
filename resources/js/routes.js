@@ -26,6 +26,8 @@ import AdminAnnexure1          from './components/admin/manageApplication/review
 import AdminAnnexure2          from './components/admin/manageApplication/reviewApplication/annexure2';
 import AdminApplicantDocuments from './components/admin/manageApplication/reviewApplication/applicantDocuments';
 import AdminReview             from './components/admin/manageApplication/reviewApplication/review';
+import AdminPrintAnnexure1          from './components/admin/manageApplication/reviewApplication/printAnnexure1';
+import AdminPrintView       from './components/admin/manageApplication/reviewApplication/printView';
 // End review application
 
 // Domains
@@ -353,16 +355,29 @@ export default{
                 },
 
                 {
-                    path: '/admin/review-applicant-documents',
+                    path: '/admin/review-applicant-documents/:applicationId',
                     component:AdminApplicantDocuments,
                     name: "review-applicant-documents"
                 },
 
                 {
-                    path: '/admin/review',
+                    path: '/admin/review/:applicationId',
                     component:AdminReview,
                     name: "review"
                 },
+
+                {
+                    path: '/admin/print-view-application/:applicationId',
+                    component:AdminPrintView,
+                    name: "print-view-application"
+                },
+                {
+                    path: '/admin/print-view-annexure1/:applicationId',
+                    component: AdminPrintAnnexure1,
+                    name: "print-view-annexure1"
+                },
+
+
                     /***
                  * 
                  * End Review Application
@@ -406,6 +421,7 @@ export default{
                     component:ExtendLastDate,
                     name: "extend-last-date"
                 },
+            
                     /***
                  * 
                  * End Admin Schedule
@@ -434,6 +450,14 @@ export default{
 
                 {
                     path:'/admin/admin-api/get-annexure1/:applicationId',
+                },
+
+                {
+                    path: '/admin/admin-api/get-documents/:applicatioId',
+                },
+
+                {
+                    path: '/admin/admin-api/get-application-file/:shcName/:applicationId',
                 },
                 /***
                  * 

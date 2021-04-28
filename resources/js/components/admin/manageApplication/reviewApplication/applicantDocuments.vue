@@ -1,5 +1,5 @@
 <template>
-    <body id="page-top" class="grey-bg">
+   <body id="page-top" class="grey-bg">
     <div id="wrapper" style="height: 100vh;">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-custom p-0">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand" href="#">
@@ -113,11 +113,246 @@
                             </li>
                         </ul>
                     </div>
-                </nav>
-               
+               </nav>
+                <!-- Application tabs -->
+               <div class="container-fluid">
+                  <div class="row">
+                     <div class="col-md-12 col-xl-12 offset-xl-0 px-0">
+                        <div class="row my-2">
+                           <div class="col-xl-12 offset-xl-0">
+                              <h5 class="mb-0 p-head"><strong>Application for {{form.scholarshipType}} scholarship {{form.financialYear}} {{form.appIdShow == '' ? '' : '( APP NO: '+form.appIdShow+')'}}</strong></h5>
+                           </div>
+                        </div>
+
+                        <div class="row">
+                             <div class="col-xl-12">
+                                <div class="mb-3">
+                                    <ul class="nav nav-tabs font-sm" role="tablist">
+                                        <li class="nav-item" role="presentation"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-application-form/'+form.applicationId"><strong>Applicant Details</strong></router-link></li>
+                                       <li class="nav-item" role="presentation" v-if="form.hasAdmissionLetter === 'NO' && form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-annexure-1/'+form.applicationId"><strong>Annexure-I</strong></router-link></li>
+                                       <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-I</strong></router-link></li>
+                                       <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-annexure-2/'+form.applicationId"><strong>Annexure-II</strong></router-link></li>
+                                       <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-II</strong></router-link></li>
+                                       <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link active" role="tab" data-toggle="tab" :to="'/admin/review-applicant-documents/'+form.applicationId"><strong>Upload Documents</strong></router-link></li>
+                                       <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Upload Documents</strong></router-link></li>
+                                       <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review/'+form.applicationId"><strong>Review &amp; Submit</strong></router-link></li>
+                                       <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Review &amp; Submit</strong></router-link></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" role="tabpanel" id="tab-4">
+                                            <div class="ub-reg-form">
+                                                <div class="div-inner-filed">
+                                                    <div class="form-row">
+                                                        <div class="col-xl-12">
+                                                            <div class="card mt-2 det-sec">
+                                                                <div class="card-header">
+                                                                    <h6 class="mb-0 color-mg"><strong>Upload latest certificates and proofs.</strong>
+                                                                                                <br>Note: 1  - png, jpeg, jpg or pdf files - Max 1 MB each<br>
+                                                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2  - Aadhaar card / voter id / driving lisence/ ration card
+                                                                                                                are valid for proof of address.<br>
+                                                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3  - Upload document - Choose a file and then click <i class="fas fa-save"></i> ( to save ), before choosing the next file.
+                                                                                                                
+                                                                    </h6>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="form-row">
+                                                                        <div class="col-xl-12">
+                                                                            <div class="table-responsive font-md upd-doc">
+                                                                                <table class="table table-sm mb-0">
+                                                                                    <thead class="color-mg">
+                                                                                        <tr class="color-mg">
+                                                                                            <th colspan="2" class="w-10x">Required Document</th>
+                                                                                            <th>Choose file</th>
+                                                                                            <th>Document Name</th>
+                                                                                            <th>Uploaded</th>
+                                                                                            <th class="text-center w-5x">View</th>
+                                                                                            <th class="text-center w-5x">Del.</th>
+                                                                                            <th class="text-center w-5x">Save</th>
+                                                                                            
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr v-for="(row,index) in docRows" :key="index">
+                                                                                            <td colspan="2">
+                                                                                                <strong>{{row.docFileDesc}}</strong><br>
+                                                                                            </td>
+
+                                                                                            <td>
+                                                                                                <!-- <input type="hidden" v-model="row.idDoc"/> -->
+                                                                                                <input  type="hidden" v-model="row.id" :disabled="globalDisable"/>
+                                                                                                <div class="form-group">
+                                                                                                    <input class="form-control-file font-sm" type="file" v-if="uploadReady" :ref="index" multiple v-on:change="selectFile(index)" :disabled="globalDisable">
+                                                                                                </div>
+                                                                                                <!-- <div class="form-group" v-else>
+                                                                                                    <input class="form-control-file font-sm" type="file" :ref="index" multiple v-on:change="selectFile(index)" :disabled="globalDisable">
+                                                                                                </div> -->
+                                                                                            </td>
+                                                                                            <td>{{row.docFileName == null? '' : row.docFileName.split('-').reverse().shift()}}</td>
+                                                                                            <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{row.uploadStatus}}</span></td>
+                                                                                            <td class="text-center w-7x"  > 
+                                                                                                <span v-if="row.uploadStatus == 'YES'">
+                                                                                                    <router-link target="_blank"  class="act-link"  :to="''+row.fileURL">
+                                                                                                        <i class="fa fa-eye"></i>
+                                                                                                    </router-link>
+                                                                                                </span>
+                                                                                                <span class="act-link"  style="color:#808080;" v-else>
+                                                                                                    <i class="fa fa-eye"></i>
+                                                                                                </span>
+                                                                                            </td>
+                                                                                            <td class="text-center w-7x" v-if="globalDisable == false"> 
+                                                                                                <span  v-if="row.uploadStatus == 'YES'">
+                                                                                                    <a  href="#"   class="act-link" @click.prevent="deleteFile(row.id)">
+                                                                                                        <i class="fa fa-trash"></i>
+                                                                                                    </a>
+                                                                                                </span>
+                                                                                                <span class="act-link" style="color:#808080;" v-else>
+                                                                                                    <i class="fa fa-trash"></i>
+                                                                                                </span>
+                                                                                            </td>
+                                                                                            <td class="text-center w-7x" v-else> 
+                                                                                                <span class="act-link" style="color:#808080;">
+                                                                                                    <i class="fa fa-trash"></i>
+                                                                                                </span>
+                                                                                            </td>
+                                                                                            <td class="text-center w-7x">
+                                                                                                <!-- <span v-if="globalDisable == false">
+                                                                                                    <span class="act-link" style="color:#808080;">
+                                                                                                        <i class="fas fa-save"></i>
+                                                                                                    </span>
+                                                                                                </span> -->
+                                                                                                <span class="act-link" style="color:#808080;" v-if="globalDisable == false">
+                                                                                                <a  href="#"  class="act-link" @click.prevent="saveFile(form.applicationId,index)">
+                                                                                                        <i class="fas fa-save"></i>
+                                                                                                    </a>
+                                                                                                </span>
+                                                                                                <span class="act-link" style="color:#808080;" v-else>
+                                                                                                    <i class="fas fa-save"></i>
+                                                                                                </span>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
+                        <div class="col-xl-2 offset-xl-0 my-2" v-if="globalDisable == false">
+                              <router-link class="btn btn-danger btn-block btn-sm" type="button" to="/manage-my-application"><strong>Cancel</strong></router-link>
+                        </div>
+                     </div>
+                  </div>
+                </div>
+               <!-- End of tabs -->
             </div>
         </div>
     </div>
-      <!-- END SIDE AND NAVBAR -->
-    </body>
+    <!-- END SIDE AND NAVBAR -->
+ </body>
 </template>
+<script>
+export default{
+    data(){
+        return {
+            userId:'',
+            // docRows1:{},
+            // update: false,
+            uploadReady: true,
+            globalDisable: true,
+            docRows:[
+                {
+                    id: '',
+                    docFileName: '',
+                }
+            ],
+            form:
+            {
+                // courseLevel:'',
+                hasAdmissionLetter:'',
+                applicationId:'',
+                scholarshipType: '',
+                financialYear:'',
+                applicantNameF:'',
+                applicantNameM:'',
+                applicantNameL:'',
+                applicantFatherName:'',
+                applicantMotherName:'',
+                addressAddln1:'',
+                appIdShow:'',
+            },
+            errors:[]
+        }
+    },
+    methods:{
+
+        async readApplicationForm() 
+        {
+            let applicationId = window.location.pathname.split('/').reverse()[0];
+            axios.get(`/admin/admin-api/get-application-form-data/${applicationId}`)
+            .then(response => {
+                if (response.data['success']) 
+                {
+                    this.form.applicationId=response.data['data'][0][0].schApplicationId;
+                    this.form.scholarshipType=response.data['data'][0][0].scholarshipType;
+                    this.form.applicantNameF=response.data['data'][0][0].applicantNameF;
+                    this.form.applicantNameM=response.data['data'][0][0].applicantNameM;
+                    this.form.applicantNameL=response.data['data'][0][0].applicantNameL;
+                    this.form.applicantFatherName=response.data['data'][0][0].applicantFatherName;
+                    this.form.applicantMotherName=response.data['data'][0][0].applicantMotherName;
+                    this.form.financialYear = response.data['data'][0][0].financialYear;  
+                    this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
+                    this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
+                    this.form.appIdShow = response.data['data'][0][0].appIdShow;
+                    // if(this.form.applicantGender=response.data['data'][0][0].applicantGender == "Male")
+                    // {
+                    //     this.getData.genderType = "son";
+                    // }else{
+                    //     this.getData.genderType = "daughter";
+                    // }
+                    this.form.appStatus = response.data['data'][0][0].appStatus;
+                    if(this.form.appStatus == 'Submit')
+                    {
+                        this.globalDisable = true;
+                    };
+                } 
+                else {
+                    console.log(response.data['msg'])
+                }
+            })
+            this.getMasterDoc();
+        },
+      
+        getMasterDoc(){
+           
+            let applicationId = window.location.pathname.split('/').reverse()[0];
+            axios.get('/admin/admin-api/get-documents/'+applicationId)
+                .then(response => {
+                    this.docRows = response.data;
+                    // if(response.data.length != 0)
+                    // this.docRows = response.data
+                    // this.docRows=this.docRows.map((row)=>{
+                    //     let fname = row.docFileName.split('-');
+                    //     fname.shift()
+                    //     row._docFileName= fname.join('-');
+                    //     return row
+                    // })
+                })
+        },
+       
+      
+    },
+    created(){
+     this.readApplicationForm() ;
+     
+    }
+ }
+</script>

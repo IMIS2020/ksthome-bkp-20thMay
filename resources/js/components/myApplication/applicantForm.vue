@@ -287,8 +287,8 @@
                                                                             <thead class="font-sm color-mg">
                                                                                 <tr>
                                                                                     <th>Examination Level&nbsp;<span class="text-danger">*</span></th>
-                                                                                    <th>Examination Passed&nbsp;<span class="text-danger">*</span><br><span><a data-toggle="modal" href="#" data-target="#others-exam-passed1" @click="addName('ExamPassed')"> + Add New Exam</a></span></th>
-                                                                                    <th>University/ Board&nbsp;<span class="text-danger">*</span><br><span><a data-toggle="modal" href="#" data-target="#others-exam-board1" @click="addName('UnivBoard')"> + Add New Board</a></span></th>
+                                                                                    <th>Examination Passed&nbsp;<span class="text-danger">*</span><br><span><a data-toggle="modal" href="#" data-target="#others-exam-passed1" @click="addName('ExamPassed')"> + Add Examination</a></span></th>
+                                                                                    <th>University/ Board&nbsp;<span class="text-danger">*</span><br><span><a data-toggle="modal" href="#" data-target="#others-exam-board1" @click="addName('UnivBoard')"> + Add University/Board</a></span></th>
                                                                                     <th>Main Subjects&nbsp;<span class="text-danger">*</span></th>
                                                                                     <th>Year of Passing&nbsp;<span class="text-danger">*</span></th>
                                                                                     <th>Percentage(%)&nbsp;<span class="text-danger">*</span></th>
@@ -646,7 +646,9 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <span class="m-auto text-danger font-sm">Note: Click on 'Add new values' above to add values to the list if required. </span>
+                                                            <span class="m-auto text-danger font-sm">Note: eg. Click on 'Add Examination'to add a new examination which is not in the list. <br>
+                                                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Similarly use "Add university/Board" to add an University or Board to the list. Before adding, check if University or Board is in the list"
+                                                            </span>
                                                         </div>
                                                         
                                                     </div>
@@ -690,7 +692,7 @@
                                                                      </div>
                                                                 </div>
                                                                 <div class="col-xl-3">
-                                                                    <label v-if="form.scholarshipType=='HHDLS'">Course Name&nbsp;<span class="text-danger"><strong>*</strong></span><a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-course-name" @click="addName('CourseName')"> + Add New Course</a></label>
+                                                                    <label v-if="form.scholarshipType=='HHDLS'">Course Name&nbsp;<span class="text-danger"><strong>*</strong></span><a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-course-name" @click="addName('CourseName')"> + Add Course</a></label>
                                                                     <label v-if="form.scholarshipType=='Nursing'">Course Name&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
                                                                         <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled" required>
@@ -706,7 +708,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-6">
-                                                                    <label>Name of the institute&nbsp;<span class="text-danger"><strong>*</strong></span> <a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-add-institute" > + Add New Institute</a> </label>
+                                                                    <label>Name of the institute&nbsp;<span class="text-danger"><strong>*</strong></span> <a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-add-institute" > + Add Institute</a> </label>
                                                                     <div class="form-group mb-0">
                                                                         <select class="form-control form-control-sm" required @change="onChangeIns($event)" v-model="form.instituteId" :disabled="inputDisabled">
                                                                             <option v-for="(i,index) in insData" :key="index" :value="i.id" selected>{{i.instituteName}} - {{i.get_address.addressCity}}, {{i.get_address.addressState}}</option>
@@ -1810,11 +1812,11 @@ export default {
                             this.$fire({
                                 position: 'top',
                                 icon: 'success',
-                                title: "Added new "+showMsg,
+                                title: "Added new "+showMsg+". Press close button",
                                 showConfirmButton: false,
                                 timer: 3000
                             });
-                            
+                          
                         } else {
                             // let msg = response.data['msg'];
                             // console.log(response.data['msg'])
@@ -1851,7 +1853,7 @@ export default {
                         this.$fire({
                             position: 'top',
                             icon: 'success',
-                            title: "Added new Institute",
+                            title: "Added new Institute. Press close button ",
                             showConfirmButton: false,
                             timer: 3000
                         });

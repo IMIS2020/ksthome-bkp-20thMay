@@ -1,6 +1,126 @@
 <template>
-<section class="page-main">
-        <div class="container">
+   <body id="page-top" class="grey-bg">
+    <div id="wrapper" style="height: 100vh;">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-custom p-0">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15 text-white"><i class="fas fa-building"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>S-ILF</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin"><i class="fas fa-home"></i><span>Home</span></router-link></li>
+                    <li class="nav-item">
+                        <div class="nav-item dropdown shadow-lg nav-dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><i class="fas fa-money-bill-wave"></i><span>Dropdown Menu</span></a>
+                            <div class="dropdown-menu dr-cs"><a class="dropdown-item" href="#"><i class="fas fa-money-bill-wave"></i>&nbsp;Dropdown Menu</a></div>
+                        </div>
+                    </li>
+                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-domains"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
+                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li>
+                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-details"><i class="fas fa-sticky-note"></i><span>Manage Applications</span></router-link></li>
+                    
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content" class="grey-bg">
+                <nav class="navbar navbar-light navbar-expand shadow topbar static-top top-nav">
+                    <div class="container-fluid"><a class="navbar-brand text-uppercase text-white" href="#"><strong>S-ILF scholarships</strong></a><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <ul class="navbar-nav flex-nowrap ml-auto">
+                            <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><i class="fas fa-search"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" aria-labelledby="searchDropdown">
+                                    <form class="form-inline mr-auto navbar-search w-100">
+                                        <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
+                                            <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                            <!-- <li class="nav-item dropdown no-arrow mx-1">
+                                <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="badge badge-danger badge-counter">3+</span><i class="fas fa-bell fa-fw"></i></a>
+                                    <div class="dropdown-menu dropdown-list dropdown-menu-right animated--grow-in">
+                                        <h6 class="dropdown-header">notifications center</h6><a class="d-flex align-items-center dropdown-item" href="#">
+                                            <div class="mr-3">
+                                                <div class="icon-circle gold-bg"><i class="fas fa-file-alt text-white"></i></div>
+                                            </div>
+                                            <div><span class="small">December 12, 2019</span>
+                                                <p><strong><em>A new monthly report is ready to download!</em></strong></p>
+                                            </div>
+                                        </a><a class="d-flex align-items-center dropdown-item" href="#">
+                                            <div class="mr-3">
+                                                <div class="icon-circle gold-bg"><i class="fas fa-file-alt text-white"></i></div>
+                                            </div>
+                                            <div><span class="small">December 12, 2019</span>
+                                                <p><strong><em>A new monthly report is ready to download!</em></strong></p>
+                                            </div>
+                                        </a><a class="d-flex align-items-center dropdown-item" href="#">
+                                            <div class="mr-3">
+                                                <div class="icon-circle gold-bg"><i class="fas fa-file-alt text-white"></i></div>
+                                            </div>
+                                            <div><span class="small">December 12, 2019</span>
+                                                <p><strong><em>A new monthly report is ready to download!</em></strong></p>
+                                            </div>
+                                        </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a>
+                                    </div>
+                                </div>
+                            </li> -->
+                            <!-- <li class="nav-item dropdown no-arrow mx-1">
+                                <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><i class="fas fa-envelope fa-fw"></i><span class="badge badge-danger badge-counter">7</span></a>
+                                    <div class="dropdown-menu dropdown-list dropdown-menu-right animated--grow-in">
+                                        <h6 class="dropdown-header">messages center</h6><a class="d-flex align-items-center dropdown-item" href="#">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatar_2x.png">
+                                                <div class="bg-success status-indicator"></div>
+                                            </div>
+                                            <div class="font-weight-bold">
+                                                <div class="text-truncate"><span>Hi there! I am wondering if you can help me with a problem I've been having.</span></div>
+                                                <p class="small mb-0">Emily Fowler - 58m</p>
+                                            </div>
+                                        </a><a class="d-flex align-items-center dropdown-item" href="#">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatar_2x.png">
+                                                <div class="status-indicator"></div>
+                                            </div>
+                                            <div class="font-weight-bold">
+                                                <div class="text-truncate"><span>I have the photos that you ordered last month!</span></div>
+                                                <p class="small mb-0">Jae Chun - 1d</p>
+                                            </div>
+                                        </a><a class="d-flex align-items-center dropdown-item" href="#">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatar_2x.png">
+                                                <div class="bg-warning status-indicator"></div>
+                                            </div>
+                                            <div class="font-weight-bold">
+                                                <div class="text-truncate"><span>Last month's report looks great, I am very happy with the progress so far, keep up the good work!</span></div>
+                                                <p class="small mb-0">Morgan Alvarez - 2d</p>
+                                            </div>
+                                        </a><a class="d-flex align-items-center dropdown-item" href="#">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatar_2x.png">
+                                                <div class="bg-success status-indicator"></div>
+                                            </div>
+                                            <div class="font-weight-bold">
+                                                <div class="text-truncate"><span>Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</span></div>
+                                                <p class="small mb-0">Chicken the Dog · 2w</p>
+                                            </div>
+                                        </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a>
+                                    </div>
+                                </div>
+                                <div class="shadow dropdown-list dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown"></div>
+                            </li> -->
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow">
+                                <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><img class="border rounded-circle img-profile" src="assets/img/avatar_2x.png"><span class="d-none d-lg-inline ml-2 text-white-600 small"><strong>Administrator</strong></span></a>
+                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a><a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
+                                        <div class="dropdown-divider"></div><button class="dropdown-item" role="button" @click.prevent="logout"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+      <!-- END SIDE AND NAVBAR -->
+
+      <!-- Application tabs -->
+       <div class="container">
             <form @submit.prevent="saveForm">
                 <div class="form-row">
                     <div class="col-xl-12 text-center mb-3">
@@ -1193,7 +1313,9 @@
             </div>
             <!-- End course name modal -->
         </div>
-</section>
+      <!-- End of tabs -->
+
+</body>
 </template>
 
 <script>
@@ -1351,88 +1473,12 @@ export default {
         }
     },
     methods: {
-         saveForm() 
-         {
-            if (this.form.applicationId == '') 
-            {
-                if(this.form.applicantLeprosyAffectedFather == true || this.form.applicantLeprosyAffectedMother == true || this.form.applicantLeprosyAffectedSelf == true)
-                {
-                    axios.post('/api/add-application-form/'+this.userId,this.form)
-                    .then(response => {
-                        if (response.data['success']) {
-                            let applicationId = response.data['data'];
-                            console.log(applicationId);
-                            this.$router.push({ 
-                                path:`/application-form/${applicationId}`,
-                            });
-                            
-                            // if(this.form.hasAdmissionLetter != 'YES') {
-                            //     this.form.instituteId='';
-                            //     this.dataIns('');
-                            //     this.form.courseNameValueId = '';
-                            //     this.form.recognizedByINC='';
-                            // }
-                            this.$fire({
-                                position: 'top',
-                                icon: 'success',
-                                title: "Application Saved",
-                                showConfirmButton: false,
-                                timer: 3000
-                            })
-                            this.readApplicationForm();
-                        } else {
-                            console.log(response.data['msg'])
-                        }
-                    }).catch(error => this.errorMsg(error.response.status))
-                }else{
-                    this.$fire({
-                        position: 'top',
-                        icon: 'error',
-                        title: "At least one family member should be leprosy affected",
-                        showConfirmButton: false,
-                        timer: 3500
-                    })
-                }
-            } else { 
-                if(this.form.applicantLeprosyAffectedFather == true || this.form.applicantLeprosyAffectedMother == true || this.form.applicantLeprosyAffectedSelf == true)
-                {
-                    axios.post('/api/edit-application-form/'+this.form.applicationId,this.form)
-                    .then(response => {
-                        this.readApplicationForm();
-                        if (response.data['success']) {
-                            this.$fire({
-                                position: 'top',
-                                icon: 'success',
-                                title: "Application Updated",
-                                showConfirmButton: false,
-                                timer: 3000
-                            })
-                            if(this.form.hasAdmissionLetter != 'YES') {
-                                this.form.instituteId='';
-                                this.dataIns('');
-                                this.form.courseNameValueId = '';
-                                this.form.recognizedByINC='';
-                            }
-                        } else {
-                            console.log(response.data['msg'])
-                        }
-                    }).catch(error => this.errorMsg(error.response.status))
-                }else{
-                    this.$fire({
-                        position: 'top',
-                        icon: 'error',
-                        title: "At least one family member should be leprosy affected",
-                        showConfirmButton: false,
-                        timer: 3500
-                    })
-                }
-              }
-            },
+         
             async readApplicationForm() 
             {
                 let applicationId = window.location.pathname.split('/').reverse()[0];
                 
-                axios.get(`/api/get-application-form-data/${applicationId}`)
+                axios.get(`/admin/admin-api/get-application-form-data/${applicationId}`)
                 .then(response => {
                     if(response.data['return'])
                     {
@@ -1575,7 +1621,7 @@ export default {
                        }
                     }
                 })
-                axios.get(`/api/get-application-form-data/${applicationId}`)
+                axios.get(`/admin/admin-api/get-application-form-data/${applicationId}`)
                 .then(response => {
                     if (response.data['success']) {
 
@@ -1588,13 +1634,12 @@ export default {
                             this.applicantDisablityFatherShow = true;
                         };
                         
-                       
                     } 
                     else {
                         console.log(response.data['msg'])
                     }
                 })
-                axios.get(`/api/get-application-form-data/${applicationId}`)
+                axios.get(`/admin/admin-api/get-application-form-data/${applicationId}`)
                 .then(response => {
                     if (response.data['success']) {
                         
@@ -1615,60 +1660,14 @@ export default {
                         this.form.mRelationship3 = response.data['data'][2][2].relationship;
                         this.form.miscCourse3= response.data['data'][2][2].course;
                         this.form.miscYear3= response.data['data'][2][2].year;
-                        this.form.ms3 = response.data['data'][2][2].id;
-                        
-                       
+                        this.form.ms3 = response.data['data'][2][2].id; 
                     } 
                     else {
                         console.log(response.data['msg'])
                     }
                 })
             },
-            errorMsg (status) 
-            {
-                switch (status) {
-                    case 422:{
-                        this.$fire({
-                            position: 'top',
-                            icon: 'error',
-                            title: "All required fields must be entered",
-                            showConfirmButton: false,
-                            timer: 3000
-                        })
-                        break;
-                    }
-                    case 405:{
-                        this.$fire({
-                            position: 'top',
-                            icon: 'error',
-                            title: "Something went wrong!",
-                            showConfirmButton: false,
-                            timer: 3000
-                        })
-                        break;
-                    }
-                    case 500:{
-                        // this.$fire({
-                        //     position: 'top',
-                        //     icon: 'error',
-                        //     title: msg,
-                        //     showConfirmButton: false,
-                        //     timer: 3000
-                        // })
-                        break;
-                    }
-                    default: {
-                        this.$fire({
-                            position: 'top',
-                            icon: 'error',
-                            title: "Something went wrong!",
-                            showConfirmButton: false,
-                            timer: 3000
-                        })
-                        break;
-                    }
-                }
-            },
+            
             onSelect(event)
             {
                 
@@ -1692,54 +1691,54 @@ export default {
             },
             readInitialDomainValues()
             {
-                axios.get('/api/domain/examinationLevel')
+                axios.get('/admin/admin-api/domain/examinationLevel')
                     .then(response => {
                         this.getExaminationLevel= response.data;
                         // this.form.education1ExaminationLevel = response.data[0].id;
                     });
-                axios.get('/api/domain/examinationLevel10')
+                axios.get('/admin/admin-api/domain/examinationLevel10')
                     .then(response => {
                         this.getExaminationLevel10= response.data[0].description;
                         this.form.education1ExaminationLevel = response.data[0].id;
                     });
-                axios.get('/api/domain/examinationLevel12')
+                axios.get('/admin/admin-api/domain/examinationLevel12')
                     .then(response => {
                         this.getExaminationLevel12= response.data[0].description;
                         this.form.education2ExaminationLevel = response.data.id;
                     });
-                axios.get('/api/domain/examinationLevel13')
+                axios.get('/admin/admin-api/domain/examinationLevel13')
                     .then(response => {
                         this.getExaminationLevel13= response.data[0].description;
                         this.form.education3ExaminationLevel = response.data[0].id;
                     });
                 
                  //Examination Passed
-                axios.get('/api/domain/examinationPassed10')
+                axios.get('/admin/admin-api/examinationPassed10')
                     .then(response => {
                         this.examinationPassedValues10= response.data;
                     });
-                axios.get('/api/domain/examinationPassed12')
+                axios.get('/admin/admin-api/examinationPassed12')
                     .then(response => {
                         this.examinationPassedValues12= response.data;
                     });
-                axios.get('/api/domain/examinationPassed13')
+                axios.get('/admin/admin-api/examinationPassed13')
                     .then(response => {
                         this.examinationPassedValues13= response.data;
                     });
                  //Board and council
-                axios.get('/api/domain/universityBoardCouncil')
+                axios.get('/admin/admin-api/universityBoardCouncil')
                     .then(response => {
                         this.universityBoardCouncilValues= response.data;
                     });
-                axios.get('/api/domain/universityBoardCouncil10')
+                axios.get('/admin/admin-api/universityBoardCouncil10')
                     .then(response => {
                         this.universityBoardCouncilValues10= response.data;
                     });
-                axios.get('/api/domain/universityBoardCouncil12')
+                axios.get('/admin/admin-api/universityBoardCouncil12')
                     .then(response => {
                         this.universityBoardCouncilValues12= response.data;
                     });
-                axios.get('/api/domain/universityBoardCouncil13')
+                axios.get('/admin/admin-api/universityBoardCouncil13')
                     .then(response => {
                         this.universityBoardCouncilValues13= response.data;
                     });
@@ -1764,113 +1763,42 @@ export default {
                     //     .then(response => {
                     //         this.universityCourseName = response.data;
                     //     });   
-                    axios.get('/api/domain/course-level/hhdls')
+                    axios.get('/admin/admin-api/course-level/hhdls')
                         .then(response => {
                             this.universityCourseLevel= response.data;
                         });
                 }else 
                 {
-                    axios.get('/api/domain/course-name/nursing')
+                    axios.get('/admin/admin-api/course-name/nursing')
                         .then(response => {
                             this.universityCourseName = response.data;
                         }); 
-                     axios.get('/api/domain/course-level/nursing')
+                     axios.get('/admin/admin-api/course-level/nursing')
                         .then(response => {
                             this.universityCourseLevel= response.data;
                         });
-                }
-             
-               
-            },
-            saveDomainValues()
-            {
-                axios.post('/api/domain/add',this.domainForm)
-                    .then(response => {
-                        if (response.data['success']) {
-                            this.readInitialDomainValues();
-                            let showMsg = '';
-                            if(this.domainForm.domainName == 'ExamPassed')
-                            {
-                                showMsg = 'Examination Passed'
-                            }else if(this.domainForm.domainName == 'UnivBoard')
-                            {
-                                showMsg = 'University/Board'
-                            }else if(this.domainForm.domainName == 'CourseLevel')
-                            {
-                                showMsg = 'Course Level'
-                            }else if(this.domainForm.domainName == 'CourseName')
-                            {
-                                showMsg = 'Course Name'
-                            }
-                            // this.domainForm.domainName = '';
-                            this.domainForm.dValue = '';
-                            this.domainForm.dDesc = '';
-                            this.domainForm.domainLevel = null;
-                            this.domainForm.domainLevel2 = null;
-                            this.$fire({
-                                position: 'top',
-                                icon: 'success',
-                                title: "Added new "+showMsg,
-                                showConfirmButton: false,
-                                timer: 3000
-                            });
-                            
-                        } else {
-                            // let msg = response.data['msg'];
-                            // console.log(response.data['msg'])
-                             this.$fire({
-                                position: 'top',
-                                icon: 'error',
-                                title: "Value exsists could not add",
-                                showConfirmButton: false,
-                                timer: 3000
-                            });
-                        }
-                })
-            },
-            addName(data)
-            {
-                this.domainForm.domainName = data;
-            },
+                     }
+                 },
+           
+                addName(data)
+                {
+                    this.domainForm.domainName = data;
+                },
             //institute
-            readInsValue(type)
-            {
-                axios.get('/api/institute/get-data/'+type)
-                    .then(response => {
-                        this.insData = response.data;
-                    });
-            },
-            saveInstitute()
-            {
-                axios.post('/api/institute/add',this.insForm)
-                .then(response => {
-                    if (response.data['success']) {
-                        
-                        this.readInsValue(this.insForm.insType);
-                        
-                        this.$fire({
-                            position: 'top',
-                            icon: 'success',
-                            title: "Added new Institute",
-                            showConfirmButton: false,
-                            timer: 3000
+                readInsValue(type)
+                {
+                    axios.get('/admin/admin-api/institute/get-data/'+type)
+                        .then(response => {
+                            this.insData = response.data;
                         });
-                        this.insForm.insName='';
-                        this.insForm.insAddressCity='';
-                        this.insForm.insAddressDistprov='';
-                        this.insForm.insAddressState='';
-                        
-                    } else {
-                        console.log(response.data['msg'])
-                    }
-                }).catch(error => this.errorMsg(error.response.status))
-            },
+                },
+          
             onChangeIns(event)
             {
                 this.insId = event.target.value;
                 console.log(this.insId);
                 if(this.insId != 'Others'){
-                   axios.get('/api/institute/get-details/'+this.insId)
+                   axios.get('/admin/admin-api/institute/get-details/'+this.insId)
                         .then(response => {
                             if (response.data['success']) {
                                 this.form.insAddressAddln1 = response.data['data'][0].get_address.addressAddln1;
@@ -1900,7 +1828,7 @@ export default {
                         this.form.insAddressState = '';
                         this.form.insAddressPinzip = '';
                     }else{
-                        axios.get('/api/institute/get-details/'+id)
+                        axios.get('/admin/admin-api/institute/get-details/'+id)
                         .then(response => {
                             if (response.data['success']) {
                                 this.form.insAddressAddln1 = response.data['data'][0].get_address.addressAddln1;
@@ -1953,15 +1881,14 @@ export default {
             getHHDLSData(event)
             {
                 let id = event.target.value;
-                axios.get('/api/domain/course-name/hhdls/'+id)
+                axios.get('/admin/admin-api/domain/course-name/hhdls/'+id)
                     .then(response => {
                         this.universityCourseName = response.data;
                     });   
             },
             getHHDLSData2(id)
             {
-                
-                axios.get('/api/domain/course-name/hhdls/'+id)
+                axios.get('/admin/admin-api/domain/course-name/hhdls/'+id)
                     .then(response => {
                         this.universityCourseName = response.data;
                     });  
@@ -2010,8 +1937,6 @@ export default {
                 
             }
 
-
-            
          },
          computed:{
              
@@ -2023,9 +1948,6 @@ export default {
             this.checkNewScholarshipType();
             this.readInitialDomainValues();
             // this.chcekUpDisable();
-       
          }
-
-
 }
  </script>

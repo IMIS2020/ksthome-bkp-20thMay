@@ -245,7 +245,7 @@ export default{
                  */
 
                  /****
-                 * API Call for Institue details 
+                 * API Call for Institute details 
                  */
                 {
                     path:'/api/institute/get-data/:type',
@@ -335,7 +335,7 @@ export default{
                  */
 
                 {
-                    path: '/admin/review-application-form',
+                    path: '/admin/review-application-form/:applicationId',
                     component:AdminApplicantForm,
                     name: "review-application-form"
                 },
@@ -439,6 +439,93 @@ export default{
                  * 
                  *End of Admin Side vue application
                  */
+
+                  /****
+                 * API Call for admin domainValues 
+                 */
+                {
+                    path:'/admin/admin-api/domain/examinationLevel',
+                },
+                {
+                    path:'/admin/admin-api/domain/examinationLevel10',
+                },
+                {
+                    path:'/admin/admin-api/domain/examinationLevel12',
+                },
+                {
+                    path:'/admin/admin-api/domain/examinationLevel13',
+                },
+                {
+                    path:'/admin/admin-api/domain/examinationPassed10',
+                },
+                {
+                    path:'/admin/admin-api/domain/examinationPassed12',
+                },
+                {
+                    path:'/admin/admin-api/domain/examinationPassed13',
+                },
+                {
+                    path:'/admin/admin-api/domain/universityBoardCouncil',
+                },
+                {
+                    path:'/admin/admin-api/domain/universityBoardCouncil10',
+                },
+                {
+                    path:'/admin/admin-api/domain/universityBoardCouncil12',
+                },
+                {
+                    path:'/admin/admin-api/domain/universityBoardCouncil13',
+                },
+                {
+                    path:'/admin/admin-api/domain/scholarship',
+                },
+                {
+                    path:'/admin/admin-api/domain/course-level/hhdls',
+                },
+                {
+                    path:'/admin/admin-api/domain/course-level/nursing',
+                },
+                {
+                    path:'/admin/admin-api/domain/course-name/hhdls/:id',
+                },
+                {
+                    path:'/admin/admin-api/domain/course-name/nursing',
+                },
+                {
+                    path:'/admin/admin-api/domain/add',
+                },
+                /****
+                 * End API calls for admin domainValues
+                 */
+
+                 /****
+                 * API Call for admin Institute details 
+                 */
+                  {
+                    path:'/admin/admin-api/institute/get-data/:type',
+                },
+                {
+                    path:'/admin/admin-api/institute/add',
+                },
+                {
+                    path:'/admin/admin-api/institute/get-details/:insId',
+                },
+                 /****
+                 * End API calls for admin Institute details
+                 */
+
+                 /***
+                 * Doc Master admin Api call
+                 */
+                    {
+                        path:'/admin/admin-api/doc-master',
+                    },
+                /***
+                 * End Doc Master admin Api call
+                 */
+
+
+
 
  ]
 }

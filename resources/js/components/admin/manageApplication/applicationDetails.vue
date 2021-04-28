@@ -217,7 +217,7 @@
                                                             <a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
                                                             <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in">
                                                                 <!-- <a class="dropdown-item" href="#"><strong>Review Application</strong></a> -->
-                                                                <a class="dropdown-item" href="#"><strong>View Application</strong></a>
+                                                                    <router-link class="dropdown-item" :to="'/admin/review-application-form/'+eachData.schApplicationId"><strong>View Application</strong></router-link>
                                                                 <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#view-application-comments"><strong>View Comments</strong></a> -->
                                                             </div>
                                                         </div>
@@ -475,11 +475,12 @@ export default {
                    this.getAllData = response.data
              });
         },
-      logout(){
-         axios.get('/admin/logout').then(function(){
-            document.location.href = "/admin/login";
-         })
-      },
+            logout()
+            {
+                axios.get('/admin/logout').then(function(){
+                    document.location.href = "/admin/login";
+                })
+            },
     },
 
     created()

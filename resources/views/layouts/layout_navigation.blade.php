@@ -50,7 +50,7 @@
 
         <li class="nav-item dropdown">
             <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Contact Us
+           <strong>Contact Us</strong> 
             </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item color-mg" ><strong>Phone : <br>9990503759 or <br>9891572290</strong></a>

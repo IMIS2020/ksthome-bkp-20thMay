@@ -3753,6 +3753,1908 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/manageApplication/reviewApplication/applicantForm.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/manageApplication/reviewApplication/applicantForm.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      inputDisabled: false,
+      globalDisable: false,
+      // csrf:   document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+      userId: document.querySelector("meta[name='userId']").getAttribute('content'),
+      applicantDisablitySelfShow: true,
+      applicantDisablityMotherShow: true,
+      applicantDisablityFatherShow: true,
+      getExaminationLevel: {},
+      getExaminationLevel10: '',
+      getExaminationLevel12: '',
+      getExaminationLevel13: '',
+      examinationPassedValues: {},
+      examinationPassedValues10: {},
+      examinationPassedValues12: {},
+      examinationPassedValues13: {},
+      universityBoardCouncilValues: {},
+      universityBoardCouncilValues10: {},
+      universityBoardCouncilValues12: {},
+      universityBoardCouncilValues13: {},
+      universityCourseLevel: {},
+      universityCourseName: {},
+      domainForm: {
+        domianLevel: '',
+        domainName: '',
+        dValue: '',
+        dDesc: ''
+      },
+      form: {
+        csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        applicationId: '',
+        scholarshipType: '',
+        applicantNameF: document.querySelector("meta[name='firstname']").getAttribute('content'),
+        applicantNameM: document.querySelector("meta[name='middlename']").getAttribute('content'),
+        applicantNameL: document.querySelector("meta[name='lastname']").getAttribute('content'),
+        applicantFatherName: '',
+        applicantMotherName: '',
+        applicantDOB: '',
+        applicantGender: '',
+        applicantLeprosyAffectedSelf: false,
+        applicantLeprosyAffectedFather: false,
+        applicantLeprosyAffectedMother: false,
+        applicantDisablitySelf: false,
+        applicantDisablityFather: false,
+        applicantDisablityMother: false,
+        applicantHasBPLCard: '',
+        applicantDomicileState: '',
+        applicantColonyName: '',
+        applicantColonyleaderName: '',
+        addressAddln1: '',
+        addressAddln2: '',
+        addressCity: '',
+        addressDistprov: '',
+        addressState: '',
+        addressPinzip: '',
+        applicantContactNoSelf: document.querySelector("meta[name='contactno']").getAttribute('content'),
+        applicantContactNoGuardian: '',
+        applicantEmailId: document.querySelector("meta[name='email']").getAttribute('content'),
+        applicantContactNoColonyLeader: '',
+        financialYear: '',
+        //education level 10
+        education1ExaminationLevel: '',
+        education1ExaminationPassed: '',
+        education1University: '',
+        education1MainSubjects: '',
+        education1YearOfPassing: '',
+        education1Percentage: '',
+        education1Division: '',
+        //education level 12
+        education2ExaminationLevel: '',
+        education2ExaminationPassed: '',
+        education2University: '',
+        education2MainSubjects: '',
+        education2YearOfPassing: '',
+        education2Percentage: '',
+        education2Division: '',
+        //education level graduate for HHDLS only (13)
+        education3ExaminationLevel: '',
+        education3ExaminationPassed: '',
+        education3University: '',
+        education3MainSubjects: '',
+        education3YearOfPassing: '',
+        education3Percentage: '',
+        education3Division: '',
+        //end Education
+        //additional qualification
+        additional1ExaminationLevel: '10',
+        additional1ExaminationPassed: '',
+        additional1University: '',
+        additional1MainSubjects: '',
+        additional1YearOfPassing: '',
+        additional1Percentage: '',
+        additional1Division: '',
+        additional2ExaminationLevel: '12',
+        additional2ExaminationPassed: '',
+        additional2University: '',
+        additional2MainSubjects: '',
+        additional2YearOfPassing: '',
+        additional2Percentage: '',
+        additional2Division: '',
+        //end of qualification
+        hasAdmissionLetter: 'YES',
+        courseLevelValueId: '',
+        courseNameValueId: '',
+        instituteId: '',
+        // insCourse:'',
+        // insName:'',
+        insAddressAddln1: '',
+        insAddressAddln2: '',
+        insAddressCity: '',
+        insAddressDistprov: '',
+        insAddressState: '',
+        insAddressPinzip: '',
+        recognizedByINC: '',
+        miscName1: '',
+        miscCourse1: '',
+        miscYear1: '',
+        miscName2: '',
+        miscCourse2: '',
+        miscYear2: '',
+        miscName3: '',
+        miscCourse3: '',
+        miscYear3: '',
+        mRelationship1: "",
+        mRelationship2: "",
+        mRelationship3: "",
+        ms1: "",
+        ms2: "",
+        ms3: "",
+        appIdShow: ''
+      },
+      getdata: {},
+      errors: '',
+      error: [],
+      //institute
+      insData: {},
+      insId: '',
+      insForm: {
+        insName: '',
+        insType: '',
+        insAddressAddln1: '',
+        insAddressAddln2: '',
+        insAddressCity: '',
+        insAddressDistprov: '',
+        insAddressState: '',
+        insAddressPinzip: ''
+      }
+    };
+  },
+  methods: {
+    readApplicationForm: function readApplicationForm() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var applicationId;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                applicationId = window.location.pathname.split('/').reverse()[0];
+                axios.get("/admin/admin-api/get-application-form-data/".concat(applicationId)).then(function (response) {
+                  if (response.data['return']) {
+                    _this.$router.push({
+                      path: "/manage-my-application"
+                    });
+
+                    _this.$fire({
+                      position: 'top',
+                      icon: 'Error',
+                      title: "New application no allowed as You already have an application for this schloarship type",
+                      showConfirmButton: false,
+                      timer: 3500
+                    });
+                  }
+
+                  if (response.data['success']) {
+                    _this.form.applicationId = response.data['data'][0][0].schApplicationId;
+                    _this.form.scholarshipType = response.data['data'][0][0].scholarshipType;
+                    _this.form.applicantNameF = response.data['data'][0][0].applicantNameF;
+                    _this.form.applicantNameM = response.data['data'][0][0].applicantNameM;
+                    _this.form.applicantNameL = response.data['data'][0][0].applicantNameL;
+                    _this.form.applicantFatherName = response.data['data'][0][0].applicantFatherName;
+                    _this.form.applicantMotherName = response.data['data'][0][0].applicantMotherName;
+                    _this.form.applicantDOB = response.data['data'][0][0].applicantDOB;
+                    _this.form.applicantGender = response.data['data'][0][0].applicantGender, _this.form.applicantLeprosyAffectedSelf = response.data['data'][0][0].applicantLeprosyAffectedSelf;
+                    _this.form.applicantLeprosyAffectedFather = response.data['data'][0][0].applicantLeprosyAffectedFather;
+                    _this.form.applicantLeprosyAffectedMother = response.data['data'][0][0].applicantLeprosyAffectedMother;
+                    _this.form.applicantDisablityMother = response.data['data'][0][0].applicantDisablityMother;
+                    _this.form.applicantDisablityFather = response.data['data'][0][0].applicantDisablityFather;
+                    _this.form.applicantDisablitySelf = response.data['data'][0][0].applicantDisablitySelf;
+                    _this.form.applicantHasBPLCard = response.data['data'][0][0].applicantHasBPLCard;
+                    _this.form.applicantDomicileState = response.data['data'][0][0].applicantDomicileState;
+                    _this.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
+                    _this.form.addressAddln2 = response.data['data'][0][0].get_address.addressAddln2;
+                    _this.form.addressCity = response.data['data'][0][0].get_address.addressCity;
+                    _this.form.addressDistprov = response.data['data'][0][0].get_address.addressDistprov;
+                    _this.form.addressState = response.data['data'][0][0].get_address.addressState;
+                    _this.form.addressPinzip = response.data['data'][0][0].get_address.addressPinzip;
+                    _this.form.applicantContactNoSelf = response.data['data'][0][0].applicantContactNoSelf;
+                    _this.form.applicantContactNoGuardian = response.data['data'][0][0].applicantContactNoGuardian;
+                    _this.form.applicantEmailId = response.data['data'][0][0].applicantEmailId;
+                    _this.form.applicantContactNoColonyLeader = response.data['data'][0][0].applicantContactNoColonyLeader;
+                    _this.form.financialYear = response.data['data'][0][0].financialYear;
+                    _this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
+                    _this.form.appStatus = response.data['data'][0][0].appStatus;
+                    _this.form.applicantColonyleaderName = response.data['data'][0][0].applicantColonyLeaderName;
+                    _this.insForm.insType = response.data['data'][0][0].scholarshipType;
+                    _this.form.appIdShow = response.data['data'][0][0].appIdShow;
+
+                    _this.readInsValue(_this.form.scholarshipType);
+
+                    _this.readDomainValues(_this.form.scholarshipType);
+
+                    _this.chcekUpDisable(); // this.chcekUpDisable();
+                    // if(this.form.appStatus == 'Submit')
+                    // {
+                    //     this.inputDisabled = true;
+                    //     this.globalDisable = true;
+                    //     this.applicantDisablitySelfShow = true;
+                    //     this.applicantDisablityMotherShow = true;
+                    //     this.applicantDisablityFatherShow = true;
+                    // };
+
+
+                    if (_this.form.hasAdmissionLetter == 'YES') {
+                      _this.inputDisabled = false; // this.form.insCourse=response.data['data'][0][0].get_institute.,
+
+                      _this.form.instituteId = response.data['data'][0][0].instituteId, _this.dataIns(response.data['data'][0][0].instituteId), _this.form.courseLevelValueId = response.data['data'][0][0].courseLevelValueId, _this.form.courseNameValueId = response.data['data'][0][0].courseNameValueId, // this.form.insAddressAddln1=response.data['data'][0][0].courseNameValue,
+                      // this.form.insAddressAddln2=response.data['data'][0][0].get_institute.addressAddln2,
+                      // this.form.insAddressCity=response.data['data'][0][0].get_institute.addressCity,
+                      // this.form.insAddressDistprov=response.data['data'][0][0].get_institute.addressDistprov,
+                      // this.form.insAddressState=response.data['data'][0][0].get_institute.addressState,
+                      // this.form.insAddressPinzip=response.data['data'][0][0].get_institute.addressPinzip,
+                      _this.getHHDLSData2(_this.form.courseLevelValueId);
+                      _this.form.recognizedByINC = response.data['data'][0][0].recognizedByINC;
+                    } else {
+                      _this.inputDisabled = true;
+                    }
+
+                    ; //education level 10
+
+                    if (response.data['data'][1][0].get_exam_level_domain_values.id == 1) {
+                      // this.form.education1ExaminationLevel='10',
+                      _this.form.education1ExaminationPassed = response.data['data'][1][0].get_exam_passed_domain_values.id, _this.form.education1University = response.data['data'][1][0].get_exam_board_domain_values.id, _this.form.education1MainSubjects = response.data['data'][1][0].mainSubjects, _this.form.education1YearOfPassing = response.data['data'][1][0].yearOfPassing, _this.form.education1Percentage = response.data['data'][1][0].percentage, _this.form.education1Division = response.data['data'][1][0].division;
+                    }
+
+                    ; //education level 12
+
+                    if (response.data['data'][1][1].get_exam_level_domain_values.id == 2) {
+                      // this.form.education2ExaminationLevel='12',
+                      _this.form.education2ExaminationPassed = response.data['data'][1][1].get_exam_passed_domain_values.id, _this.form.education2University = response.data['data'][1][1].get_exam_board_domain_values.id, _this.form.education2MainSubjects = response.data['data'][1][1].mainSubjects, _this.form.education2YearOfPassing = response.data['data'][1][1].yearOfPassing, _this.form.education2Percentage = response.data['data'][1][1].percentage, _this.form.education2Division = response.data['data'][1][1].division;
+                    }
+
+                    ; //education level graduate for HHDLS only (13)
+
+                    if (_this.form.scholarshipType == 'HHDLS') {
+                      if (response.data['data'][1][2].get_exam_level_domain_values.id == 3) {
+                        // this.form.education3ExaminationLevel='13',
+                        _this.form.education3ExaminationPassed = response.data['data'][1][2].get_exam_passed_domain_values.id, _this.form.education3University = response.data['data'][1][2].get_exam_board_domain_values.id, _this.form.education3MainSubjects = response.data['data'][1][2].mainSubjects, _this.form.education3YearOfPassing = response.data['data'][1][2].yearOfPassing, _this.form.education3Percentage = response.data['data'][1][2].percentage, _this.form.education3Division = response.data['data'][1][2].division;
+                      }
+
+                      ;
+                    } //  this.readInsValue(this.form.scholarshipType);
+                    //  this.readDomainValues(this.form.scholarshipType);
+                    // console.log(response.data['data'][2][0].relationship);
+
+                  } else {
+                    if (response.data['timeout']) {
+                      _this.inputDisabled = true;
+                      _this.globalDisable = true;
+                      _this.applicantDisablitySelfShow = true;
+                      _this.applicantDisablityMotherShow = true;
+                      _this.applicantDisablityFatherShow = true;
+
+                      _this.$router.push({
+                        path: "/manage-my-application"
+                      });
+
+                      _this.$fire({
+                        position: 'top',
+                        icon: 'Error',
+                        title: '' + response.data['msg'],
+                        showConfirmButton: false,
+                        timer: 3500
+                      });
+                    }
+                  }
+                });
+                axios.get("/admin/admin-api/get-application-form-data/".concat(applicationId)).then(function (response) {
+                  if (response.data['success']) {
+                    if (_this.form.appStatus == 'Submit') {
+                      _this.inputDisabled = true;
+                      _this.globalDisable = true;
+                      _this.applicantDisablitySelfShow = true;
+                      _this.applicantDisablityMotherShow = true;
+                      _this.applicantDisablityFatherShow = true;
+                    }
+
+                    ;
+                  } else {
+                    console.log(response.data['msg']);
+                  }
+                });
+                axios.get("/admin/admin-api/get-application-form-data/".concat(applicationId)).then(function (response) {
+                  if (response.data['success']) {
+                    _this.form.miscName1 = response.data['data'][2][0].name;
+                    _this.form.mRelationship1 = response.data['data'][2][0].relationship;
+                    _this.form.miscCourse1 = response.data['data'][2][0].course;
+                    _this.form.miscYear1 = response.data['data'][2][0].year;
+                    _this.form.ms1 = response.data['data'][2][0].id;
+                    _this.form.miscName2 = response.data['data'][2][1].name;
+                    _this.form.mRelationship2 = response.data['data'][2][1].relationship;
+                    _this.form.miscCourse2 = response.data['data'][2][1].course;
+                    _this.form.miscYear2 = response.data['data'][2][1].year;
+                    _this.form.ms2 = response.data['data'][2][1].id;
+                    _this.form.miscName3 = response.data['data'][2][2].name;
+                    _this.form.mRelationship3 = response.data['data'][2][2].relationship;
+                    _this.form.miscCourse3 = response.data['data'][2][2].course;
+                    _this.form.miscYear3 = response.data['data'][2][2].year;
+                    _this.form.ms3 = response.data['data'][2][2].id;
+                  } else {
+                    console.log(response.data['msg']);
+                  }
+                });
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    onSelect: function onSelect(event) {
+      if (event.target.value == 'YES') {
+        this.inputDisabled = false;
+      } else {
+        this.inputDisabled = true;
+      }
+    },
+    checkNewScholarshipType: function checkNewScholarshipType() {
+      if (this.form.applicationId == '') {
+        this.form.scholarshipType = window.location.pathname.split('/').reverse()[0];
+      }
+
+      this.insForm.insType = this.form.scholarshipType;
+      this.readDomainValues(this.form.scholarshipType);
+      this.readInsValue(this.form.scholarshipType);
+    },
+    readInitialDomainValues: function readInitialDomainValues() {
+      var _this2 = this;
+
+      axios.get('/admin/admin-api/domain/examinationLevel').then(function (response) {
+        _this2.getExaminationLevel = response.data; // this.form.education1ExaminationLevel = response.data[0].id;
+      });
+      axios.get('/admin/admin-api/domain/examinationLevel10').then(function (response) {
+        _this2.getExaminationLevel10 = response.data[0].description;
+        _this2.form.education1ExaminationLevel = response.data[0].id;
+      });
+      axios.get('/admin/admin-api/domain/examinationLevel12').then(function (response) {
+        _this2.getExaminationLevel12 = response.data[0].description;
+        _this2.form.education2ExaminationLevel = response.data.id;
+      });
+      axios.get('/admin/admin-api/domain/examinationLevel13').then(function (response) {
+        _this2.getExaminationLevel13 = response.data[0].description;
+        _this2.form.education3ExaminationLevel = response.data[0].id;
+      }); //Examination Passed
+
+      axios.get('/admin/admin-api/examinationPassed10').then(function (response) {
+        _this2.examinationPassedValues10 = response.data;
+      });
+      axios.get('/admin/admin-api/examinationPassed12').then(function (response) {
+        _this2.examinationPassedValues12 = response.data;
+      });
+      axios.get('/admin/admin-api/examinationPassed13').then(function (response) {
+        _this2.examinationPassedValues13 = response.data;
+      }); //Board and council
+
+      axios.get('/admin/admin-api/universityBoardCouncil').then(function (response) {
+        _this2.universityBoardCouncilValues = response.data;
+      });
+      axios.get('/admin/admin-api/universityBoardCouncil10').then(function (response) {
+        _this2.universityBoardCouncilValues10 = response.data;
+      });
+      axios.get('/admin/admin-api/universityBoardCouncil12').then(function (response) {
+        _this2.universityBoardCouncilValues12 = response.data;
+      });
+      axios.get('/admin/admin-api/universityBoardCouncil13').then(function (response) {
+        _this2.universityBoardCouncilValues13 = response.data;
+      }); //Course Level
+      // console.log(this.form.scholarshipType)
+      // if(this.form.scholarshipType == 'HHDLS')
+      // {
+      //     console.log("test")
+      // }else 
+      // {
+      // };
+    },
+    readDomainValues: function readDomainValues(type) {
+      var _this3 = this;
+
+      if (type == 'HHDLS') {
+        // axios.get('/api/domain/course-name/hhdls')
+        //     .then(response => {
+        //         this.universityCourseName = response.data;
+        //     });   
+        axios.get('/admin/admin-api/course-level/hhdls').then(function (response) {
+          _this3.universityCourseLevel = response.data;
+        });
+      } else {
+        axios.get('/admin/admin-api/course-name/nursing').then(function (response) {
+          _this3.universityCourseName = response.data;
+        });
+        axios.get('/admin/admin-api/course-level/nursing').then(function (response) {
+          _this3.universityCourseLevel = response.data;
+        });
+      }
+    },
+    addName: function addName(data) {
+      this.domainForm.domainName = data;
+    },
+    //institute
+    readInsValue: function readInsValue(type) {
+      var _this4 = this;
+
+      axios.get('/admin/admin-api/institute/get-data/' + type).then(function (response) {
+        _this4.insData = response.data;
+      });
+    },
+    onChangeIns: function onChangeIns(event) {
+      var _this5 = this;
+
+      this.insId = event.target.value;
+      console.log(this.insId);
+
+      if (this.insId != 'Others') {
+        axios.get('/admin/admin-api/institute/get-details/' + this.insId).then(function (response) {
+          if (response.data['success']) {
+            _this5.form.insAddressAddln1 = response.data['data'][0].get_address.addressAddln1;
+            _this5.form.insAddressAddln2 = response.data['data'][0].get_address.addressAddln2;
+            _this5.form.insAddressCity = response.data['data'][0].get_address.addressCity;
+            _this5.form.insAddressDistprov = response.data['data'][0].get_address.addressDistprov;
+            _this5.form.insAddressState = response.data['data'][0].get_address.addressState;
+            _this5.form.insAddressPinzip = response.data['data'][0].get_address.addressPinzip;
+          } else {
+            console.log(response.data['msg']);
+          }
+        })["catch"](function (error) {
+          return _this5.errorMsg(error.response.status);
+        });
+      }
+    },
+    dataIns: function dataIns(id) {
+      var _this6 = this;
+
+      if (this.insId != 'Others') {
+        if (id == '') {
+          this.form.insAddressAddln1 = '';
+          this.form.insAddressAddln2 = '';
+          this.form.insAddressCity = '';
+          this.form.insAddressDistprov = '';
+          this.form.insAddressState = '';
+          this.form.insAddressPinzip = '';
+        } else {
+          axios.get('/admin/admin-api/institute/get-details/' + id).then(function (response) {
+            if (response.data['success']) {
+              _this6.form.insAddressAddln1 = response.data['data'][0].get_address.addressAddln1;
+              _this6.form.insAddressAddln2 = response.data['data'][0].get_address.addressAddln2;
+              _this6.form.insAddressCity = response.data['data'][0].get_address.addressCity;
+              _this6.form.insAddressDistprov = response.data['data'][0].get_address.addressDistprov;
+              _this6.form.insAddressState = response.data['data'][0].get_address.addressState;
+              _this6.form.insAddressPinzip = response.data['data'][0].get_address.addressPinzip;
+            } else {
+              console.log(response.data['msg']);
+            }
+          })["catch"](function (error) {
+            return _this6.errorMsg(error.response.status);
+          });
+        }
+      }
+    },
+    check1: function check1(event) {
+      if (event.target.value == 'on') {
+        this.applicantDisablitySelfShow = false;
+      }
+
+      this.applicantDisablitySelfShow = this.form.applicantLeprosyAffectedSelf;
+      this.form.applicantDisablitySelf = false;
+    },
+    check2: function check2(event) {
+      if (event.target.value == 'on') {
+        this.applicantDisablityFatherShow = false;
+      }
+
+      this.applicantDisablityFatherShow = this.form.applicantLeprosyAffectedFather;
+      this.form.applicantDisablityFather = false;
+    },
+    check3: function check3(event) {
+      if (event.target.value == 'on') {
+        this.applicantDisablityMotherShow = false;
+      }
+
+      this.applicantDisablityMotherShow = this.form.applicantLeprosyAffectedMother;
+      this.form.applicantDisablityMother = false;
+    },
+    getHHDLSData: function getHHDLSData(event) {
+      var _this7 = this;
+
+      var id = event.target.value;
+      axios.get('/admin/admin-api/domain/course-name/hhdls/' + id).then(function (response) {
+        _this7.universityCourseName = response.data;
+      });
+    },
+    getHHDLSData2: function getHHDLSData2(id) {
+      var _this8 = this;
+
+      axios.get('/admin/admin-api/domain/course-name/hhdls/' + id).then(function (response) {
+        _this8.universityCourseName = response.data;
+      });
+    },
+    deleteFile: function deleteFile() {
+      this.form.education3ExaminationLevel = '', this.form.education3ExaminationPassed = '', this.form.education3University = '', this.form.education3MainSubjects = '', this.form.education3YearOfPassing = '', this.form.education3Percentage = '', this.form.education3Division = '';
+    },
+    chcekUpDisable: function chcekUpDisable() {
+      this.applicantDisablityFatherShow = !this.form.applicantLeprosyAffectedFather;
+      this.applicantDisablityMotherShow = !this.form.applicantLeprosyAffectedMother;
+      this.applicantDisablitySelfShow = !this.form.applicantLeprosyAffectedSelf;
+    },
+    deleteMis: function deleteMis(index) {
+      switch (index) {
+        case 1:
+          this.form.miscName1 = '';
+          this.form.miscCourse1 = '';
+          this.form.miscYear1 = '';
+          this.form.mRelationship1 = "";
+          break;
+
+        case 2:
+          this.form.miscName2 = '';
+          this.form.miscCourse2 = '';
+          this.form.miscYear2 = '';
+          this.form.mRelationship2 = "";
+          break;
+
+        case 3:
+          this.form.miscName3 = '';
+          this.form.miscCourse3 = '';
+          this.form.miscYear3 = '';
+          this.form.mRelationship3 = "";
+          break;
+      }
+    }
+  },
+  computed: {},
+  created: function created() {
+    this.readApplicationForm();
+    this.checkNewScholarshipType();
+    this.readInitialDomainValues(); // this.chcekUpDisable();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/applicant/choose.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/applicant/choose.vue?vue&type=script&lang=js& ***!
@@ -5552,6 +7454,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       userId: document.querySelector("meta[name='userId']").getAttribute('content'),
       // docRows1:{},
       // update: false,
+      uploadReady: true,
       globalDisable: false,
       docRows: [{
         id: '',
@@ -5589,6 +7492,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             showConfirmButton: false,
             timer: 3000
           });
+
+          _this.reset();
         } else {
           console.log(response.data['msg']);
         }
@@ -5608,8 +7513,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             icon: 'success',
             title: "Documents Uploaded Successfully",
             showConfirmButton: false,
-            timer: 3000
+            timer: 4000
           });
+
+          _this2.reset();
         } else {
           if (response.data['noData']) {
             _this2.readApplicationForm();
@@ -5619,7 +7526,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               icon: 'success',
               title: "Kindly choose file and then save !",
               showConfirmButton: false,
-              timer: 3000
+              timer: 4000
             });
           }
 
@@ -5631,7 +7538,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               icon: 'success',
               title: "Add only image type file !",
               showConfirmButton: false,
-              timer: 3000
+              timer: 4000
             });
           }
 
@@ -5643,7 +7550,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               icon: 'success',
               title: response.data['msg'],
               showConfirmButton: false,
-              timer: 3000
+              timer: 4000
             });
           }
         }
@@ -5782,9 +7689,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             icon: 'success',
             title: "Document Deleted Successfully",
             showConfirmButton: false,
-            timer: 3000
+            timer: 4000
           });
         }
+      });
+    },
+    reset: function reset() {
+      var _this7 = this;
+
+      this.uploadReady = false;
+      this.$nextTick(function () {
+        _this7.uploadReady = true;
       });
     }
   },
@@ -62275,7 +64190,50 @@ var render = function() {
                                       ]
                                     ),
                                     _vm._v(" "),
-                                    _vm._m(11, true)
+                                    _c(
+                                      "td",
+                                      { staticClass: "text-center w-5x" },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "dropdown no-arrow dr-all"
+                                          },
+                                          [
+                                            _vm._m(11, true),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "dropdown-menu shadow dropdown-menu-right animated--fade-in"
+                                              },
+                                              [
+                                                _c(
+                                                  "router-link",
+                                                  {
+                                                    staticClass:
+                                                      "dropdown-item",
+                                                    attrs: {
+                                                      to:
+                                                        "/admin/review-application-form/" +
+                                                        eachData.schApplicationId
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("strong", [
+                                                      _vm._v("View Application")
+                                                    ])
+                                                  ]
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
                                   ])
                                 }),
                                 0
@@ -62524,36 +64482,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "text-center w-5x" }, [
-      _c("div", { staticClass: "dropdown no-arrow dr-all" }, [
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-sm",
-            attrs: {
-              "aria-expanded": "false",
-              "data-toggle": "dropdown",
-              role: "button",
-              href: "#"
-            }
-          },
-          [_c("i", { staticClass: "fas fa-bars color-mg" })]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "dropdown-menu shadow dropdown-menu-right animated--fade-in"
-          },
-          [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _c("strong", [_vm._v("View Application")])
-            ])
-          ]
-        )
-      ])
-    ])
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-sm",
+        attrs: {
+          "aria-expanded": "false",
+          "data-toggle": "dropdown",
+          role: "button",
+          href: "#"
+        }
+      },
+      [_c("i", { staticClass: "fas fa-bars color-mg" })]
+    )
   },
   function() {
     var _vm = this
@@ -63336,9 +65277,374 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("body", { staticClass: "grey-bg", attrs: { id: "page-top" } }, [
+    _c("div", { staticStyle: { height: "100vh" }, attrs: { id: "wrapper" } }, [
+      _c(
+        "nav",
+        {
+          staticClass:
+            "navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-custom p-0"
+        },
+        [
+          _c("div", { staticClass: "container-fluid d-flex flex-column p-0" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("hr", { staticClass: "sidebar-divider my-0" }),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "navbar-nav text-light",
+                attrs: { id: "accordionSidebar" }
+              },
+              [
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      { staticClass: "nav-link", attrs: { to: "/admin" } },
+                      [
+                        _c("i", { staticClass: "fas fa-home" }),
+                        _c("span", [_vm._v("Home")])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: "/admin/manage-domains" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-wrench" }),
+                        _c("span", [_vm._v("Manage Domains")])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: "/admin/manage-application-schedule" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-calendar-alt" }),
+                        _c("span", [_vm._v("Manage Application Schedule")])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: "/admin/manage-application-details" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-sticky-note" }),
+                        _c("span", [_vm._v("Manage Applications")])
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "d-flex flex-column", attrs: { id: "content-wrapper" } },
+        [
+          _c("div", { staticClass: "grey-bg", attrs: { id: "content" } }, [
+            _c(
+              "nav",
+              {
+                staticClass:
+                  "navbar navbar-light navbar-expand shadow topbar static-top top-nav"
+              },
+              [
+                _c("div", { staticClass: "container-fluid" }, [
+                  _vm._m(2),
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "navbar-nav flex-nowrap ml-auto" }, [
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "d-none d-sm-block topbar-divider"
+                    }),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item dropdown no-arrow" }, [
+                      _c(
+                        "div",
+                        { staticClass: "nav-item dropdown no-arrow dr-not" },
+                        [
+                          _vm._m(5),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "dropdown-menu shadow dropdown-menu-right animated--grow-in"
+                            },
+                            [
+                              _vm._m(6),
+                              _vm._m(7),
+                              _vm._m(8),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "dropdown-divider" }),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: { role: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.logout($event)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass:
+                                      "fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
+                                  }),
+                                  _vm._v(" Logout")
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ])
+        ]
+      )
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass:
+          "navbar-brand d-flex justify-content-center align-items-center sidebar-brand",
+        attrs: { href: "#" }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "sidebar-brand-icon rotate-n-15 text-white" },
+          [_c("i", { staticClass: "fas fa-building" })]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "sidebar-brand-text mx-3" }, [
+          _c("span", [_vm._v("S-ILF")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("div", { staticClass: "nav-item dropdown shadow-lg nav-dropdown" }, [
+        _c(
+          "a",
+          {
+            staticClass: "dropdown-toggle nav-link",
+            attrs: {
+              "aria-expanded": "false",
+              "data-toggle": "dropdown",
+              href: "#"
+            }
+          },
+          [
+            _c("i", { staticClass: "fas fa-money-bill-wave" }),
+            _c("span", [_vm._v("Dropdown Menu")])
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown-menu dr-cs" }, [
+          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+            _c("i", { staticClass: "fas fa-money-bill-wave" }),
+            _vm._v(" Dropdown Menu")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "navbar-brand text-uppercase text-white",
+        attrs: { href: "#" }
+      },
+      [_c("strong", [_vm._v("S-ILF scholarships")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-link d-md-none rounded-circle mr-3",
+        attrs: { id: "sidebarToggleTop", type: "button" }
+      },
+      [_c("i", { staticClass: "fas fa-bars" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item dropdown d-sm-none no-arrow" }, [
+      _c(
+        "a",
+        {
+          staticClass: "dropdown-toggle nav-link",
+          attrs: {
+            "aria-expanded": "false",
+            "data-toggle": "dropdown",
+            href: "#"
+          }
+        },
+        [_c("i", { staticClass: "fas fa-search" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "dropdown-menu dropdown-menu-right p-3 animated--grow-in",
+          attrs: { "aria-labelledby": "searchDropdown" }
+        },
+        [
+          _c(
+            "form",
+            { staticClass: "form-inline mr-auto navbar-search w-100" },
+            [
+              _c("div", { staticClass: "input-group" }, [
+                _c("input", {
+                  staticClass: "bg-light form-control border-0 small",
+                  attrs: { type: "text", placeholder: "Search for ..." }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group-append" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary py-0",
+                      attrs: { type: "button" }
+                    },
+                    [_c("i", { staticClass: "fas fa-search" })]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "dropdown-toggle nav-link",
+        attrs: {
+          "aria-expanded": "false",
+          "data-toggle": "dropdown",
+          href: "#"
+        }
+      },
+      [
+        _c("img", {
+          staticClass: "border rounded-circle img-profile",
+          attrs: { src: "assets/img/avatar_2x.png" }
+        }),
+        _c(
+          "span",
+          { staticClass: "d-none d-lg-inline ml-2 text-white-600 small" },
+          [_c("strong", [_vm._v("Administrator")])]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fas fa-user fa-sm fa-fw mr-2 text-gray-400" }),
+      _vm._v(" Profile")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fas fa-cogs fa-sm fa-fw mr-2 text-gray-400" }),
+      _vm._v(" Settings")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fas fa-list fa-sm fa-fw mr-2 text-gray-400" }),
+      _vm._v(" Activity log")
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -63360,9 +65666,374 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("body", { staticClass: "grey-bg", attrs: { id: "page-top" } }, [
+    _c("div", { staticStyle: { height: "100vh" }, attrs: { id: "wrapper" } }, [
+      _c(
+        "nav",
+        {
+          staticClass:
+            "navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-custom p-0"
+        },
+        [
+          _c("div", { staticClass: "container-fluid d-flex flex-column p-0" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("hr", { staticClass: "sidebar-divider my-0" }),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "navbar-nav text-light",
+                attrs: { id: "accordionSidebar" }
+              },
+              [
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      { staticClass: "nav-link", attrs: { to: "/admin" } },
+                      [
+                        _c("i", { staticClass: "fas fa-home" }),
+                        _c("span", [_vm._v("Home")])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: "/admin/manage-domains" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-wrench" }),
+                        _c("span", [_vm._v("Manage Domains")])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: "/admin/manage-application-schedule" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-calendar-alt" }),
+                        _c("span", [_vm._v("Manage Application Schedule")])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: "/admin/manage-application-details" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-sticky-note" }),
+                        _c("span", [_vm._v("Manage Applications")])
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "d-flex flex-column", attrs: { id: "content-wrapper" } },
+        [
+          _c("div", { staticClass: "grey-bg", attrs: { id: "content" } }, [
+            _c(
+              "nav",
+              {
+                staticClass:
+                  "navbar navbar-light navbar-expand shadow topbar static-top top-nav"
+              },
+              [
+                _c("div", { staticClass: "container-fluid" }, [
+                  _vm._m(2),
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "navbar-nav flex-nowrap ml-auto" }, [
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "d-none d-sm-block topbar-divider"
+                    }),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item dropdown no-arrow" }, [
+                      _c(
+                        "div",
+                        { staticClass: "nav-item dropdown no-arrow dr-not" },
+                        [
+                          _vm._m(5),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "dropdown-menu shadow dropdown-menu-right animated--grow-in"
+                            },
+                            [
+                              _vm._m(6),
+                              _vm._m(7),
+                              _vm._m(8),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "dropdown-divider" }),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: { role: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.logout($event)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass:
+                                      "fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
+                                  }),
+                                  _vm._v(" Logout")
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ])
+        ]
+      )
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass:
+          "navbar-brand d-flex justify-content-center align-items-center sidebar-brand",
+        attrs: { href: "#" }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "sidebar-brand-icon rotate-n-15 text-white" },
+          [_c("i", { staticClass: "fas fa-building" })]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "sidebar-brand-text mx-3" }, [
+          _c("span", [_vm._v("S-ILF")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("div", { staticClass: "nav-item dropdown shadow-lg nav-dropdown" }, [
+        _c(
+          "a",
+          {
+            staticClass: "dropdown-toggle nav-link",
+            attrs: {
+              "aria-expanded": "false",
+              "data-toggle": "dropdown",
+              href: "#"
+            }
+          },
+          [
+            _c("i", { staticClass: "fas fa-money-bill-wave" }),
+            _c("span", [_vm._v("Dropdown Menu")])
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown-menu dr-cs" }, [
+          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+            _c("i", { staticClass: "fas fa-money-bill-wave" }),
+            _vm._v(" Dropdown Menu")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "navbar-brand text-uppercase text-white",
+        attrs: { href: "#" }
+      },
+      [_c("strong", [_vm._v("S-ILF scholarships")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-link d-md-none rounded-circle mr-3",
+        attrs: { id: "sidebarToggleTop", type: "button" }
+      },
+      [_c("i", { staticClass: "fas fa-bars" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item dropdown d-sm-none no-arrow" }, [
+      _c(
+        "a",
+        {
+          staticClass: "dropdown-toggle nav-link",
+          attrs: {
+            "aria-expanded": "false",
+            "data-toggle": "dropdown",
+            href: "#"
+          }
+        },
+        [_c("i", { staticClass: "fas fa-search" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "dropdown-menu dropdown-menu-right p-3 animated--grow-in",
+          attrs: { "aria-labelledby": "searchDropdown" }
+        },
+        [
+          _c(
+            "form",
+            { staticClass: "form-inline mr-auto navbar-search w-100" },
+            [
+              _c("div", { staticClass: "input-group" }, [
+                _c("input", {
+                  staticClass: "bg-light form-control border-0 small",
+                  attrs: { type: "text", placeholder: "Search for ..." }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group-append" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary py-0",
+                      attrs: { type: "button" }
+                    },
+                    [_c("i", { staticClass: "fas fa-search" })]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "dropdown-toggle nav-link",
+        attrs: {
+          "aria-expanded": "false",
+          "data-toggle": "dropdown",
+          href: "#"
+        }
+      },
+      [
+        _c("img", {
+          staticClass: "border rounded-circle img-profile",
+          attrs: { src: "assets/img/avatar_2x.png" }
+        }),
+        _c(
+          "span",
+          { staticClass: "d-none d-lg-inline ml-2 text-white-600 small" },
+          [_c("strong", [_vm._v("Administrator")])]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fas fa-user fa-sm fa-fw mr-2 text-gray-400" }),
+      _vm._v(" Profile")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fas fa-cogs fa-sm fa-fw mr-2 text-gray-400" }),
+      _vm._v(" Settings")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fas fa-list fa-sm fa-fw mr-2 text-gray-400" }),
+      _vm._v(" Activity log")
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -63384,9 +66055,374 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("body", { staticClass: "grey-bg", attrs: { id: "page-top" } }, [
+    _c("div", { staticStyle: { height: "100vh" }, attrs: { id: "wrapper" } }, [
+      _c(
+        "nav",
+        {
+          staticClass:
+            "navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-custom p-0"
+        },
+        [
+          _c("div", { staticClass: "container-fluid d-flex flex-column p-0" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("hr", { staticClass: "sidebar-divider my-0" }),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "navbar-nav text-light",
+                attrs: { id: "accordionSidebar" }
+              },
+              [
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      { staticClass: "nav-link", attrs: { to: "/admin" } },
+                      [
+                        _c("i", { staticClass: "fas fa-home" }),
+                        _c("span", [_vm._v("Home")])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: "/admin/manage-domains" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-wrench" }),
+                        _c("span", [_vm._v("Manage Domains")])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: "/admin/manage-application-schedule" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-calendar-alt" }),
+                        _c("span", [_vm._v("Manage Application Schedule")])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: "/admin/manage-application-details" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-sticky-note" }),
+                        _c("span", [_vm._v("Manage Applications")])
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "d-flex flex-column", attrs: { id: "content-wrapper" } },
+        [
+          _c("div", { staticClass: "grey-bg", attrs: { id: "content" } }, [
+            _c(
+              "nav",
+              {
+                staticClass:
+                  "navbar navbar-light navbar-expand shadow topbar static-top top-nav"
+              },
+              [
+                _c("div", { staticClass: "container-fluid" }, [
+                  _vm._m(2),
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "navbar-nav flex-nowrap ml-auto" }, [
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "d-none d-sm-block topbar-divider"
+                    }),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item dropdown no-arrow" }, [
+                      _c(
+                        "div",
+                        { staticClass: "nav-item dropdown no-arrow dr-not" },
+                        [
+                          _vm._m(5),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "dropdown-menu shadow dropdown-menu-right animated--grow-in"
+                            },
+                            [
+                              _vm._m(6),
+                              _vm._m(7),
+                              _vm._m(8),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "dropdown-divider" }),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: { role: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.logout($event)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass:
+                                      "fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
+                                  }),
+                                  _vm._v(" Logout")
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ])
+        ]
+      )
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass:
+          "navbar-brand d-flex justify-content-center align-items-center sidebar-brand",
+        attrs: { href: "#" }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "sidebar-brand-icon rotate-n-15 text-white" },
+          [_c("i", { staticClass: "fas fa-building" })]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "sidebar-brand-text mx-3" }, [
+          _c("span", [_vm._v("S-ILF")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("div", { staticClass: "nav-item dropdown shadow-lg nav-dropdown" }, [
+        _c(
+          "a",
+          {
+            staticClass: "dropdown-toggle nav-link",
+            attrs: {
+              "aria-expanded": "false",
+              "data-toggle": "dropdown",
+              href: "#"
+            }
+          },
+          [
+            _c("i", { staticClass: "fas fa-money-bill-wave" }),
+            _c("span", [_vm._v("Dropdown Menu")])
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown-menu dr-cs" }, [
+          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+            _c("i", { staticClass: "fas fa-money-bill-wave" }),
+            _vm._v(" Dropdown Menu")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "navbar-brand text-uppercase text-white",
+        attrs: { href: "#" }
+      },
+      [_c("strong", [_vm._v("S-ILF scholarships")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-link d-md-none rounded-circle mr-3",
+        attrs: { id: "sidebarToggleTop", type: "button" }
+      },
+      [_c("i", { staticClass: "fas fa-bars" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item dropdown d-sm-none no-arrow" }, [
+      _c(
+        "a",
+        {
+          staticClass: "dropdown-toggle nav-link",
+          attrs: {
+            "aria-expanded": "false",
+            "data-toggle": "dropdown",
+            href: "#"
+          }
+        },
+        [_c("i", { staticClass: "fas fa-search" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "dropdown-menu dropdown-menu-right p-3 animated--grow-in",
+          attrs: { "aria-labelledby": "searchDropdown" }
+        },
+        [
+          _c(
+            "form",
+            { staticClass: "form-inline mr-auto navbar-search w-100" },
+            [
+              _c("div", { staticClass: "input-group" }, [
+                _c("input", {
+                  staticClass: "bg-light form-control border-0 small",
+                  attrs: { type: "text", placeholder: "Search for ..." }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group-append" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary py-0",
+                      attrs: { type: "button" }
+                    },
+                    [_c("i", { staticClass: "fas fa-search" })]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "dropdown-toggle nav-link",
+        attrs: {
+          "aria-expanded": "false",
+          "data-toggle": "dropdown",
+          href: "#"
+        }
+      },
+      [
+        _c("img", {
+          staticClass: "border rounded-circle img-profile",
+          attrs: { src: "assets/img/avatar_2x.png" }
+        }),
+        _c(
+          "span",
+          { staticClass: "d-none d-lg-inline ml-2 text-white-600 small" },
+          [_c("strong", [_vm._v("Administrator")])]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fas fa-user fa-sm fa-fw mr-2 text-gray-400" }),
+      _vm._v(" Profile")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fas fa-cogs fa-sm fa-fw mr-2 text-gray-400" }),
+      _vm._v(" Settings")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fas fa-list fa-sm fa-fw mr-2 text-gray-400" }),
+      _vm._v(" Activity log")
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -63408,9 +66444,8892 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("body", { staticClass: "grey-bg", attrs: { id: "page-top" } }, [
+    _c("div", { staticStyle: { height: "100vh" }, attrs: { id: "wrapper" } }, [
+      _c(
+        "nav",
+        {
+          staticClass:
+            "navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-custom p-0"
+        },
+        [
+          _c("div", { staticClass: "container-fluid d-flex flex-column p-0" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("hr", { staticClass: "sidebar-divider my-0" }),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "navbar-nav text-light",
+                attrs: { id: "accordionSidebar" }
+              },
+              [
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      { staticClass: "nav-link", attrs: { to: "/admin" } },
+                      [
+                        _c("i", { staticClass: "fas fa-home" }),
+                        _c("span", [_vm._v("Home")])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: "/admin/manage-domains" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-wrench" }),
+                        _c("span", [_vm._v("Manage Domains")])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: "/admin/manage-application-schedule" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-calendar-alt" }),
+                        _c("span", [_vm._v("Manage Application Schedule")])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: "/admin/manage-application-details" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-sticky-note" }),
+                        _c("span", [_vm._v("Manage Applications")])
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "d-flex flex-column", attrs: { id: "content-wrapper" } },
+        [
+          _c("div", { staticClass: "grey-bg", attrs: { id: "content" } }, [
+            _c(
+              "nav",
+              {
+                staticClass:
+                  "navbar navbar-light navbar-expand shadow topbar static-top top-nav"
+              },
+              [
+                _c("div", { staticClass: "container-fluid" }, [
+                  _vm._m(2),
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "navbar-nav flex-nowrap ml-auto" }, [
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "d-none d-sm-block topbar-divider"
+                    }),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item dropdown no-arrow" }, [
+                      _c(
+                        "div",
+                        { staticClass: "nav-item dropdown no-arrow dr-not" },
+                        [
+                          _vm._m(5),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "dropdown-menu shadow dropdown-menu-right animated--grow-in"
+                            },
+                            [
+                              _vm._m(6),
+                              _vm._m(7),
+                              _vm._m(8),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "dropdown-divider" }),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: { role: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.logout($event)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass:
+                                      "fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
+                                  }),
+                                  _vm._v(" Logout")
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ])
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.saveForm($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "form-row" }, [
+            _c("div", { staticClass: "col-xl-12 text-center mb-3" }, [
+              _c(
+                "h5",
+                { staticClass: "text-capitalize text-center color-mg" },
+                [
+                  _c("strong", [
+                    _vm._v(
+                      "Application for " +
+                        _vm._s(_vm.form.scholarshipType) +
+                        " scholarship " +
+                        _vm._s(_vm.form.financialYear) +
+                        " " +
+                        _vm._s(
+                          _vm.form.appIdShow == ""
+                            ? ""
+                            : "( APP NO: " + _vm.form.appIdShow + ")"
+                        )
+                    )
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-xl-12" }, [
+              _c("div", { staticClass: "mb-3" }, [
+                _c(
+                  "ul",
+                  {
+                    staticClass: "nav nav-tabs font-sm",
+                    attrs: { role: "tablist" }
+                  },
+                  [
+                    _c(
+                      "li",
+                      {
+                        staticClass: "nav-item",
+                        attrs: { role: "presentation" }
+                      },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "nav-link active",
+                            attrs: {
+                              role: "tab",
+                              "data-toggle": "tab",
+                              to:
+                                "/application-form/" + _vm.form.scholarshipType
+                            }
+                          },
+                          [_c("strong", [_vm._v("Applicant Details")])]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _vm.form.hasAdmissionLetter === "NO" &&
+                    _vm.form.applicationId != ""
+                      ? _c(
+                          "li",
+                          {
+                            staticClass: "nav-item",
+                            attrs: { role: "presentation" }
+                          },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "nav-link",
+                                attrs: {
+                                  role: "tab",
+                                  "data-toggle": "tab",
+                                  to: "/annexure-1/" + _vm.form.applicationId
+                                }
+                              },
+                              [_c("strong", [_vm._v("Annexure-I")])]
+                            )
+                          ],
+                          1
+                        )
+                      : _c(
+                          "li",
+                          {
+                            staticClass: "nav-item",
+                            attrs: { role: "presentation" }
+                          },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "nav-link text-secondary",
+                                attrs: { to: "#" }
+                              },
+                              [_c("strong", [_vm._v("Annexure-I")])]
+                            )
+                          ],
+                          1
+                        ),
+                    _vm._v(" "),
+                    _vm.form.applicationId != ""
+                      ? _c(
+                          "li",
+                          {
+                            staticClass: "nav-item",
+                            attrs: { role: "presentation" }
+                          },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "nav-link",
+                                attrs: {
+                                  role: "tab",
+                                  "data-toggle": "tab",
+                                  to: "/annexure-2/" + _vm.form.applicationId
+                                }
+                              },
+                              [_c("strong", [_vm._v("Annexure-II")])]
+                            )
+                          ],
+                          1
+                        )
+                      : _c(
+                          "li",
+                          {
+                            staticClass: "nav-item",
+                            attrs: { role: "presentation" }
+                          },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "nav-link text-secondary",
+                                attrs: { to: "#" }
+                              },
+                              [_c("strong", [_vm._v("Annexure-II")])]
+                            )
+                          ],
+                          1
+                        ),
+                    _vm._v(" "),
+                    _vm.form.applicationId != ""
+                      ? _c(
+                          "li",
+                          {
+                            staticClass: "nav-item",
+                            attrs: { role: "presentation" }
+                          },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "nav-link",
+                                attrs: {
+                                  role: "tab",
+                                  "data-toggle": "tab",
+                                  to:
+                                    "/application-documents/" +
+                                    _vm.form.applicationId
+                                }
+                              },
+                              [_c("strong", [_vm._v("Upload Documents")])]
+                            )
+                          ],
+                          1
+                        )
+                      : _c(
+                          "li",
+                          {
+                            staticClass: "nav-item",
+                            attrs: { role: "presentation" }
+                          },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "nav-link text-secondary",
+                                attrs: { to: "#" }
+                              },
+                              [_c("strong", [_vm._v("Upload Documents")])]
+                            )
+                          ],
+                          1
+                        ),
+                    _vm._v(" "),
+                    _vm.form.applicationId != ""
+                      ? _c(
+                          "li",
+                          {
+                            staticClass: "nav-item",
+                            attrs: { role: "presentation" }
+                          },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "nav-link",
+                                attrs: {
+                                  role: "tab",
+                                  "data-toggle": "tab",
+                                  to: "/review-submit/" + _vm.form.applicationId
+                                }
+                              },
+                              [_c("strong", [_vm._v("Review & Submit")])]
+                            )
+                          ],
+                          1
+                        )
+                      : _c(
+                          "li",
+                          {
+                            staticClass: "nav-item",
+                            attrs: { role: "presentation" }
+                          },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "nav-link text-secondary",
+                                attrs: { to: "#" }
+                              },
+                              [_c("strong", [_vm._v("Review & Submit")])]
+                            )
+                          ],
+                          1
+                        )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "tab-content" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-pane active",
+                      attrs: { role: "tabpanel", id: "tab-1" }
+                    },
+                    [
+                      _c("div", { staticClass: "div-inner-filed" }, [
+                        _c("div", [
+                          _c("div", { staticClass: "form-row" }, [
+                            _c("div", { staticClass: "col-xl-12" }, [
+                              _c("div", { staticClass: "card mt-2 det-sec" }, [
+                                _vm._m(9),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "card-body" }, [
+                                  _c("div", { staticClass: "form-row" }, [
+                                    _c("div", { staticClass: "col-xl-2" }, [
+                                      _vm._m(10),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.applicantNameF,
+                                              expression: "form.applicantNameF"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: {
+                                            type: "text",
+                                            disabled: _vm.globalDisable,
+                                            required: ""
+                                          },
+                                          domProps: {
+                                            value: _vm.form.applicantNameF
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "applicantNameF",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-2" }, [
+                                      _c("label", [
+                                        _vm._v("Applicant's Middle name:")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.applicantNameM,
+                                              expression: "form.applicantNameM"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: {
+                                            type: "text",
+                                            disabled: _vm.globalDisable
+                                          },
+                                          domProps: {
+                                            value: _vm.form.applicantNameM
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "applicantNameM",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-2" }, [
+                                      _vm._m(11),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.applicantNameL,
+                                              expression: "form.applicantNameL"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: {
+                                            type: "text",
+                                            disabled: _vm.globalDisable,
+                                            required: ""
+                                          },
+                                          domProps: {
+                                            value: _vm.form.applicantNameL
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "applicantNameL",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-3" }, [
+                                      _vm._m(12),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.form.applicantFatherName,
+                                              expression:
+                                                "form.applicantFatherName"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: {
+                                            type: "text",
+                                            disabled: _vm.globalDisable,
+                                            required: ""
+                                          },
+                                          domProps: {
+                                            value: _vm.form.applicantFatherName
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "applicantFatherName",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-3" }, [
+                                      _vm._m(13),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.form.applicantMotherName,
+                                              expression:
+                                                "form.applicantMotherName"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: {
+                                            type: "text",
+                                            disabled: _vm.globalDisable,
+                                            required: ""
+                                          },
+                                          domProps: {
+                                            value: _vm.form.applicantMotherName
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "applicantMotherName",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-2" }, [
+                                      _vm._m(14),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.applicantDOB,
+                                              expression: "form.applicantDOB"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: {
+                                            type: "date",
+                                            disabled: _vm.globalDisable,
+                                            required: ""
+                                          },
+                                          domProps: {
+                                            value: _vm.form.applicantDOB
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "applicantDOB",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-2" }, [
+                                      _vm._m(15),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c(
+                                          "select",
+                                          {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.form.applicantGender,
+                                                expression:
+                                                  "form.applicantGender"
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control form-control-sm",
+                                            attrs: {
+                                              disabled: _vm.globalDisable,
+                                              required: ""
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                var $$selectedVal = Array.prototype.filter
+                                                  .call(
+                                                    $event.target.options,
+                                                    function(o) {
+                                                      return o.selected
+                                                    }
+                                                  )
+                                                  .map(function(o) {
+                                                    var val =
+                                                      "_value" in o
+                                                        ? o._value
+                                                        : o.value
+                                                    return val
+                                                  })
+                                                _vm.$set(
+                                                  _vm.form,
+                                                  "applicantGender",
+                                                  $event.target.multiple
+                                                    ? $$selectedVal
+                                                    : $$selectedVal[0]
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "",
+                                                  disabled: ""
+                                                }
+                                              },
+                                              [_vm._v("--Select--")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Male" } },
+                                              [_vm._v("Male")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Female" } },
+                                              [_vm._v("Female")]
+                                            )
+                                          ]
+                                        )
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-2" }, [
+                                      _vm._m(16),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c(
+                                          "select",
+                                          {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value:
+                                                  _vm.form.applicantHasBPLCard,
+                                                expression:
+                                                  "form.applicantHasBPLCard"
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control form-control-sm",
+                                            attrs: {
+                                              disabled: _vm.globalDisable,
+                                              required: ""
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                var $$selectedVal = Array.prototype.filter
+                                                  .call(
+                                                    $event.target.options,
+                                                    function(o) {
+                                                      return o.selected
+                                                    }
+                                                  )
+                                                  .map(function(o) {
+                                                    var val =
+                                                      "_value" in o
+                                                        ? o._value
+                                                        : o.value
+                                                    return val
+                                                  })
+                                                _vm.$set(
+                                                  _vm.form,
+                                                  "applicantHasBPLCard",
+                                                  $event.target.multiple
+                                                    ? $$selectedVal
+                                                    : $$selectedVal[0]
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "",
+                                                  disabled: ""
+                                                }
+                                              },
+                                              [_vm._v("--Select--")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Yes" } },
+                                              [_vm._v("YES")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "No" } },
+                                              [_vm._v("NO")]
+                                            )
+                                          ]
+                                        )
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-5" }, [
+                                      _vm._m(17),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c(
+                                          "select",
+                                          {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value:
+                                                  _vm.form
+                                                    .applicantDomicileState,
+                                                expression:
+                                                  "form.applicantDomicileState"
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control form-control-sm",
+                                            attrs: {
+                                              disabled: _vm.globalDisable,
+                                              required: ""
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                var $$selectedVal = Array.prototype.filter
+                                                  .call(
+                                                    $event.target.options,
+                                                    function(o) {
+                                                      return o.selected
+                                                    }
+                                                  )
+                                                  .map(function(o) {
+                                                    var val =
+                                                      "_value" in o
+                                                        ? o._value
+                                                        : o.value
+                                                    return val
+                                                  })
+                                                _vm.$set(
+                                                  _vm.form,
+                                                  "applicantDomicileState",
+                                                  $event.target.multiple
+                                                    ? $$selectedVal
+                                                    : $$selectedVal[0]
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "",
+                                                  disabled: ""
+                                                }
+                                              },
+                                              [_vm._v("--Select--")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "Andhra Pradesh"
+                                                }
+                                              },
+                                              [_vm._v("Andhra Pradesh")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value:
+                                                    "Andaman and Nicobar Islands"
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "Andaman and Nicobar Islands"
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "Arunachal Pradesh"
+                                                }
+                                              },
+                                              [_vm._v("Arunachal Pradesh")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Assam" } },
+                                              [_vm._v("Assam")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Bihar" } },
+                                              [_vm._v("Bihar")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: { value: "Chandigarh" }
+                                              },
+                                              [_vm._v("Chandigarh")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: { value: "Chhattisgarh" }
+                                              },
+                                              [_vm._v("Chhattisgarh")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value:
+                                                    "Dadar and Nagar Haveli"
+                                                }
+                                              },
+                                              [_vm._v("Dadar and Nagar Haveli")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "Daman and Diu"
+                                                }
+                                              },
+                                              [_vm._v("Daman and Diu")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Delhi" } },
+                                              [_vm._v("Delhi")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: { value: "Lakshadweep" }
+                                              },
+                                              [_vm._v("Lakshadweep")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: { value: "Puducherry" }
+                                              },
+                                              [_vm._v("Puducherry")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Goa" } },
+                                              [_vm._v("Goa")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Gujarat" } },
+                                              [_vm._v("Gujarat")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Haryana" } },
+                                              [_vm._v("Haryana")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "Himachal Pradesh"
+                                                }
+                                              },
+                                              [_vm._v("Himachal Pradesh")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "Jammu and Kashmir"
+                                                }
+                                              },
+                                              [_vm._v("Jammu and Kashmir")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Jharkhand" } },
+                                              [_vm._v("Jharkhand")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Karnataka" } },
+                                              [_vm._v("Karnataka")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Kerala" } },
+                                              [_vm._v("Kerala")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "Madhya Pradesh"
+                                                }
+                                              },
+                                              [_vm._v("Madhya Pradesh")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: { value: "Maharashtra" }
+                                              },
+                                              [_vm._v("Maharashtra")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Manipur" } },
+                                              [_vm._v("Manipur")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Meghalaya" } },
+                                              [_vm._v("Meghalaya")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Mizoram" } },
+                                              [_vm._v("Mizoram")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Nagaland" } },
+                                              [_vm._v("Nagaland")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Odisha" } },
+                                              [_vm._v("Odisha")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Punjab" } },
+                                              [_vm._v("Punjab")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Rajasthan" } },
+                                              [_vm._v("Rajasthan")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Sikkim" } },
+                                              [_vm._v("Sikkim")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: { value: "Tamil Nadu" }
+                                              },
+                                              [_vm._v("Tamil Nadu")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Telangana" } },
+                                              [_vm._v("Telangana")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Tripura" } },
+                                              [_vm._v("Tripura")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "Uttar Pradesh"
+                                                }
+                                              },
+                                              [_vm._v("Uttar Pradesh")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: { value: "Uttarakhand" }
+                                              },
+                                              [_vm._v("Uttarakhand")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: { value: "West Bengal" }
+                                              },
+                                              [_vm._v("West Bengal")]
+                                            )
+                                          ]
+                                        )
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-xl-3 align-self-center"
+                                      },
+                                      [
+                                        _vm._m(18),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "form-check form-check-inline"
+                                              },
+                                              [
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .applicantLeprosyAffectedMother,
+                                                      expression:
+                                                        "form.applicantLeprosyAffectedMother"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-check-input",
+                                                  attrs: {
+                                                    type: "checkbox",
+                                                    id: "formCheck-4",
+                                                    disabled: _vm.globalDisable
+                                                  },
+                                                  domProps: {
+                                                    checked: Array.isArray(
+                                                      _vm.form
+                                                        .applicantLeprosyAffectedMother
+                                                    )
+                                                      ? _vm._i(
+                                                          _vm.form
+                                                            .applicantLeprosyAffectedMother,
+                                                          null
+                                                        ) > -1
+                                                      : _vm.form
+                                                          .applicantLeprosyAffectedMother
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.check3($event)
+                                                    },
+                                                    change: function($event) {
+                                                      var $$a =
+                                                          _vm.form
+                                                            .applicantLeprosyAffectedMother,
+                                                        $$el = $event.target,
+                                                        $$c = $$el.checked
+                                                          ? true
+                                                          : false
+                                                      if (Array.isArray($$a)) {
+                                                        var $$v = null,
+                                                          $$i = _vm._i($$a, $$v)
+                                                        if ($$el.checked) {
+                                                          $$i < 0 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantLeprosyAffectedMother",
+                                                              $$a.concat([$$v])
+                                                            )
+                                                        } else {
+                                                          $$i > -1 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantLeprosyAffectedMother",
+                                                              $$a
+                                                                .slice(0, $$i)
+                                                                .concat(
+                                                                  $$a.slice(
+                                                                    $$i + 1
+                                                                  )
+                                                                )
+                                                            )
+                                                        }
+                                                      } else {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "applicantLeprosyAffectedMother",
+                                                          $$c
+                                                        )
+                                                      }
+                                                    }
+                                                  }
+                                                }),
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "form-check-label font-md",
+                                                    attrs: {
+                                                      for: "formCheck-1"
+                                                    }
+                                                  },
+                                                  [_vm._v("Mother")]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "form-check form-check-inline"
+                                              },
+                                              [
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .applicantLeprosyAffectedFather,
+                                                      expression:
+                                                        "form.applicantLeprosyAffectedFather"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-check-input",
+                                                  attrs: {
+                                                    type: "checkbox",
+                                                    id: "formCheck-2",
+                                                    disabled: _vm.globalDisable
+                                                  },
+                                                  domProps: {
+                                                    checked: Array.isArray(
+                                                      _vm.form
+                                                        .applicantLeprosyAffectedFather
+                                                    )
+                                                      ? _vm._i(
+                                                          _vm.form
+                                                            .applicantLeprosyAffectedFather,
+                                                          null
+                                                        ) > -1
+                                                      : _vm.form
+                                                          .applicantLeprosyAffectedFather
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.check2($event)
+                                                    },
+                                                    change: function($event) {
+                                                      var $$a =
+                                                          _vm.form
+                                                            .applicantLeprosyAffectedFather,
+                                                        $$el = $event.target,
+                                                        $$c = $$el.checked
+                                                          ? true
+                                                          : false
+                                                      if (Array.isArray($$a)) {
+                                                        var $$v = null,
+                                                          $$i = _vm._i($$a, $$v)
+                                                        if ($$el.checked) {
+                                                          $$i < 0 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantLeprosyAffectedFather",
+                                                              $$a.concat([$$v])
+                                                            )
+                                                        } else {
+                                                          $$i > -1 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantLeprosyAffectedFather",
+                                                              $$a
+                                                                .slice(0, $$i)
+                                                                .concat(
+                                                                  $$a.slice(
+                                                                    $$i + 1
+                                                                  )
+                                                                )
+                                                            )
+                                                        }
+                                                      } else {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "applicantLeprosyAffectedFather",
+                                                          $$c
+                                                        )
+                                                      }
+                                                    }
+                                                  }
+                                                }),
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "form-check-label font-md",
+                                                    attrs: {
+                                                      for: "formCheck-2"
+                                                    }
+                                                  },
+                                                  [_vm._v("Father")]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "form-check form-check-inline"
+                                              },
+                                              [
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .applicantLeprosyAffectedSelf,
+                                                      expression:
+                                                        "form.applicantLeprosyAffectedSelf"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-check-input",
+                                                  attrs: {
+                                                    type: "checkbox",
+                                                    id: "formCheck-3",
+                                                    disabled: _vm.globalDisable
+                                                  },
+                                                  domProps: {
+                                                    checked: Array.isArray(
+                                                      _vm.form
+                                                        .applicantLeprosyAffectedSelf
+                                                    )
+                                                      ? _vm._i(
+                                                          _vm.form
+                                                            .applicantLeprosyAffectedSelf,
+                                                          null
+                                                        ) > -1
+                                                      : _vm.form
+                                                          .applicantLeprosyAffectedSelf
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.check1($event)
+                                                    },
+                                                    change: function($event) {
+                                                      var $$a =
+                                                          _vm.form
+                                                            .applicantLeprosyAffectedSelf,
+                                                        $$el = $event.target,
+                                                        $$c = $$el.checked
+                                                          ? true
+                                                          : false
+                                                      if (Array.isArray($$a)) {
+                                                        var $$v = null,
+                                                          $$i = _vm._i($$a, $$v)
+                                                        if ($$el.checked) {
+                                                          $$i < 0 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantLeprosyAffectedSelf",
+                                                              $$a.concat([$$v])
+                                                            )
+                                                        } else {
+                                                          $$i > -1 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantLeprosyAffectedSelf",
+                                                              $$a
+                                                                .slice(0, $$i)
+                                                                .concat(
+                                                                  $$a.slice(
+                                                                    $$i + 1
+                                                                  )
+                                                                )
+                                                            )
+                                                        }
+                                                      } else {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "applicantLeprosyAffectedSelf",
+                                                          $$c
+                                                        )
+                                                      }
+                                                    }
+                                                  }
+                                                }),
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "form-check-label font-md",
+                                                    attrs: {
+                                                      for: "formCheck-3"
+                                                    }
+                                                  },
+                                                  [_vm._v("Self")]
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-xl-5 align-self-center"
+                                      },
+                                      [
+                                        _c("label", [
+                                          _vm._v(
+                                            "Who has disability due to Leprosy in the family (Certificate required) "
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "form-check form-check-inline"
+                                              },
+                                              [
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .applicantDisablityMother,
+                                                      expression:
+                                                        "form.applicantDisablityMother"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-check-input",
+                                                  attrs: {
+                                                    type: "checkbox",
+                                                    id: "formCheck-4",
+                                                    disabled:
+                                                      _vm.applicantDisablityMotherShow
+                                                  },
+                                                  domProps: {
+                                                    checked: Array.isArray(
+                                                      _vm.form
+                                                        .applicantDisablityMother
+                                                    )
+                                                      ? _vm._i(
+                                                          _vm.form
+                                                            .applicantDisablityMother,
+                                                          null
+                                                        ) > -1
+                                                      : _vm.form
+                                                          .applicantDisablityMother
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$a =
+                                                          _vm.form
+                                                            .applicantDisablityMother,
+                                                        $$el = $event.target,
+                                                        $$c = $$el.checked
+                                                          ? true
+                                                          : false
+                                                      if (Array.isArray($$a)) {
+                                                        var $$v = null,
+                                                          $$i = _vm._i($$a, $$v)
+                                                        if ($$el.checked) {
+                                                          $$i < 0 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantDisablityMother",
+                                                              $$a.concat([$$v])
+                                                            )
+                                                        } else {
+                                                          $$i > -1 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantDisablityMother",
+                                                              $$a
+                                                                .slice(0, $$i)
+                                                                .concat(
+                                                                  $$a.slice(
+                                                                    $$i + 1
+                                                                  )
+                                                                )
+                                                            )
+                                                        }
+                                                      } else {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "applicantDisablityMother",
+                                                          $$c
+                                                        )
+                                                      }
+                                                    }
+                                                  }
+                                                }),
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "form-check-label font-md",
+                                                    attrs: {
+                                                      for: "formCheck-1"
+                                                    }
+                                                  },
+                                                  [_vm._v("Mother")]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "form-check form-check-inline"
+                                              },
+                                              [
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .applicantDisablityFather,
+                                                      expression:
+                                                        "form.applicantDisablityFather"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-check-input",
+                                                  attrs: {
+                                                    type: "checkbox",
+                                                    id: "formCheck-2",
+                                                    disabled:
+                                                      _vm.applicantDisablityFatherShow
+                                                  },
+                                                  domProps: {
+                                                    checked: Array.isArray(
+                                                      _vm.form
+                                                        .applicantDisablityFather
+                                                    )
+                                                      ? _vm._i(
+                                                          _vm.form
+                                                            .applicantDisablityFather,
+                                                          null
+                                                        ) > -1
+                                                      : _vm.form
+                                                          .applicantDisablityFather
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$a =
+                                                          _vm.form
+                                                            .applicantDisablityFather,
+                                                        $$el = $event.target,
+                                                        $$c = $$el.checked
+                                                          ? true
+                                                          : false
+                                                      if (Array.isArray($$a)) {
+                                                        var $$v = null,
+                                                          $$i = _vm._i($$a, $$v)
+                                                        if ($$el.checked) {
+                                                          $$i < 0 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantDisablityFather",
+                                                              $$a.concat([$$v])
+                                                            )
+                                                        } else {
+                                                          $$i > -1 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantDisablityFather",
+                                                              $$a
+                                                                .slice(0, $$i)
+                                                                .concat(
+                                                                  $$a.slice(
+                                                                    $$i + 1
+                                                                  )
+                                                                )
+                                                            )
+                                                        }
+                                                      } else {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "applicantDisablityFather",
+                                                          $$c
+                                                        )
+                                                      }
+                                                    }
+                                                  }
+                                                }),
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "form-check-label font-md",
+                                                    attrs: {
+                                                      for: "formCheck-2"
+                                                    }
+                                                  },
+                                                  [_vm._v("Father")]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "form-check form-check-inline"
+                                              },
+                                              [
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .applicantDisablitySelf,
+                                                      expression:
+                                                        "form.applicantDisablitySelf"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-check-input",
+                                                  attrs: {
+                                                    type: "checkbox",
+                                                    id: "formCheck-3",
+                                                    disabled:
+                                                      _vm.applicantDisablitySelfShow
+                                                  },
+                                                  domProps: {
+                                                    checked: Array.isArray(
+                                                      _vm.form
+                                                        .applicantDisablitySelf
+                                                    )
+                                                      ? _vm._i(
+                                                          _vm.form
+                                                            .applicantDisablitySelf,
+                                                          null
+                                                        ) > -1
+                                                      : _vm.form
+                                                          .applicantDisablitySelf
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$a =
+                                                          _vm.form
+                                                            .applicantDisablitySelf,
+                                                        $$el = $event.target,
+                                                        $$c = $$el.checked
+                                                          ? true
+                                                          : false
+                                                      if (Array.isArray($$a)) {
+                                                        var $$v = null,
+                                                          $$i = _vm._i($$a, $$v)
+                                                        if ($$el.checked) {
+                                                          $$i < 0 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantDisablitySelf",
+                                                              $$a.concat([$$v])
+                                                            )
+                                                        } else {
+                                                          $$i > -1 &&
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "applicantDisablitySelf",
+                                                              $$a
+                                                                .slice(0, $$i)
+                                                                .concat(
+                                                                  $$a.slice(
+                                                                    $$i + 1
+                                                                  )
+                                                                )
+                                                            )
+                                                        }
+                                                      } else {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "applicantDisablitySelf",
+                                                          $$c
+                                                        )
+                                                      }
+                                                    }
+                                                  }
+                                                }),
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass:
+                                                      "form-check-label font-md",
+                                                    attrs: {
+                                                      for: "formCheck-3"
+                                                    }
+                                                  },
+                                                  [_vm._v("Self")]
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-xl-12" }, [
+                              _c("div", { staticClass: "card mt-2 det-sec" }, [
+                                _vm._m(19),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "card-body" }, [
+                                  _c("div", { staticClass: "form-row" }, [
+                                    _c("div", { staticClass: "col-xl-5" }, [
+                                      _vm._m(20),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.addressAddln1,
+                                              expression: "form.addressAddln1"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: {
+                                            type: "text",
+                                            disabled: _vm.globalDisable,
+                                            required: ""
+                                          },
+                                          domProps: {
+                                            value: _vm.form.addressAddln1
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "addressAddln1",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-5" }, [
+                                      _c("label", [_vm._v("Address Line 2")]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.addressAddln2,
+                                              expression: "form.addressAddln2"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: {
+                                            type: "text",
+                                            disabled: _vm.globalDisable
+                                          },
+                                          domProps: {
+                                            value: _vm.form.addressAddln2
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "addressAddln2",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-2" }, [
+                                      _vm._m(21),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.addressCity,
+                                              expression: "form.addressCity"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: {
+                                            type: "text",
+                                            disabled: _vm.globalDisable,
+                                            required: ""
+                                          },
+                                          domProps: {
+                                            value: _vm.form.addressCity
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "addressCity",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-3" }, [
+                                      _c("label", [_vm._v("District")]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.addressDistprov,
+                                              expression: "form.addressDistprov"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: {
+                                            type: "text",
+                                            disabled: _vm.globalDisable
+                                          },
+                                          domProps: {
+                                            value: _vm.form.addressDistprov
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "addressDistprov",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-3" }, [
+                                      _vm._m(22),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c(
+                                          "select",
+                                          {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.form.addressState,
+                                                expression: "form.addressState"
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control form-control-sm",
+                                            attrs: {
+                                              disabled: _vm.globalDisable,
+                                              required: ""
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                var $$selectedVal = Array.prototype.filter
+                                                  .call(
+                                                    $event.target.options,
+                                                    function(o) {
+                                                      return o.selected
+                                                    }
+                                                  )
+                                                  .map(function(o) {
+                                                    var val =
+                                                      "_value" in o
+                                                        ? o._value
+                                                        : o.value
+                                                    return val
+                                                  })
+                                                _vm.$set(
+                                                  _vm.form,
+                                                  "addressState",
+                                                  $event.target.multiple
+                                                    ? $$selectedVal
+                                                    : $$selectedVal[0]
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "",
+                                                  disabled: ""
+                                                }
+                                              },
+                                              [_vm._v("--Select--")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "Andhra Pradesh"
+                                                }
+                                              },
+                                              [_vm._v("Andhra Pradesh")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value:
+                                                    "Andaman and Nicobar Islands"
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "Andaman and Nicobar Islands"
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "Arunachal Pradesh"
+                                                }
+                                              },
+                                              [_vm._v("Arunachal Pradesh")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Assam" } },
+                                              [_vm._v("Assam")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Bihar" } },
+                                              [_vm._v("Bihar")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: { value: "Chandigarh" }
+                                              },
+                                              [_vm._v("Chandigarh")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: { value: "Chhattisgarh" }
+                                              },
+                                              [_vm._v("Chhattisgarh")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value:
+                                                    "Dadar and Nagar Haveli"
+                                                }
+                                              },
+                                              [_vm._v("Dadar and Nagar Haveli")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "Daman and Diu"
+                                                }
+                                              },
+                                              [_vm._v("Daman and Diu")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Delhi" } },
+                                              [_vm._v("Delhi")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: { value: "Lakshadweep" }
+                                              },
+                                              [_vm._v("Lakshadweep")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: { value: "Puducherry" }
+                                              },
+                                              [_vm._v("Puducherry")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Goa" } },
+                                              [_vm._v("Goa")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Gujarat" } },
+                                              [_vm._v("Gujarat")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Haryana" } },
+                                              [_vm._v("Haryana")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "Himachal Pradesh"
+                                                }
+                                              },
+                                              [_vm._v("Himachal Pradesh")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "Jammu and Kashmir"
+                                                }
+                                              },
+                                              [_vm._v("Jammu and Kashmir")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Jharkhand" } },
+                                              [_vm._v("Jharkhand")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Karnataka" } },
+                                              [_vm._v("Karnataka")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Kerala" } },
+                                              [_vm._v("Kerala")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "Madhya Pradesh"
+                                                }
+                                              },
+                                              [_vm._v("Madhya Pradesh")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: { value: "Maharashtra" }
+                                              },
+                                              [_vm._v("Maharashtra")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Manipur" } },
+                                              [_vm._v("Manipur")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Meghalaya" } },
+                                              [_vm._v("Meghalaya")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Mizoram" } },
+                                              [_vm._v("Mizoram")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Nagaland" } },
+                                              [_vm._v("Nagaland")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Odisha" } },
+                                              [_vm._v("Odisha")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Punjab" } },
+                                              [_vm._v("Punjab")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Rajasthan" } },
+                                              [_vm._v("Rajasthan")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Sikkim" } },
+                                              [_vm._v("Sikkim")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: { value: "Tamil Nadu" }
+                                              },
+                                              [_vm._v("Tamil Nadu")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Telangana" } },
+                                              [_vm._v("Telangana")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Tripura" } },
+                                              [_vm._v("Tripura")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  value: "Uttar Pradesh"
+                                                }
+                                              },
+                                              [_vm._v("Uttar Pradesh")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: { value: "Uttarakhand" }
+                                              },
+                                              [_vm._v("Uttarakhand")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: { value: "West Bengal" }
+                                              },
+                                              [_vm._v("West Bengal")]
+                                            )
+                                          ]
+                                        )
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-3" }, [
+                                      _vm._m(23),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.addressPinzip,
+                                              expression: "form.addressPinzip"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: {
+                                            type: "number",
+                                            disabled: _vm.globalDisable,
+                                            maxlength: "6",
+                                            required: ""
+                                          },
+                                          domProps: {
+                                            value: _vm.form.addressPinzip
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "addressPinzip",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-3" }, [
+                                      _vm._m(24),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.form.applicantContactNoSelf,
+                                              expression:
+                                                "form.applicantContactNoSelf"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: {
+                                            type: "number",
+                                            disabled: _vm.globalDisable,
+                                            required: ""
+                                          },
+                                          domProps: {
+                                            value:
+                                              _vm.form.applicantContactNoSelf
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "applicantContactNoSelf",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-3" }, [
+                                      _vm._m(25),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.form
+                                                  .applicantContactNoGuardian,
+                                              expression:
+                                                "form.applicantContactNoGuardian"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: {
+                                            type: "number",
+                                            disabled: _vm.globalDisable,
+                                            required: ""
+                                          },
+                                          domProps: {
+                                            value:
+                                              _vm.form
+                                                .applicantContactNoGuardian
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "applicantContactNoGuardian",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-3" }, [
+                                      _vm._m(26),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.applicantEmailId,
+                                              expression:
+                                                "form.applicantEmailId"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: {
+                                            type: "email",
+                                            disabled: "",
+                                            required: ""
+                                          },
+                                          domProps: {
+                                            value: _vm.form.applicantEmailId
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "applicantEmailId",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-3" }, [
+                                      _vm._m(27),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.form
+                                                  .applicantColonyleaderName,
+                                              expression:
+                                                "form.applicantColonyleaderName"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: {
+                                            type: "text",
+                                            disabled: _vm.globalDisable,
+                                            required: ""
+                                          },
+                                          domProps: {
+                                            value:
+                                              _vm.form.applicantColonyleaderName
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "applicantColonyleaderName",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-3" }, [
+                                      _vm._m(28),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.form
+                                                  .applicantContactNoColonyLeader,
+                                              expression:
+                                                "form.applicantContactNoColonyLeader"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: {
+                                            type: "number",
+                                            disabled: _vm.globalDisable,
+                                            required: ""
+                                          },
+                                          domProps: {
+                                            value:
+                                              _vm.form
+                                                .applicantContactNoColonyLeader
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "applicantContactNoColonyLeader",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ])
+                                  ])
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-xl-12" }, [
+                              _c("div", { staticClass: "card mt-2 det-sec" }, [
+                                _vm._m(29),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "card-body" }, [
+                                  _c("div", { staticClass: "form-row" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "col-xl-12 mb-2" },
+                                      [
+                                        _vm._m(30),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "table-responsive font-md"
+                                          },
+                                          [
+                                            _c(
+                                              "table",
+                                              {
+                                                staticClass:
+                                                  "table table-sm mb-0"
+                                              },
+                                              [
+                                                _c(
+                                                  "thead",
+                                                  {
+                                                    staticClass:
+                                                      "font-sm color-mg"
+                                                  },
+                                                  [
+                                                    _c("tr", [
+                                                      _vm._m(31),
+                                                      _vm._v(" "),
+                                                      _c("th", [
+                                                        _vm._v(
+                                                          "Examination Passed "
+                                                        ),
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "text-danger"
+                                                          },
+                                                          [_vm._v("*")]
+                                                        ),
+                                                        _c("br"),
+                                                        _c("span", [
+                                                          _c(
+                                                            "a",
+                                                            {
+                                                              attrs: {
+                                                                "data-toggle":
+                                                                  "modal",
+                                                                href: "#",
+                                                                "data-target":
+                                                                  "#others-exam-passed1"
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.addName(
+                                                                    "ExamPassed"
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                " + Add New Value"
+                                                              )
+                                                            ]
+                                                          )
+                                                        ])
+                                                      ]),
+                                                      _vm._v(" "),
+                                                      _c("th", [
+                                                        _vm._v(
+                                                          "University/ Board "
+                                                        ),
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "text-danger"
+                                                          },
+                                                          [_vm._v("*")]
+                                                        ),
+                                                        _c("br"),
+                                                        _c("span", [
+                                                          _c(
+                                                            "a",
+                                                            {
+                                                              attrs: {
+                                                                "data-toggle":
+                                                                  "modal",
+                                                                href: "#",
+                                                                "data-target":
+                                                                  "#others-exam-board1"
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.addName(
+                                                                    "UnivBoard"
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                " + Add New Value"
+                                                              )
+                                                            ]
+                                                          )
+                                                        ])
+                                                      ]),
+                                                      _vm._v(" "),
+                                                      _vm._m(32),
+                                                      _vm._v(" "),
+                                                      _vm._m(33),
+                                                      _vm._v(" "),
+                                                      _vm._m(34),
+                                                      _vm._v(" "),
+                                                      _vm._m(35),
+                                                      _vm._v(" "),
+                                                      _c("th", [
+                                                        _vm._v("Action")
+                                                      ])
+                                                    ])
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c("tbody", [
+                                                  _c("tr", [
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group text-center mb-0",
+                                                          staticStyle: {
+                                                            color: "#702E2E"
+                                                          }
+                                                        },
+                                                        [
+                                                          _c("input", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.form
+                                                                    .education1ExaminationLevel,
+                                                                expression:
+                                                                  "form.education1ExaminationLevel"
+                                                              }
+                                                            ],
+                                                            attrs: {
+                                                              type: "hidden"
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.form
+                                                                  .education1ExaminationLevel
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.form,
+                                                                  "education1ExaminationLevel",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          }),
+                                                          _vm._v(" "),
+                                                          _c("strong", [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                _vm.getExaminationLevel10
+                                                              )
+                                                            )
+                                                          ])
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "select",
+                                                            {
+                                                              directives: [
+                                                                {
+                                                                  name: "model",
+                                                                  rawName:
+                                                                    "v-model",
+                                                                  value:
+                                                                    _vm.form
+                                                                      .education1ExaminationPassed,
+                                                                  expression:
+                                                                    "form.education1ExaminationPassed"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "form-control form-control-sm",
+                                                              attrs: {
+                                                                disabled:
+                                                                  _vm.globalDisable,
+                                                                required: ""
+                                                              },
+                                                              on: {
+                                                                change: function(
+                                                                  $event
+                                                                ) {
+                                                                  var $$selectedVal = Array.prototype.filter
+                                                                    .call(
+                                                                      $event
+                                                                        .target
+                                                                        .options,
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        return o.selected
+                                                                      }
+                                                                    )
+                                                                    .map(
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        var val =
+                                                                          "_value" in
+                                                                          o
+                                                                            ? o._value
+                                                                            : o.value
+                                                                        return val
+                                                                      }
+                                                                    )
+                                                                  _vm.$set(
+                                                                    _vm.form,
+                                                                    "education1ExaminationPassed",
+                                                                    $event
+                                                                      .target
+                                                                      .multiple
+                                                                      ? $$selectedVal
+                                                                      : $$selectedVal[0]
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "",
+                                                                    disabled: ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "-- select --"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _vm._l(
+                                                                _vm.examinationPassedValues10,
+                                                                function(
+                                                                  epv,
+                                                                  index
+                                                                ) {
+                                                                  return _c(
+                                                                    "option",
+                                                                    {
+                                                                      key: index,
+                                                                      domProps: {
+                                                                        value:
+                                                                          epv.id
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        _vm._s(
+                                                                          epv.value
+                                                                        )
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                }
+                                                              )
+                                                            ],
+                                                            2
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "select",
+                                                            {
+                                                              directives: [
+                                                                {
+                                                                  name: "model",
+                                                                  rawName:
+                                                                    "v-model",
+                                                                  value:
+                                                                    _vm.form
+                                                                      .education1University,
+                                                                  expression:
+                                                                    "form.education1University"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "form-control form-control-sm",
+                                                              attrs: {
+                                                                disabled:
+                                                                  _vm.globalDisable,
+                                                                required: ""
+                                                              },
+                                                              on: {
+                                                                change: function(
+                                                                  $event
+                                                                ) {
+                                                                  var $$selectedVal = Array.prototype.filter
+                                                                    .call(
+                                                                      $event
+                                                                        .target
+                                                                        .options,
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        return o.selected
+                                                                      }
+                                                                    )
+                                                                    .map(
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        var val =
+                                                                          "_value" in
+                                                                          o
+                                                                            ? o._value
+                                                                            : o.value
+                                                                        return val
+                                                                      }
+                                                                    )
+                                                                  _vm.$set(
+                                                                    _vm.form,
+                                                                    "education1University",
+                                                                    $event
+                                                                      .target
+                                                                      .multiple
+                                                                      ? $$selectedVal
+                                                                      : $$selectedVal[0]
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "",
+                                                                    disabled: ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "-- select --"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _vm._l(
+                                                                _vm.universityBoardCouncilValues10,
+                                                                function(
+                                                                  ubv,
+                                                                  index
+                                                                ) {
+                                                                  return _c(
+                                                                    "option",
+                                                                    {
+                                                                      key: index,
+                                                                      domProps: {
+                                                                        value:
+                                                                          ubv.id
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        _vm._s(
+                                                                          ubv.value
+                                                                        )
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                }
+                                                              )
+                                                            ],
+                                                            2
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c("textarea", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.form
+                                                                    .education1MainSubjects,
+                                                                expression:
+                                                                  "form.education1MainSubjects"
+                                                              }
+                                                            ],
+                                                            staticClass:
+                                                              "form-control form-control-sm",
+                                                            attrs: {
+                                                              placeholder:
+                                                                "Type separated by comma",
+                                                              disabled:
+                                                                _vm.globalDisable,
+                                                              maxlength: "70",
+                                                              required: ""
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.form
+                                                                  .education1MainSubjects
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.form,
+                                                                  "education1MainSubjects",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "select",
+                                                            {
+                                                              directives: [
+                                                                {
+                                                                  name: "model",
+                                                                  rawName:
+                                                                    "v-model",
+                                                                  value:
+                                                                    _vm.form
+                                                                      .education1YearOfPassing,
+                                                                  expression:
+                                                                    "form.education1YearOfPassing"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "form-control form-control-sm",
+                                                              attrs: {
+                                                                disabled:
+                                                                  _vm.globalDisable,
+                                                                required: ""
+                                                              },
+                                                              on: {
+                                                                change: function(
+                                                                  $event
+                                                                ) {
+                                                                  var $$selectedVal = Array.prototype.filter
+                                                                    .call(
+                                                                      $event
+                                                                        .target
+                                                                        .options,
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        return o.selected
+                                                                      }
+                                                                    )
+                                                                    .map(
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        var val =
+                                                                          "_value" in
+                                                                          o
+                                                                            ? o._value
+                                                                            : o.value
+                                                                        return val
+                                                                      }
+                                                                    )
+                                                                  _vm.$set(
+                                                                    _vm.form,
+                                                                    "education1YearOfPassing",
+                                                                    $event
+                                                                      .target
+                                                                      .multiple
+                                                                      ? $$selectedVal
+                                                                      : $$selectedVal[0]
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "",
+                                                                    disabled: ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "-- select --"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2021"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2021")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2020"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2020")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2019"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2019")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2018"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2018")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2017"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2017")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2016"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2016")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2015"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2015")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2014"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2014")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2013"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2013")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2012"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2012")]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c("input", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.form
+                                                                    .education1Percentage,
+                                                                expression:
+                                                                  "form.education1Percentage"
+                                                              }
+                                                            ],
+                                                            staticClass:
+                                                              "form-control form-control-sm",
+                                                            attrs: {
+                                                              type: "number",
+                                                              min: "0",
+                                                              max: "100",
+                                                              step: "0.01",
+                                                              disabled:
+                                                                _vm.globalDisable,
+                                                              required: ""
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.form
+                                                                  .education1Percentage
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.form,
+                                                                  "education1Percentage",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "select",
+                                                            {
+                                                              directives: [
+                                                                {
+                                                                  name: "model",
+                                                                  rawName:
+                                                                    "v-model",
+                                                                  value:
+                                                                    _vm.form
+                                                                      .education1Division,
+                                                                  expression:
+                                                                    "form.education1Division"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "form-control form-control-sm",
+                                                              attrs: {
+                                                                disabled:
+                                                                  _vm.globalDisable,
+                                                                required: ""
+                                                              },
+                                                              on: {
+                                                                change: function(
+                                                                  $event
+                                                                ) {
+                                                                  var $$selectedVal = Array.prototype.filter
+                                                                    .call(
+                                                                      $event
+                                                                        .target
+                                                                        .options,
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        return o.selected
+                                                                      }
+                                                                    )
+                                                                    .map(
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        var val =
+                                                                          "_value" in
+                                                                          o
+                                                                            ? o._value
+                                                                            : o.value
+                                                                        return val
+                                                                      }
+                                                                    )
+                                                                  _vm.$set(
+                                                                    _vm.form,
+                                                                    "education1Division",
+                                                                    $event
+                                                                      .target
+                                                                      .multiple
+                                                                      ? $$selectedVal
+                                                                      : $$selectedVal[0]
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "",
+                                                                    disabled: ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "-- select --"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "1st"
+                                                                  }
+                                                                },
+                                                                [_vm._v("1st")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "2nd"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2nd")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "3rd"
+                                                                  }
+                                                                },
+                                                                [_vm._v("3rd")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "N/A"
+                                                                  }
+                                                                },
+                                                                [_vm._v("N/A")]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _vm._m(36)
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c("tr", [
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group text-center mb-0",
+                                                          staticStyle: {
+                                                            color: "#702E2E"
+                                                          }
+                                                        },
+                                                        [
+                                                          _c("input", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.form
+                                                                    .education2ExaminationLevel,
+                                                                expression:
+                                                                  "form.education2ExaminationLevel"
+                                                              }
+                                                            ],
+                                                            attrs: {
+                                                              type: "hidden"
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.form
+                                                                  .education2ExaminationLevel
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.form,
+                                                                  "education2ExaminationLevel",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          }),
+                                                          _vm._v(" "),
+                                                          _c("strong", [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                _vm.getExaminationLevel12
+                                                              )
+                                                            )
+                                                          ])
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "select",
+                                                            {
+                                                              directives: [
+                                                                {
+                                                                  name: "model",
+                                                                  rawName:
+                                                                    "v-model",
+                                                                  value:
+                                                                    _vm.form
+                                                                      .education2ExaminationPassed,
+                                                                  expression:
+                                                                    "form.education2ExaminationPassed"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "form-control form-control-sm",
+                                                              attrs: {
+                                                                disabled:
+                                                                  _vm.globalDisable,
+                                                                required: ""
+                                                              },
+                                                              on: {
+                                                                change: function(
+                                                                  $event
+                                                                ) {
+                                                                  var $$selectedVal = Array.prototype.filter
+                                                                    .call(
+                                                                      $event
+                                                                        .target
+                                                                        .options,
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        return o.selected
+                                                                      }
+                                                                    )
+                                                                    .map(
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        var val =
+                                                                          "_value" in
+                                                                          o
+                                                                            ? o._value
+                                                                            : o.value
+                                                                        return val
+                                                                      }
+                                                                    )
+                                                                  _vm.$set(
+                                                                    _vm.form,
+                                                                    "education2ExaminationPassed",
+                                                                    $event
+                                                                      .target
+                                                                      .multiple
+                                                                      ? $$selectedVal
+                                                                      : $$selectedVal[0]
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "",
+                                                                    disabled: ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "-- select --"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _vm._l(
+                                                                _vm.examinationPassedValues12,
+                                                                function(
+                                                                  epv,
+                                                                  index
+                                                                ) {
+                                                                  return _c(
+                                                                    "option",
+                                                                    {
+                                                                      key: index,
+                                                                      domProps: {
+                                                                        value:
+                                                                          epv.id
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        _vm._s(
+                                                                          epv.value
+                                                                        )
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                }
+                                                              )
+                                                            ],
+                                                            2
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "select",
+                                                            {
+                                                              directives: [
+                                                                {
+                                                                  name: "model",
+                                                                  rawName:
+                                                                    "v-model",
+                                                                  value:
+                                                                    _vm.form
+                                                                      .education2University,
+                                                                  expression:
+                                                                    "form.education2University"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "form-control form-control-sm",
+                                                              attrs: {
+                                                                disabled:
+                                                                  _vm.globalDisable,
+                                                                required: ""
+                                                              },
+                                                              on: {
+                                                                change: function(
+                                                                  $event
+                                                                ) {
+                                                                  var $$selectedVal = Array.prototype.filter
+                                                                    .call(
+                                                                      $event
+                                                                        .target
+                                                                        .options,
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        return o.selected
+                                                                      }
+                                                                    )
+                                                                    .map(
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        var val =
+                                                                          "_value" in
+                                                                          o
+                                                                            ? o._value
+                                                                            : o.value
+                                                                        return val
+                                                                      }
+                                                                    )
+                                                                  _vm.$set(
+                                                                    _vm.form,
+                                                                    "education2University",
+                                                                    $event
+                                                                      .target
+                                                                      .multiple
+                                                                      ? $$selectedVal
+                                                                      : $$selectedVal[0]
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "",
+                                                                    disabled: ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "-- select --"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _vm._l(
+                                                                _vm.universityBoardCouncilValues12,
+                                                                function(
+                                                                  ubv,
+                                                                  index
+                                                                ) {
+                                                                  return _c(
+                                                                    "option",
+                                                                    {
+                                                                      key: index,
+                                                                      domProps: {
+                                                                        value:
+                                                                          ubv.id
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        _vm._s(
+                                                                          ubv.value
+                                                                        )
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                }
+                                                              )
+                                                            ],
+                                                            2
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c("textarea", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.form
+                                                                    .education2MainSubjects,
+                                                                expression:
+                                                                  "form.education2MainSubjects"
+                                                              }
+                                                            ],
+                                                            staticClass:
+                                                              "form-control form-control-sm",
+                                                            attrs: {
+                                                              placeholder:
+                                                                "Type separated by comma",
+                                                              disabled:
+                                                                _vm.globalDisable,
+                                                              maxlength: "70",
+                                                              required: ""
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.form
+                                                                  .education2MainSubjects
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.form,
+                                                                  "education2MainSubjects",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "select",
+                                                            {
+                                                              directives: [
+                                                                {
+                                                                  name: "model",
+                                                                  rawName:
+                                                                    "v-model",
+                                                                  value:
+                                                                    _vm.form
+                                                                      .education2YearOfPassing,
+                                                                  expression:
+                                                                    "form.education2YearOfPassing"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "form-control form-control-sm",
+                                                              attrs: {
+                                                                disabled:
+                                                                  _vm.globalDisable,
+                                                                required: ""
+                                                              },
+                                                              on: {
+                                                                change: function(
+                                                                  $event
+                                                                ) {
+                                                                  var $$selectedVal = Array.prototype.filter
+                                                                    .call(
+                                                                      $event
+                                                                        .target
+                                                                        .options,
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        return o.selected
+                                                                      }
+                                                                    )
+                                                                    .map(
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        var val =
+                                                                          "_value" in
+                                                                          o
+                                                                            ? o._value
+                                                                            : o.value
+                                                                        return val
+                                                                      }
+                                                                    )
+                                                                  _vm.$set(
+                                                                    _vm.form,
+                                                                    "education2YearOfPassing",
+                                                                    $event
+                                                                      .target
+                                                                      .multiple
+                                                                      ? $$selectedVal
+                                                                      : $$selectedVal[0]
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "",
+                                                                    disabled: ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "-- select --"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2021"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2021")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2020"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2020")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2019"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2019")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2018"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2018")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2017"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2017")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2016"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2016")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2015"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2015")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2014"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2014")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2013"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2013")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "2012"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2012")]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c("input", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.form
+                                                                    .education2Percentage,
+                                                                expression:
+                                                                  "form.education2Percentage"
+                                                              }
+                                                            ],
+                                                            staticClass:
+                                                              "form-control form-control-sm",
+                                                            attrs: {
+                                                              type: "number",
+                                                              min: "0",
+                                                              max: "100",
+                                                              step: "0.01",
+                                                              disabled:
+                                                                _vm.globalDisable,
+                                                              required: ""
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.form
+                                                                  .education2Percentage
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.form,
+                                                                  "education2Percentage",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "select",
+                                                            {
+                                                              directives: [
+                                                                {
+                                                                  name: "model",
+                                                                  rawName:
+                                                                    "v-model",
+                                                                  value:
+                                                                    _vm.form
+                                                                      .education2Division,
+                                                                  expression:
+                                                                    "form.education2Division"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "form-control form-control-sm",
+                                                              attrs: {
+                                                                disabled:
+                                                                  _vm.globalDisable,
+                                                                required: ""
+                                                              },
+                                                              on: {
+                                                                change: function(
+                                                                  $event
+                                                                ) {
+                                                                  var $$selectedVal = Array.prototype.filter
+                                                                    .call(
+                                                                      $event
+                                                                        .target
+                                                                        .options,
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        return o.selected
+                                                                      }
+                                                                    )
+                                                                    .map(
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        var val =
+                                                                          "_value" in
+                                                                          o
+                                                                            ? o._value
+                                                                            : o.value
+                                                                        return val
+                                                                      }
+                                                                    )
+                                                                  _vm.$set(
+                                                                    _vm.form,
+                                                                    "education2Division",
+                                                                    $event
+                                                                      .target
+                                                                      .multiple
+                                                                      ? $$selectedVal
+                                                                      : $$selectedVal[0]
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "",
+                                                                    disabled: ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "-- select --"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "1st"
+                                                                  }
+                                                                },
+                                                                [_vm._v("1st")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "2nd"
+                                                                  }
+                                                                },
+                                                                [_vm._v("2nd")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "3rd"
+                                                                  }
+                                                                },
+                                                                [_vm._v("3rd")]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "N/A"
+                                                                  }
+                                                                },
+                                                                [_vm._v("N/A")]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _vm._m(37)
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _vm.form.scholarshipType ==
+                                                  "HHDLS"
+                                                    ? _c("tr", [
+                                                        _c("td", [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "form-group text-center mb-0",
+                                                              staticStyle: {
+                                                                color: "#702E2E"
+                                                              }
+                                                            },
+                                                            [
+                                                              _c("input", {
+                                                                directives: [
+                                                                  {
+                                                                    name:
+                                                                      "model",
+                                                                    rawName:
+                                                                      "v-model",
+                                                                    value:
+                                                                      _vm.form
+                                                                        .education3ExaminationLevel,
+                                                                    expression:
+                                                                      "form.education3ExaminationLevel"
+                                                                  }
+                                                                ],
+                                                                attrs: {
+                                                                  type: "hidden"
+                                                                },
+                                                                domProps: {
+                                                                  value:
+                                                                    _vm.form
+                                                                      .education3ExaminationLevel
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    if (
+                                                                      $event
+                                                                        .target
+                                                                        .composing
+                                                                    ) {
+                                                                      return
+                                                                    }
+                                                                    _vm.$set(
+                                                                      _vm.form,
+                                                                      "education3ExaminationLevel",
+                                                                      $event
+                                                                        .target
+                                                                        .value
+                                                                    )
+                                                                  }
+                                                                }
+                                                              }),
+                                                              _vm._v(" "),
+                                                              _c("strong", [
+                                                                _vm._v(
+                                                                  _vm._s(
+                                                                    _vm.getExaminationLevel13
+                                                                  )
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("td", [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "form-group mb-0"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "select",
+                                                                {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model",
+                                                                      value:
+                                                                        _vm.form
+                                                                          .education3ExaminationPassed,
+                                                                      expression:
+                                                                        "form.education3ExaminationPassed"
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "form-control form-control-sm",
+                                                                  attrs: {
+                                                                    disabled:
+                                                                      _vm.globalDisable
+                                                                  },
+                                                                  on: {
+                                                                    change: function(
+                                                                      $event
+                                                                    ) {
+                                                                      var $$selectedVal = Array.prototype.filter
+                                                                        .call(
+                                                                          $event
+                                                                            .target
+                                                                            .options,
+                                                                          function(
+                                                                            o
+                                                                          ) {
+                                                                            return o.selected
+                                                                          }
+                                                                        )
+                                                                        .map(
+                                                                          function(
+                                                                            o
+                                                                          ) {
+                                                                            var val =
+                                                                              "_value" in
+                                                                              o
+                                                                                ? o._value
+                                                                                : o.value
+                                                                            return val
+                                                                          }
+                                                                        )
+                                                                      _vm.$set(
+                                                                        _vm.form,
+                                                                        "education3ExaminationPassed",
+                                                                        $event
+                                                                          .target
+                                                                          .multiple
+                                                                          ? $$selectedVal
+                                                                          : $$selectedVal[0]
+                                                                      )
+                                                                    }
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "",
+                                                                        disabled:
+                                                                          ""
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "-- select --"
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _vm._l(
+                                                                    _vm.examinationPassedValues13,
+                                                                    function(
+                                                                      epv,
+                                                                      index
+                                                                    ) {
+                                                                      return _c(
+                                                                        "option",
+                                                                        {
+                                                                          key: index,
+                                                                          domProps: {
+                                                                            value:
+                                                                              epv.id
+                                                                          }
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            _vm._s(
+                                                                              epv.value
+                                                                            )
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    }
+                                                                  )
+                                                                ],
+                                                                2
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("td", [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "form-group mb-0"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "select",
+                                                                {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model",
+                                                                      value:
+                                                                        _vm.form
+                                                                          .education3University,
+                                                                      expression:
+                                                                        "form.education3University"
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "form-control form-control-sm",
+                                                                  attrs: {
+                                                                    disabled:
+                                                                      _vm.globalDisable
+                                                                  },
+                                                                  on: {
+                                                                    change: function(
+                                                                      $event
+                                                                    ) {
+                                                                      var $$selectedVal = Array.prototype.filter
+                                                                        .call(
+                                                                          $event
+                                                                            .target
+                                                                            .options,
+                                                                          function(
+                                                                            o
+                                                                          ) {
+                                                                            return o.selected
+                                                                          }
+                                                                        )
+                                                                        .map(
+                                                                          function(
+                                                                            o
+                                                                          ) {
+                                                                            var val =
+                                                                              "_value" in
+                                                                              o
+                                                                                ? o._value
+                                                                                : o.value
+                                                                            return val
+                                                                          }
+                                                                        )
+                                                                      _vm.$set(
+                                                                        _vm.form,
+                                                                        "education3University",
+                                                                        $event
+                                                                          .target
+                                                                          .multiple
+                                                                          ? $$selectedVal
+                                                                          : $$selectedVal[0]
+                                                                      )
+                                                                    }
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "",
+                                                                        disabled:
+                                                                          ""
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "-- select --"
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _vm._l(
+                                                                    _vm.universityBoardCouncilValues13,
+                                                                    function(
+                                                                      ubv,
+                                                                      index
+                                                                    ) {
+                                                                      return _c(
+                                                                        "option",
+                                                                        {
+                                                                          key: index,
+                                                                          domProps: {
+                                                                            value:
+                                                                              ubv.id
+                                                                          }
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            _vm._s(
+                                                                              ubv.value
+                                                                            )
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    }
+                                                                  )
+                                                                ],
+                                                                2
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("td", [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "form-group mb-0"
+                                                            },
+                                                            [
+                                                              _c("textarea", {
+                                                                directives: [
+                                                                  {
+                                                                    name:
+                                                                      "model",
+                                                                    rawName:
+                                                                      "v-model",
+                                                                    value:
+                                                                      _vm.form
+                                                                        .education3MainSubjects,
+                                                                    expression:
+                                                                      "form.education3MainSubjects"
+                                                                  }
+                                                                ],
+                                                                staticClass:
+                                                                  "form-control form-control-sm",
+                                                                attrs: {
+                                                                  placeholder:
+                                                                    "Type separated by comma",
+                                                                  disabled:
+                                                                    _vm.globalDisable,
+                                                                  maxlength:
+                                                                    "70"
+                                                                },
+                                                                domProps: {
+                                                                  value:
+                                                                    _vm.form
+                                                                      .education3MainSubjects
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    if (
+                                                                      $event
+                                                                        .target
+                                                                        .composing
+                                                                    ) {
+                                                                      return
+                                                                    }
+                                                                    _vm.$set(
+                                                                      _vm.form,
+                                                                      "education3MainSubjects",
+                                                                      $event
+                                                                        .target
+                                                                        .value
+                                                                    )
+                                                                  }
+                                                                }
+                                                              })
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("td", [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "form-group mb-0"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "select",
+                                                                {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model",
+                                                                      value:
+                                                                        _vm.form
+                                                                          .education3YearOfPassing,
+                                                                      expression:
+                                                                        "form.education3YearOfPassing"
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "form-control form-control-sm",
+                                                                  attrs: {
+                                                                    disabled:
+                                                                      _vm.globalDisable
+                                                                  },
+                                                                  on: {
+                                                                    change: function(
+                                                                      $event
+                                                                    ) {
+                                                                      var $$selectedVal = Array.prototype.filter
+                                                                        .call(
+                                                                          $event
+                                                                            .target
+                                                                            .options,
+                                                                          function(
+                                                                            o
+                                                                          ) {
+                                                                            return o.selected
+                                                                          }
+                                                                        )
+                                                                        .map(
+                                                                          function(
+                                                                            o
+                                                                          ) {
+                                                                            var val =
+                                                                              "_value" in
+                                                                              o
+                                                                                ? o._value
+                                                                                : o.value
+                                                                            return val
+                                                                          }
+                                                                        )
+                                                                      _vm.$set(
+                                                                        _vm.form,
+                                                                        "education3YearOfPassing",
+                                                                        $event
+                                                                          .target
+                                                                          .multiple
+                                                                          ? $$selectedVal
+                                                                          : $$selectedVal[0]
+                                                                      )
+                                                                    }
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "",
+                                                                        disabled:
+                                                                          ""
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "-- select --"
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "2021"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "2021"
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "2020"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "2020"
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "2019"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "2019"
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "2018"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "2018"
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "2017"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "2017"
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "2016"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "2016"
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "2015"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "2015"
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "2014"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "2014"
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "2013"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "2013"
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "2012"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "2012"
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("td", [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "form-group mb-0"
+                                                            },
+                                                            [
+                                                              _c("input", {
+                                                                directives: [
+                                                                  {
+                                                                    name:
+                                                                      "model",
+                                                                    rawName:
+                                                                      "v-model",
+                                                                    value:
+                                                                      _vm.form
+                                                                        .education3Percentage,
+                                                                    expression:
+                                                                      "form.education3Percentage"
+                                                                  }
+                                                                ],
+                                                                staticClass:
+                                                                  "form-control form-control-sm",
+                                                                attrs: {
+                                                                  type:
+                                                                    "number",
+                                                                  min: "0",
+                                                                  max: "100",
+                                                                  step: "0.01",
+                                                                  disabled:
+                                                                    _vm.globalDisable
+                                                                },
+                                                                domProps: {
+                                                                  value:
+                                                                    _vm.form
+                                                                      .education3Percentage
+                                                                },
+                                                                on: {
+                                                                  input: function(
+                                                                    $event
+                                                                  ) {
+                                                                    if (
+                                                                      $event
+                                                                        .target
+                                                                        .composing
+                                                                    ) {
+                                                                      return
+                                                                    }
+                                                                    _vm.$set(
+                                                                      _vm.form,
+                                                                      "education3Percentage",
+                                                                      $event
+                                                                        .target
+                                                                        .value
+                                                                    )
+                                                                  }
+                                                                }
+                                                              })
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("td", [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "form-group mb-0"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "select",
+                                                                {
+                                                                  directives: [
+                                                                    {
+                                                                      name:
+                                                                        "model",
+                                                                      rawName:
+                                                                        "v-model",
+                                                                      value:
+                                                                        _vm.form
+                                                                          .education3Division,
+                                                                      expression:
+                                                                        "form.education3Division"
+                                                                    }
+                                                                  ],
+                                                                  staticClass:
+                                                                    "form-control form-control-sm",
+                                                                  attrs: {
+                                                                    disabled:
+                                                                      _vm.globalDisable
+                                                                  },
+                                                                  on: {
+                                                                    change: function(
+                                                                      $event
+                                                                    ) {
+                                                                      var $$selectedVal = Array.prototype.filter
+                                                                        .call(
+                                                                          $event
+                                                                            .target
+                                                                            .options,
+                                                                          function(
+                                                                            o
+                                                                          ) {
+                                                                            return o.selected
+                                                                          }
+                                                                        )
+                                                                        .map(
+                                                                          function(
+                                                                            o
+                                                                          ) {
+                                                                            var val =
+                                                                              "_value" in
+                                                                              o
+                                                                                ? o._value
+                                                                                : o.value
+                                                                            return val
+                                                                          }
+                                                                        )
+                                                                      _vm.$set(
+                                                                        _vm.form,
+                                                                        "education3Division",
+                                                                        $event
+                                                                          .target
+                                                                          .multiple
+                                                                          ? $$selectedVal
+                                                                          : $$selectedVal[0]
+                                                                      )
+                                                                    }
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "",
+                                                                        disabled:
+                                                                          ""
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "-- select --"
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "1st"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "1st"
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "2nd"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "2nd"
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "3rd"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "3rd"
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "option",
+                                                                    {
+                                                                      attrs: {
+                                                                        value:
+                                                                          "N/A"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "N/A"
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "td",
+                                                          {
+                                                            staticClass:
+                                                              "text-center"
+                                                          },
+                                                          [
+                                                            _vm.globalDisable ==
+                                                            false
+                                                              ? _c(
+                                                                  "a",
+                                                                  {
+                                                                    staticClass:
+                                                                      "act-link",
+                                                                    on: {
+                                                                      click: function(
+                                                                        $event
+                                                                      ) {
+                                                                        return _vm.deleteFile()
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c("i", {
+                                                                      staticClass:
+                                                                        "fa fa-trash"
+                                                                    })
+                                                                  ]
+                                                                )
+                                                              : _c(
+                                                                  "a",
+                                                                  {
+                                                                    staticClass:
+                                                                      "act-link",
+                                                                    staticStyle: {
+                                                                      color:
+                                                                        "#808080"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c("i", {
+                                                                      staticClass:
+                                                                        "fa fa-trash"
+                                                                    })
+                                                                  ]
+                                                                )
+                                                          ]
+                                                        )
+                                                      ])
+                                                    : _vm._e()
+                                                ])
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "m-auto text-danger font-sm"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Note: Click on 'Add new values' above to add values to the list if required. "
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-xl-12" }, [
+                              _c("div", { staticClass: "card mt-2 det-sec" }, [
+                                _vm._m(38),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "card-body" }, [
+                                  _c("div", { staticClass: "form-row" }, [
+                                    _vm._m(39),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-xl-2 align-self-center mb-2"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group mb-0" },
+                                          [
+                                            _c(
+                                              "select",
+                                              {
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value:
+                                                      _vm.form
+                                                        .hasAdmissionLetter,
+                                                    expression:
+                                                      "form.hasAdmissionLetter"
+                                                  }
+                                                ],
+                                                staticClass:
+                                                  "form-control form-control-sm",
+                                                attrs: {
+                                                  required: "",
+                                                  disabled: _vm.globalDisable
+                                                },
+                                                on: {
+                                                  change: [
+                                                    function($event) {
+                                                      var $$selectedVal = Array.prototype.filter
+                                                        .call(
+                                                          $event.target.options,
+                                                          function(o) {
+                                                            return o.selected
+                                                          }
+                                                        )
+                                                        .map(function(o) {
+                                                          var val =
+                                                            "_value" in o
+                                                              ? o._value
+                                                              : o.value
+                                                          return val
+                                                        })
+                                                      _vm.$set(
+                                                        _vm.form,
+                                                        "hasAdmissionLetter",
+                                                        $event.target.multiple
+                                                          ? $$selectedVal
+                                                          : $$selectedVal[0]
+                                                      )
+                                                    },
+                                                    function($event) {
+                                                      return _vm.onSelect(
+                                                        $event
+                                                      )
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      disabled: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("--Select--")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  { attrs: { value: "YES" } },
+                                                  [_vm._v("YES")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  { attrs: { value: "NO" } },
+                                                  [_vm._v("NO")]
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "text-danger font-sm mt-2"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "  (If 'YES' Annexure-I will be disabled. If 'NO' fill up Annexure-I)"
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _vm._m(40),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-3" }, [
+                                      _vm._m(41),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-group mb-0" },
+                                        [
+                                          _c(
+                                            "select",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value:
+                                                    _vm.form.courseLevelValueId,
+                                                  expression:
+                                                    "form.courseLevelValueId"
+                                                }
+                                              ],
+                                              staticClass:
+                                                "form-control form-control-sm",
+                                              attrs: {
+                                                disabled: _vm.inputDisabled,
+                                                required: ""
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.getHHDLSData(
+                                                    $event
+                                                  )
+                                                },
+                                                change: function($event) {
+                                                  var $$selectedVal = Array.prototype.filter
+                                                    .call(
+                                                      $event.target.options,
+                                                      function(o) {
+                                                        return o.selected
+                                                      }
+                                                    )
+                                                    .map(function(o) {
+                                                      var val =
+                                                        "_value" in o
+                                                          ? o._value
+                                                          : o.value
+                                                      return val
+                                                    })
+                                                  _vm.$set(
+                                                    _vm.form,
+                                                    "courseLevelValueId",
+                                                    $event.target.multiple
+                                                      ? $$selectedVal
+                                                      : $$selectedVal[0]
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "",
+                                                    disabled: ""
+                                                  }
+                                                },
+                                                [_vm._v("-- select --")]
+                                              ),
+                                              _vm._v(" "),
+                                              _vm._l(
+                                                _vm.universityCourseLevel,
+                                                function(ucl, index) {
+                                                  return _c(
+                                                    "option",
+                                                    {
+                                                      key: index,
+                                                      attrs: { selected: "" },
+                                                      domProps: {
+                                                        value: ucl.id
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(ucl.description)
+                                                      )
+                                                    ]
+                                                  )
+                                                }
+                                              )
+                                            ],
+                                            2
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-3" }, [
+                                      _vm.form.scholarshipType == "HHDLS"
+                                        ? _c("label", [
+                                            _vm._v("Course Name "),
+                                            _vm._m(42),
+                                            _vm.inputDisabled == false
+                                              ? _c(
+                                                  "a",
+                                                  {
+                                                    attrs: {
+                                                      "data-toggle": "modal",
+                                                      href: "#",
+                                                      "data-target":
+                                                        "#others-course-name"
+                                                    },
+                                                    on: {
+                                                      click: function($event) {
+                                                        return _vm.addName(
+                                                          "CourseName"
+                                                        )
+                                                      }
+                                                    }
+                                                  },
+                                                  [_vm._v(" + Add New Value")]
+                                                )
+                                              : _vm._e()
+                                          ])
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _vm.form.scholarshipType == "Nursing"
+                                        ? _c("label", [
+                                            _vm._v("Course Name "),
+                                            _vm._m(43)
+                                          ])
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _vm.form.scholarshipType == "HHDLS"
+                                        ? _c(
+                                            "div",
+                                            { staticClass: "form-group mb-0" },
+                                            [
+                                              _c(
+                                                "select",
+                                                {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .courseNameValueId,
+                                                      expression:
+                                                        "form.courseNameValueId"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-control form-control-sm",
+                                                  attrs: {
+                                                    disabled: _vm.inputDisabled,
+                                                    required: ""
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$selectedVal = Array.prototype.filter
+                                                        .call(
+                                                          $event.target.options,
+                                                          function(o) {
+                                                            return o.selected
+                                                          }
+                                                        )
+                                                        .map(function(o) {
+                                                          var val =
+                                                            "_value" in o
+                                                              ? o._value
+                                                              : o.value
+                                                          return val
+                                                        })
+                                                      _vm.$set(
+                                                        _vm.form,
+                                                        "courseNameValueId",
+                                                        $event.target.multiple
+                                                          ? $$selectedVal
+                                                          : $$selectedVal[0]
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    {
+                                                      attrs: {
+                                                        value: "",
+                                                        disabled: ""
+                                                      }
+                                                    },
+                                                    [_vm._v("-- select --")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _vm._l(
+                                                    _vm.universityCourseName,
+                                                    function(ucn, index) {
+                                                      return _c(
+                                                        "option",
+                                                        {
+                                                          key: index,
+                                                          attrs: {
+                                                            selected: ""
+                                                          },
+                                                          domProps: {
+                                                            value: ucn.id
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(ucn.value)
+                                                          )
+                                                        ]
+                                                      )
+                                                    }
+                                                  )
+                                                ],
+                                                2
+                                              )
+                                            ]
+                                          )
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _vm.form.scholarshipType == "Nursing"
+                                        ? _c(
+                                            "div",
+                                            { staticClass: "form-group mb-0" },
+                                            [
+                                              _c(
+                                                "select",
+                                                {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .courseNameValueId,
+                                                      expression:
+                                                        "form.courseNameValueId"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-control form-control-sm",
+                                                  attrs: {
+                                                    disabled: _vm.inputDisabled,
+                                                    required: ""
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$selectedVal = Array.prototype.filter
+                                                        .call(
+                                                          $event.target.options,
+                                                          function(o) {
+                                                            return o.selected
+                                                          }
+                                                        )
+                                                        .map(function(o) {
+                                                          var val =
+                                                            "_value" in o
+                                                              ? o._value
+                                                              : o.value
+                                                          return val
+                                                        })
+                                                      _vm.$set(
+                                                        _vm.form,
+                                                        "courseNameValueId",
+                                                        $event.target.multiple
+                                                          ? $$selectedVal
+                                                          : $$selectedVal[0]
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    {
+                                                      attrs: {
+                                                        value: "",
+                                                        disabled: ""
+                                                      }
+                                                    },
+                                                    [_vm._v("-- select --")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _vm._l(
+                                                    _vm.universityCourseName,
+                                                    function(ucn, index) {
+                                                      return _c(
+                                                        "option",
+                                                        {
+                                                          key: index,
+                                                          attrs: {
+                                                            selected: ""
+                                                          },
+                                                          domProps: {
+                                                            value: ucn.id
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(ucn.value)
+                                                          )
+                                                        ]
+                                                      )
+                                                    }
+                                                  )
+                                                ],
+                                                2
+                                              )
+                                            ]
+                                          )
+                                        : _vm._e()
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-6" }, [
+                                      _c("label", [
+                                        _vm._v("Name of the institute "),
+                                        _vm._m(44),
+                                        _vm._v(" "),
+                                        _vm.inputDisabled == false
+                                          ? _c(
+                                              "a",
+                                              {
+                                                attrs: {
+                                                  "data-toggle": "modal",
+                                                  href: "#",
+                                                  "data-target":
+                                                    "#others-add-institute"
+                                                }
+                                              },
+                                              [_vm._v(" + Add New Value")]
+                                            )
+                                          : _vm._e()
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-group mb-0" },
+                                        [
+                                          _c(
+                                            "select",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.form.instituteId,
+                                                  expression: "form.instituteId"
+                                                }
+                                              ],
+                                              staticClass:
+                                                "form-control form-control-sm",
+                                              attrs: {
+                                                required: "",
+                                                disabled: _vm.inputDisabled
+                                              },
+                                              on: {
+                                                change: [
+                                                  function($event) {
+                                                    var $$selectedVal = Array.prototype.filter
+                                                      .call(
+                                                        $event.target.options,
+                                                        function(o) {
+                                                          return o.selected
+                                                        }
+                                                      )
+                                                      .map(function(o) {
+                                                        var val =
+                                                          "_value" in o
+                                                            ? o._value
+                                                            : o.value
+                                                        return val
+                                                      })
+                                                    _vm.$set(
+                                                      _vm.form,
+                                                      "instituteId",
+                                                      $event.target.multiple
+                                                        ? $$selectedVal
+                                                        : $$selectedVal[0]
+                                                    )
+                                                  },
+                                                  function($event) {
+                                                    return _vm.onChangeIns(
+                                                      $event
+                                                    )
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            [
+                                              _vm._l(_vm.insData, function(
+                                                i,
+                                                index
+                                              ) {
+                                                return _c(
+                                                  "option",
+                                                  {
+                                                    key: index,
+                                                    attrs: { selected: "" },
+                                                    domProps: { value: i.id }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(i.instituteName) +
+                                                        " - " +
+                                                        _vm._s(
+                                                          i.get_address
+                                                            .addressCity
+                                                        ) +
+                                                        ", " +
+                                                        _vm._s(
+                                                          i.get_address
+                                                            .addressState
+                                                        )
+                                                    )
+                                                  ]
+                                                )
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "",
+                                                    disabled: ""
+                                                  }
+                                                },
+                                                [_vm._v("-- select --")]
+                                              )
+                                            ],
+                                            2
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-2" }, [
+                                      _c("label", [_vm._v("City/Town")]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.insAddressCity,
+                                              expression: "form.insAddressCity"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: { type: "text", disabled: "" },
+                                          domProps: {
+                                            value: _vm.form.insAddressCity
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "insAddressCity",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-2" }, [
+                                      _c("label", [_vm._v("District")]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.form.insAddressDistprov,
+                                              expression:
+                                                "form.insAddressDistprov"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: { type: "text", disabled: "" },
+                                          domProps: {
+                                            value: _vm.form.insAddressDistprov
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "insAddressDistprov",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-xl-3" }, [
+                                      _vm._m(45),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.insAddressState,
+                                              expression: "form.insAddressState"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "form-control form-control-sm",
+                                          attrs: { type: "text", disabled: "" },
+                                          domProps: {
+                                            value: _vm.form.insAddressState
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.form,
+                                                "insAddressState",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _vm.form.scholarshipType == "Nursing"
+                                      ? _c("div", { staticClass: "col-xl-4" }, [
+                                          _vm._m(46),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "form-group" },
+                                            [
+                                              _c(
+                                                "select",
+                                                {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.form
+                                                          .recognizedByINC,
+                                                      expression:
+                                                        "form.recognizedByINC"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "form-control form-control-sm",
+                                                  attrs: {
+                                                    disabled: _vm.inputDisabled,
+                                                    required: ""
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$selectedVal = Array.prototype.filter
+                                                        .call(
+                                                          $event.target.options,
+                                                          function(o) {
+                                                            return o.selected
+                                                          }
+                                                        )
+                                                        .map(function(o) {
+                                                          var val =
+                                                            "_value" in o
+                                                              ? o._value
+                                                              : o.value
+                                                          return val
+                                                        })
+                                                      _vm.$set(
+                                                        _vm.form,
+                                                        "recognizedByINC",
+                                                        $event.target.multiple
+                                                          ? $$selectedVal
+                                                          : $$selectedVal[0]
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    {
+                                                      attrs: {
+                                                        value: "",
+                                                        disabled: ""
+                                                      }
+                                                    },
+                                                    [_vm._v("--Select--")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "YES" } },
+                                                    [_vm._v("YES")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "NO" } },
+                                                    [_vm._v("NO")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "option",
+                                                    {
+                                                      attrs: {
+                                                        value: "Don't know"
+                                                      }
+                                                    },
+                                                    [_vm._v("Don't know")]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ])
+                                      : _vm._e()
+                                  ])
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-xl-12" }, [
+                              _c("div", { staticClass: "card mt-2 det-sec" }, [
+                                _vm._m(47),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "card-body" }, [
+                                  _c("div", { staticClass: "form-row" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "col-xl-12 mb-2" },
+                                      [
+                                        _vm._m(48),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "table-responsive font-md"
+                                          },
+                                          [
+                                            _c(
+                                              "table",
+                                              {
+                                                staticClass:
+                                                  "table table-sm mb-0"
+                                              },
+                                              [
+                                                _vm._m(49),
+                                                _vm._v(" "),
+                                                _c("tbody", [
+                                                  _c("tr", [
+                                                    _c("td", [
+                                                      _c("input", {
+                                                        directives: [
+                                                          {
+                                                            name: "model",
+                                                            rawName: "v-model",
+                                                            value: _vm.form.ms1,
+                                                            expression:
+                                                              "form.ms1"
+                                                          }
+                                                        ],
+                                                        attrs: {
+                                                          type: "hidden"
+                                                        },
+                                                        domProps: {
+                                                          value: _vm.form.ms1
+                                                        },
+                                                        on: {
+                                                          input: function(
+                                                            $event
+                                                          ) {
+                                                            if (
+                                                              $event.target
+                                                                .composing
+                                                            ) {
+                                                              return
+                                                            }
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "ms1",
+                                                              $event.target
+                                                                .value
+                                                            )
+                                                          }
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c("input", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.form
+                                                                    .miscName1,
+                                                                expression:
+                                                                  "form.miscName1"
+                                                              }
+                                                            ],
+                                                            staticClass:
+                                                              "form-control form-control-sm",
+                                                            attrs: {
+                                                              type: "text",
+                                                              disabled:
+                                                                _vm.globalDisable
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.form
+                                                                  .miscName1
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.form,
+                                                                  "miscName1",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "select",
+                                                            {
+                                                              directives: [
+                                                                {
+                                                                  name: "model",
+                                                                  rawName:
+                                                                    "v-model",
+                                                                  value:
+                                                                    _vm.form
+                                                                      .mRelationship1,
+                                                                  expression:
+                                                                    "form.mRelationship1"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "form-control form-control-sm",
+                                                              attrs: {
+                                                                disabled:
+                                                                  _vm.globalDisable
+                                                              },
+                                                              on: {
+                                                                change: function(
+                                                                  $event
+                                                                ) {
+                                                                  var $$selectedVal = Array.prototype.filter
+                                                                    .call(
+                                                                      $event
+                                                                        .target
+                                                                        .options,
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        return o.selected
+                                                                      }
+                                                                    )
+                                                                    .map(
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        var val =
+                                                                          "_value" in
+                                                                          o
+                                                                            ? o._value
+                                                                            : o.value
+                                                                        return val
+                                                                      }
+                                                                    )
+                                                                  _vm.$set(
+                                                                    _vm.form,
+                                                                    "mRelationship1",
+                                                                    $event
+                                                                      .target
+                                                                      .multiple
+                                                                      ? $$selectedVal
+                                                                      : $$selectedVal[0]
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "",
+                                                                    disabled: ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "--Select--"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "Brother"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Brother"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "Sister"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Sister"
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c("input", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.form
+                                                                    .miscCourse1,
+                                                                expression:
+                                                                  "form.miscCourse1"
+                                                              }
+                                                            ],
+                                                            staticClass:
+                                                              "form-control form-control-sm",
+                                                            attrs: {
+                                                              type: "text",
+                                                              disabled:
+                                                                _vm.globalDisable
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.form
+                                                                  .miscCourse1
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.form,
+                                                                  "miscCourse1",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c("input", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.form
+                                                                    .miscYear1,
+                                                                expression:
+                                                                  "form.miscYear1"
+                                                              }
+                                                            ],
+                                                            staticClass:
+                                                              "form-control form-control-sm",
+                                                            attrs: {
+                                                              type: "text",
+                                                              disabled:
+                                                                _vm.globalDisable
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.form
+                                                                  .miscYear1
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.form,
+                                                                  "miscYear1",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "text-center"
+                                                      },
+                                                      [
+                                                        _vm.globalDisable ==
+                                                        false
+                                                          ? _c(
+                                                              "a",
+                                                              {
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.deleteMis(
+                                                                      1
+                                                                    )
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("i", {
+                                                                  staticClass:
+                                                                    "fa fa-trash color-mg font-l"
+                                                                })
+                                                              ]
+                                                            )
+                                                          : _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "act-link",
+                                                                staticStyle: {
+                                                                  color:
+                                                                    "#808080"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("i", {
+                                                                  staticClass:
+                                                                    "fa fa-trash"
+                                                                })
+                                                              ]
+                                                            )
+                                                      ]
+                                                    )
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c("tr", [
+                                                    _c("td", [
+                                                      _c("input", {
+                                                        directives: [
+                                                          {
+                                                            name: "model",
+                                                            rawName: "v-model",
+                                                            value: _vm.form.ms2,
+                                                            expression:
+                                                              "form.ms2"
+                                                          }
+                                                        ],
+                                                        attrs: {
+                                                          type: "hidden"
+                                                        },
+                                                        domProps: {
+                                                          value: _vm.form.ms2
+                                                        },
+                                                        on: {
+                                                          input: function(
+                                                            $event
+                                                          ) {
+                                                            if (
+                                                              $event.target
+                                                                .composing
+                                                            ) {
+                                                              return
+                                                            }
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "ms2",
+                                                              $event.target
+                                                                .value
+                                                            )
+                                                          }
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c("input", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.form
+                                                                    .miscName2,
+                                                                expression:
+                                                                  "form.miscName2"
+                                                              }
+                                                            ],
+                                                            staticClass:
+                                                              "form-control form-control-sm",
+                                                            attrs: {
+                                                              type: "text",
+                                                              disabled:
+                                                                _vm.globalDisable
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.form
+                                                                  .miscName2
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.form,
+                                                                  "miscName2",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "select",
+                                                            {
+                                                              directives: [
+                                                                {
+                                                                  name: "model",
+                                                                  rawName:
+                                                                    "v-model",
+                                                                  value:
+                                                                    _vm.form
+                                                                      .mRelationship2,
+                                                                  expression:
+                                                                    "form.mRelationship2"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "form-control form-control-sm",
+                                                              attrs: {
+                                                                disabled:
+                                                                  _vm.globalDisable
+                                                              },
+                                                              on: {
+                                                                change: function(
+                                                                  $event
+                                                                ) {
+                                                                  var $$selectedVal = Array.prototype.filter
+                                                                    .call(
+                                                                      $event
+                                                                        .target
+                                                                        .options,
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        return o.selected
+                                                                      }
+                                                                    )
+                                                                    .map(
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        var val =
+                                                                          "_value" in
+                                                                          o
+                                                                            ? o._value
+                                                                            : o.value
+                                                                        return val
+                                                                      }
+                                                                    )
+                                                                  _vm.$set(
+                                                                    _vm.form,
+                                                                    "mRelationship2",
+                                                                    $event
+                                                                      .target
+                                                                      .multiple
+                                                                      ? $$selectedVal
+                                                                      : $$selectedVal[0]
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "",
+                                                                    disabled: ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "--Select--"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "Brother"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Brother"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "Sister"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Sister"
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c("input", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.form
+                                                                    .miscCourse2,
+                                                                expression:
+                                                                  "form.miscCourse2"
+                                                              }
+                                                            ],
+                                                            staticClass:
+                                                              "form-control form-control-sm",
+                                                            attrs: {
+                                                              type: "text",
+                                                              disabled:
+                                                                _vm.globalDisable
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.form
+                                                                  .miscCourse2
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.form,
+                                                                  "miscCourse2",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c("input", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.form
+                                                                    .miscYear2,
+                                                                expression:
+                                                                  "form.miscYear2"
+                                                              }
+                                                            ],
+                                                            staticClass:
+                                                              "form-control form-control-sm",
+                                                            attrs: {
+                                                              type: "text",
+                                                              disabled:
+                                                                _vm.globalDisable
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.form
+                                                                  .miscYear2
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.form,
+                                                                  "miscYear2",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "text-center"
+                                                      },
+                                                      [
+                                                        _vm.globalDisable ==
+                                                        false
+                                                          ? _c(
+                                                              "a",
+                                                              {
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.deleteMis(
+                                                                      2
+                                                                    )
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("i", {
+                                                                  staticClass:
+                                                                    "fa fa-trash color-mg font-l"
+                                                                })
+                                                              ]
+                                                            )
+                                                          : _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "act-link",
+                                                                staticStyle: {
+                                                                  color:
+                                                                    "#808080"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("i", {
+                                                                  staticClass:
+                                                                    "fa fa-trash"
+                                                                })
+                                                              ]
+                                                            )
+                                                      ]
+                                                    )
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c("tr", [
+                                                    _c("td", [
+                                                      _c("input", {
+                                                        directives: [
+                                                          {
+                                                            name: "model",
+                                                            rawName: "v-model",
+                                                            value: _vm.form.ms3,
+                                                            expression:
+                                                              "form.ms3"
+                                                          }
+                                                        ],
+                                                        attrs: {
+                                                          type: "hidden"
+                                                        },
+                                                        domProps: {
+                                                          value: _vm.form.ms3
+                                                        },
+                                                        on: {
+                                                          input: function(
+                                                            $event
+                                                          ) {
+                                                            if (
+                                                              $event.target
+                                                                .composing
+                                                            ) {
+                                                              return
+                                                            }
+                                                            _vm.$set(
+                                                              _vm.form,
+                                                              "ms3",
+                                                              $event.target
+                                                                .value
+                                                            )
+                                                          }
+                                                        }
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c("input", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.form
+                                                                    .miscName3,
+                                                                expression:
+                                                                  "form.miscName3"
+                                                              }
+                                                            ],
+                                                            staticClass:
+                                                              "form-control form-control-sm",
+                                                            attrs: {
+                                                              type: "text",
+                                                              disabled:
+                                                                _vm.globalDisable
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.form
+                                                                  .miscName3
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.form,
+                                                                  "miscName3",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "select",
+                                                            {
+                                                              directives: [
+                                                                {
+                                                                  name: "model",
+                                                                  rawName:
+                                                                    "v-model",
+                                                                  value:
+                                                                    _vm.form
+                                                                      .mRelationship3,
+                                                                  expression:
+                                                                    "form.mRelationship3"
+                                                                }
+                                                              ],
+                                                              staticClass:
+                                                                "form-control form-control-sm",
+                                                              attrs: {
+                                                                disabled:
+                                                                  _vm.globalDisable
+                                                              },
+                                                              on: {
+                                                                change: function(
+                                                                  $event
+                                                                ) {
+                                                                  var $$selectedVal = Array.prototype.filter
+                                                                    .call(
+                                                                      $event
+                                                                        .target
+                                                                        .options,
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        return o.selected
+                                                                      }
+                                                                    )
+                                                                    .map(
+                                                                      function(
+                                                                        o
+                                                                      ) {
+                                                                        var val =
+                                                                          "_value" in
+                                                                          o
+                                                                            ? o._value
+                                                                            : o.value
+                                                                        return val
+                                                                      }
+                                                                    )
+                                                                  _vm.$set(
+                                                                    _vm.form,
+                                                                    "mRelationship3",
+                                                                    $event
+                                                                      .target
+                                                                      .multiple
+                                                                      ? $$selectedVal
+                                                                      : $$selectedVal[0]
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value: "",
+                                                                    disabled: ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "--Select--"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "Brother"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Brother"
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "option",
+                                                                {
+                                                                  attrs: {
+                                                                    value:
+                                                                      "Sister"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "Sister"
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c("input", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.form
+                                                                    .miscCourse3,
+                                                                expression:
+                                                                  "form.miscCourse3"
+                                                              }
+                                                            ],
+                                                            staticClass:
+                                                              "form-control form-control-sm",
+                                                            attrs: {
+                                                              type: "text",
+                                                              disabled:
+                                                                _vm.globalDisable
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.form
+                                                                  .miscCourse3
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.form,
+                                                                  "miscCourse3",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("td", [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "form-group mb-0"
+                                                        },
+                                                        [
+                                                          _c("input", {
+                                                            directives: [
+                                                              {
+                                                                name: "model",
+                                                                rawName:
+                                                                  "v-model",
+                                                                value:
+                                                                  _vm.form
+                                                                    .miscYear3,
+                                                                expression:
+                                                                  "form.miscYear3"
+                                                              }
+                                                            ],
+                                                            staticClass:
+                                                              "form-control form-control-sm",
+                                                            attrs: {
+                                                              type: "text",
+                                                              disabled:
+                                                                _vm.globalDisable
+                                                            },
+                                                            domProps: {
+                                                              value:
+                                                                _vm.form
+                                                                  .miscYear3
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                if (
+                                                                  $event.target
+                                                                    .composing
+                                                                ) {
+                                                                  return
+                                                                }
+                                                                _vm.$set(
+                                                                  _vm.form,
+                                                                  "miscYear3",
+                                                                  $event.target
+                                                                    .value
+                                                                )
+                                                              }
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "text-center"
+                                                      },
+                                                      [
+                                                        _vm.globalDisable ==
+                                                        false
+                                                          ? _c(
+                                                              "a",
+                                                              {
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.deleteMis(
+                                                                      3
+                                                                    )
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("i", {
+                                                                  staticClass:
+                                                                    "fa fa-trash color-mg font-l"
+                                                                })
+                                                              ]
+                                                            )
+                                                          : _c(
+                                                              "a",
+                                                              {
+                                                                staticClass:
+                                                                  "act-link",
+                                                                staticStyle: {
+                                                                  color:
+                                                                    "#808080"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("i", {
+                                                                  staticClass:
+                                                                    "fa fa-trash"
+                                                                })
+                                                              ]
+                                                            )
+                                                      ]
+                                                    )
+                                                  ])
+                                                ])
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ])
+                              ])
+                            ])
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _vm.globalDisable == false
+              ? _c("div", { staticClass: "col-xl-2 offset-xl-4 my-2" }, [
+                  _vm._m(50)
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.globalDisable == false
+              ? _c(
+                  "div",
+                  { staticClass: "col-xl-2 offset-xl-0 my-2" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-danger btn-block btn-sm",
+                        attrs: { type: "button", to: "/manage-my-application" }
+                      },
+                      [_c("strong", [_vm._v("Cancel")])]
+                    )
+                  ],
+                  1
+                )
+              : _c(
+                  "div",
+                  { staticClass: "col-xl-2 offset-xl-5 my-2" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-danger btn-block btn-sm",
+                        attrs: { type: "button", to: "/manage-my-application" }
+                      },
+                      [_c("strong", [_vm._v("Cancel")])]
+                    )
+                  ],
+                  1
+                )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: { role: "dialog", tabindex: "-1", id: "others-exam-passed1" }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "modal-dialog modal-sm",
+              attrs: { role: "document" }
+            },
+            [
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.saveDomainValues($event)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _vm._m(51),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-body cs-modal-body" }, [
+                      _c("div", { staticClass: "form-row" }, [
+                        _c("div", { staticClass: "col-xl-12 mb-2" }, [
+                          _c("div", { staticClass: "form-group mb-0" }, [
+                            _vm._m(52),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.domainForm.domianLevel,
+                                    expression: "domainForm.domianLevel"
+                                  }
+                                ],
+                                staticClass: "form-control form-control-sm",
+                                attrs: {
+                                  disabled: _vm.globalDisable,
+                                  required: ""
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.domainForm,
+                                      "domianLevel",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  { attrs: { value: "", disabled: "" } },
+                                  [_vm._v("-- select --")]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(_vm.getExaminationLevel, function(
+                                  elv,
+                                  index
+                                ) {
+                                  return _c(
+                                    "option",
+                                    {
+                                      key: index,
+                                      domProps: { value: elv[0].id }
+                                    },
+                                    [_vm._v(_vm._s(elv[0].description))]
+                                  )
+                                })
+                              ],
+                              2
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-xl-12 mb-2" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.domainForm.domainName,
+                                expression: "domainForm.domainName"
+                              }
+                            ],
+                            staticClass: "form-control form-control-sm",
+                            attrs: {
+                              type: "hidden",
+                              disabled: _vm.globalDisable,
+                              required: ""
+                            },
+                            domProps: { value: _vm.domainForm.domainName },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.domainForm,
+                                  "domainName",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group mb-0" }, [
+                            _vm._m(53),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.domainForm.dValue,
+                                  expression: "domainForm.dValue"
+                                }
+                              ],
+                              staticClass: "form-control form-control-sm",
+                              attrs: {
+                                type: "text",
+                                disabled: _vm.globalDisable,
+                                required: ""
+                              },
+                              domProps: { value: _vm.domainForm.dValue },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.domainForm,
+                                    "dValue",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(54)
+                  ])
+                ]
+              )
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: { role: "dialog", tabindex: "-1", id: "others-exam-board1" }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "modal-dialog modal-sm",
+              attrs: { role: "document" }
+            },
+            [
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.saveDomainValues($event)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _vm._m(55),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-body cs-modal-body" }, [
+                      _c("div", { staticClass: "form-row" }, [
+                        _c("div", { staticClass: "col-xl-12 mb-2" }, [
+                          _c("div", { staticClass: "form-group mb-0" }, [
+                            _vm._m(56),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.domainForm.domianLevel,
+                                    expression: "domainForm.domianLevel"
+                                  }
+                                ],
+                                staticClass: "form-control form-control-sm",
+                                attrs: {
+                                  disabled: _vm.globalDisable,
+                                  required: ""
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.domainForm,
+                                      "domianLevel",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  { attrs: { value: "", disabled: "" } },
+                                  [_vm._v("-- select --")]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(
+                                  _vm.universityBoardCouncilValues,
+                                  function(elv, index) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: index,
+                                        domProps: { value: elv[0].id }
+                                      },
+                                      [_vm._v(_vm._s(elv[0].description))]
+                                    )
+                                  }
+                                )
+                              ],
+                              2
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-xl-12 mb-2" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.domainForm.domainName,
+                                expression: "domainForm.domainName"
+                              }
+                            ],
+                            staticClass: "form-control form-control-sm",
+                            attrs: {
+                              type: "hidden",
+                              disabled: _vm.globalDisable,
+                              required: ""
+                            },
+                            domProps: { value: _vm.domainForm.domainName },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.domainForm,
+                                  "domainName",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group mb-0" }, [
+                            _vm._m(57),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.domainForm.dValue,
+                                  expression: "domainForm.dValue"
+                                }
+                              ],
+                              staticClass: "form-control form-control-sm",
+                              attrs: {
+                                type: "text",
+                                disabled: _vm.globalDisable,
+                                required: ""
+                              },
+                              domProps: { value: _vm.domainForm.dValue },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.domainForm,
+                                    "dValue",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(58)
+                  ])
+                ]
+              )
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: { role: "dialog", tabindex: "-1", id: "others-add-institute" }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "modal-dialog modal-lg",
+              attrs: { role: "document" }
+            },
+            [
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.saveInstitute($event)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _vm._m(59),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-body cs-modal-body" }, [
+                      _c("div", { staticClass: "form-row" }, [
+                        _c("div", { staticClass: "col-xl-12 mb-2" }, [
+                          _vm._m(60),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.insForm.insType,
+                                expression: "insForm.insType"
+                              }
+                            ],
+                            attrs: {
+                              type: "hidden",
+                              disabled: _vm.globalDisable,
+                              required: ""
+                            },
+                            domProps: { value: _vm.insForm.insType },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.insForm,
+                                  "insType",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.insForm.insName,
+                                  expression: "insForm.insName"
+                                }
+                              ],
+                              staticClass: "form-control form-control-sm",
+                              attrs: {
+                                type: "text",
+                                disabled: _vm.globalDisable,
+                                required: ""
+                              },
+                              domProps: { value: _vm.insForm.insName },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.insForm,
+                                    "insName",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-xl-6 mb-2" }, [
+                          _vm._m(61),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.insForm.insAddressCity,
+                                  expression: "insForm.insAddressCity"
+                                }
+                              ],
+                              staticClass: "form-control form-control-sm",
+                              attrs: {
+                                type: "text",
+                                disabled: _vm.globalDisable,
+                                required: ""
+                              },
+                              domProps: { value: _vm.insForm.insAddressCity },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.insForm,
+                                    "insAddressCity",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-xl-6 mb-2" }, [
+                          _c("label", [_vm._v("District")]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.insForm.insAddressDistprov,
+                                  expression: "insForm.insAddressDistprov"
+                                }
+                              ],
+                              staticClass: "form-control form-control-sm",
+                              attrs: {
+                                type: "text",
+                                disabled: _vm.globalDisable
+                              },
+                              domProps: {
+                                value: _vm.insForm.insAddressDistprov
+                              },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.insForm,
+                                    "insAddressDistprov",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-xl-6 mb-2" }, [
+                          _vm._m(62),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.insForm.insAddressState,
+                                    expression: "insForm.insAddressState"
+                                  }
+                                ],
+                                staticClass: "form-control form-control-sm",
+                                attrs: {
+                                  disabled: _vm.globalDisable,
+                                  required: ""
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.insForm,
+                                      "insAddressState",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  { attrs: { value: "", disabled: "" } },
+                                  [_vm._v("--Select--")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Andhra Pradesh" } },
+                                  [_vm._v("Andhra Pradesh")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  {
+                                    attrs: {
+                                      value: "Andaman and Nicobar Islands"
+                                    }
+                                  },
+                                  [_vm._v("Andaman and Nicobar Islands")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Arunachal Pradesh" } },
+                                  [_vm._v("Arunachal Pradesh")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Assam" } }, [
+                                  _vm._v("Assam")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Bihar" } }, [
+                                  _vm._v("Bihar")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Chandigarh" } },
+                                  [_vm._v("Chandigarh")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Chhattisgarh" } },
+                                  [_vm._v("Chhattisgarh")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  {
+                                    attrs: { value: "Dadar and Nagar Haveli" }
+                                  },
+                                  [_vm._v("Dadar and Nagar Haveli")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Daman and Diu" } },
+                                  [_vm._v("Daman and Diu")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Delhi" } }, [
+                                  _vm._v("Delhi")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Lakshadweep" } },
+                                  [_vm._v("Lakshadweep")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Puducherry" } },
+                                  [_vm._v("Puducherry")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Goa" } }, [
+                                  _vm._v("Goa")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Gujarat" } }, [
+                                  _vm._v("Gujarat")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Haryana" } }, [
+                                  _vm._v("Haryana")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Himachal Pradesh" } },
+                                  [_vm._v("Himachal Pradesh")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Jammu and Kashmir" } },
+                                  [_vm._v("Jammu and Kashmir")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Jharkhand" } },
+                                  [_vm._v("Jharkhand")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Karnataka" } },
+                                  [_vm._v("Karnataka")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Kerala" } }, [
+                                  _vm._v("Kerala")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Madhya Pradesh" } },
+                                  [_vm._v("Madhya Pradesh")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Maharashtra" } },
+                                  [_vm._v("Maharashtra")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Manipur" } }, [
+                                  _vm._v("Manipur")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Meghalaya" } },
+                                  [_vm._v("Meghalaya")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Mizoram" } }, [
+                                  _vm._v("Mizoram")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Nagaland" } }, [
+                                  _vm._v("Nagaland")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Odisha" } }, [
+                                  _vm._v("Odisha")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Punjab" } }, [
+                                  _vm._v("Punjab")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Rajasthan" } },
+                                  [_vm._v("Rajasthan")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Sikkim" } }, [
+                                  _vm._v("Sikkim")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Tamil Nadu" } },
+                                  [_vm._v("Tamil Nadu")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Telangana" } },
+                                  [_vm._v("Telangana")]
+                                ),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "Tripura" } }, [
+                                  _vm._v("Tripura")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Uttar Pradesh" } },
+                                  [_vm._v("Uttar Pradesh")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "Uttarakhand" } },
+                                  [_vm._v("Uttarakhand")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "option",
+                                  { attrs: { value: "West Bengal" } },
+                                  [_vm._v("West Bengal")]
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(63)
+                  ])
+                ]
+              )
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: { role: "dialog", tabindex: "-1", id: "others-course-name" }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "modal-dialog modal-sm",
+              attrs: { role: "document" }
+            },
+            [
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.saveDomainValues($event)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _vm._m(64),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-body cs-modal-body" }, [
+                      _c("div", { staticClass: "form-row" }, [
+                        _c("div", { staticClass: "col-xl-12 mb-2" }, [
+                          _c("div", { staticClass: "form-group mb-0" }, [
+                            _vm._m(65),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.domainForm.domainName,
+                                  expression: "domainForm.domainName"
+                                }
+                              ],
+                              attrs: { type: "hidden" },
+                              domProps: { value: _vm.domainForm.domainName },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.domainForm,
+                                    "domainName",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.domainForm.domianLevel,
+                                    expression: "domainForm.domianLevel"
+                                  }
+                                ],
+                                staticClass: "form-control form-control-sm",
+                                attrs: {
+                                  disabled: _vm.inputDisabled,
+                                  required: ""
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.domainForm,
+                                      "domianLevel",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  { attrs: { value: "", disabled: "" } },
+                                  [_vm._v("-- select --")]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(_vm.universityCourseLevel, function(
+                                  ucl,
+                                  index
+                                ) {
+                                  return _c(
+                                    "option",
+                                    {
+                                      key: index,
+                                      attrs: { selected: "" },
+                                      domProps: { value: ucl.id }
+                                    },
+                                    [_vm._v(_vm._s(ucl.description))]
+                                  )
+                                })
+                              ],
+                              2
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-xl-12 mb-2" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.domainForm.domainName,
+                                expression: "domainForm.domainName"
+                              }
+                            ],
+                            staticClass: "form-control form-control-sm",
+                            attrs: {
+                              type: "hidden",
+                              disabled: _vm.globalDisable
+                            },
+                            domProps: { value: _vm.domainForm.domainName },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.domainForm,
+                                  "domainName",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group mb-0" }, [
+                            _vm._m(66),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.domainForm.dValue,
+                                  expression: "domainForm.dValue"
+                                }
+                              ],
+                              staticClass: "form-control form-control-sm",
+                              attrs: {
+                                type: "text",
+                                disabled: _vm.globalDisable,
+                                required: ""
+                              },
+                              domProps: { value: _vm.domainForm.dValue },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.domainForm,
+                                    "dValue",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(67)
+                  ])
+                ]
+              )
+            ]
+          )
+        ]
+      )
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass:
+          "navbar-brand d-flex justify-content-center align-items-center sidebar-brand",
+        attrs: { href: "#" }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "sidebar-brand-icon rotate-n-15 text-white" },
+          [_c("i", { staticClass: "fas fa-building" })]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "sidebar-brand-text mx-3" }, [
+          _c("span", [_vm._v("S-ILF")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("div", { staticClass: "nav-item dropdown shadow-lg nav-dropdown" }, [
+        _c(
+          "a",
+          {
+            staticClass: "dropdown-toggle nav-link",
+            attrs: {
+              "aria-expanded": "false",
+              "data-toggle": "dropdown",
+              href: "#"
+            }
+          },
+          [
+            _c("i", { staticClass: "fas fa-money-bill-wave" }),
+            _c("span", [_vm._v("Dropdown Menu")])
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown-menu dr-cs" }, [
+          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+            _c("i", { staticClass: "fas fa-money-bill-wave" }),
+            _vm._v(" Dropdown Menu")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "navbar-brand text-uppercase text-white",
+        attrs: { href: "#" }
+      },
+      [_c("strong", [_vm._v("S-ILF scholarships")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-link d-md-none rounded-circle mr-3",
+        attrs: { id: "sidebarToggleTop", type: "button" }
+      },
+      [_c("i", { staticClass: "fas fa-bars" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item dropdown d-sm-none no-arrow" }, [
+      _c(
+        "a",
+        {
+          staticClass: "dropdown-toggle nav-link",
+          attrs: {
+            "aria-expanded": "false",
+            "data-toggle": "dropdown",
+            href: "#"
+          }
+        },
+        [_c("i", { staticClass: "fas fa-search" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "dropdown-menu dropdown-menu-right p-3 animated--grow-in",
+          attrs: { "aria-labelledby": "searchDropdown" }
+        },
+        [
+          _c(
+            "form",
+            { staticClass: "form-inline mr-auto navbar-search w-100" },
+            [
+              _c("div", { staticClass: "input-group" }, [
+                _c("input", {
+                  staticClass: "bg-light form-control border-0 small",
+                  attrs: { type: "text", placeholder: "Search for ..." }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group-append" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary py-0",
+                      attrs: { type: "button" }
+                    },
+                    [_c("i", { staticClass: "fas fa-search" })]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "dropdown-toggle nav-link",
+        attrs: {
+          "aria-expanded": "false",
+          "data-toggle": "dropdown",
+          href: "#"
+        }
+      },
+      [
+        _c("img", {
+          staticClass: "border rounded-circle img-profile",
+          attrs: { src: "assets/img/avatar_2x.png" }
+        }),
+        _c(
+          "span",
+          { staticClass: "d-none d-lg-inline ml-2 text-white-600 small" },
+          [_c("strong", [_vm._v("Administrator")])]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fas fa-user fa-sm fa-fw mr-2 text-gray-400" }),
+      _vm._v(" Profile")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fas fa-cogs fa-sm fa-fw mr-2 text-gray-400" }),
+      _vm._v(" Settings")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fas fa-list fa-sm fa-fw mr-2 text-gray-400" }),
+      _vm._v(" Activity log")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h6", { staticClass: "mb-0 color-mg" }, [_vm._v("Personal Details")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Applicant's First name: "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Applicant's Last name: "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Father's full name: "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Mother's full name: "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Date of Birth: "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Gender "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Family has a BPL card ?: "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Domicile state "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Who is affected by Leprosy in the family "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h6", { staticClass: "mb-0 color-mg" }, [_vm._v("Contact Details")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("House No and Colony Name "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("City/Town "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("State "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("PIN/ZIP Code (6 digits)"),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Contact no. (Self) "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Alternate Contact No "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Email ID "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Colony leader Full Name "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Contact no. (colony leader) "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h6", { staticClass: "mb-0 color-mg" }, [_vm._v("Education Details")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      { staticClass: "font-sm", staticStyle: { color: "#000" } },
+      [
+        _vm._v(
+          "Details of educational qualification: Matriculation/Higher Secondary/ Graduation: "
+        ),
+        _c("br")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("th", [
+      _vm._v("Examination Level "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("th", [
+      _vm._v("Main Subjects "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("th", [
+      _vm._v("Year of Passing "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("th", [
+      _vm._v("Percentage(%) "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("th", [
+      _vm._v("Division "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "text-center" }, [
+      _c(
+        "span",
+        { staticClass: "act-link", staticStyle: { color: "#808080" } },
+        [_c("i", { staticClass: "fa fa-trash" })]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "text-center" }, [
+      _c(
+        "span",
+        { staticClass: "act-link", staticStyle: { color: "#808080" } },
+        [_c("i", { staticClass: "fa fa-trash" })]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h6", { staticClass: "mb-0 color-mg" }, [_vm._v("Admission Details")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-xl-4 align-self-center mb-2" }, [
+      _c("p", { staticClass: "color-mg font-md mb-0" }, [
+        _c("strong", [
+          _vm._v("Have you been selected for a course? "),
+          _c("span", { staticClass: "text-danger" }, [
+            _c("strong", [_vm._v("*")])
+          ])
+        ]),
+        _c("br")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-xl-12 mb-2" }, [
+      _c("span", { staticClass: "font-sm", staticStyle: { color: "#000" } }, [
+        _vm._v("Details of the course you have been selected for : "),
+        _c("br")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Degree/Cerificate "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "text-danger" }, [
+      _c("strong", [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "text-danger" }, [
+      _c("strong", [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "text-danger" }, [
+      _c("strong", [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("State "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Whether recognized by Indian Nursing Council "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])]),
+      _c("br")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h6", { staticClass: "mb-0 color-mg" }, [
+        _vm._v("Miscellaneous Details")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      { staticClass: "font-sm", staticStyle: { color: "#000" } },
+      [
+        _vm._v(
+          "Kindly mention the details of your siblings who have received S-ILF Scholarships in the past."
+        ),
+        _c("br"),
+        _vm._v("(If no, leave it blank)."),
+        _c("br")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "color-mg" }, [
+      _c("tr", [
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Relationship")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Course")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Selection year")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Action")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      { staticClass: "btn btn-block btn-sm btn-mg", attrs: { type: "submit" } },
+      [_c("strong", [_vm._v("Save")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header py-1" }, [
+      _c("h6", { staticClass: "modal-title color-mg font-md" }, [
+        _c("strong", [_vm._v("Add Other Examination Passed")])
+      ]),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "mb-0" }, [
+      _vm._v("Examination Level "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "mb-0" }, [
+      _vm._v("Examination Passed "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer py-1" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-sm btn-mg", attrs: { type: "submit" } },
+        [_c("strong", [_vm._v("Add")])]
+      ),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-sm btn-cancel",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_c("strong", [_vm._v("Close")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header py-1" }, [
+      _c("h6", { staticClass: "modal-title color-mg font-md" }, [
+        _c("strong", [_vm._v("Add Other Examination Board")])
+      ]),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "mb-0" }, [
+      _vm._v("Examination Level "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "mb-0" }, [
+      _vm._v("Examination Board "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer py-1" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-sm btn-mg", attrs: { type: "submit" } },
+        [_c("strong", [_vm._v("Add")])]
+      ),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-sm btn-cancel",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_c("strong", [_vm._v("Close")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header py-1" }, [
+      _c("h6", { staticClass: "modal-title color-mg font-md" }, [
+        _c("strong", [_vm._v("Add Institute")])
+      ]),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Institute Name "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("City/Town "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("State "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer py-1" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-sm btn-mg", attrs: { type: "submit" } },
+        [_c("strong", [_vm._v("Add")])]
+      ),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-sm btn-cancel",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_c("strong", [_vm._v("Close")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header py-1" }, [
+      _c("h6", { staticClass: "modal-title color-mg font-md" }, [
+        _c("strong", [_vm._v("Add Other Course Name")])
+      ]),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "mb-0" }, [
+      _vm._v("Course Level "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "mb-0" }, [
+      _vm._v("Course Name "),
+      _c("span", { staticClass: "text-danger" }, [_c("strong", [_vm._v("*")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer py-1" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-sm btn-mg", attrs: { type: "submit" } },
+        [_c("strong", [_vm._v("Add")])]
+      ),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-sm btn-cancel",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_c("strong", [_vm._v("Close")])]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -63432,9 +75351,374 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("body", { staticClass: "grey-bg", attrs: { id: "page-top" } }, [
+    _c("div", { staticStyle: { height: "100vh" }, attrs: { id: "wrapper" } }, [
+      _c(
+        "nav",
+        {
+          staticClass:
+            "navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-custom p-0"
+        },
+        [
+          _c("div", { staticClass: "container-fluid d-flex flex-column p-0" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("hr", { staticClass: "sidebar-divider my-0" }),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "navbar-nav text-light",
+                attrs: { id: "accordionSidebar" }
+              },
+              [
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      { staticClass: "nav-link", attrs: { to: "/admin" } },
+                      [
+                        _c("i", { staticClass: "fas fa-home" }),
+                        _c("span", [_vm._v("Home")])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: "/admin/manage-domains" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-wrench" }),
+                        _c("span", [_vm._v("Manage Domains")])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: "/admin/manage-application-schedule" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-calendar-alt" }),
+                        _c("span", [_vm._v("Manage Application Schedule")])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item shadow-lg" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: "/admin/manage-application-details" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-sticky-note" }),
+                        _c("span", [_vm._v("Manage Applications")])
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "d-flex flex-column", attrs: { id: "content-wrapper" } },
+        [
+          _c("div", { staticClass: "grey-bg", attrs: { id: "content" } }, [
+            _c(
+              "nav",
+              {
+                staticClass:
+                  "navbar navbar-light navbar-expand shadow topbar static-top top-nav"
+              },
+              [
+                _c("div", { staticClass: "container-fluid" }, [
+                  _vm._m(2),
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "navbar-nav flex-nowrap ml-auto" }, [
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "d-none d-sm-block topbar-divider"
+                    }),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item dropdown no-arrow" }, [
+                      _c(
+                        "div",
+                        { staticClass: "nav-item dropdown no-arrow dr-not" },
+                        [
+                          _vm._m(5),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "dropdown-menu shadow dropdown-menu-right animated--grow-in"
+                            },
+                            [
+                              _vm._m(6),
+                              _vm._m(7),
+                              _vm._m(8),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "dropdown-divider" }),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: { role: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.logout($event)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass:
+                                      "fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
+                                  }),
+                                  _vm._v(" Logout")
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ])
+        ]
+      )
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass:
+          "navbar-brand d-flex justify-content-center align-items-center sidebar-brand",
+        attrs: { href: "#" }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "sidebar-brand-icon rotate-n-15 text-white" },
+          [_c("i", { staticClass: "fas fa-building" })]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "sidebar-brand-text mx-3" }, [
+          _c("span", [_vm._v("S-ILF")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("div", { staticClass: "nav-item dropdown shadow-lg nav-dropdown" }, [
+        _c(
+          "a",
+          {
+            staticClass: "dropdown-toggle nav-link",
+            attrs: {
+              "aria-expanded": "false",
+              "data-toggle": "dropdown",
+              href: "#"
+            }
+          },
+          [
+            _c("i", { staticClass: "fas fa-money-bill-wave" }),
+            _c("span", [_vm._v("Dropdown Menu")])
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown-menu dr-cs" }, [
+          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+            _c("i", { staticClass: "fas fa-money-bill-wave" }),
+            _vm._v(" Dropdown Menu")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "navbar-brand text-uppercase text-white",
+        attrs: { href: "#" }
+      },
+      [_c("strong", [_vm._v("S-ILF scholarships")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-link d-md-none rounded-circle mr-3",
+        attrs: { id: "sidebarToggleTop", type: "button" }
+      },
+      [_c("i", { staticClass: "fas fa-bars" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item dropdown d-sm-none no-arrow" }, [
+      _c(
+        "a",
+        {
+          staticClass: "dropdown-toggle nav-link",
+          attrs: {
+            "aria-expanded": "false",
+            "data-toggle": "dropdown",
+            href: "#"
+          }
+        },
+        [_c("i", { staticClass: "fas fa-search" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "dropdown-menu dropdown-menu-right p-3 animated--grow-in",
+          attrs: { "aria-labelledby": "searchDropdown" }
+        },
+        [
+          _c(
+            "form",
+            { staticClass: "form-inline mr-auto navbar-search w-100" },
+            [
+              _c("div", { staticClass: "input-group" }, [
+                _c("input", {
+                  staticClass: "bg-light form-control border-0 small",
+                  attrs: { type: "text", placeholder: "Search for ..." }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group-append" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary py-0",
+                      attrs: { type: "button" }
+                    },
+                    [_c("i", { staticClass: "fas fa-search" })]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "dropdown-toggle nav-link",
+        attrs: {
+          "aria-expanded": "false",
+          "data-toggle": "dropdown",
+          href: "#"
+        }
+      },
+      [
+        _c("img", {
+          staticClass: "border rounded-circle img-profile",
+          attrs: { src: "assets/img/avatar_2x.png" }
+        }),
+        _c(
+          "span",
+          { staticClass: "d-none d-lg-inline ml-2 text-white-600 small" },
+          [_c("strong", [_vm._v("Administrator")])]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fas fa-user fa-sm fa-fw mr-2 text-gray-400" }),
+      _vm._v(" Profile")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fas fa-cogs fa-sm fa-fw mr-2 text-gray-400" }),
+      _vm._v(" Settings")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fas fa-list fa-sm fa-fw mr-2 text-gray-400" }),
+      _vm._v(" Activity log")
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -67039,27 +79323,31 @@ var render = function() {
                                                               "form-group"
                                                           },
                                                           [
-                                                            _c("input", {
-                                                              ref: index,
-                                                              refInFor: true,
-                                                              staticClass:
-                                                                "form-control-file font-sm",
-                                                              attrs: {
-                                                                type: "file",
-                                                                multiple: "",
-                                                                disabled:
-                                                                  _vm.globalDisable
-                                                              },
-                                                              on: {
-                                                                change: function(
-                                                                  $event
-                                                                ) {
-                                                                  return _vm.selectFile(
-                                                                    index
-                                                                  )
-                                                                }
-                                                              }
-                                                            })
+                                                            _vm.uploadReady
+                                                              ? _c("input", {
+                                                                  ref: index,
+                                                                  refInFor: true,
+                                                                  staticClass:
+                                                                    "form-control-file font-sm",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "file",
+                                                                    multiple:
+                                                                      "",
+                                                                    disabled:
+                                                                      _vm.globalDisable
+                                                                  },
+                                                                  on: {
+                                                                    change: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.selectFile(
+                                                                        index
+                                                                      )
+                                                                    }
+                                                                  }
+                                                                })
+                                                              : _vm._e()
                                                           ]
                                                         )
                                                       ]),
@@ -76177,26 +88465,18 @@ var render = function() {
                               row.appStatus == "Submit"
                                 ? _c(
                                     "span",
-<<<<<<< HEAD
-                                    { staticClass: "badge badge-success" },
-=======
                                     {
                                       staticClass:
                                         "badge badge-pill badge-success font-sm"
                                     },
->>>>>>> master
                                     [_vm._v("Submitted")]
                                   )
                                 : _c(
                                     "span",
-<<<<<<< HEAD
-                                    { staticClass: "badge badge-warning" },
-=======
                                     {
                                       staticClass:
                                         "badge badge-pill badge-warning font-sm"
                                     },
->>>>>>> master
                                     [_vm._v(_vm._s(row.appStatus))]
                                   )
                             ]),
@@ -97135,15 +109415,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _applicantForm_vue_vue_type_template_id_a8216860___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./applicantForm.vue?vue&type=template&id=a8216860& */ "./resources/js/components/admin/manageApplication/reviewApplication/applicantForm.vue?vue&type=template&id=a8216860&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _applicantForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./applicantForm.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/manageApplication/reviewApplication/applicantForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _applicantForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _applicantForm_vue_vue_type_template_id_a8216860___WEBPACK_IMPORTED_MODULE_0__["render"],
   _applicantForm_vue_vue_type_template_id_a8216860___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -97157,6 +109439,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/components/admin/manageApplication/reviewApplication/applicantForm.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/manageApplication/reviewApplication/applicantForm.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/manageApplication/reviewApplication/applicantForm.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_applicantForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./applicantForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/manageApplication/reviewApplication/applicantForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_applicantForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -98366,7 +110662,7 @@ __webpack_require__.r(__webpack_exports__);
    */
 
   /****
-  * API Call for Institue details 
+  * API Call for Institute details 
   */
   {
     path: '/api/institute/get-data/:type'
@@ -98446,7 +110742,7 @@ __webpack_require__.r(__webpack_exports__);
    * Review Application
    */
   {
-    path: '/admin/review-application-form',
+    path: '/admin/review-application-form/:applicationId',
     component: _components_admin_manageApplication_reviewApplication_applicantForm__WEBPACK_IMPORTED_MODULE_15__["default"],
     name: "review-application-form"
   }, {
@@ -98517,11 +110813,91 @@ __webpack_require__.r(__webpack_exports__);
    */
   {
     path: '/admin/admin-api/get-application-details'
-  }
+  },
   /***
      * 
      *End Admin API call for get application details
      */
+
+  /***
+   * 
+   * Admin Side vue application
+   */
+  {
+    path: '/admin/admin-api/get-application-form-data/:applicationId'
+  }, {
+    path: '/admin/admin-api/get-annexure1/:applicationId'
+  },
+  /***
+   * 
+   *End of Admin Side vue application
+   */
+
+  /****
+  * API Call for admin domainValues 
+  */
+  {
+    path: '/admin/admin-api/domain/examinationLevel'
+  }, {
+    path: '/admin/admin-api/domain/examinationLevel10'
+  }, {
+    path: '/admin/admin-api/domain/examinationLevel12'
+  }, {
+    path: '/admin/admin-api/domain/examinationLevel13'
+  }, {
+    path: '/admin/admin-api/domain/examinationPassed10'
+  }, {
+    path: '/admin/admin-api/domain/examinationPassed12'
+  }, {
+    path: '/admin/admin-api/domain/examinationPassed13'
+  }, {
+    path: '/admin/admin-api/domain/universityBoardCouncil'
+  }, {
+    path: '/admin/admin-api/domain/universityBoardCouncil10'
+  }, {
+    path: '/admin/admin-api/domain/universityBoardCouncil12'
+  }, {
+    path: '/admin/admin-api/domain/universityBoardCouncil13'
+  }, {
+    path: '/admin/admin-api/domain/scholarship'
+  }, {
+    path: '/admin/admin-api/domain/course-level/hhdls'
+  }, {
+    path: '/admin/admin-api/domain/course-level/nursing'
+  }, {
+    path: '/admin/admin-api/domain/course-name/hhdls/:id'
+  }, {
+    path: '/admin/admin-api/domain/course-name/nursing'
+  }, {
+    path: '/admin/admin-api/domain/add'
+  },
+  /****
+   * End API calls for admin domainValues
+   */
+
+  /****
+  * API Call for admin Institute details 
+  */
+  {
+    path: '/admin/admin-api/institute/get-data/:type'
+  }, {
+    path: '/admin/admin-api/institute/add'
+  }, {
+    path: '/admin/admin-api/institute/get-details/:insId'
+  },
+  /****
+  * End API calls for admin Institute details
+  */
+
+  /***
+  * Doc Master admin Api call
+  */
+  {
+    path: '/admin/admin-api/doc-master'
+  }
+  /***
+   * End Doc Master admin Api call
+   */
   ]
 });
 

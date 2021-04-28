@@ -17,4 +17,8 @@ class AdminApplicationDetails extends Controller
         $getAllDataApplication = ApplicationDetails::with('get_address')->orderBy('id', 'desc')->get()->toJson();
         return $getAllDataApplication;
     }
+
+    // Review application 
+        
+    // End-Review application
 }

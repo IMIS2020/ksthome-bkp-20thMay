@@ -64,7 +64,7 @@
                                                                                         <!-- <input type="hidden" v-model="row.idDoc"/> -->
                                                                                         <input  type="hidden" v-model="row.id" :disabled="globalDisable"/>
                                                                                         <div class="form-group">
-                                                                                            <input class="form-control-file font-sm" type="file" :ref="index" multiple v-on:change="selectFile(index)" :disabled="globalDisable">
+                                                                                            <input class="form-control-file font-sm" type="file" v-if="uploadReady" :ref="index" multiple v-on:change="selectFile(index)" :disabled="globalDisable">
                                                                                         </div>
                                                                                         <!-- <div class="form-group" v-else>
                                                                                             <input class="form-control-file font-sm" type="file" :ref="index" multiple v-on:change="selectFile(index)" :disabled="globalDisable">
@@ -152,6 +152,7 @@ export default{
             userId: document.querySelector("meta[name='userId']").getAttribute('content'),
             // docRows1:{},
             // update: false,
+            uploadReady: true,
             globalDisable: false,
             docRows:[
                 {
@@ -190,7 +191,7 @@ export default{
                         showConfirmButton: false,
                         timer: 3000
                     })
-                    
+                    this.reset()
                 } else {
                     console.log(response.data['msg'])
                 }
@@ -208,9 +209,9 @@ export default{
                         icon: 'success',
                         title: "Documents Uploaded Successfully",
                         showConfirmButton: false,
-                        timer: 3000
+                        timer: 4000
                     })
-                    
+                    this.reset()
                 } else {
                         if (response.data['noData']){
                             this.readApplicationForm();
@@ -219,7 +220,7 @@ export default{
                                 icon: 'success',
                                 title: "Kindly choose file and then save !",
                                 showConfirmButton: false,
-                                timer: 3000
+                                timer: 4000
                         })}
                         if (response.data['imageOnly']){
                             this.readApplicationForm();
@@ -228,7 +229,7 @@ export default{
                                 icon: 'success',
                                 title: "Add only image type file !",
                                 showConfirmButton: false,
-                                timer: 3000
+                                timer: 4000
                         })}
                         if (response.data['error']){
                             this.readApplicationForm();
@@ -237,7 +238,7 @@ export default{
                                 icon: 'success',
                                 title: response.data['msg'],
                                 showConfirmButton: false,
-                                timer: 3000
+                                timer: 4000
                         })}
                 }
             })
@@ -363,12 +364,20 @@ export default{
                         icon: 'success',
                         title: "Document Deleted Successfully",
                         showConfirmButton: false,
-                        timer: 3000
+                        timer: 4000
                     })
                     
                 }
             })
-       }
+       },
+
+        reset() 
+        {
+            this.uploadReady = false
+            this.$nextTick(() => {
+        	this.uploadReady = true
+          })
+        }
     },
     created(){
      this.readApplicationForm() ;

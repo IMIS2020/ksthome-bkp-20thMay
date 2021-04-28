@@ -184,7 +184,7 @@ Route::prefix('admin')->group(function() {
     /***
     *Review application
     */
-    Route::get('/review-application-form', 'Admin\AdminSystemController@reviewApplicantForm');
+    Route::get('/review-application-form/{applicationId}', 'Admin\AdminSystemController@reviewApplicantForm');
     Route::get('/review-annexure-1', 'Admin\AdminSystemController@reviewAnnexure1');
     Route::get('/review-annexure-2', 'Admin\AdminSystemController@reviewAnnexure2');
     Route::get('/review-applicant-documents', 'Admin\AdminSystemController@reviewApplicantDocuments');
@@ -193,7 +193,7 @@ Route::prefix('admin')->group(function() {
    *Review application
    */
 
-  /***
+   /***
    *Domains 
    */
     Route::get('/add-domains',    'Admin\AdminSystemController@addDomains');
@@ -223,13 +223,75 @@ Route::prefix('admin')->group(function() {
       * Domain API Call end
       */
  
-       /***
-       *Manage-application API Call
+      /***
+      *Manage-application API Call
       */
         Route::get('/get-application-details','Admin\ApplicationDetails\AdminApplicationDetails@getData');
-       /***
-       *Manage-application API Call End
+      /***
+      *Manage-application API Call End
       */
+
+      /***
+      * Application data view
+      */
+       Route::get('/get-application-form-data/{applicationId}','Scholarship\ApplicationController@getScholarshipApplication');
+      /***
+      * End Application data view
+      */
+
+      /****
+      * API Call for admin domainValues 
+      */
+      //Examination Level
+      Route::get('/domain/examinationLevel','Scholarship\DomainController@getExaminationLevel');
+      Route::get('/domain/examinationLevel10','Scholarship\DomainController@getExaminationLevel10');
+      Route::get('/domain/examinationLevel12','Scholarship\DomainController@getExaminationLevel12');
+      Route::get('/domain/examinationLevel13','Scholarship\DomainController@getExaminationLevel13');
+
+      //Examination Passed
+      Route::get('/domain/examinationPassed10','Scholarship\DomainController@getExaminationPassed10');
+      Route::get('/domain/examinationPassed12','Scholarship\DomainController@getExaminationPassed12');
+      Route::get('/domain/examinationPassed13','Scholarship\DomainController@getExaminationPassed13');
+
+      //Board and council
+      Route::get('/domain/universityBoardCouncil','Scholarship\DomainController@getUniversityBoardCouncil');
+      Route::get('/domain/universityBoardCouncil10','Scholarship\DomainController@getUniversityBoardCouncil10');
+      Route::get('/domain/universityBoardCouncil12','Scholarship\DomainController@getUniversityBoardCouncil12');
+      Route::get('/domain/universityBoardCouncil13','Scholarship\DomainController@getUniversityBoardCouncil13');
+
+      // Route::get('/domain/examinationPassed','Scholarship\DomainController@getExaminationPassed');
+      // Route::get('/domain/universityBoardCouncil','Scholarship\DomainController@getUniversityBoardCouncil');
+      Route::get('/domain/scholarship','Scholarship\DomainController@getScholarship');
+      Route::get('/domain/course-name/hhdls/{id}','Scholarship\DomainController@getCourseNameHHDLS');
+      Route::get('/domain/course-name/nursing','Scholarship\DomainController@getCourseNameNursing');
+      Route::get('/domain/course-level/hhdls','Scholarship\DomainController@getCourseLevelHHDLS');
+      Route::get('/domain/course-level/nursing','Scholarship\DomainController@getCourseLevelNursing');
+      #Add new Domain Values
+      Route::post('/domain/add','Scholarship\DomainController@addDomainValues');
+      /****
+      * End API calls for domainValues
+      */
+      
+      /****
+      * API Call for Institue details 
+      */
+        Route::get('/institute/get-data/{type}','Scholarship\InstituteController@getInstitute');
+        Route::post('/institute/add','Scholarship\InstituteController@addInstitute');
+        Route::get('/institute/get-details/{insId}','Scholarship\InstituteController@getInstituteDetails');
+      /****
+      * End API calls for Institue details
+      */
+
+      /***
+      * Doc Master Api call
+      */
+      Route::get('/doc-master','Scholarship\DocumentMaster@getDocMasterData');
+      /***
+      * End Doc Master Api call
+      */
+     
+    
+    
     });
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
   });

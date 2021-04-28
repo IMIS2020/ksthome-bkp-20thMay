@@ -1935,7 +1935,13 @@ export default {
                     break;
                 }
                 
-            }
+            },
+            logout()
+            {
+                axios.get('/admin/logout').then(function(){
+                    document.location.href = "/admin/login";
+                })
+            },
 
          },
          computed:{

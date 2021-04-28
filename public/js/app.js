@@ -5643,6 +5643,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           this.form.mRelationship3 = "";
           break;
       }
+    },
+    logout: function logout() {
+      axios.get('/admin/logout').then(function () {
+        document.location.href = "/admin/login";
+      });
     }
   },
   computed: {},
@@ -9929,6 +9934,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -10157,6 +10163,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
 //
 //
 //
@@ -64177,12 +64185,12 @@ var render = function() {
                                             )
                                           : _vm._e(),
                                         _vm._v(" "),
-                                        eachData.appStatus == "Submitted"
+                                        eachData.appStatus == "Submit"
                                           ? _c(
                                               "span",
                                               {
                                                 staticClass:
-                                                  "badge badge-pill badge-success mt-2"
+                                                  "badge badge-pill badge-success font-sm mt-2"
                                               },
                                               [_vm._v("Submitted")]
                                             )
@@ -88781,7 +88789,32 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(4)
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "col-xl-4 offset-xl-4 d-print-none text-center" },
+          [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-sm btn-mg mt-5",
+                attrs: { role: "button", onclick: "window.print()" }
+              },
+              [_vm._v("Print/Download Annexure - I")]
+            ),
+            _vm._v(" "),
+            _c(
+              "router-link",
+              {
+                staticClass: "btn btn-sm btn-mg mt-5 mr-2",
+                attrs: { to: "/review-submit/" + _vm.form.applicationId }
+              },
+              [_vm._v("Cancel")]
+            )
+          ],
+          1
+        )
+      ])
     ])
   ])
 }
@@ -88833,27 +88866,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Address")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "col-xl-4 offset-xl-4 d-print-none text-center" },
-        [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-sm btn-mg mt-5",
-              attrs: { role: "button", onclick: "window.print()" }
-            },
-            [_vm._v("Print/Download Application Form")]
-          )
-        ]
-      )
     ])
   }
 ]
@@ -89638,7 +89650,32 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(40)
+      _c("div", { staticClass: "row mb-4 d-print-none" }, [
+        _c(
+          "div",
+          { staticClass: "col-xl-4 offset-xl-4 text-center" },
+          [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-sm btn-mg mr-2",
+                attrs: { role: "button", onclick: "window.print()" }
+              },
+              [_vm._v("Print/Download Application Form")]
+            ),
+            _vm._v(" "),
+            _c(
+              "router-link",
+              {
+                staticClass: "btn btn-sm btn-mg mr-2",
+                attrs: { to: "/review-submit/" + _vm.form.applicationId }
+              },
+              [_vm._v("Cancel")]
+            )
+          ],
+          1
+        )
+      ])
     ])
   ])
 }
@@ -90162,23 +90199,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-sm-4 col-xl-3 mt-1" }, [
       _c("p", { staticClass: "text-white mb-2 font-xl txt-blk-bg" }, [
         _vm._v(" Self Declaration")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mb-4 d-print-none" }, [
-      _c("div", { staticClass: "col-xl-4 offset-xl-4 text-center" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-sm btn-mg mr-2",
-            attrs: { role: "button", onclick: "window.print()" }
-          },
-          [_vm._v("Print/Download Application Form")]
-        )
       ])
     ])
   }

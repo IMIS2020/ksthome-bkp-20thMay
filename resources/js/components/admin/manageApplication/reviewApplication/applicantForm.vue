@@ -1396,7 +1396,31 @@ export default {
                 })
             },
             
+<<<<<<< HEAD
            
+=======
+            onSelect(event)
+            {
+                
+                if(event.target.value == 'YES')
+                {
+                    this.inputDisabled = false; 
+                }else
+                {
+                    this.inputDisabled = true;
+                
+                }  
+            },
+            // checkNewScholarshipType()
+            // {
+            //     if(this.form.applicationId == ''){
+            //        this.form.scholarshipType =  window.location.pathname.split('/').reverse()[0];
+            //     }
+            //     this.insForm.insType = this.form.scholarshipType;
+            //     this.readDomainValues(this.form.scholarshipType);
+            //     this.readInsValue(this.form.scholarshipType);
+            // },
+>>>>>>> dev-silentknight78
             readInitialDomainValues()
             {
                 axios.get('/admin/admin-api/domain/examinationLevel')
@@ -1643,7 +1667,13 @@ export default {
                     break;
                 }
                 
-            }
+            },
+            logout()
+            {
+                axios.get('/admin/logout').then(function(){
+                    document.location.href = "/admin/login";
+                })
+            },
 
          },
          computed:{

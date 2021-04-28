@@ -211,7 +211,7 @@
                                                     <td class="w-15x">Date: {{(eachData.dateLastSubmitted)?" "+eachData.dateLastSubmitted.split('T')[0].split('-').reverse().join('/'):''}}<br>Type: {{eachData.applicationType}}</td>
                                                     <td class="text-center w-10x">
                                                         <span class="badge badge-pill badge-warning font-sm mt-2" v-if ="eachData.appStatus == 'Saved' ">Saved</span> 
-                                                        <span class="badge badge-pill badge-success mt-2" v-if ="eachData.appStatus == 'Submitted' ">Submitted</span></td>
+                                                        <span class="badge badge-pill badge-success font-sm mt-2" v-if ="eachData.appStatus == 'Submit' ">Submitted</span></td>
                                                     <td class="text-center w-5x">
                                                         <div class="dropdown no-arrow dr-all">
                                                             <a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>

@@ -6626,7 +6626,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           _this6.$fire({
             position: 'top',
             icon: 'success',
-            title: "Added new " + showMsg,
+            title: "Added new " + showMsg + ". Press close button",
             showConfirmButton: false,
             timer: 3000
           });
@@ -6651,7 +6651,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           _this7.$fire({
             position: 'top',
             icon: 'success',
-            title: "Added new Institute",
+            title: "Added new Institute. Press close button",
             showConfirmButton: false,
             timer: 3000
           });
@@ -7454,6 +7454,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -7733,6 +7734,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
 //
 //
 //
@@ -9513,7 +9516,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           _this5.$fire({
             position: 'top',
             icon: 'success',
-            title: "Added new " + showMsg,
+            title: "Added new " + showMsg + ". Press close button",
             showConfirmButton: false,
             timer: 3000
           });
@@ -9551,7 +9554,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           _this7.$fire({
             position: 'top',
             icon: 'success',
-            title: "Added new Institute",
+            title: "Added new Institute. Press close button ",
             showConfirmButton: false,
             timer: 3000
           });
@@ -76607,7 +76610,7 @@ var render = function() {
                                             },
                                             [
                                               _c("strong", [
-                                                _vm._v(" +Add New Course")
+                                                _vm._v(" +Add Course")
                                               ])
                                             ]
                                           )
@@ -77997,7 +78000,7 @@ var staticRenderFns = [
                 "data-target": "#others-add-institute"
               }
             },
-            [_vm._v("+ Add New Institute")]
+            [_vm._v("+ Add Institute")]
           )
         ]),
         _vm._v(" "),
@@ -78131,7 +78134,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-sm btn-mg", attrs: { type: "submit" } },
-        [_c("strong", [_vm._v("Submit")])]
+        [_c("strong", [_vm._v("Add")])]
       ),
       _c(
         "button",
@@ -79636,15 +79639,19 @@ var staticRenderFns = [
         _vm._v("Note: 1  - png, jpeg, jpg or pdf files - Max 1 MB each"),
         _c("br"),
         _vm._v(
-          "\n                                                                                                  2  - Aadhaar card / voter id / driving lisence/ ration card\n                                                                                                    are valid for proof of address."
+          "\n                                                                      2  - Aadhaar card / voter id / driving lisence/ ration card\n                                                                        are valid for proof of address."
         ),
         _c("br"),
         _vm._v(
-          "\n                                                                                                  3  - Upload document - Choose a file and then click "
+          "\n                                                                      3  - Upload document - Choose a file and then click "
         ),
         _c("i", { staticClass: "fas fa-save" }),
         _vm._v(
-          " ( to save ), before choosing the next file.\n                                                                                                    \n                                                        "
+          " ( to save ), before choosing the next file.\n                                                                      4  - Image files can be only one page document.If you have more than one page document upload only PDF format. "
+        ),
+        _c("br"),
+        _vm._v(
+          " \n                                                            eg front and reverse side of Aadhaar card could be photocopied on single page and uploaded as an image file. If photocopied on separate pages , then upload as a pdf file.\n                                                        "
         )
       ])
     ])
@@ -82153,7 +82160,7 @@ var render = function() {
                                                             },
                                                             [
                                                               _vm._v(
-                                                                " + Add New Exam"
+                                                                " + Add Examination"
                                                               )
                                                             ]
                                                           )
@@ -82196,7 +82203,7 @@ var render = function() {
                                                             },
                                                             [
                                                               _vm._v(
-                                                                " + Add New Board"
+                                                                " + Add University/Board"
                                                               )
                                                             ]
                                                           )
@@ -84604,28 +84611,18 @@ var render = function() {
                                     )
                                   ]),
                                   _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass: "m-auto text-danger font-sm"
-                                    },
-                                    [
-                                      _vm._v(
-                                        "Note: Click on 'Add new values' above to add values to the list if required. "
-                                      )
-                                    ]
-                                  )
+                                  _vm._m(29)
                                 ])
                               ])
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-xl-12" }, [
                               _c("div", { staticClass: "card mt-2 det-sec" }, [
-                                _vm._m(29),
+                                _vm._m(30),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "card-body" }, [
                                   _c("div", { staticClass: "form-row" }, [
-                                    _vm._m(30),
+                                    _vm._m(31),
                                     _vm._v(" "),
                                     _c(
                                       "div",
@@ -84733,10 +84730,10 @@ var render = function() {
                                       ]
                                     ),
                                     _vm._v(" "),
-                                    _vm._m(31),
+                                    _vm._m(32),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(32),
+                                      _vm._m(33),
                                       _vm._v(" "),
                                       _c(
                                         "div",
@@ -84835,7 +84832,7 @@ var render = function() {
                                       _vm.form.scholarshipType == "HHDLS"
                                         ? _c("label", [
                                             _vm._v("Course Name "),
-                                            _vm._m(33),
+                                            _vm._m(34),
                                             _vm.inputDisabled == false
                                               ? _c(
                                                   "a",
@@ -84854,7 +84851,7 @@ var render = function() {
                                                       }
                                                     }
                                                   },
-                                                  [_vm._v(" + Add New Course")]
+                                                  [_vm._v(" + Add Course")]
                                                 )
                                               : _vm._e()
                                           ])
@@ -84863,7 +84860,7 @@ var render = function() {
                                       _vm.form.scholarshipType == "Nursing"
                                         ? _c("label", [
                                             _vm._v("Course Name "),
-                                            _vm._m(34)
+                                            _vm._m(35)
                                           ])
                                         : _vm._e(),
                                       _vm._v(" "),
@@ -85055,7 +85052,7 @@ var render = function() {
                                     _c("div", { staticClass: "col-xl-6" }, [
                                       _c("label", [
                                         _vm._v("Name of the institute "),
-                                        _vm._m(35),
+                                        _vm._m(36),
                                         _vm._v(" "),
                                         _vm.inputDisabled == false
                                           ? _c(
@@ -85068,7 +85065,7 @@ var render = function() {
                                                     "#others-add-institute"
                                                 }
                                               },
-                                              [_vm._v(" + Add New Institute")]
+                                              [_vm._v(" + Add Institute")]
                                             )
                                           : _vm._e()
                                       ]),
@@ -85247,7 +85244,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-xl-3" }, [
-                                      _vm._m(36),
+                                      _vm._m(37),
                                       _vm._v(" "),
                                       _c("div", { staticClass: "form-group" }, [
                                         _c("input", {
@@ -85283,7 +85280,7 @@ var render = function() {
                                     _vm._v(" "),
                                     _vm.form.scholarshipType == "Nursing"
                                       ? _c("div", { staticClass: "col-xl-4" }, [
-                                          _vm._m(37),
+                                          _vm._m(38),
                                           _vm._v(" "),
                                           _c(
                                             "div",
@@ -85381,7 +85378,7 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "col-xl-12" }, [
                               _c("div", { staticClass: "card mt-2 det-sec" }, [
-                                _vm._m(38),
+                                _vm._m(39),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "card-body" }, [
                                   _c("div", { staticClass: "form-row" }, [
@@ -85389,7 +85386,7 @@ var render = function() {
                                       "div",
                                       { staticClass: "col-xl-12 mb-2" },
                                       [
-                                        _vm._m(39),
+                                        _vm._m(40),
                                         _vm._v(" "),
                                         _c(
                                           "div",
@@ -85405,7 +85402,7 @@ var render = function() {
                                                   "table table-sm mb-0"
                                               },
                                               [
-                                                _vm._m(40),
+                                                _vm._m(41),
                                                 _vm._v(" "),
                                                 _c("tbody", [
                                                   _c("tr", [
@@ -86551,7 +86548,7 @@ var render = function() {
             _vm._v(" "),
             _vm.globalDisable == false
               ? _c("div", { staticClass: "col-xl-2 offset-xl-4 my-2" }, [
-                  _vm._m(41)
+                  _vm._m(42)
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -86616,13 +86613,13 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(42),
+                    _vm._m(43),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body cs-modal-body" }, [
                       _c("div", { staticClass: "form-row" }, [
                         _c("div", { staticClass: "col-xl-12 mb-2" }, [
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _vm._m(43),
+                            _vm._m(44),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -86719,7 +86716,7 @@ var render = function() {
                           }),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _vm._m(44),
+                            _vm._m(45),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -86755,7 +86752,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(45)
+                    _vm._m(46)
                   ])
                 ]
               )
@@ -86790,13 +86787,13 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(46),
+                    _vm._m(47),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body cs-modal-body" }, [
                       _c("div", { staticClass: "form-row" }, [
                         _c("div", { staticClass: "col-xl-12 mb-2" }, [
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _vm._m(47),
+                            _vm._m(48),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -86893,7 +86890,7 @@ var render = function() {
                           }),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _vm._m(48),
+                            _vm._m(49),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -86929,7 +86926,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(49)
+                    _vm._m(50)
                   ])
                 ]
               )
@@ -86964,12 +86961,12 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(50),
+                    _vm._m(51),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body cs-modal-body" }, [
                       _c("div", { staticClass: "form-row" }, [
                         _c("div", { staticClass: "col-xl-12 mb-2" }, [
-                          _vm._m(51),
+                          _vm._m(52),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -87034,7 +87031,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                          _vm._m(52),
+                          _vm._m(53),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
                             _c("input", {
@@ -87107,7 +87104,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-xl-6 mb-2" }, [
-                          _vm._m(53),
+                          _vm._m(54),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
                             _c(
@@ -87354,7 +87351,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(54)
+                    _vm._m(55)
                   ])
                 ]
               )
@@ -87389,13 +87386,13 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(55),
+                    _vm._m(56),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body cs-modal-body" }, [
                       _c("div", { staticClass: "form-row" }, [
                         _c("div", { staticClass: "col-xl-12 mb-2" }, [
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _vm._m(56),
+                            _vm._m(57),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -87517,7 +87514,7 @@ var render = function() {
                           }),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group mb-0" }, [
-                            _vm._m(57),
+                            _vm._m(58),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -87553,7 +87550,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(58)
+                    _vm._m(59)
                   ])
                 ]
               )
@@ -87832,6 +87829,20 @@ var staticRenderFns = [
         "span",
         { staticClass: "act-link", staticStyle: { color: "#808080" } },
         [_c("i", { staticClass: "fa fa-trash" })]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "m-auto text-danger font-sm" }, [
+      _vm._v(
+        "Note: eg. Click on 'Add Examination'to add a new examination which is not in the list. "
+      ),
+      _c("br"),
+      _vm._v(
+        '\r\n                                                                               Similarly use "Add university/Board" to add an University or Board to the list. Before adding, check if University or Board is in the list"\r\n                                                            '
       )
     ])
   },

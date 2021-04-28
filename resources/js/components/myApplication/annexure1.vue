@@ -43,7 +43,7 @@
                                                             </div>
                                                             <div class="col-xl-2">
                                                                 <label  style="color:#702E2E" class="mb-0"><strong>Course Name<span class="text-danger"><strong>*</strong></span></strong></label>
-                                                                <a data-toggle="modal" href="#" class="font-sm"  data-target="#others-course-name" v-if="form.scholarshipType=='HHDLS'" @click="addName('CourseName')"><strong> +Add New Course</strong></a>
+                                                                <a data-toggle="modal" href="#" class="font-sm"  data-target="#others-course-name" v-if="form.scholarshipType=='HHDLS'" @click="addName('CourseName')"><strong> +Add Course</strong></a>
                                                                 <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
                                                                     <select class="form-control form-control-sm" v-model="courseNameValueId2" :disabled="globalDisable" @click="clearRow">
                                                                         <option value="" disabled>-- select --</option>
@@ -69,7 +69,7 @@
                                                                 <thead class="font-md">
                                                                     <tr class="color-mg font-sm">
                                                                         <!-- <th>Course </th> -->
-                                                                        <th>Institute<span class="text-danger"><strong>*</strong></span> <a data-toggle="modal" href="#" data-target="#others-add-institute">+ Add New Institute</a></th>
+                                                                        <th>Institute<span class="text-danger"><strong>*</strong></span> <a data-toggle="modal" href="#" data-target="#others-add-institute">+ Add Institute</a></th>
                                                                         <!-- <th>Address Line-1</th>
                                                                         <th>Address Line-2</th> -->
                                                                         <th class="w-20x">City/Town</th>
@@ -316,7 +316,7 @@
                                         </div> -->
                                     </div>
                                 </div>
-                                <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="submit" ><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
+                                <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="submit" ><strong>Add</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
                             </div>
                         </form>
                     </div>
@@ -607,7 +607,7 @@ export default{
                         this.$fire({
                             position: 'top',
                             icon: 'success',
-                            title: "Added new "+showMsg,
+                            title: "Added new "+showMsg+". Press close button",
                             showConfirmButton: false,
                             timer: 3000
                         });
@@ -635,7 +635,7 @@ export default{
                     this.$fire({
                         position: 'top',
                         icon: 'success',
-                        title: "Added new Institute",
+                        title: "Added new Institute. Press close button",
                         showConfirmButton: false,
                         timer: 3000
                     });

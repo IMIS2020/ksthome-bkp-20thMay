@@ -59,7 +59,7 @@ class InstituteController extends Controller
             $instituteAddress->save();
 
             $instituteDetails = new Institute;
-            $instituteDetails->instituteName = $request->insName;
+            $instituteDetails->instituteName = strtoupper($request->insName);
             $instituteDetails->instituteAddressId = $instituteAddress->id;
             $getDomainId = DomainValues::where('value',$request->insType)->first();
             $instituteDetails->scholarshipTypeValueId = $getDomainId->id;

@@ -4747,6 +4747,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             showConfirmButton: false,
             timer: 3000
           });
+
+          _this7.insForm.insName = '';
+          _this7.insForm.insAddressCity = '';
+          _this7.insForm.insAddressDistprov = '';
+          _this7.insForm.insAddressState = '';
         } else {
           console.log(response.data['msg']);
         }
@@ -7629,6 +7634,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             showConfirmButton: false,
             timer: 3000
           });
+
+          _this7.insForm.insName = '';
+          _this7.insForm.insAddressCity = '';
+          _this7.insForm.insAddressDistprov = '';
+          _this7.insForm.insAddressState = '';
         } else {
           console.log(response.data['msg']);
         }
@@ -7992,6 +8002,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -8024,6 +8046,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       },
       form: {
         // courseLevel:'',
+        fullname: '',
         hasAdmissionLetter: '',
         applicationId: '',
         scholarshipType: '',
@@ -8079,6 +8102,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this.form.addressAddln1 = response.data['data'][0][0].get_address.addressAddln1;
                     _this.insForm.insType = response.data['data'][0][0].scholarshipType;
                     _this.form.appIdShow = response.data['data'][0][0].appIdShow;
+                    _this.form.fullName = response.data['data'][0][0].applicantNameF + ' ' + (response.data['data'][0][0].applicantNameM == null ? ' ' : response.data['data'][0][0].applicantNameM) + ' ' + response.data['data'][0][0].applicantNameL;
 
                     if (_this.form.applicantGender = response.data['data'][0][0].applicantGender == "Male") {
                       _this.getData.genderType = "son";
@@ -76153,12 +76177,26 @@ var render = function() {
                               row.appStatus == "Submit"
                                 ? _c(
                                     "span",
+<<<<<<< HEAD
                                     { staticClass: "badge badge-success" },
+=======
+                                    {
+                                      staticClass:
+                                        "badge badge-pill badge-success font-sm"
+                                    },
+>>>>>>> master
                                     [_vm._v("Submitted")]
                                   )
                                 : _c(
                                     "span",
+<<<<<<< HEAD
                                     { staticClass: "badge badge-warning" },
+=======
+                                    {
+                                      staticClass:
+                                        "badge badge-pill badge-warning font-sm"
+                                    },
+>>>>>>> master
                                     [_vm._v(_vm._s(row.appStatus))]
                                   )
                             ]),
@@ -76346,6 +76384,43 @@ var render = function() {
       _c("div", { staticClass: "row" }, [
         _vm._m(0),
         _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col-xl-12 text-center mb-1",
+            staticStyle: { color: "#000000" }
+          },
+          [
+            _c("h6", { staticClass: "text-uppercase" }, [
+              _c("strong", [
+                _vm._v(
+                  _vm._s(_vm.form.scholarshipType) +
+                    " scholarship PROGRAMME - " +
+                    _vm._s(_vm.form.financialYear)
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("h6", { staticClass: "text-uppercase text-center" }, [
+              _c("strong", [
+                _vm._v("Applicant Name : " + _vm._s(_vm.form.fullName))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("h6", { staticClass: "text-uppercase" }, [
+              _c("strong", [
+                _vm._v(
+                  "Application No : " +
+                    _vm._s(_vm.form.appIdShow) +
+                    " (submitted online)"
+                )
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
         _c("div", { staticClass: "col-xl-12 mt-3" }, [
           _c("p", { staticClass: "font-md", staticStyle: { color: "#000" } }, [
             _c("strong", [
@@ -76375,7 +76450,7 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(1),
+        _vm._m(2),
         _vm._v(" "),
         _c("div", { staticClass: "col-xl-12" }, [
           _c(
@@ -76386,7 +76461,7 @@ var render = function() {
                 "table",
                 { staticClass: "table table-bordered table-sm mb-0" },
                 [
-                  _vm._m(2),
+                  _vm._m(3),
                   _vm._v(" "),
                   _c(
                     "tbody",
@@ -76426,7 +76501,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(3)
+      _vm._m(4)
     ])
   ])
 }
@@ -76435,15 +76510,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xl-2 mt-3 pr-1" }, [
-      _c(
-        "p",
-        {
-          staticClass: "text-white mb-2 font-xl",
-          staticStyle: { background: "#000000" }
-        },
-        [_vm._v(" Annexure I"), _c("br")]
-      )
+    return _c(
+      "div",
+      {
+        staticClass: "col-xl-12 text-center mb-1",
+        staticStyle: { color: "#000000" }
+      },
+      [
+        _c("h3", { staticClass: "text-uppercase" }, [
+          _c("strong", [_vm._v("Annexure - I")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-10 col-xl-12 text-center mb-1" }, [
+      _c("hr", { staticClass: "cs-hr" })
     ])
   },
   function() {
@@ -98333,7 +98418,7 @@ __webpack_require__.r(__webpack_exports__);
   // Admin Section start
 
   /***
-   * Admin Dashboard
+   * Admin Dashboard UI
    */
   {
     path: '/admin',
@@ -98427,16 +98512,16 @@ __webpack_require__.r(__webpack_exports__);
   */
 
   /***
-  * 
-  * Admin API call for get application details
-  */
+   * 
+   * Admin API call for get application details
+   */
   {
     path: '/admin/admin-api/get-application-details'
   }
   /***
-  * 
-  *End Admin API call for get application details
-  */
+     * 
+     *End Admin API call for get application details
+     */
   ]
 });
 

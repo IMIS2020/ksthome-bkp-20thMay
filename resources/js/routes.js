@@ -304,124 +304,141 @@ export default{
     
 // //-------------------------------------//
 
-                    // Admin Section start
+                // Admin Section start
+                /***
+                 * Admin Dashboard UI
+                 */
+                {
+                    path: '/admin',
+                    component:AdminDashboard,
+                    name: "admin-dashboard"
+                },
+                /***
+                 * End Admin Dashboard
+                 */
+
+                /***
+                 * Manage my application
+                 */
+                {
+                    path: '/admin/manage-application-details',
+                    component:ApplicationDetails,
+                    name: "manage-application"
+                },
+                /***
+                 * Manage my application
+                 */
+
+                /***
+                 * 
+                 * Review Application
+                 */
+
+                {
+                    path: '/admin/review-application-form',
+                    component:AdminApplicantForm,
+                    name: "review-application-form"
+                },
+
+                {
+                    path: '/admin/review-annexure-1',
+                    component:AdminAnnexure1,
+                    name: "review-annexure-1"
+                },
+
+                {
+                    path: '/admin/review-annexure-2',
+                    component:AdminAnnexure2,
+                    name: "review-annexure-2"
+                },
+
+                {
+                    path: '/admin/review-applicant-documents',
+                    component:AdminApplicantDocuments,
+                    name: "review-applicant-documents"
+                },
+
+                {
+                    path: '/admin/review',
+                    component:AdminReview,
+                    name: "review"
+                },
                     /***
-                     * Admin Dashboard
-                     */
-                    {
-                        path: '/admin',
-                        component:AdminDashboard,
-                        name: "admin-dashboard"
-                    },
+                 * 
+                 * End Review Application
+                 */
+
+                /***
+                 * 
+                 * Admin Domain
+                 */
+                {
+                    path: '/admin/add-domains',
+                    component:AddDomains,
+                    name: "add-domains"
+                },
+                {
+                    path: '/admin/manage-domains',
+                    component:ManageDomains,
+                    name: "manage-domains"
+                },
+                /***
+                 * 
+                 * End Admin Domain
+                 */
+
+                /***
+                 * 
+                 * Admin Schedule
+                 */
+                {
+                    path: '/admin/add-application-schedule',
+                    component:AddSchedule,
+                    name: "add-schedule"
+                },
+                {
+                    path: '/admin/manage-application-schedule',
+                    component:ManageSchedule,
+                    name: "manage-schedule"
+                },
+                {
+                    path: '/admin/extend-last-date',
+                    component:ExtendLastDate,
+                    name: "extend-last-date"
+                },
                     /***
-                     * End Admin Dashboard
-                     */
+                 * 
+                 * End Admin Schedule
+                 */
 
-                    /***
-                     * Manage my application
-                     */
-                    {
-                        path: '/admin/manage-application-details',
-                        component:ApplicationDetails,
-                        name: "manage-application"
-                    },
-                    /***
-                     * Manage my application
-                     */
+                /***
+                 * 
+                 * Admin API call for get application details
+                 */
+                {
+                    path: '/admin/admin-api/get-application-details',
+                },
+              /***
+                 * 
+                 *End Admin API call for get application details
+                 */
 
-                    /***
-                     * 
-                     * Review Application
-                     */
+                /***
+                 * 
+                 * Admin Side vue application
+                 */
 
-                    {
-                        path: '/admin/review-application-form',
-                        component:AdminApplicantForm,
-                        name: "review-application-form"
-                    },
+                {
+                    path:'/admin/admin-api/get-application-form-data/:applicationId',
+                },
 
-                    {
-                        path: '/admin/review-annexure-1',
-                        component:AdminAnnexure1,
-                        name: "review-annexure-1"
-                    },
-
-                    {
-                        path: '/admin/review-annexure-2',
-                        component:AdminAnnexure2,
-                        name: "review-annexure-2"
-                    },
-
-                    {
-                        path: '/admin/review-applicant-documents',
-                        component:AdminApplicantDocuments,
-                        name: "review-applicant-documents"
-                    },
-
-                    {
-                        path: '/admin/review',
-                        component:AdminReview,
-                        name: "review"
-                    },
-                     /***
-                     * 
-                     * End Review Application
-                     */
-
-                    /***
-                     * 
-                     * Admin Domain
-                     */
-                     {
-                        path: '/admin/add-domains',
-                        component:AddDomains,
-                        name: "add-domains"
-                     },
-                     {
-                        path: '/admin/manage-domains',
-                        component:ManageDomains,
-                        name: "manage-domains"
-                     },
-                    /***
-                     * 
-                     * End Admin Domain
-                     */
-
-                    /***
-                     * 
-                     * Admin Schedule
-                     */
-                     {
-                        path: '/admin/add-application-schedule',
-                        component:AddSchedule,
-                        name: "add-schedule"
-                     },
-                     {
-                        path: '/admin/manage-application-schedule',
-                        component:ManageSchedule,
-                        name: "manage-schedule"
-                     },
-                     {
-                        path: '/admin/extend-last-date',
-                        component:ExtendLastDate,
-                        name: "extend-last-date"
-                     },
-                     /***
-                     * 
-                     * End Admin Schedule
-                     */
-
-                     /***
-                     * 
-                     * Admin API call for get application details
-                     */
-                     {
-                       path: '/admin/admin-api/get-application-details',
-                     },
-                     /***
-                     * 
-                     *End Admin API call for get application details
-                     */
+                {
+                    path:'/admin/admin-api/get-annexure1/:applicationId',
+                },
+                /***
+                 * 
+                 *End of Admin Side vue application
+                 */
 
  ]
 }

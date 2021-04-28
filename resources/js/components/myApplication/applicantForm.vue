@@ -1845,6 +1845,7 @@ export default {
                 axios.post('/api/institute/add',this.insForm)
                 .then(response => {
                     if (response.data['success']) {
+                        
                         this.readInsValue(this.insForm.insType);
                         
                         this.$fire({
@@ -1854,6 +1855,10 @@ export default {
                             showConfirmButton: false,
                             timer: 3000
                         });
+                        this.insForm.insName='';
+                        this.insForm.insAddressCity='';
+                        this.insForm.insAddressDistprov='';
+                        this.insForm.insAddressState='';
                         
                     } else {
                         console.log(response.data['msg'])

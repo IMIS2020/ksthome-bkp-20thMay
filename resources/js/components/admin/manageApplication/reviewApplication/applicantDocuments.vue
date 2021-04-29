@@ -14,8 +14,11 @@
                             <div class="dropdown-menu dr-cs"><a class="dropdown-item" href="#"><i class="fas fa-money-bill-wave"></i>&nbsp;Dropdown Menu</a></div>
                         </div>
                     </li>
-                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-domains"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
-                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li>
+                     <!-- <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-domains"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
+                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li> -->
+
+                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="#"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
+                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="#"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-details"><i class="fas fa-sticky-note"></i><span>Manage Applications</span></router-link></li>
                     
                 </ul>
@@ -105,8 +108,11 @@
                             </li> -->
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><img class="border rounded-circle img-profile" src="assets/img/avatar_2x.png"><span class="d-none d-lg-inline ml-2 text-white-600 small"><strong>Administrator</strong></span></a>
-                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a><a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
+                                <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><img class="border rounded-circle img-profile" src="assets/img/avatar_2x.png"><span class="d-none d-lg-inline ml-2 text-white-600 small"><strong>{{userName}}</strong></span></a>
+                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in">
+                                        <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
+                                        <!-- <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                                        <a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a> -->
                                         <div class="dropdown-divider"></div><button class="dropdown-item" role="button" @click.prevent="logout"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</button>
                                     </div>
                                 </div>
@@ -146,11 +152,11 @@
                                                         <div class="col-xl-12">
                                                             <div class="card mt-2 det-sec">
                                                                 <div class="card-header">
-                                                                    <h6 class="mb-0 color-mg"><strong>Upload latest certificates and proofs.</strong>
-                                                                                                <br>Note: 1  - png, jpeg, jpg or pdf files - Max 1 MB each<br>
+                                                                    <h6 class="mb-0 color-mg"><strong> Latest certificates and proofs.</strong>
+                                                                                                <!-- <br>Note: 1  - png, jpeg, jpg or pdf files - Max 1 MB each<br>
                                                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2  - Aadhaar card / voter id / driving lisence/ ration card
                                                                                                                 are valid for proof of address.<br>
-                                                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3  - Upload document - Choose a file and then click <i class="fas fa-save"></i> ( to save ), before choosing the next file.
+                                                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3  - Upload document - Choose a file and then click <i class="fas fa-save"></i> ( to save ), before choosing the next file. -->
                                                                                                                 
                                                                     </h6>
                                                                 </div>
@@ -162,12 +168,12 @@
                                                                                     <thead class="color-mg">
                                                                                         <tr class="color-mg">
                                                                                             <th colspan="2" class="w-10x">Required Document</th>
-                                                                                            <th>Choose file</th>
+                                                                                            <!-- <th>Choose file</th> -->
                                                                                             <th>Document Name</th>
-                                                                                            <th>Uploaded</th>
+                                                                                            <th class="text-center">Uploaded</th>
                                                                                             <th class="text-center w-5x">View</th>
-                                                                                            <th class="text-center w-5x">Del.</th>
-                                                                                            <th class="text-center w-5x">Save</th>
+                                                                                            <!-- <th class="text-center w-5x">Del.</th>
+                                                                                            <th class="text-center w-5x">Save</th> -->
                                                                                             
                                                                                         </tr>
                                                                                     </thead>
@@ -177,16 +183,16 @@
                                                                                                 <strong>{{row.docFileDesc}}</strong><br>
                                                                                             </td>
 
-                                                                                            <td>
-                                                                                                <!-- <input type="hidden" v-model="row.idDoc"/> -->
+                                                                                            <!-- <td>
+                                                                                                <input type="hidden" v-model="row.idDoc"/>
                                                                                                 <input  type="hidden" v-model="row.id" :disabled="globalDisable"/>
                                                                                                 <div class="form-group">
                                                                                                     <input class="form-control-file font-sm" type="file" v-if="uploadReady" :ref="index" multiple v-on:change="selectFile(index)" :disabled="globalDisable">
                                                                                                 </div>
-                                                                                                <!-- <div class="form-group" v-else>
+                                                                                                <div class="form-group" v-else>
                                                                                                     <input class="form-control-file font-sm" type="file" :ref="index" multiple v-on:change="selectFile(index)" :disabled="globalDisable">
-                                                                                                </div> -->
-                                                                                            </td>
+                                                                                                </div>
+                                                                                            </td> -->
                                                                                             <td>{{row.docFileName == null? '' : row.docFileName.split('-').reverse().shift()}}</td>
                                                                                             <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{row.uploadStatus}}</span></td>
                                                                                             <td class="text-center w-7x"  > 
@@ -199,7 +205,7 @@
                                                                                                     <i class="fa fa-eye"></i>
                                                                                                 </span>
                                                                                             </td>
-                                                                                            <td class="text-center w-7x" v-if="globalDisable == false"> 
+                                                                                            <!-- <td class="text-center w-7x" v-if="globalDisable == false"> 
                                                                                                 <span  v-if="row.uploadStatus == 'YES'">
                                                                                                     <a  href="#"   class="act-link" @click.prevent="deleteFile(row.id)">
                                                                                                         <i class="fa fa-trash"></i>
@@ -208,26 +214,26 @@
                                                                                                 <span class="act-link" style="color:#808080;" v-else>
                                                                                                     <i class="fa fa-trash"></i>
                                                                                                 </span>
-                                                                                            </td>
-                                                                                            <td class="text-center w-7x" v-else> 
+                                                                                            </td> -->
+                                                                                            <!-- <td class="text-center w-7x" v-else> 
                                                                                                 <span class="act-link" style="color:#808080;">
                                                                                                     <i class="fa fa-trash"></i>
                                                                                                 </span>
-                                                                                            </td>
+                                                                                            </td> -->
                                                                                             <td class="text-center w-7x">
                                                                                                 <!-- <span v-if="globalDisable == false">
                                                                                                     <span class="act-link" style="color:#808080;">
                                                                                                         <i class="fas fa-save"></i>
                                                                                                     </span>
                                                                                                 </span> -->
-                                                                                                <span class="act-link" style="color:#808080;" v-if="globalDisable == false">
+                                                                                                <!-- <span class="act-link" style="color:#808080;" v-if="globalDisable == false">
                                                                                                 <a  href="#"  class="act-link" @click.prevent="saveFile(form.applicationId,index)">
                                                                                                         <i class="fas fa-save"></i>
                                                                                                     </a>
-                                                                                                </span>
-                                                                                                <span class="act-link" style="color:#808080;" v-else>
+                                                                                                </span> -->
+                                                                                                <!-- <span class="act-link" style="color:#808080;" v-else>
                                                                                                     <i class="fas fa-save"></i>
-                                                                                                </span>
+                                                                                                </span> -->
                                                                                             </td>
                                                                                         </tr>
                                                                                     </tbody>
@@ -264,6 +270,7 @@ export default{
     data(){
         return {
             userId:'',
+            userName: document.querySelector("meta[name='userName']").getAttribute('content'),
             // docRows1:{},
             // update: false,
             uploadReady: true,
@@ -293,6 +300,12 @@ export default{
         }
     },
     methods:{
+
+            logout(){
+            axios.get('/admin/logout').then(function(){
+                document.location.href = "/admin/login";
+            })
+        },
 
         async readApplicationForm() 
         {

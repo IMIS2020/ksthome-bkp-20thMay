@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="csrf-token" content="{{csrf_token()}}">
-    <!-- @if (Auth::check()) 
+    @if (Auth::check()) 
       <meta name="userName" content="{{ Auth::user()->name }}" >
-     @endif  -->
+     @endif 
     <title>S-ILF Scholarships</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

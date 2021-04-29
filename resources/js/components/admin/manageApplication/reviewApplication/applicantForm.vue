@@ -14,8 +14,11 @@
                             <div class="dropdown-menu dr-cs"><a class="dropdown-item" href="#"><i class="fas fa-money-bill-wave"></i>&nbsp;Dropdown Menu</a></div>
                         </div>
                     </li>
-                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-domains"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
-                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li>
+ <!-- <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-domains"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
+                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li> -->
+
+                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="#"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
+                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="#"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-details"><i class="fas fa-sticky-note"></i><span>Manage Applications</span></router-link></li>
                     
                 </ul>
@@ -105,8 +108,11 @@
                             </li> -->
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><img class="border rounded-circle img-profile" src="assets/img/avatar_2x.png"><span class="d-none d-lg-inline ml-2 text-white-600 small"><strong>Administrator</strong></span></a>
-                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a><a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
+                                <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><img class="border rounded-circle img-profile" src="assets/img/avatar_2x.png"><span class="d-none d-lg-inline ml-2 text-white-600 small"><strong>{{userName}}</strong></span></a>
+                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in">
+                                        <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
+                                        <!-- <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                                        <a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a> -->
                                         <div class="dropdown-divider"></div><button class="dropdown-item" role="button" @click.prevent="logout"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</button>
                                     </div>
                                 </div>
@@ -405,8 +411,8 @@
                                                                                         <thead class="font-sm color-mg">
                                                                                             <tr>
                                                                                                 <th>Examination Level&nbsp;<span class="text-danger">*</span></th>
-                                                                                                <th>Examination Passed&nbsp;<span class="text-danger">*</span><br><span><a data-toggle="modal" href="#" data-target="#others-exam-passed1" @click="addName('ExamPassed')"> + Add New Value</a></span></th>
-                                                                                                <th>University/ Board&nbsp;<span class="text-danger">*</span><br><span><a data-toggle="modal" href="#" data-target="#others-exam-board1" @click="addName('UnivBoard')"> + Add New Value</a></span></th>
+                                                                                                <th>Examination Passed&nbsp;<span class="text-danger">*</span><br><span><a data-toggle="modal" href="#" data-target="#others-exam-passed1" @click="addName('ExamPassed')"> </a></span></th>
+                                                                                                <th>University/ Board&nbsp;<span class="text-danger">*</span><br><span><a data-toggle="modal" href="#" data-target="#others-exam-board1" @click="addName('UnivBoard')"> </a></span></th>
                                                                                                 <th>Main Subjects&nbsp;<span class="text-danger">*</span></th>
                                                                                                 <th>Year of Passing&nbsp;<span class="text-danger">*</span></th>
                                                                                                 <th>Percentage(%)&nbsp;<span class="text-danger">*</span></th>
@@ -764,7 +770,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <span class="m-auto text-danger font-sm">Note: Click on 'Add new values' above to add values to the list if required. </span>
+                                                                        <!-- <span class="m-auto text-danger font-sm">Note: Click on 'Add new values' above to add values to the list if required. </span> -->
                                                                     </div>
                                                                     
                                                                 </div>
@@ -805,7 +811,7 @@
                                                                                     </div>
                                                                             </div>
                                                                             <div class="col-xl-3">
-                                                                                <label v-if="form.scholarshipType=='HHDLS'">Course Name&nbsp;<span class="text-danger"><strong>*</strong></span><a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-course-name" @click="addName('CourseName')"> + Add New Value</a></label>
+                                                                                <label v-if="form.scholarshipType=='HHDLS'">Course Name&nbsp;<span class="text-danger"><strong>*</strong></span><a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-course-name" @click="addName('CourseName')"> </a></label>
                                                                                 <label v-if="form.scholarshipType=='Nursing'">Course Name&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                                 <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
                                                                                     <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled" required>
@@ -821,7 +827,7 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-xl-6">
-                                                                                <label>Name of the institute&nbsp;<span class="text-danger"><strong>*</strong></span> <a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-add-institute" > + Add New Value</a> </label>
+                                                                                <label>Name of the institute&nbsp;<span class="text-danger"><strong>*</strong></span> <a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-add-institute" > </a> </label>
                                                                                 <div class="form-group mb-0">
                                                                                     <select class="form-control form-control-sm" required @change="onChangeIns($event)" v-model="form.instituteId" :disabled="inputDisabled">
                                                                                         <option v-for="(i,index) in insData" :key="index" :value="i.id" selected>{{i.instituteName}} - {{i.get_address.addressCity}}, {{i.get_address.addressState}}</option>
@@ -938,7 +944,7 @@
                                                                                                 <th>Relationship</th>
                                                                                                 <th>Course</th>
                                                                                                 <th>Selection year</th>
-                                                                                                <th>Action</th>
+                                                                                                <th class="text-center">Action</th>
                                                                                             </tr>
                                                                                         </thead>
                                                                                         <tbody>
@@ -1084,7 +1090,7 @@
                             </div>
                            
                             <div class="col-xl-2 offset-xl-0 my-2">
-                                <router-link class="btn btn-danger btn-block btn-sm" type="button" to="/admin"><strong>Back</strong></router-link>
+                                <router-link class="btn btn-danger btn-block btn-sm" type="button" to="/admin/manage-application-details"><strong>Back</strong></router-link>
                             </div>
                            
                         </div>
@@ -1105,6 +1111,7 @@ export default {
             inputDisabled: true,
             globalDisable: true,
             // csrf:   document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+             userName: document.querySelector("meta[name='userName']").getAttribute('content'),
             userId: '',
             applicantDisablitySelfShow : true,
             applicantDisablityMotherShow: true,

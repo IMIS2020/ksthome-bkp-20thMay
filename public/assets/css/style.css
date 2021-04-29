@@ -270,6 +270,22 @@ a:hover {
   transition: all 0.3s;
 }
 
+ /* temporary use for admin */
+
+ .home-icon-disabled {
+  padding: 55px;
+  color: #702e2e;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.home-icon-disabled:hover {
+  background-color: grey;
+  color: #dcdcdc;
+  transition: all 0.3s;
+}
+ /* end */
+
 .act-link {
   color: #702e2e;
   font-weight: 600;

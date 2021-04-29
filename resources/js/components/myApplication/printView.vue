@@ -318,14 +318,14 @@
                     <div class="col-xl-12 mt-1">
                         <p class="font-md">&nbsp;I {{form.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under "{{form.scholarshipType}} Scholarship" could be withdrawn.</p>
                          <p class="color-mg text-center">This is an electronically generated document and does not require a signature</p>
-                         <p class="color-mg text-center" v-if="form.lastdateSubmit != null">Date Submitted : {{form.lastdateSubmit.split('-').reverse().join('/')}}</p>
+                         <p class="color-mg text-center" v-if="form.lastdateSubmit != null">Submission Date : {{form.lastdateSubmit.split('-').reverse().join('/')}}</p>
                     </div>
                 </div>
             </div>
             <div class="row mb-4 d-print-none">
                 <div class="col-xl-4 offset-xl-4 text-center">
                 <button class="btn btn-sm btn-mg mr-2" role="button"  onclick="window.print()">Print/Download Application Form</button>
-                <router-link class="btn btn-sm btn-mg mr-2" :to="'/review-submit/'+form.applicationId">Cancel</router-link>
+                <!-- <router-link class="btn btn-sm btn-mg mr-2" :to="'/review-submit/'+form.applicationId">Cancel</router-link> -->
                 </div>
             </div>
         </div>

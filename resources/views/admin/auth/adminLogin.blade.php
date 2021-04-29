@@ -4,13 +4,16 @@
     <section class="mt-12">
         <div class="container">
             <div class="row">
+            
                 <div class="col-xl-4 offset-xl-4">
                 @if(Session::has('msg'))
                      <div class="alert alert-danger text-center">{{Session::get('msg')}}
                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
                      </div>
                   @endif
+                  <h2 class="text-center mt-4 text-white pt-2 text-uppercase">Admin Login</h2><br>
                     <div class="login-box">
+                    
                         <form  method="POST" action="{{ route('admin.login.submit') }}">
                         @csrf   
                             <h6 class="text-center color-mg mb-4"><strong>Login here to Manage Applications</strong></h6>
@@ -44,9 +47,9 @@
                                     Login
                                 </button>
                             </div>
-                            <div class="form-group mb-0">
+                            <!-- <div class="form-group mb-0">
                                 <p class="text-center text-muted font-md mb-0">Having trouble logging in?&nbsp;<a href="#">reset password</a></p>
-                            </div>
+                            </div> -->
                         </form>
                     </div>
                 </div>

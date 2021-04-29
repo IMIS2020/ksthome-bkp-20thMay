@@ -14,8 +14,11 @@
                             <div class="dropdown-menu dr-cs"><a class="dropdown-item" href="#"><i class="fas fa-money-bill-wave"></i>&nbsp;Dropdown Menu</a></div>
                         </div>
                     </li>
-                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-domains"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
-                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li>
+                    <!-- <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-domains"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
+                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li> -->
+
+                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="#"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
+                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="#"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-details"><i class="fas fa-sticky-note"></i><span>Manage Applications</span></router-link></li>
                     
                 </ul>
@@ -105,9 +108,12 @@
                             </li> -->
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><img class="border rounded-circle img-profile" src="assets/img/avatar_2x.png"><span class="d-none d-lg-inline ml-2 text-white-600 small"><strong>Administrator</strong></span></a>
-                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a><a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
-                                        <div class="dropdown-divider"></div><button class="dropdown-item" role="button" @click.prevent="logout"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</button>
+                                <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><img class="border rounded-circle img-profile" src="assets/img/avatar_2x.png"><span class="d-none d-lg-inline ml-2 text-white-600 small"><strong>{{userName}}</strong></span></a>
+                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in">
+                                    <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
+                                    <!-- <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a> -->
+                                    <div class="dropdown-divider"></div><button class="dropdown-item" role="button" @click.prevent="logout"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</button>
                                     </div>
                                 </div>
                             </li>
@@ -143,7 +149,7 @@
                                              <div class="div-inner-filed">
                                                 <div lang="" class="ub-reg-form">
                                                    <div class="form-row">
-                                                         <div class="col-xl-12 align-self-center mb-2">
+                                                         <div class="col-xl-12 align-self-center mb-2 com-bg-1">
                                                             <p class="float-left color-mg font-md mb-1">I {{form.applicantNameF}} {{form.applicantNameM}} {{form.applicantNameL}} {{getData.genderType}} of {{form.applicantFatherName}}  residing in {{form.addressAddln1}}, want to pursue higher studies in academic Year {{form.financialYear}}. I will be taking the following Entrance Examination for admission into:&nbsp;<br></p>
                                                          </div>
                                                          <div class="col-xl-12">
@@ -162,7 +168,7 @@
                                                                      </div>
                                                                      <div class="col-xl-2">
                                                                         <label  style="color:#702E2E" class="mb-0"><strong>Course Name<span class="text-danger"><strong>*</strong></span></strong></label>
-                                                                        <a data-toggle="modal" href="#" class="font-sm"  data-target="#others-course-name" v-if="form.scholarshipType=='HHDLS'" @click="addName('CourseName')"><strong> +Add New Course</strong></a>
+                                                                        <a data-toggle="modal" href="#" class="font-sm"  data-target="#others-course-name" v-if="form.scholarshipType=='HHDLS'" @click="addName('CourseName')"><strong> </strong></a>
                                                                         <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
                                                                            <select class="form-control form-control-sm" v-model="courseNameValueId2" :disabled="globalDisable" @click="clearRow">
                                                                                  <option value="" disabled>-- select --</option>
@@ -182,7 +188,7 @@
                                                                         <thead class="font-md">
                                                                            <tr class="color-mg font-sm">
                                                                                  <!-- <th>Course </th> -->
-                                                                                 <th>Institute<span class="text-danger"><strong>*</strong></span> <a data-toggle="modal" href="#" data-target="#others-add-institute">+ Add New Institute</a></th>
+                                                                                 <th>Institute<span class="text-danger"><strong>*</strong></span> <a data-toggle="modal" href="#" data-target="#others-add-institute"></a></th>
                                                                                  <!-- <th>Address Line-1</th>
                                                                                  <th>Address Line-2</th> -->
                                                                                  <th class="w-20x">City/Town</th>
@@ -278,6 +284,7 @@ export default{
     data(){
         return{
             userId: '',
+            userName: document.querySelector("meta[name='userName']").getAttribute('content'),
             // update: false,
             globalDisable: true,
             universityCourseLevel:{},
@@ -346,6 +353,12 @@ export default{
           }
     },
     methods: {
+
+         logout(){
+         axios.get('/admin/logout').then(function(){
+            document.location.href = "/admin/login";
+         })
+      },
         
         getannexurei() {
             let applicationId = window.location.pathname.split('/').reverse()[0];
@@ -441,7 +454,7 @@ export default{
 
         getData(insId,index)
         {
-            console.lof(insId);
+            console.log(insId);
             axios.get('/admin/admin-api/api/institute/get-details/'+insId)
             .then(response => {
                 if (response.data['success']) {

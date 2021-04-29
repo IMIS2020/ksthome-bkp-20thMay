@@ -321,7 +321,7 @@ class ApplicationController extends Controller
              DB::commit();
              return array('success' => true, 'msg'=>[], 'data'=>$newApplicationId);
          }
-         catch(Exception $e) {
+         catch(\Exception $e) {
              DB::rollBack();
              return array('success' => false, 'msg'=>[$e]);
          }

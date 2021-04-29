@@ -15,9 +15,9 @@ class ApplicationSchduleSeed extends Seeder
         DB::table('applicationScheduleTable')->insert(
             [
                 'sessionId' => 1,
-                'scholarshipTypeValueId' => 19,
+                'scholarshipTypeValueId' => 18,
                 'startDate'=> Carbon::parse('2021-04-01'),
-                'lastDate'=>  Carbon::parse('2021-04-31'),
+                'lastDate'=>  Carbon::parse('2021-05-31'),
                 'applicationNoPrefixFormat'=> 'NURSG/21-22/',
                 'contactPersonEmailId'=> 'AdminNURSING@gmail.com',
                 'contactPersonContactNo'=> '9999999999',
@@ -29,9 +29,9 @@ class ApplicationSchduleSeed extends Seeder
         DB::table('applicationScheduleTable')->insert(
             [
                 'sessionId' => 1,
-                'scholarshipTypeValueId' => 20,
+                'scholarshipTypeValueId' => 19,
                 'startDate'=> Carbon::parse('2021-04-01'),
-                'lastDate'=>  Carbon::parse('2021-04-25'),
+                'lastDate'=>  Carbon::parse('2021-05-31'),
                 'applicationNoPrefixFormat'=> 'HHDLS/21-22/',
                 'contactPersonEmailId'=> 'AdminHHDLSS@gmail.com',
                 'contactPersonContactNo'=> '9999999999',

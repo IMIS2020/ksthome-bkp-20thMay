@@ -225,7 +225,7 @@ class DomainController extends Controller
                 DB::commit();
                 return array('success' => true, 'msg'=>[0]);
             }
-            catch(\Exception $e) {
+            catch(Exception $e) {
                 DB::rollBack();
                 return array('success' => false, 'msg'=>[-1]);
             }

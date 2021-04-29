@@ -51,7 +51,7 @@
                                                                     </select>
                                                                 </div>
                                                                 <div class="form-group mb-0" v-if="form.scholarshipType=='Nursing'">
-                                                                    <select class="form-control form-control-sm" v-model="courseNameValueId2" :disabled="inputDisabled" @click="clearRow">
+                                                                    <select class="form-control form-control-sm" v-model="courseNameValueId2" :disabled="globalDisable" @click="clearRow">
                                                                         <option value="" disabled>-- select --</option>
                                                                         <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id">{{ucn.value}}</option>
                                                                     </select>
@@ -202,7 +202,7 @@
                                     <label class="mb-0">Degree/Cerificate<span class="text-danger"><strong>*</strong></span></label>
                                     <input type="hidden" v-model="domainForm.domainName" />
                                     
-                                    <select class="form-control form-control-sm" v-model="domainForm.domainLevel2" :disabled="inputDisabled" required>
+                                    <select class="form-control form-control-sm" v-model="domainForm.domianLevel" :disabled="globalDisable" required>
                                         <option value="" disabled>-- select --</option>
                                         <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id" selected>{{ucl.description}}</option>
                                     </select>
@@ -347,6 +347,7 @@ export default{
                 domainName : 'CourseName',
                 dValue : '',
                 dDesc : '',
+                domianLevel : '',
             },
             insId: '',
             insForm: {
@@ -558,10 +559,6 @@ export default{
             
             if(type == 'HHDLS')
             {
-                // axios.get('/api/domain/course-name/hhdls')
-                //     .then(response => {
-                //         this.universityCourseName = response.data;
-                //     });   
                 axios.get('/api/domain/course-level/hhdls')
                     .then(response => {
                         this.universityCourseLevel= response.data;
@@ -595,22 +592,25 @@ export default{
             axios.post('/api/domain/add',this.domainForm)
             .then(response => {
                 if (response.data['success']) {
-                     this.readDomainValues();
-                        let showMsg = '';
-                        if(this.domainForm.domainName == 'CourseLevel')
-                        {
-                            showMsg = 'Course Level'
-                        }else if(this.domainForm.domainName == 'CourseName')
-                        {
-                            showMsg = 'Course Name'
-                        }
-                        this.$fire({
-                            position: 'top',
-                            icon: 'success',
-                            title: "Added new "+showMsg+". Press close button",
-                            showConfirmButton: false,
-                            timer: 3000
-                        });
+                    this.domainForm.dValue = '';
+                    this.domainForm.dDesc = '';
+                    this.domainForm.domianLevel = '';
+                    this.readDomainValues();
+                    let showMsg = '';
+                    if(this.domainForm.domainName == 'CourseLevel')
+                    {
+                        showMsg = 'Course Level'
+                    }else if(this.domainForm.domainName == 'CourseName')
+                    {
+                        showMsg = 'Course Name'
+                    }
+                    this.$fire({
+                        position: 'top',
+                        icon: 'success',
+                        title: "Added new "+showMsg+". Press close button",
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
                     
                 } else {
                     this.$fire({
@@ -657,23 +657,23 @@ export default{
           //  this.rows.courseLevelValueId = data;
         },
 
-        getData(insId,index)
-        {
-            console.lof(insId);
-            axios.get('/api/institute/get-details/'+insId)
-            .then(response => {
-                if (response.data['success']) {
-                    this.rows[index].addressAddln1 = response.data['data'][0].get_address.addressAddln1;
-                    this.rows[index].addressAddln2 = response.data['data'][0].get_address.addressAddln2;
-                    this.rows[index].addressCity = response.data['data'][0].get_address.addressCity;
-                    this.rows[index].addressDistprov = response.data['data'][0].get_address.addressDistprov;
-                    this.rows[index].addressState = response.data['data'][0].get_address.addressState;
-                    this.rows[index].addressPinzip = response.data['data'][0].get_address.addressPinzip;
-                } else {
-                    console.log(response.data['msg'])
-                }
-            }).catch(error => this.errorMsg(error.response.status))
-        },
+        // getData(insId,index)
+        // {
+        //     console.lof(insId);
+        //     axios.get('/api/institute/get-details/'+insId)
+        //     .then(response => {
+        //         if (response.data['success']) {
+        //             this.rows[index].addressAddln1 = response.data['data'][0].get_address.addressAddln1;
+        //             this.rows[index].addressAddln2 = response.data['data'][0].get_address.addressAddln2;
+        //             this.rows[index].addressCity = response.data['data'][0].get_address.addressCity;
+        //             this.rows[index].addressDistprov = response.data['data'][0].get_address.addressDistprov;
+        //             this.rows[index].addressState = response.data['data'][0].get_address.addressState;
+        //             this.rows[index].addressPinzip = response.data['data'][0].get_address.addressPinzip;
+        //         } else {
+        //             console.log(response.data['msg'])
+        //         }
+        //     }).catch(error => this.errorMsg(error.response.status))
+        // },
 
         onChange(event,index)
         {

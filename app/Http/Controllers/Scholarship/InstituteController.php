@@ -51,9 +51,9 @@ class InstituteController extends Controller
             $instituteAddress = new Address;
             // $instituteAddress->addressAddln1    = $request->insAddressAddln1;
             // $instituteAddress->addressAddln2    = $request->insAddressAddln2;
-            $instituteAddress->addressCity      = $request->insAddressCity;
+            $instituteAddress->addressCity      = strtoupper($request->insAddressCity);
             $instituteAddress->addressState     = $request->insAddressState;
-            $instituteAddress->addressDistprov  = $request->insAddressDistprov;
+            $instituteAddress->addressDistprov  = strtoupper($request->insAddressDistprov);
             // $instituteAddress->addressPinzip    = $request->insAddressPinzip;
             $instituteAddress->addressCountry   = 'India';
             $instituteAddress->save();

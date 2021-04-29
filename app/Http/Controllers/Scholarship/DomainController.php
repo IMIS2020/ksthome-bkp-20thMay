@@ -184,7 +184,7 @@ class DomainController extends Controller
                 if($request->domainName == 'ExamPassed')
                 {
                     $domainValues = new DomainValues;
-                    $domainValues->value            = $request->dValue;
+                    $domainValues->value            = strtoupper($request->dValue);
                     $domainValues->valueDescription = $request->dDesc;
                     $domainValues->nameId           = $request->domianLevel;
                     $getDomainNameId = DomainName::where('name','ExamPassed')->first();
@@ -194,7 +194,7 @@ class DomainController extends Controller
                 }else if($request->domainName == 'UnivBoard')
                 {
                     $domainValues = new DomainValues;
-                    $domainValues->value            = $request->dValue;
+                    $domainValues->value            = strtoupper($request->dValue);
                     $domainValues->valueDescription = $request->dDesc;
                     $domainValues->nameId           = $request->domianLevel;
                     $getDomainNameId = DomainName::where('name','UnivBoard')->first();
@@ -204,7 +204,7 @@ class DomainController extends Controller
                 }else if($request->domainName == 'CourseName')
                 {
                     $domainValues = new DomainValues;
-                    $domainValues->value            = $request->dValue;
+                    $domainValues->value            = strtoupper($request->dValue);
                     $domainValues->valueDescription = $request->dDesc;
                     $domainValues->nameId           = $request->domianLevel;
                     $getDomainNameId = DomainName::where('name','CourseName')->first();
@@ -214,7 +214,7 @@ class DomainController extends Controller
                 }else if($request->domainName == 'CourseLevel')
                 {
                     $domainValues = new DomainValues;
-                    $domainValues->value            = $request->dValue;
+                    $domainValues->value            = strtoupper($request->dValue);
                     $domainValues->valueDescription = $request->dDesc;
                     $getDomainNameId = DomainName::where('name','CourseLevel')->first();
                     $domainValues->nameId           = $getDomainNameId->id;

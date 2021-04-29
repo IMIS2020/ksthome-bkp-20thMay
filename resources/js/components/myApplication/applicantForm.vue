@@ -1807,8 +1807,8 @@ export default {
                             // this.domainForm.domainName = '';
                             this.domainForm.dValue = '';
                             this.domainForm.dDesc = '';
-                            this.domainForm.domainLevel = null;
-                            this.domainForm.domainLevel2 = null;
+                            this.domainForm.domianLevel = '';
+                            this.domainForm.domainLevel2 = '';
                             this.$fire({
                                 position: 'top',
                                 icon: 'success',

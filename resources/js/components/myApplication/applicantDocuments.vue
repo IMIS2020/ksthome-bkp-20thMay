@@ -329,6 +329,7 @@ export default{
                             showConfirmButton: false,
                             timer: 4000
                         })
+                        this.reset()
                     }
                 }
                 if (file.size > 1024 * 1024) 
@@ -342,7 +343,7 @@ export default{
                             showConfirmButton: false,
                             timer: 4000
                        })
-                       this.reset()
+                       
                     return
                 }else
                 {
@@ -363,7 +364,7 @@ export default{
                         showConfirmButton: false,
                         timer: 4000
                      })
-                     this.reset()
+                     
                     }
         },
        deleteFile(applicationDocId)

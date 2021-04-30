@@ -239,7 +239,9 @@ export default{
                                 title: "Add only image type file !",
                                 showConfirmButton: false,
                                 timer: 4000
-                        })}
+                        })
+                        this.reset()
+                        }
                         if (response.data['error']){
                             this.readApplicationForm();
                             this.$fire({
@@ -339,8 +341,8 @@ export default{
                             title: "Document is Too Large - Max 1 MB each",
                             showConfirmButton: false,
                             timer: 4000
-                    })
-                
+                       })
+                       this.reset()
                     return
                 }else
                 {
@@ -351,6 +353,7 @@ export default{
                         this.docRows[index].docFileNameFile=e.target.result;
                     }
                     this.docRows[index].fileName = fileName;
+                    
                 }
             }else{
                 this.$fire({
@@ -359,8 +362,9 @@ export default{
                         title: "pdf,png,jpeg or jpg files only",
                         showConfirmButton: false,
                         timer: 4000
-                })
-            }
+                     })
+                     this.reset()
+                    }
         },
        deleteFile(applicationDocId)
        {
@@ -375,7 +379,7 @@ export default{
                         showConfirmButton: false,
                         timer: 4000
                     })
-                    
+                    this.reset()
                 }
             })
        },

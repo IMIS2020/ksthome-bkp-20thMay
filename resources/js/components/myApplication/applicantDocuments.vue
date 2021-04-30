@@ -33,7 +33,7 @@
                                                             <br>Note: 1  - png, jpeg, jpg or pdf files - Max 1 MB each<br>
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2  - Aadhaar card / voter id / driving lisence/ ration card
                                                                             are valid for proof of address.<br>
-                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3  - Upload document - Choose a file and then click <i class="fas fa-save"></i> ( to save ), before choosing the next file.<br>
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3  - Upload document - Choose a file and then click <a class="act-link btn btn-sm text-white" style="background-color:#702e2e; font-size:10px; padding: 0px">Save</a> ( to save ), before choosing the next file.<br>
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4  - Image files can be only one page document.If you have more than one page document upload only PDF format. <br> 
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eg front and reverse side of Aadhaar card could be photocopied on single page and uploaded as an image file.<br>
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If photocopied on separate pages , then upload as a pdf file.
@@ -49,10 +49,10 @@
                                                                                     <th colspan="2" class="w-10x">Required Document</th>
                                                                                     <th>Choose file</th>
                                                                                     <th>Document Name</th>
-                                                                                    <th>Uploaded</th>
+                                                                                    <th class="text-center w-5x">Save</th>
                                                                                     <th class="text-center w-5x">View</th>
                                                                                     <th class="text-center w-5x">Del.</th>
-                                                                                    <th class="text-center w-5x">Save</th>
+                                                                                    <th>Uploaded</th>
                                                                                     
                                                                                 </tr>
                                                                             </thead>
@@ -73,7 +73,25 @@
                                                                                         </div> -->
                                                                                     </td>
                                                                                     <td>{{row.docFileName == null? '' : row.docFileName.split('-').reverse().shift()}}</td>
-                                                                                    <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{row.uploadStatus}}</span></td>
+
+                                                                                    <td class="text-center w-7x">
+                                                                                        <!-- <span v-if="globalDisable == false">
+                                                                                            <span class="act-link" style="color:#808080;">
+                                                                                                <i class="fas fa-save"></i>
+                                                                                            </span>
+                                                                                        </span> -->
+                                                                                        <!-- <span class="act-link text-center" style="color:#808080;" > -->
+                                                                                           <a  href="#"  class="act-link btn btn-sm text-white" style="background-color:#702e2e; font-size:10px; padding: 0px"  v-if="globalDisable == false" @click.prevent="saveFile(form.applicationId,index)">
+                                                                                               Save
+                                                                                                <!-- <i class="fas fa-save"></i> -->
+                                                                                            </a>
+                                                                                        <!-- </span> -->
+                                                                                         <span class="act-link btn btn-sm" style="color:#808080; font-size:10px; padding: 0px" v-else>
+                                                                                             Save
+                                                                                            <!-- <i class="fas fa-save"></i> -->
+                                                                                        </span>
+                                                                                    </td>
+
                                                                                     <td class="text-center w-7x"  > 
                                                                                         <span v-if="row.uploadStatus == 'YES'">
                                                                                             <router-link target="_blank"  class="act-link"  :to="''+row.fileURL">
@@ -84,6 +102,7 @@
                                                                                             <i class="fa fa-eye"></i>
                                                                                         </span>
                                                                                     </td>
+                                                                                   
                                                                                     <td class="text-center w-7x" v-if="globalDisable == false"> 
                                                                                         <span  v-if="row.uploadStatus == 'YES'">
                                                                                             <a  href="#"   class="act-link" @click.prevent="deleteFile(row.id)">
@@ -99,21 +118,9 @@
                                                                                             <i class="fa fa-trash"></i>
                                                                                         </span>
                                                                                     </td>
-                                                                                    <td class="text-center w-7x">
-                                                                                        <!-- <span v-if="globalDisable == false">
-                                                                                            <span class="act-link" style="color:#808080;">
-                                                                                                <i class="fas fa-save"></i>
-                                                                                            </span>
-                                                                                        </span> -->
-                                                                                        <span class="act-link" style="color:#808080;" v-if="globalDisable == false">
-                                                                                           <a  href="#"  class="act-link" @click.prevent="saveFile(form.applicationId,index)">
-                                                                                                <i class="fas fa-save"></i>
-                                                                                            </a>
-                                                                                        </span>
-                                                                                         <span class="act-link" style="color:#808080;" v-else>
-                                                                                            <i class="fas fa-save"></i>
-                                                                                        </span>
-                                                                                    </td>
+
+                                                                                     <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{row.uploadStatus}}</span></td>
+                                                                                    
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>

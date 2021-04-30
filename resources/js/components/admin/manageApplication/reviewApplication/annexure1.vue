@@ -141,15 +141,15 @@
                                        <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-II</strong></router-link></li>
                                        <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-applicant-documents/'+form.applicationId"><strong>Upload Documents</strong></router-link></li>
                                        <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Upload Documents</strong></router-link></li>
-                                       <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review/'+form.applicationId"><strong>Review &amp; Submit</strong></router-link></li>
-                                       <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Review &amp; Submit</strong></router-link></li>
+                                       <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review/'+form.applicationId"><strong>View</strong></router-link></li>
+                                       <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>View</strong></router-link></li>
                                     </ul>
-                                    <div class="tab-content">
+                                    <div class="tab-content  bg-white">
                                        <div class="tab-pane active" role="tabpanel" id="tab-2">
                                              <div class="div-inner-filed">
                                                 <div lang="" class="ub-reg-form">
                                                    <div class="form-row">
-                                                         <div class="col-xl-12 align-self-center mb-2 com-bg-1">
+                                                         <div class="col-xl-12 align-self-center mb-2">
                                                             <p class="float-left color-mg font-md mb-1">I {{form.applicantNameF}} {{form.applicantNameM}} {{form.applicantNameL}} {{getData.genderType}} of {{form.applicantFatherName}}  residing in {{form.addressAddln1}}, want to pursue higher studies in academic Year {{form.financialYear}}. I will be taking the following Entrance Examination for admission into:&nbsp;<br></p>
                                                          </div>
                                                          <div class="col-xl-12">

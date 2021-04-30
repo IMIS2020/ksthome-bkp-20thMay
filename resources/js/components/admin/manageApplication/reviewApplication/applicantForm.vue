@@ -140,10 +140,10 @@
                                             <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-II</strong></router-link></li>
                                             <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-applicant-documents/'+form.applicationId"><strong>Upload Documents</strong></router-link></li>
                                             <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Upload Documents</strong></router-link></li>
-                                            <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review/'+form.applicationId"><strong>Review &amp; Submit</strong></router-link></li>
-                                            <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Review &amp; Submit</strong></router-link></li>
+                                            <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review/'+form.applicationId"><strong>View</strong></router-link></li>
+                                            <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>View</strong></router-link></li>
                                         </ul>
-                                        <div class="tab-content">
+                                        <div class="tab-content  bg-white">
                                             <div class="tab-pane active" role="tabpanel" id="tab-1">
                                                 <div class="div-inner-filed">
                                                     <div>
@@ -216,42 +216,42 @@
                                                                                 <div class="form-group">
                                                                                     <select class="form-control form-control-sm" v-model="form.applicantDomicileState" :disabled="globalDisable" required>
                                                                                         <option value="" disabled>--Select--</option>
-                                                                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                                                                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                                                                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                                                                        <option value="Assam">Assam</option>
-                                                                                        <option value="Bihar">Bihar</option>
-                                                                                        <option value="Chandigarh">Chandigarh</option>
-                                                                                        <option value="Chhattisgarh">Chhattisgarh</option>
-                                                                                        <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                                                                                        <option value="Daman and Diu">Daman and Diu</option>
-                                                                                        <option value="Delhi">Delhi</option>
-                                                                                        <option value="Lakshadweep">Lakshadweep</option>
-                                                                                        <option value="Puducherry">Puducherry</option>
-                                                                                        <option value="Goa">Goa</option>
-                                                                                        <option value="Gujarat">Gujarat</option>
-                                                                                        <option value="Haryana">Haryana</option>
-                                                                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                                                                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                                                                        <option value="Jharkhand">Jharkhand</option>
-                                                                                        <option value="Karnataka">Karnataka</option>
-                                                                                        <option value="Kerala">Kerala</option>
-                                                                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                                                                        <option value="Maharashtra">Maharashtra</option>
-                                                                                        <option value="Manipur">Manipur</option>
-                                                                                        <option value="Meghalaya">Meghalaya</option>
-                                                                                        <option value="Mizoram">Mizoram</option>
-                                                                                        <option value="Nagaland">Nagaland</option>
-                                                                                        <option value="Odisha">Odisha</option>
-                                                                                        <option value="Punjab">Punjab</option>
-                                                                                        <option value="Rajasthan">Rajasthan</option>
-                                                                                        <option value="Sikkim">Sikkim</option>
-                                                                                        <option value="Tamil Nadu">Tamil Nadu</option>
-                                                                                        <option value="Telangana">Telangana</option>
-                                                                                        <option value="Tripura">Tripura</option>
-                                                                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                                                                        <option value="Uttarakhand">Uttarakhand</option>
-                                                                                        <option value="West Bengal">West Bengal</option>
+                                                                                        <option value="ANDHRA PRADESH">ANDHRA PRADESH</option>
+                                                                                        <option value="ANDAMAN AND NICOBAR ISLANDS">ANDAMAN AND NICOBAR ISLANDS</option>
+                                                                                        <option value="ARUNACHAL PRADESH">ARUNACHAL PRADESH</option>
+                                                                                        <option value="ASSAM">ASSAM</option>
+                                                                                        <option value="BIHAR">BIHAR</option>
+                                                                                        <option value="CHANDIGARH">CHANDIGARH</option>
+                                                                                        <option value="CHHATTISGARH">CHHATTISGARH</option>
+                                                                                        <option value="DADAR AND NAGAR HAVELI">DADAR AND NAGAR HAVELI</option>
+                                                                                        <option value="DAMAN AND DIU">DAMAN AND DIU</option>
+                                                                                        <option value="DELHI">DELHI</option>
+                                                                                        <option value="LAKSHADWEEP">LAKSHADWEEP</option>
+                                                                                        <option value="PUDUCHERRY">PUDUCHERRY</option>
+                                                                                        <option value="GOA">GOA</option>
+                                                                                        <option value="GUJARAT">GUJARAT</option>
+                                                                                        <option value="HARYANA">HARYANA</option>
+                                                                                        <option value="HIMACHAL PRADESH">HIMACHAL PRADESH</option>
+                                                                                        <option value="JAMMU AND KASHMIR">JAMMU AND KASHMIR</option>
+                                                                                        <option value="JHARKHAND">JHARKHAND</option>
+                                                                                        <option value="KARNATAKA">KARNATAKA</option>
+                                                                                        <option value="KERALA">KERALA</option>
+                                                                                        <option value="MADHYA PRADESH">MADHYA PRADESH</option>
+                                                                                        <option value="MAHARASHTRA">MAHARASHTRA</option>
+                                                                                        <option value="MANIPUR">MANIPUR</option>
+                                                                                        <option value="MEGHALAYA">MEGHALAYA</option>
+                                                                                        <option value="MIZORAM">MIZORAM</option>
+                                                                                        <option value="NAGALAND">NAGALAND</option>
+                                                                                        <option value="ODISHA">ODISHA</option>
+                                                                                        <option value="PUNJAB">PUNJAB</option>
+                                                                                        <option value="RAJASTHAN">RAJASTHAN</option>
+                                                                                        <option value="SIKKIM">SIKKIM</option>
+                                                                                        <option value="TAMIL NADU">TAMIL NADU</option>
+                                                                                        <option value="TELANGANA">TELANGANA</option>
+                                                                                        <option value="TRIPURA">TRIPURA</option>
+                                                                                        <option value="UTTAR PRADESH">UTTAR PRADESH</option>
+                                                                                        <option value="UTTARAKHAND">UTTARAKHAND</option>
+                                                                                        <option value="WEST BENGAL">WEST BENGAL</option>
                                                                                     </select>
                                                                                 </div>
                                                                             </div>
@@ -317,42 +317,42 @@
                                                                                 <div class="form-group"> 
                                                                                     <select class="form-control form-control-sm" v-model="form.addressState" :disabled="globalDisable" required>
                                                                                         <option value="" disabled>--Select--</option>
-                                                                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                                                                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                                                                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                                                                        <option value="Assam">Assam</option>
-                                                                                        <option value="Bihar">Bihar</option>
-                                                                                        <option value="Chandigarh">Chandigarh</option>
-                                                                                        <option value="Chhattisgarh">Chhattisgarh</option>
-                                                                                        <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                                                                                        <option value="Daman and Diu">Daman and Diu</option>
-                                                                                        <option value="Delhi">Delhi</option>
-                                                                                        <option value="Lakshadweep">Lakshadweep</option>
-                                                                                        <option value="Puducherry">Puducherry</option>
-                                                                                        <option value="Goa">Goa</option>
-                                                                                        <option value="Gujarat">Gujarat</option>
-                                                                                        <option value="Haryana">Haryana</option>
-                                                                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                                                                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                                                                        <option value="Jharkhand">Jharkhand</option>
-                                                                                        <option value="Karnataka">Karnataka</option>
-                                                                                        <option value="Kerala">Kerala</option>
-                                                                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                                                                        <option value="Maharashtra">Maharashtra</option>
-                                                                                        <option value="Manipur">Manipur</option>
-                                                                                        <option value="Meghalaya">Meghalaya</option>
-                                                                                        <option value="Mizoram">Mizoram</option>
-                                                                                        <option value="Nagaland">Nagaland</option>
-                                                                                        <option value="Odisha">Odisha</option>
-                                                                                        <option value="Punjab">Punjab</option>
-                                                                                        <option value="Rajasthan">Rajasthan</option>
-                                                                                        <option value="Sikkim">Sikkim</option>
-                                                                                        <option value="Tamil Nadu">Tamil Nadu</option>
-                                                                                        <option value="Telangana">Telangana</option>
-                                                                                        <option value="Tripura">Tripura</option>
-                                                                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                                                                        <option value="Uttarakhand">Uttarakhand</option>
-                                                                                        <option value="West Bengal">West Bengal</option>
+                                                                                        <option value="ANDHRA PRADESH">ANDHRA PRADESH</option>
+                                                                                        <option value="ANDAMAN AND NICOBAR ISLANDS">ANDAMAN AND NICOBAR ISLANDS</option>
+                                                                                        <option value="ARUNACHAL PRADESH">ARUNACHAL PRADESH</option>
+                                                                                        <option value="ASSAM">ASSAM</option>
+                                                                                        <option value="BIHAR">BIHAR</option>
+                                                                                        <option value="CHANDIGARH">CHANDIGARH</option>
+                                                                                        <option value="CHHATTISGARH">CHHATTISGARH</option>
+                                                                                        <option value="DADAR AND NAGAR HAVELI">DADAR AND NAGAR HAVELI</option>
+                                                                                        <option value="DAMAN AND DIU">DAMAN AND DIU</option>
+                                                                                        <option value="DELHI">DELHI</option>
+                                                                                        <option value="LAKSHADWEEP">LAKSHADWEEP</option>
+                                                                                        <option value="PUDUCHERRY">PUDUCHERRY</option>
+                                                                                        <option value="GOA">GOA</option>
+                                                                                        <option value="GUJARAT">GUJARAT</option>
+                                                                                        <option value="HARYANA">HARYANA</option>
+                                                                                        <option value="HIMACHAL PRADESH">HIMACHAL PRADESH</option>
+                                                                                        <option value="JAMMU AND KASHMIR">JAMMU AND KASHMIR</option>
+                                                                                        <option value="JHARKHAND">JHARKHAND</option>
+                                                                                        <option value="KARNATAKA">KARNATAKA</option>
+                                                                                        <option value="KERALA">KERALA</option>
+                                                                                        <option value="MADHYA PRADESH">MADHYA PRADESH</option>
+                                                                                        <option value="MAHARASHTRA">MAHARASHTRA</option>
+                                                                                        <option value="MANIPUR">MANIPUR</option>
+                                                                                        <option value="MEGHALAYA">MEGHALAYA</option>
+                                                                                        <option value="MIZORAM">MIZORAM</option>
+                                                                                        <option value="NAGALAND">NAGALAND</option>
+                                                                                        <option value="ODISHA">ODISHA</option>
+                                                                                        <option value="PUNJAB">PUNJAB</option>
+                                                                                        <option value="RAJASTHAN">RAJASTHAN</option>
+                                                                                        <option value="SIKKIM">SIKKIM</option>
+                                                                                        <option value="TAMIL NADU">TAMIL NADU</option>
+                                                                                        <option value="TELANGANA">TELANGANA</option>
+                                                                                        <option value="TRIPURA">TRIPURA</option>
+                                                                                        <option value="UTTAR PRADESH">UTTAR PRADESH</option>
+                                                                                        <option value="UTTARAKHAND">UTTARAKHAND</option>
+                                                                                        <option value="WEST BENGAL">WEST BENGAL</option>
                                                                                     </select>
                                                                                 </div>
                                                                             </div>
@@ -804,7 +804,7 @@
                                                                             <div class="col-xl-3">
                                                                                 <label>Degree/Cerificate&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                                     <div class="form-group mb-0">
-                                                                                    <select class="form-control form-control-sm" v-model="form.courseLevelValueId" :disabled="inputDisabled" @click="getHHDLSData($event)" required>
+                                                                                    <select class="form-control form-control-sm" v-model="form.courseLevelValueId" :disabled="globalDisable" @click="getHHDLSData($event)" required>
                                                                                         <option value="" disabled>-- select --</option>
                                                                                         <option v-for="(ucl,index) in universityCourseLevel" :key="index" :value="ucl.id" selected>{{ucl.description}}</option>
                                                                                     </select>
@@ -814,13 +814,13 @@
                                                                                 <label v-if="form.scholarshipType=='HHDLS'">Course Name&nbsp;<span class="text-danger"><strong>*</strong></span><a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-course-name" @click="addName('CourseName')"> </a></label>
                                                                                 <label v-if="form.scholarshipType=='Nursing'">Course Name&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                                                                 <div class="form-group mb-0" v-if="form.scholarshipType=='HHDLS'">
-                                                                                    <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled" required>
+                                                                                    <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="globalDisable" required>
                                                                                         <option value="" disabled>-- select --</option>
                                                                                         <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id" selected>{{ucn.value}}</option>
                                                                                     </select>
                                                                                 </div>
                                                                                 <div class="form-group mb-0" v-if="form.scholarshipType=='Nursing'">
-                                                                                    <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="inputDisabled" required>
+                                                                                    <select class="form-control form-control-sm" v-model="form.courseNameValueId" :disabled="globalDisable" required>
                                                                                         <option value="" disabled>-- select --</option>
                                                                                         <option v-for="(ucn,index) in universityCourseName" :key="index" :value="ucn.id" selected>{{ucn.value}}</option>
                                                                                     </select>
@@ -829,7 +829,7 @@
                                                                             <div class="col-xl-6">
                                                                                 <label>Name of the institute&nbsp;<span class="text-danger"><strong>*</strong></span> <a data-toggle="modal" href="#" v-if="inputDisabled == false" data-target="#others-add-institute" > </a> </label>
                                                                                 <div class="form-group mb-0">
-                                                                                    <select class="form-control form-control-sm" required @change="onChangeIns($event)" v-model="form.instituteId" :disabled="inputDisabled">
+                                                                                    <select class="form-control form-control-sm" required @change="onChangeIns($event)" v-model="form.instituteId" :disabled="globalDisable">
                                                                                         <option v-for="(i,index) in insData" :key="index" :value="i.id" selected>{{i.instituteName}} - {{i.get_address.addressCity}}, {{i.get_address.addressState}}</option>
                                                                                         <!-- <option  data-toggle="modal" data-target="#others-add-institute" >Others</option> -->
                                                                                         <option value="" disabled>-- select --</option>
@@ -1089,9 +1089,9 @@
                                 </div>
                             </div>
                            
-                            <div class="col-xl-2 offset-xl-0 my-2">
+                            <!-- <div class="col-xl-2 offset-xl-0 my-2">
                                 <router-link class="btn btn-danger btn-block btn-sm" type="button" to="/admin/manage-application-details"><strong>Back</strong></router-link>
-                            </div>
+                            </div> -->
                            
                         </div>
                     </div>

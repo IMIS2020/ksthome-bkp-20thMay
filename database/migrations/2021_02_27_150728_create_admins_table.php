@@ -17,11 +17,12 @@ class CreateAdminsTable extends Migration
             $table->id();
             $table->string('intuId')->nullable();
             $table->string('salutation')->nullable();
-            $table->string('firstname');
-            $table->string('lastname');
+            $table->string('name')->nullable();
+            $table->string('firstname')->nullable();
+            $table->string('lastname')->nullable();
             $table->date('dob')->nullable();
             $table->string('gender')->nullable();
-            $table->string('phoneNo')->unique()->nullable();
+            $table->string('contactno')->unique()->nullable();
             $table->string('alternatePhoneNo')->nullable()->nullable();
             $table->string('email')->unique();
             $table->string('password');

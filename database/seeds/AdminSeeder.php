@@ -18,8 +18,8 @@ class AdminSeeder extends Seeder
             'lastname'  => 'Admin',
             'gender'    => 'Male',
             'contactNo' =>'9830258747',
-            'email' => 'superadmin@silf.in',
-            'password' => Hash::make('Password'),
+            'email' => 'birth.user1@gmail.com',
+            'password' => Hash::make('birthuser1'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -31,8 +31,8 @@ class AdminSeeder extends Seeder
             'lastname' => '-admin1',
             'gender'    => 'Male',
             'contactNo' =>'9230558747',
-            'email' => 'admin1@silf.in',
-            'password' => Hash::make('admin1@silf'),
+            'email' => 'birth.user2@gmail.com',
+            'password' => Hash::make('birthuser2'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
          ]);

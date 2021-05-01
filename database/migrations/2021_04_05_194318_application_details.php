@@ -13,7 +13,7 @@ class ApplicationDetails extends Migration
      */
     public function up()
     {
-        Schema::create('applicantionDetails', function (Blueprint $table) {
+        Schema::create('applicationDetails', function (Blueprint $table) {
             $table->id();
             $table->string('schApplicationId');
             $table->string('appIdShow')->nullable();
@@ -60,7 +60,7 @@ class ApplicationDetails extends Migration
             $table->timestamps();
         });
 
-        Schema::table('applicantionDetails', function (Blueprint $table) {
+        Schema::table('applicationDetails', function (Blueprint $table) {
             $table->unique(["scholarshipTypeValueId", "userId","sessionId"], 'application_index');
         });
     }
@@ -72,8 +72,8 @@ class ApplicationDetails extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('applicantionDetails');
-        Schema::table('applicantionDetails', function (Blueprint $table) {
+        Schema::dropIfExists('applicationDetails');
+        Schema::table('applicantioDetails', function (Blueprint $table) {
             $table->dropUnique('application_index');
           });
     }

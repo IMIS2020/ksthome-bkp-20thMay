@@ -19,7 +19,7 @@ use App\ModelScholarship\ApplicationSession;
 
 class ApplicationDetails extends Model
 {
-    protected $table = 'applicantionDetails';
+    protected $table = 'applicationDetails';
     public $primarykey = 'id';
     public $timestamp = true;
 

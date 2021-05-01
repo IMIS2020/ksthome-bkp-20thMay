@@ -14,23 +14,23 @@ class ForeignKeyRelations extends Migration
     public function up()
     {
         Schema::table('applicationEducationDetails', function (Blueprint $table) {
-            $table->foreign('applicationId')->references('id')->on('applicantionDetails')->onDelete('cascade');
+            $table->foreign('applicationId')->references('id')->on('applicationDetails')->onDelete('cascade');
         });
 
         Schema::table('applicationMiscellaneousDetails', function (Blueprint $table) {
-            $table->foreign('applicationId')->references('id')->on('applicantionDetails')->onDelete('cascade');
+            $table->foreign('applicationId')->references('id')->on('applicationDetails')->onDelete('cascade');
         });
 
         Schema::table('applicationDocs', function (Blueprint $table) {
-            $table->foreign('applicationId')->references('id')->on('applicantionDetails')->onDelete('cascade');
+            $table->foreign('applicationId')->references('id')->on('applicationDetails')->onDelete('cascade');
         });
 
         Schema::table('annexureI', function (Blueprint $table) {
-            $table->foreign('applicationId')->references('id')->on('applicantionDetails')->onDelete('cascade');
+            $table->foreign('applicationId')->references('id')->on('applicationDetails')->onDelete('cascade');
         });
 
         Schema::table('stepOutcome', function (Blueprint $table) {
-            $table->foreign('applicationId')->references('id')->on('applicantionDetails')->onDelete('cascade');
+            $table->foreign('applicationId')->references('id')->on('applicationDetails')->onDelete('cascade');
         });
 
         Schema::table('applicationDocs', function (Blueprint $table) {
@@ -45,40 +45,40 @@ class ForeignKeyRelations extends Migration
             $table->foreign('stepOutcomeId')->references('id')->on('stepOutcome')->onDelete('cascade');
         });
 
-        Schema::table('applicantionDetails', function (Blueprint $table) {
+        Schema::table('applicationDetails', function (Blueprint $table) {
             $table->foreign('applicantAddressId')->references('id')->on('portalAddress')->onDelete('cascade');
         });
 
-        Schema::table('applicantionDetails', function (Blueprint $table) {
+        Schema::table('applicationDetails', function (Blueprint $table) {
             $table->foreign('appSchduleId')->references('id')->on('applicationScheduleTable')->onDelete('cascade');
         });
 
-        // Schema::table('applicantionDetails', function (Blueprint $table) {
+        // Schema::table('applicationDetails', function (Blueprint $table) {
         //     $table->foreign('appSchduleId')->references('id')->on('applicationScheduleTable')->onDelete('cascade');
         // });
 
-        // Schema::table('applicantionDetails', function (Blueprint $table) {
+        // Schema::table('applicationDetails', function (Blueprint $table) {
         //     $table->foreign('sessionId')->references('id')->on('userSession')->onDelete('cascade');
         // });
 
-        Schema::table('applicantionDetails', function (Blueprint $table) {
+        Schema::table('applicationDetails', function (Blueprint $table) {
             $table->foreign('sessionId')->references('id')->on('applicationSession')->onDelete('cascade');
         });
 
 
-        Schema::table('applicantionDetails', function (Blueprint $table) {
+        Schema::table('applicationDetails', function (Blueprint $table) {
             $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
         });
 
-        Schema::table('applicantionDetails', function (Blueprint $table) {
+        Schema::table('applicationDetails', function (Blueprint $table) {
             $table->foreign('instituteId')->references('id')->on('institute')->onDelete('cascade');
         });
 
-        Schema::table('applicantionDetails', function (Blueprint $table) {
+        Schema::table('applicationDetails', function (Blueprint $table) {
             $table->foreign('courseLevelValueId')->references('id')->on('domainValues')->onDelete('cascade');
         });
 
-        Schema::table('applicantionDetails', function (Blueprint $table) {
+        Schema::table('applicationDetails', function (Blueprint $table) {
             $table->foreign('courseNameValueId')->references('id')->on('domainValues')->onDelete('cascade');
         });
 
@@ -145,7 +145,7 @@ class ForeignKeyRelations extends Migration
 
         //Addtional Qualification
         Schema::table('applicationAddlnQual', function (Blueprint $table) {
-            $table->foreign('applicationId')->references('id')->on('applicantionDetails')->onDelete('cascade');
+            $table->foreign('applicationId')->references('id')->on('applicationDetails')->onDelete('cascade');
         });
         Schema::table('applicationAddlnQual', function (Blueprint $table) {
             $table->foreign('examLevelValueId')->references('id')->on('domainValues')->onDelete('cascade');

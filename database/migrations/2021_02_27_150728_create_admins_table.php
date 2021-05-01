@@ -28,7 +28,7 @@ class CreateAdminsTable extends Migration
             $table->string('password');
             $table->string('category')->nullable();
             $table->string('department')->nullable();
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->default(1);
             $table->timestamp('email_verified_at')->nullable();
             $table->unsignedBigInteger('employeeId')->nullable();
             $table->unsignedBigInteger('addressId')->nullable();

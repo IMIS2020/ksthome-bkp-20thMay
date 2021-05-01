@@ -12,7 +12,7 @@ class AdminSeeder extends Seeder
     public function run()
     {
         DB::table('admins')->insert([
-            'intuId' => 'SU-00001',
+            'intuId' => 'SU-000001',
             'name' => 'Super-Admin',
             'dob'       => '1984-01-15',
             'gender'    => 'Male',

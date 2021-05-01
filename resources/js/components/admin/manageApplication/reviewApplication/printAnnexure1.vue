@@ -45,7 +45,7 @@
             <div class="row">
                 <div class="col-xl-4 offset-xl-4 d-print-none text-center">
                     <button class="btn btn-sm btn-mg mt-5" role="button"  onclick="window.print()">Print/Download Annexure - I</button>
-                    <router-link class="btn btn-sm btn-mg mt-5 mr-2" :to="'/review-submit/'+form.applicationId">Cancel</router-link>
+                    <router-link class="btn btn-sm btn-mg mt-5 mr-2" :to="'/admin/review/'+form.applicationId">Cancel</router-link>
                 </div>
             </div>
         </div>

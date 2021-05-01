@@ -48,7 +48,7 @@
                                 </button>
                             </div>
                             <!-- <div class="form-group mb-0">
-                                <p class="text-center text-muted font-md mb-0">Having trouble logging in?&nbsp;<a href="#">reset password</a></p>
+                                <p class="text-center text-muted font-md mb-0">Having trouble logging in?&nbsp;<a href="/admin/forget-password">reset password</a></p>
                             </div> -->
                         </form>
                     </div>

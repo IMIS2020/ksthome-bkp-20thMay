@@ -1,7 +1,7 @@
 <template>
 
 <body id="page-top" class="grey-bg">
-    <div id="wrapper" style="height: 100vh;">
+   <div id="wrapper" style="height: 100vh;">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-custom p-0">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand" href="#">
                     <div class="sidebar-brand-icon rotate-n-15 text-white"><i class="fas fa-building"></i></div>
@@ -15,12 +15,13 @@
                             <div class="dropdown-menu dr-cs"><a class="dropdown-item" href="#"><i class="fas fa-money-bill-wave"></i>&nbsp;Dropdown Menu</a></div>
                         </div>
                     </li>
-                     <!-- <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-domains"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
+                    <!-- <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-domains"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li> -->
-
-                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="#"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
+                    <li class="nav-item shadow-lg"><router-link v-if="userName =='Super-Admin'" class="nav-link" to="#"><i class="fas fa-wrench"></i><span>Manage Users</span></router-link></li>
+                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="#"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="#"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-details"><i class="fas fa-sticky-note"></i><span>Manage Applications</span></router-link></li>
+                    
                 </ul>
             </div>
         </nav>
@@ -65,8 +66,8 @@
                                         </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a>
                                     </div>
                                 </div>
-                            </li>
-                            <li class="nav-item dropdown no-arrow mx-1">
+                            </li> -->
+                            <!-- <li class="nav-item dropdown no-arrow mx-1">
                                 <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><i class="fas fa-envelope fa-fw"></i><span class="badge badge-danger badge-counter">7</span></a>
                                     <div class="dropdown-menu dropdown-list dropdown-menu-right animated--grow-in">
                                         <h6 class="dropdown-header">messages center</h6><a class="d-flex align-items-center dropdown-item" href="#">
@@ -110,9 +111,10 @@
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><img class="border rounded-circle img-profile" src="assets/img/avatar_2x.png"><span class="d-none d-lg-inline ml-2 text-white-600 small"><strong>{{userName}}</strong></span></a>
                                     <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in">
-                                        <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
-                                        <!-- <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
-                                        <a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a> -->
+                                    <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
+                                    <a v-if="userName == 'Super-Admin'" class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Manage Users</a>
+                                    <!-- <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a> -->
                                         <div class="dropdown-divider"></div><button class="dropdown-item" role="button" @click.prevent="logout"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</button>
                                     </div>
                                 </div>
@@ -130,49 +132,79 @@
                             </div>
                             <div class="com-bg">
                                 <div>
-                                    <!-- <div class="form-group pull-right col-xl-12 mb-2 mt-2">
+                                    <div class="form-group pull-right col-xl-12 mb-2 mt-2">
                                         <div class="row">
                                             <div class="col-xl-12" style="padding: 0px 5px;">
                                                 <form>
                                                     <div class="form-group mb-0">
                                                         <div class="form-row">
-                                                            <div class="col-xl-2"><select class="form-control form-control-sm mb-2 font-sm">
+                                                            <div class="col-xl-2">
+                                                                <select class="form-control form-control-sm mb-2 font-sm" v-model="form.session">
                                                                     <option value="">-- Session --</option>
-                                                                    <option value="1">2020 - 2021</option>
-                                                                    <option value="1">2021 - 2022</option>
-                                                                </select><select class="form-control form-control-sm font-sm">
+                                                                     <option v-for="filterData in getFilterData" :key="filterData.id" 
+                                                                             :value="filterData.financialYear" class="color-mg">
+                                                                                {{filterData.financialYear}} 
+                                                                            </option>
+                                                                         </select>
+
+                                                                <select class="form-control form-control-sm font-sm" v-model="form.contactNo">
                                                                     <option value="">-- Contact No. --</option>
-                                                                    <option value="1">9876543210</option>
-                                                                    <option value="1">9632587410</option>
-                                                                </select></div>
-                                                            <div class="col-xl-2"><select class="form-control form-control-sm mb-2 font-sm">
+                                                                        <option v-for="filterData in getFilterData" :key="filterData.id" 
+                                                                             :value="filterData.applicantContactNoSelf" class="color-mg">
+                                                                       {{filterData.applicantContactNoSelf}} 
+                                                                  </option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-xl-2">
+                                                                <select class="form-control form-control-sm mb-2 font-sm" v-model="form.scholarshipType">
                                                                     <option value="">-- Scholarship Type --</option>
-                                                                    <option value="1">2020 - 2021</option>
-                                                                    <option value="1">2021 - 2022</option>
-                                                                </select><select class="form-control form-control-sm font-sm">
+                                                                    <option v-for="filterData in getFilterData" :key="filterData.id" 
+                                                                             :value="filterData.scholarshipType" class="color-mg">
+                                                                       {{filterData.scholarshipType}} 
+                                                                  </option>
+                                                                </select>
+                                                                <select class="form-control form-control-sm font-sm" v-model="form.emailId">
                                                                     <option value="">-- Email ID --</option>
-                                                                    <option value="1">user@email.com</option>
-                                                                    <option value="1">user2@email.com</option>
-                                                                </select></div>
-                                                            <div class="col-xl-2"><select class="form-control form-control-sm mb-2 font-sm">
+                                                                    <option v-for="filterData in getFilterData" :key="filterData.id" 
+                                                                             :value="filterData.applicantEmailId" class="color-mg">
+                                                                     {{filterData.applicantEmailId}} 
+                                                                  </option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-xl-2">
+                                                                <select class="form-control form-control-sm mb-2 font-sm" v-model="form.firstName">
                                                                     <option value="">-- First Name --</option>
-                                                                    <option value="1">Amit</option>
-                                                                    <option value="1">Sudhakar</option>
-                                                                </select><select class="form-control form-control-sm font-sm">
+                                                                    <option v-for="filterData in getFilterData" :key="filterData.id" 
+                                                                             :value="filterData.applicantNameF" class="color-mg">
+                                                                     {{filterData.applicantNameF}} 
+                                                                  </option>
+                                                                </select>
+                                                                <select class="form-control form-control-sm font-sm" v-model="form.state">
                                                                     <option value="">-- State --</option>
-                                                                    <option value="1">West Bengal</option>
-                                                                    <option value="1">Uttar Pradesh</option>
-                                                                </select></div>
-                                                            <div class="col-xl-2"><select class="form-control form-control-sm mb-2 font-sm">
+                                                                      <option v-for="filterData in getFilterData" :key="filterData.id" 
+                                                                             :value="filterData.get_address.addressState" class="color-mg">
+                                                                     {{filterData.get_address.addressState}} 
+                                                                  </option>
+                                                                 </select>
+                                                            </div>
+                                                            <div class="col-xl-2">
+                                                                <select class="form-control form-control-sm mb-2 font-sm" v-model="form.lastName">
                                                                     <option value="">-- Last Name --</option>
-                                                                    <option value="1">Gupta</option>
-                                                                    <option value="1">Mishra</option>
-                                                                </select><select class="form-control form-control-sm font-sm">
+                                                                         <option v-for="filterData in getFilterData" :key="filterData.id" 
+                                                                             :value="filterData.applicantNameL" class="color-mg">
+                                                                     {{filterData.applicantNameL}} 
+                                                                  </option>
+                                                                </select>
+                                                                <select class="form-control form-control-sm font-sm" v-model="form.district">
                                                                     <option value="">-- District --</option>
-                                                                    <option value="1">Hooghly</option>
-                                                                    <option value="1">North 24 PGS</option>
-                                                                </select></div>
-                                                            <div class="col-xl-1 align-self-center"><a class="btn btn-sm btn-mg font-sm" role="button" href="#"><i class="fa fa-search"></i></a></div>
+                                                                      <option v-for="filterData in getFilterData" :key="filterData.id" 
+                                                                             :value="filterData.get_address.addressDistprov" class="color-mg">
+                                                                     {{filterData.get_address.addressDistprov}} 
+                                                                  </option>
+                                                                 </select>
+                                                            </div>
+
+                                                            <div class="col-xl-1 align-self-center"><button class="btn btn-sm btn-mg font-sm" role="button" @click.prevent="saveForm"><i class="fa fa-search"></i></button></div>
                                                             <div class="col-xl-3 offset-xl-0 align-self-center pr-0"><input class="form-control form-control-sm" type="text" placeholder="Search by typing here..."></div>
                                                             <div class="col-xl-4 offset-xl-8 align-self-center and-col mt-2">
                                                                 <div class="form-row">
@@ -194,7 +226,7 @@
                                                 </form>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
                                     <div class="table-responsive text-break table results mb-0 donor-list tmd">
                                         <table class="table table-sm">
                                             <thead class="cs-tbl-hd">
@@ -454,11 +486,23 @@ export default {
     data(){
         return{
             userName: document.querySelector("meta[name='userName']").getAttribute('content'),
-           getAllData:{}, 
+            getAllData:{}, 
+            getFilterData:{},
+            
+            form:{
+                session:'',
+                contactNo:'',
+                scholarshipType:'',
+                emailId:'',
+                firstName:'',
+                state:'',
+                lastName:'',
+                district:'',
+            },
           }
     },
-    methods:{
 
+    methods:{
         calAge:  function (dob) {
             if (dob === null || dob === '') { return null; }
             dob = new Date(dob);
@@ -481,14 +525,28 @@ export default {
              .then(response => {
                    this.getAllData = response.data
              });
-        },
+             axios.get('/admin/admin-api/get-application-details/filter/data')
+                  .then(response => this.getFilterData = response.data)
+         },
+
+          saveForm(){
+                axios.post('/admin/admin-api/get-application-details/filter-data',this.form)
+                     .then(response => console.log(this.getAllData = response.data)).catch((error) =>{
+                     this.errors = error.response.data.errors;
+                })
+                },
+
             logout()
             {
                 axios.get('/admin/logout').then(function(){
                     document.location.href = "/admin/login";
                 })
             },
-    },
+
+              
+         },
+
+        
 
     created()
          {

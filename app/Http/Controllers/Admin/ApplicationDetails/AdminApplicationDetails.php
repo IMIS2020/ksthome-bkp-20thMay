@@ -71,4 +71,38 @@ class AdminApplicationDetails extends Controller
     // Review application 
         
     // End-Review application
+
+
+    // Filter data
+
+    public function filterData(Request $request)
+    {
+            $session         =  $request->session;
+            $contactNo       =  $request->contactNo;
+            $scholarshipType =  $request->scholarshipType;
+            $emailId         =  $request->emailId;
+            $firstName       =  $request->firstName;
+            $state           =  $request->state;
+            $lastName        =  $request->lastName;
+            $district        =  $request->district;
+
+        if(empty($session) && empty($contactNo) && empty($scholarshipType) &&empty($emailId) &&empty($firstName) &&empty($state) &&empty($lastName) &&empty($district))
+        {
+            $filter = ApplicationDetails::with('get_address')->orderBy('id', 'desc')->get()->toJson();
+            }else{
+            $filter = ApplicationDetails::with('get_address')
+                    ->join('address', 'address.id', '=', 'applicantionDetails.applicantAddressId')
+                    ->where('applicantionDetails.sessionId',$session)
+                    ->orWhere('applicantionDetails.applicantContactNoSelf',$contactNo)
+                    ->orWhere('applicantionDetails.scholarshipTypeValueId',$scholarshipType)
+                    ->where('applicantionDetails.applicantEmailId',$emailId)
+                    ->orWhere('applicantionDetails.applicantNameF',$firstName)
+                    ->orWhere('applicantionDetails.get_address.addressState',$state)
+                    ->where('applicantionDetails.applicantNameL',$lastName)
+                    ->orWhere('applicantionDetails.get_address.addressDistprov',$district)
+                    ->get()
+                    ->toJson();
+                 } 
+                return $filter;
+         }
 }

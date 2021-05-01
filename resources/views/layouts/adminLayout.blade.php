@@ -50,6 +50,13 @@
     <div id="adminReview">
       @yield('review')
     </div>
+
+    <div id="adminPrintView">
+      @yield('printView')
+    </div>
+    <div id="adminPrintAnnexure1">
+      @yield('printAnnexure1')
+    </div>
    <!-- End review Application -->
 
    <!--Domains start-->
@@ -72,14 +79,14 @@
     <div id="extendLastDate">
       @yield('extendLastDate')
     </div>
-
-    <div id="adminPrintView">
-      @yield('printView')
-    </div>
-    <div id="adminPrintAnnexure1">
-      @yield('printAnnexure1')
-    </div>
    <!-- End schedule -->
+
+   <!-- Manage users -->
+   <div id="manageUsers">
+      @yield('manageUsers')
+    </div>
+
+   <!-- Manage users end -->
     
     <!-- <script src="{{asset('assets/js/jquery.min.js')}}"></script> -->
     <!-- <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script> -->

@@ -171,7 +171,6 @@ Route::prefix('admin')->group(function() {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'Admin\AdminSystemController@adminDashboard')->name('admin.dashboard');
-
     /***
     *Manage application
     */
@@ -214,6 +213,13 @@ Route::prefix('admin')->group(function() {
    *End schedule 
    */
   
+    /***
+    *Manage Users
+    */
+    Route::get('/manage-internal-users', 'Admin\AdminSystemController@manageUsers');
+    /***
+   *End Manage Users
+   */
     Route::group(['prefix' => 'admin-api'], function() { 
 
       /***
@@ -231,6 +237,15 @@ Route::prefix('admin')->group(function() {
         Route::get('/get-application-details','Admin\ApplicationDetails\AdminApplicationDetails@getData');
       /***
       *Manage-application API Call End
+      */
+
+       /***
+      *filter-application API Call
+      */
+      Route::get('/get-application-details/filter/data','Admin\ApplicationDetails\AdminApplicationDetails@getData');
+      Route::post('/get-application-details/filter-data','Admin\ApplicationDetails\AdminApplicationDetails@filterData');
+      /***
+      *filter-application API Call End
       */
 
       /***
@@ -294,9 +309,19 @@ Route::prefix('admin')->group(function() {
       /***
       * End Doc Master Api call
       */
+
+
+      /***
+      * Manage Users API call
+      */
+      
+      Route::post('/add-users','Auth\AdminCreateUsersController@createUsers');
+      Route::get('/get-all-users','Auth\AdminCreateUsersController@getUsers');
+      Route::get('/get-all-users/filter/data','Auth\AdminCreateUsersController@getUsers');
+      Route::get('/delete-users/{userId}','Auth\AdminCreateUsersController@deleteUsers');
+      Route::post('/user-status-changed/{userId}','Auth\AdminCreateUsersController@toggleStatus');
+      Route::post('/manage-internal-user/filter', 'Auth\AdminCreateUsersController@filterData');
      
-    
-    
     });
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
   });

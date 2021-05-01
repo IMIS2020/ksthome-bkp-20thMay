@@ -55,7 +55,7 @@
 export default{
     data(){
         return{
-            userId: document.querySelector("meta[name='userId']").getAttribute('content'),
+            userId:'',
             // update: false,
             globalDisable: false,
             universityCourseLevel:{},
@@ -129,7 +129,7 @@ export default{
         async readApplicationForm() 
         {
             let applicationId = window.location.pathname.split('/').reverse()[0];
-            axios.get(`/api/get-application-form-data/${applicationId}`)
+            axios.get(`/admin/admin-api/get-application-form-data/${applicationId}`)
             .then(response => {
                 if (response.data['success']) 
                 {
@@ -169,7 +169,7 @@ export default{
 
          getannexurei() {
             let applicationId = window.location.pathname.split('/').reverse()[0];
-            axios.get(`/api/get-annexure1/${applicationId}`)
+            axios.get(`/admin/admin-api/get-annexure1/${applicationId}`)
             .then(response => {
                 if (response.data['success']) {
                     this.rows = response.data['data'];
@@ -214,7 +214,7 @@ export default{
     
         readInsValue(type)
         {
-            axios.get('/api/institute/get-data/'+type)
+            axios.get('/admin/admin-api/institute/get-data/'+type)
                 .then(response => {
                     this.insData = response.data;
                 });
@@ -244,7 +244,7 @@ export default{
         getHHDLSData2(id)
         {
             
-            axios.get('/api/domain/course-name/hhdls/'+id)
+            axios.get('/admin/admin-api/domain/course-name/hhdls/'+id)
                 .then(response => {
                     this.universityCourseName = response.data;
                 });  

@@ -235,19 +235,19 @@
                                                                     <div class="col-xl-3">
                                                                         <label>PIN/ZIP Code&nbsp;(6 digits)<span class="text-danger"><strong>*</strong></span></label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="number"  v-model="form.addressPinzip" :disabled="globalDisable" maxlength="6" required>
+                                                                        <input class="form-control form-control-sm" type="text"  v-model="form.addressPinzip" :disabled="globalDisable" maxlength="6" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-3">
                                                                     <label>Contact no. (Self)&nbsp;<span class="text-danger">*</span></label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="number"  v-model="form.applicantContactNoSelf" :disabled="globalDisable" required>
+                                                                        <input class="form-control form-control-sm" type="text" maxlength="10" v-model="form.applicantContactNoSelf" :disabled="globalDisable" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-3">
                                                                     <label>Alternate Contact No&nbsp;<span class="text-danger">*</span></label>
                                                                     <div class="form-group">
-                                                                    <input class="form-control form-control-sm" type="number"  v-model="form.applicantContactNoGuardian" :disabled="globalDisable" required>
+                                                                    <input class="form-control form-control-sm" type="text" maxlength="10"  v-model="form.applicantContactNoGuardian" :disabled="globalDisable" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-3">
@@ -266,7 +266,7 @@
                                                                 <div class="col-xl-3">
                                                                     <label>Contact no. (colony leader)&nbsp;<span class="text-danger">*</span></label>
                                                                     <div class="form-group">
-                                                                        <input class="form-control form-control-sm" type="number"  v-model="form.applicantContactNoColonyLeader" :disabled="globalDisable" required>
+                                                                        <input class="form-control form-control-sm" type="text" maxlength="10"  v-model="form.applicantContactNoColonyLeader" :disabled="globalDisable" required>
                                                                     </div>
                                                                 </div>
                                                             </div>

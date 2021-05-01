@@ -19,6 +19,7 @@ class CreateAdminsTable extends Migration
             $table->string('salutation')->nullable();
             $table->string('name')->nullable();
             $table->string('firstname')->nullable();
+            $table->string('middlename')->nullable();
             $table->string('lastname')->nullable();
             $table->date('dob')->nullable();
             $table->string('gender')->nullable();

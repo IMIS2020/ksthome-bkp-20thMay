@@ -25,7 +25,7 @@ class AdminSeeder extends Seeder
         ]);
 
         DB::table('admins')->insert([
-            'intuId' => 'USER-00002',
+            'intuId' => 'USER-000002',
             'name' => 'silf-admin1',
             'firstname' => 'silf',
             'lastname' => '-admin1',

@@ -171,6 +171,17 @@ Route::prefix('admin')->group(function() {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'Admin\AdminSystemController@adminDashboard')->name('admin.dashboard');
+
+    // Reset password Super Admin //
+
+    Route::get('/reset-password', 'Auth\AdminForgotPasswordController@showForgotForm');
+    Route::post('/reset-password-send', 'Auth\AdminForgotPasswordController@sendResetCodeMail')->name('send-link');
+    Route::get('/change-password', 'Auth\AdminForgotPasswordController@showChangePasswordForm');
+    Route::post('/update-password', 'Auth\AdminForgotPasswordController@updateAdminPassword')->name('admin.password.update');
+
+
+
+    // End password reset super admin //
     /***
     *Manage application
     */
@@ -220,6 +231,9 @@ Route::prefix('admin')->group(function() {
     /***
    *End Manage Users
    */
+
+
+
     Route::group(['prefix' => 'admin-api'], function() { 
 
       /***

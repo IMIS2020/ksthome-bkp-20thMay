@@ -15,7 +15,7 @@
                     </li>
                     <!-- <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-domains"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li> -->
-                    <li class="nav-item shadow-lg"><router-link v-if="userName =='Super-Admin'" class="nav-link" to="#"><i class="fas fa-wrench"></i><span>Manage Users</span></router-link></li>
+                    <li class="nav-item shadow-lg"><router-link v-if="userId =='SU-000001'" class="nav-link" to="/admin/manage-internal-users"><i class="fas fa-wrench"></i><span>Manage Users</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="#"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="#"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-details"><i class="fas fa-sticky-note"></i><span>Manage Applications</span></router-link></li>
@@ -107,10 +107,10 @@
                             </li> -->
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><img class="border rounded-circle img-profile" src="assets/img/avatar_2x.png"><span class="d-none d-lg-inline ml-2 text-white-600 small"><strong>{{userName}}</strong></span></a>
+                                <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><img class="border rounded-circle img-profile" src="assets/img/avatar_2x.png"><span class="d-none d-lg-inline ml-2 text-white-600 small"><strong>{{firstname}} {{middlename}} {{lastname}}</strong></span></a>
                                     <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in">
                                     <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
-                                    <a v-if="userName == 'Super-Admin'" class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Manage Users</a>
+                                    <a v-if="userId == 'SU-000001'" class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Manage Users</a>
                                     <!-- <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
                                     <a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a> -->
                                         <div class="dropdown-divider"></div><button class="dropdown-item" role="button" @click.prevent="logout"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</button>
@@ -163,6 +163,8 @@
                                                                   </option>
                                                                 </select>
                                                                </div>
+
+
                                                             <div class="col-xl-1 align-self-center">
                                                                 <a class="btn btn-sm btn-mg font-sm" role="button" @click.prevent="filterData"><i class="fa fa-search"></i></a></div>
                                                             <div class="col-xl-3 offset-xl-1 align-self-center and-col ml-auto">
@@ -175,7 +177,8 @@
                                                                             
                                                                            
                                                                             <div class="col-sm-4 col-xl-4 offset-xl-0 text-right align-self-center">
-                                                                                <p class="text-left mb-0 font-sm"><strong>&nbsp;</strong><a href="#" data-toggle="modal" data-target="#add-sys-user"><strong>Click here</strong></a></p>
+                                                                                <p class="text-left mb-0 font-sm"><strong>&nbsp;</strong>
+                                                                                <a href="#" data-toggle="modal" data-target="#add-sys-user"><strong>Click here</strong></a></p>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -217,7 +220,7 @@
                                                     <div  class="dropdown no-arrow dr-all">
                                                         <button class="btn btn-sm dropdown-toggle" aria-expanded="false" data-toggle="dropdown" type="button"><i class="fas fa-bars"></i></button>
                                                          <div  class="dropdown-menu dropdown-menu-left shadow dropdown-menu-right animated--fade-in">
-                                                            <a class="dropdown-item" href="#"><strong>Edit User</strong></a>
+                                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add-sys-user"><strong>Edit User</strong></a>
                                                             <!-- <a class="dropdown-item" href="#"><strong>Delete User</strong></a> -->
                                                             <!-- <a class="dropdown-item" href="#"><strong>Deactivate User</strong></a> -->
                                                         </div>
@@ -228,7 +231,7 @@
                                                     <div  class="dropdown no-arrow dr-all">
                                                         <button class="btn btn-sm dropdown-toggle" aria-expanded="false" data-toggle="dropdown" type="button"><i class="fas fa-bars"></i></button>
                                                          <div  class="dropdown-menu dropdown-menu-left shadow dropdown-menu-right animated--fade-in">
-                                                            <a class="dropdown-item" href="#"><strong>Edit User</strong></a>
+                                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add-sys-user"><strong>Edit User</strong></a>
                                                             <button class="dropdown-item" @click.prevent="removeUser(eachUsers.intuId)"><strong>Delete User</strong></button>
 
                                                             <a href="#" class="dropdown-item" @click.prevent="toggleStatus(eachUsers.intuId)"><strong>{{(eachUsers.status == true)? "Inactive" : "Active"}} User</strong></a>
@@ -236,7 +239,6 @@
                                                         </div>
                                                     </div>
                                                 </td>
-
                                             </tr>
                                         </tbody>
                                     </table>
@@ -321,6 +323,13 @@
                                             <input class="form-control" type="email"  v-model="form.email" required>
                                         </div>
                                     </div>
+
+                                    <div class="col-xl-4 mb-2">
+                                        <label>Password&nbsp;<span class="text-danger"><strong>*</strong></span></label>
+                                        <div class="form-group">
+                                            <input class="form-control" type="password"  v-model="form.password" required>
+                                        </div>
+                                    </div>
                                     
 
                                     <!-- <div class="col-xl-6 mb-2">
@@ -360,7 +369,10 @@ export default {
         return{
             getAllUsers:{},
             getFilterUsers:{},
-            userName: document.querySelector("meta[name='userName']").getAttribute('content'),
+            userId     : document.querySelector("meta[name='userId']").getAttribute('content'),
+            firstname  : document.querySelector("meta[name='firstname']").getAttribute('content'),
+            middlename : document.querySelector("meta[name='middlename']").getAttribute('content'),
+            lastname   : document.querySelector("meta[name='lastname']").getAttribute('content'),
 
                 form:{
                 intuId:'',
@@ -370,6 +382,7 @@ export default {
                 gender:'',
                 contactNo:'',
                 email:'',
+                password:'',
             },
 
             filterForm:
@@ -381,9 +394,6 @@ export default {
           }
     },
     methods:{
-
-
-
            saveForm(){
                 axios.post('/admin/admin-api/add-users',this.form)
                 .then(() =>{this.$fire({
@@ -420,55 +430,54 @@ export default {
                         .then(response => this.getFilterUsers = response.data)
                 },
 
-            removeUser(userId){
-            if(userId != '')
-            {
-            axios.get('/admin/admin-api/delete-users/'+userId)
-            .then(()=>{
-                this.$fire({
-                  position:'top',
-                  icon: 'success',
-                  title: 'User Deleted',
-                  showConfirmButton: false,
-                  timer: 4000
-                  })//swal-fire end
-               }).then(() => {
-                    this.getData();
-                })
-              }
-            },//removeuser end
-
-
-            toggleStatus(userId){
-                axios.post('/admin/admin-api/user-status-changed/'+userId)
-                    .then( this.$fire({
-                        position: 'top',
+                    removeUser(userId){
+                    if(userId != '')
+                    {
+                    axios.get('/admin/admin-api/delete-users/'+userId)
+                    .then(()=>{
+                        this.$fire({
+                        position:'top',
                         icon: 'success',
-                        title: 'User Status Changed',
+                        title: 'User Deleted',
                         showConfirmButton: false,
                         timer: 4000
-                    }))
-                this.getData();
-               },
-                logout(){
-                    axios.get('/admin/logout').then(function(){
-                        document.location.href = "/admin/login";
-                    })
-                },
+                        })//swal-fire end
+                    }).then(() => {
+                            this.getData();
+                        })
+                    }
+                    },//removeuser end
 
 
-            filterData(){
-                axios.post('/admin/admin-api/manage-internal-user/filter', this.filterForm)
-                     .then(response => console.log(this.getAllUsers = response.data)).catch((error) =>{
-                     this.errors = error.response.data.errors;
-                  })
-                },
-            },
+                    toggleStatus(userId){
+                        axios.post('/admin/admin-api/user-status-changed/'+userId)
+                            .then( this.$fire({
+                                position: 'top',
+                                icon: 'success',
+                                title: 'User Status Changed',
+                                showConfirmButton: false,
+                                timer: 4000
+                            }))
+                        this.getData();
+                    },
+                        logout(){
+                            axios.get('/admin/logout').then(function(){
+                                document.location.href = "/admin/login";
+                            })
+                        },
 
-    created()
-    {
-    this.getData();
-    
-    }
-}
+                    filterData(){
+                        axios.post('/admin/admin-api/manage-internal-user/filter', this.filterForm)
+                            .then(response => console.log(this.getAllUsers = response.data)).catch((error) =>{
+                            this.errors = error.response.data.errors;
+                        })
+                        },
+                    },
+
+            created()
+            {
+            this.getData();
+            
+            }
+        }
 </script>

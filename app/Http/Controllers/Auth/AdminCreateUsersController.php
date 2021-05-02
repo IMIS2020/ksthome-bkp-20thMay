@@ -21,6 +21,7 @@ class AdminCreateUsersController extends Controller
         'gender'                    => ['required'],
         'contactNo'                 => ['required'],
         'email'                     => ['required'],
+        'password'                  => ['required'],
         ]);
 
         $addUsers = new Admin; 
@@ -40,6 +41,7 @@ class AdminCreateUsersController extends Controller
         $addUsers->gender             = $request->gender;
         $addUsers->contactNo          = $request->contactNo;
         $addUsers->email              = $request->email;
+        $addUsers->password           = Hash::make($request->password);
         $addUsers->save();
     }
 

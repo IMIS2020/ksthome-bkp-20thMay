@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="csrf-token" content="{{csrf_token()}}">
     @if (Auth::check()) 
-      <meta name="userName" content="{{ Auth::user()->name }}" >
+      <meta name="userId" content="{{ Auth::user()->intuId }}" >
+      <meta name="firstname" content="{{ Auth::user()->firstname }}" >
+      <meta name="middlename" content="{{ Auth::user()->middlename }}" >
+      <meta name="lastname" content="{{ Auth::user()->lastname }}" >
      @endif 
     <title>S-ILF Scholarships</title>
     <script src="{{ asset('js/app.js') }}" defer></script>

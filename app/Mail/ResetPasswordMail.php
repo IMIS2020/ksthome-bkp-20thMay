@@ -29,6 +29,6 @@ class ResetPasswordMail extends Mailable
      */
      public function build()
      {
-        return $this->from('laravelframework.07@gmail.com')->subject('Reset Password OTP')->view('forgotTemplate')->with('code', $this->code); 
+        return $this->from('laravelframework.07@gmail.com')->subject('Reset Password OTP')->view('admin.forgotPasswordTemplate')->with('code', $this->code); 
      }
 }

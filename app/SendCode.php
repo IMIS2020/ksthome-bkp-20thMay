@@ -24,12 +24,12 @@ class SendCode
         return $code;
     }
 
-    public static function sendCodeForForgotPassword($email)
-    {
-        $code=rand(111111,999999);
-        Mail::to($email)->send(new ResetPasswordMail($code));
-        return $code;
-    }
+    // public static function sendCodeForForgotPassword($email)
+    // {
+    //     $code=rand(111111,999999);
+    //     Mail::to($email)->send(new ResetPasswordMail($code));
+    //     return $code;
+    // }
 
     // public static function sendCodeToBoth($phone, $email){
     //     $code=rand(111111,999999);

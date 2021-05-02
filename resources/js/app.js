@@ -151,7 +151,13 @@ function newFunction(){
     el: '#extendLastDate',
     router: new VueRouter(routes)
   });
-
   // Schedule end
 
+  //Manage Users
+ 
+  const app40 = new Vue({
+    el: '#manageUsers',
+    router: new VueRouter(routes)
+  });
+  //Manage users end
 }

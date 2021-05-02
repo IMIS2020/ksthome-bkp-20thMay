@@ -106,4 +106,11 @@ class AdminSystemController extends Controller
 
    // Admin schedule end
 
+   // Manage users
+   public function manageUsers()
+   {
+      return view('admin.manageUsers');
+   }
+   // Manage users end
+
 }

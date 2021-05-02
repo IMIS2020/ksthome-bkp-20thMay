@@ -41,6 +41,10 @@ import AdminPrintView       from './components/admin/manageApplication/reviewApp
     import ExtendLastDate from './components/admin/applicationSchedule/extendLastDate';
 // End Admin Schedule
 
+// Manage Users
+    import ManageUsers from './components/admin/manageUsers';
+// End manage users
+
 export default{ 
     mode: 'history',
     linkActiveClass: 'font-semibold',
@@ -439,6 +443,30 @@ export default{
                  *End Admin API call for get application details
                  */
 
+
+                 /***
+                 * 
+                 * Admin API call for get filter application details
+                 */
+
+                    {
+                      path:  '/admin/admin-api/get-application-details/filter/data',
+                    },
+                    {
+                        path: '/admin/admin-api/get-application-details/filter-data',
+                    },
+              /***
+                 * 
+                 *End Admin API call for get filter application details
+                 */
+
+
+
+
+
+
+
+
                 /***
                  * 
                  * Admin Side vue application
@@ -549,7 +577,45 @@ export default{
                  */
 
 
+                 /***
+                 * Manage-users
+                 */
+                    {
+                        path: '/admin/manage-internal-users',
+                        component:ManageUsers,
+                        name: "manage-users"
+                    },
 
+                    {
+                        path: '/admin/admin-api/add-users',
+                    },
 
+                    {
+                        path: '/admin/admin-api/get-all-users',
+                    },
+
+                    {
+                        path: '/admin/admin-api/get-all-users/filter/data',
+                    },
+
+                    {
+                        path: '/admin/admin-api/delete-users/:userId',
+                    },
+
+                    {
+                        path: '/admin/admin-api/user-status-changed/:userId',
+                    },
+                    {
+                        path: '/admin/admin-api/manage-internal-user/filter',
+                        component:ManageUsers,
+                        name: "manage-users"
+                    },
+                    {
+                        path: '/admin/admin-api/manage-internal-user/filter',
+                    },
+
+                 /***
+                 * End manage-users
+                 */
  ]
 }

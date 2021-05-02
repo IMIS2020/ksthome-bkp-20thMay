@@ -11,6 +11,12 @@
                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
                      </div>
                   @endif
+
+                  @if(Session::has('message'))
+                     <div class="alert alert-success text-center">{{Session::get('message')}}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                     </div>
+                  @endif
                   <h2 class="text-center mt-4 text-white pt-2 text-uppercase">Admin Login</h2><br>
                     <div class="login-box">
                     
@@ -47,9 +53,9 @@
                                     Login
                                 </button>
                             </div>
-                            <!-- <div class="form-group mb-0">
-                                <p class="text-center text-muted font-md mb-0">Having trouble logging in?&nbsp;<a href="#">reset password</a></p>
-                            </div> -->
+                            <div class="form-group mb-0">
+                                <p class="text-center text-muted font-md mb-0">reset password?&nbsp;<a href="/admin/reset-password">click here</a></p>
+                            </div>
                         </form>
                     </div>
                 </div>

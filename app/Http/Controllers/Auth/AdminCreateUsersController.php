@@ -34,7 +34,7 @@ class AdminCreateUsersController extends Controller
         }
         $presentId = $lastId+1; //new id for user
 
-        $addUsers->intuId = "USER-".str_pad($presentId, 5, "0", STR_PAD_LEFT);
+        $addUsers->intuId = "USER-".str_pad($presentId, 6, "0", STR_PAD_LEFT);
         $addUsers->firstname          = $request->firstname;
         $addUsers->middlename         = $request->middlename;
         $addUsers->lastname           = $request->lastname;

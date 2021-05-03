@@ -57,8 +57,8 @@ class ContactUsController extends Controller
        );
    
          $email = $request->email;
-         // Mail::to('birth.user1@gmail.com')->cc($email)->send(new contactUsMail($data));
-         SendContactUsMsgJob::dispatch($email,$data); 
+         Mail::to('scholarships@silf.in')->cc($email)->send(new contactUsMail($data));
+        // SendContactUsMsgJob::dispatch($email,$data); 
          return redirect('/contact-us')->with('message', 'Thank you for contacting with us !');
         
    } 

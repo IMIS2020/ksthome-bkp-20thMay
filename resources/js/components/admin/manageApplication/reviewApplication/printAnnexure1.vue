@@ -198,7 +198,7 @@ export default{
                     // })
                     // // this.readApplicationForm();
                     this.$router.push({ 
-                        path:'/annexure-1/'+applicationId,
+                        path:'/admin/review/'+applicationId,
                     });
                     this.$fire({
                         position: 'top',

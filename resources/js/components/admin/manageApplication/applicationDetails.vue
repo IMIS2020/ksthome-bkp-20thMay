@@ -11,9 +11,9 @@
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin"><i class="fas fa-home"></i><span>Home</span></router-link></li>
                     <li class="nav-item">
-                        <div class="nav-item dropdown shadow-lg nav-dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><i class="fas fa-money-bill-wave"></i><span>Dropdown Menu</span></a>
+                        <!-- <div class="nav-item dropdown shadow-lg nav-dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><i class="fas fa-money-bill-wave"></i><span>Dropdown Menu</span></a>
                             <div class="dropdown-menu dr-cs"><a class="dropdown-item" href="#"><i class="fas fa-money-bill-wave"></i>&nbsp;Dropdown Menu</a></div>
-                        </div>
+                        </div> -->
                     </li>
                     <!-- <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-domains"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li> -->
@@ -132,7 +132,7 @@
                             </div>
                             <div class="com-bg">
                                 <div>
-                                    <div class="form-group pull-right col-xl-12 mb-2 mt-2">
+                                    <!-- <div class="form-group pull-right col-xl-12 mb-2 mt-2">
                                         <div class="row">
                                             <div class="col-xl-12" style="padding: 0px 5px;">
                                                 <form>
@@ -226,7 +226,7 @@
                                                 </form>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="table-responsive text-break table results mb-0 donor-list tmd">
                                         <table class="table table-sm">
                                             <thead class="cs-tbl-hd">

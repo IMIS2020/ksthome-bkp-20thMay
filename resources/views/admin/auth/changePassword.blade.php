@@ -59,9 +59,9 @@
                                                 </span>
                                             @enderror
                                        </div>
-                                    <!-- <div class="form-group">
+                                    <div class="form-group">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="confirm new password" required autocomplete="new-password">
-                                     </div> -->
+                                     </div>
                                     </div>
                                     <div class="col-xl-5 mt-2">
                                         <div class="form-group">

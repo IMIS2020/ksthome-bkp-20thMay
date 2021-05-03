@@ -36,7 +36,7 @@ class AdminForgotPasswordController extends Controller
          ]);
          Mail::to($email)->send(new ResetPasswordMail($code));
          // return redirect('/admin/change-password')->with('status','OTP sent successfully')->with('email',$email);
-
+         session()->put('status','OTP sent successfully');
          return view('admin.auth.changePassword',["email"=>$email])->with('status','OTP sent successfully');
     }
 
@@ -51,7 +51,8 @@ class AdminForgotPasswordController extends Controller
     {
 
       $request->validate([  
-         'password' => ['required'],
+         'password' => 'required|string|min:6|confirmed',
+         'password_confirmation' => 'required',
         
       ]);
       

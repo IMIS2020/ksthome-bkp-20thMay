@@ -10,7 +10,7 @@ class ShowAllRegisteredUsers extends Controller
 {
     public function getRegisteredUsers()
     {
-        $getRegisteredUsers = User::all();
+        $getRegisteredUsers = User::orderBy('id')->get();
         return $getRegisteredUsers;
     }
 
@@ -23,7 +23,7 @@ class ShowAllRegisteredUsers extends Controller
 
        if( empty($email) && empty($contactno) && empty($gender))
        {
-        $filter = User::all();
+        $filter = User::orderBy('id')->get();
        }else{
         $filter = User::where("email",'LIKE',"%".$request['email']."%")
                       ->where("contactno",'LIKE',"%".$request['contactno']."%")

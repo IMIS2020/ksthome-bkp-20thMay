@@ -116,7 +116,7 @@ class AdminCreateUsersController extends Controller
 
        if(empty( $userId) && empty($contactNo) && empty($email))
        {
-        $filter = Admin::all();
+        $filter = Admin::orderBy('id')->get();
        }else{
         $filter = Admin::where('admins.intuId',$userId)
                   ->orWhere('admins.contactNo',$contactNo)

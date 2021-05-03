@@ -51,12 +51,14 @@ class AdminForgotPasswordController extends Controller
     {
 
       $request->validate([  
-         'password' => 'required|string|min:6|confirmed',
+         'password' => 'required|string|min:8|confirmed',
          'password_confirmation' => 'required',
         
       ]);
-      
+
+         
       if($user = DB::table('password_resets')->where('email', $request->email)->where('token',$request->code)->first()){
+
 
          DB::table('admins')->where('email', $user->email)
                             ->update(['password' => Hash::make($request->password)]);

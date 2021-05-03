@@ -10,6 +10,7 @@
          <div class="form-row">
                     <div class="col-xl-8 offset-xl-2 mb-2">
                         <h3 class="text-white">{{ __('Update Password') }}</h3>
+                        <p class="text-white">Note: <strong>Password must be at least 8 characters</strong>  </p>
                     </div>
                    
                     <div class="col-xl-8 offset-xl-2 mb-2">
@@ -50,18 +51,22 @@
                                             </span>
                                         @enderror
                                         </div>
-                                    <div class="form-group">
+                                        <div class="form-group">
+                                        <div class="input-group">
+                                        <input class="form-control" type="password" id="password" name="password" required  placeholder="type a new Password">
+                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Enter new password" required autocomplete="new-password">
-                                            @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                       </div>
+
                                     <div class="form-group">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="confirm new password" required autocomplete="new-password">
-                                     </div>
+                                        <div class="input-group">
+                                        <input class="form-control" type="password" id="password1" name="password_confirmation" required placeholder="Re-type Password">
+                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword1"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
                                     </div>
                                     <div class="col-xl-5 mt-2">
                                         <div class="form-group">
@@ -76,5 +81,28 @@
             </form>
         </div>
     </section>
+    <script>
+
+
+const togglePassword = document.querySelector('#togglePassword');
+          const password = document.querySelector('#password');
+      
+          togglePassword.addEventListener('click', function (e) {
+          const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+          password.setAttribute('type', type);
+          this.classList.toggle('fa-eye-slash');
+          });
+
+
+     const togglePassword1 = document.querySelector('#togglePassword1');
+          const password1 = document.querySelector('#password1');
+      
+          togglePassword1.addEventListener('click', function (e) {
+          const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
+          password1.setAttribute('type', type);
+          this.classList.toggle('fa-eye-slash');
+          });
+    
+    </script>
 </body>
 @endsection

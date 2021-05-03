@@ -100,5 +100,6 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
     <!-- <script src="{{asset('assets/js/style.js')}}"></script> -->
-</body>
+
+    </body>
 </html>

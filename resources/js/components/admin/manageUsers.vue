@@ -324,13 +324,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-xl-4 mb-2">
+                                    <!-- <div class="col-xl-4 mb-2">
                                         <label>Password&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                         <div class="form-group">
                                             <input class="form-control" type="password"  v-model="form.password" required>
                                         </div>
                                     </div>
-                                    
+                                     -->
 
                                     <!-- <div class="col-xl-6 mb-2">
                                         <label>Password&nbsp;<span class="text-danger"><strong>*</strong></span></label>
@@ -406,6 +406,12 @@ export default {
                   this.$router.push({ 
                      name:"manage-users",
                }); 
+               this.form.firstname = '';
+               this.form.middlename= '';
+               this.form.lastname = '';
+               this.form.email = '';
+               this.form.contactNo='';
+               this.form.gender='';
                this.getData()
             })
             }).catch((error) =>{
@@ -413,7 +419,7 @@ export default {
                      {   this.$fire({
                            position: 'top',
                            icon: 'error',
-                           title: "Something went wrong !",
+                           title: "Contact no or Email address already exists !",
                            showConfirmButton: false,
                            timer: 4000
                         })

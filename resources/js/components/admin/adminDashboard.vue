@@ -10,11 +10,11 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin"><i class="fas fa-home"></i><span>Home</span></router-link></li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <div class="nav-item dropdown shadow-lg nav-dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><i class="fas fa-money-bill-wave"></i><span>Dropdown Menu</span></a>
                             <div class="dropdown-menu dr-cs"><a class="dropdown-item" href="#"><i class="fas fa-money-bill-wave"></i>&nbsp;Dropdown Menu</a></div>
                         </div>
-                    </li>
+                    </li> -->
                     <!-- <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-domains"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li> -->
                     <li class="nav-item shadow-lg"><router-link v-if="userId =='SU-000001'" class="nav-link" to="/admin/manage-internal-users"><i class="fas fa-wrench"></i><span>Manage Users</span></router-link></li>
@@ -140,7 +140,7 @@
                                         </router-link>
                                      </div> -->
                                        
-                                       <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-xl-0 mb-3 pr-1">
+                                       <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-xl-0 mb-3 pr-1" data-toggle="tooltip" data-placement="right"  title="functionality currently not available">
                                         <router-link to="#">
                                             <div class="home-icon-disabled">
                                                 <h3 class="text-break text-uppercase"><strong>manage </strong><br><strong>domains</strong><br></h3>
@@ -159,7 +159,7 @@
                                       </router-link>
                                     </div> -->
 
-                                        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-md-0 offset-lg-0 offset-xl-0 mb-3 px-1">
+                                        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-md-0 offset-lg-0 offset-xl-0 mb-3 px-1" data-placement="right" title="functionality currently not available">
                                         <router-link to="#">
                                             <div class="home-icon-disabled px-3">
                                                 <h3 class="text-break text-uppercase"><strong>manage&nbsp;application</strong><br><strong>schedule</strong></h3>

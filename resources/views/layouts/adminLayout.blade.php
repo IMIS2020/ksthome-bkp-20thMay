@@ -89,7 +89,11 @@
       @yield('manageUsers')
     </div>
 
-   <!-- Manage users end -->
+    <!-- all registered users -->
+    <div id="allRegisteredUsers">
+        @yield('allRegisteredUsers')
+      </div>
+   <!-- all registered users end -->
     
     <!-- <script src="{{asset('assets/js/jquery.min.js')}}"></script> -->
     <!-- <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script> -->

@@ -182,6 +182,14 @@
                                             </div>
                                         </router-link>
                                     </div>
+
+                                     <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-xl-0 mb-3 pl-1">
+                                    <router-link to="/admin/all-registered-users">
+                                            <div class="home-icon">
+                                                <h3 class="text-break text-uppercase"><strong>all</strong><br><strong>Registered users</strong><br></h3>
+                                            </div>
+                                     </router-link>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -21,18 +21,18 @@
          <img src="{{asset('assets/img/mail-image.png')}}" alt="">
           <div class="col-xl-10 m-auto">
             <div class="card-body card-adjust bg-white pb-4">
-            <h5 style=" font-size:20px;
+            <h5 style=" font-size:15px;
              font-style:bold;margin-left:30px;">Dear {{$firstname}}
             </h5>
-              <p style="margin-left:30px; font-size:20px;">Your Username and Password have been created for the S-ILF, MIS applications.<br>
+              <p style="margin-left:30px; font-size:15px;">Your Username and Password have been created for the S-ILF, MIS applications.<br>
                kindly use them to login and change your password after login.
               </p>
 
             
-             <h2 style="color:#702e2e; margin-left:30px; font-size:20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" >Username : {{$email}} <br> Password : {{$password}}</h2>
+             <h2 style="color:#702e2e; margin-left:30px; font-size:17px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" >Username : {{$email}} <br> Password : {{$password}}</h2>
 
             
-             <h5 style=" font-size:20px;
+             <h5 style=" font-size:15px;
              font-style:bold;margin-left:30px;">Thank you, <br>
              Administrator <br>
              support@silf.in <br>

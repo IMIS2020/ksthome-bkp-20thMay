@@ -49,7 +49,6 @@ class AdminCreateUsersController extends Controller
         $email    = $request->email;
         $password = $this->random_strings(10);
         
-
         $addUsers->intuId = "USER-".str_pad($presentId, 6, "0", STR_PAD_LEFT);
         $addUsers->firstname          = $request->firstname;
         $addUsers->middlename         = $request->middlename;
@@ -64,18 +63,36 @@ class AdminCreateUsersController extends Controller
 
     public function getUsers()
     {
-      $getInternalUsers = Admin::all();
+      $getInternalUsers = Admin::orderBy('id')->get();
       return $getInternalUsers;
     }
 
-    public function getUsersById(string $userId)
+    public function getUsersById(String $userId)
     {
-
+        $getUsersById = Admin::where('intuId',$userId)->get()->toJson();
+        return $getUsersById;
     }
 
-    public function editUser(string $userId)
+    public function editUsers(String $userId , Request $request)
     {
 
+      $request->validate([
+        'firstname'                 => ['required'],
+        'middlename'                => [],
+        'lastname'                  => ['required'],
+        'gender'                    => ['required'],
+        'contactNo'                 => ['required'],
+        'email'                     => ['required'],
+      ]);
+
+        $editUser = Admin::where('intuId',$userId)->first();
+        $editUser->firstname  = $request->firstname;
+        $editUser->middlename = $request->middlename;
+        $editUser->lastname   = $request->lastname;
+        $editUser->gender     = $request->gender;
+        $editUser->contactNo  = $request->contactNo;
+        $editUser->email      = $request->email;
+        $editUser->update();
     }
 
     public function deleteUsers(string $userId)

@@ -232,6 +232,13 @@ Route::prefix('admin')->group(function() {
    *End Manage Users
    */
 
+    /***
+    *all registered users
+    */
+    Route::get('/all-registered-users', 'Admin\AdminSystemController@allRegisteredUsers');
+    /***
+   *End all registered users
+   */
 
 
     Route::group(['prefix' => 'admin-api'], function() { 
@@ -331,10 +338,29 @@ Route::prefix('admin')->group(function() {
       
       Route::post('/add-users','Auth\AdminCreateUsersController@createUsers');
       Route::get('/get-all-users','Auth\AdminCreateUsersController@getUsers');
-      Route::get('/get-all-users/filter/data','Auth\AdminCreateUsersController@getUsers');
+
+      Route::get('/get-users/{userId}','Auth\AdminCreateUsersController@getUsersById');
+      Route::post('/edit-users/{userId}','Auth\AdminCreateUsersController@editUsers');
       Route::get('/delete-users/{userId}','Auth\AdminCreateUsersController@deleteUsers');
       Route::post('/user-status-changed/{userId}','Auth\AdminCreateUsersController@toggleStatus');
+
+      Route::get('/get-all-users/filter/data','Auth\AdminCreateUsersController@getUsers');
       Route::post('/manage-internal-user/filter', 'Auth\AdminCreateUsersController@filterData');
+
+       /***
+       * Manage Users API call end
+      */
+
+
+      /***
+       * get all Users API call end
+      */
+      Route::get('/get-all-registered-users','Admin\ShowAllRegisteredUsers@getRegisteredUsers');
+      Route::get('/get-all-registered-users/filter/data','Admin\ShowAllRegisteredUsers@getRegisteredUsers');
+      Route::post('/all-registered-users/filter', 'Admin\ShowAllRegisteredUsers@filterData');
+       /***
+       * get all Users API call end
+      */
      
     });
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');

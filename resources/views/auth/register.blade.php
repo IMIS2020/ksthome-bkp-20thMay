@@ -119,8 +119,8 @@
                                         <div class="input-group">
                                         <input class="form-control @error('password') is-invalid @enderror" type="password" id="password" name="password" placeholder="Password (minimum 8 characters)" required autocomplete="new-password">
                                       
-                                            <!-- <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button>
-                                            </div> -->
+                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button>
+                                            </div>
                                             
                                             @if ($errors->has('password'))
                                             <span class="invalid-feedback">
@@ -135,8 +135,8 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                         <input class="form-control" type="password" id="password1" name="password_confirmation" required autocomplete="new-password" placeholder="Re-type Password">
-                                            <!-- <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword1"></i></button>
-                                            </div> -->
+                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword1"></i></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -153,5 +153,25 @@
             </div>
         </div>
     </section>
+ <script>
+          
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+
+    togglePassword.addEventListener('click', function (e) {
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    this.classList.toggle('fa-eye-slash');
+    });
+
+    const togglePassword1 = document.querySelector('#togglePassword1');
+          const password1 = document.querySelector('#password1');
+      
+          togglePassword1.addEventListener('click', function (e) {
+          const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
+          password1.setAttribute('type', type);
+          this.classList.toggle('fa-eye-slash');
+          });
+  </script>
 </body>
 @endsection

@@ -71,10 +71,10 @@
                                     <strong>{{ $errors->first('password') }}</strong>
                                 </span>
                             @endif
-                                <!-- <div class="input-group-append">
+                                <div class="input-group-append">
                                 <button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button>
                              </div>
-                              -->
+                             
                             </div>
                         </div>
                         <div class="form-group text-center mb-4">
@@ -129,14 +129,14 @@
                                 <div class="col-xl-5">
                                     <div class="form-group">
                                         <div class="input-group input-group-sm"><input class="form-control" type="password" id="password" name="current_password" placeholder="Current Password">
-                                            <!-- <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button></div> -->
+                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-5">
                                     <div class="form-group">
                                         <div class="input-group input-group-sm"><input class="form-control form-control-sm" type="password" id="password-1" name="new_password" placeholder="New Password">
-                                            <!-- <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword-1"></i></button></div> -->
+                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword-1"></i></button></div>
                                         </div>
                                     </div>
                                 </div>
@@ -206,4 +206,19 @@
            @endif
     </div>
 </section>
+
+<script>
+          
+          const togglePassword = document.querySelector('#togglePassword');
+          const password = document.querySelector('#password');
+      
+          togglePassword.addEventListener('click', function (e) {
+          const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+          password.setAttribute('type', type);
+          this.classList.toggle('fa-eye-slash');
+          });
+      
+      
+      
+        </script>
  @endsection

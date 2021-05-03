@@ -220,7 +220,7 @@
                                                     <div  class="dropdown no-arrow dr-all">
                                                         <button class="btn btn-sm dropdown-toggle" aria-expanded="false" data-toggle="dropdown" type="button"><i class="fas fa-bars"></i></button>
                                                          <div  class="dropdown-menu dropdown-menu-left shadow dropdown-menu-right animated--fade-in">
-                                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add-sys-user"><strong>Edit User</strong></a>
+                                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add-sys-user" @click="getUserdata(eachUsers.intuId)"><strong>Edit User</strong></a>
                                                             <!-- <a class="dropdown-item" href="#"><strong>Delete User</strong></a> -->
                                                             <!-- <a class="dropdown-item" href="#"><strong>Deactivate User</strong></a> -->
                                                         </div>
@@ -231,7 +231,7 @@
                                                     <div  class="dropdown no-arrow dr-all">
                                                         <button class="btn btn-sm dropdown-toggle" aria-expanded="false" data-toggle="dropdown" type="button"><i class="fas fa-bars"></i></button>
                                                          <div  class="dropdown-menu dropdown-menu-left shadow dropdown-menu-right animated--fade-in">
-                                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add-sys-user"><strong>Edit User</strong></a>
+                                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add-sys-user" @click="getUserdata(eachUsers.intuId)"><strong>Edit User</strong></a>
                                                             <button class="dropdown-item" @click.prevent="removeUser(eachUsers.intuId)"><strong>Delete User</strong></button>
 
                                                             <a href="#" class="dropdown-item" @click.prevent="toggleStatus(eachUsers.intuId)"><strong>{{(eachUsers.status == true)? "Inactive" : "Active"}} User</strong></a>
@@ -257,7 +257,7 @@
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title color-mg"><strong>Add New User</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                <h6 class="modal-title color-mg"><strong>{{form.intuId ? 'Update':'Add'}} {{form.intuId == 'SU-000001'?'Super':'Internal'}} User  {{form.intuId == '' ? '' : '( USER ID : '+form.intuId+')'}} </strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                             </div>
                           
                               
@@ -324,13 +324,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-xl-4 mb-2">
+                                    <!-- <div class="col-xl-4 mb-2">
                                         <label>Password&nbsp;<span class="text-danger"><strong>*</strong></span></label>
                                         <div class="form-group">
                                             <input class="form-control" type="password"  v-model="form.password" required>
                                         </div>
                                     </div>
-                                    
+                                     -->
 
                                     <!-- <div class="col-xl-6 mb-2">
                                         <label>Password&nbsp;<span class="text-danger"><strong>*</strong></span></label>
@@ -351,8 +351,8 @@
                             </div>
                             
                             <div class="modal-footer">
-                               <button class="btn btn-sm btn-custom btn-smd" type="submit" @click.prevent="saveForm"><strong>Add User</strong></button>
-                               <button class="btn btn-sm btn-cancel btn-smd" type="button" data-dismiss="modal"><strong>Close</strong></button>
+                               <button class="btn btn-sm btn-custom btn-smd" type="submit" @click.prevent="saveForm"><strong>{{form.intuId?'Update':'Add'}} User</strong></button>
+                               <button class="btn btn-sm btn-cancel btn-smd" type="button" data-dismiss="modal" @click="clearData"><strong>Close</strong></button>
                             </div>
                         </div>
                     </div>
@@ -395,6 +395,43 @@ export default {
     },
     methods:{
            saveForm(){
+
+               if(this.form.intuId!=''){
+
+                axios.post('/admin/admin-api/edit-users/'+this.form.intuId,this.form)
+                .then(() =>{this.$fire({
+                  position:'top',
+                  icon: 'success',
+                  title: 'User Updated',
+                  showConfirmButton: false,
+                  timer: 4000
+               }).then(() =>{
+                  this.$router.push({ 
+                     name:"manage-users",
+               }); 
+               this.getData();
+               this.form.firstname = '';
+               this.form.middlename= '';
+               this.form.lastname = '';
+               this.form.email = '';
+               this.form.contactNo='';
+               this.form.gender='';
+               
+            })
+            }).catch((error) =>{
+                     if(error.response.status == 422 || error.response.status == 405 || error.response.status == 500 )
+                     {   this.$fire({
+                           position: 'top',
+                           icon: 'error',
+                           title: "Contact no or Email address already exists !",
+                           showConfirmButton: false,
+                           timer: 4000
+                        })
+                     }
+                  })
+               }
+
+               else{
                 axios.post('/admin/admin-api/add-users',this.form)
                 .then(() =>{this.$fire({
                   position:'top',
@@ -406,6 +443,12 @@ export default {
                   this.$router.push({ 
                      name:"manage-users",
                }); 
+               this.form.firstname = '';
+               this.form.middlename= '';
+               this.form.lastname = '';
+               this.form.email = '';
+               this.form.contactNo='';
+               this.form.gender='';
                this.getData()
             })
             }).catch((error) =>{
@@ -413,12 +456,14 @@ export default {
                      {   this.$fire({
                            position: 'top',
                            icon: 'error',
-                           title: "Something went wrong !",
+                           title: "Contact no or Email address already exists !",
                            showConfirmButton: false,
                            timer: 4000
                         })
                      }
                   })
+
+                }
                },
 
                 getData(){
@@ -430,7 +475,27 @@ export default {
                         .then(response => this.getFilterUsers = response.data)
                 },
 
-                    removeUser(userId){
+                getUserdata(userId){
+                 
+                axios.get('/admin/admin-api/get-users/'+userId)
+                    .then(response => {
+                        this.form = response.data[0];
+                        // console.log(response.data[0]);
+                    });
+                },
+
+                clearData()
+                {   this.getData();
+                    this.form.firstname = '';
+                    this.form.middlename= '';
+                    this.form.lastname = '';
+                    this.form.email = '';
+                    this.form.contactNo='';
+                    this.form.gender='';
+                    this.form.intuId='';
+                },
+
+                removeUser(userId){
                     if(userId != '')
                     {
                     axios.get('/admin/admin-api/delete-users/'+userId)
@@ -446,7 +511,7 @@ export default {
                             this.getData();
                         })
                     }
-                    },//removeuser end
+                },//removeuser end
 
 
                     toggleStatus(userId){
@@ -477,6 +542,7 @@ export default {
             created()
             {
             this.getData();
+            
             
             }
         }

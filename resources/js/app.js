@@ -160,4 +160,14 @@ function newFunction(){
     router: new VueRouter(routes)
   });
   //Manage users end
+
+
+
+   //all registed Users
+ 
+   const app41 = new Vue({
+    el: '#allRegisteredUsers',
+    router: new VueRouter(routes)
+  });
+  //Manage users end
 }

@@ -44,7 +44,10 @@ import AdminPrintView       from './components/admin/manageApplication/reviewApp
 // Manage Users
     import ManageUsers from './components/admin/manageUsers';
 // End manage users
+    import AllRegisteredUsers from './components/admin/allRegisteredUsers';
+// All registered users
 
+// End all registered users
 export default{ 
     mode: 'history',
     linkActiveClass: 'font-semibold',
@@ -586,12 +589,23 @@ export default{
                         name: "manage-users"
                     },
 
+
+                    
+
                     {
                         path: '/admin/admin-api/add-users',
                     },
 
                     {
                         path: '/admin/admin-api/get-all-users',
+                    },
+
+                    {
+                        path: '/admin/admin-api/get-users/:userId',
+                    },
+
+                    {
+                        path: '/admin/admin-api/edit-users/:userId',
                     },
 
                     {
@@ -617,5 +631,39 @@ export default{
                  /***
                  * End manage-users
                  */
+
+                /***
+                 * show all registered users
+                 */
+
+                 {
+                    path: '/admin/all-registered-users',
+                    component:AllRegisteredUsers,
+                    name: "all-registered-users"
+                },
+
+
+                {
+                    path: '/admin/admin-api/get-all-registered-users',
+                },
+
+                {
+                    path: '/admin/admin-api/get-all-registered-users/filter/data',
+                },
+
+                {
+                    path: '/admin/admin-api/all-registered-users/filter',
+                    component:AllRegisteredUsers,
+                    name: "all-registered-users"
+                },
+
+                {
+                    path: '/admin/admin-api/all-registered-users/filter',
+                },
+
+                /***
+                 * End show all registered users
+                 */
+               
  ]
 }

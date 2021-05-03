@@ -40,8 +40,11 @@
                                              <strong>{{ $errors->first('password') }}</strong>
                                           </span>
                                     @endif
-                                    <!-- <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button>
-                                    </div> -->
+                                    <div class="input-group-append">
+                                    <button class="btn btn-sm btn-mg" type="button" ><i class="fa fa-eye" id="togglePassword"></i></button>
+
+                                    
+                                    </div>
                                 </div>
                                
                             </div>
@@ -62,5 +65,16 @@
             </div>
         </div>
     </section>
+    <script>
+          
+          const togglePassword = document.querySelector('#togglePassword');
+          const password = document.querySelector('#password');
+    
+          togglePassword.addEventListener('click', function (e) {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.classList.toggle('fa-eye-slash');
+          });
+          </script>
 </body>
 @endsection

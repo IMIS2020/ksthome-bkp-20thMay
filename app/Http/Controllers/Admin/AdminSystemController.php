@@ -113,4 +113,11 @@ class AdminSystemController extends Controller
    }
    // Manage users end
 
+   // Show all registered users 
+      public function allRegisteredUsers()
+      {
+         return view('admin.allRegisteredUsers');
+      }
+   // End show all registered users
+
 }

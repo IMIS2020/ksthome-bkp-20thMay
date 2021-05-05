@@ -108,22 +108,24 @@ class AdminCreateUsersController extends Controller
         $editUser->update();
     }
 
-    public function filterData(Request $request)
-    {
-        $userId      = $request->userId;
-        $contactNo   = $request->contactNo;
-        $email       = $request->email;
-
-       if(empty( $userId) && empty($contactNo) && empty($email))
-       {
-        $filter = Admin::orderBy('id')->get();
-       }else{
-        $filter = Admin::where('admins.intuId',$userId)
-                  ->orWhere('admins.contactNo',$contactNo)
-                  ->orWhere('admins.email',$email)
-                  ->get()
-                  ->toJson();
-                }
-              return $filter;
-              }
+   
+              public function filterData(Request $request)
+              {
+                 
+                $userId      = $request->userId;
+                $contactNo   = $request->contactNo;
+                $email       = $request->email;
+          
+                if(empty( $userId) && empty($contactNo) && empty($email))
+                {
+                 $filter = Admin::orderBy('id')->get();
+                }else{
+                  $filter = Admin::where("email",'LIKE',"%".$request['email']."%")
+                                ->where("contactNo",'LIKE',"%".$request['contactNo']."%")
+                                ->where('intuId','LIKE',"%".$request['userId']."%")
+                                ->get()
+                                ->toJson();
+                          }
+                        return $filter;
+               }
 }

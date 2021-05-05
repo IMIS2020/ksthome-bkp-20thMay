@@ -33,7 +33,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
+                                    <input id="password" type="password" minlength="8" class="form-control" name="password" placeholder="Password" required>
 
                                     @if ($errors->has('password'))
                                           <span class="help-block">
@@ -66,15 +66,13 @@
         </div>
     </section>
     <script>
-          
-          const togglePassword = document.querySelector('#togglePassword');
-          const password = document.querySelector('#password');
-    
-          togglePassword.addEventListener('click', function (e) {
-            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-            password.setAttribute('type', type);
-            this.classList.toggle('fa-eye-slash');
-          });
-          </script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+    togglePassword.addEventListener('click', function (e) {
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    this.classList.toggle('fa-eye-slash');
+  });
+    </script>
 </body>
 @endsection

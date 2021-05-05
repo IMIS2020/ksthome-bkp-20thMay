@@ -49,28 +49,22 @@ class AdminForgotPasswordController extends Controller
 
     public function updateAdminPassword(Request $request)
     {
-
       $request->validate([  
          'password' => 'required|string|min:8|confirmed',
          'password_confirmation' => 'required',
         
       ]);
 
-         
       if($user = DB::table('password_resets')->where('email', $request->email)->where('token',$request->code)->first()){
-
 
          DB::table('admins')->where('email', $user->email)
                             ->update(['password' => Hash::make($request->password)]);
-
          return redirect()->route('admin.login')->with('message','Password changed successfully');
       }
 
       else{
          return redirect('/admin/change-password')->with('statusError','incorrect OTP !');
-     }
+         }
 
     }
-
-
 }

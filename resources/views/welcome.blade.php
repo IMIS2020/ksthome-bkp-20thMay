@@ -65,7 +65,7 @@
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                            <input class="form-control @error('password') is-invalid @enderror" type="password" id="password" name="password" placeholder="Enter your 8 character login password" required autocomplete="current-password">
+                            <input class="form-control @error('password') is-invalid @enderror" minlength="8" type="password" id="password" name="password" placeholder="Enter your 8 character login password" required autocomplete="current-password">
                             @if ($errors->has('password'))
                                 <span class="invalid-feedback">
                                     <strong>{{ $errors->first('password') }}</strong>
@@ -117,6 +117,8 @@
                     <div class="login-box mt-2 pb-2">
                     <form method="POST" action="{{url('/change-password') }}">
                         @csrf 
+
+                        <!-- <input type="hidden" name="current_password" value = "{{Auth::user()->password}}"> -->
                             <h6 class="color-mg mb-2"><strong>Update Password</strong></h6>
                             @if(Session::has('msg'))
                                 <div class="alert alert-success">{{Session::get('msg')}}
@@ -124,23 +126,40 @@
                                 </div>
                             @endif
 
-                          
+                            @if(Session::has('msgError'))
+                                <div class="alert alert-danger">{{Session::get('msgError')}}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                </div>
+                            @endif
+
                             <div class="form-row">
-                                <div class="col-xl-5">
+                                <div class="col-xl-3">
                                     <div class="form-group">
-                                        <div class="input-group input-group-sm"><input class="form-control" type="password" id="password" name="current_password" placeholder="Current Password">
+                                        <div class="input-group input-group-sm"><input class="form-control" type="password" id="password" name="current_password" placeholder="Current Password" minlength="8">
                                             <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-5">
+
+                                <div class="col-xl-3">
                                     <div class="form-group">
-                                        <div class="input-group input-group-sm"><input class="form-control form-control-sm" type="password" id="password-1" name="new_password" placeholder="New Password">
-                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword-1"></i></button></div>
+                                        <div class="input-group input-group-sm"><input class="form-control form-control-sm" type="password" id="password1" name="new_password" placeholder="New password" minlength="8">
+                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword1"></i></button></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-2">
+
+
+                                <div class="col-xl-3">
+                                    <div class="form-group">
+                                        <div class="input-group input-group-sm"><input class="form-control form-control-sm" type="password" id="password2" name="new_password_confirm" placeholder="Confirm password" minlength="8">
+                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword2"></i></button></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-xl-3">
                                     <div class="form-group"><button class="btn btn-block btn-sm btn-mg" type="submit"><strong>Update</strong></button></div>
                                 </div>
                             </div>
@@ -215,6 +234,24 @@
           togglePassword.addEventListener('click', function (e) {
           const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
           password.setAttribute('type', type);
+          this.classList.toggle('fa-eye-slash');
+          });
+
+          const togglePassword1 = document.querySelector('#togglePassword1');
+          const password1 = document.querySelector('#password1');
+      
+          togglePassword1.addEventListener('click', function (e) {
+          const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
+          password1.setAttribute('type', type);
+          this.classList.toggle('fa-eye-slash');
+          });
+
+          const togglePassword2 = document.querySelector('#togglePassword2');
+          const password2 = document.querySelector('#password2');
+      
+          togglePassword2.addEventListener('click', function (e) {
+          const type = password2.getAttribute('type') === 'password' ? 'text' : 'password';
+          password2.setAttribute('type', type);
           this.classList.toggle('fa-eye-slash');
           });
       

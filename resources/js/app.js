@@ -169,5 +169,13 @@ function newFunction(){
     el: '#allRegisteredUsers',
     router: new VueRouter(routes)
   });
-  //Manage users end
+  //all registered users end
+
+
+     //Admin users profile
+     const app42 = new Vue({
+      el: '#adminUserProfile',
+      router: new VueRouter(routes)
+    });
+    //amin users profile end
 }

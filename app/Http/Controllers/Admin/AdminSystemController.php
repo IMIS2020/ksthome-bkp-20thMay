@@ -120,4 +120,12 @@ class AdminSystemController extends Controller
       }
    // End show all registered users
 
+
+   // Admin users profile 
+   public function adminUserProfile()
+   {
+      return view('admin.adminUserProfile');
+   }
+// End admin users profile
+
 }

@@ -178,9 +178,6 @@ Route::prefix('admin')->group(function() {
     Route::post('/reset-password-send', 'Auth\AdminForgotPasswordController@sendResetCodeMail')->name('send-link');
     Route::get('/change-password', 'Auth\AdminForgotPasswordController@showChangePasswordForm');
     Route::post('/update-password', 'Auth\AdminForgotPasswordController@updateAdminPassword')->name('admin.password.update');
-
-
-
     // End password reset super admin //
     /***
     *Manage application
@@ -238,6 +235,15 @@ Route::prefix('admin')->group(function() {
     Route::get('/all-registered-users', 'Admin\AdminSystemController@allRegisteredUsers');
     /***
    *End all registered users
+   */
+
+
+    /***
+    *admin user profiles
+    */
+    Route::get('/all-user-profile', 'Admin\AdminSystemController@adminUserProfile');
+    /***
+   *End admin user user profile
    */
 
 
@@ -336,32 +342,37 @@ Route::prefix('admin')->group(function() {
       * Manage Users API call
       */
       
-      Route::post('/add-users','Auth\AdminCreateUsersController@createUsers');
-      Route::get('/get-all-users','Auth\AdminCreateUsersController@getUsers');
-
-      Route::get('/get-users/{userId}','Auth\AdminCreateUsersController@getUsersById');
-      Route::post('/edit-users/{userId}','Auth\AdminCreateUsersController@editUsers');
-      Route::get('/delete-users/{userId}','Auth\AdminCreateUsersController@deleteUsers');
-      Route::post('/user-status-changed/{userId}','Auth\AdminCreateUsersController@toggleStatus');
-
-      Route::get('/get-all-users/filter/data','Auth\AdminCreateUsersController@getUsers');
-      Route::post('/manage-internal-user/filter', 'Auth\AdminCreateUsersController@filterData');
+        Route::post('/add-users','Auth\AdminCreateUsersController@createUsers');
+        Route::get('/get-all-users','Auth\AdminCreateUsersController@getUsers');
+        Route::get('/get-users/{userId}','Auth\AdminCreateUsersController@getUsersById');
+        Route::post('/edit-users/{userId}','Auth\AdminCreateUsersController@editUsers');
+        Route::get('/delete-users/{userId}','Auth\AdminCreateUsersController@deleteUsers');
+        Route::post('/user-status-changed/{userId}','Auth\AdminCreateUsersController@toggleStatus');
+        Route::get('/get-all-users/filter/data','Auth\AdminCreateUsersController@getUsers');
+        Route::post('/manage-internal-user/filter', 'Auth\AdminCreateUsersController@filterData');
 
        /***
        * Manage Users API call end
       */
 
-
       /***
        * get all Users API call end
       */
-      Route::get('/get-all-registered-users','Admin\ShowAllRegisteredUsers@getRegisteredUsers');
-      Route::get('/get-all-registered-users/filter/data','Admin\ShowAllRegisteredUsers@getRegisteredUsers');
-      Route::post('/all-registered-users/filter', 'Admin\ShowAllRegisteredUsers@filterData');
+        Route::get('/get-all-registered-users','Admin\ShowAllRegisteredUsers@getRegisteredUsers');
+        Route::get('/get-all-registered-users/filter/data','Admin\ShowAllRegisteredUsers@getRegisteredUsers');
+        Route::post('/all-registered-users/filter', 'Admin\ShowAllRegisteredUsers@filterData');
        /***
        * get all Users API call end
       */
-     
-    });
+
+      /***
+       * get admin user profile details API call end
+      */
+        Route::get('/get-profile/{userId}','Admin\AdminUserProfileController@getUserProfileDetails');
+        Route::post('/update-password/{userId}','Admin\AdminUserProfileController@updatePassword');
+      /***
+      * get admin user profile details API call end
+    */
+  });
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
   });

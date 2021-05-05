@@ -63,7 +63,7 @@
 
                            <div class="form-group">
                               <div class="input-group">
-                                 <input class="form-control @error('password') is-invalid @enderror" type="password" id="password" name="password" placeholder="Password" required autocomplete="current-password">
+                                 <input class="form-control @error('password') is-invalid @enderror" minlength="8" type="password" id="password" name="password" placeholder="Password" required autocomplete="current-password">
                                  <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button></div>
                                  @error('email')
                                     <span class="invalid-feedback" role="alert">

@@ -25,9 +25,9 @@
                                         </p>
                                     </div>
                                     
-                                 <div class="col-xl-8">
+                                 <div class="col-xl-10">
                                     <div class="form-group">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus readonly>
 
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -35,18 +35,31 @@
                                             </span>
                                         @enderror
                                         </div>
-                                    <div class="form-group">
 
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Enter new password" required autocomplete="new-password">
-                                            @error('password')
+                                  <div class="form-group">
+                                        <div class="input-group input-group-sm">
+                                            <input class="form-control form-control-sm @error('password') is-invalid @enderror" type="password" id="password" name="password" placeholder="New password" minlength="8">
+                                                 @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
-                                       </div>
+                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button></div>
+                                        </div>
+                                    </div>
+
+
                                     <div class="form-group">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="confirm new password" required autocomplete="new-password">
-                                     </div>
+                                        <div class="input-group input-group-sm">
+                                            <input class="form-control form-control-sm @error('password') is-invalid @enderror" type="password" id="password1" name="password_confirmation" placeholder="Confirm password" minlength="8">
+                                                 @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                            <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword1"></i></button></div>
+                                        </div>
+                                      </div>
                                     </div>
                                     <div class="col-xl-5 mt-2">
                                         <div class="form-group">
@@ -61,5 +74,24 @@
             </form>
         </div>
     </section>
+    <script>
+          const togglePassword = document.querySelector('#togglePassword');
+          const password = document.querySelector('#password');
+      
+          togglePassword.addEventListener('click', function (e) {
+          const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+          password.setAttribute('type', type);
+          this.classList.toggle('fa-eye-slash');
+          });
+
+          const togglePassword1 = document.querySelector('#togglePassword1');
+          const password1 = document.querySelector('#password1');
+      
+          togglePassword1.addEventListener('click', function (e) {
+          const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
+          password1.setAttribute('type', type);
+          this.classList.toggle('fa-eye-slash');
+          });
+          </script>
 </body>
 @endsection

@@ -44,10 +44,16 @@ import AdminPrintView       from './components/admin/manageApplication/reviewApp
 // Manage Users
     import ManageUsers from './components/admin/manageUsers';
 // End manage users
-    import AllRegisteredUsers from './components/admin/allRegisteredUsers';
+    
 // All registered users
-
+   import AllRegisteredUsers from './components/admin/allRegisteredUsers';
 // End all registered users
+
+// admin users profile 
+   import AdminUserProfile from './components/admin/adminUserProfile';
+// End admin user profile
+
+
 export default{ 
     mode: 'history',
     linkActiveClass: 'font-semibold',
@@ -663,6 +669,28 @@ export default{
 
                 /***
                  * End show all registered users
+                 */
+
+
+                 /***
+                 * admin user profile
+                 */
+                  {
+                    path: '/admin/all-user-profile',
+                    component:AdminUserProfile,
+                    name: "all-user-profile"
+                  },
+
+                  {
+                    path: '/admin/admin-api/get-profile/{userId}',
+                  },
+
+                  {
+                    path: '/admin/admin-api/update-password/:userId',
+                  },
+
+                  /***
+                 * End admin user profile
                  */
                
  ]

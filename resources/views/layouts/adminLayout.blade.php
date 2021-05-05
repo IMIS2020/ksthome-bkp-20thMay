@@ -94,6 +94,13 @@
         @yield('allRegisteredUsers')
       </div>
    <!-- all registered users end -->
+
+
+     <!-- admin users profile -->
+     <div id="adminUserProfile">
+        @yield('adminUserProfile')
+      </div>
+   <!-- admin profile end -->
     
     <!-- <script src="{{asset('assets/js/jquery.min.js')}}"></script> -->
     <!-- <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script> -->

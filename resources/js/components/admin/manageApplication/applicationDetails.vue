@@ -172,7 +172,7 @@
                                                                 <select class="form-control mb-2 " v-model="form.status">
                                                                         <option value="">-- Status --</option>
                                                                         <option value="Saved">Saved</option>
-                                                                        <option value="Submitted">Submitted</option>
+                                                                        <option value="Submit">Submitted</option>
                                                                 </select>
                                                               </div>
                                                             </div>

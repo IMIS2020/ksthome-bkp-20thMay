@@ -10,6 +10,7 @@
          <div class="form-row">
                     <div class="col-xl-8 offset-xl-2 mb-2">
                         <h3 class="text-white">{{ __('Reset Password') }}</h3>
+                        <h5 class="text-white font-md">Note : Password must be at least 8 characters.</h5>
                     </div>
                     <div class="col-xl-8 offset-xl-2 mb-2">
                         <div class="card mt-2 det-sec">
@@ -25,7 +26,7 @@
                                         </p>
                                     </div>
                                     
-                                 <div class="col-xl-10">
+                                 <div class="col-xl-8">
                                     <div class="form-group">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus readonly>
 
@@ -63,7 +64,7 @@
                                     </div>
                                     <div class="col-xl-5 mt-2">
                                         <div class="form-group">
-                                            <button class="btn btn-sm btn-mg " type="submit"> {{ __('Reset Password') }}</button>
+                                            <button class="btn btn-sm btn-mg " type="submit"> {{ __('Update Password') }}</button>
                                         </div>
                                     </div>
                                 </div>

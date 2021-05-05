@@ -52,7 +52,7 @@
                     <div class="card-body">
                         <div class="form-row svc-row">
                             <div class="col-xl-12">
-                            @if (session('status'))
+                        @if (session('status'))
                         <div class="alert alert-success" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
                             {{ session('status') }}

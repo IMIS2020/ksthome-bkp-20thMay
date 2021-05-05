@@ -226,35 +226,36 @@
      <div  class="modal-header pb-3 pt-3 text-white" style="background-color: #702e2e !important;">
         <h6 class="modal-title font-md"><strong>Update Password</strong></h6><button style="color:#fff;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
     </div>
+        <form @submit.prevent="updatePassword">
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="col-xl-4">
+                        <div class="form-group mb-2">
+                            <label>Old password</label>
+                            <input class="form-control" type="password" v-model="updateForm.currentPassword" required>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-4">
+                        <div class="form-group mb-2">
+                            <label>New password</label>
+                            <input class="form-control" minlength="8" type="password" v-model="updateForm.newPassword" required>
+                        </div>
+                    </div>
 
-     <div class="modal-body">
-         <div class="form-row">
-               <div class="col-xl-4">
-                <div class="form-group mb-2">
-                    <label>Old password</label>
-                    <input class="form-control" type="password" v-model="updateForm.currentPassword" required>
-                </div>
+                    <div class="col-xl-4">
+                        <div class="form-group mb-2">
+                        <label>Confirm password</label>
+                            <input class="form-control" minlength="8" v-model="updateForm.newConfirmPassword" type="password" required>
+                        </div>
+                </div>     
+                </div>          
             </div>
-            
-            <div class="col-xl-4">
-                <div class="form-group mb-2">
-                    <label>New password</label>
-                     <input class="form-control" minlength="8" type="password" v-model="updateForm.newPassword" required>
-                </div>
+
+            <div class="modal-footer py-1">
+                <button class="btn btn-md btn-mg" type="submit" ><strong>Update</strong></button><button class="btn btn-md btn-cancel" @click="clearData" type="button" data-dismiss="modal"><strong>Close</strong></button>
             </div>
-
-            <div class="col-xl-4">
-                <div class="form-group mb-2">
-                <label>Confirm password</label>
-                    <input class="form-control" minlength="8" v-model="updateForm.newConfirmPassword" type="password" required>
-                </div>
-          </div>     
-        </div>          
-    </div>
-
-          <div class="modal-footer py-1">
-            <button class="btn btn-md btn-mg" type="button" @click.prevent="updatePassword"><strong>Update</strong></button><button class="btn btn-md btn-cancel" @click="clearData" type="button" data-dismiss="modal"><strong>Close</strong></button>
-        </div>
+        </form>
     </div>
   </div>
 </div>
@@ -293,13 +294,13 @@ export default {
         updatePassword()
         {
              axios.post('/admin/admin-api/update-password/'+this.userId,this.updateForm)
-                .then(() =>{
+                .then(response  =>{
                     if(response.data['success'])
                     {
                        this.$fire({
                             position:'top',
                             icon: 'success',
-                            title: ' '+response.data['msg'],
+                            title: ' '+response.data['msg'][0],
                             showConfirmButton: false,
                             timer: 4000
                         })
@@ -310,7 +311,7 @@ export default {
                        this.$fire({
                             position:'top',
                             icon: 'error',
-                            title: ' '+response.data['msg'],
+                            title: ' '+response.data['msg'][0],
                             showConfirmButton: false,
                             timer: 4000
                         }) 
@@ -318,19 +319,8 @@ export default {
                         this.clearData();
                     }
                     
-            }).catch((error) =>{
-                     if(error.response.status == 422 || error.response.status == 405 || error.response.status == 500 )
-                     {   this.$fire({
-                           position: 'top',
-                           icon: 'error',
-                           title: "Something went wrong !",
-                           showConfirmButton: false,
-                           timer: 4000
-                        })
-                        this.clearData();
-                     }
-                  })
-               },
+            })
+        },
 
             clearData(){
                this.updateForm.currentPassword = '';
@@ -351,9 +341,9 @@ export default {
             },
         },
 
-            created()
-            {
+        created()
+        {
             this.getData();
-            }
+        }
 }   
 </script>

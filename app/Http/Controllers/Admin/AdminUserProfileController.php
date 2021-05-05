@@ -29,27 +29,30 @@ class AdminUserProfileController extends Controller
 
         DB::beginTransaction();
         try{
-            $user = Admin::where('intuId',$userId)->first();
+                $user = Admin::where('intuId',$userId)->first();
 
-            if (Hash::check($request->newPassword,$request->currentPassword) != 0) 
-            {
+                if (!Hash::check($request->currentPassword,$user->password)) 
+                {
+                    DB::rollBack();
+                    return array('success' => false, 'msg'=>['Current password does not match!']);
+                }else{
+
+                if (strcmp($request->newPassword,$request->newConfirmPassword) != 0) 
+                {
+                    DB::rollBack();
+                    return array('success' => false, 'msg'=>['The password and confirm password do not match !']);
+                }
+
+                $user->password = Hash::make($request->newPassword);
+                $user->update();
                 DB::commit();
-                return array('success' => false, 'msg'=>['Current password not matched !']);
-            }
+                return array('success' => true, 'msg'=>['Password Updated']);
 
-            if (strcmp($request->newPassword,$request->newConfirmPassword) != 0) 
-            {
-                DB::commit();
-                return array('success' => false, 'msg'=>['The password and confirm password do not match !']);
-            }
+                }
 
-            $user->password = Hash::make($request->newPassword);
-            $user->update();
-             DB::commit();
-             return array('success' => true, 'msg'=>['Password Updated']);
-            }
+        }
             
-            catch(\Exception $e)
+        catch(\Exception $e)
         {
             DB::rollBack();
             return array('success' => false, 'msg'=>[$e]);

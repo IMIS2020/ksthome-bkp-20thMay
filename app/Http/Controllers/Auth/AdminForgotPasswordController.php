@@ -25,11 +25,12 @@ class AdminForgotPasswordController extends Controller
 
     public function sendResetCodeMail(Request $request)
     {
-
-      $code  = mt_rand(111111,999999);
       $email = $request->email;
-
-      DB::table('password_resets')->insert([
+      if (Admin::where('email',$email)->first()) 
+      {
+            $code  = mt_rand(111111,999999);
+            
+         DB::table('password_resets')->insert([
             'email' => $email, 
             'token' => $code, 
             'created_at' => Carbon::now()
@@ -38,6 +39,11 @@ class AdminForgotPasswordController extends Controller
          // return redirect('/admin/change-password')->with('status','OTP sent successfully')->with('email',$email);
          session()->put('status','OTP sent successfully');
          return view('admin.auth.changePassword',["email"=>$email])->with('status','OTP sent successfully');
+      }else{
+         return redirect('/admin/reset-password')->with('statusError','The Email address do not match with our record !');
+      }
+
+     
     }
 
 

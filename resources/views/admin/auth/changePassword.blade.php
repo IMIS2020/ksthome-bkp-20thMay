@@ -43,7 +43,7 @@
                                     
                                  <div class="col-xl-8">
                                     <div class="form-group">
-                                    <input id="code" type="text" class="form-control @error('code') is-invalid @enderror" maxlength="6" minlength="6" name="code" placeholder="enter code" value="" required autofocus>
+                                    <input id="code" type="text" class="form-control @error('code') is-invalid @enderror" maxlength="6" minlength="6" name="code" placeholder="Enter OTP" value="" required autofocus>
 
                                         @error('code')
                                             <span class="invalid-feedback" role="alert">
@@ -53,7 +53,7 @@
                                         </div>
                                         <div class="form-group">
                                         <div class="input-group">
-                                        <input class="form-control" type="password" id="password" minlength="8" name="password" required  placeholder="type a new Password">
+                                        <input class="form-control" type="password" id="password" minlength="8" name="password" required  placeholder="New password">
                                             <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword"></i></button>
                                             </div>
                                         </div>
@@ -62,7 +62,7 @@
 
                                     <div class="form-group">
                                         <div class="input-group">
-                                        <input class="form-control" type="password" id="password1" minlength="8" name="password_confirmation" required placeholder="Re-type Password">
+                                        <input class="form-control" type="password" id="password1" minlength="8" name="password_confirmation" required placeholder="Confirm password">
                                             <div class="input-group-append"><button class="btn btn-sm btn-mg" type="button"><i class="fa fa-eye" id="togglePassword1"></i></button>
                                             </div>
                                         </div>

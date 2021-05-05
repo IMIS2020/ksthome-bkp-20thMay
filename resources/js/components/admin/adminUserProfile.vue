@@ -140,21 +140,24 @@
                                                 <h6 class="text-white m-0 font-md pt-2 pb-2">Profile Picture </h6>
                                             </div>
                                             <div class="card-body">
-
-                                                <img style="margin-left: auto; margin-right:auto; display:block;" width=123 height=123  src='https://avataaars.io/?avatarStyle=Transparent&topType=NoHair&accessoriesType=Blank&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light'>
+                                                <img style="margin-left: auto; margin-right:auto; display:block;" width="80px" height="90px"  src='https://avataaars.io/?avatarStyle=Transparent&topType=NoHair&accessoriesType=Blank&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light'>
                                             <br>
                                                 <div class="form-group mb-2 mt-3">
-                                                  <input style="margin-left: 25%; display:block;" type="file" >
-                                                </div>
-                                            </div>
-                                        </div>
+                                                    <form>
+                                                    <div class="form-row">
+                                                        <input style = "margin-left:30%;" class="form-control-file font-xs mb-3 pt-3" type="file"  accept="image/*" v-if="uploadReady" ref="file" v-on:change="selectFile()" required> 
+                                                         <button style = "margin-left:30%;" class="btn btn-md btn-mg font-sm" type="button" @click.prevent="uploadProfilePhoto"><strong>Upload Profile Photo</strong></button>
+                                                      </div>
+                                                    </form>
+                                                 </div>
+                                             </div>
+                                         </div>
                                     </div> -->
-
 
                                     <div class="col-xl-12 offset-xl-0 pl-1">
                                         <div class="card shadow pb-1">
                                             <div class="card-header py-2" style="background-color: #702e2e !important;">
-                                                <h6 class="text-white m-0 font-md pt-2 pb-2">Update Profile Details for:&nbsp;<span>{{firstname}} {{lastname}} ({{userId}})</span><br></h6>
+                                                <h6 class="text-white m-0 font-md pt-2 pb-2">Update Profile Details for :  &nbsp;<span>{{firstname}} {{lastname}} ({{userId}})</span><br></h6>
                                             </div>
                                             <div class="card-body pb-3">
                                                 <form>
@@ -168,12 +171,22 @@
                                                         <div class="col-xl-4">
                                                             <div class="form-group mb-2"><label>Last Name</label><input class="form-control " v-model="form.lastname"  type="text"></div>
                                                         </div>
-                                                        <div class="col-xl-5">
+                                                        <div class="col-xl-5" v-if="userId=='SU-000001'">
                                                             <div class="form-group mb-2"><label>Contact No.</label><input class="form-control " v-model="form.contactNo"  type="text"></div>
                                                         </div>
-                                                        <div class="col-xl-5">
-                                                            <div class="form-group mb-2"><label>Email ID</label><input class="form-control "  v-model="form.email" type="email"></div>
+
+                                                        <div class="col-xl-5" v-else>
+                                                            <div class="form-group mb-2"><label>Contact No.</label><input class="form-control " v-model="form.contactNo"  type="text" readonly></div>
                                                         </div>
+
+                                                        <div class="col-xl-5" v-if="userId=='SU-000001'">
+                                                            <div class="form-group mb-2"><label>Email ID</label><input class="form-control " v-model="form.email" type="email"></div>
+                                                        </div>
+
+                                                        <div class="col-xl-5" v-else>
+                                                            <div class="form-group mb-2"><label>Email ID</label><input class="form-control " v-model="form.email" type="email" readonly></div>
+                                                        </div>
+
                                                         <div class="col-xl-2">
                                                             <div class="form-group mb-2">
                                                                 <label>Gender</label>
@@ -185,27 +198,16 @@
                                                             </div>
                                                         </div>
                        
-                                                        <!-- <div class="col-xl-4">
-                                                            <div class="form-group mb-2"><label>Old password</label><input class="form-control" type="password"></div>
+                                                        <div class="col-xl-3 offset-xl-1 text-center align-self-center pt-4">
+                                                          <button class="btn btn-block btn-sm btn-mg" type="button" @click.prevent="updateProfile"><strong>Update Profile</strong></button>
                                                         </div>
-                                                        <div class="col-xl-4">
-                                                            <div class="form-group mb-2"><label>New password</label><input class="form-control" type="password" required></div>
-                                                        </div>
-                                                        <div class="col-xl-4">
-                                                            <div class="form-group mb-2"><label>Confirm password</label><input class="form-control" type="password" required></div>
-                                                        </div> -->
-
-
-                                                        <!-- <div class="col-xl-3 offset-xl-2 text-center align-self-center pt-4">
-                                                            <button class="btn btn-block btn-sm btn-mg" type="submit"><strong>Update Profile</strong></button>
-                                                        </div> -->
 
                                                          <div class="col-xl-3 m-auto text-center align-self-center pt-4">
                                                             <a href="#" class="btn btn-block btn-sm btn-mg" data-toggle="modal" data-target="#update-password"><strong>Update Password</strong></a>
                                                         </div>
 
-                                                        <div class="col-xl-3 m-auto text-center align-self-center pt-4">
-                                                            <button class="btn btn-secondary btn-block btn-sm" type="reset"><strong>Back</strong></button>
+                                                        <div class="col-xl-3 m-auto text-center align-self-center pt-4 ">
+                                                            <router-link class="btn btn-secondary btn-block btn-sm" to="/admin"><strong>Back</strong></router-link>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -232,34 +234,55 @@
                     <div class="col-xl-4">
                         <div class="form-group mb-2">
                             <label>Old password</label>
-                            <input class="form-control" type="password" v-model="updateForm.currentPassword" required>
+                            <div class="input-group">
+                            <input class="form-control" v-bind:type="[showPassword1 ? 'text' : 'password']"  v-model="updateForm.currentPassword" required>
+                            <div class="input-group-append">
+                                <span style="background-color:#702e2e;" class="input-group-text text-white form-control" @click="showPassword1 = !showPassword1">
+                                        <i class="fa" :class="[showPassword1 ? 'fa-eye' : 'fa-eye-slash']" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                         </div>
                         </div>
+
                     </div>
                     
                     <div class="col-xl-4">
                         <div class="form-group mb-2">
                             <label>New password</label>
-                            <input class="form-control" minlength="8" type="password" v-model="updateForm.newPassword" required>
+                                  <div class="input-group">
+                            <input class="form-control" v-bind:type="[showPassword2 ? 'text' : 'password']" minlength="8"  v-model="updateForm.newPassword" required>
+                            <div class="input-group-append">
+                                <span style="background-color:#702e2e;" class="input-group-text text-white form-control" @click="showPassword2 = !showPassword2">
+                                        <i class="fa" :class="[showPassword2 ? 'fa-eye' : 'fa-eye-slash']" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                          </div>
                         </div>
                     </div>
 
                     <div class="col-xl-4">
                         <div class="form-group mb-2">
                         <label>Confirm password</label>
-                            <input class="form-control" minlength="8" v-model="updateForm.newConfirmPassword" type="password" required>
+                          <div class="input-group">
+                            <input class="form-control" minlength="8" v-bind:type="[showPassword3 ? 'text' : 'password']" v-model="updateForm.newConfirmPassword"  required>
+                             <div class="input-group-append">
+                                <span style="background-color:#702e2e;" class="input-group-text text-white form-control" @click="showPassword3 = !showPassword3">
+                                        <i class="fa" :class="[showPassword3 ? 'fa-eye' : 'fa-eye-slash']" aria-hidden="true"></i>
+                                </span>
+                            </div>
                         </div>
-                </div>     
+                        </div>
+                  </div>     
                 </div>          
-            </div>
-
+              </div>
             <div class="modal-footer py-1">
                 <button class="btn btn-md btn-mg" type="submit" ><strong>Update</strong></button><button class="btn btn-md btn-cancel" @click="clearData" type="button" data-dismiss="modal"><strong>Close</strong></button>
             </div>
         </form>
     </div>
   </div>
+  </div>
 </div>
-    </div>
 </body>
 </template>
 
@@ -268,11 +291,19 @@
 export default {
     data(){
         return{
+            showPassword1: false,
+            showPassword2: false,
+            showPassword3: false,
+            // uploadReady: true,
             userId     : document.querySelector("meta[name='userId']").getAttribute('content'),
             firstname  : document.querySelector("meta[name='firstname']").getAttribute('content'),
             middlename : document.querySelector("meta[name='middlename']").getAttribute('content'),
             lastname   : document.querySelector("meta[name='lastname']").getAttribute('content'),
 
+            profileForm:
+            {
+              profilePhoto:'',
+            },
             form:
             {
                 firstname:'',
@@ -291,6 +322,56 @@ export default {
           }
     },
     methods:{
+
+            // uploadProfilePhoto()
+            // {
+            //     axios.post('/admin/admin-api/upload-profile-picture',this.profileForm).
+            //      then(()=>{
+            //         this.$fire({
+            //         position:'top',
+            //         icon: 'success',
+            //         title: 'Profile Picture Uploaded',
+            //         showConfirmButton: false,
+            //         timer: 4000
+            //         })//swal-fire end
+            //          }).then(() => {
+            //         this.reset(); 
+            //         }).catch(() => {
+            //             this.$fire({
+            //                 position:'top',
+            //                 icon: 'error',
+            //                 title: 'Something went wrong!',
+            //                 showConfirmButton: false,
+            //                 timer: 4000
+            //             })
+            //             this.reset();
+            //         })
+            //       },
+
+            updateProfile()
+            {
+                axios.post('/admin/admin-api/edit-profile/'+this.userId,this.form)
+                .then(() =>{this.$fire({
+                  position:'top',
+                  icon: 'success',
+                  title: 'Profile Updated',
+                  showConfirmButton: false,
+                  timer: 4000
+               });
+               this.getData();
+            }).catch((error) =>{
+                     if(error.response.status == 422 || error.response.status == 405 || error.response.status == 500 )
+                     {   this.$fire({
+                           position: 'top',
+                           icon: 'error',
+                           title: "Something went wrong !",
+                           showConfirmButton: false,
+                           timer: 4000
+                        })
+                     }
+                  })
+              },
+
         updatePassword()
         {
              axios.post('/admin/admin-api/update-password/'+this.userId,this.updateForm)
@@ -317,16 +398,22 @@ export default {
                         }) 
                         this.getData();
                         this.clearData();
-                    }
-                    
-            })
-        },
-
+                      }
+                 })
+            },
             clearData(){
                this.updateForm.currentPassword = '';
                this.updateForm.newPassword= '';
                this.updateForm.newConfirmPassword = '';
             },
+
+                reset() 
+                {
+                    this.uploadReady = false
+                    this.$nextTick(() => {
+                    this.uploadReady = true
+                })
+                },
                 getData(){
                     axios.get('/admin/admin-api/get-profile/'+this.userId)
                     .then(response => {
@@ -339,6 +426,18 @@ export default {
                     document.location.href = "/admin/login";
                 })
             },
+
+            selectFile(){
+                let file = this.$refs.file.files[0];
+                let fileName = file.name;
+                let fileReader = new FileReader()
+                fileReader.readAsDataURL(file)
+                fileReader.onload = (e) => {
+                this.profileForm.profilePhoto = e.target.result;
+                }
+                this.form.fileName = fileName;
+             },//selectFile end
+
         },
 
         created()

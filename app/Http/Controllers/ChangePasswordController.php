@@ -36,22 +36,21 @@ class ChangePasswordController extends Controller
     {
         $request->validate([
             
-            'current_password' => ['required', new MatchOldPassword],
+            'current_password' => 'required',
             'new_password' => 'required|min:8',
             'new_password_confirm' => 'required|min:8',
         ]);
 
-        // $user = Auth::user();
-
-        // if (!(Hash::check($request->current_password, $user->password))) {
-            
-        //     return redirect('/')->with('msgError','Your current password does not matches with the password you provided !');
-        // }
-
-        if (strcmp($request->current_password,$request->new_password) === 0) 
+        $user = Auth::user();
+        if (!(Hash::check($request->current_password, $user->password))) 
         {
-            return redirect('/')->with('msgError','Current Password and New Password cannot be same !');
+            return redirect('/')->with('msgError','Your current password does not match!');
         }
+
+        // if (strcmp($request->current_password,$request->new_password) === 0) 
+        // {
+        //     return redirect('/')->with('msgError','Current Password and New Password cannot be same !');
+        // }
 
         if (strcmp($request->new_password,$request->new_password_confirm) !=0) 
         {

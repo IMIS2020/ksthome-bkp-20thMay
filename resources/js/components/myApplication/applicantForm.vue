@@ -1863,6 +1863,16 @@ export default {
                         this.insForm.insAddressState='';
                         
                     } else {
+                        if(response.data['success'] == false)
+                        {
+                            this.$fire({
+                                position: 'top',
+                                icon: 'error',
+                                title: " "+response.data['msg'],
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
                         console.log(response.data['msg'])
                     }
                 }).catch(error => this.errorMsg(error.response.status))

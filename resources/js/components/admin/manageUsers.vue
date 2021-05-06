@@ -70,7 +70,17 @@
                                                 <form>
                                                     <div class="form-group mb-0">
                                                         <div class="form-row">
-                                                            
+                                                             <div class="col-xl-2 align-self-center">
+                                                                <div class="form-group">
+                                                                    <select class="form-control" v-model="filterForm.userId">
+                                                                            <option value="">-- User ID --</option>
+                                                                            <option v-for="filterUser in getFilterUsers" :key="filterUser.id" 
+                                                                                    :value="filterUser.intuId" class="color-mg">
+                                                                                        {{filterUser.intuId}} 
+                                                                                    </option>
+                                                                                </select>
+                                                                           </div>
+                                                                     </div>
 
                                                                <div class="col-xl-2 align-self-center">
                                                                     <div class="form-group">
@@ -84,20 +94,7 @@
                                                                   </div>
                                                                </div>
 
-                                                            
-                                                            <div class="col-xl-2 align-self-center">
-                                                                <div class="form-group">
-                                                                    <select class="form-control" v-model="filterForm.userId">
-                                                                            <option value="">-- User ID --</option>
-                                                                            <option v-for="filterUser in getFilterUsers" :key="filterUser.id" 
-                                                                                    :value="filterUser.intuId" class="color-mg">
-                                                                                        {{filterUser.intuId}} 
-                                                                                    </option>
-                                                                                </select>
-                                                                        </div>
-                                                                     </div>
-
-
+                                                        
                                                             <div class="col-xl-1 align-self-center">
                                                                 <div class="form-group">
                                                                 <a class="btn btn-sm btn-mg" role="button" @click.prevent="filterData"><i class="fa fa-search"></i></a></div>

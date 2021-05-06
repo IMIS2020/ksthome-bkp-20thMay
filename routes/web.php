@@ -269,7 +269,7 @@ Route::prefix('admin')->group(function() {
        /***
       *filter-application API Call
       */
-      Route::get('/get-application-details/filter/data','Admin\ApplicationDetails\AdminApplicationDetails@getData');
+      Route::get('/get-application-details/filter/data','Admin\ApplicationDetails\AdminApplicationDetails@getSession');
       Route::post('/get-application-details/filter-data','Admin\ApplicationDetails\AdminApplicationDetails@filterData');
       /***
       *filter-application API Call End
@@ -370,6 +370,8 @@ Route::prefix('admin')->group(function() {
       */
         Route::get('/get-profile/{userId}','Admin\AdminUserProfileController@getUserProfileDetails');
         Route::post('/update-password/{userId}','Admin\AdminUserProfileController@updatePassword');
+        Route::post('/edit-profile/{userId}','Admin\AdminUserProfileController@updateProfile');
+        // Route::post('/upload-profile-picture','Admin\AdminUserProfileController@updateProfilePicture');
       /***
       * get admin user profile details API call end
     */

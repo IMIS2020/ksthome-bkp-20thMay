@@ -61,12 +61,8 @@ class AdminApplicationDetails extends Controller
         }else{
             $url = "";
         }
-
-        
-
         return $url;
-
-    }
+      }
 
     // Review application 
         
@@ -77,32 +73,46 @@ class AdminApplicationDetails extends Controller
 
     public function filterData(Request $request)
     {
-            $session         =  $request->session;
-            $contactNo       =  $request->contactNo;
-            $scholarshipType =  $request->scholarshipType;
-            $emailId         =  $request->emailId;
-            $firstName       =  $request->firstName;
-            $state           =  $request->state;
-            $lastName        =  $request->lastName;
-            $district        =  $request->district;
+    
+        $scholarshipType  =  $request->scholarshipType;
+        $session          =  $request->session;
+        $email            =  $request->email;
+        $contactno        =  $request->contactno;
+        $firstname        =  $request->firstname;
+        $lastname         =  $request->lastname;
+        $district         =  $request->district;
+        $states           =  $request->states;
+        $applicationType  =  $request->applicationType;
+        $status           =  $request->status;
 
-        if(empty($session) && empty($contactNo) && empty($scholarshipType) &&empty($emailId) &&empty($firstName) &&empty($state) &&empty($lastName) &&empty($district))
+
+        if(empty($scholarshipType) && empty($session) && empty($email) &&empty($contactno) &&empty($firstname) &&empty($lastname) &&empty($district) &&empty($states) &&empty($applicationType) &&empty($status))
         {
             $filter = ApplicationDetails::with('get_address')->orderBy('id', 'desc')->get()->toJson();
             }else{
             $filter = ApplicationDetails::with('get_address')
-                    ->join('address', 'address.id', '=', 'applicantionDetails.applicantAddressId')
-                    ->where('applicantionDetails.sessionId',$session)
-                    ->orWhere('applicantionDetails.applicantContactNoSelf',$contactNo)
-                    ->orWhere('applicantionDetails.scholarshipTypeValueId',$scholarshipType)
-                    ->where('applicantionDetails.applicantEmailId',$emailId)
-                    ->orWhere('applicantionDetails.applicantNameF',$firstName)
-                    ->orWhere('applicantionDetails.get_address.addressState',$state)
-                    ->where('applicantionDetails.applicantNameL',$lastName)
-                    ->orWhere('applicantionDetails.get_address.addressDistprov',$district)
+                    ->join('portaladdress', 'portaladdress.id', '=', 'applicationDetails.applicantAddressId')
+                    ->with('get_applicationSession')->join('applicationsession', 'applicationsession.id', '=', 'applicationDetails.sessionId')
+                    ->where("scholarshipType",'LIKE',"%".$request['scholarshipType']."%")
+                    ->where("sessionName",'LIKE',"%".$request['session']."%")
+                    ->where("applicantEmailId",'LIKE',"%".$request['email']."%")
+                    ->where("applicantContactNoSelf",'LIKE',"%".$request['contactno']."%")
+                    ->where("applicantNameF",'LIKE',"%".$request['firstname']."%")
+                    ->where("applicantNameL",'LIKE',"%".$request['lastname']."%")
+                    ->where("addressDistprov",'LIKE',"%".$request['district']."%")
+                    ->where("addressState",'LIKE',"%".$request['states']."%")
+                    ->where("applicationType",'LIKE',"%".$request['applicationType']."%")
+                    ->where("appStatus",'LIKE',"%".$request['status']."%")
                     ->get()
                     ->toJson();
                  } 
                 return $filter;
+         }
+
+
+         public function getSession()
+         {
+             $getSessionDetails = ApplicationSession::orderBy('id')->get();
+             return $getSessionDetails;
          }
 }

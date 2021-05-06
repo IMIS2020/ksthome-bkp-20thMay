@@ -133,81 +133,113 @@
                             </div>
                             <div class="com-bg">
                                 <div>
-                                    <!-- <div class="form-group pull-right col-xl-12 mb-2 mt-2">
+                                    <div class="form-group pull-right col-xl-12 mb-2 mt-2">
                                         <div class="row">
                                             <div class="col-xl-12" style="padding: 0px 5px;">
                                                 <form>
                                                     <div class="form-group mb-0">
                                                         <div class="form-row">
-                                                            <div class="col-xl-2">
-                                                                <select class="form-control form-control-sm mb-2 font-sm" v-model="form.session">
+                                                        <div class="col-xl-2">
+                                                              <div class="form-group">
+                                                                    <input class="form-control" type="text" v-model="form.firstname" placeholder="-- First Name --">
+                                                                </div>
+                                                                <select class="form-control mb-2" v-model="form.session">
                                                                     <option value="">-- Session --</option>
-                                                                     <option v-for="filterData in getFilterData" :key="filterData.id" 
-                                                                             :value="filterData.financialYear" class="color-mg">
-                                                                                {{filterData.financialYear}} 
-                                                                            </option>
-                                                                         </select>
-
-                                                                <select class="form-control form-control-sm font-sm" v-model="form.contactNo">
-                                                                    <option value="">-- Contact No. --</option>
-                                                                        <option v-for="filterData in getFilterData" :key="filterData.id" 
-                                                                             :value="filterData.applicantContactNoSelf" class="color-mg">
-                                                                       {{filterData.applicantContactNoSelf}} 
-                                                                  </option>
+                                                                    <option v-for="filterData in getFilterData" :key="filterData.id" 
+                                                                        :value="filterData.sessionName" class="color-mg">
+                                                                        {{filterData.sessionName}}
+                                                                     </option>
                                                                 </select>
                                                             </div>
-                                                            <div class="col-xl-2">
-                                                                <select class="form-control form-control-sm mb-2 font-sm" v-model="form.scholarshipType">
+
+                                                        <div class="col-xl-2">
+                                                            <div class="form-group">
+                                                                <input class="form-control" v-model="form.lastname" type="text" placeholder="-- Last Name --">
+                                                              </div>
+                                                                <select class="form-control mb-2 " v-model="form.scholarshipType">
                                                                     <option value="">-- Scholarship Type --</option>
-                                                                    <option v-for="filterData in getFilterData" :key="filterData.id" 
-                                                                             :value="filterData.scholarshipType" class="color-mg">
-                                                                       {{filterData.scholarshipType}} 
-                                                                  </option>
+                                                                    <option value="Nursing">Nursing Scholarship</option>
+                                                                    <option value="HHDLS">HHDLS Scholarship</option>
                                                                 </select>
-                                                                <select class="form-control form-control-sm font-sm" v-model="form.emailId">
-                                                                    <option value="">-- Email ID --</option>
-                                                                    <option v-for="filterData in getFilterData" :key="filterData.id" 
-                                                                             :value="filterData.applicantEmailId" class="color-mg">
-                                                                     {{filterData.applicantEmailId}} 
-                                                                  </option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-xl-2">
-                                                                <select class="form-control form-control-sm mb-2 font-sm" v-model="form.firstName">
-                                                                    <option value="">-- First Name --</option>
-                                                                    <option v-for="filterData in getFilterData" :key="filterData.id" 
-                                                                             :value="filterData.applicantNameF" class="color-mg">
-                                                                     {{filterData.applicantNameF}} 
-                                                                  </option>
-                                                                </select>
-                                                                <select class="form-control form-control-sm font-sm" v-model="form.state">
-                                                                    <option value="">-- State --</option>
-                                                                      <option v-for="filterData in getFilterData" :key="filterData.id" 
-                                                                             :value="filterData.get_address.addressState" class="color-mg">
-                                                                     {{filterData.get_address.addressState}} 
-                                                                  </option>
-                                                                 </select>
-                                                            </div>
-                                                            <div class="col-xl-2">
-                                                                <select class="form-control form-control-sm mb-2 font-sm" v-model="form.lastName">
-                                                                    <option value="">-- Last Name --</option>
-                                                                         <option v-for="filterData in getFilterData" :key="filterData.id" 
-                                                                             :value="filterData.applicantNameL" class="color-mg">
-                                                                     {{filterData.applicantNameL}} 
-                                                                  </option>
-                                                                </select>
-                                                                <select class="form-control form-control-sm font-sm" v-model="form.district">
-                                                                    <option value="">-- District --</option>
-                                                                      <option v-for="filterData in getFilterData" :key="filterData.id" 
-                                                                             :value="filterData.get_address.addressDistprov" class="color-mg">
-                                                                     {{filterData.get_address.addressDistprov}} 
-                                                                  </option>
-                                                                 </select>
                                                             </div>
 
-                                                            <div class="col-xl-1 align-self-center"><button class="btn btn-sm btn-mg font-sm" role="button" @click.prevent="saveForm"><i class="fa fa-search"></i></button></div>
-                                                            <div class="col-xl-3 offset-xl-0 align-self-center pr-0"><input class="form-control form-control-sm" type="text" placeholder="Search by typing here..."></div>
-                                                            <div class="col-xl-4 offset-xl-8 align-self-center and-col mt-2">
+                                                         <div class="col-xl-2">
+                                                            <div class="form-group">
+                                                                <input class="form-control" v-model="form.email" type="email" placeholder="-- Email Address --">
+                                                              </div>
+
+                                                             <div class="form-group">
+                                                                <select class="form-control mb-2 " v-model="form.status">
+                                                                        <option value="">-- Status --</option>
+                                                                        <option value="Saved">Saved</option>
+                                                                        <option value="Submit">Submitted</option>
+                                                                </select>
+                                                              </div>
+                                                            </div>
+
+                                                            <div class="col-xl-2">
+                                                             <div class="form-group">
+                                                                <input class="form-control" type="text" v-model="form.contactno" placeholder="-- Contact No --">
+                                                              </div>
+
+                                                               <div class="form-group">
+                                                                    <select class="form-control mb-2 " v-model="form.applicationType">
+                                                                        <option value="">-- Application Type --</option>
+                                                                        <option value="Online">Online</option>
+                                                                        <option value="Offline">Offline</option>
+                                                                </select>
+                                                                </div>
+                                                            </div>
+
+                                                             <div class="col-xl-2">
+                                                                  <div class="form-group">
+                                                                   <input class="form-control" v-model="form.district" type="text" placeholder="-- District --">
+                                                                </div>
+                                                               
+                                                                 <select class="form-control mb-2" v-model="form.states">
+                                                                    <option value="">-- States --</option>
+                                                                    <option value="ANDHRA PRADESH">ANDHRA PRADESH</option>
+                                                                    <option value="ANDAMAN AND NICOBAR ISLANDS">ANDAMAN AND NICOBAR ISLANDS</option>
+                                                                    <option value="ARUNACHAL PRADESH">ARUNACHAL PRADESH</option>
+                                                                    <option value="ASSAM">ASSAM</option>
+                                                                    <option value="BIHAR">BIHAR</option>
+                                                                    <option value="CHANDIGARH">CHANDIGARH</option>
+                                                                    <option value="CHHATTISGARH">CHHATTISGARH</option>
+                                                                    <option value="DADAR AND NAGAR HAVELI">DADAR AND NAGAR HAVELI</option>
+                                                                    <option value="DAMAN AND DIU">DAMAN AND DIU</option>
+                                                                    <option value="DELHI">DELHI</option>
+                                                                    <option value="LAKSHADWEEP">LAKSHADWEEP</option>
+                                                                    <option value="PUDUCHERRY">PUDUCHERRY</option>
+                                                                    <option value="GOA">GOA</option>
+                                                                    <option value="GUJARAT">GUJARAT</option>
+                                                                    <option value="HARYANA">HARYANA</option>
+                                                                    <option value="HIMACHAL PRADESH">HIMACHAL PRADESH</option>
+                                                                    <option value="JAMMU AND KASHMIR">JAMMU AND KASHMIR</option>
+                                                                    <option value="JHARKHAND">JHARKHAND</option>
+                                                                    <option value="KARNATAKA">KARNATAKA</option>
+                                                                    <option value="KERALA">KERALA</option>
+                                                                    <option value="MADHYA PRADESH">MADHYA PRADESH</option>
+                                                                    <option value="MAHARASHTRA">MAHARASHTRA</option>
+                                                                    <option value="MANIPUR">MANIPUR</option>
+                                                                    <option value="MEGHALAYA">MEGHALAYA</option>
+                                                                    <option value="MIZORAM">MIZORAM</option>
+                                                                    <option value="NAGALAND">NAGALAND</option>
+                                                                    <option value="ODISHA">ODISHA</option>
+                                                                    <option value="PUNJAB">PUNJAB</option>
+                                                                    <option value="RAJASTHAN">RAJASTHAN</option>
+                                                                    <option value="SIKKIM">SIKKIM</option>
+                                                                    <option value="TAMIL NADU">TAMIL NADU</option>
+                                                                    <option value="TELANGANA">TELANGANA</option>
+                                                                    <option value="TRIPURA">TRIPURA</option>
+                                                                    <option value="UTTAR PRADESH">UTTAR PRADESH</option>
+                                                                    <option value="UTTARAKHAND">UTTARAKHAND</option>
+                                                                    <option value="WEST BENGAL">WEST BENGAL</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="col-xl-1 align-self-center"><button class="btn btn-sm btn-mg " role="button" @click.prevent="saveForm"><i class="fa fa-search"></i></button></div>
+                                                            <!-- <div class="col-xl-3 offset-xl-0 align-self-center pr-0"><input class="form-control form-control-sm" type="text" placeholder="Search by typing here..."></div> -->
+                                                            <!-- <div class="col-xl-4 offset-xl-8 align-self-center and-col mt-2">
                                                                 <div class="form-row">
                                                                     <div class="col-sm-4 col-xl-3 offset-xl-0 align-self-center">
                                                                         <p class="text-right mb-0 mt-0 font-sm color-mg"><strong>Add Offline</strong></p>
@@ -221,13 +253,14 @@
                                                                         <p class="text-left mb-0 font-sm"><strong>&nbsp;</strong><a href="#"><strong>Click here</strong></a></p>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                     </div>
                                                 </form>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
+
                                     <div class="table-responsive text-break table results mb-0 donor-list tmd">
                                         <table class="table table-sm">
                                             <thead class="cs-tbl-hd">
@@ -262,215 +295,11 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <!-- <tr>
-                                                    <td class="w-20x">AP-HHDLSCH-2021-22-0010<br>Session: 2020 - 2021<br>Type: HHDL</td>
-                                                    <td>Rahul Kr. Pandit<br>Gender: Male, <br>Age: 24 Yrs. 7 mo 20 days</td>
-                                                    <td class="w-15x"><em>7278491931,</em><br><em>rahul@gmail.com</em></td>
-                                                    <td>22/61/04, Sundia Saratpally, Bhatpara(M), West Bengal - 743126<br></td>
-                                                    <td class="w-15x">Date: 05-03-2021,<br>Type: Offline</td>
-                                                    <td class="text-center w-10x">Submitted,<br>dd/mm/yyyy<span class="badge badge-success"></span></td>
-                                                    <td class="text-center w-5x">
-                                                        <div class="dropdown no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
-                                                            <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in"><a class="dropdown-item" href="#"><strong>Edit Application</strong></a><a class="dropdown-item" href="admin-view-hhdl-application.html"><strong>View Application</strong></a><a class="dropdown-item" href="#"><strong>Review Application</strong></a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#view-application-comments"><strong>View Comments</strong></a></div>
-                                                        </div>
-                                                    </td>
-                                                </tr> -->
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
-                                <div>
-                                    <div class="modal fade" role="dialog" tabindex="-1" id="view-application-comments">
-                                        <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header py-2">
-                                                    <h6 class="modal-title color-mg font-md"><strong>View Application Comments</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                                </div>
-                                                <div class="modal-body p-2">
-                                                    <div class="table-responsive text-break table results mb-0 donor-list tmd">
-                                                        <table class="table table-sm">
-                                                            <thead class="cs-tbl-hd">
-                                                                <tr>
-                                                                    <th class="w-10x">Date</th>
-                                                                    <th>Status</th>
-                                                                    <th class="text-center w-7x">Action</th>
-                                                                    <th>User</th>
-                                                                    <th class="text-center">View Communication</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody class="h-38x font-sm">
-                                                                <tr>
-                                                                    <td class="w-10x">dd/mm/yyyy</td>
-                                                                    <td>Returned with comments</td>
-                                                                    <td class="text-center w-7x">Return</td>
-                                                                    <td>IMIS-USER-005</td>
-                                                                    <td class="text-center"><a href="#" data-toggle="modal" data-target="#detailed-comment-view"><i class="fa fa-eye color-mg fa-2x"></i></a></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="w-10x">dd/mm/yyyy</td>
-                                                                    <td>Provisionally Accepted</td>
-                                                                    <td class="text-center w-7x">Accept</td>
-                                                                    <td>IMIS-USER-005</td>
-                                                                    <td class="text-center"><a href="#" data-toggle="modal" data-target="#detailed-comment-view"><i class="fa fa-eye color-mg fa-2x"></i></a></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="w-10x">dd/mm/yyyy</td>
-                                                                    <td>Accepted</td>
-                                                                    <td class="text-center w-7x">Accept</td>
-                                                                    <td>IMIS-USER-005</td>
-                                                                    <td class="text-center"><a href="#" data-toggle="modal" data-target="#detailed-comment-view"><i class="fa fa-eye color-mg fa-2x"></i></a></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer py-1"><button class="btn btn-cancel font-md" type="button" data-dismiss="modal"><strong>Close</strong></button></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal fade" role="dialog" tabindex="-1" id="detailed-comment-view" style="z-index: 1051;">
-                                        <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header py-2">
-                                                    <h6 class="modal-title color-mg font-md"><strong>Detailed Comments</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                                </div>
-                                                <div class="modal-body cs-modal-body">
-                                                    <div class="row mx-0">
-                                                        <div class="col-xl-1 align-self-center mb-2">
-                                                            <p class="mb-0 color-mg font-sm font-weight-bold">TO:&nbsp;</p>
-                                                        </div>
-                                                        <div class="col-xl-11 mb-2">
-                                                            <p class="mb-0 color-mg font-sm font-weight-bold">souvikkundu931@gmail.com</p>
-                                                        </div>
-                                                        <div class="col-xl-1 align-self-center mb-2">
-                                                            <p class="mb-0 color-mg font-sm font-weight-bold">CC:</p>
-                                                        </div>
-                                                        <div class="col-xl-11 mb-2">
-                                                            <p class="mb-0 color-mg font-sm font-weight-bold">ritaban.me@gmail.com, biswanath.srkp@gmail.com</p>
-                                                        </div>
-                                                        <div class="col-xl-1 align-self-center mb-4">
-                                                            <p class="mb-0 color-mg font-sm font-weight-bold">Subject:</p>
-                                                        </div>
-                                                        <div class="col-xl-11 mb-4">
-                                                            <p class="mb-0 color-mg font-sm font-weight-bold">Provisional Acceptance</p>
-                                                        </div>
-                                                        <div class="col-xl-12 mb-2">
-                                                            <p class="mb-1 color-mg font-sm font-weight-bold">To,&nbsp;<span>Souvik Kundu</span></p>
-                                                            <p class="mb-3 color-mg font-sm font-weight-bold pl-4">Address Line 1, Address Line 2,<br>City/Town/Dist,<br>State, ZIP, Country</p>
-                                                            <p class="mb-2 color-mg font-sm font-weight-bold pl-4">Dear Applicant,<br></p>
-                                                            <p class="mb-1 text-black font-sm pl-4">We have received your application for No.&nbsp;<span>APLNUSCH00058</span> for&nbsp;<span>Nursing</span> scholarship. We are&nbsp;<span>Provisionally Accepting</span>&nbsp;your application.<br></p>
-                                                            <p class="mb-2 text-black font-sm pl-4">Kindly check our comments on the documents submitted and re-submit as required.<br></p>
-                                                            <div class="table-responsive table-bordered font-ms rev-tbl pl-4">
-                                                                <table class="table table-bordered table-sm mb-0">
-                                                                    <thead class="color-mg">
-                                                                        <tr>
-                                                                            <th>Document Name</th>
-                                                                            <th>Type</th>
-                                                                            <th class="text-center">Uploaded</th>
-                                                                            <th class="text-center">Status</th>
-                                                                            <th class="text-center">Comments</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>Application No. IMIS-HHDLSCH00058 for HHDL Scholarship<br></td>
-                                                                            <td>Application Form<br></td>
-                                                                            <td class="text-center">N/A<br></td>
-                                                                            <td class="text-center">OK</td>
-                                                                            <td class="text-center">Not OK</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Annexure-I letter<br></td>
-                                                                            <td>Attachment</td>
-                                                                            <td class="text-center">N/A</td>
-                                                                            <td class="text-center">OK</td>
-                                                                            <td class="text-center">Not Signed By Colony Leader</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Proof of admission in a recognized&nbsp;institute/ admission call letter issued by the institute<br></td>
-                                                                            <td>Attachment<br></td>
-                                                                            <td class="text-center text-danger">NO<br></td>
-                                                                            <td class="text-center">OK</td>
-                                                                            <td class="text-center">Wrong Document Uploaded</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Annexure-II letter from colony leader stating the candidate is residing in the colony<br></td>
-                                                                            <td>Attachment<br></td>
-                                                                            <td class="text-center">Yes<br></td>
-                                                                            <td class="text-center">OK</td>
-                                                                            <td class="text-center">Wrong Document Uploaded</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Passport size photograph<br></td>
-                                                                            <td>Attachment<br></td>
-                                                                            <td class="text-center">Yes<br></td>
-                                                                            <td class="text-center">OK</td>
-                                                                            <td class="text-center">Wrong Document Uploaded</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Self attested Birth certificate/ proof of age<br></td>
-                                                                            <td>Attachment<br></td>
-                                                                            <td class="text-center">Yes<br></td>
-                                                                            <td class="text-center">OK</td>
-                                                                            <td class="text-center">Wrong Document Uploaded</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Self attested marksheet for 10th<br></td>
-                                                                            <td>Attachment<br></td>
-                                                                            <td class="text-center">Yes<br></td>
-                                                                            <td class="text-center">OK</td>
-                                                                            <td class="text-center">Wrong Document Uploaded</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Self attested marksheet for 12th/ Graduation<br></td>
-                                                                            <td>Attachment<br></td>
-                                                                            <td class="text-center">Yes<br></td>
-                                                                            <td class="text-center">OK</td>
-                                                                            <td class="text-center">Wrong Document Uploaded</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Self attested Leprosy Certificate of Mother<br></td>
-                                                                            <td>Attachment<br></td>
-                                                                            <td class="text-center">Yes<br></td>
-                                                                            <td class="text-center">OK</td>
-                                                                            <td class="text-center">Wrong Document Uploaded</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Self attested Leprosy Certificate of Father<br></td>
-                                                                            <td>Attachment<br></td>
-                                                                            <td class="text-center">Yes</td>
-                                                                            <td class="text-center">OK</td>
-                                                                            <td class="text-center">Wrong Document Uploaded</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Self attested Leprosy Certificate of Self<br></td>
-                                                                            <td>Attachment<br></td>
-                                                                            <td class="text-center">Yes<br></td>
-                                                                            <td class="text-center">OK</td>
-                                                                            <td class="text-center">Wrong Document Uploaded</td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xl-9 mb-2">
-                                                            <p class="mb-0 color-mg font-sm font-weight-bold pl-4">This is a demo of additional comments..</p>
-                                                        </div>
-                                                        <div class="col-xl-11 offset-xl-0 align-self-center">
-                                                            <p class="mb-0 text-black font-sm pl-4">You are required to check your application based on the comments and resubmit by: dd/mm/yyyy</p>
-                                                        </div>
-                                                        <div class="col-xl-11 offset-xl-0 align-self-center mb-4">
-                                                            <p class="mb-0 text-black font-sm pl-4">For any clarifications please write to us or call us at contact details provided below.</p>
-                                                        </div>
-                                                        <div class="col-xl-8 offset-xl-0 align-self-center mb-2">
-                                                            <p class="mb-0 color-mg font-sm pl-4">Regards,<br>Administrator<br>+91 9876543210<br>administrator@gmail.com<br><br></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Cancel</strong></button></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   </div>
+                                  <div>
                                 </div>
                             </div>
                         </div>
@@ -494,14 +323,16 @@ export default {
             getFilterData:{},
             
             form:{
-                session:'',
-                contactNo:'',
                 scholarshipType:'',
-                emailId:'',
-                firstName:'',
-                state:'',
-                lastName:'',
+                session:'',
+                email:'',
+                contactno:'',
+                firstname:'',
+                lastname:'',
                 district:'',
+                states:'',
+                applicationType:'',
+                status:'',
             },
           }
     },
@@ -546,12 +377,7 @@ export default {
                     document.location.href = "/admin/login";
                 })
             },
-
-              
          },
-
-        
-
     created()
          {
            this.getData();

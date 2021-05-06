@@ -682,12 +682,20 @@ export default{
                   },
 
                   {
-                    path: '/admin/admin-api/get-profile/{userId}',
+                    path: '/admin/admin-api/get-profile/:userId',
                   },
 
                   {
                     path: '/admin/admin-api/update-password/:userId',
                   },
+
+                  {
+                    path: '/admin/admin-api/edit-profile/:userId',
+                  },
+
+                //   {
+                //   path: '/admin/admin-api/upload-profile-picture',
+                //   },
 
                   /***
                  * End admin user profile

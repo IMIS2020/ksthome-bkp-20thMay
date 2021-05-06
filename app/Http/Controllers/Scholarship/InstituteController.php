@@ -63,9 +63,39 @@ class InstituteController extends Controller
             $instituteDetails->instituteAddressId = $instituteAddress->id;
             $getDomainId = DomainValues::where('value',$request->insType)->first();
             $instituteDetails->scholarshipTypeValueId = $getDomainId->id;
-            $instituteDetails->save();
-            DB::commit();
-            return array('success' => true, 'msg'=>[]);
+            $checkIfPresent = Institute::where('instituteName',strtoupper($request->insName))->where('scholarshipTypeValueId',$getDomainId->id)->with(['get_address' => function ($check) use($request){
+                $check->where('addressState',$request->insAddressState)->where('addressCity',strtoupper($request->insAddressCity));
+            }])->get();
+            // $checkIfPresent = Institute::where('instituteName',strtoupper($request->insName))->with('get_address')->get();->where('addressCity',strtoupper($request->insAddressCity))->where('scholarshipTypeValueId',$getDomainId->id)
+            if(!isset($checkIfPresent))
+            {
+                $instituteDetails->save();
+                DB::commit();
+                return array('success' => true, 'msg'=>[$checkIfPresent]);
+            }else{
+                $count = 0;
+                foreach($checkIfPresent as $data)
+                {
+                    if($data->get_address != null)
+                    {
+                        if($data->get_address['addressCity']  == strtoupper($request->insAddressCity) && $data->get_address['addressState'] == $request->insAddressState)
+                        {
+                           $count = $count + 1; 
+                        }
+                    }
+                   
+                }
+                if($count == 0 )
+                {
+                    $instituteDetails->save();
+                    DB::commit();
+                    return array('success' => true, 'msg'=>['']);
+                }else{
+                    DB::rollBack();
+                    return array('success' => false, 'msg'=>['Institute exists could not add']);
+                }
+            }
+           
         }
         catch(Exception $e) {
             DB::rollBack();

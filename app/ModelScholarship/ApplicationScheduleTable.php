@@ -14,4 +14,8 @@ class ApplicationScheduleTable extends Model
     {
         return $this->hasMany(ApplicationDetails::class);
     }
+
+    
+
+    
 }

@@ -139,17 +139,25 @@
                                                 <form>
                                                     <div class="form-group mb-0">
                                                         <div class="form-row">
-                                                            <div class="col-xl-2 align-self-center"><select class="form-control form-control-sm font-sm">
+                                                            <div class="col-xl-2 align-self-center">
+                                                             <select class="form-control" v-model="form.session">
                                                                     <option value="">-- Session --</option>
-                                                                    <option value="1">2020 - 2021</option>
-                                                                    <option value="1">2021 - 2022</option>
-                                                                </select></div>
-                                                            <div class="col-xl-2 align-self-center"><select class="form-control form-control-sm font-sm">
+                                                                        <option v-for="session in getSession" :key="session.id" 
+                                                                            :value="session.sessionName" class="color-mg">
+                                                                            {{session.sessionName}}
+                                                                        </option>
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="col-xl-2 align-self-center">
+                                                              <select class="form-control" v-model="form.scholarshipType">
                                                                     <option value="">-- Scholarship Type --</option>
-                                                                    <option value="1">2020 - 2021</option>
-                                                                    <option value="1">2021 - 2022</option>
-                                                                </select></div>
-                                                            <div class="col-xl-1 align-self-center"><a class="btn btn-sm btn-mg font-sm" role="button" href="#"><i class="fa fa-search"></i></a></div>
+                                                                    <option value="Nursing">Nursing Scholarship</option>
+                                                                    <option value="HHDLS">HHDLS Scholarship</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-xl-1 align-self-center">
+                                                                <button class="btn btn-mg font-sm" role="button" @click.prevent="saveForm"><i class="fa fa-search"></i></button></div>
                                                             <div class="col-xl-6 offset-xl-1 align-self-center and-col">
                                                                 <form>
                                                                     <div class="form-group mb-0">
@@ -161,7 +169,7 @@
                                                                                 <select class="form-control form-control-sm font-sm color-mg"  v-model="scholarshipType2">
                                                                                     <option value="" disabled>-- select --</option>
                                                                                     <option value="Nursing">Nursing Scholarship</option>
-                                                                                    <option value="HHDLSS">HHDLSS Scholarship</option>
+                                                                                    <option value="HHDLS">HHDLS Scholarship</option>
                                                                                 </select>
                                                                             </div>
                                                                             <div class="col-sm-4 col-xl-4 offset-xl-0 align-self-center">
@@ -198,20 +206,22 @@
                                                     <th>Start Date</th>
                                                     <th>Last Date</th>
                                                     <th>App No. Prefix</th>
-                                                    <th class="w-20x">Contact Person Details</th>
-                                                    <th class="text-center w-5x">Status</th>
+                                                    <th class="w-25x">Contact Person Details</th>
+                                                    <th class="text-center w-15x">Status</th>
                                                     <th class="text-center w-5x">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="h-38x">
-                                                <tr class="font-sm text-black">
-                                                    <td class="w-10x"><em>2020-2021</em></td>
-                                                    <td class="text-break"><em>Nursing Scholarship</em></td>
-                                                    <td><em>dd/mm/yyyy</em></td>
-                                                    <td><em>dd/mm/yyyy</em></td>
-                                                    <td><em>AP-NURSCH-2021-22</em><br></td>
-                                                    <td class="w-20x"><em>Email: user@email.com</em><br><em>Phone: 9876543210</em></td>
-                                                    <td class="text-center w-5x"><span class="badge badge-pill badge-danger">Inactive</span><br><span class="badge badge-success"></span></td>
+                                                <tr v-for="(eachSchedules,i) in getSchedules" :key="i" class="font-sm text-black">
+                                                    <td class="w-10x">{{eachSchedules.sessionId == 1 ? '2021-22':''}}</td>
+                                                    <td class="text-break">{{eachSchedules.scholarshipTypeValueId == 18 ?'Nursing':'HHDLS'}}</td>
+                                                    <td>{{eachSchedules.startDate.split('-').reverse().join('/')}}</td>
+                                                    <td>{{eachSchedules.lastDate.split('-').reverse().join('/')}}</td>
+                                                    <td>{{eachSchedules.applicationNoPrefixFormat}}<br></td>
+                                                    <td class="w-25x">Email: {{eachSchedules.contactPersonEmailId}}<br>Phone: {{eachSchedules.contactPersonContactNo}}</td>
+                                                    <td class="text-center w-15x">
+                                                        <span v-if="eachSchedules.status == 1" class="badge badge-pill badge-success font-sm mt-2">Active</span>
+                                                        <span v-else class="badge badge-success font-sm mt-2">Inactive</span></td>
                                                     <td class="text-center w-5x">
                                                         <div class="dropleft no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
                                                             <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in">
@@ -244,14 +254,50 @@ export default {
             firstname  : document.querySelector("meta[name='firstname']").getAttribute('content'),
             middlename : document.querySelector("meta[name='middlename']").getAttribute('content'),
             lastname   : document.querySelector("meta[name='lastname']").getAttribute('content'),
+            getSchedules:{},
+            getSession:{},
+
+            form:
+            {
+                session:'',
+                scholarshipType:'',
+            },
+
           }
+
+
     },
     methods:{
+
+        getData()
+        {
+            axios.get('/admin/admin-api/get-schedules')
+            .then(response => {
+                this.getSchedules = response.data
+            });
+            axios.get('/admin/admin-api/get-session')
+            .then(response => {
+                this.getSession = response.data
+            });
+        },
+        
+         saveForm()
+          {
+                axios.post('/admin/admin-api/get-schedules/filter-data',this.form)
+                     .then(response => console.log(this.getAllData = response.data)).catch((error) =>{
+                     this.errors = error.response.data.errors;
+                })
+         },
       logout(){
          axios.get('/admin/logout').then(function(){
             document.location.href = "/admin/login";
          })
       },
     },
+
+    created()
+    {
+      this.getData();
+    }
 }
 </script>

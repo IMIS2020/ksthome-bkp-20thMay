@@ -171,7 +171,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="h-41x font-sm">
-                                                <tr v-for="(eachDomains,i) in getDomains" :key="i">
+                                                <tr class="font-sm text-black" v-for="(eachDomains,i) in getDomains" :key="i">
                                                     <td class="w-25x">{{i+1}}</td>
                                                     <td>{{eachDomains.name}}<br></td>
                                                     <td>{{eachDomains.description}}</td>

@@ -21,7 +21,7 @@ class ShowAllRegisteredUsers extends Controller
         $email       = $request->email;
         $gender      = $request->gender;
 
-       if( empty($email) && empty($contactno) && empty($gender))
+       if(empty($email) && empty($contactno) && empty($gender))
        {
         $filter = User::orderBy('id')->get();
        }else{

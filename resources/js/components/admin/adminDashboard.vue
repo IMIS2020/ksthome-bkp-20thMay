@@ -139,8 +139,8 @@
                                                 <h3 class="text-break text-uppercase"><strong>manage </strong><br><strong>domains</strong><br></h3>
                                             </div>
                                         </router-link>
-                                     </div> -->
-                                       
+                                     </div>
+                                        -->
                                        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-xl-0 mb-3 pr-1" data-toggle="tooltip" data-placement="right"  title="functionality currently not available">
                                         <router-link to="#">
                                             <div class="home-icon-disabled">

@@ -410,6 +410,10 @@ export default{
                     component:ManageDomains,
                     name: "manage-domains"
                 },
+
+                 {
+                    path: '/admin/admin-api/get-domains',
+                 },
                 /***
                  * 
                  * End Admin Domain

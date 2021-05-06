@@ -164,26 +164,25 @@
                                         <table class="table table-sm">
                                             <thead class="cs-tbl-hd">
                                                 <tr>
-                                                    <th class="w-10x">Sl. No.</th>
+                                                    <th class="w-25x">Sl. No.</th>
                                                     <th>Domain Name</th>
                                                     <th>Domain Description</th>
-                                                    <th class="text-center">Status</th>
                                                     <th class="text-center w-5x">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="h-41x font-sm">
-                                                <tr>
-                                                    <td class="w-10x">2020-2021</td>
-                                                    <td>AP-NURSCH-2021-22-0001<br></td>
-                                                    <td><em>9876543210</em></td>
-                                                    <td class="text-center"><em>Active</em><br><span class="badge badge-success"></span></td>
+                                                <tr v-for="(eachDomains,i) in getDomains" :key="i">
+                                                    <td class="w-25x">{{i+1}}</td>
+                                                    <td>{{eachDomains.name}}<br></td>
+                                                    <td>{{eachDomains.description}}</td>
+                                                
                                                     <td class="text-center w-5x">
                                                         <div class="dropleft no-arrow dr-all">
                                                             <a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
                                                             <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in">
                                                                 <router-link class="dropdown-item" to=""><strong>Edit Domain</strong></router-link>
                                                                 <router-link class="dropdown-item" to=""><strong>Delete Domain</strong></router-link>
-                                                                <router-link class="dropdown-item" href="#"><strong>Deactivate Domain</strong></router-link>
+                                                                <!-- <router-link class="dropdown-item" to=""><strong>Deactivate Domain</strong></router-link> -->
                                                             </div>
                                                         </div>
                                                     </td>
@@ -213,14 +212,29 @@ export default {
             firstname  : document.querySelector("meta[name='firstname']").getAttribute('content'),
             middlename : document.querySelector("meta[name='middlename']").getAttribute('content'),
             lastname   : document.querySelector("meta[name='lastname']").getAttribute('content'),
+            getDomains:{},
           }
     },
     methods:{
+
+        getData()
+        {
+            axios.get('/admin/admin-api/get-domains')
+            .then(response => {
+                this.getDomains = response.data
+            });
+        },
+
       logout(){
          axios.get('/admin/logout').then(function(){
             document.location.href = "/admin/login";
          })
       },
     },
+
+    created()
+        {
+            this.getData();
+        }
 }
 </script>

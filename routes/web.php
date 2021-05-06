@@ -253,7 +253,7 @@ Route::prefix('admin')->group(function() {
       *Domain API Call
       */
         Route::post('/add-domains', 'Admin\Domains\DomainsController@addNewDomains');
-        Route::get('/manage-domains/get-details', 'Admin\Domains\DomainsController@getDomains');
+        Route::get('/get-domains', 'Admin\Domains\DomainsController@getAllDomains');
       /***
       * Domain API Call end
       */

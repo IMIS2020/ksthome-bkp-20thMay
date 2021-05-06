@@ -26,18 +26,19 @@ class ScheduleController extends Controller
     public function filterData(Request $request)
     {
        
-        
         $session         = $request->session;
         $scholarshipType = $request->scholarshipType;
 
        if(empty($session) && empty($scholarshipType))
        {
-        $filter = ApplicationScheduleTable::with('get_applicationSession')->orderBy('id', 'desc')->get()->toJson();
+        $filter = ApplicationScheduleTable::with('get_applicationSession')->orderBy('id', 'asc')->get()->toJson();
        }else{
-        $filter =      ApplicationScheduleTable::with('get_applicationSession')
-                      ->join('applicationsession', 'applicationsession.id', '=', 'applicationscheduletable.sessionId')
-                      ->get()
-                      ->toJson();
+        $filter = ApplicationScheduleTable::with('get_applicationSession')
+                    ->join('applicationsession', 'applicationsession.id', '=', 'applicationscheduletable.sessionId')
+                    ->where("sessionName",'LIKE',"%".$request['session']."%")
+                    ->where('scholarshipTypeValueId','LIKE',"%".$request['scholarshipType']."%")
+                    ->get()
+                    ->toJson();
                 }
               return $filter;
             }

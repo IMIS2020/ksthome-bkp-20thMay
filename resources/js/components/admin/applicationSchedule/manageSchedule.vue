@@ -152,8 +152,8 @@
                                                             <div class="col-xl-2 align-self-center">
                                                               <select class="form-control" v-model="form.scholarshipType">
                                                                     <option value="">-- Scholarship Type --</option>
-                                                                    <option value="Nursing">Nursing Scholarship</option>
-                                                                    <option value="HHDLS">HHDLS Scholarship</option>
+                                                                    <option value="18">Nursing Scholarship</option>
+                                                                    <option value="19">HHDLS Scholarship</option>
                                                                 </select>
                                                             </div>
                                                             <div class="col-xl-1 align-self-center">
@@ -284,7 +284,7 @@ export default {
          saveForm()
           {
                 axios.post('/admin/admin-api/get-schedules/filter-data',this.form)
-                     .then(response => console.log(this.getAllData = response.data)).catch((error) =>{
+                     .then(response => console.log(this.getSchedules = response.data)).catch((error) =>{
                      this.errors = error.response.data.errors;
                 })
          },

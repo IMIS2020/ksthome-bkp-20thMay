@@ -42,8 +42,6 @@ class AdminForgotPasswordController extends Controller
       }else{
          return redirect('/admin/reset-password')->with('statusError','The Email address do not match with our record !');
       }
-
-     
     }
 
 

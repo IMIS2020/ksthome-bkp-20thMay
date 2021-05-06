@@ -15,4 +15,9 @@ class ApplicationSession extends Model
     {
         return $this->hasMany(ApplicationDetails::class);
     }
+
+    public function get_applicationSchedule()
+    {
+        return $this->hasMany(ApplicationScheduleTable::class);
+    }
 }

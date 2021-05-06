@@ -209,7 +209,7 @@
                                                         
 
                                                         <div class="col-xl-2 text-center align-self-center pt-4 ">
-                                                            <router-link class="btn btn-secondary btn-block btn-sm" to="/admin"><strong>Cancel</strong></router-link>
+                                                            <button class="btn btn-secondary btn-block btn-sm" @click.prevent="goBack"><strong>Cancel</strong></button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -349,6 +349,12 @@ export default {
             //             this.reset();
             //         })
             //       },
+
+            
+            goBack() {
+            window.history.go(-1);
+            },
+           
 
             updateProfile()
             {

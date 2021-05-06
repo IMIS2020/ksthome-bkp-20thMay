@@ -71,11 +71,29 @@ class InstituteController extends Controller
             {
                 $instituteDetails->save();
                 DB::commit();
-                return array('success' => true, 'msg'=>[]);
+                return array('success' => true, 'msg'=>[$checkIfPresent]);
             }else{
-
-               DB::rollBack();
-               return array('success' => false, 'msg'=>['Duplicate Intitute']);
+                $count = 0;
+                foreach($checkIfPresent as $data)
+                {
+                    if($data->get_address != null)
+                    {
+                        if($data->get_address['addressCity']  == strtoupper($request->insAddressCity) && $data->get_address['addressState'] == $request->insAddressState)
+                        {
+                           $count = $count + 1; 
+                        }
+                    }
+                   
+                }
+                if($count == 0 )
+                {
+                    $instituteDetails->save();
+                    DB::commit();
+                    return array('success' => true, 'msg'=>['']);
+                }else{
+                    DB::rollBack();
+                    return array('success' => false, 'msg'=>['Institute exists could not add']);
+                }
             }
            
         }

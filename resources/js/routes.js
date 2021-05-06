@@ -438,8 +438,19 @@ export default{
                     component:ExtendLastDate,
                     name: "extend-last-date"
                 },
-            
-                    /***
+                {
+                     path: '/admin/admin-api/get-schedules',
+                },
+                {
+                     path: '/admin/admin-api/get-session',
+                },
+
+                {
+                    path: '/admin/admin-api/get-schedules/filter-data',
+                },
+
+                
+                 /***
                  * 
                  * End Admin Schedule
                  */

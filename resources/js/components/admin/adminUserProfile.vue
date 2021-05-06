@@ -171,23 +171,23 @@
                                                         <div class="col-xl-4">
                                                             <div class="form-group mb-2"><label>Last Name</label><input class="form-control " v-model="form.lastname"  type="text"></div>
                                                         </div>
-                                                        <div class="col-xl-5" v-if="userId=='SU-000001'">
+                                                        <div class="col-xl-4" v-if="userId=='SU-000001'">
                                                             <div class="form-group mb-2"><label>Contact No.</label><input class="form-control " v-model="form.contactNo"  type="text"></div>
                                                         </div>
 
-                                                        <div class="col-xl-5" v-else>
+                                                        <div class="col-xl-4" v-else>
                                                             <div class="form-group mb-2"><label>Contact No.</label><input class="form-control " v-model="form.contactNo"  type="text" readonly></div>
                                                         </div>
 
-                                                        <div class="col-xl-5" v-if="userId=='SU-000001'">
+                                                        <div class="col-xl-4" v-if="userId=='SU-000001'">
                                                             <div class="form-group mb-2"><label>Email ID</label><input class="form-control " v-model="form.email" type="email"></div>
                                                         </div>
 
-                                                        <div class="col-xl-5" v-else>
+                                                        <div class="col-xl-4" v-else>
                                                             <div class="form-group mb-2"><label>Email ID</label><input class="form-control " v-model="form.email" type="email" readonly></div>
                                                         </div>
 
-                                                        <div class="col-xl-2">
+                                                        <div class="col-xl-4">
                                                             <div class="form-group mb-2">
                                                                 <label>Gender</label>
                                                                 <select class="form-control" v-model="form.gender">
@@ -197,17 +197,19 @@
                                                                 </select>
                                                             </div>
                                                         </div>
-                       
-                                                        <div class="col-xl-3 offset-xl-1 text-center align-self-center pt-4">
-                                                          <button class="btn btn-block btn-sm btn-mg" type="button" @click.prevent="updateProfile"><strong>Update Profile</strong></button>
-                                                        </div>
 
-                                                         <div class="col-xl-3 m-auto text-center align-self-center pt-4">
+                                                         <div class="col-xl-2 pull-left pt-4">
                                                             <a href="#" class="btn btn-block btn-sm btn-mg" data-toggle="modal" data-target="#update-password"><strong>Update Password</strong></a>
+                                                        </div>  
+                       
+                                                        <div class="col-xl-2 ml-auto pt-4">
+                                                          <button class="btn btn-block btn-sm btn-mg" type="button" @click.prevent="updateProfile"><strong>Save</strong></button>
                                                         </div>
 
-                                                        <div class="col-xl-3 m-auto text-center align-self-center pt-4 ">
-                                                            <router-link class="btn btn-secondary btn-block btn-sm" to="/admin"><strong>Back</strong></router-link>
+                                                        
+
+                                                        <div class="col-xl-2 text-center align-self-center pt-4 ">
+                                                            <button class="btn btn-secondary btn-block btn-sm" @click.prevent="goBack"><strong>Cancel</strong></button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -226,7 +228,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
      <div  class="modal-header pb-3 pt-3 text-white" style="background-color: #702e2e !important;">
-        <h6 class="modal-title font-md"><strong>Update Password</strong></h6><button style="color:#fff;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h6 class="modal-title font-md"><strong>Update Password ({{userId}})</strong></h6><button style="color:#fff;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
     </div>
         <form @submit.prevent="updatePassword">
             <div class="modal-body">
@@ -348,6 +350,12 @@ export default {
             //         })
             //       },
 
+            
+            goBack() {
+            window.history.go(-1);
+            },
+           
+
             updateProfile()
             {
                 axios.post('/admin/admin-api/edit-profile/'+this.userId,this.form)
@@ -360,11 +368,11 @@ export default {
                });
                this.getData();
             }).catch((error) =>{
-                     if(error.response.status == 422 || error.response.status == 405 || error.response.status == 500 )
+                     if( error.response.status == 500 )
                      {   this.$fire({
                            position: 'top',
                            icon: 'error',
-                           title: "Something went wrong !",
+                           title: "Email address or contact no already exists !",
                            showConfirmButton: false,
                            timer: 4000
                         })

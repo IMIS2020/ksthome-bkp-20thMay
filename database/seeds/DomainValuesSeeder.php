@@ -174,15 +174,15 @@ class DomainValuesSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
-        DB::table('domainValues')->insert(
-            [
-                'value' => 'Deploma in Hospitality',
-                'valueDescription' => 'Deploma in Hospitality',
-                'nameId' => 7,
-                'domainTypeId' => 17,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ]);
+        // DB::table('domainValues')->insert(
+        //     [
+        //         'value' => 'Deploma in Hospitality',
+        //         'valueDescription' => 'Deploma in Hospitality',
+        //         'nameId' => 7,
+        //         'domainTypeId' => 17,
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now(),
+        //     ]);
 
 
         //Scholarship

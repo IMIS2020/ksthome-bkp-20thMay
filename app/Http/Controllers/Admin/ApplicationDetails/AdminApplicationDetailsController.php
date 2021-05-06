@@ -12,7 +12,7 @@ use App\ModelScholarship\ApplicationDocs;
 use App\ModelScholarship\DocMaster;
 use Illuminate\Support\Facades\Storage;
 
-class AdminApplicationDetails extends Controller
+class AdminApplicationDetailsController extends Controller
 {
 
     public function getData()
@@ -22,7 +22,6 @@ class AdminApplicationDetails extends Controller
         $getAllDataApplication = ApplicationDetails::with('get_address')->orderBy('id', 'desc')->get()->toJson();
         return $getAllDataApplication;
     }
-
 
     public function getDocuments(string $applicationId)
     {

@@ -145,10 +145,10 @@
                                                                 </div>
                                                                 <select class="form-control mb-2" v-model="form.session">
                                                                     <option value="">-- Session --</option>
-                                                                    <option v-for="filterData in getFilterData" :key="filterData.id" 
-                                                                        :value="filterData.sessionName" class="color-mg">
-                                                                        {{filterData.sessionName}}
-                                                                     </option>
+                                                                        <option v-for="filterData in getFilterData" :key="filterData.id" 
+                                                                            :value="filterData.sessionName" class="color-mg">
+                                                                            {{filterData.sessionName}}
+                                                                        </option>
                                                                 </select>
                                                             </div>
 
@@ -362,13 +362,15 @@ export default {
              });
              axios.get('/admin/admin-api/get-application-details/filter/data')
                   .then(response => this.getFilterData = response.data)
-         },
+            },
 
-          saveForm(){
-                axios.post('/admin/admin-api/get-application-details/filter-data',this.form)
-                     .then(response => console.log(this.getAllData = response.data)).catch((error) =>{
-                     this.errors = error.response.data.errors;
-                })
+
+               saveForm()
+                {
+                    axios.post('/admin/admin-api/get-application-details/filter-data',this.form)
+                        .then(response => console.log(this.getAllData = response.data)).catch((error) =>{
+                        this.errors = error.response.data.errors;
+                    })
                 },
 
             logout()

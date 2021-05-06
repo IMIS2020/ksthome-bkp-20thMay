@@ -14,4 +14,10 @@ class ApplicationScheduleTable extends Model
     {
         return $this->hasMany(ApplicationDetails::class);
     }
+
+    public function get_applicationSession() // FK 8
+    {
+        return $this->belongsTo(ApplicationSession::class,'sessionId');
+    }
+
 }

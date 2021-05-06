@@ -252,16 +252,27 @@ Route::prefix('admin')->group(function() {
       /***
       *Domain API Call
       */
-        Route::post('/add-domains', 'Admin\Domains\DomainsController@addNewDomains');
         Route::get('/get-domains', 'Admin\Domains\DomainsController@getAllDomains');
       /***
       * Domain API Call end
+      */
+
+
+      /***
+      *Schedule API Call
+      */
+      Route::get('/get-schedules', 'Admin\Schedules\ScheduleController@getAllSchedules');
+      Route::get('/get-session',   'Admin\Schedules\ScheduleController@getSession');
+      Route::post('/get-schedules/filter-data','Admin\Schedules\ScheduleController@filterData');
+
+      /***
+      * Schedule API Call end
       */
  
       /***
       *Manage-application API Call
       */
-        Route::get('/get-application-details','Admin\ApplicationDetails\AdminApplicationDetails@getData');
+        Route::get('/get-application-details','Admin\ApplicationDetails\AdminApplicationDetailsController@getData');
       /***
       *Manage-application API Call End
       */
@@ -269,8 +280,8 @@ Route::prefix('admin')->group(function() {
        /***
       *filter-application API Call
       */
-      Route::get('/get-application-details/filter/data','Admin\ApplicationDetails\AdminApplicationDetails@getSession');
-      Route::post('/get-application-details/filter-data','Admin\ApplicationDetails\AdminApplicationDetails@filterData');
+      Route::get('/get-application-details/filter/data','Admin\ApplicationDetails\AdminApplicationDetailsController@getSession');
+      Route::post('/get-application-details/filter-data','Admin\ApplicationDetails\AdminApplicationDetailsController@filterData');
       /***
       *filter-application API Call End
       */
@@ -331,8 +342,8 @@ Route::prefix('admin')->group(function() {
       * Doc Master Api call
       */
       Route::get('/doc-master','Scholarship\DocumentMaster@getDocMasterData');
-      Route::get('/get-documents/{applicationId}','Admin\ApplicationDetails\AdminApplicationDetails@getDocuments');
-      Route::get('/get-application-file/{shcName}/{applicationId}','Admin\ApplicationDetails\AdminApplicationDetails@getApplicantDoc');
+      Route::get('/get-documents/{applicationId}','Admin\ApplicationDetails\AdminApplicationDetailsController@getDocuments');
+      Route::get('/get-application-file/{shcName}/{applicationId}','Admin\ApplicationDetails\AdminApplicationDetailsController@getApplicantDoc');
       /***
       * End Doc Master Api call
       */

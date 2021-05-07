@@ -155,8 +155,8 @@
                                                                 <table class="table table-bordered table-sm mb-0">
                                                                     <thead class="color-mg">
                                                                         <tr>
-                                                                            <th class="w-40x">Document Name</th>
-                                                                            <!-- <th class="w-10x">Type</th> -->
+                                                                            <th class="w-40x">Required Document Name</th>
+                                                                            <th class="w-10x">Document Name</th>
                                                                             <th class="text-center w-7x">Uploaded</th>
                                                                             <th class="text-center w-10x">View/ Download</th>
                                                                             <th class="text-center w-15x">Status</th>
@@ -164,9 +164,28 @@
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
+                                                                        <tr>
+                                                                            <td><strong>My {{form.scholarshipType}} application </strong>({{form.appIdShow}})<strong>,&nbsp; for {{form.financialYear}}</strong></td>
+                                                                            <td class="text-center"></td>
+                                                                            <td class="text-center"></td>
+                                                                            <td class="text-center" v-if="form.applicationId == '' "><span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span></td>
+                                                                            <td class="text-center" v-else><router-link class="act-link" :to="'/print-view-application/'+form.applicationId" ><i class="fa fa-eye"></i></router-link></td>
+                                                                            <td class="text-center">
+                                                                                <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
+                                                                                        <option value="" selected="">-- select --</option>
+                                                                                        <option value="NOT OK">Not OK</option>
+                                                                                        <option value="OK">OK</option>
+                                                                                        <option value="NOT REQUIRED">Not Required</option>
+                                                                                        <option value="REQUIRED AND MISSING">Required &amp; Missing</option>
+                                                                                    </select></div>
+                                                                            </td>
+                                                                            <td class="text-center">
+                                                                                <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
+                                                                            </td>
+                                                                        </tr>
                                                                         <tr v-for="(row,index) in docRows" :key="index">
                                                                             <td>{{row.docFileDesc}}<br></td>
-                                                                            <!-- <td>Sys. Generated<br></td> -->
+                                                                            <td>{{row.docFileName == null? '' : row.docFileName.split('-').reverse().shift()}}<br></td>
                                                                             <td class="text-center">{{row.uploadStatus}}<br></td>
                                                                             <td class="text-center" v-if="row.uploadStatus == 'YES'"><router-link target="_blank" class="act-link" :to="''+row.fileURL"><i class="fa fa-eye"></i></router-link></td>
                                                                             <td class="text-center" v-else><span class="act-link" style="color:#808080;"> <i class="fa fa-eye"></i></span></td>

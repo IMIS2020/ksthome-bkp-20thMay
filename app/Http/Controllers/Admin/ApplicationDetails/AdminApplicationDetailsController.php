@@ -90,8 +90,8 @@ class AdminApplicationDetailsController extends Controller
             $filter = ApplicationDetails::with('get_address')->orderBy('id', 'desc')->get()->toJson();
             }else{
             $filter = ApplicationDetails::with('get_address')
-                    ->join('portalAddress', 'portalAddress.id', '=', 'applicationDetails.applicantAddressId')
-                    ->with('get_applicationSession')->join('applicationSession', 'applicationSession.id', '=', 'applicationDetails.sessionId')
+                    ->join('portaladdress', 'portaladdress.id', '=', 'applicationDetails.applicantaddressId')
+                    ->with('get_applicationsession')->join('applicationsession', 'applicationsession.id', '=', 'applicationDetails.sessionId')
                     ->where("scholarshipType",'LIKE',"%".$request['scholarshipType']."%")
                     ->where("sessionName",'LIKE',"%".$request['session']."%")
                     ->where("applicantEmailId",'LIKE',"%".$request['email']."%")

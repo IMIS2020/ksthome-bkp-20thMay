@@ -122,7 +122,7 @@ class AdminCreateUsersController extends Controller
                 }else{
                   $filter = Admin::where("email",'LIKE',"%".$request['email']."%")
                                 ->where("contactNo",'LIKE',"%".$request['contactNo']."%")
-                                ->where('intuId','LIKE',"%".$request['userId']."%")
+                                ->where('intuId','LIKE',$request['userId'])
                                 ->get()
                                 ->toJson();
                           }

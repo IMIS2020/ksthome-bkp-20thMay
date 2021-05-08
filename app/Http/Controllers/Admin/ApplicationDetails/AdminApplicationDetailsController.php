@@ -91,7 +91,7 @@ class AdminApplicationDetailsController extends Controller
             }else{
             $filter = ApplicationDetails::with('get_address')
                     ->join('portalAddress', 'portalAddress.id', '=', 'applicationDetails.applicantAddressId')
-                    ->with('get_applicationSession')->join('applicationsession', 'applicationsession.id', '=', 'applicationDetails.sessionId')
+                    ->with('get_applicationSession')->join('applicationSession', 'applicationSession.id', '=', 'applicationDetails.sessionId')
                     ->where("scholarshipType",'LIKE',$request['scholarshipType'])
                     ->where("sessionName",'LIKE',$request['session'])
                     ->where("applicantEmailId",'LIKE',"%".$request['email']."%")

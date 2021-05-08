@@ -33,7 +33,7 @@ class LoginController extends Controller
     public function resendOTP(Request $request)
     {
         $user = User::where('email',$request->email)->first();
-        if($user->active === false)
+        if($user->active === 0)
         {
             $user->code=SendCode::sendCodeToMail($request->email);
             $user->update();

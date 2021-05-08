@@ -79,13 +79,13 @@ class AdminApplicationDetailsController extends Controller
         $contactno        =  $request->contactno;
         $firstname        =  $request->firstname;
         $lastname         =  $request->lastname;
-        $district         =  $request->district;
+        $gender           =  $request->gender;
         $states           =  $request->states;
         $applicationType  =  $request->applicationType;
         $status           =  $request->status;
 
 
-        if(empty($scholarshipType) && empty($session) && empty($email) &&empty($contactno) &&empty($firstname) &&empty($lastname) &&empty($district) &&empty($states) &&empty($applicationType) &&empty($status))
+        if(empty($scholarshipType) && empty($session) && empty($email) &&empty($contactno) &&empty($firstname) &&empty($lastname) &&empty($gender) &&empty($states) &&empty($applicationType) &&empty($status))
         {
             $filter = ApplicationDetails::with('get_address')->orderBy('id', 'desc')->get()->toJson();
             }else{
@@ -98,7 +98,7 @@ class AdminApplicationDetailsController extends Controller
                     ->where("applicantContactNoSelf",'LIKE',"%".$request['contactno']."%")
                     ->where("applicantNameF",'LIKE',"%".$request['firstname']."%")
                     ->where("applicantNameL",'LIKE',"%".$request['lastname']."%")
-                    ->where("addressDistprov",'LIKE',"%".$request['district']."%")
+                    ->where('applicantGender','LIKE',"%".$request['gender']."%")
                     ->where("addressState",'LIKE',"%".$request['states']."%")
                     ->where("applicationType",'LIKE',"%".$request['applicationType']."%")
                     ->where("appStatus",'LIKE',"%".$request['status']."%")

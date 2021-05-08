@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Schedules;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Modelscholarship\ApplicationScheduleTable;
+use App\ModelScholarship\ApplicationScheduleTable;
 use App\ModelScholarship\ApplicationSession;
 
 class ScheduleController extends Controller
@@ -34,7 +34,7 @@ class ScheduleController extends Controller
         $filter = ApplicationScheduleTable::with('get_applicationSession')->orderBy('id', 'asc')->get()->toJson();
        }else{
         $filter = ApplicationScheduleTable::with('get_applicationSession')
-                    ->join('applicationsession', 'applicationsession.id', '=', 'applicationscheduletable.sessionId')
+                    ->join('applicationSession', 'applicationSession.id', '=', 'applicationScheduleTable.sessionId')
                     ->where("sessionName",'LIKE',"%".$request['session']."%")
                     ->where('scholarshipTypeValueId','LIKE',"%".$request['scholarshipType']."%")
                     ->get()

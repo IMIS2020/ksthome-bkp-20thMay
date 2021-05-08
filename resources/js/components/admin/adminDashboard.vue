@@ -149,9 +149,6 @@
                                         </router-link>
                                      </div>
 
-
-
-
                                     <!-- <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-md-0 offset-lg-0 offset-xl-0 mb-3 px-1">
                                         <router-link to="/admin/manage-application-schedule">
                                             <div class="home-icon px-3">

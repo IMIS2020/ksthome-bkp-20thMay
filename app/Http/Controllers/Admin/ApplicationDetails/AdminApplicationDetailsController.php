@@ -98,9 +98,9 @@ class AdminApplicationDetailsController extends Controller
             ->where('applicantContactNoSelf','LIKE','%'.$request['contactno'].'%')
             ->where('applicantNameF','LIKE','%'.$request['firstname'].'%')
             ->where('applicantNameL','LIKE','%'.$request['lastname'].'%')
-            ->where('addressDistprov','LIKE','%'.$request['district'].'%')
+            // ->where('addressDistprov','LIKE','%'.$request['district'].'%')
             ->where('addressState','LIKE','%'.$request['states'].'%')
-            ->where('alicationtype','LIKE','%'.$request['applicationType'].'%')
+            ->where('applicationType','LIKE','%'.$request['applicationType'].'%')
             ->where('appStatus','LIKE','%'.$request['status'].'%')
             ->get()
             ->toJson();

@@ -27,7 +27,7 @@ class ShowAllRegisteredUsers extends Controller
        }else{
         $filter = User::where("email",'LIKE',"%".$request['email']."%")
                       ->where("contactno",'LIKE',"%".$request['contactno']."%")
-                      ->where('gender','LIKE',"%".$request['gender']."%")
+                      ->where('gender','LIKE',$request['gender'])
                       ->get()
                       ->toJson();
                 }

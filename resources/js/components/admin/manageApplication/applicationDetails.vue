@@ -192,8 +192,12 @@
                                                             </div>
 
                                                              <div class="col-xl-2">
-                                                                  <div class="form-group">
-                                                                   <input class="form-control" v-model="form.district" type="text" placeholder="-- District --">
+                                                                 <div class="form-group">
+                                                                        <select class="form-control mb-2 " v-model="form.gender">
+                                                                            <option value="">-- Gender --</option>
+                                                                            <option value="Male">Male</option>
+                                                                            <option value="Female">Female</option>
+                                                                    </select>
                                                                 </div>
                                                                
                                                                  <select class="form-control mb-2" v-model="form.states">
@@ -276,7 +280,7 @@
                                             </thead>
                                             <tbody style="color:#000;" class="h-35x font-sm">
                                                 <tr  v-for="(eachData,i) in getAllData" :key="i">
-                                                    <td class="w-20x">Application No: {{eachData.schApplicationId}}<br>Session: {{eachData.financialYear}}<br>Type: {{eachData.scholarshipType}}</td>
+                                                    <td class="w-20x">Application No: {{eachData.appIdShow}}<br>Session: {{eachData.financialYear}}<br>Type: {{eachData.scholarshipType}}</td>
                                                     <td>Name : {{eachData.applicantNameF}} {{(eachData.applicantNameM)?" "+eachData.applicantNameM:''}} {{eachData.applicantNameL}} ,<br>Gender: {{eachData.applicantGender}},<br> Date of Birth : {{eachData.applicantDOB.split('-').reverse().join('/')}} <br>Age: <span v-if="calAge(eachData.applicantDOB) !== null">({{calAge(eachData.applicantDOB).years}} Years {{calAge(eachData.applicantDOB).months}} Months &amp; {{calAge(eachData.applicantDOB).days}} Days)</span></td>
                                                     <td class="w-25x">Applicant phone No :{{eachData.applicantContactNoSelf}}, <br> Alternate no : {{eachData.applicantContactNoGuardian}}<br>Email : {{eachData.applicantEmailId}}</td>
                                                     <td>{{eachData.get_address.addressAddln1}},{{(eachData.get_address.addressAddln2)?" "+eachData.get_address.addressAddln2:''}} ,City: {{(eachData.get_address.addressCity)?" "+eachData.get_address.addressCity:''}} <br>Dist : {{(eachData.get_address.addressDistprov)?" "+eachData.get_address.addressDistprov:''}}<br>{{eachData.get_address.addressState}} - {{eachData.get_address.addressPinzip}}</td>
@@ -329,7 +333,7 @@ export default {
                 contactno:'',
                 firstname:'',
                 lastname:'',
-                district:'',
+                gender:'',
                 states:'',
                 applicationType:'',
                 status:'',

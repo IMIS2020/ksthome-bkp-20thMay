@@ -34,9 +34,9 @@ class ScheduleController extends Controller
         $filter = ApplicationScheduleTable::with('get_applicationSession')->orderBy('id', 'asc')->get()->toJson();
        }else{
         $filter = ApplicationScheduleTable::with('get_applicationSession')
-                    ->join('applicationSession', 'applicationSession.id', '=', 'applicationScheduleTable.sessionId')
-                    ->where("sessionName",'LIKE',"%".$request['session']."%")
-                    ->where('scholarshipTypeValueId','LIKE',"%".$request['scholarshipType']."%")
+                    ->join('applicationsession', 'applicationsession.id', '=', 'applicationscheduletable.sessionId')
+                    ->where("sessionName",'LIKE',$request['session'])
+                    ->where('scholarshipTypeValueId','LIKE',$request['scholarshipType'])
                     ->get()
                     ->toJson();
                 }

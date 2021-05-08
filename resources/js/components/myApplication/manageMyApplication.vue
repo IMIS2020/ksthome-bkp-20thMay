@@ -66,15 +66,14 @@
                                           <td>{{row.appIdShow}}</td>
                                           <td class="text-nowrap">{{row.dateLastSubmitted== null ? " " : row.dateLastSubmitted.split("-").reverse().join("/")}}</td>
                                           <td class="text-center">
-                                              
-                                                  <span class="badge badge-pill badge-success font-sm" v-if="row.appStatus == 'Submit'">Submitted</span>
-                                                  <span class="badge badge-pill badge-warning font-sm" v-else>{{row.appStatus}}</span>
-                                              
+                                                <span class="badge badge-pill badge-warning text-black font-sm mt-2" v-if ="row.appStatus == 'Saved' ">Saved</span> 
+                                                <span class="badge badge-pill badge-success text-black font-sm mt-2" v-if ="row.appStatus == 'Submit' ">Submitted</span>
+                                                <span style="background-color:#d48eae;" class="badge badge-pill  text-black font-sm mt-2" v-if ="row.appStatus == 'Returned' ">Returned</span>
                                           </td>
                                           <td class="text-center w-5x">
                                               <div class="dropdown no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
                                                   <div class="dropdown-menu dropdown-menu-left shadow dropdown-menu-right animated--fade-in">
-                                                      <router-link class="dropdown-item" :to="'/application-form/'+row.schApplicationId"  v-if="row.appStatus == 'Saved'"><strong>Edit Application</strong></router-link>
+                                                      <router-link class="dropdown-item" :to="'/application-form/'+row.schApplicationId"  v-if="row.appStatus == 'Saved' || row.appStatus == 'Returned'"><strong>Edit Application</strong></router-link>
                                                       <router-link class="dropdown-item" :to="'/application-form/'+row.schApplicationId" v-if="row.appStatus == 'Submit'"><strong>View Application</strong></router-link>
                                                       <router-link class="dropdown-item" :to="'/print-view-application/'+row.schApplicationId"><strong>Download Application</strong></router-link>
                                                     </div>

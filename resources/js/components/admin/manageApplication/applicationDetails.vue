@@ -170,9 +170,10 @@
 
                                                              <div class="form-group">
                                                                 <select class="form-control mb-2 " v-model="form.status">
-                                                                        <option value="">-- Status --</option>
-                                                                        <option value="Saved">Saved</option>
-                                                                        <option value="Submit">Submitted</option>
+                                                                    <option value="">-- Status --</option>
+                                                                    <option value="Saved">Saved</option>
+                                                                    <option value="Submit">Submitted</option>
+                                                                    <option value="Returned">Returned</option>
                                                                 </select>
                                                               </div>
                                                             </div>
@@ -280,21 +281,24 @@
                                             </thead>
                                             <tbody style="color:#000;" class="h-35x font-sm">
                                                 <tr  v-for="(eachData,i) in getAllData" :key="i">
-                                                    <td class="w-20x">Application No: {{eachData.appIdShow}}<br>Session: {{eachData.financialYear}}<br>Type: {{eachData.scholarshipType}}</td>
+                                                    <td class="w-20x">App No: {{eachData.appIdShow}}<br>Session: {{eachData.financialYear}}<br>Type: {{eachData.scholarshipType}}</td>
                                                     <td>Name : {{eachData.applicantNameF}} {{(eachData.applicantNameM)?" "+eachData.applicantNameM:''}} {{eachData.applicantNameL}} ,<br>Gender: {{eachData.applicantGender}},<br> Date of Birth : {{eachData.applicantDOB.split('-').reverse().join('/')}} <br>Age: <span v-if="calAge(eachData.applicantDOB) !== null">({{calAge(eachData.applicantDOB).years}} Years {{calAge(eachData.applicantDOB).months}} Months &amp; {{calAge(eachData.applicantDOB).days}} Days)</span></td>
                                                     <td class="w-25x">Applicant phone No :{{eachData.applicantContactNoSelf}}, <br> Alternate no : {{eachData.applicantContactNoGuardian}}<br>Email : {{eachData.applicantEmailId}}</td>
                                                     <td>{{eachData.get_address.addressAddln1}},{{(eachData.get_address.addressAddln2)?" "+eachData.get_address.addressAddln2:''}} ,City: {{(eachData.get_address.addressCity)?" "+eachData.get_address.addressCity:''}} <br>Dist : {{(eachData.get_address.addressDistprov)?" "+eachData.get_address.addressDistprov:''}}<br>{{eachData.get_address.addressState}} - {{eachData.get_address.addressPinzip}}</td>
                                                     <td class="w-15x">Date: {{(eachData.dateLastSubmitted)?" "+eachData.dateLastSubmitted.split('T')[0].split('-').reverse().join('/'):''}}<br>Type: {{eachData.applicationType}}</td>
                                                     <td class="text-center w-10x">
-                                                        <span class="badge badge-pill badge-warning font-sm mt-2" v-if ="eachData.appStatus == 'Saved' ">Saved</span> 
-                                                        <span class="badge badge-pill badge-success font-sm mt-2" v-if ="eachData.appStatus == 'Submit' ">Submitted</span></td>
+                                                        <span class="badge badge-pill badge-warning text-black font-sm mt-2" v-if ="eachData.appStatus == 'Saved' ">Saved</span> 
+                                                        <span class="badge badge-pill badge-success text-black font-sm mt-2" v-if ="eachData.appStatus == 'Submit' ">Submitted</span>
+                                                        <span style="background-color:#d48eae;" class="badge badge-pill  text-black font-sm mt-2" v-if ="eachData.appStatus == 'Returned' ">Returned</span>
+                                                        </td>
                                                     <td class="text-center w-5x">
                                                         <div class="dropdown no-arrow dr-all">
                                                             <a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
                                                             <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in">
                                                                 <!-- <a class="dropdown-item" href="#"><strong>Review Application</strong></a> -->
                                                                     <router-link class="dropdown-item" :to="'/admin/review-application-form/'+eachData.schApplicationId"><strong>View Application</strong></router-link>
-                                                                <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#view-application-comments"><strong>View Comments</strong></a> -->
+                                                                     <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#view-application-comments"><strong>View Comments</strong></a> -->
+                                                                      <a href="#" v-if="eachData.appStatus == 'Submit'" class="dropdown-item" @click="toggleStatus(eachData.schApplicationId)"><strong>Make status ' Returned '</strong></a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -376,6 +380,18 @@ export default {
                         this.errors = error.response.data.errors;
                     })
                 },
+
+                toggleStatus(applicationId){
+                    axios.post('/admin/admin-api/make-status-saved/'+applicationId)
+                        .then( this.$fire({
+                            position: 'top',
+                            icon: 'success',
+                            title: 'Application status changed',
+                            showConfirmButton: false,
+                            timer: 3000
+                        }))
+                          this.getData();
+                    },
 
             logout()
             {

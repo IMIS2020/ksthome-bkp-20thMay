@@ -479,6 +479,10 @@ export default{
                     {
                         path: '/admin/admin-api/get-application-details/filter-data',
                     },
+
+                    {
+                        path: '/admin/admin-api/make-status-saved/:applicationId',
+                    },
               /***
                  * 
                  *End Admin API call for get filter application details

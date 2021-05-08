@@ -282,6 +282,7 @@ Route::prefix('admin')->group(function() {
       */
       Route::get('/get-application-details/filter/data','Admin\ApplicationDetails\AdminApplicationDetailsController@getSession');
       Route::post('/get-application-details/filter-data','Admin\ApplicationDetails\AdminApplicationDetailsController@filterData');
+      Route::post('/make-status-saved/{applicationId}','Admin\ApplicationDetails\AdminApplicationDetailsController@statusSaved');
       /***
       *filter-application API Call End
       */

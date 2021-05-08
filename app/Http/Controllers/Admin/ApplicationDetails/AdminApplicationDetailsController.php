@@ -114,4 +114,14 @@ class AdminApplicationDetailsController extends Controller
              $getSessionDetails = ApplicationSession::orderBy('id')->get();
              return $getSessionDetails;
          }
+
+         public function statusSaved(String $applicationId)
+         {
+          $application =   ApplicationDetails::where('schApplicationId', $applicationId)->first();
+
+          $application->appStatus = 'Returned';
+          $application->dateLastSubmitted = null;
+          $application->update();
+
+         }
 }

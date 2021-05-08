@@ -92,7 +92,7 @@ class AdminApplicationDetailsController extends Controller
             $filter = ApplicationDetails::with('get_address')
             ->join('portalAddress', 'portalAddress.id', '=', 'applicationDetails.applicantAddressId')
             ->with('get_applicationSession')->join('applicationSession', 'applicationSession.id', '=', 'applicationDetails.sessionId')
-            ->whee('scholarshipType','LIKE','%'.$request['scholarshipType'].'%')
+            ->where('scholarshipType','LIKE','%'.$request['scholarshipType'].'%')
             ->where('sessionName','LIKE','%'.$request['session'].'%')
             ->where('applicantEmailId','LIKE','%'.$request['email'].'%')
             ->where('applicantContactNoSelf','LIKE','%'.$request['contactno'].'%')
@@ -100,7 +100,7 @@ class AdminApplicationDetailsController extends Controller
             ->where('applicantNameL','LIKE','%'.$request['lastname'].'%')
             ->where('addressDistprov','LIKE','%'.$request['district'].'%')
             ->where('addressState','LIKE','%'.$request['states'].'%')
-            ->where('applicationType','LIKE','%'.$request['applicationType'].'%')
+            ->where('applicationtype','LIKE','%'.$request['applicationType'].'%')
             ->where('appStatus','LIKE','%'.$request['status'].'%')
             ->get()
             ->toJson();

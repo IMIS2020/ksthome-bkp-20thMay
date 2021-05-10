@@ -53,7 +53,7 @@ class ScheduleController extends Controller
             'newLastDate'  => ['required'],
         ]);
         $getData = ApplicationScheduleTable::where('id',$Id)
-        ->whereDate('lastDate', '<=', $request->newLastDate)
+        ->whereDate('lastDate', '<', $request->newLastDate)
         ->first();
 
         if(!$getData)

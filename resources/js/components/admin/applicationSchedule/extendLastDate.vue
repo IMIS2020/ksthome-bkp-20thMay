@@ -233,29 +233,32 @@ export default {
             {
                 let Id =  window.location.pathname.split('/').reverse()[0];
                 axios.post('/admin/admin-api/edit-last-date/'+Id,this.formUpdate)
-                .then(() =>{this.$fire({
-                  position:'top',
-                  icon: 'success',
-                  title: 'Last date Updated',
-                  showConfirmButton: false,
-                  timer: 4000
-               });
-               this.getData();
-               this.formUpdate.newLastDate = '';
-
-            }).catch((error) =>{
-                     if( error.response.status == 500 )
-                     {   this.$fire({
-                           position: 'top',
-                           icon: 'error',
-                           title: "Something went wrong !",
-                           showConfirmButton: false,
-                           timer: 4000
+                .then(response  =>{
+                    if(response.data['success'])
+                    {
+                       this.$fire({
+                            position:'top',
+                            icon: 'success',
+                            title: ' '+response.data['msg'][0],
+                            showConfirmButton: false,
+                            timer: 4000
                         })
-                     }
-                  })
+                        this.getData();
+                        this.formUpdate.newLastDate = '';
+                        
+                    }else{
+                       this.$fire({
+                            position:'top',
+                            icon: 'error',
+                            title: ' '+response.data['msg'][0],
+                            showConfirmButton: false,
+                            timer: 4000
+                        }) 
+                        this.getData();
+                        this.formUpdate.newLastDate = '';
+                      }
+                 })
               },
-
 
       logout(){
          axios.get('/admin/logout').then(function(){

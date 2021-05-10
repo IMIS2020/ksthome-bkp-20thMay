@@ -56,9 +56,15 @@ class ScheduleController extends Controller
         ->whereDate('lastDate', '<=', $request->newLastDate)
         ->first();
 
-        
-        $getData->lastDate = $request->newLastDate;
-        $getData->update();
+        if(!$getData)
+        {
+            return array('success' => false, 'msg'=>['New Last Date must be later than Current Last Date !']); 
+        }else
+        {
+            $getData->lastDate = $request->newLastDate;
+            $getData->update();
+            return array('success' => true, 'msg'=>['Last Date Updated']); 
+        }
     }
 
     

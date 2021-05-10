@@ -19,7 +19,7 @@
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li> -->
                     <li class="nav-item shadow-lg"><router-link v-if="userId =='SU-000001'" class="nav-link" to="/admin/manage-internal-users"><i class="fas fa-wrench"></i><span>Manage Users</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="#"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
-                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="#"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li>
+                   <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-details"><i class="fas fa-sticky-note"></i><span>Manage Applications</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/all-registered-users"><i class="fas fa-user"></i><span>All Registered Users</span></router-link></li>
                     
@@ -149,22 +149,15 @@
                                         </router-link>
                                      </div>
 
-                                    <!-- <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-md-0 offset-lg-0 offset-xl-0 mb-3 px-1">
+                                    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-md-0 offset-lg-0 offset-xl-0 mb-3 px-1">
                                         <router-link to="/admin/manage-application-schedule">
                                             <div class="home-icon px-3">
                                                 <h3 class="text-break text-uppercase"><strong>manage&nbsp;application</strong><br><strong>schedule</strong></h3>
                                             </div>
                                       </router-link>
-                                    </div> -->
-
-                                        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-md-0 offset-lg-0 offset-xl-0 mb-3 px-1" data-placement="right" title="functionality currently not available">
-                                        <router-link to="#">
-                                            <div class="home-icon-disabled px-3">
-                                                <h3 class="text-break text-uppercase"><strong>manage&nbsp;application</strong><br><strong>schedule</strong></h3>
-                                            </div>
-                                      </router-link>
                                     </div>
 
+                                
                                     <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-xl-0 mb-3 pl-1">
                                     <router-link to="/admin/manage-application-details">
                                             <div class="home-icon">

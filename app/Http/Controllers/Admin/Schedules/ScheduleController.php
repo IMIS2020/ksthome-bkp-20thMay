@@ -43,7 +43,7 @@ class ScheduleController extends Controller
 
     public function getExtendLastDate(int $Id)
     {
-        $getData = ApplicationScheduleTable::with('get_applicationSession')->orderBy('id', 'asc')->get()->toJson();
+        $getData = ApplicationScheduleTable::with('get_applicationSession')->where('id',$Id)->orderBy('id', 'asc')->get()->toJson();
          return $getData;
     }
 

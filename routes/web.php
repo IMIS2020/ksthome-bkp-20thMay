@@ -217,6 +217,8 @@ Route::prefix('admin')->group(function() {
    Route::get('/add-application-schedule',    'Admin\AdminSystemController@addSchedule');
    Route::get('/manage-application-schedule',    'Admin\AdminSystemController@manageSchedule');
    Route::get('/extend-last-date',    'Admin\AdminSystemController@extendLastDate');
+   Route::get('/extend-last-date-nursing',    'Admin\AdminSystemController@extendLastDateNursing');
+   Route::get('/extend-last-date-HHDLS',      'Admin\AdminSystemController@extendLastDateHHDLS');
    /***
    *End schedule 
    */
@@ -265,6 +267,11 @@ Route::prefix('admin')->group(function() {
       Route::get('/get-session',   'Admin\Schedules\ScheduleController@getSession');
       Route::post('/get-schedules/filter-data','Admin\Schedules\ScheduleController@filterData');
 
+      Route::get('/get-extend-last-date-nursing/{scholarshipTypeValueId}','Admin\Schedules\ScheduleController@getExtendLastDateNursing');
+      Route::get('/get-extend-last-date-HHDLS/{scholarshipTypeValueId}','Admin\Schedules\ScheduleController@getExtendLastDateHHDLS');
+      Route::post('/edit-last-date-nursing/{scholarshipTypeValueId}','Admin\Schedules\ScheduleController@updateExtendLastDateNursing');
+      Route::post('/edit-last-date-HHDLS/{scholarshipTypeValueId}','Admin\Schedules\ScheduleController@updateExtendLastDateHHDLS');
+      Route::post('/deactive-schedule/{scholarshipTypeValueId}','Admin\Schedules\ScheduleController@toggleStatus');
       /***
       * Schedule API Call end
       */

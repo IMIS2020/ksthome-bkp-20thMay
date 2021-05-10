@@ -435,16 +435,16 @@ export default {
                 })
             },
 
-            selectFile(){
-                let file = this.$refs.file.files[0];
-                let fileName = file.name;
-                let fileReader = new FileReader()
-                fileReader.readAsDataURL(file)
-                fileReader.onload = (e) => {
-                this.profileForm.profilePhoto = e.target.result;
-                }
-                this.form.fileName = fileName;
-             },//selectFile end
+            // selectFile(){
+            //     let file = this.$refs.file.files[0];
+            //     let fileName = file.name;
+            //     let fileReader = new FileReader()
+            //     fileReader.readAsDataURL(file)
+            //     fileReader.onload = (e) => {
+            //     this.profileForm.profilePhoto = e.target.result;
+            //     }
+            //     this.form.fileName = fileName;
+            //  },//selectFile end
 
         },
 

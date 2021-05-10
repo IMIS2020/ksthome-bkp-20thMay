@@ -38,7 +38,8 @@ import AdminPrintView       from './components/admin/manageApplication/reviewApp
 // Admin Schedule
     import AddSchedule    from './components/admin/applicationSchedule/addSchedule';
     import ManageSchedule from './components/admin/applicationSchedule/manageSchedule';
-    import ExtendLastDate from './components/admin/applicationSchedule/extendLastDate';
+    import ExtendLastDateNursing from './components/admin/applicationSchedule/extendLastDateNursing';
+    import ExtendLastDateHHDLS from './components/admin/applicationSchedule/extendLastDateHHDLS';
 // End Admin Schedule
 
 // Manage Users
@@ -434,10 +435,43 @@ export default{
                     name: "manage-schedule"
                 },
                 {
-                    path: '/admin/extend-last-date',
-                    component:ExtendLastDate,
-                    name: "extend-last-date"
+                    path: '/admin/extend-last-date-nursing',
+                    component:ExtendLastDateNursing,
+                    name: "extend-last-date-nursing"
                 },
+                {
+                    path: '/admin/extend-last-date-HHDLS',
+                    component:ExtendLastDateHHDLS,
+                    name: "extend-last-date-HHDLS"
+                },
+
+                {
+                    path: '/admin/admin-api/get-extend-last-date-nursing/:scholarshipTypeValueId',
+                },
+
+                {
+                    path: '/admin/admin-api/get-extend-last-date-HHDLS/:scholarshipTypeValueId',
+                },
+
+                {
+                    path: '/admin/admin-api/edit-last-date-nursing/:scholarshipTypeValueId',
+                },
+
+                {
+                    path: '/admin/admin-api/edit-last-date-HHDLS/:scholarshipTypeValueId',
+                },
+
+                {
+                    path: '/admin/admin-api/deactive-schedule/:scholarshipTypeValueId',
+                },
+
+                {
+                    path: '/admin/admin-api/get-schedules',
+               },
+
+
+
+
                 {
                      path: '/admin/admin-api/get-schedules',
                 },

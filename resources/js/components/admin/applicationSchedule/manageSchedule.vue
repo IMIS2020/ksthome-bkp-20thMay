@@ -158,7 +158,7 @@
                                                             </div>
                                                             <div class="col-xl-1 align-self-center">
                                                                 <button class="btn btn-mg font-sm" role="button" @click.prevent="saveForm"><i class="fa fa-search"></i></button></div>
-                                                            <div class="col-xl-6 offset-xl-1 align-self-center and-col">
+                                                            <!-- <div class="col-xl-6 offset-xl-1 align-self-center and-col">
                                                                 <form>
                                                                     <div class="form-group mb-0">
                                                                         <div class="form-row">
@@ -187,11 +187,11 @@
                                                                         </div>
                                                                     </div>
                                                                 </form>
-                                                            </div>
+                                                            </div> -->
                                                         </div>
-                                                        <div class="form-row">
+                                                        <!-- <div class="form-row">
                                                             <div class="col-sm-4 col-xl-2 offset-xl-10 text-right align-self-center mt-1"><input class="form-control form-control-sm search form-control" type="text" placeholder="Search by typing here.." style="font-size: 12px;"></div>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </form>
                                             </div>
@@ -221,13 +221,16 @@
                                                     <td class="w-25x">Email: {{eachSchedules.contactPersonEmailId}}<br>Phone: {{eachSchedules.contactPersonContactNo}}</td>
                                                     <td class="text-center w-15x">
                                                         <span v-if="eachSchedules.status == 1" class="badge badge-pill badge-success font-sm mt-2">Active</span>
-                                                        <span v-else class="badge badge-success font-sm mt-2">Inactive</span></td>
+                                                        <span v-else class="badge badge-pill badge-danger font-sm mt-2">Deactived</span>
+                                
+                                                    </td>
                                                     <td class="text-center w-5x">
                                                         <div class="dropleft no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
                                                             <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in">
-                                                                <a class="dropdown-item" href="#"><strong>Edit Application Schedule</strong></a>
-                                                            <router-link class="dropdown-item" to="/admin/extend-last-date"><strong>Extend Last Date</strong></router-link>
-                                                            <a class="dropdown-item" href="#"><strong>Deactivate Schedule</strong></a></div>
+                                                            <!-- <router-link class="dropdown-item" :to="'/edit-schedule/'+eachSchedules.scholarshipTypeValueId"><strong>Edit Application Schedule</strong></router-link> -->
+                                                            <router-link v-if="eachSchedules.scholarshipTypeValueId == 18 " class="dropdown-item" to="/admin/extend-last-date-nursing"><strong>Extend Last Date</strong></router-link>
+                                                            <router-link v-else class="dropdown-item" to="/admin/extend-last-date-HHDLS"><strong>Extend Last Date</strong></router-link>
+                                                            <a class="dropdown-item" @click="toggleStatus(eachSchedules.scholarshipTypeValueId)" href="#"><strong>{{(eachSchedules.status == 1)? "Deactived" : "Actived"}} Schedule</strong></a></div>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -288,6 +291,18 @@ export default {
                      this.errors = error.response.data.errors;
                 })
          },
+
+         toggleStatus(scholarshipTypeValueId){
+                axios.post('/admin/admin-api/deactive-schedule/'+scholarshipTypeValueId)
+                    .then( this.$fire({
+                        position: 'top',
+                        icon: 'success',
+                        title: 'Schedule status changed',
+                        showConfirmButton: false,
+                        timer: 3000
+                    }))
+                 this.getData();
+            },
       logout(){
          axios.get('/admin/logout').then(function(){
             document.location.href = "/admin/login";

@@ -148,7 +148,12 @@ function newFunction(){
     router: new VueRouter(routes)
   });
   const app23 = new Vue({
-    el: '#extendLastDate',
+    el: '#extendLastDateNursing',
+    router: new VueRouter(routes)
+  });
+
+  const app43 = new Vue({
+    el: '#extendLastDateHHDLS',
     router: new VueRouter(routes)
   });
   // Schedule end

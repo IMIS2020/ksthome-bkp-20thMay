@@ -228,9 +228,8 @@
                                                         <div class="dropleft no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
                                                             <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in">
                                                             <!-- <router-link class="dropdown-item" :to="'/edit-schedule/'+eachSchedules.scholarshipTypeValueId"><strong>Edit Application Schedule</strong></router-link> -->
-                                                            <router-link v-if="eachSchedules.scholarshipTypeValueId == 18 " class="dropdown-item" to="/admin/extend-last-date-nursing"><strong>Extend Last Date</strong></router-link>
-                                                            <router-link v-else class="dropdown-item" to="/admin/extend-last-date-HHDLS"><strong>Extend Last Date</strong></router-link>
-                                                            <a class="dropdown-item" @click="toggleStatus(eachSchedules.scholarshipTypeValueId)" href="#"><strong>{{(eachSchedules.status == 1)? "Deactived" : "Actived"}} Schedule</strong></a></div>
+                                                            <router-link class="dropdown-item" :to="'/admin/extend-last-date/'+eachSchedules.id"><strong>Extend Last Date</strong></router-link>
+                                                            <a class="dropdown-item" @click="toggleStatus(eachSchedules.id)" href="#"><strong>{{(eachSchedules.status == 1)? "Deactived" : "Actived"}} Schedule</strong></a></div>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -292,14 +291,14 @@ export default {
                 })
          },
 
-         toggleStatus(scholarshipTypeValueId){
-                axios.post('/admin/admin-api/deactive-schedule/'+scholarshipTypeValueId)
+         toggleStatus(id){
+                axios.post('/admin/admin-api/deactive-schedule/'+id)
                     .then( this.$fire({
                         position: 'top',
                         icon: 'success',
                         title: 'Schedule status changed',
                         showConfirmButton: false,
-                        timer: 3000
+                        timer: 4000
                     }))
                  this.getData();
             },

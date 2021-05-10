@@ -143,12 +143,12 @@
                                                     <div class="form-row">
                                                         <div class="col-xl-4"><label>Session</label>
                                                             <div class="form-group">
-                                                                <input class="form-control form-control-sm" type="text"  v-model="formGet.sessionName" readonly="" >
+                                                                <input class="form-control form-control-sm" type="text" v-model="formGet.sessionName"  readonly="" >
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4"><label>Scholarship Type</label>
                                                             <div class="form-group">
-                                                               <input class="form-control form-control-sm" type="text"  v-model="scholarshipType"  readonly="">
+                                                               <input class="form-control form-control-sm" type="text"  v-model="formGet.scholarshipType"  readonly="">
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4"><label>Start Date</label>
@@ -197,14 +197,15 @@ export default {
             firstname  : document.querySelector("meta[name='firstname']").getAttribute('content'),
             middlename : document.querySelector("meta[name='middlename']").getAttribute('content'),
             lastname   : document.querySelector("meta[name='lastname']").getAttribute('content'),
-            scholarshipTypeValueId:19,
-            scholarshipType:'HHDLS',
+            
+            
         
             formGet:
             {
-                sessionName:'',
                 startDate:'',
                 lastDate:'',
+                scholarshipTypeValueId:'',
+                scholarshipType:'',
             },
 
             formUpdate:
@@ -214,18 +215,24 @@ export default {
           }
     },
     methods:{
+        
+
         getData(){
-            axios.get('/admin/admin-api/get-extend-last-date-HHDLS/'+this.scholarshipTypeValueId)
+          let Id =  window.location.pathname.split('/').reverse()[0];
+          axios.get(`/admin/admin-api/get-extend-last-date/${Id}`)
             .then(response => {
+                this.formGet.scholarshipTypeValueId   = response.data[0].scholarshipTypeValueId;
                 this.formGet.startDate       = response.data[0].startDate;
-                this.formGet.sessionName     = response.data[0].get_application_session.sessionName;
                 this.formGet.lastDate        = response.data[0].lastDate;
+                this.formGet.sessionName     = response.data[0].get_application_session.sessionName;
+                this.formGet.scholarshipType = (Id == 1 ?'Nursing':'HHDLS');
             });
          },
 
          updateLastDate()
             {
-                axios.post('/admin/admin-api/edit-last-date-HHDLS/'+this.scholarshipTypeValueId,this.formUpdate)
+                let Id =  window.location.pathname.split('/').reverse()[0];
+                axios.post('/admin/admin-api/edit-last-date/'+Id,this.formUpdate)
                 .then(() =>{this.$fire({
                   position:'top',
                   icon: 'success',

@@ -38,8 +38,7 @@ import AdminPrintView       from './components/admin/manageApplication/reviewApp
 // Admin Schedule
     import AddSchedule    from './components/admin/applicationSchedule/addSchedule';
     import ManageSchedule from './components/admin/applicationSchedule/manageSchedule';
-    import ExtendLastDateNursing from './components/admin/applicationSchedule/extendLastDateNursing';
-    import ExtendLastDateHHDLS from './components/admin/applicationSchedule/extendLastDateHHDLS';
+    import ExtendLastDate from './components/admin/applicationSchedule/extendLastDate';
 // End Admin Schedule
 
 // Manage Users
@@ -435,46 +434,23 @@ export default{
                     name: "manage-schedule"
                 },
                 {
-                    path: '/admin/extend-last-date-nursing',
-                    component:ExtendLastDateNursing,
-                    name: "extend-last-date-nursing"
+                    path: '/admin/extend-last-date/:id',
+                    component:ExtendLastDate,
+                    name: "extend-last-date"
                 },
-                {
-                    path: '/admin/extend-last-date-HHDLS',
-                    component:ExtendLastDateHHDLS,
-                    name: "extend-last-date-HHDLS"
-                },
-
-                {
-                    path: '/admin/admin-api/get-extend-last-date-nursing/:scholarshipTypeValueId',
-                },
-
-                {
-                    path: '/admin/admin-api/get-extend-last-date-HHDLS/:scholarshipTypeValueId',
-                },
-
-                {
-                    path: '/admin/admin-api/edit-last-date-nursing/:scholarshipTypeValueId',
-                },
-
-                {
-                    path: '/admin/admin-api/edit-last-date-HHDLS/:scholarshipTypeValueId',
-                },
-
-                {
-                    path: '/admin/admin-api/deactive-schedule/:scholarshipTypeValueId',
-                },
-
                 {
                     path: '/admin/admin-api/get-schedules',
-               },
-
-
-
-
-                {
-                     path: '/admin/admin-api/get-schedules',
                 },
+                {
+                    path: '/admin/admin-api/get-extend-last-date/:id',
+                },
+                {
+                    path: '/admin/admin-api/edit-last-date/:id',
+                },
+                {
+                    path: '/admin/admin-api/deactive-schedule/:id',
+                },
+
                 {
                      path: '/admin/admin-api/get-session',
                 },
@@ -483,8 +459,7 @@ export default{
                     path: '/admin/admin-api/get-schedules/filter-data',
                 },
 
-                
-                 /***
+                /***
                  * 
                  * End Admin Schedule
                  */

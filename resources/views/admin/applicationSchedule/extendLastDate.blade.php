@@ -1,4 +1,4 @@
 @extends('layouts.adminLayout')
-@section('extendLastDateHHDLS')
+@section('extendLastDate')
 <router-view></router-view>
 @endsection

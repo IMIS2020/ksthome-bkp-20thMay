@@ -79,13 +79,10 @@
     <div id="manageSchedule">
       @yield('manageSchedule')
     </div>
-    <div id="extendLastDateNursing">
-      @yield('extendLastDateNursing')
+    <div id="extendLastDate">
+      @yield('extendLastDate')
     </div>
 
-    <div id="extendLastDateHHDLS">
-      @yield('extendLastDateHHDLS')
-    </div>
    <!-- End schedule -->
 
    <!-- Manage users -->

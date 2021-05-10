@@ -99,15 +99,12 @@ class AdminSystemController extends Controller
       return view('admin.applicationSchedule.manageSchedule');
    }
 
-   public function extendLastDateNursing()
+   public function extendLastDate()
    {
-      return view('admin.applicationSchedule.extendLastDateNursing');
+      return view('admin.applicationSchedule.extendLastDate');
    }
 
-   public function extendLastDateHHDLS()
-   {
-      return view('admin.applicationSchedule.extendLastDateHHDLS');
-   }
+  
 
    // Admin schedule end
 

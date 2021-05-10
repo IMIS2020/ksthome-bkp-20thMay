@@ -161,7 +161,9 @@
 
                                                             <div class="col-xl-1 align-self-center">
                                                                 <div class="form-group">
-                                                                <a class="btn btn-sm btn-mg" role="button" @click.prevent="filterData"><i class="fa fa-search"></i></a></div>
+                                                                <a class="btn btn-sm btn-mg" role="button" @click.prevent="filterData"><i class="fa fa-search"></i></a>
+                                                                <button class="btn btn-mg font-sm" role="button" @click.prevent="resetForm"><i class="fa fa-refresh"></i></button>
+                                                                </div>
                                                               </div>
                                                               </div>
                                                         <div class="form-row">
@@ -257,6 +259,14 @@ export default {
                             axios.get('/admin/logout').then(function(){
                                 document.location.href = "/admin/login";
                             })
+                        },
+
+                        resetForm()
+                        {
+                            this.filterForm.contactno = '';
+                            this.filterForm.email     = '';
+                            this.filterForm.gender    = '';
+                            this.getData();
                         },
 
                     filterData(){

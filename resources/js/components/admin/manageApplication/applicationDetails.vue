@@ -242,7 +242,10 @@
                                                                 </select>
                                                             </div>
 
-                                                            <div class="col-xl-1 align-self-center"><button class="btn btn-sm btn-mg " role="button" @click.prevent="saveForm"><i class="fa fa-search"></i></button></div>
+                                                            <div class="col-xl-1 align-self-center">
+                                                                <button class="btn btn-sm btn-mg " role="button" @click.prevent="saveForm"><i class="fa fa-search"></i></button>
+                                                                <button class="btn btn-mg font-sm" role="button" @click.prevent="resetForm"><i class="fa fa-refresh"></i></button>
+                                                                </div>
                                                             <!-- <div class="col-xl-3 offset-xl-0 align-self-center pr-0"><input class="form-control form-control-sm" type="text" placeholder="Search by typing here..."></div> -->
                                                             <!-- <div class="col-xl-4 offset-xl-8 align-self-center and-col mt-2">
                                                                 <div class="form-row">
@@ -372,7 +375,6 @@ export default {
                   .then(response => this.getFilterData = response.data)
             },
 
-
                saveForm()
                 {
                     axios.post('/admin/admin-api/get-application-details/filter-data',this.form)
@@ -381,13 +383,28 @@ export default {
                     })
                 },
 
-                toggleStatus(applicationId){
-                    axios.post('/admin/admin-api/make-status-saved/'+applicationId)
-                        .then( this.$fire({
-                            position: 'top',
-                            icon: 'success',
-                            title: 'Application status changed',
-                            showConfirmButton: false,
+                    resetForm()
+                    {
+                        this.form.scholarshipType     =  '',
+                        this.form.session             =  '',
+                        this.form.email               =  '',
+                        this.form.contactno           =  '',
+                        this.form.firstname           =  '',
+                        this.form.lastname            =  '',
+                        this.form.gender              =  '',
+                        this.form.states              =  '',
+                        this.form.applicationType     =  '',
+                        this.form.status              =  '',
+                        this.getData();
+                    },
+
+                    toggleStatus(applicationId){
+                        axios.post('/admin/admin-api/make-status-saved/'+applicationId)
+                            .then( this.$fire({
+                                position: 'top',
+                                icon: 'success',
+                                title: 'Application status changed',
+                                showConfirmButton: false,
                             timer: 3000
                         }))
                           this.getData();

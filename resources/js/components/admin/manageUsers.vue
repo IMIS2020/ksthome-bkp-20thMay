@@ -97,7 +97,9 @@
                                                         
                                                             <div class="col-xl-1 align-self-center">
                                                                 <div class="form-group">
-                                                                <a class="btn btn-sm btn-mg" role="button" @click.prevent="filterData"><i class="fa fa-search"></i></a></div>
+                                                                <a class="btn btn-sm btn-mg" role="button" @click.prevent="filterData"><i class="fa fa-search"></i></a>
+                                                                <button class="btn btn-mg font-sm" role="button" @click.prevent="resetForm"><i class="fa fa-refresh"></i></button>
+                                                                </div>
                                                                 </div>
                                                             <div class="col-xl-3 offset-xl-1 align-self-center and-col ml-auto">
                                                                 <form>
@@ -394,9 +396,16 @@ export default {
                         })
                      }
                   })
-
                 }
                },
+
+                resetForm()
+                {
+                    this.filterForm.userId    = '';
+                    this.filterForm.contactNo = '';
+                     this.filterForm.email    = '';
+                    this.getData();
+                },
 
                 getData(){
                     axios.get('/admin/admin-api/get-all-users')

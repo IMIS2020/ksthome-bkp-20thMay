@@ -157,7 +157,9 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-xl-1 align-self-center">
-                                                                <button class="btn btn-mg font-sm" role="button" @click.prevent="saveForm"><i class="fa fa-search"></i></button></div>
+                                                                <button class="btn btn-mg font-sm" role="button" @click.prevent="saveForm"><i class="fa fa-search"></i></button>
+                                                                <button class="btn btn-mg font-sm" role="button" @click.prevent="resetForm"><i class="fa fa-refresh"></i></button>
+                                                                </div>
                                                             <!-- <div class="col-xl-6 offset-xl-1 align-self-center and-col">
                                                                 <form>
                                                                     <div class="form-group mb-0">
@@ -228,7 +230,7 @@
                                                         <div class="dropleft no-arrow dr-all"><a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
                                                             <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in">
                                                             <!-- <router-link class="dropdown-item" :to="'/edit-schedule/'+eachSchedules.scholarshipTypeValueId"><strong>Edit Application Schedule</strong></router-link> -->
-                                                            <router-link class="dropdown-item" :to="'/admin/extend-last-date/'+eachSchedules.id"><strong>Extend Last Date</strong></router-link>
+                                                            <router-link v-if="eachSchedules.status == 1" class="dropdown-item" :to="'/admin/extend-last-date/'+eachSchedules.id"><strong>Extend Last Date</strong></router-link>
                                                             <a class="dropdown-item" @click="toggleStatus(eachSchedules.id)" href="#"><strong>{{(eachSchedules.status == 1)? "Deactived" : "Actived"}} Schedule</strong></a></div>
                                                         </div>
                                                     </td>
@@ -290,6 +292,13 @@ export default {
                      this.errors = error.response.data.errors;
                 })
          },
+
+          resetForm()
+          {
+               this.form.session         = '';
+               this.form.scholarshipType = '';
+               this.getData();
+          },
 
          toggleStatus(id){
                 axios.post('/admin/admin-api/deactive-schedule/'+id)

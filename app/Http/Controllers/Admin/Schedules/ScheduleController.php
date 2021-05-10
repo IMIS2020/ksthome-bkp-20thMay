@@ -52,7 +52,11 @@ class ScheduleController extends Controller
         $request->validate([
             'newLastDate'  => ['required'],
         ]);
-        $getData = ApplicationScheduleTable::where('id',$Id)->first();
+        $getData = ApplicationScheduleTable::where('id',$Id)
+        ->whereDate('lastDate', '<=', $request->newLastDate)
+        ->first();
+
+        
         $getData->lastDate = $request->newLastDate;
         $getData->update();
     }

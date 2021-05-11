@@ -171,7 +171,7 @@
                                                                             <td class="text-center" v-if="form.applicationId == '' "><span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span></td>
                                                                             <td class="text-center" v-else><router-link class="act-link" :to="'/print-view-application/'+form.applicationId" ><i class="fa fa-eye"></i></router-link></td>
                                                                             <td class="text-center">
-                                                                                <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
+                                                                                <div class="form-group mb-0"><select class="form-control form-control-sm font-sm" >
                                                                                         <option value="" selected="">-- select --</option>
                                                                                         <option value="NOT OK">Not OK</option>
                                                                                         <option value="OK">OK</option>
@@ -190,16 +190,20 @@
                                                                             <td class="text-center" v-if="row.uploadStatus == 'YES'"><router-link target="_blank" class="act-link" :to="''+row.fileURL"><i class="fa fa-eye"></i></router-link></td>
                                                                             <td class="text-center" v-else><span class="act-link" style="color:#808080;"> <i class="fa fa-eye"></i></span></td>
                                                                             <td class="text-center">
-                                                                                <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
+                                                                                <div class="form-group mb-0">
+                                                                                    <select class="form-control form-control-sm font-sm" v-model="form.status">
                                                                                         <option value="" selected="">-- select --</option>
                                                                                         <option value="NOT OK">Not OK</option>
                                                                                         <option value="OK">OK</option>
                                                                                         <option value="NOT REQUIRED">Not Required</option>
                                                                                         <option value="REQUIRED AND MISSING">Required &amp; Missing</option>
-                                                                                    </select></div>
+                                                                                    </select>
+                                                                                </div>
                                                                             </td>
                                                                             <td class="text-center">
-                                                                                <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
+                                                                                <div class="form-group mb-0">
+                                                                                    <textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;" v-model="form.comments"></textarea>
+                                                                                </div>
                                                                             </td>
                                                                         </tr>
                                                                     </tbody>
@@ -207,7 +211,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-2 offset-xl-0 font-sm"><button class="btn btn-block btn-sm btn-mg font-sm" type="button"><strong>Save</strong></button></div>
-                                                        <div class="col-xl-2 offset-xl-0 font-sm"><button class="btn btn-block btn-sm btn-cancel font-sm" type="button"><strong>Cancel</strong></button></div>
+                                                        <div class="col-xl-2 offset-xl-0 font-sm"><button class="btn btn-block btn-sm btn-cancel font-sm" type="button"  @click.prevent="goBack"><strong>Cancel</strong></button></div>
                                                         <div class="col-xl-2 offset-xl-4"><button class="btn btn-block btn-sm btn-mg font-sm" data-toggle="modal" data-target="#accept-application-view" type="button"><strong>Accept</strong></button></div>
                                                         <div class="col-xl-2 offset-xl-0 font-sm"><button class="btn btn-block btn-sm btn-mg font-sm" type="button" data-toggle="modal" data-target="#return-application-view"><strong>Return with comments</strong></button></div>
                                                         <div class="col-xl-12 offset-xl-0">
@@ -230,16 +234,17 @@
                                                                                     <p class="mb-0 color-mg font-sm font-weight-bold">CC:</p>
                                                                                 </div>
                                                                                 <div class="col-xl-11 mb-2">
-                                                                                    <div class="form-group mb-0"><input class="form-control form-control-sm" type="email" placeholder="Email goes here."></div>
+                                                                                    <div class="form-group mb-0"><input class="form-control form-control-sm" v-model="form.ccEmail" type="email" placeholder="Email goes here."></div>
                                                                                 </div>
                                                                                 <div class="col-xl-1 align-self-center mb-4">
                                                                                     <p class="mb-0 color-mg font-sm font-weight-bold">Subject:</p>
                                                                                 </div>
                                                                                 <div class="col-xl-11 mb-4">
-                                                                                    <div class="form-group mb-0"><select class="form-control form-control-sm" >
+                                                                                    <div class="form-group mb-0">
+                                                                                        <select class="form-control form-control-sm" >
                                                                                             <option value="12" selected="">-- select --</option>
-                                                                                            <option value="13">Acceptance of Application</option>
-                                                                                            <option value="13">Provisional Acceptance of Application</option>
+                                                                                            <option value="Acceptance">Acceptance of Application</option>
+                                                                                            <option value="Provisional Acceptance">Provisional Acceptance of Application</option>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -465,6 +470,8 @@ export default{
         }
     },
 
+   
+
  
    methods:{
     //   getdataNursing(){
@@ -488,6 +495,11 @@ export default{
     //      }
     //   })
     // },
+
+            goBack() 
+            {
+                window.history.go(-1);
+            },
 
         logout(){
             axios.get('/admin/logout').then(function(){

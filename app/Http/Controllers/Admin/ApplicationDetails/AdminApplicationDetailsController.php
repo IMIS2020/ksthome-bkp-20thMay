@@ -11,6 +11,8 @@ use App\ModelScholarship\ApplicationSession;
 use App\ModelScholarship\ApplicationDocs;
 use App\ModelScholarship\DocMaster;
 use Illuminate\Support\Facades\Storage;
+use App\Exports\ApplicationExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminApplicationDetailsController extends Controller
 {
@@ -117,11 +119,14 @@ class AdminApplicationDetailsController extends Controller
 
          public function statusSaved(String $applicationId)
          {
-          $application =   ApplicationDetails::where('schApplicationId', $applicationId)->first();
+            $application =   ApplicationDetails::where('schApplicationId', $applicationId)->first();
+            $application->appStatus = 'Returned';
+            $application->dateLastSubmitted = null;
+            $application->update();
+        }
 
-          $application->appStatus = 'Returned';
-          $application->dateLastSubmitted = null;
-          $application->update();
-
+         public function exportExcel()
+         {
+             return Excel::download(new ApplicationExport,'applicationDetails.xlsx');
          }
 }

@@ -275,7 +275,7 @@
                                                 <tr>
                                                     <th class="w-20x">Application Details</th>
                                                     <th>Applicant's Details</th>
-                                                    <th class="w-25x">Contact Details</th>
+                                                    <th class="w-20x">Contact Details</th>
                                                     <th>Applicant's Address</th>
                                                     <th class="w-15x">Submission</th>
                                                     <th class="text-center w-10x">Status</th>
@@ -286,7 +286,7 @@
                                                 <tr  v-for="(eachData,i) in getAllData" :key="i">
                                                     <td class="w-20x">App No: {{eachData.appIdShow}}<br>Session: {{eachData.financialYear}}<br>Type: {{eachData.scholarshipType}}</td>
                                                     <td>Name : {{eachData.applicantNameF}} {{(eachData.applicantNameM)?" "+eachData.applicantNameM:''}} {{eachData.applicantNameL}} ,<br>Gender: {{eachData.applicantGender}},<br> Date of Birth : {{eachData.applicantDOB.split('-').reverse().join('/')}} <br>Age: <span v-if="calAge(eachData.applicantDOB) !== null">({{calAge(eachData.applicantDOB).years}} Years {{calAge(eachData.applicantDOB).months}} Months &amp; {{calAge(eachData.applicantDOB).days}} Days)</span></td>
-                                                    <td class="w-25x">Applicant phone No :{{eachData.applicantContactNoSelf}}, <br> Alternate no : {{eachData.applicantContactNoGuardian}}<br>Email : {{eachData.applicantEmailId}}</td>
+                                                    <td class="w-20x">Applicant phone No :{{eachData.applicantContactNoSelf}}, <br> Alternate no : {{eachData.applicantContactNoGuardian}}<br>Email : {{eachData.applicantEmailId}}</td>
                                                     <td>{{eachData.get_address.addressAddln1}},{{(eachData.get_address.addressAddln2)?" "+eachData.get_address.addressAddln2:''}} ,City: {{(eachData.get_address.addressCity)?" "+eachData.get_address.addressCity:''}} <br>Dist : {{(eachData.get_address.addressDistprov)?" "+eachData.get_address.addressDistprov:''}}<br>{{eachData.get_address.addressState}} - {{eachData.get_address.addressPinzip}}</td>
                                                     <td class="w-15x">Date: {{(eachData.dateLastSubmitted)?" "+eachData.dateLastSubmitted.split('T')[0].split('-').reverse().join('/'):''}}<br>Type: {{eachData.applicationType}}</td>
                                                     <td class="text-center w-10x">
@@ -312,7 +312,14 @@
                                    </div>
                                   <div>
                                 </div>
+                             </div>
+                            <div class="com-bg py-1 mt-1">
+                                <div class="form-row">
+                                <div class="col-xl-2 offset-xl-5 pr-1">
+                                    <a href="/admin/admin-api/export-excel" class="btn btn-block btn-sm btn-custom" role="button"><strong>Export to Excel (.xlsx)</strong></a>
+                                </div>
                             </div>
+                         </div>
                         </div>
                     </div>
                 </div>
@@ -374,6 +381,20 @@ export default {
              axios.get('/admin/admin-api/get-application-details/filter/data')
                   .then(response => this.getFilterData = response.data)
             },
+
+
+            //  excelExport()
+            // {
+            //     axios.get('/admin/admin-api/export-excel')
+            //     .then(
+            //            this.$fire({
+            //                 position:'top',
+            //                 icon: 'success',
+            //                 title: 'Data Exported',
+            //                 showConfirmButton: false,
+            //                 timer: 4000
+            //             }))
+            // },
 
                saveForm()
                 {

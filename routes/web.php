@@ -391,6 +391,8 @@ Route::prefix('admin')->group(function() {
       /***
       * get admin user profile details API call end
     */
+       Route::get('/export-excel','Admin\ApplicationDetails\AdminApplicationDetailsController@exportExcel');  
+
   });
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
   });

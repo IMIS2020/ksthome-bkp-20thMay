@@ -114,9 +114,9 @@ class ApplicationExport implements
         return implode("",$data);
     }
 
-    private function instituteData($appId)
+    private function instituteData(int $appId)
     {
-        // dd($appId);
+        dd($appId);
         $hasApplication = ApplicationDetails::where('id',$appId)->first()->hasAdmissionLetter;
         $dd($hasApplication);
         if($hasApplication == 'NO')

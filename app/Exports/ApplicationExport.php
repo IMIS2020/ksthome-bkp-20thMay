@@ -32,6 +32,7 @@ class ApplicationExport implements
     WithHeadings,
     WithStyles,
     WithColumnWidths
+   
     {
     /**
     * @return \Illuminate\Support\Collection
@@ -50,9 +51,11 @@ class ApplicationExport implements
         $getId = ApplicationDetails::where('schApplicationId',$appId)->first();
         $getEdu = ApplicationEducationDetails::where('applicationId',$getId->id)->with('get_examBoardDomainValues','get_examPassedDomainValues')->get();
         $data = [];
+        $i = 1;
         foreach ($getEdu as $edu) 
         {
-            $temp = $edu['get_examPassedDomainValues']->value."/".$edu['get_examBoardDomainValues']->value."/".$edu['mainSubjects']."/".$edu['yearOfPassing']."/".$edu['percentage']."/".$edu['division']."\n";
+            $temp =$i.") ".$edu['get_examPassedDomainValues']->value."/".$edu['get_examBoardDomainValues']->value."/".$edu['mainSubjects']."/".$edu['yearOfPassing']."/".$edu['percentage']."/".$edu['division']."\n";
+            $i++;
             array_push($data,$temp);
         }
         return implode("",$data);
@@ -109,12 +112,14 @@ class ApplicationExport implements
 
     private function miscDetails($appId)
     {
-        $getId = ApplicationDetails::where('schApplicationId',$appId)->first();
+        $getId   = ApplicationDetails::where('schApplicationId',$appId)->first();
         $getMisc = ApplicationMiscellaneousDetails::where('applicationId',$getId->id)->get();
         $data = [];
+        $i=1;
         foreach ($getMisc as $misc) 
         {
-            $temp = $misc['name']."/".$misc['relationship']."/".$misc['course']."/".$misc['year']."\n";
+            $temp = $i.") ".$misc['name']."/".$misc['relationship']."/".$misc['course']."/".$misc['year']."\n";
+            $i++;
             array_push($data,$temp);
         }
         return implode("",$data);
@@ -129,9 +134,11 @@ class ApplicationExport implements
         {
             $getInstitute = AnnexureI::with('get_institute')->where('applicationId',$hasApplication->id)->get();
             $data = [];
+            $i = 1;
             foreach ($getInstitute as $Institute) 
             {
-                $temp = $Institute['get_institute']->instituteName."/".$Institute['addressCity']."/".$Institute['addressDistprov']."/".$Institute['addressState']."\n";
+                $temp =$i.") ".$Institute['get_institute']->instituteName."/".$Institute['addressCity']."/".$Institute['addressDistprov']."/".$Institute['addressState']."\n";
+                $i++;
                 array_push($data,$temp);
             }
             return implode("",$data);
@@ -178,7 +185,7 @@ class ApplicationExport implements
     {
         return 
         [
-            'ID',
+           
             'Application Number',
             'Application Type',
             'Scholarship Type',
@@ -192,13 +199,16 @@ class ApplicationExport implements
             'Gender',
             'BPL Card',
             'Domicile State',
-            'Leprosy Affected Self',
-            'Leprosy Affected Mother',
-            'Leprosy Affected Father',
+
+            'Affected Self',
+            'Affected Mother',
+            'Affected Father',
+
             'Disablity Self',
             'Disablity Father',
             'Disablity Mother',
-            'Contact No(Self / Alternate)',
+
+            'Contact No(Self / Alternate :)',
             'Email ID',
             'Colony Leader Name',
             'Contact No (Colony Leader)',
@@ -226,7 +236,7 @@ class ApplicationExport implements
     {
         return 
         [
-            $application->id,
+            
             $application->appIdShow,
             $application->applicationType,
             $application->scholarshipType,
@@ -246,7 +256,7 @@ class ApplicationExport implements
             $application->applicantDisablitySelf == 1 ? 'Yes':'No',
             $application->applicantDisablityFather == 1 ? 'Yes':'No',
             $application->applicantDisablityMother == 1 ? 'Yes':'No',
-            'Self: '. $application->applicantContactNoSelf."\n".'Alternate: '.$application->applicantContactNoGuardian,
+            'Self: '. $application->applicantContactNoSelf."\n".'Alt:  '.$application->applicantContactNoGuardian,
             $application->applicantEmailId,
             $application->applicantColonyLeaderName,
             $application->applicantContactNoColonyLeader,
@@ -262,7 +272,7 @@ class ApplicationExport implements
             $application->hasAdmissionLetter,
             $this->degreeCourse($application->schApplicationId),
             $this->instituteData($application->schApplicationId),
-            $application->recognizedByINC == null ? 'No':'Yes',
+            $application->recognizedByINC,
             $this->educationDetails($application->schApplicationId),
             $this->highestQualification($application->schApplicationId),
             $this->highestMarks($application->schApplicationId),
@@ -274,48 +284,57 @@ class ApplicationExport implements
     {
         return 
         [
-            'A' => 5,
-            'B' => 20,    
+        
+            'A' => 16,    
+            'B'  =>10,
             'C'  =>10,
-            'D'  =>10,
-            'E'  =>25,
-            'F'  =>25,
-            'G'  =>25,
-            'H'  =>25,
-            'I'  =>25,
-            'J'  =>25,
-            'K'  =>15,
-            'L'  =>12,
+            'D'  =>20,
+            'E'  =>11,
+            'F'  =>7,
+            'G'  =>11,
+            'H'  =>12,
+            'I'  =>12,
+            'J'  =>11,
+            'K'  =>7,
+            'L'  =>7,
             'M'  =>12,
-            'N'  =>12,
-            'O'  =>17,
-            'P'  =>17,
-            'Q'  =>17,
-            'R'  =>12,
-            'S'  =>12,
-            'T'  =>12,
-            'U'  =>23,
-            'V'  =>25,
-            'W'  =>18,
-            'X'  =>23,
-            'Y'  =>10,
-            'Z'  =>12,
-            'AA' =>22,
-            'AH' =>14,
-            'AI' =>58,
-            'AJ' =>29,
-            'AK' =>14,
-            'AM' =>20,
-            'AN' =>12,
-            'AL' =>93,
-            'AO' =>40
+            'N'  =>10,
+            'O'  =>10,
+            'P'  =>10,
+            'Q'  =>10,
+            'R'  =>10,
+            'S'  =>10,
+            'T'  =>15,
+            'U'  =>25,
+            'V'  =>15,
+            'W'  =>16,
+            'X'  =>10,
+            'Y'  =>12,
+            'Z' =>16,
+            'AA' =>25,
+            'AB' =>10,
+            'AC' =>10,
+            'AD' =>12,
+            'AE' =>8,
+            'AF' =>10,
+            'AG' =>8,
+            'AI' =>50,
+            'AJ' =>11,
+            'AK' =>50,
+            'AL' =>15,
+            'AM' =>8,
+            'AN' =>35
+            
         ];
     }
    
     public function styles(Worksheet $sheet)
     {
-        $sheet->getStyle('A:AO')->getAlignment()->setWrapText(true);
-        $sheet->getStyle('A:AO')->getAlignment()->setVertical(Alignment::VERTICAL_TOP);
-        $sheet->getStyle('A:AO')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+        $sheet->getStyle('A:AN')->getAlignment()->setWrapText(true);
+        $sheet->getStyle('A:AN')->getAlignment()->setVertical(Alignment::VERTICAL_TOP);
+        $sheet->getStyle('A:AN')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+        $sheet->getStyle('A:AN')->getFont()->setSize(9);
+        $sheet->getStyle('A1:AN1')->getFont()->setBold(true);
     }
+
 }

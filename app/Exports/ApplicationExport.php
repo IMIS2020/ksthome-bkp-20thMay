@@ -116,6 +116,7 @@ class ApplicationExport implements
 
     private function instituteData($appId)
     {
+        dd($appId);
         $hasApplication = ApplicationDetails::where('id',$appId)->first()->hasAdmissionLetter;
 
         if($hasApplication == 'NO')
@@ -143,7 +144,6 @@ class ApplicationExport implements
 
     private function degreeCourse(String $appId)
     {
-        dd($appId);
         $hasApplication = ApplicationDetails::where('id',$appId)->first()->hasAdmissionLetter;
         if($hasApplication == 'NO')
         {

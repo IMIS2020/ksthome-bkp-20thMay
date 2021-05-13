@@ -142,7 +142,7 @@ class ApplicationExport implements
            } 
       }
 
-    private function degreeCourse(String $appId)
+    private function degreeCourse($appId)
     {
         $hasApplication = ApplicationDetails::where('schApplicationId',$appId)->first();
         if($hasApplication->hasAdmissionLetter == 'NO')
@@ -255,7 +255,7 @@ class ApplicationExport implements
             $application->get_address->addressCountry,
             $application->hasAdmissionLetter,
             $this->instituteData($application->schApplicationId),
-            $this->degreeCourse($application->id),
+            $this->degreeCourse($application->schApplicationId),
             $application->recognizedByINC == null ? 'No':'Yes',
             $this->educationDetails($application->id),
             $this->highestQualification($application->id),

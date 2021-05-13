@@ -47,7 +47,8 @@ class ApplicationExport implements
 
     private function educationDetails($appId)
     {
-        $getEdu = ApplicationEducationDetails::where('applicationId',$appId)->with('get_examBoardDomainValues','get_examPassedDomainValues')->get();
+        $getId = ApplicationDetails::where('schApplicationId',$appId)->first();
+        $getEdu = ApplicationEducationDetails::where('applicationId',$getId->id)->with('get_examBoardDomainValues','get_examPassedDomainValues')->get();
         $data = [];
         foreach ($getEdu as $edu) 
         {
@@ -60,7 +61,9 @@ class ApplicationExport implements
 
     private function highestMarks($appId)
     {
-        $getEdu = ApplicationEducationDetails::where('applicationId',$appId)->with('get_examBoardDomainValues','get_examPassedDomainValues')->get();
+        $temp ="";
+        $getId = ApplicationDetails::where('schApplicationId',$appId)->first();
+        $getEdu = ApplicationEducationDetails::where('applicationId',$getId->id)->with('get_examBoardDomainValues','get_examPassedDomainValues')->get();
         $data = [];
         foreach ($getEdu as $edu) 
         {
@@ -81,7 +84,9 @@ class ApplicationExport implements
 
     private function highestQualification($appId)
     {
-        $getEdu = ApplicationEducationDetails::where('applicationId',$appId)->with('get_examBoardDomainValues','get_examPassedDomainValues')->get();
+        $temp ="";
+        $getId = ApplicationDetails::where('schApplicationId',$appId)->first();
+        $getEdu = ApplicationEducationDetails::where('applicationId',$getId->id)->with('get_examBoardDomainValues','get_examPassedDomainValues')->get();
         $data = [];
         foreach ($getEdu as $edu) 
         {
@@ -104,7 +109,8 @@ class ApplicationExport implements
 
     private function miscDetails($appId)
     {
-        $getMisc = ApplicationMiscellaneousDetails::where('applicationId',$appId)->get();
+        $getId = ApplicationDetails::where('schApplicationId',$appId)->first();
+        $getMisc = ApplicationMiscellaneousDetails::where('applicationId',$getId->id)->get();
         $data = [];
         foreach ($getMisc as $misc) 
         {
@@ -115,12 +121,20 @@ class ApplicationExport implements
     }
 
     private function instituteData($appId)
+<<<<<<< HEAD
     { dd($appId);
         $hasApplication = ApplicationDetails::where('id',$appId)->first()->hasAdmissionLetter;
             
         if($hasApplication == 'NO')
+=======
+    {
+        // dd($appId);
+        $hasApplication = ApplicationDetails::where('schApplicationId',$appId)->first();
+      //  dd($hasApplication);
+        if($hasApplication->hasAdmissionLetter == 'NO')
+>>>>>>> master
         {
-            $getInstitute = AnnexureI::with('get_institute')->where('applicationId',$appId)->get();
+            $getInstitute = AnnexureI::with('get_institute')->where('applicationId',$hasApplication->id)->get();
             $data = [];
             foreach ($getInstitute as $Institute) 
             {
@@ -130,7 +144,7 @@ class ApplicationExport implements
             return implode("",$data);
 
         }else{
-            $getInstitute = ApplicationDetails::with('get_institute')->where('id',$appId)->get();
+            $getInstitute = ApplicationDetails::with('get_institute')->where('id',$hasApplication->id)->get();
             $data = [];
             foreach ($getInstitute as $Institute) 
             {
@@ -141,12 +155,12 @@ class ApplicationExport implements
            } 
       }
 
-    private function degreeCourse(String $appId)
+    private function degreeCourse($appId)
     {
-        $hasApplication = ApplicationDetails::where('id',$appId)->first()->hasAdmissionLetter;
-        if($hasApplication == 'NO')
+        $hasApplication = ApplicationDetails::where('schApplicationId',$appId)->first();
+        if($hasApplication->hasAdmissionLetter == 'NO')
         {
-            $getDegree = AnnexureI::with('get_courseLevelValue','get_courseLevelName')->where('applicationId',$appId)->get();
+            $getDegree = AnnexureI::with('get_courseLevelValue','get_courseLevelName')->where('applicationId',$hasApplication->id)->get();
             $data = [];
             foreach ($getDegree as $Degree) 
             {
@@ -155,7 +169,7 @@ class ApplicationExport implements
             }
             return implode("",$data);
         }else{
-            $getDegree = ApplicationDetails::with('get_courseDomainName','get_courseDomainValues')->where('id',$appId)->get();
+            $getDegree = ApplicationDetails::with('get_courseDomainName','get_courseDomainValues')->where('id',$hasApplication->id)->get();
             $data = [];
            foreach ($getDegree as $Degree) 
            {
@@ -205,8 +219,8 @@ class ApplicationExport implements
             'Pincode',
             'Country',
             'Admission Letter',
-            'Institute',
             'Degree/Course Name',
+            'Institute',
             'Recognized By (INC)',
             'Education Details(Examination Passed/University/Subjects/Year of Passing/Percentage/Division)',
             'Highest Qualification',
@@ -253,13 +267,13 @@ class ApplicationExport implements
             $application->get_address->addressPinzip,
             $application->get_address->addressCountry,
             $application->hasAdmissionLetter,
-            $this->instituteData($application->id),
-            $this->degreeCourse($application->id),
+            $this->degreeCourse($application->schApplicationId),
+            $this->instituteData($application->schApplicationId),
             $application->recognizedByINC == null ? 'No':'Yes',
-            $this->educationDetails($application->id),
-            $this->highestQualification($application->id),
-            $this->highestMarks($application->id),
-            $this->miscDetails($application->id),
+            $this->educationDetails($application->schApplicationId),
+            $this->highestQualification($application->schApplicationId),
+            $this->highestMarks($application->schApplicationId),
+            $this->miscDetails($application->schApplicationId),
         ];
     }
 

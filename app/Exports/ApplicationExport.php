@@ -118,8 +118,8 @@ class ApplicationExport implements
     {
         // dd($appId);
         $hasApplication = ApplicationDetails::where('schApplicationId',$appId)->first();
-        dd($hasApplication);
-        if($hasApplication == 'NO')
+      //  dd($hasApplication);
+        if($hasApplication->hasAdmissionLetter == 'NO')
         {
             $getInstitute = AnnexureI::with('get_institute')->where('applicationId',$appId)->get();
             $data = [];

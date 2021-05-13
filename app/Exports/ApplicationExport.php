@@ -47,7 +47,8 @@ class ApplicationExport implements
 
     private function educationDetails($appId)
     {
-        $getEdu = ApplicationEducationDetails::where('applicationId',$appId)->with('get_examBoardDomainValues','get_examPassedDomainValues')->get();
+        $getId = ApplicationDetails::where('schApplicationId',$appId)->first();
+        $getEdu = ApplicationEducationDetails::where('applicationId',$getId->id)->with('get_examBoardDomainValues','get_examPassedDomainValues')->get();
         $data = [];
         foreach ($getEdu as $edu) 
         {
@@ -61,7 +62,8 @@ class ApplicationExport implements
     private function highestMarks($appId)
     {
         $temp ="";
-        $getEdu = ApplicationEducationDetails::where('applicationId',$appId)->with('get_examBoardDomainValues','get_examPassedDomainValues')->get();
+        $getId = ApplicationDetails::where('schApplicationId',$appId)->first();
+        $getEdu = ApplicationEducationDetails::where('applicationId',$getId->id)->with('get_examBoardDomainValues','get_examPassedDomainValues')->get();
         $data = [];
         foreach ($getEdu as $edu) 
         {
@@ -83,7 +85,8 @@ class ApplicationExport implements
     private function highestQualification($appId)
     {
         $temp ="";
-        $getEdu = ApplicationEducationDetails::where('applicationId',$appId)->with('get_examBoardDomainValues','get_examPassedDomainValues')->get();
+        $getId = ApplicationDetails::where('schApplicationId',$appId)->first();
+        $getEdu = ApplicationEducationDetails::where('applicationId',$getId->id)->with('get_examBoardDomainValues','get_examPassedDomainValues')->get();
         $data = [];
         foreach ($getEdu as $edu) 
         {
@@ -106,7 +109,8 @@ class ApplicationExport implements
 
     private function miscDetails($appId)
     {
-        $getMisc = ApplicationMiscellaneousDetails::where('applicationId',$appId)->get();
+        $getId = ApplicationDetails::where('schApplicationId',$appId)->first();
+        $getMisc = ApplicationMiscellaneousDetails::where('applicationId',$getId->id)->get();
         $data = [];
         foreach ($getMisc as $misc) 
         {
@@ -259,10 +263,10 @@ class ApplicationExport implements
             $this->instituteData($application->schApplicationId),
             $this->degreeCourse($application->schApplicationId),
             $application->recognizedByINC == null ? 'No':'Yes',
-            $this->educationDetails($application->id),
-            $this->highestQualification($application->id),
-            $this->highestMarks($application->id),
-            $this->miscDetails($application->id),
+            $this->educationDetails($application->schApplicationId),
+            $this->highestQualification($application->schApplicationId),
+            $this->highestMarks($application->schApplicationId),
+            $this->miscDetails($application->schApplicationId),
         ];
     }
 

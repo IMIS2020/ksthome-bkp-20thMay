@@ -114,6 +114,7 @@ class ApplicationExport implements
     {
         $getId   = ApplicationDetails::where('schApplicationId',$appId)->first();
         $getMisc = ApplicationMiscellaneousDetails::where('applicationId',$getId->id)->get();
+
         $data = [];
         $i=1;
         foreach ($getMisc as $misc) 
@@ -193,20 +194,20 @@ class ApplicationExport implements
             'First Name',
             'Middle Name',
             'Last Name',
-            'Father Name',
-            'Mother Name',
+            "Father's Name",
+            "Mother's Name",
             'Date of Birth',
             'Gender',
             'BPL Card',
             'Domicile State',
 
-            'Affected Self',
-            'Affected Mother',
-            'Affected Father',
+            'Self   Affected',
+            'Mother Affected',
+            'Father Affected',
 
-            'Disablity Self',
-            'Disablity Father',
-            'Disablity Mother',
+            'Self Disablity',
+            'Mother Disablity ',
+            'Father Disablity ',
 
             'Contact No(Self / Alternate :)',
             'Email ID',
@@ -236,7 +237,6 @@ class ApplicationExport implements
     {
         return 
         [
-            
             $application->appIdShow,
             $application->applicationType,
             $application->scholarshipType,
@@ -301,7 +301,7 @@ class ApplicationExport implements
             'N'  =>10,
             'O'  =>8,
             'P'  =>8,
-            'Q'  =>10,
+            'Q'  =>9,
             'R'  =>10,
             'S'  =>10,
             'T'  =>15,
@@ -318,6 +318,7 @@ class ApplicationExport implements
             'AE' =>8,
             'AF' =>10,
             'AG' =>8,
+            'AH' =>26,
             'AI' =>50,
             'AJ' =>11,
             'AK' =>50,
@@ -335,6 +336,6 @@ class ApplicationExport implements
         $sheet->getStyle('A:AN')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
         $sheet->getStyle('A:AN')->getFont()->setSize(9);
         $sheet->getStyle('A1:AN1')->getFont()->setBold(true);
+        $sheet->getRowDimension(1)->setRowHeight(30);
     }
-
 }

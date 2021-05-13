@@ -18,8 +18,8 @@
                     <!-- <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-domains"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li> -->
                     <li class="nav-item shadow-lg"><router-link v-if="userId =='SU-000001'" class="nav-link" to="/admin/manage-internal-users"><i class="fas fa-wrench"></i><span>Manage Users</span></router-link></li>
-                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="#"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
-                   <li class="nav-item shadow-lg"><router-link v-if="userId =='SU-000001'"  class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li>
+                    <li class="nav-item shadow-lg"><router-link v-if="userId =='SU-000001'" class="nav-link" to="#"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
+                   <li class="nav-item shadow-lg"><router-link  v-if="userId =='SU-000001'"  class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-details"><i class="fas fa-sticky-note"></i><span>Manage Applications</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/all-registered-users"><i class="fas fa-user"></i><span>All Registered Users</span></router-link></li>
                     
@@ -141,7 +141,7 @@
                                         </router-link>
                                      </div>
                                         -->
-                                       <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-xl-0 mb-3 pr-1" data-toggle="tooltip" data-placement="right"  title="functionality currently not available">
+                                       <div v-if="userId =='SU-000001'" class="col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-xl-0 mb-3 pr-1" data-toggle="tooltip" data-placement="right"  title="functionality currently not available">
                                         <router-link to="#">
                                             <div class="home-icon-disabled">
                                                 <h3 class="text-break text-uppercase"><strong>manage </strong><br><strong>domains</strong><br></h3>

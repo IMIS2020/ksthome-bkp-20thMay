@@ -340,6 +340,8 @@ export default{
                     component:ApplicationDetails,
                     name: "manage-application"
                 },
+
+                
                 /***
                  * Manage my application
                  */

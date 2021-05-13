@@ -144,8 +144,8 @@ class ApplicationExport implements
 
     private function degreeCourse(String $appId)
     {
-        $hasApplication = ApplicationDetails::where('schApplicationId',$appId)->first()->hasAdmissionLetter;
-        if($hasApplication == 'NO')
+        $hasApplication = ApplicationDetails::where('schApplicationId',$appId)->first();
+        if($hasApplication->hasAdmissionLetter == 'NO')
         {
             $getDegree = AnnexureI::with('get_courseLevelValue','get_courseLevelName')->where('applicationId',$appId)->get();
             $data = [];

@@ -127,7 +127,7 @@ class ApplicationExport implements
       //  dd($hasApplication);
         if($hasApplication->hasAdmissionLetter == 'NO')
         {
-            $getInstitute = AnnexureI::with('get_institute')->where('applicationId',$appId)->get();
+            $getInstitute = AnnexureI::with('get_institute')->where('applicationId',$hasApplication->id)->get();
             $data = [];
             foreach ($getInstitute as $Institute) 
             {
@@ -153,7 +153,7 @@ class ApplicationExport implements
         $hasApplication = ApplicationDetails::where('schApplicationId',$appId)->first();
         if($hasApplication->hasAdmissionLetter == 'NO')
         {
-            $getDegree = AnnexureI::with('get_courseLevelValue','get_courseLevelName')->where('applicationId',$appId)->get();
+            $getDegree = AnnexureI::with('get_courseLevelValue','get_courseLevelName')->where('applicationId',$hasApplication->id)->get();
             $data = [];
             foreach ($getDegree as $Degree) 
             {

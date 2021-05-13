@@ -116,8 +116,8 @@ class ApplicationExport implements
 
     private function instituteData($appId)
     {
-        dd($appId);
-        $hasApplication = ApplicationDetails::where('id',$appId)->first()->hasAdmissionLetter;
+        // dd($appId);
+        $hasApplication = ApplicationDetails::where('schApplicationId',$appId)->first()->hasAdmissionLetter;
         $dd($hasApplication);
         if($hasApplication == 'NO')
         {
@@ -144,7 +144,7 @@ class ApplicationExport implements
 
     private function degreeCourse(String $appId)
     {
-        $hasApplication = ApplicationDetails::where('id',$appId)->first()->hasAdmissionLetter;
+        $hasApplication = ApplicationDetails::where('schApplicationId',$appId)->first()->hasAdmissionLetter;
         if($hasApplication == 'NO')
         {
             $getDegree = AnnexureI::with('get_courseLevelValue','get_courseLevelName')->where('applicationId',$appId)->get();

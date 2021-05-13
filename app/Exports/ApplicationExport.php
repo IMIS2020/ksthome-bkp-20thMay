@@ -295,6 +295,7 @@ class ApplicationExport implements
             'Z'  =>12,
             'AA' =>22,
             'AH' =>14,
+            'AI' =>58,
             'AJ' =>29,
             'AK' =>14,
             'AM' =>20,

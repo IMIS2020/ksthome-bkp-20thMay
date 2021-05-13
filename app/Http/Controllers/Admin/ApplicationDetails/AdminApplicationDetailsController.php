@@ -127,6 +127,6 @@ class AdminApplicationDetailsController extends Controller
 
          public function exportExcel()
          {
-             return Excel::download(new ApplicationExport,'applicationDetails.xlsx');
+             return Excel::download(new ApplicationExport,'allApplications-' . date("d-m-Y") . '.xlsx');
          }
 }

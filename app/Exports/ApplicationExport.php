@@ -57,6 +57,51 @@ class ApplicationExport implements
         return implode("",$data);
     }
 
+
+    private function highestMarks($appId)
+    {
+        $getEdu = ApplicationEducationDetails::where('applicationId',$appId)->with('get_examBoardDomainValues','get_examPassedDomainValues')->get();
+        $data = [];
+        foreach ($getEdu as $edu) 
+        {
+            $getName = DomainName::where('id',$edu['get_examPassedDomainValues']->nameId)->first()->name;
+            if($getName == "ExamLevel-Graduate")
+            {
+                $temp = $edu['percentage'];
+                array_push($data,$temp);
+                // return implode("",$data);
+            }else if($getName == "ExamLevel-12") {
+                    $temp = $edu['percentage'];
+                    array_push($data,$temp);
+                    // return implode("",$data);
+            } 
+        }
+        return $temp;
+    }
+
+    private function highestQualification($appId)
+    {
+        $getEdu = ApplicationEducationDetails::where('applicationId',$appId)->with('get_examBoardDomainValues','get_examPassedDomainValues')->get();
+        $data = [];
+        foreach ($getEdu as $edu) 
+        {
+            $getName = DomainName::where('id',$edu['get_examPassedDomainValues']->nameId)->first()->name;
+            if($getName == "ExamLevel-Graduate")
+            {
+                $temp = $edu['get_examPassedDomainValues']->value;
+                array_push($data,$temp);
+                
+            }else {
+                if($getName == "ExamLevel-12") {
+                    $temp= $edu['get_examPassedDomainValues']->value;
+                    array_push($data,$temp);
+                    // return implode("",$data);
+                } 
+             }
+        }
+        return $temp;
+    }
+
     private function miscDetails($appId)
     {
         $getMisc = ApplicationMiscellaneousDetails::where('applicationId',$appId)->get();
@@ -69,30 +114,58 @@ class ApplicationExport implements
         return implode("",$data);
     }
 
-    private function instituteData(String $appId)
+    private function instituteData($appId)
     {
-        $getInstitute = AnnexureI::with('get_institute')->where('applicationId',$appId)->get();
-        $data = [];
-        foreach ($getInstitute as $Institute) 
+        $hasApplication = ApplicationDetails::where('id',$appId)->first()->hasAdmissionLetter;
+
+        if($hasApplication == 'NO')
         {
-            $temp = $Institute['get_institute']->instituteName."/".$Institute['addressCity']."/".$Institute['addressDistprov']."/".$Institute['addressState']."\n";
-            array_push($data,$temp);
-        }
-        return implode("",$data);
-    }
+            $getInstitute = AnnexureI::with('get_institute')->where('applicationId',$appId)->get();
+            $data = [];
+            foreach ($getInstitute as $Institute) 
+            {
+                $temp = $Institute['get_institute']->instituteName."/".$Institute['addressCity']."/".$Institute['addressDistprov']."/".$Institute['addressState']."\n";
+                array_push($data,$temp);
+            }
+            return implode("",$data);
+
+        }else{
+            $getInstitute = ApplicationDetails::with('get_institute')->where('id',$appId)->get();
+            $data = [];
+            foreach ($getInstitute as $Institute) 
+            {
+                $temp = $Institute['get_institute']->instituteName."/".$Institute['get_address']->addressCity."/".$Institute['get_address']->addressDistprov."/".$Institute['get_address']->addressState."\n";
+                array_push($data,$temp);
+            }
+            return implode("",$data);
+           } 
+      }
 
     private function degreeCourse(String $appId)
     {
-        $getDegree = AnnexureI::with('get_courseLevelValue','get_courseLevelName')->where('applicationId',$appId)->get();
-        // dd($getDegree);
-        $data = [];
-        foreach ($getDegree as $Degree) 
+        $hasApplication = ApplicationDetails::where('id',$appId)->first()->hasAdmissionLetter;
+        if($hasApplication == 'NO')
         {
-            $temp = $Degree['get_courseLevelValue']->description."/".$Degree['get_courseLevelName']->value."\n";
-            array_push($data,$temp);
+            $getDegree = AnnexureI::with('get_courseLevelValue','get_courseLevelName')->where('applicationId',$appId)->get();
+            $data = [];
+            foreach ($getDegree as $Degree) 
+            {
+                $temp = $Degree['get_courseLevelValue']->description."/".$Degree['get_courseLevelName']->value."\n";
+                array_push($data,$temp);
+            }
+            return implode("",$data);
+        }else{
+            $getDegree = ApplicationDetails::with('get_courseDomainName','get_courseDomainValues')->where('id',$appId)->get();
+            $data = [];
+           foreach ($getDegree as $Degree) 
+           {
+               $temp = $Degree['get_courseDomainName']->description."/".$Degree['get_courseDomainValues']->value."\n";
+               array_push($data,$temp);
+           }
+           return implode("",$data);
         }
-        return implode("",$data);
     }
+
 
     public function headings(): array
     {
@@ -103,28 +176,25 @@ class ApplicationExport implements
             'Application Type',
             'Scholarship Type',
             'Applicant Name',
-            'Applicant First Name',
-            'Applicant Middle Name',
-            'Applicant Last Name',
+            'First Name',
+            'Middle Name',
+            'Last Name',
             'Father Name',
             'Mother Name',
             'Date of Birth',
             'Gender',
+            'BPL Card',
+            'Domicile State',
             'Leprosy Affected Self',
             'Leprosy Affected Mother',
             'Leprosy Affected Father',
             'Disablity Self',
             'Disablity Father',
             'Disablity Mother',
-            'BPL Card',
-            'Domicile State',
-            'Contact No(Self)',
-            'Contact No (Guardian)',
+            'Contact No(Self / Alternate)',
             'Email ID',
             'Colony Leader Name',
             'Contact No (Colony Leader)',
-            'Admission Letter',
-            'Recognized By (INC)',
             'Financial Year',
             'Application Status',
             'Application Specific Last Date',
@@ -134,9 +204,13 @@ class ApplicationExport implements
             'State',
             'Pincode',
             'Country',
-            'Degree/Course Name',
+            'Admission Letter',
             'Institute',
+            'Degree/Course Name',
+            'Recognized By (INC)',
             'Education Details(Examination Passed/University/Subjects/Year of Passing/Percentage/Division)',
+            'Highest Qualification',
+            'Highest Marks',
             'Misc Details(Name/Relationship/Course/Year)',
         ];
     }
@@ -157,21 +231,18 @@ class ApplicationExport implements
             $application->applicantMotherName ,
             date("d/m/Y", strtotime($application->applicantDOB)),
             $application->applicantGender,
+            $application->applicantHasBPLCard,
+            $application->applicantDomicileState,
             $application->applicantLeprosyAffectedSelf   == 1 ? 'Yes':'No',
             $application->applicantLeprosyAffectedFather == 1 ? 'Yes':'No',
             $application->applicantLeprosyAffectedMother == 1 ? 'Yes':'No',
             $application->applicantDisablitySelf == 1 ? 'Yes':'No',
             $application->applicantDisablityFather == 1 ? 'Yes':'No',
             $application->applicantDisablityMother == 1 ? 'Yes':'No',
-            $application->applicantHasBPLCard,
-            $application->applicantDomicileState,
-            $application->applicantContactNoSelf,
-            $application->applicantContactNoGuardian,
+            'Self: '. $application->applicantContactNoSelf."\n".'Alternate: '.$application->applicantContactNoGuardian,
             $application->applicantEmailId,
             $application->applicantColonyLeaderName,
             $application->applicantContactNoColonyLeader,
-            $application->hasAdmissionLetter,
-            $application->recognizedByINC == null ? 'No':'Yes',
             $application->financialYear,
             $application->appStatus,
             date("d/m/Y", strtotime($application->appSpecificLastDt)),
@@ -181,9 +252,13 @@ class ApplicationExport implements
             $application->get_address->addressState,
             $application->get_address->addressPinzip,
             $application->get_address->addressCountry,
-            $this->degreeCourse($application->id),
+            $application->hasAdmissionLetter,
             $this->instituteData($application->id),
+            $this->degreeCourse($application->id),
+            $application->recognizedByINC == null ? 'No':'Yes',
             $this->educationDetails($application->id),
+            $this->highestQualification($application->id),
+            $this->highestMarks($application->id),
             $this->miscDetails($application->id),
         ];
     }
@@ -196,12 +271,36 @@ class ApplicationExport implements
             'B' => 20,    
             'C'  =>10,
             'D'  =>10,
-            'E'  =>40,
-            'F'  =>30,
-            'G'  =>0,
-            'H'  =>20,
-            'I'  =>40,
-            'J'  =>40,
+            'E'  =>25,
+            'F'  =>25,
+            'G'  =>25,
+            'H'  =>25,
+            'I'  =>25,
+            'J'  =>25,
+            'K'  =>15,
+            'L'  =>12,
+            'M'  =>12,
+            'N'  =>12,
+            'O'  =>17,
+            'P'  =>17,
+            'Q'  =>17,
+            'R'  =>12,
+            'S'  =>12,
+            'T'  =>12,
+            'U'  =>23,
+            'V'  =>25,
+            'W'  =>18,
+            'X'  =>23,
+            'Y'  =>10,
+            'Z'  =>12,
+            'AA' =>22,
+            'AH' =>14,
+            'AJ' =>29,
+            'AK' =>14,
+            'AM' =>20,
+            'AN' =>12,
+            'AL' =>93,
+            'AO' =>40
         ];
     }
    

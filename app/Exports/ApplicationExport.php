@@ -137,7 +137,7 @@ class ApplicationExport implements
             return implode("",$data);
 
         }else{
-            $getInstitute = ApplicationDetails::with('get_institute')->where('id',$appId)->get();
+            $getInstitute = ApplicationDetails::with('get_institute')->where('id',$hasApplication->id)->get();
             $data = [];
             foreach ($getInstitute as $Institute) 
             {
@@ -162,7 +162,7 @@ class ApplicationExport implements
             }
             return implode("",$data);
         }else{
-            $getDegree = ApplicationDetails::with('get_courseDomainName','get_courseDomainValues')->where('id',$appId)->get();
+            $getDegree = ApplicationDetails::with('get_courseDomainName','get_courseDomainValues')->where('id',$hasApplication->id)->get();
             $data = [];
            foreach ($getDegree as $Degree) 
            {

@@ -60,6 +60,7 @@ class ApplicationExport implements
 
     private function highestMarks($appId)
     {
+        $temp ="";
         $getEdu = ApplicationEducationDetails::where('applicationId',$appId)->with('get_examBoardDomainValues','get_examPassedDomainValues')->get();
         $data = [];
         foreach ($getEdu as $edu) 
@@ -81,6 +82,7 @@ class ApplicationExport implements
 
     private function highestQualification($appId)
     {
+        $temp ="";
         $getEdu = ApplicationEducationDetails::where('applicationId',$appId)->with('get_examBoardDomainValues','get_examPassedDomainValues')->get();
         $data = [];
         foreach ($getEdu as $edu) 

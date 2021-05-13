@@ -254,7 +254,7 @@ class ApplicationExport implements
             $application->get_address->addressPinzip,
             $application->get_address->addressCountry,
             $application->hasAdmissionLetter,
-            $this->instituteData($application->id),
+            $this->instituteData($application->appIdShow),
             $this->degreeCourse($application->id),
             $application->recognizedByINC == null ? 'No':'Yes',
             $this->educationDetails($application->id),

@@ -121,18 +121,11 @@ class ApplicationExport implements
     }
 
     private function instituteData($appId)
-<<<<<<< HEAD
-    { dd($appId);
-        $hasApplication = ApplicationDetails::where('id',$appId)->first()->hasAdmissionLetter;
-            
-        if($hasApplication == 'NO')
-=======
     {
         // dd($appId);
         $hasApplication = ApplicationDetails::where('schApplicationId',$appId)->first();
       //  dd($hasApplication);
         if($hasApplication->hasAdmissionLetter == 'NO')
->>>>>>> master
         {
             $getInstitute = AnnexureI::with('get_institute')->where('applicationId',$hasApplication->id)->get();
             $data = [];

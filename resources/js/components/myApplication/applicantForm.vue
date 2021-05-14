@@ -238,13 +238,27 @@
                                                                         <input class="form-control form-control-sm" type="text"  v-model="form.addressPinzip" :disabled="globalDisable" maxlength="6" minlength="6" required>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-xl-3">
+
+                                                                <div class="col-sm-1">
+                                                                    <div class="form-group">
+                                                                        <input style="margin-top:30px;" class="form-control form-control-sm" type="text"  v-model="applicantContactNoPrefix" :disabled="globalDisable" readonly>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-xl-2">
                                                                     <label>Contact no. (Self)&nbsp;<span class="text-danger">*</span></label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" maxlength="10" minlength="10" v-model="form.applicantContactNoSelf" :disabled="globalDisable" required>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-xl-3">
+
+                                                                <div class="col-sm-1">
+                                                                    <div class="form-group">
+                                                                        <input style="margin-top:30px;" class="form-control form-control-sm" type="text"  v-model="applicantContactNoPrefix" :disabled="globalDisable" readonly>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-xl-2">
                                                                     <label>Alternate Contact No&nbsp;<span class="text-danger">*</span></label>
                                                                     <div class="form-group">
                                                                     <input class="form-control form-control-sm" type="text" maxlength="10" minlength="10"  v-model="form.applicantContactNoGuardian" :disabled="globalDisable" required>
@@ -263,12 +277,19 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="col-xl-3">
+                                                                <div class="col-sm-1">
+                                                                    <div class="form-group">
+                                                                        <input style="margin-top:30px;" class="form-control form-control-sm" type="text"  v-model="applicantContactNoPrefix" :disabled="globalDisable" readonly>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-xl-2">
                                                                     <label>Contact no. (colony leader)&nbsp;<span class="text-danger">*</span></label>
                                                                     <div class="form-group">
                                                                         <input class="form-control form-control-sm" type="text" minlength="10" maxlength="10"  v-model="form.applicantContactNoColonyLeader" :disabled="globalDisable" required>
                                                                     </div>
                                                                 </div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1202,6 +1223,7 @@
 export default {
     data () {
         return {
+            applicantContactNoPrefix:'+91',
             inputDisabled: false,
             globalDisable: false,
             // csrf:   document.querySelector('meta[name="csrf-token"]').getAttribute('content'),

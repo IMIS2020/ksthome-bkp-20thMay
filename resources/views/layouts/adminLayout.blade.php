@@ -102,6 +102,18 @@
         @yield('adminUserProfile')
       </div>
    <!-- admin profile end -->
+   
+   <!-- Review mail accept -->
+   <div>
+      @yield('ReviewMailAccept')
+    </div>
+   <!-- Review mail end -->
+
+    <!-- Review mail accept -->
+    <div>
+      @yield('ReviewMailReturn')
+    </div>
+   <!-- Review mail end -->
     
     <!-- <script src="{{asset('assets/js/jquery.min.js')}}"></script> -->
     <!-- <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script> -->

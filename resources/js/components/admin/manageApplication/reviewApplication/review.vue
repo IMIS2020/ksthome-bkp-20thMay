@@ -16,11 +16,11 @@
                     </li> -->
                     <!-- <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-domains"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li> -->
-                    <li class="nav-item shadow-lg"><router-link v-if="userId2 =='SU-000001'" class="nav-link" to="/admin/manage-internal-users"><i class="fas fa-wrench"></i><span>Manage Users</span></router-link></li>
-                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="#"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
-                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="#"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li>
+                    <li class="nav-item shadow-lg"><router-link    v-if="userId2 =='SU-000001'" class="nav-link" to="/admin/manage-internal-users"><i class="fas fa-wrench"></i><span>Manage Users</span></router-link></li>
+                    <li class="nav-item shadow-lg"><router-link    v-if="userId2 =='SU-000001'" class="nav-link" to="#"><i class="fas fa-wrench"></i><span>Manage Domains</span></router-link></li>
+                     <li class="nav-item shadow-lg"><router-link   v-if="userId2 =='SU-000001'" class="nav-link" to="/admin/manage-application-schedule"><i class="fas fa-calendar-alt"></i><span>Manage Application Schedule</span></router-link></li>
                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/manage-application-details"><i class="fas fa-sticky-note"></i><span>Manage Applications</span></router-link></li>
-                    <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/all-registered-users"><i class="fa fa-user"></i><span>All Registered Users</span></router-link></li>
+                     <li class="nav-item shadow-lg"><router-link class="nav-link" to="/admin/all-registered-users"><i class="fa fa-user"></i><span>All Registered Users</span></router-link></li>
                 </ul>
             </div>
         </nav>
@@ -108,19 +108,18 @@
                             </li> -->
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><img class="border rounded-circle img-profile" src="assets/img/avatar_2x.png"><span class="d-none d-lg-inline ml-2 text-white-600 small"><strong>{{firstname}} {{middlename}} {{lastname}}</strong></span></a>
+                                <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><img class="border rounded-circle img-profile" src="assets/img/avatar_2x.png"><span class="d-none d-lg-inline ml-2 text-white-600 small"><strong>{{userName}}</strong></span></a>
                                     <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in">
-                                    <router-link class="dropdown-item" to="/admin/all-user-profile"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</router-link>
-                                    <router-link v-if="userId == 'SU-000001'" class="dropdown-item" to="/admin/manage-internal-users"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Manage Users</router-link>
-                                    <!-- <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a> -->
+                                        <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
+                                        <!-- <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                                        <a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a> -->
                                         <div class="dropdown-divider"></div><button class="dropdown-item" role="button" @click.prevent="logout"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</button>
                                     </div>
                                 </div>
                             </li>
                         </ul>
                     </div>
-                </nav>
+               </nav>
                 <!-- Application tabs -->
                <div class="container-fluid">
                   <div class="row">
@@ -142,252 +141,126 @@
                                        <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Annexure-II</strong></router-link></li>
                                        <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link" role="tab" data-toggle="tab" :to="'/admin/review-applicant-documents/'+form.applicationId"><strong>Upload Documents</strong></router-link></li>
                                        <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Upload Documents</strong></router-link></li>
-                                       <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link active" role="tab" data-toggle="tab" :to="'/admin/review/'+form.applicationId"><strong>Review</strong></router-link></li>
-                                       <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>Review</strong></router-link></li>
+                                       <li class="nav-item" role="presentation" v-if="form.applicationId != ''"><router-link class="nav-link active" role="tab" data-toggle="tab" :to="'/admin/review/'+form.applicationId"><strong>View</strong></router-link></li>
+                                       <li class="nav-item" role="presentation" v-else><router-link class="nav-link text-secondary" :to="'#'"><strong>View</strong></router-link></li>
                                     </ul>
                                     <div class="tab-content  bg-white">
-                                       <div class="tab-pane active" role="tabpanel" id="tab-5">
-                                            <form>
-                                                <div class="div-inner-filed py-1">
-                                                    <div class="form-row">
-                                                        <div class="col-xl-12 mb-2">
-                                                            <div class="table-responsive table-bordered font-sm rev-tbl">
-                                                                <table class="table table-bordered table-sm mb-0">
-                                                                    <thead class="color-mg">
-                                                                        <tr>
-                                                                            <th class="w-40x">Required Document Name</th>
-                                                                            <th class="w-10x">Document Name</th>
-                                                                            <th class="text-center w-7x">Uploaded</th>
-                                                                            <th class="text-center w-10x">View/ Download</th>
-                                                                            <th class="text-center w-15x">Status</th>
-                                                                            <th class="text-center">Comments</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td><strong>My {{form.scholarshipType}} application </strong>({{form.appIdShow}})<strong>,&nbsp; for {{form.financialYear}}</strong></td>
-                                                                            <td class="text-center">Application Form</td>
-                                                                            <td class="text-center">System Generated</td>
-                                                                            <td class="text-center" v-if="form.applicationId == '' "><span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span></td>
-                                                                            <td class="text-center" v-else><router-link class="act-link" :to="'/print-view-application/'+form.applicationId" ><i class="fa fa-eye"></i></router-link></td>
-                                                                            <td class="text-center">
-                                                                                <div class="form-group mb-0">
-                                                                                    <select class="form-control form-control-sm font-s">
-                                                                                        <option value="" selected="">-- select --</option>
-                                                                                        <option value="NOT OK">Not OK</option>
-                                                                                        <option value="OK">OK</option>
-                                                                                        <option value="NOT REQUIRED">Not Required</option>
-                                                                                        <option value="REQUIRED AND MISSING">Required &amp; Missing</option>
-                                                                                    </select>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr v-for="(row,index) in docRows" :key="index">
-                                                                            <td>{{row.docFileDesc}}<br></td>
-                                                                            <td>{{row.docFileName == null? '' : row.docFileName.split('-').reverse().shift()}}<br></td>
-                                                                            <td class="text-center">{{row.uploadStatus}}<br></td>
-                                                                            <td class="text-center" v-if="row.uploadStatus == 'YES'"><router-link target="_blank" class="act-link" :to="''+row.fileURL"><i class="fa fa-eye"></i></router-link></td>
-                                                                            <td class="text-center" v-else><span class="act-link" style="color:#808080;"> <i class="fa fa-eye"></i></span></td>
-                                                                            <td class="text-center">
-                                                                                <div class="form-group mb-0"><select class="form-control form-control-sm font-s">
-                                                                                        <option value="" selected="">-- select --</option>
-                                                                                        <option value="NOT OK">Not OK</option>
-                                                                                        <option value="OK">OK</option>
-                                                                                        <option value="NOT REQUIRED">Not Required</option>
-                                                                                        <option value="REQUIRED AND MISSING">Required &amp; Missing</option>
-                                                                                    </select></div>
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" rows="2" style="line-height: 1;"></textarea></div>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
+                                        <div class="tab-pane active" role="tabpanel" id="tab-5">
+                                            <div class="div-inner-filed">
+                                                <div class="form-row">
+                                                    <div class="col-xl-12 mb-2">
+                                                        <div class="card mt-2 det-sec">
+                                                            <div class="card-header">
+                                                                <h6 class="mb-0 color-mg">Review Application Form</h6>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div class="table-responsive table-bordered font-sm rev-tbl">
+                                                                    <table class="table table-bordered table-sm mb-0">
+                                                                        <thead class="color-mg">
+                                                                            <tr>
+                                                                                <th>Details</th>
+                                                                                <th class="text-center">View / Download</th>
+                                                                                <!-- <th class="text-center">View</th> -->
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td><strong>My {{form.scholarshipType}} application </strong>({{form.appIdShow}})<strong>,&nbsp; for {{form.financialYear}}</strong></td>
+                                                                                <td class="text-center" v-if="form.applicationId == '' "><span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span></td>
+                                                                                <td class="text-center" v-else><router-link class="act-link" :to="'/admin/print-view-application/'+form.applicationId" ><i class="fa fa-eye"></i></router-link></td>
+                                                                                <!-- <td class="text-center" v-if="form.applicationId == '' "><span class="act-link"  style="color:#808080;"><i class="fa fa-eye"></i></span></td>
+                                                                                <td class="text-center" v-else><router-link class="act-link" to="/print-view-nursing"><i class="fa fa-eye"></i></router-link></td> -->
+                                                                            </tr>
+                                                                            <tr v-if="form.hasAdmissionLetter == 'NO'">
+                                                                                <td><strong>My {{form.scholarshipType}} application Annexure1 </strong>({{form.appIdShow}})<strong>,&nbsp; for {{form.financialYear}}</strong></td>
+                                                                                <td class="text-center" v-if="form.applicationId == '' "><span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span></td>
+                                                                                <td class="text-center" v-else><router-link class="act-link" :to="'/admin/print-view-annexure1/'+form.applicationId" ><i class="fa fa-eye"></i></router-link></td>
+                                                                                <!-- <td class="text-center" v-if="form.applicationId == '' "><span class="act-link"  style="color:#808080;"><i class="fa fa-eye"></i></span></td>
+                                                                                <td class="text-center" v-else><router-link class="act-link" to="/print-view-nursing"><i class="fa fa-eye"></i></router-link></td> -->
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-2 offset-xl-0 font-sm"><button class="btn btn-block btn-sm btn-mg font-sm" type="button"><strong>Save</strong></button></div>
-                                                        <div class="col-xl-2 offset-xl-0 font-sm"><button class="btn btn-block btn-sm btn-cancel font-sm" type="button"><strong>Cancel</strong></button></div>
-                                                        <div class="col-xl-2 offset-xl-4"><button class="btn btn-block btn-sm btn-mg font-sm" data-toggle="modal" data-target="#accept-application-view" type="button"><strong>Accept</strong></button></div>
-                                                        <div class="col-xl-2 offset-xl-0 font-sm"><button class="btn btn-block btn-sm btn-mg font-sm" type="button" data-toggle="modal" data-target="#return-application-view"><strong>Return with comments</strong></button></div>
-                                                        <div class="col-xl-12 offset-xl-0">
-                                                            <!-- Start: Application Accept Modal -->
-                                                            <div class="modal fade" role="dialog" tabindex="-1" id="accept-application-view" style="z-index: 1051;">
-                                                                <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header py-1">
-                                                                            <h6 class="modal-title color-mg font-md"><strong>Accept Application</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                                                        </div>
-                                                                        <div class="modal-body cs-modal-body">
-                                                                            <div class="form-row">
-                                                                                <div class="col-xl-1 align-self-center mb-2">
-                                                                                    <p class="mb-0 color-mg font-sm font-weight-bold">TO:&nbsp;</p>
-                                                                                </div>
-                                                                                <div class="col-xl-11 mb-2">
-                                                                                    <div class="form-group mb-0"><input class="form-control form-control-sm" v-model="form.applicantEmailId"  type="email" placeholder="Email of Applicant"></div>
-                                                                                </div>
-                                                                                <div class="col-xl-1 align-self-center mb-2">
-                                                                                    <p class="mb-0 color-mg font-sm font-weight-bold">CC:</p>
-                                                                                </div>
-                                                                                <div class="col-xl-11 mb-2">
-                                                                                    <div class="form-group mb-0"><input class="form-control form-control-sm" type="email" placeholder="Email goes here."></div>
-                                                                                </div>
-                                                                                <div class="col-xl-1 align-self-center mb-4">
-                                                                                    <p class="mb-0 color-mg font-sm font-weight-bold">Subject:</p>
-                                                                                </div>
-                                                                                <div class="col-xl-11 mb-4">
-                                                                                    <div class="form-group mb-0"><select class="form-control form-control-sm" >
-                                                                                            <option value="12" selected="">-- select --</option>
-                                                                                            <option value="13">Acceptance of Application</option>
-                                                                                            <option value="13">Provisional Acceptance of Application</option>
-                                                                                        </select>
+                                                    </div>
+                                                    <div class="col-xl-12 mb-2">
+                                                        <div class="card mt-2 det-sec">
+                                                            <div class="card-header">
+                                                                <h6 class="mb-0 color-mg">Review Attachments</h6>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div class="table-responsive table-bordered font-sm rev-tbl">
+                                                                    <table class="table table-bordered table-sm mb-0">
+                                                                        <thead class="color-mg">
+                                                                            <tr>
+                                                                                <th>Details</th>
+                                                                                <th>Document Name</th>
+                                                                                <th class="text-center">Uploaded</th>
+                                                                                <th class="text-center">View / Download</th>
+                                                                                <!-- <th class="text-center">View</th> -->
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr v-for="(row,index) in docRows" :key="index">
+                                                                                <td><strong>{{row.docFileDesc}}</strong><br></td>
+                                                                                <td>{{row.docFileName == null? '' : row.docFileName.split('-').reverse().shift()}}</td>
+                                                                                <td class="text-center"><span class="badge badge-pill badge-primary cs-badge">{{row.uploadStatus}}</span></td>
+                                                                                <td class="text-center" v-if="row.uploadStatus == 'YES'"><router-link target="_blank" class="act-link" :to="''+row.fileURL"><i class="fa fa-eye"></i></router-link></td>
+                                                                                <td class="text-center" v-else><span class="act-link" style="color:#808080;"> <i class="fa fa-eye"></i></span></td>
+                                                                                <!-- <td class="text-center" v-if="row.uploadStatus == 'YES'"><router-link class="act-link" to ="" data-toggle="modal" @click="showModal(row.row.fileURL)"><i class="fa fa-eye"></i></router-link></td> -->
+                                                                                <!-- <td class="text-center" v-else><span class="act-link" style="color:#808080;"><i class="fa fa-eye"></i></span></td>
+                                                                                <div class="modal fade" role="dialog" tabindex="-1" id="vw-apo-form1">
+                                                                                    <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+                                                                                        <div class="modal-content">
+                                                                                            <div class="modal-header">
+                                                                                                <h4 class="modal-title color-mg"><strong>Review Attachments</strong></h4>
+                                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                                    <span aria-hidden="true">×</span>
+                                                                                                </button>
+                                                                                            </div>
+                                                                                            <div class="modal-body">
+                                                                                                <div class="row">
+                                                                                                    <div class="col-xl-12">
+                                                                                                        <embed :src="''+getFiles.admissionLetter" width="100%" height="600" type='application/pdf'>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="modal-footer">
+                                                                                                <button class="btn btn-sm btn-mg" type="button"><strong>Print Application Form</strong></button>
+                                                                                                <button class="btn btn-sm btn-mg" type="button" data-dismiss="modal"><strong>Close</strong></button>
+                                                                                            </div>
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="col-xl-12 mb-2">
-                                                                                    <p class="mb-1 color-mg font-sm font-weight-bold">To,&nbsp;<span> {{form.fullName}}</span></p>
-                                                                                    <p class="mb-3 color-mg font-sm font-weight-bold pl-4">{{form.addressAddln1}},{{form.addressAddln2}},<br>{{form.addressCity}},<br>{{form.addressState}}, {{form.addressPinzip}}</p>
-                                                                                    <p class="mb-2 color-mg font-sm font-weight-bold pl-4">Dear Applicant,<br></p>
-                                                                                    <p class="mb-1 text-black font-sm pl-4">We have received your application for No.&nbsp;<span>{{form.appIdShow}}</span> for&nbsp;<span>{{form.scholarshipType}}</span> scholarship. We are&nbsp;<span>Provisionally Accepting</span>&nbsp;your application.<br></p>
-                                                                                    <p class="mb-2 text-black font-sm pl-4">Kindly check our comments on the documents submitted and re-submit as required.<br></p>
-                                                                                    <div class="table-responsive table-bordered font-ms rev-tbl pl-4">
-                                                                                        <table class="table table-bordered table-sm mb-0">
-                                                                                            <thead class="color-mg">
-                                                                                                <tr>
-                                                                                                    <th>Document Name</th>
-                                                                                                    <!-- <th>Type</th> -->
-                                                                                                    <th class="text-center">Uploaded</th>
-                                                                                                    <th class="text-center">Status</th>
-                                                                                                    <th class="text-center">Comments</th>
-                                                                                                </tr>
-                                                                                            </thead>
-                                                                                            <tbody>
-                                                                                                <tr v-for="(row,index) in docRows" :key="index">
-                                                                                                    <td>{{row.docFileDesc}}<br></td>
-                                                                                                    <!-- <td>Application Form<br></td> -->
-                                                                                                    <td class="text-center">{{row.uploadStatus}}<br></td>
-                                                                                                    <td class="text-center">OK</td>
-                                                                                                    <td class="text-center">Not OK</td>
-                                                                                                </tr>
-                                                                                                
-                                                                                            </tbody>
-                                                                                        </table>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-xl-3 offset-xl-0 align-self-center mb-2">
-                                                                                    <p class="mb-0 color-mg font-sm font-weight-bold pl-4">Additional Comments:&nbsp;</p>
-                                                                                </div>
-                                                                                <div class="col-xl-9 mb-2">
-                                                                                    <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" style="line-height: 1;"></textarea></div>
-                                                                                </div>
-                                                                                <div class="col-xl-8 offset-xl-0 align-self-center">
-                                                                                    <p class="mb-0 text-black font-sm pl-4">You are required to check your application based on the comments and resubmit by:&nbsp;</p>
-                                                                                </div>
-                                                                                <div class="col-xl-3 offset-xl-0 align-self-center"><input class="form-control form-control-sm font-sm" type="date"></div>
-                                                                                <div class="col-xl-8 offset-xl-0 align-self-center mb-4">
-                                                                                    <p class="mb-0 text-black font-sm pl-4">For any clarifications please write to us or call us at contact details provided below.</p>
-                                                                                </div>
-                                                                                <div class="col-xl-8 offset-xl-0 align-self-center mb-2">
-                                                                                    <p class="mb-0 color-mg font-sm pl-4">Regards,<br>Administrator<br>+91 9876543210<br>administrator@gmail.com<br><br></p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Cancel</strong></button></div>
-                                                                    </div>
+                                                                                </div> -->
+
+                                                                            </tr>
+                                                                                
+                                                                        </tbody>
+                                                                    </table>
                                                                 </div>
-                                                            </div><!-- End: Application Accept Modal -->
-                                                            <!-- Start: Application Return Modal -->
-                                                            <div class="modal fade" role="dialog" tabindex="-1" id="return-application-view" style="z-index: 1051;">
-                                                                <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header py-1">
-                                                                            <h6 class="modal-title color-mg font-md"><strong>Return Application</strong></h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                                                        </div>
-                                                                        <div class="modal-body cs-modal-body">
-                                                                            <div class="form-row">
-                                                                                <div class="col-xl-1 align-self-center mb-2">
-                                                                                    <p class="mb-0 color-mg font-sm font-weight-bold">TO:&nbsp;</p>
-                                                                                </div>
-                                                                                <div class="col-xl-11 mb-2">
-                                                                                    <div class="form-group mb-0"><input class="form-control form-control-sm" v-model="form.applicantEmailId" type="email" placeholder="Email of Applicant"></div>
-                                                                                </div>
-                                                                                <div class="col-xl-1 align-self-center mb-2">
-                                                                                    <p class="mb-0 color-mg font-sm font-weight-bold">CC:</p>
-                                                                                </div>
-                                                                                <div class="col-xl-11 mb-2">
-                                                                                    <div class="form-group mb-0"><input class="form-control form-control-sm" type="email" placeholder="Email goes here."></div>
-                                                                                </div>
-                                                                                <div class="col-xl-1 align-self-center mb-4">
-                                                                                    <p class="mb-0 color-mg font-sm font-weight-bold">Subject:</p>
-                                                                                </div>
-                                                                                <div class="col-xl-11 mb-4">
-                                                                                    <div class="form-group mb-0"><select class="form-control form-control-sm">
-                                                                                            <option value="12">-- select --</option>
-                                                                                            <option value="13" selected="">Application Returned with Discrepency - Kindly Resubmit</option>
-                                                                                        </select></div>
-                                                                                </div>
-                                                                                <div class="col-xl-12 mb-2">
-                                                                                    <p class="mb-1 color-mg font-sm font-weight-bold">&nbsp;To,&nbsp;<span>{{form.fullName}}</span></p>
-                                                                                    <p class="mb-3 color-mg font-sm font-weight-bold pl-4">{{form.addressAddln1}}, {{form.addressAddln2}}<br>{{form.addressCity}},<br>{{form.addressState}} {{form.addressPinzip}}</p>
-                                                                                    <p class="mb-2 color-mg font-sm font-weight-bold pl-4">Dear Applicant,<br></p>
-                                                                                    <p class="mb-1 text-black font-sm pl-4">We have received your application for No.&nbsp;<span>{{form.appIdShow}}</span> for&nbsp;<span>{{form.scholarshipType}}</span> scholarship. We are unable to&nbsp;<span>accept the application due to discrepancies</span>.</p>
-                                                                                    <p class="mb-2 text-black font-sm pl-4">Kindly check our comments on the documents submitted and re-submit as required.<br></p>
-                                                                                    <div class="table-responsive table-bordered font-ms rev-tbl pl-4">
-                                                                                        <table class="table table-bordered table-sm mb-0">
-                                                                                            <thead class="color-mg">
-                                                                                                <tr>
-                                                                                                    <th>Document Name</th>
-                                                                                                    <!-- <th>Type</th> -->
-                                                                                                    <th class="text-center">Uploaded</th>
-                                                                                                    <th class="text-center">Status</th>
-                                                                                                    <th class="text-center">Comments</th>
-                                                                                                </tr>
-                                                                                            </thead>
-                                                                                            <tbody>
-                                                                                                <tr v-for="(row,index) in docRows" :key="index">
-                                                                                                    <td>{{row.docFileDesc}}<br></td>
-                                                                                                    <!-- <td>Application Form<br></td> -->
-                                                                                                    <td class="text-center">{{row.uploadStatus}}<br></td>
-                                                                                                    <td class="text-center">OK</td>
-                                                                                                    <td class="text-center">Not OK</td>
-                                                                                                </tr>
-                                                                                                
-                                                                                            </tbody>
-                                                                                        </table>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-xl-3 offset-xl-0 align-self-center mb-2">
-                                                                                    <p class="mb-0 color-mg font-sm font-weight-bold pl-4">Additional Comments:&nbsp;</p>
-                                                                                </div>
-                                                                                <div class="col-xl-9 mb-2">
-                                                                                    <div class="form-group mb-0"><textarea class="form-control form-control-sm font-s" style="line-height: 1;"></textarea></div>
-                                                                                </div>
-                                                                                <div class="col-xl-8 offset-xl-0 align-self-center">
-                                                                                    <p class="mb-0 text-black font-sm pl-4">You are required to check your application based on the comments and resubmit by:&nbsp;</p>
-                                                                                </div>
-                                                                                <div class="col-xl-3 offset-xl-0 align-self-center"><input class="form-control form-control-sm font-sm" type="date"></div>
-                                                                                <div class="col-xl-8 offset-xl-0 align-self-center mb-4">
-                                                                                    <p class="mb-0 text-black font-sm pl-4">For any clarifications please write to us or call us at contact details provided below.</p>
-                                                                                </div>
-                                                                                <div class="col-xl-8 offset-xl-0 align-self-center mb-2">
-                                                                                    <p class="mb-0 color-mg font-sm pl-4">Regards,<br>Administrator<br>+91 9876543210<br>administrator@gmail.com<br><br></p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="modal-footer py-1"><button class="btn btn-sm btn-mg" type="button"><strong>Submit</strong></button><button class="btn btn-sm btn-cancel" type="button" data-dismiss="modal"><strong>Cancel</strong></button></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div><!-- End: Application Return Modal -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-12 mb-2">
+                                                        <div class="card mt-2 det-sec">
+                                                            <div class="card-header">
+                                                                <h6 class="mb-0 color-mg">Self Declaration</h6>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <p class="t-c-text">I {{form.fullName}} hereby declare that to the best of my knowledge the above information furnished by me is true and I understand that if at any stage, it is found that the information provided by me is false/ not true, all the benefits given to me under “{{form.scholarshipType}} Scholarship Programme” could be withdrawn.</p>
+                                                                
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
                      </div>
                   </div>
                 </div>
@@ -404,22 +277,18 @@ export default{
        return{
          userId:'',
         //  csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            userId2    : document.querySelector("meta[name='userId']").getAttribute('content'),
-            firstname  : document.querySelector("meta[name='firstname']").getAttribute('content'),
-            middlename : document.querySelector("meta[name='middlename']").getAttribute('content'),
-            lastname   : document.querySelector("meta[name='lastname']").getAttribute('content'),
-            terms: false,
-            docRows:[
+        // userName: document.querySelector("meta[name='userName']").getAttribute('content'),
+         terms: false,
+          docRows:[
                 {
                     id: '',
                     docFileName: '',
                 }
             ],
-            Sform:
-            {
-                appStatus: false,
-            },
-            form:
+        Sform:{
+            appStatus: false,
+        },
+         form:
             {
                 // courseLevel:'',
                 hasAdmissionLetter:'',
@@ -432,36 +301,31 @@ export default{
                 applicantFatherName:'',
                 applicantMotherName:'',
                 addressAddln1:'',
-                addressAddln2:'',
-                addressCity:'',
-                addressState:'',
-                addressPinzip:'',
                 fullName: '',
                 appStatus: '',
                 appIdShow: '',
-                applicantEmailId:'',
             },
-            // getdata:{
-            //     hasAdmissionLetter:'',
-            //     applicationId:'',
-            //     financialYear:'',
-            //     applicantLeprosyAffectedFather:'',
-            //     applicantLeprosyAffectedMother:'',
-            //     applicantLeprosyAffectedSelf:'',
-            // },
-            // getFiles:{
-            //     admissionLetter: '#',
-            //     annexureI: '#',
-            //     annexureII: '#',
-            //     photograph: '#',
-            //     proofOfAge: '#',
-            //     markSheets10: '#',
-            //     markSheets12: '#',
-            //     leprosyCertificateSelf: '#',
-            //     leprosyCertificateMother: '#',
-            //     leprosyCertificateFather: '#'
-            //  },
-            errors:[]
+        // getdata:{
+        //     hasAdmissionLetter:'',
+        //     applicationId:'',
+        //     financialYear:'',
+        //     applicantLeprosyAffectedFather:'',
+        //     applicantLeprosyAffectedMother:'',
+        //     applicantLeprosyAffectedSelf:'',
+        // },
+        // getFiles:{
+        //     admissionLetter: '#',
+        //     annexureI: '#',
+        //     annexureII: '#',
+        //     photograph: '#',
+        //     proofOfAge: '#',
+        //     markSheets10: '#',
+        //     markSheets12: '#',
+        //     leprosyCertificateSelf: '#',
+        //     leprosyCertificateMother: '#',
+        //     leprosyCertificateFather: '#'
+        //  },
+        errors:[]
         }
     },
  
@@ -509,11 +373,6 @@ export default{
                     this.form.financialYear = response.data['data'][0][0].financialYear;  
                     this.form.hasAdmissionLetter = response.data['data'][0][0].hasAdmissionLetter;
                     this.form.addressAddln1=response.data['data'][0][0].get_address.addressAddln1;
-                    this.form.addressAddln2=response.data['data'][0][0].get_address.addressAddln2;
-                    this.form.addressCity=response.data['data'][0][0].get_address.addressCity;
-                    this.form.addressState=response.data['data'][0][0].get_address.addressState;
-                    this.form.addressPinzip=response.data['data'][0][0].get_address.addressPinzip;
-                    this.form.applicantEmailId = response.data['data'][0][0].applicantEmailId;
                     this.form.fullName = response.data['data'][0][0].applicantNameF+' '+ (response.data['data'][0][0].applicantNameM == null ? ' ' : response.data['data'][0][0].applicantNameM )+' '+response.data['data'][0][0].applicantNameL
                     this.form.appStatus = response.data['data'][0][0].appStatus;
                     this.form.appIdShow = response.data['data'][0][0].appIdShow;

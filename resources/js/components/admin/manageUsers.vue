@@ -417,7 +417,6 @@ export default {
                 },
 
                 getUserdata(userId){
-                 
                 axios.get('/admin/admin-api/get-users/'+userId)
                     .then(response => {
                         this.form = response.data[0];
@@ -437,45 +436,49 @@ export default {
                 },
 
                 removeUser(userId){
-                    if(userId != '')
+                    if(userId != '' && confirm('Are you sure you want to delete this user ?'))
                     {
-                    axios.get('/admin/admin-api/delete-users/'+userId)
-                    .then(()=>{
-                        this.$fire({
-                        position:'top',
-                        icon: 'success',
-                        title: 'User Deleted',
-                        showConfirmButton: false,
-                        timer: 4000
-                        })//swal-fire end
-                    }).then(() => {
-                            this.getData();
+                        axios.get('/admin/admin-api/delete-users/'+userId)
+                        .then(()=>{
+                            this.$fire({
+                            position:'top',
+                            icon: 'success',
+                            title: 'User Deleted',
+                            showConfirmButton: false,
+                            timer: 4000
+                            })//swal-fire end
+                        }).then(() => {
+                           this.getData();
                         })
                     }
                 },//removeuser end
 
 
-                    toggleStatus(userId){
-                        axios.post('/admin/admin-api/user-status-changed/'+userId)
-                            .then( this.$fire({
-                                position: 'top',
-                                icon: 'success',
-                                title: 'User Status Changed',
-                                showConfirmButton: false,
-                                timer: 4000
-                            }))
-                        this.getData();
-                    },
+                    toggleStatus(userId)
+                    {
+                         if (confirm('Are you sure want to deactived this user ?'))
+                        {
+                         axios.post('/admin/admin-api/user-status-changed/'+userId)
+                                .then( this.$fire({
+                                    position: 'top',
+                                    icon: 'success',
+                                    title: 'User Status Changed',
+                                    showConfirmButton: false,
+                                    timer: 4000
+                                }))
+                            this.getData();
+                            }
+                     },
                         logout(){
                             axios.get('/admin/logout').then(function(){
                                 document.location.href = "/admin/login";
                             })
                         },
-
+                        
                     filterData(){
                         axios.post('/admin/admin-api/manage-internal-user/filter', this.filterForm)
                             .then(response => console.log(this.getAllUsers = response.data)).catch((error) =>{
-                            this.errors = error.response.data.errors;
+                             this.errors = error.response.data.errors;
                         })
                         },
                     },

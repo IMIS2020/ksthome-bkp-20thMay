@@ -161,7 +161,7 @@
                                             </div>
                                             <div class="card-body pb-3">
                                                 <form>
-                                                    <div class="form-row">
+                                                    <div class="form-row">modal
                                                         <div class="col-xl-4">
                                                             <div class="form-group mb-2"><label>First Name</label><input class="form-control " v-model="form.firstname" type="text"></div>
                                                         </div>

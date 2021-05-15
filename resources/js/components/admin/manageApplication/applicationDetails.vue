@@ -294,21 +294,65 @@
                                                         <span class="badge badge-pill badge-success text-black font-sm mt-2" v-if ="eachData.appStatus == 'Submit' ">Submitted</span>
                                                         <span style="background-color:#d48eae;" class="badge badge-pill  text-black font-sm mt-2" v-if ="eachData.appStatus == 'Returned' ">Returned</span>
                                                         </td>
-                                                    <td class="text-center w-5x">
+                                                    <td class=" w-5x">
                                                         <div class="dropdown no-arrow dr-all">
                                                             <a class="btn btn-sm" aria-expanded="false" data-toggle="dropdown" role="button" href="#"><i class="fas fa-bars color-mg"></i></a>
                                                             <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in">
                                                                 <!-- <a class="dropdown-item" href="#"><strong>Review Application</strong></a> -->
                                                                     <router-link class="dropdown-item" :to="'/admin/review-application-form/'+eachData.schApplicationId"><strong>View Application</strong></router-link>
-                                                                     <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#view-application-comments"><strong>View Comments</strong></a> -->
-                                                                      <a href="#" v-if="eachData.appStatus == 'Submit'" class="dropdown-item" @click="toggleStatus(eachData.schApplicationId)"><strong>Make status ' Returned '</strong></a>
+                                                                     <a v-if="eachData.appStatus == 'Submit'" class="dropdown-item" href="#" data-toggle="modal" :data-target="'#return-application'+eachData.schApplicationId" ><strong>Make status ' Returned '</strong></a>
+                                                                      <!-- <a href="#" v-if="eachData.appStatus == 'Submit'" class="dropdown-item" @click="toggleStatus(eachData.schApplicationId)"><strong>Make status ' Returned '</strong></a> -->
                                                             </div>
+                                                        </div>
+                                                         <div class="modal fade" role="dialog" tabindex="-1" :id="'return-application'+eachData.schApplicationId">
+                                                            <form @submit.prevent="toggleStatus(eachData.schApplicationId)">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title text-left" id="exampleModalLabel">Application return</h5>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                        
+                                                                <div class="form-group mb-0">
+                                                                    <label>Do you really want to return this application ?</label>
+                                                                    <select class="form-control" v-model="returnForm.selectChoice" > 
+                                                                        <option value="" disabled>--select--</option>
+                                                                        <option value="Yes" >Yes</option>
+                                                                        <option value="No" >No</option>
+                                                                    </select>
+                                                                    </div>
+                                                                   <br><br>
+                                                                   <p v-if="returnForm.selectChoice == 'Yes'"><strong>Kindly fill in the reason(s) for returning </strong> </p>
+                                                                   
+                                                                    <div v-if="returnForm.selectChoice == 'Yes'" class="form-group">
+                                                                        <label for="message-text" class="col-form-label">Reason 1 :</label>
+                                                                        <textarea style="height:40px;" class="form-control" required v-model="returnForm.reason1"></textarea>
+                                                                    </div>
+
+                                                                    <div v-if="returnForm.selectChoice == 'Yes'" class="form-group">
+                                                                        <label for="message-text" class="col-form-label">Reason 2 :</label>
+                                                                        <textarea style="height:40px;" class="form-control"  v-model="returnForm.reason2"></textarea>
+                                                                    </div>
+
+                                                                    <div v-if="returnForm.selectChoice == 'Yes'" class="form-group">
+                                                                        <label for="message-text" class="col-form-label">Reason 3 :</label>
+                                                                        <textarea style="height:40px;" class="form-control"  v-model="returnForm.reason3"></textarea>
+                                                                      </div>
+                                                                  </div>
+
+                                                                <div class="modal-footer">
+                                                                    <button type="submit"  class="btn btn-mg">Return</button>
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                   </div>
+                                                                  </div>
+                                                                </div>
+                                                            </form>
                                                         </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                    </div>
+                                     </div>
                                    </div>
                                   <div>
                                 </div>
@@ -320,12 +364,13 @@
                                 </div>
                             </div>
                          </div>
-                        </div>
+                      </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 </template>
 
@@ -339,6 +384,14 @@ export default {
             lastname   : document.querySelector("meta[name='lastname']").getAttribute('content'),
             getAllData:{}, 
             getFilterData:{},
+
+            returnForm:
+            {
+                selectChoice:'',
+                reason1:'',
+                reason2:'',
+                reason3:'',
+            },
             
             form:{
                 scholarshipType:'',
@@ -419,16 +472,20 @@ export default {
                         this.getData();
                     },
 
-                    toggleStatus(applicationId){
-                        axios.post('/admin/admin-api/make-status-saved/'+applicationId)
-                            .then( this.$fire({
+                    
+                    toggleStatus(applicationId)
+                    {
+                       
+                            axios.post('/admin/admin-api/make-status-saved/'+applicationId,this.returnForm)
+                            .then(this.$fire({
                                 position: 'top',
                                 icon: 'success',
-                                title: 'Application status changed',
+                                title: 'Application returned',
                                 showConfirmButton: false,
-                            timer: 3000
+                                timer: 4000
                         }))
-                          this.getData();
+                        this.getData();
+                        
                     },
 
             logout()

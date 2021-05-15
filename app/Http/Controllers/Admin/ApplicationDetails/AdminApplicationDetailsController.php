@@ -13,10 +13,11 @@ use App\ModelScholarship\DocMaster;
 use Illuminate\Support\Facades\Storage;
 use App\Exports\ApplicationExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Mail;
+use App\Mail\ReturnedMail;
 
 class AdminApplicationDetailsController extends Controller
 {
-
     public function getData()
     {
         // $getAllDataApplication = ApplicationDetails::all();
@@ -74,7 +75,6 @@ class AdminApplicationDetailsController extends Controller
 
     public function filterData(Request $request)
     {
-    
         $scholarshipType  =  $request->scholarshipType;
         $session          =  $request->session;
         $email            =  $request->email;
@@ -86,6 +86,20 @@ class AdminApplicationDetailsController extends Controller
         $applicationType  =  $request->applicationType;
         $status           =  $request->status;
 
+        // $var = 'scholarshipType';
+        // $order = 'desc';
+
+        // $col1   = $var;
+        // $Order1 = $order;
+        // $col2   = 1;
+        // $Order2 = 'asc';
+        // $col3   = 1;
+        // $Order3 = 'asc';
+        // $orderbyType2 = 1;
+        // $orderbyOrder1 = 'desc';
+        // $orderbyOrder2 = 'asc';
+        
+        // $orderByClause = [$orderbyType1,$orderbyOrder1];
 
         if(empty($scholarshipType) && empty($session) && empty($email) &&empty($contactno) &&empty($firstname) &&empty($lastname) &&empty($gender) &&empty($states) &&empty($applicationType) &&empty($status))
         {
@@ -104,12 +118,12 @@ class AdminApplicationDetailsController extends Controller
                     ->where("addressState",'LIKE',$request['states'])
                     ->where("applicationType",'LIKE',$request['applicationType'])
                     ->where("appStatus",'LIKE',$request['status'])
+                    // ->orderBy($col1,$Order1,$col2,$Order2,$col3,$Order3)
                     ->get()
                     ->toJson();
                  } 
                 return $filter;
          }
-
 
          public function getSession()
          {
@@ -117,13 +131,31 @@ class AdminApplicationDetailsController extends Controller
              return $getSessionDetails;
          }
 
-         public function statusSaved(String $applicationId)
+         public function statusSaved(String $applicationId,Request $request)
          {
-            $application =   ApplicationDetails::where('schApplicationId', $applicationId)->first();
+            
+            $application = ApplicationDetails::where('schApplicationId', $applicationId)->first();  
+            $sessionId   = $application->sessionId;   
+            $appschData  =  ApplicationScheduleTable::where('sessionId',$sessionId)->first();    
+            $data = array
+            (
+                'applicationNo'         => $application->appIdShow,
+                'firstname'             => $application->applicantNameF,
+                'scholarshipType'       => $application->scholarshipType,
+                'reason1'               => $request->reason1,
+                'reason2'               => $request->reason2,
+                'reason3'               => $request->reason3,
+                'contactPersonEmailId'  => $appschData->contactPersonEmailId,
+                'contactPersonContactNo'=> $appschData->contactPersonContactNo
+
+            );
+
+            $email = $application->applicantEmailId;
             $application->appStatus = 'Returned';
             $application->dateLastSubmitted = null;
             $application->update();
-        }
+            Mail::to($email)->send(new ReturnedMail($data));
+         }
 
          public function exportExcel()
          {

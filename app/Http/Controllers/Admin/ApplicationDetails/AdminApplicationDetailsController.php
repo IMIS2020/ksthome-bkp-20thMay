@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\ModelScholarship\ApplicationDetails;
 use App\ModelGeneral\Address;
+use App\User;
 use App\ModelScholarship\ApplicationScheduleTable;
 use App\ModelScholarship\ApplicationSession;
 use App\ModelScholarship\ApplicationDocs;
@@ -136,7 +137,8 @@ class AdminApplicationDetailsController extends Controller
             
             $application = ApplicationDetails::where('schApplicationId', $applicationId)->first();  
             $sessionId   = $application->sessionId;   
-            $appschData  =  ApplicationScheduleTable::where('sessionId',$sessionId)->first();    
+            $appschData  =  ApplicationScheduleTable::where('sessionId',$sessionId)->first(); 
+            $userEmailId = User::where('id',$application->userId)->first();  
             $data = array
             (
                 'applicationNo'         => $application->appIdShow,
@@ -150,7 +152,8 @@ class AdminApplicationDetailsController extends Controller
 
             );
 
-            $email = $application->applicantEmailId;
+            // $email = $application->applicantEmailId;
+            $email = $userEmailId->email;
             $application->appStatus = 'Returned';
             $application->dateLastSubmitted = null;
             $application->update();

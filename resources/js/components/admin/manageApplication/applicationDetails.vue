@@ -341,7 +341,7 @@
                                                                   </div>
 
                                                                 <div class="modal-footer">
-                                                                    <button type="submit"  class="btn btn-mg">Return</button>
+                                                                    <button type="submit"  class="btn btn-mg" >Return</button>
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                                    </div>
                                                                   </div>
@@ -378,6 +378,7 @@
 export default {
     data(){
         return{
+
             userId     : document.querySelector("meta[name='userId']").getAttribute('content'),
             firstname  : document.querySelector("meta[name='firstname']").getAttribute('content'),
             middlename : document.querySelector("meta[name='middlename']").getAttribute('content'),
@@ -392,6 +393,8 @@ export default {
                 reason2:'',
                 reason3:'',
             },
+
+            modalShow : true,
             
             form:{
                 scholarshipType:'',
@@ -405,7 +408,7 @@ export default {
                 applicationType:'',
                 status:'',
             },
-          }
+        }
     },
 
     methods:{
@@ -449,55 +452,61 @@ export default {
             //             }))
             // },
 
-               saveForm()
-                {
-                    axios.post('/admin/admin-api/get-application-details/filter-data',this.form)
-                        .then(response => console.log(this.getAllData = response.data)).catch((error) =>{
-                        this.errors = error.response.data.errors;
-                    })
-                },
+        saveForm()
+        {
+            axios.post('/admin/admin-api/get-application-details/filter-data',this.form)
+                .then(response => console.log(this.getAllData = response.data)).catch((error) =>{
+                this.errors = error.response.data.errors;
+            })
+        },
 
-                    resetForm()
-                    {
-                        this.form.scholarshipType     =  '',
-                        this.form.session             =  '',
-                        this.form.email               =  '',
-                        this.form.contactno           =  '',
-                        this.form.firstname           =  '',
-                        this.form.lastname            =  '',
-                        this.form.gender              =  '',
-                        this.form.states              =  '',
-                        this.form.applicationType     =  '',
-                        this.form.status              =  '',
-                        this.getData();
-                    },
+        resetForm()
+        {
+            this.form.scholarshipType     =  '',
+            this.form.session             =  '',
+            this.form.email               =  '',
+            this.form.contactno           =  '',
+            this.form.firstname           =  '',
+            this.form.lastname            =  '',
+            this.form.gender              =  '',
+            this.form.states              =  '',
+            this.form.applicationType     =  '',
+            this.form.status              =  '',
+            this.getData();
+        },
 
                     
-                    toggleStatus(applicationId)
-                    {
-                       
-                            axios.post('/admin/admin-api/make-status-saved/'+applicationId,this.returnForm)
-                            .then(this.$fire({
-                                position: 'top',
-                                icon: 'success',
-                                title: 'Application returned',
-                                showConfirmButton: false,
-                                timer: 4000
-                        }))
-                        this.getData();
-                        
-                    },
+        toggleStatus(applicationId)
+        {
+            
+                axios.post('/admin/admin-api/make-status-saved/'+applicationId,this.returnForm)
+                .then(this.$fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: 'Application returned. Email sent. Please press "Close"',
+                    showConfirmButton: false,
+                    timer: 4000
+            }))
+            this.returnForm.selectChoice = 'NO',
+            this.returnForm.reason1 = '',
+            this.returnForm.reason2 = '',
+            this.returnForm.reason3 = '',
+            this.getData();
+           
+            
+        },
 
-            logout()
-            {
-                axios.get('/admin/logout').then(function(){
-                    document.location.href = "/admin/login";
-                })
-            },
-         },
+        logout()
+        {
+            axios.get('/admin/logout').then(function(){
+                document.location.href = "/admin/login";
+            })
+        },
+
+    },
     created()
-         {
-           this.getData();
-         }
+    {
+        this.getData();
+    }
 }
 </script>

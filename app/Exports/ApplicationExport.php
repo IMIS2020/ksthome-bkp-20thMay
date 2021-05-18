@@ -204,10 +204,12 @@ class ApplicationExport implements
             'Self   Affected',
             'Mother Affected',
             'Father Affected',
+            'Leprosy Affected',
 
             'Self Disablity',
             'Mother Disablity ',
             'Father Disablity ',
+            'Disability due to leprosy',
 
             'Contact No(Self / Alternate :)',
             'Email ID',
@@ -228,13 +230,17 @@ class ApplicationExport implements
             'Recognized By (INC)',
             'Education Details(Examination Passed/University/Subjects/Year of Passing/Percentage/Division)',
             'Highest Qualification',
-            'Highest Marks',
+            'Percentage marks in key subjects',
             'Misc Details(Name/Relationship/Course/Year)',
         ];
     }
 
     public function map($application): array
     {
+
+
+        $leprosy    = ($application->applicantLeprosyAffectedSelf == 1 ? 'Self     - Yes':'Self     - No')."\n".($application->applicantLeprosyAffectedFather == 1 ? 'Father  - Yes':'Father - No')."\n".($application->applicantLeprosyAffectedMother == 1 ? 'Mother - Yes':'Mother - No');
+        $disability = ($application->applicantDisablitySelf=1? 'Self     - Yes':'Self     - No')."\n".($application->applicantDisablityFather == 1 ? 'Father  - Yes':'Father - No')."\n".($application->applicantDisablityMother == 1 ? 'Mother - Yes':'Mother - No');
         return 
         [
             $application->appIdShow,
@@ -251,11 +257,13 @@ class ApplicationExport implements
             $application->applicantHasBPLCard,
             $application->applicantDomicileState,
             $application->applicantLeprosyAffectedSelf   == 1 ? 'Yes':'No',
-            $application->applicantLeprosyAffectedFather == 1 ? 'Yes':'No',
             $application->applicantLeprosyAffectedMother == 1 ? 'Yes':'No',
+            $application->applicantLeprosyAffectedFather == 1 ? 'Yes':'No',
+            $leprosy,
             $application->applicantDisablitySelf   == 1 ? 'Yes':'No',
-            $application->applicantDisablityFather == 1 ? 'Yes':'No',
             $application->applicantDisablityMother == 1 ? 'Yes':'No',
+            $application->applicantDisablityFather == 1 ? 'Yes':'No',
+            $disability,
             'Self: '. $application->applicantContactNoSelf."\n".'Alt:  '.$application->applicantContactNoGuardian,
             $application->applicantEmailId,
             $application->applicantColonyLeaderName,
@@ -275,7 +283,8 @@ class ApplicationExport implements
             $application->recognizedByINC,
             $this->educationDetails($application->schApplicationId),
             $this->highestQualification($application->schApplicationId),
-            $this->highestMarks($application->schApplicationId),
+            $application->keySubMarksAvgPercentage,
+            // $this->highestMarks($application->schApplicationId),
             $this->miscDetails($application->schApplicationId),
         ];
     }
@@ -284,7 +293,6 @@ class ApplicationExport implements
     {
         return 
         [
-        
             'A' => 16,    
             'B'  =>10,
             'C'  =>10,
@@ -298,19 +306,19 @@ class ApplicationExport implements
             'K'  =>7,
             'L'  =>7,
             'M'  =>12,
-            'N'  =>10,
-            'O'  =>8,
-            'P'  =>8,
+            'N'  =>0,
+            'O'  =>0,
+            'P'  =>0,
             'Q'  =>9,
-            'R'  =>10,
-            'S'  =>10,
-            'T'  =>15,
-            'U'  =>25,
+            'R'  =>0,
+            'S'  =>0,
+            'T'  =>0,
+            'U'  =>20,
             'V'  =>15,
             'W'  =>16,
             'X'  =>10,
             'Y'  =>12,
-            'Z' =>16,
+            'Z'  =>16,
             'AA' =>25,
             'AB' =>10,
             'AC' =>10,
@@ -318,14 +326,15 @@ class ApplicationExport implements
             'AE' =>8,
             'AF' =>10,
             'AG' =>8,
-            'AH' =>26,
-            'AI' =>50,
-            'AJ' =>11,
-            'AK' =>50,
+            'AH' =>12,
+            'AI' =>15,
+            'AJ' =>22,
+            'AK' =>35,
             'AL' =>15,
-            'AM' =>8,
-            'AN' =>35
-            
+            'AM' =>50,
+            'AN' =>15,
+            'AO' =>12,
+            'AP' =>35
         ];
     }
    

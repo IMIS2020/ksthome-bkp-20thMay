@@ -46,7 +46,7 @@ import AdminPrintView       from './components/admin/manageApplication/reviewApp
 // End manage users
     
 // All registered users
-   import AllRegisteredUsers from './components/admin/allRegisteredUsers';
+   import AllRegisteredUsers from './components/admin/allregisteredUsers';
 // End all registered users
 
 // admin users profile 

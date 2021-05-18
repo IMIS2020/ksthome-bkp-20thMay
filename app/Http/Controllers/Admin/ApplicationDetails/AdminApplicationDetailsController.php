@@ -76,6 +76,30 @@ class AdminApplicationDetailsController extends Controller
 
     public function filterData(Request $request)
     {
+
+        $sortBy = $request->json()->all();
+                $data = array();
+                foreach ($sortBy as $key => $value) 
+                {
+                    foreach ($value as $k => $v) 
+                    {
+                        $data[$key][$k] = $v;
+                    }
+                }
+
+                $col1 = $data[0] != '' ?  $data[0]:1;
+                $col2 = $data[1] != '' ?  $data[1]:'asc';
+
+                
+                // $col2 = $data[0][2] != '' ?  $data[0][2]:1;
+                // $ord2 = $data[0][3] != '' ?  $data[0][3]:'asc';
+
+                // $col3 = $data[4] != '' ?  $data[4]:1;
+                // $ord3 = $data[5] != '' ?  $data[5]:'asc';
+                // $col3 = $data[6] != '' ?  $data[6]:1;
+                // $ord3 = $data[7] != '' ?  $data[7]:'asc';
+
+
         $scholarshipType  =  $request->scholarshipType;
         $session          =  $request->session;
         $email            =  $request->email;
@@ -119,7 +143,9 @@ class AdminApplicationDetailsController extends Controller
                     ->where("addressState",'LIKE',$request['states'])
                     ->where("applicationType",'LIKE',$request['applicationType'])
                     ->where("appStatus",'LIKE',$request['status'])
-                    // ->orderBy($col1,$Order1,$col2,$Order2,$col3,$Order3)
+                    // ->orderBy($col1,$ord1,$col2,$ord2,$col3,$ord3,$col4,$ord4)
+
+                    ->orderBy($col1,$ord1,$col2,$ord2,1,'asc',1,'asc')
                     ->get()
                     ->toJson();
                  } 
@@ -164,4 +190,33 @@ class AdminApplicationDetailsController extends Controller
          {
              return Excel::download(new ApplicationExport,'allApplications-' . date("d-m-Y") . '.xlsx');
          }
+
+
+        //  public function sortBy(Request $request)
+        //  {
+        //         $sortBy = $request->json()->all();
+        //         $data = array();
+        //         foreach ($sortBy as $key => $value) 
+        //         {
+        //             foreach ($value as $k => $v) 
+        //             {
+        //                 $data[$key][$k] = $v;
+        //             }
+        //         }
+
+                
+        //        $col1 = $data[0] != ''   ?  $data[0]:1;
+        //        $ord1 = $data[1] != ''   ?  $data[1]:'asc';
+
+        //        $col2 = $data[2] != ''   ?  $data[2]:1;
+        //        $ord2 = $data[3] != ''   ?  $data[3]:'asc';
+
+        //        $col3 = $data[4] != ''   ?  $data[4]:1;
+        //        $ord3 = $data[5] != ''   ?  $data[5]:'asc';
+
+        //        $col3 = $data[6] != ''   ?  $data[6]:1;
+        //        $ord3 = $data[7] != ''   ?  $data[7]:'asc';
+
+               
+        //  }
 }

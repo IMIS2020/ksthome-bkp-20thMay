@@ -245,6 +245,7 @@
                                                             <div class="col-xl-1 align-self-center">
                                                                 <button class="btn btn-sm btn-mg " role="button" @click.prevent="saveForm"><i class="fa fa-search"></i></button>
                                                                 <button class="btn btn-mg font-sm" role="button" @click.prevent="resetForm"><i class="fa fa-refresh"></i></button>
+                                                                 <a class="btn btn-mg font-sm" href="#" data-toggle="modal" data-target="#sortModal"><strong>sort</strong></a>
                                                                 </div>
                                                             <!-- <div class="col-xl-3 offset-xl-0 align-self-center pr-0"><input class="form-control form-control-sm" type="text" placeholder="Search by typing here..."></div> -->
                                                             <!-- <div class="col-xl-4 offset-xl-8 align-self-center and-col mt-2">
@@ -369,6 +370,79 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="sortModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Sort By</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            
+                <div class="card-body py-1 px-2">
+                
+                <button class="btn btn-custom add-filter-row-1 btn-sm pull-right mb-3" type="button" :disabled="disabled" @click="addNewData">
+                 <i class="fa fa-plus"></i><strong>&nbsp;Add sort column</strong>
+                </button>
+                   
+                    <div class="table-responsive table tmd mt-1 add-filter-table-1 mb-0">
+                        <table class="table table-sm mb-2">
+                            <thead class="cs-tbl-hd font-sm">
+                                <tr>
+                                    <th class="w-7x py-0 px-1"></th>
+                                    <th colspan="2" class="py-0 px-1">Column</th>
+                                    <th colspan="2" class="py-0 px-1">Order</th>
+                                    <th class="text-center py-0 px-1 w-5x">Action</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody class="h-9x">
+                                <tr v-for="(row, index) in rows" :key="index" class="font-sm color-mg">
+                                    <td class="w-7x pt-2">Sort By</td>
+                                    <td colspan="2">
+                                        <div class="form-group mb-0">
+                                        <select class="form-control form-control-sm color-mg font-sm" v-model="row.sortColumn">
+                                                <option value="" selected="">-- select --</option>
+                                                <option value="applicantNameF">First Name</option>
+                                                <option value="applicantNameL">Last Name</option>
+                                                <option value="applicantEmailId">Email id</option>
+                                                <option value="applicantContactNoSelf">Contact no</option>
+                                                <option value="applicantGender">Gender</option> 
+                                                <option value="scholarshipType">Scholarship Type</option>
+                                                <option value="	applicationType">Application Type</option>
+                                                <option value="appStatus">Status</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td colspan="2">
+                                        <div class="form-group mb-0">
+                                        <select class="form-control form-control-sm color-mg font-sm" v-model="row.sortOrder">
+                                            <option value="">-- select --</option>
+                                                <option value="asc" selected="">Ascending</option>
+                                                <option value="desc">Descending</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td class="text-center w-5x pt-2" colspan="2"><a href="#" @click="deleteRow(index)"><i class="fa fa-trash font-xl color-mg"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                     <button type="button" class="btn btn-mg" @click.prevent="sort">Sort</button>
+                     <button type="button" class="btn btn-secondary" @click="resetRow" data-dismiss="modal">Close</button>
+              </div>
+             
+            </div>
+           </div>
+         
+        </div>
+         
     </div>
 
 </body>
@@ -385,6 +459,7 @@ export default {
             lastname   : document.querySelector("meta[name='lastname']").getAttribute('content'),
             getAllData:{}, 
             getFilterData:{},
+            disabled:false,
 
             returnForm:
             {
@@ -396,7 +471,8 @@ export default {
 
             modalShow : true,
             
-            form:{
+            form:
+            {
                 scholarshipType:'',
                 session:'',
                 email:'',
@@ -408,10 +484,69 @@ export default {
                 applicationType:'',
                 status:'',
             },
+
+             rows: 
+             [
+                {   sortColumn: '',
+                    sortOrder : '',
+                }
+             ],
         }
     },
 
     methods:{
+
+        // if(this.rows.index == 4)
+        //     {
+        //     this.$fire({
+        //         position:'top',
+        //         icon: 'success',
+        //         title: 'maximum row added',
+        //         showConfirmButton: false,
+        //         timer: 4000
+        //      })
+        //     }
+
+        addNewData()
+        {
+            this.rows.push({
+               sortColumn: '',
+               sortOrder : '',
+            });
+
+            const count = this.rows.length;
+
+            if (count == 4) 
+            {
+                this.disabled = true;
+                this.$fire({
+                position:'top',
+                icon: 'success',
+                title: 'maximum row added',
+                showConfirmButton: false,
+                timer: 4000
+             })
+            }
+        },
+
+        resetRow()
+        {
+           let l =this.rows.length;
+            for(let i=0;i<l;i++)
+            {
+                this.rows.splice(i,l);
+                this.disabled = false;
+            }
+            
+        },
+
+        deleteRow: function(index) 
+        { 
+            this.rows.splice(index, 1);
+            this.disabled = false; 
+        },
+
+
         calAge:  function (dob) {
             if (dob === null || dob === '') { return null; }
             dob = new Date(dob);
@@ -458,6 +593,15 @@ export default {
                 .then(response => console.log(this.getAllData = response.data)).catch((error) =>{
                 this.errors = error.response.data.errors;
             })
+        },
+
+
+        sort()
+        {
+            axios.post('/admin/admin-api/get-application-details/filter-data',this.rows)
+                .then((response) =>{
+                    console.log(response.data);
+                });
         },
 
         resetForm()

@@ -39,74 +39,7 @@
                                     </form>
                                 </div>
                             </li>
-                            <!-- <li class="nav-item dropdown no-arrow mx-1">
-                                <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="badge badge-danger badge-counter">3+</span><i class="fas fa-bell fa-fw"></i></a>
-                                    <div class="dropdown-menu dropdown-list dropdown-menu-right animated--grow-in">
-                                        <h6 class="dropdown-header">notifications center</h6><a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="mr-3">
-                                                <div class="icon-circle gold-bg"><i class="fas fa-file-alt text-white"></i></div>
-                                            </div>
-                                            <div><span class="small">December 12, 2019</span>
-                                                <p><strong><em>A new monthly report is ready to download!</em></strong></p>
-                                            </div>
-                                        </a><a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="mr-3">
-                                                <div class="icon-circle gold-bg"><i class="fas fa-file-alt text-white"></i></div>
-                                            </div>
-                                            <div><span class="small">December 12, 2019</span>
-                                                <p><strong><em>A new monthly report is ready to download!</em></strong></p>
-                                            </div>
-                                        </a><a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="mr-3">
-                                                <div class="icon-circle gold-bg"><i class="fas fa-file-alt text-white"></i></div>
-                                            </div>
-                                            <div><span class="small">December 12, 2019</span>
-                                                <p><strong><em>A new monthly report is ready to download!</em></strong></p>
-                                            </div>
-                                        </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a>
-                                    </div>
-                                </div>
-                            </li> -->
-                            <!-- <li class="nav-item dropdown no-arrow mx-1">
-                                <div class="nav-item dropdown no-arrow dr-not"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><i class="fas fa-envelope fa-fw"></i><span class="badge badge-danger badge-counter">7</span></a>
-                                    <div class="dropdown-menu dropdown-list dropdown-menu-right animated--grow-in">
-                                        <h6 class="dropdown-header">messages center</h6><a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatar_2x.png">
-                                                <div class="bg-success status-indicator"></div>
-                                            </div>
-                                            <div class="font-weight-bold">
-                                                <div class="text-truncate"><span>Hi there! I am wondering if you can help me with a problem I've been having.</span></div>
-                                                <p class="small mb-0">Emily Fowler - 58m</p>
-                                            </div>
-                                        </a><a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatar_2x.png">
-                                                <div class="status-indicator"></div>
-                                            </div>
-                                            <div class="font-weight-bold">
-                                                <div class="text-truncate"><span>I have the photos that you ordered last month!</span></div>
-                                                <p class="small mb-0">Jae Chun - 1d</p>
-                                            </div>
-                                        </a><a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatar_2x.png">
-                                                <div class="bg-warning status-indicator"></div>
-                                            </div>
-                                            <div class="font-weight-bold">
-                                                <div class="text-truncate"><span>Last month's report looks great, I am very happy with the progress so far, keep up the good work!</span></div>
-                                                <p class="small mb-0">Morgan Alvarez - 2d</p>
-                                            </div>
-                                        </a><a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatar_2x.png">
-                                                <div class="bg-success status-indicator"></div>
-                                            </div>
-                                            <div class="font-weight-bold">
-                                                <div class="text-truncate"><span>Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</span></div>
-                                                <p class="small mb-0">Chicken the Dog · 2w</p>
-                                            </div>
-                                        </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a>
-                                    </div>
-                                </div>
-                                <div class="shadow dropdown-list dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown"></div>
-                            </li> -->
+                           
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow dr-not">
@@ -245,7 +178,7 @@
                                                             <div class="col-xl-1 align-self-center">
                                                                 <button class="btn btn-sm btn-mg " role="button" @click.prevent="saveForm"><i class="fa fa-search"></i></button>
                                                                 <button class="btn btn-mg font-sm" role="button" @click.prevent="resetForm"><i class="fa fa-refresh"></i></button>
-                                                                 <a class="btn btn-mg font-sm" href="#" data-toggle="modal" data-target="#sortModal"><strong>sort</strong></a>
+                                                                 <!-- <a class="btn btn-mg font-sm" href="#" data-toggle="modal" data-target="#sortModal"><strong>sort</strong></a> -->
                                                                 </div>
                                                             <!-- <div class="col-xl-3 offset-xl-0 align-self-center pr-0"><input class="form-control form-control-sm" type="text" placeholder="Search by typing here..."></div> -->
                                                             <!-- <div class="col-xl-4 offset-xl-8 align-self-center and-col mt-2">
@@ -598,10 +531,10 @@ export default {
 
         sort()
         {
-            axios.post('/admin/admin-api/get-application-details/filter-data',this.rows)
-                .then((response) =>{
-                    console.log(response.data);
-                });
+            axios.post('/admin/admin-api/get-application-details/filter-data',this.form)
+                .then(response => console.log(this.getAllData = response.data)).catch((error) =>{
+                this.errors = error.response.data.errors;
+            })
         },
 
         resetForm()

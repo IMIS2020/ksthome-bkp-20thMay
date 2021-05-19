@@ -731,14 +731,6 @@ export default{
                  * End admin user profile
                  */
 
-
-                //   Admin application sort
-
-                  {
-                    path: '/admin/admin-api/get-application-details/filter-data',
-                  },
-
-                // end
                
  ]
 }

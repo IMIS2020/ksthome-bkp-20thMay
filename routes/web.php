@@ -288,7 +288,6 @@ Route::prefix('admin')->group(function() {
       Route::post('/get-application-details/filter-data','Admin\ApplicationDetails\AdminApplicationDetailsController@filterData');
       Route::post('/make-status-saved/{applicationId}','Admin\ApplicationDetails\AdminApplicationDetailsController@statusSaved');
       // sort
-      Route::get('/get-application-details/filter-data','Admin\ApplicationDetails\AdminApplicationDetailsController@filterData');
       /***
       *filter-application API Call End
       */

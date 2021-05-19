@@ -309,28 +309,28 @@ class ApplicationExport implements
             'N'  =>0,
             'O'  =>0,
             'P'  =>0,
-            'Q'  =>9,
+            'Q'  =>12,
             'R'  =>0,
             'S'  =>0,
             'T'  =>0,
-            'U'  =>20,
+            'U'  =>13,
             'V'  =>15,
             'W'  =>16,
             'X'  =>10,
             'Y'  =>12,
-            'Z'  =>16,
-            'AA' =>25,
+            'Z'  =>16P
+            'AA' =>9,
             'AB' =>10,
-            'AC' =>10,
+            'AC' =>20,
             'AD' =>12,
             'AE' =>8,
-            'AF' =>10,
+            'AF' =>12,
             'AG' =>8,
             'AH' =>12,
-            'AI' =>15,
+            'AI' =>11,
             'AJ' =>22,
             'AK' =>35,
-            'AL' =>15,
+            'AL' =>10,
             'AM' =>50,
             'AN' =>15,
             'AO' =>12,
@@ -340,11 +340,11 @@ class ApplicationExport implements
    
     public function styles(Worksheet $sheet)
     {
-        $sheet->getStyle('A:AN')->getAlignment()->setWrapText(true);
-        $sheet->getStyle('A:AN')->getAlignment()->setVertical(Alignment::VERTICAL_TOP);
-        $sheet->getStyle('A:AN')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
-        $sheet->getStyle('A:AN')->getFont()->setSize(9);
-        $sheet->getStyle('A1:AN1')->getFont()->setBold(true);
+        $sheet->getStyle('A:AR')->getAlignment()->setWrapText(true);
+        $sheet->getStyle('A:AR')->getAlignment()->setVertical(Alignment::VERTICAL_TOP);
+        $sheet->getStyle('A:AR')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+        $sheet->getStyle('A:AR')->getFont()->setSize(9);
+        $sheet->getStyle('A1:AR1')->getFont()->setBold(true);
         $sheet->getRowDimension(1)->setRowHeight(30);
     }
 }

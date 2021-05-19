@@ -318,7 +318,7 @@ class ApplicationExport implements
             'W'  =>16,
             'X'  =>10,
             'Y'  =>12,
-            'Z'  =>16P
+            'Z'  =>16,
             'AA' =>9,
             'AB' =>10,
             'AC' =>20,

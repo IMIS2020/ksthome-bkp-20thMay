@@ -87,29 +87,14 @@ class AdminApplicationDetailsController extends Controller
                     }
                 }
 
-                $col1 = $data[0] != '' ?  $data[0]:1;
-                $col2 = $data[1] != '' ?  $data[1]:'asc';
-
-                
+                // $col1 = $data[0] != '' ?  $data[0]:1;
+                // $col2 = $data[1] != '' ?  $data[1]:'asc';
                 // $col2 = $data[0][2] != '' ?  $data[0][2]:1;
                 // $ord2 = $data[0][3] != '' ?  $data[0][3]:'asc';
-
                 // $col3 = $data[4] != '' ?  $data[4]:1;
                 // $ord3 = $data[5] != '' ?  $data[5]:'asc';
                 // $col3 = $data[6] != '' ?  $data[6]:1;
                 // $ord3 = $data[7] != '' ?  $data[7]:'asc';
-
-
-        $scholarshipType  =  $request->scholarshipType;
-        $session          =  $request->session;
-        $email            =  $request->email;
-        $contactno        =  $request->contactno;
-        $firstname        =  $request->firstname;
-        $lastname         =  $request->lastname;
-        $gender           =  $request->gender;
-        $states           =  $request->states;
-        $applicationType  =  $request->applicationType;
-        $status           =  $request->status;
 
         // $var = 'scholarshipType';
         // $order = 'desc';
@@ -125,6 +110,20 @@ class AdminApplicationDetailsController extends Controller
         // $orderbyOrder2 = 'asc';
         
         // $orderByClause = [$orderbyType1,$orderbyOrder1];
+
+
+        $scholarshipType  =  $request->scholarshipType;
+        $session          =  $request->session;
+        $email            =  $request->email;
+        $contactno        =  $request->contactno;
+        $firstname        =  $request->firstname;
+        $lastname         =  $request->lastname;
+        $gender           =  $request->gender;
+        $states           =  $request->states;
+        $applicationType  =  $request->applicationType;
+        $status           =  $request->status;
+
+      
 
         if(empty($scholarshipType) && empty($session) && empty($email) &&empty($contactno) &&empty($firstname) &&empty($lastname) &&empty($gender) &&empty($states) &&empty($applicationType) &&empty($status))
         {
@@ -144,8 +143,7 @@ class AdminApplicationDetailsController extends Controller
                     ->where("applicationType",'LIKE',$request['applicationType'])
                     ->where("appStatus",'LIKE',$request['status'])
                     // ->orderBy($col1,$ord1,$col2,$ord2,$col3,$ord3,$col4,$ord4)
-
-                    ->orderBy($col1,$ord1,$col2,$ord2,1,'asc',1,'asc')
+                    // ->orderBy($col1,$ord1,$col2,$ord2,1,'asc',1,'asc')
                     ->get()
                     ->toJson();
                  } 
